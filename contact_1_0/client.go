@@ -5743,20 +5743,8 @@ func (s *QueryCorpStatisticDataRequest) SetUnionId(v string) *QueryCorpStatistic
 }
 
 type QueryCorpStatisticDataResponseBody struct {
-	// 被收下总数
-	CardBeReceivedTotalCnt *int64 `json:"cardBeReceivedTotalCnt,omitempty" xml:"cardBeReceivedTotalCnt,omitempty"`
-	// 收下总数
-	CardReceiveTotalCnt *int64 `json:"cardReceiveTotalCnt,omitempty" xml:"cardReceiveTotalCnt,omitempty"`
-	// 被查看总数
-	CardTotalBeVisitedCnt *int64 `json:"cardTotalBeVisitedCnt,omitempty" xml:"cardTotalBeVisitedCnt,omitempty"`
-	// 数据日期
-	DataDate *string `json:"dataDate,omitempty" xml:"dataDate,omitempty"`
-	// 钉钉发送数
-	DingTotalShareCnt *int64 `json:"dingTotalShareCnt,omitempty" xml:"dingTotalShareCnt,omitempty"`
-	// 总发送数
-	TotalSendCnt *int64 `json:"totalSendCnt,omitempty" xml:"totalSendCnt,omitempty"`
-	// 微信发送数
-	WechatTotalShareCnt *int64 `json:"wechatTotalShareCnt,omitempty" xml:"wechatTotalShareCnt,omitempty"`
+	// 查询结果
+	Result []*QueryCorpStatisticDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
 func (s QueryCorpStatisticDataResponseBody) String() string {
@@ -5767,37 +5755,67 @@ func (s QueryCorpStatisticDataResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *QueryCorpStatisticDataResponseBody) SetCardBeReceivedTotalCnt(v int64) *QueryCorpStatisticDataResponseBody {
+func (s *QueryCorpStatisticDataResponseBody) SetResult(v []*QueryCorpStatisticDataResponseBodyResult) *QueryCorpStatisticDataResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryCorpStatisticDataResponseBodyResult struct {
+	// 被收下名片数
+	CardBeReceivedTotalCnt *int64 `json:"cardBeReceivedTotalCnt,omitempty" xml:"cardBeReceivedTotalCnt,omitempty"`
+	// 收下名片数
+	CardReceiveTotalCnt *int64 `json:"cardReceiveTotalCnt,omitempty" xml:"cardReceiveTotalCnt,omitempty"`
+	// 被访问数
+	CardTotalBeVisitedCnt *int64 `json:"cardTotalBeVisitedCnt,omitempty" xml:"cardTotalBeVisitedCnt,omitempty"`
+	// 日期
+	DataDate *string `json:"dataDate,omitempty" xml:"dataDate,omitempty"`
+	// 钉钉发送数
+	DingTotalShareCnt *int64 `json:"dingTotalShareCnt,omitempty" xml:"dingTotalShareCnt,omitempty"`
+	// 总发送数
+	TotalSendCnt *int64 `json:"totalSendCnt,omitempty" xml:"totalSendCnt,omitempty"`
+	// 微信发送数
+	WechatTotalShareCnt *int64 `json:"wechatTotalShareCnt,omitempty" xml:"wechatTotalShareCnt,omitempty"`
+}
+
+func (s QueryCorpStatisticDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpStatisticDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpStatisticDataResponseBodyResult) SetCardBeReceivedTotalCnt(v int64) *QueryCorpStatisticDataResponseBodyResult {
 	s.CardBeReceivedTotalCnt = &v
 	return s
 }
 
-func (s *QueryCorpStatisticDataResponseBody) SetCardReceiveTotalCnt(v int64) *QueryCorpStatisticDataResponseBody {
+func (s *QueryCorpStatisticDataResponseBodyResult) SetCardReceiveTotalCnt(v int64) *QueryCorpStatisticDataResponseBodyResult {
 	s.CardReceiveTotalCnt = &v
 	return s
 }
 
-func (s *QueryCorpStatisticDataResponseBody) SetCardTotalBeVisitedCnt(v int64) *QueryCorpStatisticDataResponseBody {
+func (s *QueryCorpStatisticDataResponseBodyResult) SetCardTotalBeVisitedCnt(v int64) *QueryCorpStatisticDataResponseBodyResult {
 	s.CardTotalBeVisitedCnt = &v
 	return s
 }
 
-func (s *QueryCorpStatisticDataResponseBody) SetDataDate(v string) *QueryCorpStatisticDataResponseBody {
+func (s *QueryCorpStatisticDataResponseBodyResult) SetDataDate(v string) *QueryCorpStatisticDataResponseBodyResult {
 	s.DataDate = &v
 	return s
 }
 
-func (s *QueryCorpStatisticDataResponseBody) SetDingTotalShareCnt(v int64) *QueryCorpStatisticDataResponseBody {
+func (s *QueryCorpStatisticDataResponseBodyResult) SetDingTotalShareCnt(v int64) *QueryCorpStatisticDataResponseBodyResult {
 	s.DingTotalShareCnt = &v
 	return s
 }
 
-func (s *QueryCorpStatisticDataResponseBody) SetTotalSendCnt(v int64) *QueryCorpStatisticDataResponseBody {
+func (s *QueryCorpStatisticDataResponseBodyResult) SetTotalSendCnt(v int64) *QueryCorpStatisticDataResponseBodyResult {
 	s.TotalSendCnt = &v
 	return s
 }
 
-func (s *QueryCorpStatisticDataResponseBody) SetWechatTotalShareCnt(v int64) *QueryCorpStatisticDataResponseBody {
+func (s *QueryCorpStatisticDataResponseBodyResult) SetWechatTotalShareCnt(v int64) *QueryCorpStatisticDataResponseBodyResult {
 	s.WechatTotalShareCnt = &v
 	return s
 }

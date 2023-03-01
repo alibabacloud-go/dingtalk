@@ -387,9 +387,9 @@ func (s *CollectRecruitJobDetailHeaders) SetXAcsDingtalkAccessToken(v string) *C
 type CollectRecruitJobDetailRequest struct {
 	// 业务标识，目前固定为ddats
 	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	// 业务标识，目前固定为ddats
+	// 渠道ID
 	Channel *string                                `json:"channel,omitempty" xml:"channel,omitempty"`
-	JonInfo *CollectRecruitJobDetailRequestJonInfo `json:"jonInfo,omitempty" xml:"jonInfo,omitempty" type:"Struct"`
+	JobInfo *CollectRecruitJobDetailRequestJobInfo `json:"jobInfo,omitempty" xml:"jobInfo,omitempty" type:"Struct"`
 	// 渠道侧外部企业唯一ID
 	OutCorpId *string `json:"outCorpId,omitempty" xml:"outCorpId,omitempty"`
 	// 企业名称
@@ -420,8 +420,8 @@ func (s *CollectRecruitJobDetailRequest) SetChannel(v string) *CollectRecruitJob
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequest) SetJonInfo(v *CollectRecruitJobDetailRequestJonInfo) *CollectRecruitJobDetailRequest {
-	s.JonInfo = v
+func (s *CollectRecruitJobDetailRequest) SetJobInfo(v *CollectRecruitJobDetailRequestJobInfo) *CollectRecruitJobDetailRequest {
+	s.JobInfo = v
 	return s
 }
 
@@ -450,16 +450,16 @@ func (s *CollectRecruitJobDetailRequest) SetUpdateTime(v int64) *CollectRecruitJ
 	return s
 }
 
-type CollectRecruitJobDetailRequestJonInfo struct {
+type CollectRecruitJobDetailRequestJobInfo struct {
 	// 地址信息
-	Address *CollectRecruitJobDetailRequestJonInfoAddress `json:"address,omitempty" xml:"address,omitempty" type:"Struct"`
+	Address *CollectRecruitJobDetailRequestJobInfoAddress `json:"address,omitempty" xml:"address,omitempty" type:"Struct"`
 	// 职位分类编码
 	Category *string `json:"category,omitempty" xml:"category,omitempty"`
 	// 职位描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	ExtInfo     *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
 	// 全职信息
-	FullTimeInfo *CollectRecruitJobDetailRequestJonInfoFullTimeInfo `json:"fullTimeInfo,omitempty" xml:"fullTimeInfo,omitempty" type:"Struct"`
+	FullTimeInfo *CollectRecruitJobDetailRequestJobInfoFullTimeInfo `json:"fullTimeInfo,omitempty" xml:"fullTimeInfo,omitempty" type:"Struct"`
 	// 招聘人数
 	HeadCount *string `json:"headCount,omitempty" xml:"headCount,omitempty"`
 	// 职位性质
@@ -475,90 +475,90 @@ type CollectRecruitJobDetailRequestJonInfo struct {
 	// 渠道职位ID
 	OutJobId *string `json:"outJobId,omitempty" xml:"outJobId,omitempty"`
 	// 兼职信息
-	PartTimeInfo *CollectRecruitJobDetailRequestJonInfoPartTimeInfo `json:"partTimeInfo,omitempty" xml:"partTimeInfo,omitempty" type:"Struct"`
+	PartTimeInfo *CollectRecruitJobDetailRequestJobInfoPartTimeInfo `json:"partTimeInfo,omitempty" xml:"partTimeInfo,omitempty" type:"Struct"`
 	// 学历要求
 	RequiredEdu *string `json:"requiredEdu,omitempty" xml:"requiredEdu,omitempty"`
 }
 
-func (s CollectRecruitJobDetailRequestJonInfo) String() string {
+func (s CollectRecruitJobDetailRequestJobInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CollectRecruitJobDetailRequestJonInfo) GoString() string {
+func (s CollectRecruitJobDetailRequestJobInfo) GoString() string {
 	return s.String()
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetAddress(v *CollectRecruitJobDetailRequestJonInfoAddress) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetAddress(v *CollectRecruitJobDetailRequestJobInfoAddress) *CollectRecruitJobDetailRequestJobInfo {
 	s.Address = v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetCategory(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetCategory(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.Category = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetDescription(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetDescription(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.Description = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetExtInfo(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetExtInfo(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.ExtInfo = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetFullTimeInfo(v *CollectRecruitJobDetailRequestJonInfoFullTimeInfo) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetFullTimeInfo(v *CollectRecruitJobDetailRequestJobInfoFullTimeInfo) *CollectRecruitJobDetailRequestJobInfo {
 	s.FullTimeInfo = v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetHeadCount(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetHeadCount(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.HeadCount = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetJobNature(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetJobNature(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.JobNature = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetJobTags(v []*string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetJobTags(v []*string) *CollectRecruitJobDetailRequestJobInfo {
 	s.JobTags = v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetMaxSalary(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetMaxSalary(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.MaxSalary = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetMinSalary(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetMinSalary(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.MinSalary = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetName(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetName(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.Name = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetOutJobId(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetOutJobId(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.OutJobId = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetPartTimeInfo(v *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetPartTimeInfo(v *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) *CollectRecruitJobDetailRequestJobInfo {
 	s.PartTimeInfo = v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfo) SetRequiredEdu(v string) *CollectRecruitJobDetailRequestJonInfo {
+func (s *CollectRecruitJobDetailRequestJobInfo) SetRequiredEdu(v string) *CollectRecruitJobDetailRequestJobInfo {
 	s.RequiredEdu = &v
 	return s
 }
 
-type CollectRecruitJobDetailRequestJonInfoAddress struct {
+type CollectRecruitJobDetailRequestJobInfoAddress struct {
 	// 城市编码
 	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
 	// 位置详情描述
@@ -575,50 +575,50 @@ type CollectRecruitJobDetailRequestJonInfoAddress struct {
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
-func (s CollectRecruitJobDetailRequestJonInfoAddress) String() string {
+func (s CollectRecruitJobDetailRequestJobInfoAddress) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CollectRecruitJobDetailRequestJonInfoAddress) GoString() string {
+func (s CollectRecruitJobDetailRequestJobInfoAddress) GoString() string {
 	return s.String()
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetCityCode(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+func (s *CollectRecruitJobDetailRequestJobInfoAddress) SetCityCode(v string) *CollectRecruitJobDetailRequestJobInfoAddress {
 	s.CityCode = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetDetail(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+func (s *CollectRecruitJobDetailRequestJobInfoAddress) SetDetail(v string) *CollectRecruitJobDetailRequestJobInfoAddress {
 	s.Detail = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetDistrictCode(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+func (s *CollectRecruitJobDetailRequestJobInfoAddress) SetDistrictCode(v string) *CollectRecruitJobDetailRequestJobInfoAddress {
 	s.DistrictCode = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetLatitude(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+func (s *CollectRecruitJobDetailRequestJobInfoAddress) SetLatitude(v string) *CollectRecruitJobDetailRequestJobInfoAddress {
 	s.Latitude = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetLongitude(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+func (s *CollectRecruitJobDetailRequestJobInfoAddress) SetLongitude(v string) *CollectRecruitJobDetailRequestJobInfoAddress {
 	s.Longitude = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetName(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+func (s *CollectRecruitJobDetailRequestJobInfoAddress) SetName(v string) *CollectRecruitJobDetailRequestJobInfoAddress {
 	s.Name = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetProvinceCode(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+func (s *CollectRecruitJobDetailRequestJobInfoAddress) SetProvinceCode(v string) *CollectRecruitJobDetailRequestJobInfoAddress {
 	s.ProvinceCode = &v
 	return s
 }
 
-type CollectRecruitJobDetailRequestJonInfoFullTimeInfo struct {
+type CollectRecruitJobDetailRequestJobInfoFullTimeInfo struct {
 	// 工作经验要求最高年限
 	MaxJobExperience *string `json:"maxJobExperience,omitempty" xml:"maxJobExperience,omitempty"`
 	// 工作经验要求最低年限
@@ -627,30 +627,30 @@ type CollectRecruitJobDetailRequestJonInfoFullTimeInfo struct {
 	SalaryMonth *string `json:"salaryMonth,omitempty" xml:"salaryMonth,omitempty"`
 }
 
-func (s CollectRecruitJobDetailRequestJonInfoFullTimeInfo) String() string {
+func (s CollectRecruitJobDetailRequestJobInfoFullTimeInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CollectRecruitJobDetailRequestJonInfoFullTimeInfo) GoString() string {
+func (s CollectRecruitJobDetailRequestJobInfoFullTimeInfo) GoString() string {
 	return s.String()
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoFullTimeInfo) SetMaxJobExperience(v string) *CollectRecruitJobDetailRequestJonInfoFullTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoFullTimeInfo) SetMaxJobExperience(v string) *CollectRecruitJobDetailRequestJobInfoFullTimeInfo {
 	s.MaxJobExperience = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoFullTimeInfo) SetMinJobExperience(v string) *CollectRecruitJobDetailRequestJonInfoFullTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoFullTimeInfo) SetMinJobExperience(v string) *CollectRecruitJobDetailRequestJobInfoFullTimeInfo {
 	s.MinJobExperience = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoFullTimeInfo) SetSalaryMonth(v string) *CollectRecruitJobDetailRequestJonInfoFullTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoFullTimeInfo) SetSalaryMonth(v string) *CollectRecruitJobDetailRequestJobInfoFullTimeInfo {
 	s.SalaryMonth = &v
 	return s
 }
 
-type CollectRecruitJobDetailRequestJonInfoPartTimeInfo struct {
+type CollectRecruitJobDetailRequestJobInfoPartTimeInfo struct {
 	// 联系电话
 	ContactNumber *string `json:"contactNumber,omitempty" xml:"contactNumber,omitempty"`
 	// 薪资发放周期
@@ -673,60 +673,60 @@ type CollectRecruitJobDetailRequestJonInfoPartTimeInfo struct {
 	WorkStartDate *string `json:"workStartDate,omitempty" xml:"workStartDate,omitempty"`
 }
 
-func (s CollectRecruitJobDetailRequestJonInfoPartTimeInfo) String() string {
+func (s CollectRecruitJobDetailRequestJobInfoPartTimeInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CollectRecruitJobDetailRequestJonInfoPartTimeInfo) GoString() string {
+func (s CollectRecruitJobDetailRequestJobInfoPartTimeInfo) GoString() string {
 	return s.String()
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetContactNumber(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetContactNumber(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.ContactNumber = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetSalaryPeriod(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetSalaryPeriod(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.SalaryPeriod = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetSettleType(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetSettleType(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.SettleType = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetSpecifyWorkDate(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetSpecifyWorkDate(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.SpecifyWorkDate = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetSpecifyWorkTime(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetSpecifyWorkTime(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.SpecifyWorkTime = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkBeginTimeMin(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetWorkBeginTimeMin(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.WorkBeginTimeMin = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkDateType(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetWorkDateType(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.WorkDateType = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkEndDate(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetWorkEndDate(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.WorkEndDate = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkEndTimeMin(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetWorkEndTimeMin(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.WorkEndTimeMin = &v
 	return s
 }
 
-func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkStartDate(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetWorkStartDate(v string) *CollectRecruitJobDetailRequestJobInfoPartTimeInfo {
 	s.WorkStartDate = &v
 	return s
 }
@@ -3274,8 +3274,8 @@ func (client *Client) CollectRecruitJobDetailWithOptions(request *CollectRecruit
 		body["channel"] = request.Channel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.JonInfo)) {
-		body["jonInfo"] = request.JonInfo
+	if !tea.BoolValue(util.IsUnset(request.JobInfo)) {
+		body["jobInfo"] = request.JobInfo
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OutCorpId)) {

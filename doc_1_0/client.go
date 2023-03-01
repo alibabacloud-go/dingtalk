@@ -697,6 +697,95 @@ func (s *BatchGetWorkspacesResponse) SetBody(v *BatchGetWorkspacesResponseBody) 
 	return s
 }
 
+type BindCoolAppToSheetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BindCoolAppToSheetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BindCoolAppToSheetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BindCoolAppToSheetHeaders) SetCommonHeaders(v map[string]*string) *BindCoolAppToSheetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BindCoolAppToSheetHeaders) SetXAcsDingtalkAccessToken(v string) *BindCoolAppToSheetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BindCoolAppToSheetRequest struct {
+	// 酷应用编码
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s BindCoolAppToSheetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BindCoolAppToSheetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BindCoolAppToSheetRequest) SetCoolAppCode(v string) *BindCoolAppToSheetRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *BindCoolAppToSheetRequest) SetOperatorId(v string) *BindCoolAppToSheetRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type BindCoolAppToSheetResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BindCoolAppToSheetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BindCoolAppToSheetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BindCoolAppToSheetResponseBody) SetSuccess(v bool) *BindCoolAppToSheetResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BindCoolAppToSheetResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BindCoolAppToSheetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BindCoolAppToSheetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BindCoolAppToSheetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BindCoolAppToSheetResponse) SetHeaders(v map[string]*string) *BindCoolAppToSheetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BindCoolAppToSheetResponse) SetBody(v *BindCoolAppToSheetResponseBody) *BindCoolAppToSheetResponse {
+	s.Body = v
+	return s
+}
+
 type ClearHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5586,6 +5675,95 @@ func (s *SheetFindAllResponse) SetBody(v *SheetFindAllResponseBody) *SheetFindAl
 	return s
 }
 
+type UnbindCoolAppToSheetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnbindCoolAppToSheetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindCoolAppToSheetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindCoolAppToSheetHeaders) SetCommonHeaders(v map[string]*string) *UnbindCoolAppToSheetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnbindCoolAppToSheetHeaders) SetXAcsDingtalkAccessToken(v string) *UnbindCoolAppToSheetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnbindCoolAppToSheetRequest struct {
+	// 酷应用编码
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UnbindCoolAppToSheetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindCoolAppToSheetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindCoolAppToSheetRequest) SetCoolAppCode(v string) *UnbindCoolAppToSheetRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *UnbindCoolAppToSheetRequest) SetOperatorId(v string) *UnbindCoolAppToSheetRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UnbindCoolAppToSheetResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UnbindCoolAppToSheetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindCoolAppToSheetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindCoolAppToSheetResponseBody) SetSuccess(v bool) *UnbindCoolAppToSheetResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UnbindCoolAppToSheetResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UnbindCoolAppToSheetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UnbindCoolAppToSheetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindCoolAppToSheetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindCoolAppToSheetResponse) SetHeaders(v map[string]*string) *UnbindCoolAppToSheetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnbindCoolAppToSheetResponse) SetBody(v *UnbindCoolAppToSheetResponseBody) *UnbindCoolAppToSheetResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateRangeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6270,6 +6448,57 @@ func (client *Client) BatchGetWorkspacesWithOptions(request *BatchGetWorkspacesR
 	}
 	_result = &BatchGetWorkspacesResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchGetWorkspaces"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/infos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BindCoolAppToSheet(workbookId *string, request *BindCoolAppToSheetRequest) (_result *BindCoolAppToSheetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BindCoolAppToSheetHeaders{}
+	_result = &BindCoolAppToSheetResponse{}
+	_body, _err := client.BindCoolAppToSheetWithOptions(workbookId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BindCoolAppToSheetWithOptions(workbookId *string, request *BindCoolAppToSheetRequest, headers *BindCoolAppToSheetHeaders, runtime *util.RuntimeOptions) (_result *BindCoolAppToSheetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BindCoolAppToSheetResponse{}
+	_body, _err := client.DoROARequest(tea.String("BindCoolAppToSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/coolApps"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8258,6 +8487,55 @@ func (client *Client) SheetFindAllWithOptions(workbookId *string, sheetId *strin
 	}
 	_result = &SheetFindAllResponse{}
 	_body, _err := client.DoROARequest(tea.String("SheetFindAll"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/findAll"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UnbindCoolAppToSheet(workbookId *string, request *UnbindCoolAppToSheetRequest) (_result *UnbindCoolAppToSheetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnbindCoolAppToSheetHeaders{}
+	_result = &UnbindCoolAppToSheetResponse{}
+	_body, _err := client.UnbindCoolAppToSheetWithOptions(workbookId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UnbindCoolAppToSheetWithOptions(workbookId *string, request *UnbindCoolAppToSheetRequest, headers *UnbindCoolAppToSheetHeaders, runtime *util.RuntimeOptions) (_result *UnbindCoolAppToSheetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		query["coolAppCode"] = request.CoolAppCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &UnbindCoolAppToSheetResponse{}
+	_body, _err := client.DoROARequest(tea.String("UnbindCoolAppToSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/coolApps"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -7784,9 +7784,8 @@ type QueryUserBehaviorRequest struct {
 	// 开始时间(默认当前时间前7天)
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// 用户行为((0-全部，1-截屏，2-录屏))
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
-	// 工号
-	UserId *int64 `json:"userId,omitempty" xml:"userId,omitempty"`
+	Type   *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryUserBehaviorRequest) String() string {
@@ -7827,7 +7826,7 @@ func (s *QueryUserBehaviorRequest) SetType(v int32) *QueryUserBehaviorRequest {
 	return s
 }
 
-func (s *QueryUserBehaviorRequest) SetUserId(v int64) *QueryUserBehaviorRequest {
+func (s *QueryUserBehaviorRequest) SetUserId(v string) *QueryUserBehaviorRequest {
 	s.UserId = &v
 	return s
 }

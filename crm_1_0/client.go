@@ -4404,26 +4404,28 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren) SetPr
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps struct {
-	ActionName          *string                                                                                    `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	Align               *string                                                                                    `json:"align,omitempty" xml:"align,omitempty"`
-	AvailableTemplates  []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
-	BizAlias            *string                                                                                    `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice              *int64                                                                                     `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content             *string                                                                                    `json:"content,omitempty" xml:"content,omitempty"`
-	DataSource          *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource           `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
-	Disabled            *bool                                                                                      `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration            *bool                                                                                      `json:"duration,omitempty" xml:"duration,omitempty"`
-	DurationLabel       *string                                                                                    `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
-	FieldId             *string                                                                                    `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Fields              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields             `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
-	Format              *string                                                                                    `json:"format,omitempty" xml:"format,omitempty"`
-	Formula             *string                                                                                    `json:"formula,omitempty" xml:"formula,omitempty"`
-	Invisible           *bool                                                                                      `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label               *string                                                                                    `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze *bool                                                                                      `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Limit               *int64                                                                                     `json:"limit,omitempty" xml:"limit,omitempty"`
-	Link                *string                                                                                    `json:"link,omitempty" xml:"link,omitempty"`
-	Mode                *string                                                                                    `json:"mode,omitempty" xml:"mode,omitempty"`
+	ActionName         *string                                                                                    `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	Align              *string                                                                                    `json:"align,omitempty" xml:"align,omitempty"`
+	AvailableTemplates []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	BizAlias           *string                                                                                    `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice             *int64                                                                                     `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content            *string                                                                                    `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource         *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource           `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// 标签字段 颜色属性
+	DefaultColor        *string                                                                        `json:"defaultColor,omitempty" xml:"defaultColor,omitempty"`
+	Disabled            *bool                                                                          `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration            *bool                                                                          `json:"duration,omitempty" xml:"duration,omitempty"`
+	DurationLabel       *string                                                                        `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	FieldId             *string                                                                        `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Fields              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	Format              *string                                                                        `json:"format,omitempty" xml:"format,omitempty"`
+	Formula             *string                                                                        `json:"formula,omitempty" xml:"formula,omitempty"`
+	Invisible           *bool                                                                          `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	Label               *string                                                                        `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze *bool                                                                          `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Limit               *int64                                                                         `json:"limit,omitempty" xml:"limit,omitempty"`
+	Link                *string                                                                        `json:"link,omitempty" xml:"link,omitempty"`
+	Mode                *string                                                                        `json:"mode,omitempty" xml:"mode,omitempty"`
 	// 支持选择多个部门
 	Multiple               *bool                                                                                `json:"multiple,omitempty" xml:"multiple,omitempty"`
 	NotPrint               *string                                                                              `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
@@ -4486,6 +4488,11 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) 
 
 func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetDataSource(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
 	s.DataSource = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetDefaultColor(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.DefaultColor = &v
 	return s
 }
 
@@ -5596,6 +5603,8 @@ type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps struct {
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 	// 关联表单的数据源配置
 	DataSource *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// 标签字段 颜色属性
+	DefaultColor *string `json:"defaultColor,omitempty" xml:"defaultColor,omitempty"`
 	// 是否可编辑
 	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
 	// 是否自动计算时长
@@ -5701,6 +5710,11 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetConte
 
 func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetDataSource(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
 	s.DataSource = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetDefaultColor(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.DefaultColor = &v
 	return s
 }
 
