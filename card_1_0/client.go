@@ -394,6 +394,8 @@ type CreateAndDeliverRequest struct {
 	CoFeedOpenDeliverModel *CreateAndDeliverRequestCoFeedOpenDeliverModel `json:"coFeedOpenDeliverModel,omitempty" xml:"coFeedOpenDeliverModel,omitempty" type:"Struct"`
 	// 协作场域信息
 	CoFeedOpenSpaceModel *CreateAndDeliverRequestCoFeedOpenSpaceModel `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
+	// 文档投放参数
+	DocOpenDeliverModel *CreateAndDeliverRequestDocOpenDeliverModel `json:"docOpenDeliverModel,omitempty" xml:"docOpenDeliverModel,omitempty" type:"Struct"`
 	// 群聊投放参数
 	ImGroupOpenDeliverModel *CreateAndDeliverRequestImGroupOpenDeliverModel `json:"imGroupOpenDeliverModel,omitempty" xml:"imGroupOpenDeliverModel,omitempty" type:"Struct"`
 	// IM群聊场域信息
@@ -448,6 +450,11 @@ func (s *CreateAndDeliverRequest) SetCoFeedOpenDeliverModel(v *CreateAndDeliverR
 
 func (s *CreateAndDeliverRequest) SetCoFeedOpenSpaceModel(v *CreateAndDeliverRequestCoFeedOpenSpaceModel) *CreateAndDeliverRequest {
 	s.CoFeedOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateAndDeliverRequest) SetDocOpenDeliverModel(v *CreateAndDeliverRequestDocOpenDeliverModel) *CreateAndDeliverRequest {
+	s.DocOpenDeliverModel = v
 	return s
 }
 
@@ -575,6 +582,24 @@ func (s *CreateAndDeliverRequestCoFeedOpenSpaceModel) SetCoolAppCode(v string) *
 
 func (s *CreateAndDeliverRequestCoFeedOpenSpaceModel) SetTitle(v string) *CreateAndDeliverRequestCoFeedOpenSpaceModel {
 	s.Title = &v
+	return s
+}
+
+type CreateAndDeliverRequestDocOpenDeliverModel struct {
+	// 【必填】员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateAndDeliverRequestDocOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverRequestDocOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverRequestDocOpenDeliverModel) SetUserId(v string) *CreateAndDeliverRequestDocOpenDeliverModel {
+	s.UserId = &v
 	return s
 }
 
@@ -1597,6 +1622,8 @@ func (s *DeliverCardHeaders) SetXAcsDingtalkAccessToken(v string) *DeliverCardHe
 type DeliverCardRequest struct {
 	// 协作投放参数
 	CoFeedOpenDeliverModel *DeliverCardRequestCoFeedOpenDeliverModel `json:"coFeedOpenDeliverModel,omitempty" xml:"coFeedOpenDeliverModel,omitempty" type:"Struct"`
+	// 文档投放参数
+	DocOpenDeliverModel *DeliverCardRequestDocOpenDeliverModel `json:"docOpenDeliverModel,omitempty" xml:"docOpenDeliverModel,omitempty" type:"Struct"`
 	// 群聊投放参数
 	ImGroupOpenDeliverModel *DeliverCardRequestImGroupOpenDeliverModel `json:"imGroupOpenDeliverModel,omitempty" xml:"imGroupOpenDeliverModel,omitempty" type:"Struct"`
 	// 单聊机器人场域投放参数
@@ -1627,6 +1654,11 @@ func (s DeliverCardRequest) GoString() string {
 
 func (s *DeliverCardRequest) SetCoFeedOpenDeliverModel(v *DeliverCardRequestCoFeedOpenDeliverModel) *DeliverCardRequest {
 	s.CoFeedOpenDeliverModel = v
+	return s
+}
+
+func (s *DeliverCardRequest) SetDocOpenDeliverModel(v *DeliverCardRequestDocOpenDeliverModel) *DeliverCardRequest {
+	s.DocOpenDeliverModel = v
 	return s
 }
 
@@ -1682,6 +1714,24 @@ func (s *DeliverCardRequestCoFeedOpenDeliverModel) SetBizTag(v string) *DeliverC
 
 func (s *DeliverCardRequestCoFeedOpenDeliverModel) SetGmtTimeLine(v int64) *DeliverCardRequestCoFeedOpenDeliverModel {
 	s.GmtTimeLine = &v
+	return s
+}
+
+type DeliverCardRequestDocOpenDeliverModel struct {
+	// 【必填】员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeliverCardRequestDocOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardRequestDocOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardRequestDocOpenDeliverModel) SetUserId(v string) *DeliverCardRequestDocOpenDeliverModel {
+	s.UserId = &v
 	return s
 }
 
@@ -2278,6 +2328,10 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 		body["coFeedOpenSpaceModel"] = request.CoFeedOpenSpaceModel
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.DocOpenDeliverModel)) {
+		body["docOpenDeliverModel"] = request.DocOpenDeliverModel
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenDeliverModel)) {
 		body["imGroupOpenDeliverModel"] = request.ImGroupOpenDeliverModel
 	}
@@ -2456,6 +2510,10 @@ func (client *Client) DeliverCardWithOptions(request *DeliverCardRequest, header
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenDeliverModel)) {
 		body["coFeedOpenDeliverModel"] = request.CoFeedOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DocOpenDeliverModel)) {
+		body["docOpenDeliverModel"] = request.DocOpenDeliverModel
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenDeliverModel)) {

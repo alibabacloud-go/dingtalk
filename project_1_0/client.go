@@ -115,6 +115,176 @@ func (s *AddProjectMemberResponse) SetBody(v *AddProjectMemberResponseBody) *Add
 	return s
 }
 
+type ArchiveProjectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ArchiveProjectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveProjectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveProjectHeaders) SetCommonHeaders(v map[string]*string) *ArchiveProjectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ArchiveProjectHeaders) SetXAcsDingtalkAccessToken(v string) *ArchiveProjectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ArchiveProjectResponseBody struct {
+	Result *ArchiveProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ArchiveProjectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveProjectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveProjectResponseBody) SetResult(v *ArchiveProjectResponseBodyResult) *ArchiveProjectResponseBody {
+	s.Result = v
+	return s
+}
+
+type ArchiveProjectResponseBodyResult struct {
+	// 是否已放入回收站。
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s ArchiveProjectResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveProjectResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveProjectResponseBodyResult) SetIsArchived(v bool) *ArchiveProjectResponseBodyResult {
+	s.IsArchived = &v
+	return s
+}
+
+func (s *ArchiveProjectResponseBodyResult) SetUpdated(v string) *ArchiveProjectResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type ArchiveProjectResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ArchiveProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ArchiveProjectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveProjectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveProjectResponse) SetHeaders(v map[string]*string) *ArchiveProjectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ArchiveProjectResponse) SetBody(v *ArchiveProjectResponseBody) *ArchiveProjectResponse {
+	s.Body = v
+	return s
+}
+
+type ArchiveTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ArchiveTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveTaskHeaders) SetCommonHeaders(v map[string]*string) *ArchiveTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ArchiveTaskHeaders) SetXAcsDingtalkAccessToken(v string) *ArchiveTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ArchiveTaskResponseBody struct {
+	// 结果
+	Result *ArchiveTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ArchiveTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveTaskResponseBody) SetResult(v *ArchiveTaskResponseBodyResult) *ArchiveTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+type ArchiveTaskResponseBodyResult struct {
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s ArchiveTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveTaskResponseBodyResult) SetUpdated(v string) *ArchiveTaskResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type ArchiveTaskResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ArchiveTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ArchiveTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveTaskResponse) SetHeaders(v map[string]*string) *ArchiveTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ArchiveTaskResponse) SetBody(v *ArchiveTaskResponseBody) *ArchiveTaskResponse {
+	s.Body = v
+	return s
+}
+
 type CreateOrganizationTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -706,6 +876,275 @@ func (s *CreatePlanTimeResponse) SetBody(v *CreatePlanTimeResponseBody) *CreateP
 	return s
 }
 
+type CreateProjectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateProjectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectHeaders) SetCommonHeaders(v map[string]*string) *CreateProjectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateProjectHeaders) SetXAcsDingtalkAccessToken(v string) *CreateProjectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateProjectRequest struct {
+	// 项目名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s CreateProjectRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectRequest) SetName(v string) *CreateProjectRequest {
+	s.Name = &v
+	return s
+}
+
+type CreateProjectResponseBody struct {
+	// 返回结果。
+	Result *CreateProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateProjectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectResponseBody) SetResult(v *CreateProjectResponseBodyResult) *CreateProjectResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateProjectResponseBodyResult struct {
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建人ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 自定义字段值集合。
+	Customfields []*CreateProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	// 项目默认文件夹ID。
+	DefaultCollectionId *string `json:"defaultCollectionId,omitempty" xml:"defaultCollectionId,omitempty"`
+	// 是否在回收站。
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// 是否归档。
+	IsSuspended *bool `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
+	// 是否为模版项目。
+	IsTemplate *bool `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
+	// 项目封面。
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// 项目名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 项目类型。
+	NormalType *string `json:"normalType,omitempty" xml:"normalType,omitempty"`
+	// 项目ID。
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 项目根文件夹ID。
+	RootCollectionId *string `json:"rootCollectionId,omitempty" xml:"rootCollectionId,omitempty"`
+	// 来源项目ID。
+	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	// 任务ID前缀。
+	UniqueIdPrefix *string `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// 项目可见性。
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+}
+
+func (s CreateProjectResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectResponseBodyResult) SetCreated(v string) *CreateProjectResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetCreatorId(v string) *CreateProjectResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetCustomfields(v []*CreateProjectResponseBodyResultCustomfields) *CreateProjectResponseBodyResult {
+	s.Customfields = v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetDefaultCollectionId(v string) *CreateProjectResponseBodyResult {
+	s.DefaultCollectionId = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetIsArchived(v bool) *CreateProjectResponseBodyResult {
+	s.IsArchived = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetIsSuspended(v bool) *CreateProjectResponseBodyResult {
+	s.IsSuspended = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetIsTemplate(v bool) *CreateProjectResponseBodyResult {
+	s.IsTemplate = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetLogo(v string) *CreateProjectResponseBodyResult {
+	s.Logo = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetName(v string) *CreateProjectResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetNormalType(v string) *CreateProjectResponseBodyResult {
+	s.NormalType = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetProjectId(v string) *CreateProjectResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetRootCollectionId(v string) *CreateProjectResponseBodyResult {
+	s.RootCollectionId = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetSourceId(v string) *CreateProjectResponseBodyResult {
+	s.SourceId = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetUniqueIdPrefix(v string) *CreateProjectResponseBodyResult {
+	s.UniqueIdPrefix = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetUpdated(v string) *CreateProjectResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResult) SetVisibility(v string) *CreateProjectResponseBodyResult {
+	s.Visibility = &v
+	return s
+}
+
+type CreateProjectResponseBodyResultCustomfields struct {
+	// 自定义字段ID。
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 自定义字段类型。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 自定义字段值列表。
+	Value []*CreateProjectResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s CreateProjectResponseBodyResultCustomfields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectResponseBodyResultCustomfields) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectResponseBodyResultCustomfields) SetCustomfieldId(v string) *CreateProjectResponseBodyResultCustomfields {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResultCustomfields) SetType(v string) *CreateProjectResponseBodyResultCustomfields {
+	s.Type = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResultCustomfields) SetValue(v []*CreateProjectResponseBodyResultCustomfieldsValue) *CreateProjectResponseBodyResultCustomfields {
+	s.Value = v
+	return s
+}
+
+type CreateProjectResponseBodyResultCustomfieldsValue struct {
+	// 自定义字段值ID。
+	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
+	// 自定义字段值元属性。
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// 自定义字段值内容。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CreateProjectResponseBodyResultCustomfieldsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectResponseBodyResultCustomfieldsValue) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *CreateProjectResponseBodyResultCustomfieldsValue {
+	s.FieldvalueId = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResultCustomfieldsValue) SetMetaString(v string) *CreateProjectResponseBodyResultCustomfieldsValue {
+	s.MetaString = &v
+	return s
+}
+
+func (s *CreateProjectResponseBodyResultCustomfieldsValue) SetTitle(v string) *CreateProjectResponseBodyResultCustomfieldsValue {
+	s.Title = &v
+	return s
+}
+
+type CreateProjectResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateProjectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectResponse) SetHeaders(v map[string]*string) *CreateProjectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateProjectResponse) SetBody(v *CreateProjectResponseBody) *CreateProjectResponse {
+	s.Body = v
+	return s
+}
+
 type CreateProjectByTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -830,6 +1269,226 @@ func (s *CreateProjectByTemplateResponse) SetHeaders(v map[string]*string) *Crea
 }
 
 func (s *CreateProjectByTemplateResponse) SetBody(v *CreateProjectByTemplateResponseBody) *CreateProjectByTemplateResponse {
+	s.Body = v
+	return s
+}
+
+type CreateProjectCustomfieldStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateProjectCustomfieldStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectCustomfieldStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectCustomfieldStatusHeaders) SetCommonHeaders(v map[string]*string) *CreateProjectCustomfieldStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusHeaders) SetXAcsDingtalkAccessToken(v string) *CreateProjectCustomfieldStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateProjectCustomfieldStatusRequest struct {
+	// 自定义字段ID。
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 自定义字段InstanceId(如果提供自定义字段ID 或者 自定义字段名称 则忽略)。
+	CustomfieldInstanceId *string `json:"customfieldInstanceId,omitempty" xml:"customfieldInstanceId,omitempty"`
+	// 自定义字段名称(如果提供自定义字段ID 则忽略)。
+	CustomfieldName *string `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
+	// 字段值集合。
+	Value []*CreateProjectCustomfieldStatusRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s CreateProjectCustomfieldStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectCustomfieldStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectCustomfieldStatusRequest) SetCustomfieldId(v string) *CreateProjectCustomfieldStatusRequest {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusRequest) SetCustomfieldInstanceId(v string) *CreateProjectCustomfieldStatusRequest {
+	s.CustomfieldInstanceId = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusRequest) SetCustomfieldName(v string) *CreateProjectCustomfieldStatusRequest {
+	s.CustomfieldName = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusRequest) SetValue(v []*CreateProjectCustomfieldStatusRequestValue) *CreateProjectCustomfieldStatusRequest {
+	s.Value = v
+	return s
+}
+
+type CreateProjectCustomfieldStatusRequestValue struct {
+	// 字段值id。
+	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
+	// 字段值元信息(json格式)。
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// 字段值渲染值。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CreateProjectCustomfieldStatusRequestValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectCustomfieldStatusRequestValue) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectCustomfieldStatusRequestValue) SetFieldvalueId(v string) *CreateProjectCustomfieldStatusRequestValue {
+	s.FieldvalueId = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusRequestValue) SetMetaString(v string) *CreateProjectCustomfieldStatusRequestValue {
+	s.MetaString = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusRequestValue) SetTitle(v string) *CreateProjectCustomfieldStatusRequestValue {
+	s.Title = &v
+	return s
+}
+
+type CreateProjectCustomfieldStatusResponseBody struct {
+	// 结果。
+	Result *CreateProjectCustomfieldStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateProjectCustomfieldStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectCustomfieldStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBody) SetResult(v *CreateProjectCustomfieldStatusResponseBodyResult) *CreateProjectCustomfieldStatusResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateProjectCustomfieldStatusResponseBodyResult struct {
+	// 高级字段类型名(冗余)。
+	AdvCfObjectType *string `json:"advCfObjectType,omitempty" xml:"advCfObjectType,omitempty"`
+	// 自定义字段ID。
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 字段名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 如果是企业字段，返回企业字段ID。
+	OriginalId *string `json:"originalId,omitempty" xml:"originalId,omitempty"`
+	// 字段类型。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 字段值集合。
+	Value []*CreateProjectCustomfieldStatusResponseBodyResultValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s CreateProjectCustomfieldStatusResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectCustomfieldStatusResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetAdvCfObjectType(v string) *CreateProjectCustomfieldStatusResponseBodyResult {
+	s.AdvCfObjectType = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetCustomfieldId(v string) *CreateProjectCustomfieldStatusResponseBodyResult {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetName(v string) *CreateProjectCustomfieldStatusResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetOriginalId(v string) *CreateProjectCustomfieldStatusResponseBodyResult {
+	s.OriginalId = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetType(v string) *CreateProjectCustomfieldStatusResponseBodyResult {
+	s.Type = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetValue(v []*CreateProjectCustomfieldStatusResponseBodyResultValue) *CreateProjectCustomfieldStatusResponseBodyResult {
+	s.Value = v
+	return s
+}
+
+type CreateProjectCustomfieldStatusResponseBodyResultValue struct {
+	// 字段值id。
+	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
+	// 自定义字段值元属性。
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// 自定义字段值。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CreateProjectCustomfieldStatusResponseBodyResultValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectCustomfieldStatusResponseBodyResultValue) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBodyResultValue) SetFieldvalueId(v string) *CreateProjectCustomfieldStatusResponseBodyResultValue {
+	s.FieldvalueId = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBodyResultValue) SetMetaString(v string) *CreateProjectCustomfieldStatusResponseBodyResultValue {
+	s.MetaString = &v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusResponseBodyResultValue) SetTitle(v string) *CreateProjectCustomfieldStatusResponseBodyResultValue {
+	s.Title = &v
+	return s
+}
+
+type CreateProjectCustomfieldStatusResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateProjectCustomfieldStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateProjectCustomfieldStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProjectCustomfieldStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProjectCustomfieldStatusResponse) SetHeaders(v map[string]*string) *CreateProjectCustomfieldStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusResponse) SetBody(v *CreateProjectCustomfieldStatusResponseBody) *CreateProjectCustomfieldStatusResponse {
 	s.Body = v
 	return s
 }
@@ -1529,6 +2188,152 @@ func (s *CreateWorkTimeResponse) SetHeaders(v map[string]*string) *CreateWorkTim
 }
 
 func (s *CreateWorkTimeResponse) SetBody(v *CreateWorkTimeResponseBody) *CreateWorkTimeResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteProjectMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteProjectMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProjectMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProjectMemberHeaders) SetCommonHeaders(v map[string]*string) *DeleteProjectMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteProjectMemberHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteProjectMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteProjectMemberRequest struct {
+	// 用户ID。
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s DeleteProjectMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProjectMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProjectMemberRequest) SetUserIds(v []*string) *DeleteProjectMemberRequest {
+	s.UserIds = v
+	return s
+}
+
+type DeleteProjectMemberResponseBody struct {
+	// 项目成员列表。
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s DeleteProjectMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProjectMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProjectMemberResponseBody) SetResult(v []*string) *DeleteProjectMemberResponseBody {
+	s.Result = v
+	return s
+}
+
+type DeleteProjectMemberResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteProjectMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteProjectMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProjectMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProjectMemberResponse) SetHeaders(v map[string]*string) *DeleteProjectMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteProjectMemberResponse) SetBody(v *DeleteProjectMemberResponseBody) *DeleteProjectMemberResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTaskHeaders) SetCommonHeaders(v map[string]*string) *DeleteTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteTaskHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteTaskResponseBody struct {
+	// 删除的任务Id
+	Result map[string]*string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTaskResponseBody) SetResult(v map[string]*string) *DeleteTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+type DeleteTaskResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTaskResponse) SetHeaders(v map[string]*string) *DeleteTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteTaskResponse) SetBody(v *DeleteTaskResponseBody) *DeleteTaskResponse {
 	s.Body = v
 	return s
 }
@@ -2505,6 +3310,625 @@ func (s *GetProjectGroupResponse) SetBody(v *GetProjectGroupResponseBody) *GetPr
 	return s
 }
 
+type GetProjectMemebersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetProjectMemebersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProjectMemebersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetProjectMemebersHeaders) SetCommonHeaders(v map[string]*string) *GetProjectMemebersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetProjectMemebersHeaders) SetXAcsDingtalkAccessToken(v string) *GetProjectMemebersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetProjectMemebersRequest struct {
+	// 每页返回最大数量。默认10，最大300。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 项目角色ID，仅查询拥有该角色的成员，并且仅支持单个角色查询。
+	ProjectRoleId *string `json:"projectRoleId,omitempty" xml:"projectRoleId,omitempty"`
+	// 跳过的数据数量。
+	Skip *int32 `json:"skip,omitempty" xml:"skip,omitempty"`
+	// 如果传递，仅查询这些用户ID， 用逗号组合。
+	UserIds *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
+}
+
+func (s GetProjectMemebersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProjectMemebersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetProjectMemebersRequest) SetMaxResults(v int32) *GetProjectMemebersRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetProjectMemebersRequest) SetProjectRoleId(v string) *GetProjectMemebersRequest {
+	s.ProjectRoleId = &v
+	return s
+}
+
+func (s *GetProjectMemebersRequest) SetSkip(v int32) *GetProjectMemebersRequest {
+	s.Skip = &v
+	return s
+}
+
+func (s *GetProjectMemebersRequest) SetUserIds(v string) *GetProjectMemebersRequest {
+	s.UserIds = &v
+	return s
+}
+
+type GetProjectMemebersResponseBody struct {
+	// 项目成员列表。
+	Result []*GetProjectMemebersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetProjectMemebersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProjectMemebersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetProjectMemebersResponseBody) SetResult(v []*GetProjectMemebersResponseBodyResult) *GetProjectMemebersResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetProjectMemebersResponseBodyResult struct {
+	// 项目成员ID。
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// 项目角色，0=成员；1=管理员；2=拥有者。
+	Role *int32 `json:"role,omitempty" xml:"role,omitempty"`
+	// 项目角色ID列表。
+	RoleIds []*string `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	// 用户ID。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetProjectMemebersResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProjectMemebersResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetProjectMemebersResponseBodyResult) SetMemberId(v string) *GetProjectMemebersResponseBodyResult {
+	s.MemberId = &v
+	return s
+}
+
+func (s *GetProjectMemebersResponseBodyResult) SetRole(v int32) *GetProjectMemebersResponseBodyResult {
+	s.Role = &v
+	return s
+}
+
+func (s *GetProjectMemebersResponseBodyResult) SetRoleIds(v []*string) *GetProjectMemebersResponseBodyResult {
+	s.RoleIds = v
+	return s
+}
+
+func (s *GetProjectMemebersResponseBodyResult) SetUserId(v string) *GetProjectMemebersResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type GetProjectMemebersResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetProjectMemebersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetProjectMemebersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProjectMemebersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetProjectMemebersResponse) SetHeaders(v map[string]*string) *GetProjectMemebersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetProjectMemebersResponse) SetBody(v *GetProjectMemebersResponseBody) *GetProjectMemebersResponse {
+	s.Body = v
+	return s
+}
+
+type GetProjectStatusListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetProjectStatusListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProjectStatusListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetProjectStatusListHeaders) SetCommonHeaders(v map[string]*string) *GetProjectStatusListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetProjectStatusListHeaders) SetXAcsDingtalkAccessToken(v string) *GetProjectStatusListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetProjectStatusListResponseBody struct {
+	// 项目状态历史列表。
+	Result []*GetProjectStatusListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetProjectStatusListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProjectStatusListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetProjectStatusListResponseBody) SetResult(v []*GetProjectStatusListResponseBodyResult) *GetProjectStatusListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetProjectStatusListResponseBodyResult struct {
+	// 项目状态内容。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 项目状态创建人ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 项目状态指标：'normal','risky','urgent'。
+	Degree *string `json:"degree,omitempty" xml:"degree,omitempty"`
+	// 项目状态名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 项目ID。
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+}
+
+func (s GetProjectStatusListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProjectStatusListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetProjectStatusListResponseBodyResult) SetContent(v string) *GetProjectStatusListResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *GetProjectStatusListResponseBodyResult) SetCreated(v string) *GetProjectStatusListResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *GetProjectStatusListResponseBodyResult) SetCreatorId(v string) *GetProjectStatusListResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetProjectStatusListResponseBodyResult) SetDegree(v string) *GetProjectStatusListResponseBodyResult {
+	s.Degree = &v
+	return s
+}
+
+func (s *GetProjectStatusListResponseBodyResult) SetName(v string) *GetProjectStatusListResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetProjectStatusListResponseBodyResult) SetProjectId(v string) *GetProjectStatusListResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+type GetProjectStatusListResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetProjectStatusListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetProjectStatusListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProjectStatusListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetProjectStatusListResponse) SetHeaders(v map[string]*string) *GetProjectStatusListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetProjectStatusListResponse) SetBody(v *GetProjectStatusListResponseBody) *GetProjectStatusListResponse {
+	s.Body = v
+	return s
+}
+
+type GetTaskByIdsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTaskByIdsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskByIdsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskByIdsHeaders) SetCommonHeaders(v map[string]*string) *GetTaskByIdsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTaskByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskByIdsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTaskByIdsRequest struct {
+	// 父任务ID,和taskIds冲突(选其一)。
+	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	// 任务ID集合,使用逗号分隔,和parentTaskId冲突(选其一)。
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetTaskByIdsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskByIdsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskByIdsRequest) SetParentTaskId(v string) *GetTaskByIdsRequest {
+	s.ParentTaskId = &v
+	return s
+}
+
+func (s *GetTaskByIdsRequest) SetTaskId(v string) *GetTaskByIdsRequest {
+	s.TaskId = &v
+	return s
+}
+
+type GetTaskByIdsResponseBody struct {
+	// 任务详情集合。
+	Result []*GetTaskByIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetTaskByIdsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskByIdsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskByIdsResponseBody) SetResult(v []*GetTaskByIdsResponseBodyResult) *GetTaskByIdsResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetTaskByIdsResponseBodyResult struct {
+	// 任务完成时间(UTC)。
+	AccomplishTime *string `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
+	// 祖先任务ID列表。
+	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// 任务标题。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 创建时间(UTC)。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建人ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 自定义字段值集合。
+	Customfields []*GetTaskByIdsResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	// 任务截止时间(UTC)。
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// 执行人ID。
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// 参与者ID集合。
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// 是否任务放入回收站。
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// 是否任务已完成。
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 任务备注。
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 父任务ID。
+	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	// 任务优先级。
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 项目ID。
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 重复规则列表。
+	Recurrence []*string `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
+	// 任务类型ID。
+	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	// 迭代ID。
+	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	// 任务列ID。
+	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	// 任务开始时间(UTC)。
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// StoryPoint。
+	StoryPoint *string `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	// 标签ID集合。
+	TagIds []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	// 任务ID。
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 任务分组ID。
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// 任务状态ID。
+	TaskflowstatusId *string `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
+	// 任务数字ID。
+	UniqueId *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
+	// 更新时间(UTC)。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// 任务隐私性，'involves'表达仅参与者可见; 'members'表达项目成员可见。
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+}
+
+func (s GetTaskByIdsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskByIdsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetAccomplishTime(v string) *GetTaskByIdsResponseBodyResult {
+	s.AccomplishTime = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetAncestorIds(v []*string) *GetTaskByIdsResponseBodyResult {
+	s.AncestorIds = v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetContent(v string) *GetTaskByIdsResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetCreated(v string) *GetTaskByIdsResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetCreatorId(v string) *GetTaskByIdsResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetCustomfields(v []*GetTaskByIdsResponseBodyResultCustomfields) *GetTaskByIdsResponseBodyResult {
+	s.Customfields = v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetDueDate(v string) *GetTaskByIdsResponseBodyResult {
+	s.DueDate = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetExecutorId(v string) *GetTaskByIdsResponseBodyResult {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetInvolveMembers(v []*string) *GetTaskByIdsResponseBodyResult {
+	s.InvolveMembers = v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetIsArchived(v bool) *GetTaskByIdsResponseBodyResult {
+	s.IsArchived = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetIsDone(v bool) *GetTaskByIdsResponseBodyResult {
+	s.IsDone = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetNote(v string) *GetTaskByIdsResponseBodyResult {
+	s.Note = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetParentTaskId(v string) *GetTaskByIdsResponseBodyResult {
+	s.ParentTaskId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetPriority(v int32) *GetTaskByIdsResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetProjectId(v string) *GetTaskByIdsResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetRecurrence(v []*string) *GetTaskByIdsResponseBodyResult {
+	s.Recurrence = v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetScenariofieldconfigId(v string) *GetTaskByIdsResponseBodyResult {
+	s.ScenariofieldconfigId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetSprintId(v string) *GetTaskByIdsResponseBodyResult {
+	s.SprintId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetStageId(v string) *GetTaskByIdsResponseBodyResult {
+	s.StageId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetStartDate(v string) *GetTaskByIdsResponseBodyResult {
+	s.StartDate = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetStoryPoint(v string) *GetTaskByIdsResponseBodyResult {
+	s.StoryPoint = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetTagIds(v []*string) *GetTaskByIdsResponseBodyResult {
+	s.TagIds = v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetTaskId(v string) *GetTaskByIdsResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetTaskListId(v string) *GetTaskByIdsResponseBodyResult {
+	s.TaskListId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetTaskflowstatusId(v string) *GetTaskByIdsResponseBodyResult {
+	s.TaskflowstatusId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetUniqueId(v string) *GetTaskByIdsResponseBodyResult {
+	s.UniqueId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetUpdated(v string) *GetTaskByIdsResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetVisible(v string) *GetTaskByIdsResponseBodyResult {
+	s.Visible = &v
+	return s
+}
+
+type GetTaskByIdsResponseBodyResultCustomfields struct {
+	// 自定义字段ID。
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 自定义字段类型。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 字段值集合。
+	Value []*GetTaskByIdsResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s GetTaskByIdsResponseBodyResultCustomfields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskByIdsResponseBodyResultCustomfields) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskByIdsResponseBodyResultCustomfields) SetCustomfieldId(v string) *GetTaskByIdsResponseBodyResultCustomfields {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResultCustomfields) SetType(v string) *GetTaskByIdsResponseBodyResultCustomfields {
+	s.Type = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResultCustomfields) SetValue(v []*GetTaskByIdsResponseBodyResultCustomfieldsValue) *GetTaskByIdsResponseBodyResultCustomfields {
+	s.Value = v
+	return s
+}
+
+type GetTaskByIdsResponseBodyResultCustomfieldsValue struct {
+	// 字段值ID。
+	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
+	// 字段值元属性。
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// 字段值内容。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetTaskByIdsResponseBodyResultCustomfieldsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskByIdsResponseBodyResultCustomfieldsValue) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskByIdsResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *GetTaskByIdsResponseBodyResultCustomfieldsValue {
+	s.FieldvalueId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResultCustomfieldsValue) SetMetaString(v string) *GetTaskByIdsResponseBodyResultCustomfieldsValue {
+	s.MetaString = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResultCustomfieldsValue) SetTitle(v string) *GetTaskByIdsResponseBodyResultCustomfieldsValue {
+	s.Title = &v
+	return s
+}
+
+type GetTaskByIdsResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTaskByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTaskByIdsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskByIdsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskByIdsResponse) SetHeaders(v map[string]*string) *GetTaskByIdsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTaskByIdsResponse) SetBody(v *GetTaskByIdsResponseBody) *GetTaskByIdsResponse {
+	s.Body = v
+	return s
+}
+
 type GetTbOrgIdByDingOrgIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2923,6 +4347,406 @@ func (s *GetTbUserIdByStaffIdResponse) SetBody(v *GetTbUserIdByStaffIdResponseBo
 	return s
 }
 
+type GetUserJoinedProjectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserJoinedProjectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserJoinedProjectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserJoinedProjectHeaders) SetCommonHeaders(v map[string]*string) *GetUserJoinedProjectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserJoinedProjectHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserJoinedProjectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserJoinedProjectRequest struct {
+	// 分页大小。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetUserJoinedProjectRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserJoinedProjectRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserJoinedProjectRequest) SetMaxResults(v int32) *GetUserJoinedProjectRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetUserJoinedProjectRequest) SetNextToken(v string) *GetUserJoinedProjectRequest {
+	s.NextToken = &v
+	return s
+}
+
+type GetUserJoinedProjectResponseBody struct {
+	// 分页标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 项目 ID 列表。
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 总数。
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetUserJoinedProjectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserJoinedProjectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserJoinedProjectResponseBody) SetNextToken(v string) *GetUserJoinedProjectResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetUserJoinedProjectResponseBody) SetResult(v []*string) *GetUserJoinedProjectResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetUserJoinedProjectResponseBody) SetTotalCount(v int32) *GetUserJoinedProjectResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type GetUserJoinedProjectResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUserJoinedProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserJoinedProjectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserJoinedProjectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserJoinedProjectResponse) SetHeaders(v map[string]*string) *GetUserJoinedProjectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserJoinedProjectResponse) SetBody(v *GetUserJoinedProjectResponseBody) *GetUserJoinedProjectResponse {
+	s.Body = v
+	return s
+}
+
+type QueryProjectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryProjectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProjectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProjectHeaders) SetCommonHeaders(v map[string]*string) *QueryProjectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryProjectHeaders) SetXAcsDingtalkAccessToken(v string) *QueryProjectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryProjectRequest struct {
+	// 分页大小。每页返回最大数量。默认10，最大300。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 项目名字(模糊匹配)。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 分页标。供分页使用，下一页token，从当前页结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 项目ID集合，逗号分隔。
+	ProjectIds *string `json:"projectIds,omitempty" xml:"projectIds,omitempty"`
+	// 原始项目ID。
+	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+}
+
+func (s QueryProjectRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProjectRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProjectRequest) SetMaxResults(v int32) *QueryProjectRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryProjectRequest) SetName(v string) *QueryProjectRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryProjectRequest) SetNextToken(v string) *QueryProjectRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryProjectRequest) SetProjectIds(v string) *QueryProjectRequest {
+	s.ProjectIds = &v
+	return s
+}
+
+func (s *QueryProjectRequest) SetSourceId(v string) *QueryProjectRequest {
+	s.SourceId = &v
+	return s
+}
+
+type QueryProjectResponseBody struct {
+	// 项目列表。
+	Result []*QueryProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryProjectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProjectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProjectResponseBody) SetResult(v []*QueryProjectResponseBodyResult) *QueryProjectResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryProjectResponseBodyResult struct {
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建人ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 自定义字段值集合。
+	Customfields []*QueryProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	// 项目描述。
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 项目结束时间。
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 是否放入回收站。
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// 是否归档。
+	IsSuspended *bool `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
+	// 是模版项目。
+	IsTemplate *bool `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
+	// 项目LOGO。
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// 项目名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 企业ID。
+	OrganizationId *string `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
+	// 项目ID。
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 项目开始时间。
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 任务ID前缀。
+	UniqueIdPrefix *string `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// 可见性，project | organization。
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+}
+
+func (s QueryProjectResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProjectResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProjectResponseBodyResult) SetCreated(v string) *QueryProjectResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetCreatorId(v string) *QueryProjectResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetCustomfields(v []*QueryProjectResponseBodyResultCustomfields) *QueryProjectResponseBodyResult {
+	s.Customfields = v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetDescription(v string) *QueryProjectResponseBodyResult {
+	s.Description = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetEndDate(v string) *QueryProjectResponseBodyResult {
+	s.EndDate = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetIsArchived(v bool) *QueryProjectResponseBodyResult {
+	s.IsArchived = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetIsSuspended(v bool) *QueryProjectResponseBodyResult {
+	s.IsSuspended = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetIsTemplate(v bool) *QueryProjectResponseBodyResult {
+	s.IsTemplate = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetLogo(v string) *QueryProjectResponseBodyResult {
+	s.Logo = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetName(v string) *QueryProjectResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetOrganizationId(v string) *QueryProjectResponseBodyResult {
+	s.OrganizationId = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetProjectId(v string) *QueryProjectResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetStartDate(v string) *QueryProjectResponseBodyResult {
+	s.StartDate = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetUniqueIdPrefix(v string) *QueryProjectResponseBodyResult {
+	s.UniqueIdPrefix = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetUpdated(v string) *QueryProjectResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResult) SetVisibility(v string) *QueryProjectResponseBodyResult {
+	s.Visibility = &v
+	return s
+}
+
+type QueryProjectResponseBodyResultCustomfields struct {
+	// 自定义字段ID。
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 自定义字段类型。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 自定义字段值列表。
+	Value []*QueryProjectResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s QueryProjectResponseBodyResultCustomfields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProjectResponseBodyResultCustomfields) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProjectResponseBodyResultCustomfields) SetCustomfieldId(v string) *QueryProjectResponseBodyResultCustomfields {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResultCustomfields) SetType(v string) *QueryProjectResponseBodyResultCustomfields {
+	s.Type = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResultCustomfields) SetValue(v []*QueryProjectResponseBodyResultCustomfieldsValue) *QueryProjectResponseBodyResultCustomfields {
+	s.Value = v
+	return s
+}
+
+type QueryProjectResponseBodyResultCustomfieldsValue struct {
+	// 自定义字段值ID。
+	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
+	// 自定义字段值元属性。
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// 自定义字段值内容。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryProjectResponseBodyResultCustomfieldsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProjectResponseBodyResultCustomfieldsValue) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProjectResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *QueryProjectResponseBodyResultCustomfieldsValue {
+	s.FieldvalueId = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResultCustomfieldsValue) SetMetaString(v string) *QueryProjectResponseBodyResultCustomfieldsValue {
+	s.MetaString = &v
+	return s
+}
+
+func (s *QueryProjectResponseBodyResultCustomfieldsValue) SetTitle(v string) *QueryProjectResponseBodyResultCustomfieldsValue {
+	s.Title = &v
+	return s
+}
+
+type QueryProjectResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryProjectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProjectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProjectResponse) SetHeaders(v map[string]*string) *QueryProjectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryProjectResponse) SetBody(v *QueryProjectResponseBody) *QueryProjectResponse {
+	s.Body = v
+	return s
+}
+
 type QueryTaskOfProjectHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3251,6 +5075,735 @@ func (s *QueryTaskOfProjectResponse) SetBody(v *QueryTaskOfProjectResponseBody) 
 	return s
 }
 
+type SeachTaskStageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SeachTaskStageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SeachTaskStageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SeachTaskStageHeaders) SetCommonHeaders(v map[string]*string) *SeachTaskStageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SeachTaskStageHeaders) SetXAcsDingtalkAccessToken(v string) *SeachTaskStageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SeachTaskStageRequest struct {
+	// 每页返回最大数量。默认10，最大300。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页标，从上一次请求结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 任务列表名字。
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// 任务列表 ID 集合，逗号组合。
+	StageIds *string `json:"stageIds,omitempty" xml:"stageIds,omitempty"`
+	// 项目分组ID。
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+}
+
+func (s SeachTaskStageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SeachTaskStageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SeachTaskStageRequest) SetMaxResults(v int32) *SeachTaskStageRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SeachTaskStageRequest) SetNextToken(v string) *SeachTaskStageRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SeachTaskStageRequest) SetQuery(v string) *SeachTaskStageRequest {
+	s.Query = &v
+	return s
+}
+
+func (s *SeachTaskStageRequest) SetStageIds(v string) *SeachTaskStageRequest {
+	s.StageIds = &v
+	return s
+}
+
+func (s *SeachTaskStageRequest) SetTaskListId(v string) *SeachTaskStageRequest {
+	s.TaskListId = &v
+	return s
+}
+
+type SeachTaskStageResponseBody struct {
+	// 分页标，供分页使用，下一页token。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 任务列表列表。
+	Result []*SeachTaskStageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 总数。
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SeachTaskStageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SeachTaskStageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SeachTaskStageResponseBody) SetNextToken(v string) *SeachTaskStageResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SeachTaskStageResponseBody) SetResult(v []*SeachTaskStageResponseBodyResult) *SeachTaskStageResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SeachTaskStageResponseBody) SetTotalCount(v int32) *SeachTaskStageResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SeachTaskStageResponseBodyResult struct {
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建者用户 ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 任务列表名称。
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 任务列表名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 项目 ID。
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 任务分组 ID。
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// 任务列表 ID。
+	TaskStageId *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s SeachTaskStageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SeachTaskStageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SeachTaskStageResponseBodyResult) SetCreated(v string) *SeachTaskStageResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *SeachTaskStageResponseBodyResult) SetCreatorId(v string) *SeachTaskStageResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *SeachTaskStageResponseBodyResult) SetDescription(v string) *SeachTaskStageResponseBodyResult {
+	s.Description = &v
+	return s
+}
+
+func (s *SeachTaskStageResponseBodyResult) SetName(v string) *SeachTaskStageResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *SeachTaskStageResponseBodyResult) SetProjectId(v string) *SeachTaskStageResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *SeachTaskStageResponseBodyResult) SetTaskListId(v string) *SeachTaskStageResponseBodyResult {
+	s.TaskListId = &v
+	return s
+}
+
+func (s *SeachTaskStageResponseBodyResult) SetTaskStageId(v string) *SeachTaskStageResponseBodyResult {
+	s.TaskStageId = &v
+	return s
+}
+
+func (s *SeachTaskStageResponseBodyResult) SetUpdated(v string) *SeachTaskStageResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type SeachTaskStageResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SeachTaskStageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SeachTaskStageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SeachTaskStageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SeachTaskStageResponse) SetHeaders(v map[string]*string) *SeachTaskStageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SeachTaskStageResponse) SetBody(v *SeachTaskStageResponseBody) *SeachTaskStageResponse {
+	s.Body = v
+	return s
+}
+
+type SearchOranizationCustomfieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchOranizationCustomfieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOranizationCustomfieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOranizationCustomfieldHeaders) SetCommonHeaders(v map[string]*string) *SearchOranizationCustomfieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldHeaders) SetXAcsDingtalkAccessToken(v string) *SearchOranizationCustomfieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchOranizationCustomfieldRequest struct {
+	// 自定义字段ID集合，逗号组合。
+	CustomfieldIds *string `json:"customfieldIds,omitempty" xml:"customfieldIds,omitempty"`
+	// 字段InstanceId集合，用逗号组合。
+	InstanceIds *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
+	// 每页返回最大数量。默认10，最大300。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 供分页使用，下一页token，从当前页结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 过滤出在指定项目中使用的企业字段，当scope=usedInProjectIds有效。多个以逗号隔开。
+	ProjectIds *string `json:"projectIds,omitempty" xml:"projectIds,omitempty"`
+	// 过滤字段名字。
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// 字段应用场景, 可以是 sfcAdd,usedInProjectIds,all 其中一个。
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+}
+
+func (s SearchOranizationCustomfieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOranizationCustomfieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOranizationCustomfieldRequest) SetCustomfieldIds(v string) *SearchOranizationCustomfieldRequest {
+	s.CustomfieldIds = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldRequest) SetInstanceIds(v string) *SearchOranizationCustomfieldRequest {
+	s.InstanceIds = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldRequest) SetMaxResults(v int32) *SearchOranizationCustomfieldRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldRequest) SetNextToken(v string) *SearchOranizationCustomfieldRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldRequest) SetProjectIds(v string) *SearchOranizationCustomfieldRequest {
+	s.ProjectIds = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldRequest) SetQuery(v string) *SearchOranizationCustomfieldRequest {
+	s.Query = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldRequest) SetScope(v string) *SearchOranizationCustomfieldRequest {
+	s.Scope = &v
+	return s
+}
+
+type SearchOranizationCustomfieldResponseBody struct {
+	// 供分页使用，下一页token，从当前页结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 自定义字段列表。
+	Result []*SearchOranizationCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 总数。
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchOranizationCustomfieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOranizationCustomfieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOranizationCustomfieldResponseBody) SetNextToken(v string) *SearchOranizationCustomfieldResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBody) SetResult(v []*SearchOranizationCustomfieldResponseBodyResult) *SearchOranizationCustomfieldResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBody) SetTotalCount(v int32) *SearchOranizationCustomfieldResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchOranizationCustomfieldResponseBodyResult struct {
+	// 高级自定义字段。
+	AdvancedCustomfield *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield `json:"advancedCustomfield,omitempty" xml:"advancedCustomfield,omitempty" type:"Struct"`
+	// 如果是单选或多选字段，这里是可选项的值
+	Choices []*SearchOranizationCustomfieldResponseBodyResultChoices `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建人ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 自定义字段ID。
+	CustomfieldsId *string `json:"customfieldsId,omitempty" xml:"customfieldsId,omitempty"`
+	// 字段名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户自定义数据载体，json格式类型任意数据。
+	Payload map[string]interface{} `json:"payload,omitempty" xml:"payload,omitempty"`
+	// 字段类型。   'number', // 数字     'date', // 日期     'text', // 文本     'work',     'multipleChoice', // 多选     'dropDown', // 下拉,     'lookup',     'commongroup',     'cascading', // 层级字段     'rtf', // 多行文本/富文本 字段 'lookup2' // 新高级字段
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SearchOranizationCustomfieldResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOranizationCustomfieldResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetAdvancedCustomfield(v *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) *SearchOranizationCustomfieldResponseBodyResult {
+	s.AdvancedCustomfield = v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetChoices(v []*SearchOranizationCustomfieldResponseBodyResultChoices) *SearchOranizationCustomfieldResponseBodyResult {
+	s.Choices = v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetCreated(v string) *SearchOranizationCustomfieldResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetCreatorId(v string) *SearchOranizationCustomfieldResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetCustomfieldsId(v string) *SearchOranizationCustomfieldResponseBodyResult {
+	s.CustomfieldsId = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetName(v string) *SearchOranizationCustomfieldResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetPayload(v map[string]interface{}) *SearchOranizationCustomfieldResponseBodyResult {
+	s.Payload = v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetType(v string) *SearchOranizationCustomfieldResponseBodyResult {
+	s.Type = &v
+	return s
+}
+
+type SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield struct {
+	// 字段类型ID。
+	AdvancedCustomfieldId *string `json:"advancedCustomfieldId,omitempty" xml:"advancedCustomfieldId,omitempty"`
+	// 字段类型名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 字段类型名称2
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+}
+
+func (s SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) SetAdvancedCustomfieldId(v string) *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield {
+	s.AdvancedCustomfieldId = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) SetName(v string) *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) SetObjectType(v string) *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield {
+	s.ObjectType = &v
+	return s
+}
+
+type SearchOranizationCustomfieldResponseBodyResultChoices struct {
+	// 选项ID。
+	ChoiceId *string `json:"choiceId,omitempty" xml:"choiceId,omitempty"`
+	// 选项值。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s SearchOranizationCustomfieldResponseBodyResultChoices) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOranizationCustomfieldResponseBodyResultChoices) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResultChoices) SetChoiceId(v string) *SearchOranizationCustomfieldResponseBodyResultChoices {
+	s.ChoiceId = &v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponseBodyResultChoices) SetValue(v string) *SearchOranizationCustomfieldResponseBodyResultChoices {
+	s.Value = &v
+	return s
+}
+
+type SearchOranizationCustomfieldResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchOranizationCustomfieldResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchOranizationCustomfieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOranizationCustomfieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOranizationCustomfieldResponse) SetHeaders(v map[string]*string) *SearchOranizationCustomfieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponse) SetBody(v *SearchOranizationCustomfieldResponseBody) *SearchOranizationCustomfieldResponse {
+	s.Body = v
+	return s
+}
+
+type SearchProjectCustomfieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchProjectCustomfieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchProjectCustomfieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchProjectCustomfieldHeaders) SetCommonHeaders(v map[string]*string) *SearchProjectCustomfieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchProjectCustomfieldHeaders) SetXAcsDingtalkAccessToken(v string) *SearchProjectCustomfieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchProjectCustomfieldRequest struct {
+	// 自定义字段ID集合，逗号组合。
+	CustomfieldIds *string `json:"customfieldIds,omitempty" xml:"customfieldIds,omitempty"`
+	// 字段InstanceId集合，用逗号组合。
+	InstanceIds *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
+	// 每页返回最大数量。默认10，最大500。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 过滤字段名字。
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// 任务类型ID。
+	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	// 字段应用场景, 可以是 taskTableHeader,searcherAdd,taskExportHeader,sfcAdd,kanbanCardAdd,all 其中一个。
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+}
+
+func (s SearchProjectCustomfieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchProjectCustomfieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchProjectCustomfieldRequest) SetCustomfieldIds(v string) *SearchProjectCustomfieldRequest {
+	s.CustomfieldIds = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldRequest) SetInstanceIds(v string) *SearchProjectCustomfieldRequest {
+	s.InstanceIds = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldRequest) SetMaxResults(v int32) *SearchProjectCustomfieldRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldRequest) SetNextToken(v string) *SearchProjectCustomfieldRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldRequest) SetQuery(v string) *SearchProjectCustomfieldRequest {
+	s.Query = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldRequest) SetScenariofieldconfigId(v string) *SearchProjectCustomfieldRequest {
+	s.ScenariofieldconfigId = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldRequest) SetScope(v string) *SearchProjectCustomfieldRequest {
+	s.Scope = &v
+	return s
+}
+
+type SearchProjectCustomfieldResponseBody struct {
+	// 供分页使用，下一页token，从当前页结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 自定义字段列表。
+	Result []*SearchProjectCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 总数。
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchProjectCustomfieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchProjectCustomfieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchProjectCustomfieldResponseBody) SetNextToken(v string) *SearchProjectCustomfieldResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBody) SetResult(v []*SearchProjectCustomfieldResponseBodyResult) *SearchProjectCustomfieldResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBody) SetTotalCount(v int32) *SearchProjectCustomfieldResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchProjectCustomfieldResponseBodyResult struct {
+	// 高级自定义字段。
+	AdvancedCustomfield *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield `json:"advancedCustomfield,omitempty" xml:"advancedCustomfield,omitempty" type:"Struct"`
+	// 绑定的对象Id，此接口为项目ID。
+	BoundToObjectId *string `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
+	// 如果是单选或多选字段，这里是可选项的值
+	Choices []*SearchProjectCustomfieldResponseBodyResultChoices `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建人ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 自定义字段ID。
+	CustomfiledId *string `json:"customfiledId,omitempty" xml:"customfiledId,omitempty"`
+	// 字段名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 如果是企业字段，该字段表达绑定的企业字段ID。
+	OriginalId *string `json:"originalId,omitempty" xml:"originalId,omitempty"`
+	// 用户自定义数据载体，json格式类型任意数据。
+	Payload map[string]interface{} `json:"payload,omitempty" xml:"payload,omitempty"`
+	// 字段类型。 'number', // 数字 'date', // 日期 'text', // 文本 'work', 'multipleChoice', // 多选 'dropDown', // 下拉, 'lookup', 'commongroup', 'cascading', // 层级字段 'rtf', // 多行文本/富文本 字段 'lookup2' // 新高级字段
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SearchProjectCustomfieldResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchProjectCustomfieldResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetAdvancedCustomfield(v *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) *SearchProjectCustomfieldResponseBodyResult {
+	s.AdvancedCustomfield = v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetBoundToObjectId(v string) *SearchProjectCustomfieldResponseBodyResult {
+	s.BoundToObjectId = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetChoices(v []*SearchProjectCustomfieldResponseBodyResultChoices) *SearchProjectCustomfieldResponseBodyResult {
+	s.Choices = v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetCreated(v string) *SearchProjectCustomfieldResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetCreatorId(v string) *SearchProjectCustomfieldResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetCustomfiledId(v string) *SearchProjectCustomfieldResponseBodyResult {
+	s.CustomfiledId = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetName(v string) *SearchProjectCustomfieldResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetOriginalId(v string) *SearchProjectCustomfieldResponseBodyResult {
+	s.OriginalId = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetPayload(v map[string]interface{}) *SearchProjectCustomfieldResponseBodyResult {
+	s.Payload = v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResult) SetType(v string) *SearchProjectCustomfieldResponseBodyResult {
+	s.Type = &v
+	return s
+}
+
+type SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield struct {
+	// 字段类型ID。
+	AdvancedCustomfieldId *string `json:"advancedCustomfieldId,omitempty" xml:"advancedCustomfieldId,omitempty"`
+	// 字段类型名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 字段类型名称2。
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+}
+
+func (s SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) GoString() string {
+	return s.String()
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) SetAdvancedCustomfieldId(v string) *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield {
+	s.AdvancedCustomfieldId = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) SetName(v string) *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) SetObjectType(v string) *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield {
+	s.ObjectType = &v
+	return s
+}
+
+type SearchProjectCustomfieldResponseBodyResultChoices struct {
+	// 选项Id。
+	ChoiceId *string `json:"choiceId,omitempty" xml:"choiceId,omitempty"`
+	// 选项值。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s SearchProjectCustomfieldResponseBodyResultChoices) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchProjectCustomfieldResponseBodyResultChoices) GoString() string {
+	return s.String()
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResultChoices) SetChoiceId(v string) *SearchProjectCustomfieldResponseBodyResultChoices {
+	s.ChoiceId = &v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponseBodyResultChoices) SetValue(v string) *SearchProjectCustomfieldResponseBodyResultChoices {
+	s.Value = &v
+	return s
+}
+
+type SearchProjectCustomfieldResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchProjectCustomfieldResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchProjectCustomfieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchProjectCustomfieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchProjectCustomfieldResponse) SetHeaders(v map[string]*string) *SearchProjectCustomfieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponse) SetBody(v *SearchProjectCustomfieldResponseBody) *SearchProjectCustomfieldResponse {
+	s.Body = v
+	return s
+}
+
 type SearchProjectTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3403,6 +5956,353 @@ func (s *SearchProjectTemplateResponse) SetHeaders(v map[string]*string) *Search
 }
 
 func (s *SearchProjectTemplateResponse) SetBody(v *SearchProjectTemplateResponseBody) *SearchProjectTemplateResponse {
+	s.Body = v
+	return s
+}
+
+type SearchTaskFlowHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchTaskFlowHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskFlowHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskFlowHeaders) SetCommonHeaders(v map[string]*string) *SearchTaskFlowHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchTaskFlowHeaders) SetXAcsDingtalkAccessToken(v string) *SearchTaskFlowHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchTaskFlowRequest struct {
+	// 每页返回最大数量。默认10，最大300。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页标，从上一次请求结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 模糊查询工作流名字。
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// 工作流ID集合，逗号组合。
+	TaskflowIds *string `json:"taskflowIds,omitempty" xml:"taskflowIds,omitempty"`
+}
+
+func (s SearchTaskFlowRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskFlowRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskFlowRequest) SetMaxResults(v int32) *SearchTaskFlowRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchTaskFlowRequest) SetNextToken(v string) *SearchTaskFlowRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchTaskFlowRequest) SetQuery(v string) *SearchTaskFlowRequest {
+	s.Query = &v
+	return s
+}
+
+func (s *SearchTaskFlowRequest) SetTaskflowIds(v string) *SearchTaskFlowRequest {
+	s.TaskflowIds = &v
+	return s
+}
+
+type SearchTaskFlowResponseBody struct {
+	// 工作流列表。
+	Result []*SearchTaskFlowResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s SearchTaskFlowResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskFlowResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskFlowResponseBody) SetResult(v []*SearchTaskFlowResponseBodyResult) *SearchTaskFlowResponseBody {
+	s.Result = v
+	return s
+}
+
+type SearchTaskFlowResponseBodyResult struct {
+	// 绑定对象Id，此接口为项目id。
+	BoundToObjectId *string `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
+	// 绑定类型，增加项目成员默认是project。
+	BoundToObjectType *string `json:"boundToObjectType,omitempty" xml:"boundToObjectType,omitempty"`
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建者id。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 是否已删除。
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 工作流名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工作流ID。
+	TaskflowId *string `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s SearchTaskFlowResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskFlowResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskFlowResponseBodyResult) SetBoundToObjectId(v string) *SearchTaskFlowResponseBodyResult {
+	s.BoundToObjectId = &v
+	return s
+}
+
+func (s *SearchTaskFlowResponseBodyResult) SetBoundToObjectType(v string) *SearchTaskFlowResponseBodyResult {
+	s.BoundToObjectType = &v
+	return s
+}
+
+func (s *SearchTaskFlowResponseBodyResult) SetCreated(v string) *SearchTaskFlowResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *SearchTaskFlowResponseBodyResult) SetCreatorId(v string) *SearchTaskFlowResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *SearchTaskFlowResponseBodyResult) SetIsDeleted(v bool) *SearchTaskFlowResponseBodyResult {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *SearchTaskFlowResponseBodyResult) SetName(v string) *SearchTaskFlowResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchTaskFlowResponseBodyResult) SetTaskflowId(v string) *SearchTaskFlowResponseBodyResult {
+	s.TaskflowId = &v
+	return s
+}
+
+func (s *SearchTaskFlowResponseBodyResult) SetUpdated(v string) *SearchTaskFlowResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type SearchTaskFlowResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchTaskFlowResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchTaskFlowResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskFlowResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskFlowResponse) SetHeaders(v map[string]*string) *SearchTaskFlowResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchTaskFlowResponse) SetBody(v *SearchTaskFlowResponseBody) *SearchTaskFlowResponse {
+	s.Body = v
+	return s
+}
+
+type SearchTaskListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchTaskListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskListHeaders) SetCommonHeaders(v map[string]*string) *SearchTaskListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchTaskListHeaders) SetXAcsDingtalkAccessToken(v string) *SearchTaskListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchTaskListRequest struct {
+	// 每页返回最大数量。默认10，最大300。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页标，从上一次请求结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 模糊任务分组名字。
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// 任务分组ID集合，逗号组合。
+	TaskListIds *string `json:"taskListIds,omitempty" xml:"taskListIds,omitempty"`
+}
+
+func (s SearchTaskListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskListRequest) SetMaxResults(v int32) *SearchTaskListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchTaskListRequest) SetNextToken(v string) *SearchTaskListRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchTaskListRequest) SetQuery(v string) *SearchTaskListRequest {
+	s.Query = &v
+	return s
+}
+
+func (s *SearchTaskListRequest) SetTaskListIds(v string) *SearchTaskListRequest {
+	s.TaskListIds = &v
+	return s
+}
+
+type SearchTaskListResponseBody struct {
+	// 分页标，供分页使用，下一页token。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 任务分0组列表。
+	Result []*SearchTaskListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 总数。
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchTaskListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskListResponseBody) SetNextToken(v string) *SearchTaskListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchTaskListResponseBody) SetResult(v []*SearchTaskListResponseBodyResult) *SearchTaskListResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SearchTaskListResponseBody) SetTotalCount(v int32) *SearchTaskListResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchTaskListResponseBodyResult struct {
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建者用户ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 任务分组名称。
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 项目ID。
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 任务分组ID。
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 任务分组名称。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s SearchTaskListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskListResponseBodyResult) SetCreated(v string) *SearchTaskListResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *SearchTaskListResponseBodyResult) SetCreatorId(v string) *SearchTaskListResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *SearchTaskListResponseBodyResult) SetDescription(v string) *SearchTaskListResponseBodyResult {
+	s.Description = &v
+	return s
+}
+
+func (s *SearchTaskListResponseBodyResult) SetProjectId(v string) *SearchTaskListResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *SearchTaskListResponseBodyResult) SetTaskId(v string) *SearchTaskListResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *SearchTaskListResponseBodyResult) SetTitle(v string) *SearchTaskListResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+func (s *SearchTaskListResponseBodyResult) SetUpdated(v string) *SearchTaskListResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type SearchTaskListResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchTaskListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchTaskListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskListResponse) SetHeaders(v map[string]*string) *SearchTaskListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchTaskListResponse) SetBody(v *SearchTaskListResponseBody) *SearchTaskListResponse {
 	s.Body = v
 	return s
 }
@@ -3601,6 +6501,537 @@ func (s *SearchTaskflowStatusResponse) SetHeaders(v map[string]*string) *SearchT
 }
 
 func (s *SearchTaskflowStatusResponse) SetBody(v *SearchTaskflowStatusResponseBody) *SearchTaskflowStatusResponse {
+	s.Body = v
+	return s
+}
+
+type SearchUserTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchUserTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskHeaders) SetCommonHeaders(v map[string]*string) *SearchUserTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchUserTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SearchUserTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchUserTaskRequest struct {
+	// 每页返回最大数量。默认10，最大100。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页标，从上一次请求结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 用户的任务角色, creator,executor,involveMember 中的一个或多个,以 ','拼接。例如：creator,executor。
+	RoleTypes *string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty"`
+	// tql，参考项目内的tql使用说明。
+	Tql *string `json:"tql,omitempty" xml:"tql,omitempty"`
+}
+
+func (s SearchUserTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskRequest) SetMaxResults(v int32) *SearchUserTaskRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchUserTaskRequest) SetNextToken(v string) *SearchUserTaskRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchUserTaskRequest) SetRoleTypes(v string) *SearchUserTaskRequest {
+	s.RoleTypes = &v
+	return s
+}
+
+func (s *SearchUserTaskRequest) SetTql(v string) *SearchUserTaskRequest {
+	s.Tql = &v
+	return s
+}
+
+type SearchUserTaskResponseBody struct {
+	// 任务详情集合。
+	Result []*SearchUserTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s SearchUserTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskResponseBody) SetResult(v []*SearchUserTaskResponseBodyResult) *SearchUserTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+type SearchUserTaskResponseBodyResult struct {
+	// 任务完成时间(UTC)。
+	AccomplishTime *string `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
+	// 祖先任务ID列表。
+	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// 任务标题。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 创建时间(UTC)。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建人ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 自定义字段值集合。
+	Customfields []*SearchUserTaskResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	// 任务截止时间(UTC)。
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// 执行人ID。
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// 参与者ID集合。
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// 是否任务放入回收站。
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// 是否任务已完成。
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 任务备注。
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 父任务ID。
+	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	// 任务优先级。
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 项目ID。
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 重复规则列表。
+	Recurrence []*string `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
+	// 任务类型ID。
+	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	// 迭代ID。
+	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	// 任务列ID。
+	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	// 任务开始时间(UTC)。
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// StoryPoint。
+	StoryPoint *string `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	// 标签ID集合。
+	TagIds []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	// 任务状态ID。
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 任务列表ID。
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// 任务数字ID。
+	UniqueId *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
+	// 更新时间(UTC)。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// 任务隐私性，'involves'表达仅参与者可见; 'members'表达项目成员可见。
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+}
+
+func (s SearchUserTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetAccomplishTime(v string) *SearchUserTaskResponseBodyResult {
+	s.AccomplishTime = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetAncestorIds(v []*string) *SearchUserTaskResponseBodyResult {
+	s.AncestorIds = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetContent(v string) *SearchUserTaskResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetCreated(v string) *SearchUserTaskResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetCreatorId(v string) *SearchUserTaskResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetCustomfields(v []*SearchUserTaskResponseBodyResultCustomfields) *SearchUserTaskResponseBodyResult {
+	s.Customfields = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetDueDate(v string) *SearchUserTaskResponseBodyResult {
+	s.DueDate = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetExecutorId(v string) *SearchUserTaskResponseBodyResult {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetInvolveMembers(v []*string) *SearchUserTaskResponseBodyResult {
+	s.InvolveMembers = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetIsArchived(v bool) *SearchUserTaskResponseBodyResult {
+	s.IsArchived = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetIsDone(v bool) *SearchUserTaskResponseBodyResult {
+	s.IsDone = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetNote(v string) *SearchUserTaskResponseBodyResult {
+	s.Note = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetParentTaskId(v string) *SearchUserTaskResponseBodyResult {
+	s.ParentTaskId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetPriority(v int32) *SearchUserTaskResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetProjectId(v string) *SearchUserTaskResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetRecurrence(v []*string) *SearchUserTaskResponseBodyResult {
+	s.Recurrence = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetScenariofieldconfigId(v string) *SearchUserTaskResponseBodyResult {
+	s.ScenariofieldconfigId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetSprintId(v string) *SearchUserTaskResponseBodyResult {
+	s.SprintId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetStageId(v string) *SearchUserTaskResponseBodyResult {
+	s.StageId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetStartDate(v string) *SearchUserTaskResponseBodyResult {
+	s.StartDate = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetStoryPoint(v string) *SearchUserTaskResponseBodyResult {
+	s.StoryPoint = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetTagIds(v []*string) *SearchUserTaskResponseBodyResult {
+	s.TagIds = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetTaskId(v string) *SearchUserTaskResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetTaskListId(v string) *SearchUserTaskResponseBodyResult {
+	s.TaskListId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetUniqueId(v string) *SearchUserTaskResponseBodyResult {
+	s.UniqueId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetUpdated(v string) *SearchUserTaskResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetVisible(v string) *SearchUserTaskResponseBodyResult {
+	s.Visible = &v
+	return s
+}
+
+type SearchUserTaskResponseBodyResultCustomfields struct {
+	// 自定义字段ID。
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 自定义字段类型。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 字段值集合。
+	Value []*SearchUserTaskResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s SearchUserTaskResponseBodyResultCustomfields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskResponseBodyResultCustomfields) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfields) SetCustomfieldId(v string) *SearchUserTaskResponseBodyResultCustomfields {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfields) SetType(v string) *SearchUserTaskResponseBodyResultCustomfields {
+	s.Type = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfields) SetValue(v []*SearchUserTaskResponseBodyResultCustomfieldsValue) *SearchUserTaskResponseBodyResultCustomfields {
+	s.Value = v
+	return s
+}
+
+type SearchUserTaskResponseBodyResultCustomfieldsValue struct {
+	// 字段值ID。
+	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
+	// 字段值元属性。
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// 字段值内容。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SearchUserTaskResponseBodyResultCustomfieldsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskResponseBodyResultCustomfieldsValue) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
+	s.FieldvalueId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetMetaString(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
+	s.MetaString = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetTitle(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
+	s.Title = &v
+	return s
+}
+
+type SearchUserTaskResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchUserTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchUserTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskResponse) SetHeaders(v map[string]*string) *SearchUserTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchUserTaskResponse) SetBody(v *SearchUserTaskResponseBody) *SearchUserTaskResponse {
+	s.Body = v
+	return s
+}
+
+type SuspendProjectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SuspendProjectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SuspendProjectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SuspendProjectHeaders) SetCommonHeaders(v map[string]*string) *SuspendProjectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SuspendProjectHeaders) SetXAcsDingtalkAccessToken(v string) *SuspendProjectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SuspendProjectResponseBody struct {
+	// 返回对象。
+	Result *SuspendProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SuspendProjectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SuspendProjectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SuspendProjectResponseBody) SetResult(v *SuspendProjectResponseBodyResult) *SuspendProjectResponseBody {
+	s.Result = v
+	return s
+}
+
+type SuspendProjectResponseBodyResult struct {
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s SuspendProjectResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SuspendProjectResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SuspendProjectResponseBodyResult) SetUpdated(v string) *SuspendProjectResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type SuspendProjectResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SuspendProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SuspendProjectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SuspendProjectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SuspendProjectResponse) SetHeaders(v map[string]*string) *SuspendProjectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SuspendProjectResponse) SetBody(v *SuspendProjectResponseBody) *SuspendProjectResponse {
+	s.Body = v
+	return s
+}
+
+type UnSuspendProjectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnSuspendProjectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnSuspendProjectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnSuspendProjectHeaders) SetCommonHeaders(v map[string]*string) *UnSuspendProjectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnSuspendProjectHeaders) SetXAcsDingtalkAccessToken(v string) *UnSuspendProjectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnSuspendProjectResponseBody struct {
+	// 返回对象。
+	Result *UnSuspendProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UnSuspendProjectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnSuspendProjectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnSuspendProjectResponseBody) SetResult(v *UnSuspendProjectResponseBodyResult) *UnSuspendProjectResponseBody {
+	s.Result = v
+	return s
+}
+
+type UnSuspendProjectResponseBodyResult struct {
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UnSuspendProjectResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnSuspendProjectResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UnSuspendProjectResponseBodyResult) SetUpdated(v string) *UnSuspendProjectResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UnSuspendProjectResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UnSuspendProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UnSuspendProjectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnSuspendProjectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnSuspendProjectResponse) SetHeaders(v map[string]*string) *UnSuspendProjectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnSuspendProjectResponse) SetBody(v *UnSuspendProjectResponseBody) *UnSuspendProjectResponse {
 	s.Body = v
 	return s
 }
@@ -4854,6 +8285,909 @@ func (s *UpdateProjectGroupResponse) SetBody(v *UpdateProjectGroupResponseBody) 
 	return s
 }
 
+type UpdateTaskContentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTaskContentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskContentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskContentHeaders) SetCommonHeaders(v map[string]*string) *UpdateTaskContentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTaskContentHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTaskContentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTaskContentRequest struct {
+	// 任务标题。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s UpdateTaskContentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskContentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskContentRequest) SetContent(v string) *UpdateTaskContentRequest {
+	s.Content = &v
+	return s
+}
+
+type UpdateTaskContentResponseBody struct {
+	// 结果。
+	Result *UpdateTaskContentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateTaskContentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskContentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskContentResponseBody) SetResult(v *UpdateTaskContentResponseBodyResult) *UpdateTaskContentResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateTaskContentResponseBodyResult struct {
+	// 任务标题。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateTaskContentResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskContentResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskContentResponseBodyResult) SetContent(v string) *UpdateTaskContentResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateTaskContentResponseBodyResult) SetUpdated(v string) *UpdateTaskContentResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateTaskContentResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTaskContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTaskContentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskContentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskContentResponse) SetHeaders(v map[string]*string) *UpdateTaskContentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskContentResponse) SetBody(v *UpdateTaskContentResponseBody) *UpdateTaskContentResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTaskDueDateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTaskDueDateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskDueDateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskDueDateHeaders) SetCommonHeaders(v map[string]*string) *UpdateTaskDueDateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTaskDueDateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTaskDueDateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTaskDueDateRequest struct {
+	// 截止时间。
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+}
+
+func (s UpdateTaskDueDateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskDueDateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskDueDateRequest) SetDueDate(v string) *UpdateTaskDueDateRequest {
+	s.DueDate = &v
+	return s
+}
+
+type UpdateTaskDueDateResponseBody struct {
+	// 结果。
+	Result *UpdateTaskDueDateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateTaskDueDateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskDueDateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskDueDateResponseBody) SetResult(v *UpdateTaskDueDateResponseBodyResult) *UpdateTaskDueDateResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateTaskDueDateResponseBodyResult struct {
+	// 截止时间。
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateTaskDueDateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskDueDateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskDueDateResponseBodyResult) SetDueDate(v string) *UpdateTaskDueDateResponseBodyResult {
+	s.DueDate = &v
+	return s
+}
+
+func (s *UpdateTaskDueDateResponseBodyResult) SetUpdated(v string) *UpdateTaskDueDateResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateTaskDueDateResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTaskDueDateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTaskDueDateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskDueDateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskDueDateResponse) SetHeaders(v map[string]*string) *UpdateTaskDueDateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskDueDateResponse) SetBody(v *UpdateTaskDueDateResponseBody) *UpdateTaskDueDateResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTaskExecutorHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTaskExecutorHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskExecutorHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskExecutorHeaders) SetCommonHeaders(v map[string]*string) *UpdateTaskExecutorHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTaskExecutorHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTaskExecutorHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTaskExecutorRequest struct {
+	// 执行者用户ID。
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+}
+
+func (s UpdateTaskExecutorRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskExecutorRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskExecutorRequest) SetExecutorId(v string) *UpdateTaskExecutorRequest {
+	s.ExecutorId = &v
+	return s
+}
+
+type UpdateTaskExecutorResponseBody struct {
+	// 结果。
+	Result *UpdateTaskExecutorResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateTaskExecutorResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskExecutorResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskExecutorResponseBody) SetResult(v *UpdateTaskExecutorResponseBodyResult) *UpdateTaskExecutorResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateTaskExecutorResponseBodyResult struct {
+	// 执行者用户ID。
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateTaskExecutorResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskExecutorResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskExecutorResponseBodyResult) SetExecutorId(v string) *UpdateTaskExecutorResponseBodyResult {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *UpdateTaskExecutorResponseBodyResult) SetUpdated(v string) *UpdateTaskExecutorResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateTaskExecutorResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTaskExecutorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTaskExecutorResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskExecutorResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskExecutorResponse) SetHeaders(v map[string]*string) *UpdateTaskExecutorResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskExecutorResponse) SetBody(v *UpdateTaskExecutorResponseBody) *UpdateTaskExecutorResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTaskInvolvemembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTaskInvolvemembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskInvolvemembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskInvolvemembersHeaders) SetCommonHeaders(v map[string]*string) *UpdateTaskInvolvemembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTaskInvolvemembersHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTaskInvolvemembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTaskInvolvemembersRequest struct {
+	// 新增参与者列表。
+	AddInvolvers []*string `json:"addInvolvers,omitempty" xml:"addInvolvers,omitempty" type:"Repeated"`
+	// 移除参与者列表。
+	DelInvolvers []*string `json:"delInvolvers,omitempty" xml:"delInvolvers,omitempty" type:"Repeated"`
+	// 更新任务参与者列表。
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+}
+
+func (s UpdateTaskInvolvemembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskInvolvemembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskInvolvemembersRequest) SetAddInvolvers(v []*string) *UpdateTaskInvolvemembersRequest {
+	s.AddInvolvers = v
+	return s
+}
+
+func (s *UpdateTaskInvolvemembersRequest) SetDelInvolvers(v []*string) *UpdateTaskInvolvemembersRequest {
+	s.DelInvolvers = v
+	return s
+}
+
+func (s *UpdateTaskInvolvemembersRequest) SetInvolveMembers(v []*string) *UpdateTaskInvolvemembersRequest {
+	s.InvolveMembers = v
+	return s
+}
+
+type UpdateTaskInvolvemembersResponseBody struct {
+	// 结果
+	Result *UpdateTaskInvolvemembersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateTaskInvolvemembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskInvolvemembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskInvolvemembersResponseBody) SetResult(v *UpdateTaskInvolvemembersResponseBodyResult) *UpdateTaskInvolvemembersResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateTaskInvolvemembersResponseBodyResult struct {
+	// 参与者列表。
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateTaskInvolvemembersResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskInvolvemembersResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskInvolvemembersResponseBodyResult) SetInvolveMembers(v []*string) *UpdateTaskInvolvemembersResponseBodyResult {
+	s.InvolveMembers = v
+	return s
+}
+
+func (s *UpdateTaskInvolvemembersResponseBodyResult) SetUpdated(v string) *UpdateTaskInvolvemembersResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateTaskInvolvemembersResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTaskInvolvemembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTaskInvolvemembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskInvolvemembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskInvolvemembersResponse) SetHeaders(v map[string]*string) *UpdateTaskInvolvemembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskInvolvemembersResponse) SetBody(v *UpdateTaskInvolvemembersResponseBody) *UpdateTaskInvolvemembersResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTaskNoteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTaskNoteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskNoteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskNoteHeaders) SetCommonHeaders(v map[string]*string) *UpdateTaskNoteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTaskNoteHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTaskNoteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTaskNoteRequest struct {
+	// 任务备注。
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+}
+
+func (s UpdateTaskNoteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskNoteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskNoteRequest) SetNote(v string) *UpdateTaskNoteRequest {
+	s.Note = &v
+	return s
+}
+
+type UpdateTaskNoteResponseBody struct {
+	// 结果
+	Result *UpdateTaskNoteResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateTaskNoteResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskNoteResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskNoteResponseBody) SetResult(v *UpdateTaskNoteResponseBodyResult) *UpdateTaskNoteResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateTaskNoteResponseBodyResult struct {
+	// 任务备注。
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateTaskNoteResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskNoteResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskNoteResponseBodyResult) SetNote(v string) *UpdateTaskNoteResponseBodyResult {
+	s.Note = &v
+	return s
+}
+
+func (s *UpdateTaskNoteResponseBodyResult) SetUpdated(v string) *UpdateTaskNoteResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateTaskNoteResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTaskNoteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTaskNoteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskNoteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskNoteResponse) SetHeaders(v map[string]*string) *UpdateTaskNoteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskNoteResponse) SetBody(v *UpdateTaskNoteResponseBody) *UpdateTaskNoteResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTaskPriorityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTaskPriorityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskPriorityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskPriorityHeaders) SetCommonHeaders(v map[string]*string) *UpdateTaskPriorityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTaskPriorityHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTaskPriorityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTaskPriorityRequest struct {
+	// 优先级。
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+}
+
+func (s UpdateTaskPriorityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskPriorityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskPriorityRequest) SetPriority(v int32) *UpdateTaskPriorityRequest {
+	s.Priority = &v
+	return s
+}
+
+type UpdateTaskPriorityResponseBody struct {
+	Result *UpdateTaskPriorityResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateTaskPriorityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskPriorityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskPriorityResponseBody) SetResult(v *UpdateTaskPriorityResponseBodyResult) *UpdateTaskPriorityResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateTaskPriorityResponseBodyResult struct {
+	// 优先级。
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateTaskPriorityResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskPriorityResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskPriorityResponseBodyResult) SetPriority(v int32) *UpdateTaskPriorityResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *UpdateTaskPriorityResponseBodyResult) SetUpdated(v string) *UpdateTaskPriorityResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateTaskPriorityResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTaskPriorityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTaskPriorityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskPriorityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskPriorityResponse) SetHeaders(v map[string]*string) *UpdateTaskPriorityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskPriorityResponse) SetBody(v *UpdateTaskPriorityResponseBody) *UpdateTaskPriorityResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTaskStageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTaskStageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStageHeaders) SetCommonHeaders(v map[string]*string) *UpdateTaskStageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTaskStageHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTaskStageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTaskStageRequest struct {
+	// 任务列表Id。
+	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+}
+
+func (s UpdateTaskStageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStageRequest) SetStageId(v string) *UpdateTaskStageRequest {
+	s.StageId = &v
+	return s
+}
+
+type UpdateTaskStageResponseBody struct {
+	Result *UpdateTaskStageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateTaskStageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStageResponseBody) SetResult(v *UpdateTaskStageResponseBodyResult) *UpdateTaskStageResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateTaskStageResponseBodyResult struct {
+	// 任务完成时间(UTC)。
+	AccomplishTime *string `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
+	// 是否任务已完成。
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 项目ID。
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 任务列ID。
+	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	// 任务ID。
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 任务分组ID。
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// 更新时间(UTC)。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateTaskStageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStageResponseBodyResult) SetAccomplishTime(v string) *UpdateTaskStageResponseBodyResult {
+	s.AccomplishTime = &v
+	return s
+}
+
+func (s *UpdateTaskStageResponseBodyResult) SetIsDone(v bool) *UpdateTaskStageResponseBodyResult {
+	s.IsDone = &v
+	return s
+}
+
+func (s *UpdateTaskStageResponseBodyResult) SetProjectId(v string) *UpdateTaskStageResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *UpdateTaskStageResponseBodyResult) SetStageId(v string) *UpdateTaskStageResponseBodyResult {
+	s.StageId = &v
+	return s
+}
+
+func (s *UpdateTaskStageResponseBodyResult) SetTaskId(v string) *UpdateTaskStageResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *UpdateTaskStageResponseBodyResult) SetTaskListId(v string) *UpdateTaskStageResponseBodyResult {
+	s.TaskListId = &v
+	return s
+}
+
+func (s *UpdateTaskStageResponseBodyResult) SetUpdated(v string) *UpdateTaskStageResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateTaskStageResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTaskStageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTaskStageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStageResponse) SetHeaders(v map[string]*string) *UpdateTaskStageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskStageResponse) SetBody(v *UpdateTaskStageResponseBody) *UpdateTaskStageResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTaskStartdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTaskStartdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStartdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStartdateHeaders) SetCommonHeaders(v map[string]*string) *UpdateTaskStartdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTaskStartdateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTaskStartdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTaskStartdateRequest struct {
+	// 任务开始时间。
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+}
+
+func (s UpdateTaskStartdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStartdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStartdateRequest) SetStartDate(v string) *UpdateTaskStartdateRequest {
+	s.StartDate = &v
+	return s
+}
+
+type UpdateTaskStartdateResponseBody struct {
+	// 结果
+	Result *UpdateTaskStartdateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateTaskStartdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStartdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStartdateResponseBody) SetResult(v *UpdateTaskStartdateResponseBodyResult) *UpdateTaskStartdateResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateTaskStartdateResponseBodyResult struct {
+	// 任务开始时间。
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateTaskStartdateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStartdateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStartdateResponseBodyResult) SetStartDate(v string) *UpdateTaskStartdateResponseBodyResult {
+	s.StartDate = &v
+	return s
+}
+
+func (s *UpdateTaskStartdateResponseBodyResult) SetUpdated(v string) *UpdateTaskStartdateResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateTaskStartdateResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTaskStartdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTaskStartdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskStartdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskStartdateResponse) SetHeaders(v map[string]*string) *UpdateTaskStartdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskStartdateResponse) SetBody(v *UpdateTaskStartdateResponseBody) *UpdateTaskStartdateResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateTaskTaskflowstatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5030,6 +9364,78 @@ func (client *Client) AddProjectMemberWithOptions(userId *string, projectId *str
 	return _result, _err
 }
 
+func (client *Client) ArchiveProject(userId *string, projectId *string) (_result *ArchiveProjectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ArchiveProjectHeaders{}
+	_result = &ArchiveProjectResponse{}
+	_body, _err := client.ArchiveProjectWithOptions(userId, projectId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ArchiveProjectWithOptions(userId *string, projectId *string, headers *ArchiveProjectHeaders, runtime *util.RuntimeOptions) (_result *ArchiveProjectResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ArchiveProjectResponse{}
+	_body, _err := client.DoROARequest(tea.String("ArchiveProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/archive"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ArchiveTask(userId *string, taskId *string) (_result *ArchiveTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ArchiveTaskHeaders{}
+	_result = &ArchiveTaskResponse{}
+	_body, _err := client.ArchiveTaskWithOptions(userId, taskId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ArchiveTaskWithOptions(userId *string, taskId *string, headers *ArchiveTaskHeaders, runtime *util.RuntimeOptions) (_result *ArchiveTaskResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ArchiveTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("ArchiveTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/archive"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateOrganizationTask(userId *string, request *CreateOrganizationTaskRequest) (_result *CreateOrganizationTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateOrganizationTaskHeaders{}
@@ -5194,6 +9600,51 @@ func (client *Client) CreatePlanTimeWithOptions(userId *string, request *CreateP
 	return _result, _err
 }
 
+func (client *Client) CreateProject(userId *string, request *CreateProjectRequest) (_result *CreateProjectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateProjectHeaders{}
+	_result = &CreateProjectResponse{}
+	_body, _err := client.CreateProjectWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateProjectWithOptions(userId *string, request *CreateProjectRequest, headers *CreateProjectHeaders, runtime *util.RuntimeOptions) (_result *CreateProjectResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateProjectResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateProjectByTemplate(userId *string, request *CreateProjectByTemplateRequest) (_result *CreateProjectByTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateProjectByTemplateHeaders{}
@@ -5236,6 +9687,64 @@ func (client *Client) CreateProjectByTemplateWithOptions(userId *string, request
 	}
 	_result = &CreateProjectByTemplateResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateProjectByTemplate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/templates/projects"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateProjectCustomfieldStatus(userId *string, projectId *string, request *CreateProjectCustomfieldStatusRequest) (_result *CreateProjectCustomfieldStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateProjectCustomfieldStatusHeaders{}
+	_result = &CreateProjectCustomfieldStatusResponse{}
+	_body, _err := client.CreateProjectCustomfieldStatusWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateProjectCustomfieldStatusWithOptions(userId *string, projectId *string, request *CreateProjectCustomfieldStatusRequest, headers *CreateProjectCustomfieldStatusHeaders, runtime *util.RuntimeOptions) (_result *CreateProjectCustomfieldStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomfieldId)) {
+		body["customfieldId"] = request.CustomfieldId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomfieldInstanceId)) {
+		body["customfieldInstanceId"] = request.CustomfieldInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomfieldName)) {
+		body["customfieldName"] = request.CustomfieldName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Value)) {
+		body["value"] = request.Value
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateProjectCustomfieldStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateProjectCustomfieldStatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/customfields"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5454,6 +9963,88 @@ func (client *Client) CreateWorkTimeWithOptions(userId *string, request *CreateW
 	}
 	_result = &CreateWorkTimeResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateWorkTime"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/workTimes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteProjectMember(userId *string, projectId *string, request *DeleteProjectMemberRequest) (_result *DeleteProjectMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteProjectMemberHeaders{}
+	_result = &DeleteProjectMemberResponse{}
+	_body, _err := client.DeleteProjectMemberWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteProjectMemberWithOptions(userId *string, projectId *string, request *DeleteProjectMemberRequest, headers *DeleteProjectMemberHeaders, runtime *util.RuntimeOptions) (_result *DeleteProjectMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeleteProjectMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteProjectMember"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/members/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteTask(userId *string, taskId *string) (_result *DeleteTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteTaskHeaders{}
+	_result = &DeleteTaskResponse{}
+	_body, _err := client.DeleteTaskWithOptions(userId, taskId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteTaskWithOptions(userId *string, taskId *string, headers *DeleteTaskHeaders, runtime *util.RuntimeOptions) (_result *DeleteTaskResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5742,6 +10333,149 @@ func (client *Client) GetProjectGroupWithOptions(userId *string, request *GetPro
 	return _result, _err
 }
 
+func (client *Client) GetProjectMemebers(userId *string, projectId *string, request *GetProjectMemebersRequest) (_result *GetProjectMemebersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProjectMemebersHeaders{}
+	_result = &GetProjectMemebersResponse{}
+	_body, _err := client.GetProjectMemebersWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetProjectMemebersWithOptions(userId *string, projectId *string, request *GetProjectMemebersRequest, headers *GetProjectMemebersHeaders, runtime *util.RuntimeOptions) (_result *GetProjectMemebersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectRoleId)) {
+		query["projectRoleId"] = request.ProjectRoleId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Skip)) {
+		query["skip"] = request.Skip
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		query["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetProjectMemebersResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetProjectMemebers"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/members"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetProjectStatusList(userId *string, projectId *string) (_result *GetProjectStatusListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProjectStatusListHeaders{}
+	_result = &GetProjectStatusListResponse{}
+	_body, _err := client.GetProjectStatusListWithOptions(userId, projectId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetProjectStatusListWithOptions(userId *string, projectId *string, headers *GetProjectStatusListHeaders, runtime *util.RuntimeOptions) (_result *GetProjectStatusListResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetProjectStatusListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetProjectStatusList"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/statuses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTaskByIds(userId *string, request *GetTaskByIdsRequest) (_result *GetTaskByIdsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTaskByIdsHeaders{}
+	_result = &GetTaskByIdsResponse{}
+	_body, _err := client.GetTaskByIdsWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTaskByIdsWithOptions(userId *string, request *GetTaskByIdsRequest, headers *GetTaskByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetTaskByIdsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ParentTaskId)) {
+		query["parentTaskId"] = request.ParentTaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		query["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTaskByIdsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTaskByIds"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetTbOrgIdByDingOrgId(request *GetTbOrgIdByDingOrgIdRequest) (_result *GetTbOrgIdByDingOrgIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTbOrgIdByDingOrgIdHeaders{}
@@ -5952,6 +10686,116 @@ func (client *Client) GetTbUserIdByStaffIdWithOptions(request *GetTbUserIdByStaf
 	return _result, _err
 }
 
+func (client *Client) GetUserJoinedProject(userId *string, request *GetUserJoinedProjectRequest) (_result *GetUserJoinedProjectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserJoinedProjectHeaders{}
+	_result = &GetUserJoinedProjectResponse{}
+	_body, _err := client.GetUserJoinedProjectWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserJoinedProjectWithOptions(userId *string, request *GetUserJoinedProjectRequest, headers *GetUserJoinedProjectHeaders, runtime *util.RuntimeOptions) (_result *GetUserJoinedProjectResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetUserJoinedProjectResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUserJoinedProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/joinProjects"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryProject(userId *string, request *QueryProjectRequest) (_result *QueryProjectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryProjectHeaders{}
+	_result = &QueryProjectResponse{}
+	_body, _err := client.QueryProjectWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryProjectWithOptions(userId *string, request *QueryProjectRequest, headers *QueryProjectHeaders, runtime *util.RuntimeOptions) (_result *QueryProjectResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectIds)) {
+		query["projectIds"] = request.ProjectIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceId)) {
+		query["sourceId"] = request.SourceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryProjectResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryTaskOfProject(userId *string, projectId *string, request *QueryTaskOfProjectRequest) (_result *QueryTaskOfProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryTaskOfProjectHeaders{}
@@ -6006,6 +10850,207 @@ func (client *Client) QueryTaskOfProjectWithOptions(userId *string, projectId *s
 	return _result, _err
 }
 
+func (client *Client) SeachTaskStage(userId *string, projectId *string, request *SeachTaskStageRequest) (_result *SeachTaskStageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SeachTaskStageHeaders{}
+	_result = &SeachTaskStageResponse{}
+	_body, _err := client.SeachTaskStageWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SeachTaskStageWithOptions(userId *string, projectId *string, request *SeachTaskStageRequest, headers *SeachTaskStageHeaders, runtime *util.RuntimeOptions) (_result *SeachTaskStageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Query)) {
+		query["query"] = request.Query
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StageIds)) {
+		query["stageIds"] = request.StageIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskListId)) {
+		query["taskListId"] = request.TaskListId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SeachTaskStageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SeachTaskStage"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/taskStages/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchOranizationCustomfield(userId *string, request *SearchOranizationCustomfieldRequest) (_result *SearchOranizationCustomfieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchOranizationCustomfieldHeaders{}
+	_result = &SearchOranizationCustomfieldResponse{}
+	_body, _err := client.SearchOranizationCustomfieldWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchOranizationCustomfieldWithOptions(userId *string, request *SearchOranizationCustomfieldRequest, headers *SearchOranizationCustomfieldHeaders, runtime *util.RuntimeOptions) (_result *SearchOranizationCustomfieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomfieldIds)) {
+		query["customfieldIds"] = request.CustomfieldIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceIds)) {
+		query["instanceIds"] = request.InstanceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectIds)) {
+		query["projectIds"] = request.ProjectIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Query)) {
+		query["query"] = request.Query
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		query["scope"] = request.Scope
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchOranizationCustomfieldResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchOranizationCustomfield"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/customfields/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchProjectCustomfield(userId *string, projectId *string, request *SearchProjectCustomfieldRequest) (_result *SearchProjectCustomfieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchProjectCustomfieldHeaders{}
+	_result = &SearchProjectCustomfieldResponse{}
+	_body, _err := client.SearchProjectCustomfieldWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchProjectCustomfieldWithOptions(userId *string, projectId *string, request *SearchProjectCustomfieldRequest, headers *SearchProjectCustomfieldHeaders, runtime *util.RuntimeOptions) (_result *SearchProjectCustomfieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomfieldIds)) {
+		query["customfieldIds"] = request.CustomfieldIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceIds)) {
+		query["instanceIds"] = request.InstanceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Query)) {
+		query["query"] = request.Query
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScenariofieldconfigId)) {
+		query["scenariofieldconfigId"] = request.ScenariofieldconfigId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		query["scope"] = request.Scope
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchProjectCustomfieldResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchProjectCustomfield"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/customfields/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) SearchProjectTemplate(userId *string, request *SearchProjectTemplateRequest) (_result *SearchProjectTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchProjectTemplateHeaders{}
@@ -6044,6 +11089,122 @@ func (client *Client) SearchProjectTemplateWithOptions(userId *string, request *
 	}
 	_result = &SearchProjectTemplateResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchProjectTemplate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/templates"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchTaskFlow(userId *string, projectId *string, request *SearchTaskFlowRequest) (_result *SearchTaskFlowResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchTaskFlowHeaders{}
+	_result = &SearchTaskFlowResponse{}
+	_body, _err := client.SearchTaskFlowWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchTaskFlowWithOptions(userId *string, projectId *string, request *SearchTaskFlowRequest, headers *SearchTaskFlowHeaders, runtime *util.RuntimeOptions) (_result *SearchTaskFlowResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Query)) {
+		query["query"] = request.Query
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskflowIds)) {
+		query["taskflowIds"] = request.TaskflowIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchTaskFlowResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchTaskFlow"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/taskflows/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchTaskList(userId *string, projectId *string, request *SearchTaskListRequest) (_result *SearchTaskListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchTaskListHeaders{}
+	_result = &SearchTaskListResponse{}
+	_body, _err := client.SearchTaskListWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchTaskListWithOptions(userId *string, projectId *string, request *SearchTaskListRequest, headers *SearchTaskListHeaders, runtime *util.RuntimeOptions) (_result *SearchTaskListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Query)) {
+		query["query"] = request.Query
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskListIds)) {
+		query["taskListIds"] = request.TaskListIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchTaskListResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchTaskList"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/taskLists/search"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6106,6 +11267,135 @@ func (client *Client) SearchTaskflowStatusWithOptions(userId *string, projectId 
 	}
 	_result = &SearchTaskflowStatusResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchTaskflowStatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/taskflowStatuses/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchUserTask(userId *string, request *SearchUserTaskRequest) (_result *SearchUserTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchUserTaskHeaders{}
+	_result = &SearchUserTaskResponse{}
+	_body, _err := client.SearchUserTaskWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchUserTaskWithOptions(userId *string, request *SearchUserTaskRequest, headers *SearchUserTaskHeaders, runtime *util.RuntimeOptions) (_result *SearchUserTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleTypes)) {
+		query["roleTypes"] = request.RoleTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tql)) {
+		query["tql"] = request.Tql
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchUserTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchUserTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SuspendProject(projectId *string, userId *string) (_result *SuspendProjectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SuspendProjectHeaders{}
+	_result = &SuspendProjectResponse{}
+	_body, _err := client.SuspendProjectWithOptions(projectId, userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SuspendProjectWithOptions(projectId *string, userId *string, headers *SuspendProjectHeaders, runtime *util.RuntimeOptions) (_result *SuspendProjectResponse, _err error) {
+	projectId = openapiutil.GetEncodeParam(projectId)
+	userId = openapiutil.GetEncodeParam(userId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &SuspendProjectResponse{}
+	_body, _err := client.DoROARequest(tea.String("SuspendProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/suspend"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UnSuspendProject(projectId *string, userId *string) (_result *UnSuspendProjectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnSuspendProjectHeaders{}
+	_result = &UnSuspendProjectResponse{}
+	_body, _err := client.UnSuspendProjectWithOptions(projectId, userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UnSuspendProjectWithOptions(projectId *string, userId *string, headers *UnSuspendProjectHeaders, runtime *util.RuntimeOptions) (_result *UnSuspendProjectResponse, _err error) {
+	projectId = openapiutil.GetEncodeParam(projectId)
+	userId = openapiutil.GetEncodeParam(userId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &UnSuspendProjectResponse{}
+	_body, _err := client.DoROARequest(tea.String("UnSuspendProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/unsuspend"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6596,6 +11886,382 @@ func (client *Client) UpdateProjectGroupWithOptions(userId *string, projectId *s
 	}
 	_result = &UpdateProjectGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateProjectGroup"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskContent(userId *string, taskId *string, request *UpdateTaskContentRequest) (_result *UpdateTaskContentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskContentHeaders{}
+	_result = &UpdateTaskContentResponse{}
+	_body, _err := client.UpdateTaskContentWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskContentWithOptions(userId *string, taskId *string, request *UpdateTaskContentRequest, headers *UpdateTaskContentHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskContentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTaskContentResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTaskContent"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/contents"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskDueDate(userId *string, taskId *string, request *UpdateTaskDueDateRequest) (_result *UpdateTaskDueDateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskDueDateHeaders{}
+	_result = &UpdateTaskDueDateResponse{}
+	_body, _err := client.UpdateTaskDueDateWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskDueDateWithOptions(userId *string, taskId *string, request *UpdateTaskDueDateRequest, headers *UpdateTaskDueDateHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskDueDateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DueDate)) {
+		body["dueDate"] = request.DueDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTaskDueDateResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTaskDueDate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/dueDates"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskExecutor(userId *string, taskId *string, request *UpdateTaskExecutorRequest) (_result *UpdateTaskExecutorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskExecutorHeaders{}
+	_result = &UpdateTaskExecutorResponse{}
+	_body, _err := client.UpdateTaskExecutorWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskExecutorWithOptions(userId *string, taskId *string, request *UpdateTaskExecutorRequest, headers *UpdateTaskExecutorHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskExecutorResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExecutorId)) {
+		body["executorId"] = request.ExecutorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTaskExecutorResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTaskExecutor"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/executors"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskInvolvemembers(userId *string, taskId *string, request *UpdateTaskInvolvemembersRequest) (_result *UpdateTaskInvolvemembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskInvolvemembersHeaders{}
+	_result = &UpdateTaskInvolvemembersResponse{}
+	_body, _err := client.UpdateTaskInvolvemembersWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskInvolvemembersWithOptions(userId *string, taskId *string, request *UpdateTaskInvolvemembersRequest, headers *UpdateTaskInvolvemembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskInvolvemembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AddInvolvers)) {
+		body["addInvolvers"] = request.AddInvolvers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelInvolvers)) {
+		body["delInvolvers"] = request.DelInvolvers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvolveMembers)) {
+		body["involveMembers"] = request.InvolveMembers
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTaskInvolvemembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTaskInvolvemembers"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/involveMembers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskNote(userId *string, taskId *string, request *UpdateTaskNoteRequest) (_result *UpdateTaskNoteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskNoteHeaders{}
+	_result = &UpdateTaskNoteResponse{}
+	_body, _err := client.UpdateTaskNoteWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskNoteWithOptions(userId *string, taskId *string, request *UpdateTaskNoteRequest, headers *UpdateTaskNoteHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskNoteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Note)) {
+		body["note"] = request.Note
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTaskNoteResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTaskNote"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/notes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskPriority(userId *string, taskId *string, request *UpdateTaskPriorityRequest) (_result *UpdateTaskPriorityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskPriorityHeaders{}
+	_result = &UpdateTaskPriorityResponse{}
+	_body, _err := client.UpdateTaskPriorityWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskPriorityWithOptions(userId *string, taskId *string, request *UpdateTaskPriorityRequest, headers *UpdateTaskPriorityHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskPriorityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Priority)) {
+		body["priority"] = request.Priority
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTaskPriorityResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTaskPriority"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/priorities"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskStage(userId *string, taskId *string, request *UpdateTaskStageRequest) (_result *UpdateTaskStageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskStageHeaders{}
+	_result = &UpdateTaskStageResponse{}
+	_body, _err := client.UpdateTaskStageWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskStageWithOptions(userId *string, taskId *string, request *UpdateTaskStageRequest, headers *UpdateTaskStageHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskStageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StageId)) {
+		body["stageId"] = request.StageId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTaskStageResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTaskStage"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/stages"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskStartdate(userId *string, taskId *string, request *UpdateTaskStartdateRequest) (_result *UpdateTaskStartdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskStartdateHeaders{}
+	_result = &UpdateTaskStartdateResponse{}
+	_body, _err := client.UpdateTaskStartdateWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskStartdateWithOptions(userId *string, taskId *string, request *UpdateTaskStartdateRequest, headers *UpdateTaskStartdateHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskStartdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		body["startDate"] = request.StartDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTaskStartdateResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTaskStartdate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/startDates"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

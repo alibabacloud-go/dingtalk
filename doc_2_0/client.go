@@ -40,6 +40,8 @@ type DentryModel struct {
 	Space *SpaceModel `json:"space,omitempty" xml:"space,omitempty"`
 	// 知识库id。
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 统计信息
+	StatisticalInfo *DentryModelStatisticalInfo `json:"statisticalInfo,omitempty" xml:"statisticalInfo,omitempty" type:"Struct"`
 	// 更新时间。
 	UpdatedTime *int64 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
 	// 更新人。
@@ -128,6 +130,11 @@ func (s *DentryModel) SetSpaceId(v string) *DentryModel {
 	return s
 }
 
+func (s *DentryModel) SetStatisticalInfo(v *DentryModelStatisticalInfo) *DentryModel {
+	s.StatisticalInfo = v
+	return s
+}
+
 func (s *DentryModel) SetUpdatedTime(v int64) *DentryModel {
 	s.UpdatedTime = &v
 	return s
@@ -170,6 +177,24 @@ func (s *DentryModelCreator) SetName(v string) *DentryModelCreator {
 
 func (s *DentryModelCreator) SetUnionId(v string) *DentryModelCreator {
 	s.UnionId = &v
+	return s
+}
+
+type DentryModelStatisticalInfo struct {
+	// 字数
+	WordCount *int64 `json:"wordCount,omitempty" xml:"wordCount,omitempty"`
+}
+
+func (s DentryModelStatisticalInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DentryModelStatisticalInfo) GoString() string {
+	return s.String()
+}
+
+func (s *DentryModelStatisticalInfo) SetWordCount(v int64) *DentryModelStatisticalInfo {
+	s.WordCount = &v
 	return s
 }
 
@@ -550,6 +575,8 @@ type SpaceModel struct {
 	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
 	// 空间描述信息
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 知识库高清图标
+	HdIconVO *SpaceModelHdIconVO `json:"hdIconVO,omitempty" xml:"hdIconVO,omitempty" type:"Struct"`
 	// 知识库图标
 	IconVO *SpaceModelIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
 	// 知识库id。
@@ -583,6 +610,11 @@ func (s *SpaceModel) SetCover(v string) *SpaceModel {
 
 func (s *SpaceModel) SetDescription(v string) *SpaceModel {
 	s.Description = &v
+	return s
+}
+
+func (s *SpaceModel) SetHdIconVO(v *SpaceModelHdIconVO) *SpaceModel {
+	s.HdIconVO = v
 	return s
 }
 
@@ -623,6 +655,31 @@ func (s *SpaceModel) SetUrl(v string) *SpaceModel {
 
 func (s *SpaceModel) SetVisitorInfo(v *SpaceModelVisitorInfo) *SpaceModel {
 	s.VisitorInfo = v
+	return s
+}
+
+type SpaceModelHdIconVO struct {
+	// 图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 图标类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SpaceModelHdIconVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpaceModelHdIconVO) GoString() string {
+	return s.String()
+}
+
+func (s *SpaceModelHdIconVO) SetIcon(v string) *SpaceModelHdIconVO {
+	s.Icon = &v
+	return s
+}
+
+func (s *SpaceModelHdIconVO) SetType(v string) *SpaceModelHdIconVO {
+	s.Type = &v
 	return s
 }
 
@@ -1049,6 +1106,8 @@ func (s *TeamModelUpdater) SetUnionId(v string) *TeamModelUpdater {
 }
 
 type TeamModelVisitInfo struct {
+	// 加入团队时间
+	JoinTime *string `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
 	// 用户对这个团队的访问情况
 	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 }
@@ -1059,6 +1118,11 @@ func (s TeamModelVisitInfo) String() string {
 
 func (s TeamModelVisitInfo) GoString() string {
 	return s.String()
+}
+
+func (s *TeamModelVisitInfo) SetJoinTime(v string) *TeamModelVisitInfo {
+	s.JoinTime = &v
+	return s
 }
 
 func (s *TeamModelVisitInfo) SetRoleCode(v string) *TeamModelVisitInfo {
@@ -4491,6 +4555,8 @@ type QueryItemByUrlRequest struct {
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 链接url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 是否查询统计信息
+	WithStatisticalInfo *bool `json:"withStatisticalInfo,omitempty" xml:"withStatisticalInfo,omitempty"`
 }
 
 func (s QueryItemByUrlRequest) String() string {
@@ -4508,6 +4574,11 @@ func (s *QueryItemByUrlRequest) SetOperatorId(v string) *QueryItemByUrlRequest {
 
 func (s *QueryItemByUrlRequest) SetUrl(v string) *QueryItemByUrlRequest {
 	s.Url = &v
+	return s
+}
+
+func (s *QueryItemByUrlRequest) SetWithStatisticalInfo(v bool) *QueryItemByUrlRequest {
+	s.WithStatisticalInfo = &v
 	return s
 }
 
@@ -5847,6 +5918,8 @@ type SearchRequestSpaceRequest struct {
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 分页游标。如果是首次调用，可不传；如果非首次调用，该参数传上次调用时返回的nextToken。
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 同时请求知识小组信息
+	WithTeamInfo *bool `json:"withTeamInfo,omitempty" xml:"withTeamInfo,omitempty"`
 }
 
 func (s SearchRequestSpaceRequest) String() string {
@@ -5864,6 +5937,11 @@ func (s *SearchRequestSpaceRequest) SetMaxResults(v int32) *SearchRequestSpaceRe
 
 func (s *SearchRequestSpaceRequest) SetNextToken(v string) *SearchRequestSpaceRequest {
 	s.NextToken = &v
+	return s
+}
+
+func (s *SearchRequestSpaceRequest) SetWithTeamInfo(v bool) *SearchRequestSpaceRequest {
+	s.WithTeamInfo = &v
 	return s
 }
 
@@ -6081,6 +6159,8 @@ type SearchResponseBodySpaceResultItems struct {
 	OriginName *string `json:"originName,omitempty" xml:"originName,omitempty"`
 	// 知识库id。
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 知识小组信息
+	TeamVO *SearchResponseBodySpaceResultItemsTeamVO `json:"teamVO,omitempty" xml:"teamVO,omitempty" type:"Struct"`
 	// 知识库访问url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 用户最后一次操作信息。
@@ -6112,6 +6192,11 @@ func (s *SearchResponseBodySpaceResultItems) SetOriginName(v string) *SearchResp
 
 func (s *SearchResponseBodySpaceResultItems) SetSpaceId(v string) *SearchResponseBodySpaceResultItems {
 	s.SpaceId = &v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResultItems) SetTeamVO(v *SearchResponseBodySpaceResultItemsTeamVO) *SearchResponseBodySpaceResultItems {
+	s.TeamVO = v
 	return s
 }
 
@@ -6147,6 +6232,31 @@ func (s *SearchResponseBodySpaceResultItemsIconVO) SetIcon(v string) *SearchResp
 
 func (s *SearchResponseBodySpaceResultItemsIconVO) SetType(v string) *SearchResponseBodySpaceResultItemsIconVO {
 	s.Type = &v
+	return s
+}
+
+type SearchResponseBodySpaceResultItemsTeamVO struct {
+	// 知识小组id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 知识小组名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s SearchResponseBodySpaceResultItemsTeamVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResponseBodySpaceResultItemsTeamVO) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResponseBodySpaceResultItemsTeamVO) SetId(v string) *SearchResponseBodySpaceResultItemsTeamVO {
+	s.Id = &v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResultItemsTeamVO) SetName(v string) *SearchResponseBodySpaceResultItemsTeamVO {
+	s.Name = &v
 	return s
 }
 
@@ -7779,6 +7889,10 @@ func (client *Client) QueryItemByUrlWithOptions(request *QueryItemByUrlRequest, 
 
 	if !tea.BoolValue(util.IsUnset(request.Url)) {
 		query["url"] = request.Url
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithStatisticalInfo)) {
+		query["withStatisticalInfo"] = request.WithStatisticalInfo
 	}
 
 	realHeaders := make(map[string]*string)

@@ -3770,9 +3770,10 @@ func (s *GetWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkspace
 }
 
 type GetWorkspaceResponseBody struct {
-	IsDeleted *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	Owner     *string `json:"owner,omitempty" xml:"owner,omitempty"`
-	Url       *string `json:"url,omitempty" xml:"url,omitempty"`
+	IsDeleted      *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	Owner          *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	RootDentryUuid *string `json:"rootDentryUuid,omitempty" xml:"rootDentryUuid,omitempty"`
+	Url            *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s GetWorkspaceResponseBody) String() string {
@@ -3790,6 +3791,11 @@ func (s *GetWorkspaceResponseBody) SetIsDeleted(v bool) *GetWorkspaceResponseBod
 
 func (s *GetWorkspaceResponseBody) SetOwner(v string) *GetWorkspaceResponseBody {
 	s.Owner = &v
+	return s
+}
+
+func (s *GetWorkspaceResponseBody) SetRootDentryUuid(v string) *GetWorkspaceResponseBody {
+	s.RootDentryUuid = &v
 	return s
 }
 

@@ -7864,8 +7864,10 @@ func (s *QueryUserBehaviorResponseBody) SetTotalCnt(v int32) *QueryUserBehaviorR
 type QueryUserBehaviorResponseBodyData struct {
 	PictureUrl *string `json:"pictureUrl,omitempty" xml:"pictureUrl,omitempty"`
 	Platform   *int32  `json:"platform,omitempty" xml:"platform,omitempty"`
+	Scene      *string `json:"scene,omitempty" xml:"scene,omitempty"`
 	Time       *int64  `json:"time,omitempty" xml:"time,omitempty"`
 	Type       *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	UserName   *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
@@ -7887,6 +7889,11 @@ func (s *QueryUserBehaviorResponseBodyData) SetPlatform(v int32) *QueryUserBehav
 	return s
 }
 
+func (s *QueryUserBehaviorResponseBodyData) SetScene(v string) *QueryUserBehaviorResponseBodyData {
+	s.Scene = &v
+	return s
+}
+
 func (s *QueryUserBehaviorResponseBodyData) SetTime(v int64) *QueryUserBehaviorResponseBodyData {
 	s.Time = &v
 	return s
@@ -7894,6 +7901,11 @@ func (s *QueryUserBehaviorResponseBodyData) SetTime(v int64) *QueryUserBehaviorR
 
 func (s *QueryUserBehaviorResponseBodyData) SetType(v int32) *QueryUserBehaviorResponseBodyData {
 	s.Type = &v
+	return s
+}
+
+func (s *QueryUserBehaviorResponseBodyData) SetUserId(v string) *QueryUserBehaviorResponseBodyData {
+	s.UserId = &v
 	return s
 }
 

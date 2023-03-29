@@ -837,6 +837,8 @@ func (s *CollectResumeDetailHeaders) SetXAcsDingtalkAccessToken(v string) *Colle
 type CollectResumeDetailRequest struct {
 	// 业务标识，目前固定为ddats
 	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 渠道编码
+	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
 	// 渠道侧简历标识
 	ChannelOuterId *string `json:"channelOuterId,omitempty" xml:"channelOuterId,omitempty"`
 	// 渠道侧候选人标识。
@@ -844,8 +846,12 @@ type CollectResumeDetailRequest struct {
 	// 简历投递职位标识
 	DeliverJobId *string `json:"deliverJobId,omitempty" xml:"deliverJobId,omitempty"`
 	OptUserId    *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// 渠道简历链接
+	ResumeChannelUrl *string `json:"resumeChannelUrl,omitempty" xml:"resumeChannelUrl,omitempty"`
 	// 简历详情信息
 	ResumeData *CollectResumeDetailRequestResumeData `json:"resumeData,omitempty" xml:"resumeData,omitempty" type:"Struct"`
+	// 原始简历文件
+	ResumeFile *CollectResumeDetailRequestResumeFile `json:"resumeFile,omitempty" xml:"resumeFile,omitempty" type:"Struct"`
 }
 
 func (s CollectResumeDetailRequest) String() string {
@@ -858,6 +864,11 @@ func (s CollectResumeDetailRequest) GoString() string {
 
 func (s *CollectResumeDetailRequest) SetBizCode(v string) *CollectResumeDetailRequest {
 	s.BizCode = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequest) SetChannelCode(v string) *CollectResumeDetailRequest {
+	s.ChannelCode = &v
 	return s
 }
 
@@ -881,8 +892,18 @@ func (s *CollectResumeDetailRequest) SetOptUserId(v string) *CollectResumeDetail
 	return s
 }
 
+func (s *CollectResumeDetailRequest) SetResumeChannelUrl(v string) *CollectResumeDetailRequest {
+	s.ResumeChannelUrl = &v
+	return s
+}
+
 func (s *CollectResumeDetailRequest) SetResumeData(v *CollectResumeDetailRequestResumeData) *CollectResumeDetailRequest {
 	s.ResumeData = v
+	return s
+}
+
+func (s *CollectResumeDetailRequest) SetResumeFile(v *CollectResumeDetailRequestResumeFile) *CollectResumeDetailRequest {
+	s.ResumeFile = v
 	return s
 }
 
@@ -1378,6 +1399,38 @@ func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetStartDate(v str
 	return s
 }
 
+type CollectResumeDetailRequestResumeFile struct {
+	// 简历文件下载链接
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	// 文件名称
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 文件类型
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+}
+
+func (s CollectResumeDetailRequestResumeFile) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequestResumeFile) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequestResumeFile) SetDownloadUrl(v string) *CollectResumeDetailRequestResumeFile {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeFile) SetFileName(v string) *CollectResumeDetailRequestResumeFile {
+	s.FileName = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeFile) SetFileType(v string) *CollectResumeDetailRequestResumeFile {
+	s.FileType = &v
+	return s
+}
+
 type CollectResumeDetailResponseBody struct {
 	// 简历标识
 	ResumeId *string `json:"resumeId,omitempty" xml:"resumeId,omitempty"`
@@ -1415,6 +1468,197 @@ func (s *CollectResumeDetailResponse) SetHeaders(v map[string]*string) *CollectR
 }
 
 func (s *CollectResumeDetailResponse) SetBody(v *CollectResumeDetailResponseBody) *CollectResumeDetailResponse {
+	s.Body = v
+	return s
+}
+
+type CollectResumeMailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CollectResumeMailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeMailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeMailHeaders) SetCommonHeaders(v map[string]*string) *CollectResumeMailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CollectResumeMailHeaders) SetXAcsDingtalkAccessToken(v string) *CollectResumeMailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CollectResumeMailRequest struct {
+	// 业务标识
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 渠道编码
+	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
+	// 候选人投递职位标识
+	DeliverJobId *string `json:"deliverJobId,omitempty" xml:"deliverJobId,omitempty"`
+	// 邮件来源地址
+	FromMailAddress *string `json:"fromMailAddress,omitempty" xml:"fromMailAddress,omitempty"`
+	// 邮件唯一标识
+	MailId *string `json:"mailId,omitempty" xml:"mailId,omitempty"`
+	// 邮件标题
+	MailTitle *string `json:"mailTitle,omitempty" xml:"mailTitle,omitempty"`
+	// 操作人userId
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// 收件邮箱地址
+	ReceiveMailAddress *string `json:"receiveMailAddress,omitempty" xml:"receiveMailAddress,omitempty"`
+	// 收件邮箱类型
+	ReceiveMailType *int32 `json:"receiveMailType,omitempty" xml:"receiveMailType,omitempty"`
+	// 收件时间
+	ReceivedTime *int64 `json:"receivedTime,omitempty" xml:"receivedTime,omitempty"`
+	// 渠道简历跳转链接
+	ResumeChannelUrl *string `json:"resumeChannelUrl,omitempty" xml:"resumeChannelUrl,omitempty"`
+	// 简历原始文件
+	ResumeFile *CollectResumeMailRequestResumeFile `json:"resumeFile,omitempty" xml:"resumeFile,omitempty" type:"Struct"`
+}
+
+func (s CollectResumeMailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeMailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeMailRequest) SetBizCode(v string) *CollectResumeMailRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetChannelCode(v string) *CollectResumeMailRequest {
+	s.ChannelCode = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetDeliverJobId(v string) *CollectResumeMailRequest {
+	s.DeliverJobId = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetFromMailAddress(v string) *CollectResumeMailRequest {
+	s.FromMailAddress = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetMailId(v string) *CollectResumeMailRequest {
+	s.MailId = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetMailTitle(v string) *CollectResumeMailRequest {
+	s.MailTitle = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetOptUserId(v string) *CollectResumeMailRequest {
+	s.OptUserId = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetReceiveMailAddress(v string) *CollectResumeMailRequest {
+	s.ReceiveMailAddress = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetReceiveMailType(v int32) *CollectResumeMailRequest {
+	s.ReceiveMailType = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetReceivedTime(v int64) *CollectResumeMailRequest {
+	s.ReceivedTime = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetResumeChannelUrl(v string) *CollectResumeMailRequest {
+	s.ResumeChannelUrl = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetResumeFile(v *CollectResumeMailRequestResumeFile) *CollectResumeMailRequest {
+	s.ResumeFile = v
+	return s
+}
+
+type CollectResumeMailRequestResumeFile struct {
+	// 文件下载地址
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	// 文件名称
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 文件类型
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+}
+
+func (s CollectResumeMailRequestResumeFile) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeMailRequestResumeFile) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeMailRequestResumeFile) SetDownloadUrl(v string) *CollectResumeMailRequestResumeFile {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *CollectResumeMailRequestResumeFile) SetFileName(v string) *CollectResumeMailRequestResumeFile {
+	s.FileName = &v
+	return s
+}
+
+func (s *CollectResumeMailRequestResumeFile) SetFileType(v string) *CollectResumeMailRequestResumeFile {
+	s.FileType = &v
+	return s
+}
+
+type CollectResumeMailResponseBody struct {
+	// 简历标识
+	ResumeId *string `json:"resumeId,omitempty" xml:"resumeId,omitempty"`
+}
+
+func (s CollectResumeMailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeMailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeMailResponseBody) SetResumeId(v string) *CollectResumeMailResponseBody {
+	s.ResumeId = &v
+	return s
+}
+
+type CollectResumeMailResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CollectResumeMailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CollectResumeMailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeMailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeMailResponse) SetHeaders(v map[string]*string) *CollectResumeMailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CollectResumeMailResponse) SetBody(v *CollectResumeMailResponseBody) *CollectResumeMailResponse {
 	s.Body = v
 	return s
 }
@@ -3344,6 +3588,10 @@ func (client *Client) CollectResumeDetailWithOptions(request *CollectResumeDetai
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCode)) {
+		body["channelCode"] = request.ChannelCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ChannelOuterId)) {
 		body["channelOuterId"] = request.ChannelOuterId
 	}
@@ -3360,8 +3608,16 @@ func (client *Client) CollectResumeDetailWithOptions(request *CollectResumeDetai
 		body["optUserId"] = request.OptUserId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ResumeChannelUrl)) {
+		body["resumeChannelUrl"] = request.ResumeChannelUrl
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ResumeData)) {
 		body["resumeData"] = request.ResumeData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResumeFile)) {
+		body["resumeFile"] = request.ResumeFile
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3380,6 +3636,96 @@ func (client *Client) CollectResumeDetailWithOptions(request *CollectResumeDetai
 	}
 	_result = &CollectResumeDetailResponse{}
 	_body, _err := client.DoROARequest(tea.String("CollectResumeDetail"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/resumes/details"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CollectResumeMail(request *CollectResumeMailRequest) (_result *CollectResumeMailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CollectResumeMailHeaders{}
+	_result = &CollectResumeMailResponse{}
+	_body, _err := client.CollectResumeMailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CollectResumeMailWithOptions(request *CollectResumeMailRequest, headers *CollectResumeMailHeaders, runtime *util.RuntimeOptions) (_result *CollectResumeMailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCode)) {
+		body["channelCode"] = request.ChannelCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeliverJobId)) {
+		body["deliverJobId"] = request.DeliverJobId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromMailAddress)) {
+		body["fromMailAddress"] = request.FromMailAddress
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MailId)) {
+		body["mailId"] = request.MailId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MailTitle)) {
+		body["mailTitle"] = request.MailTitle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		body["optUserId"] = request.OptUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiveMailAddress)) {
+		body["receiveMailAddress"] = request.ReceiveMailAddress
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiveMailType)) {
+		body["receiveMailType"] = request.ReceiveMailType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceivedTime)) {
+		body["receivedTime"] = request.ReceivedTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResumeChannelUrl)) {
+		body["resumeChannelUrl"] = request.ResumeChannelUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResumeFile)) {
+		body["resumeFile"] = request.ResumeFile
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CollectResumeMailResponse{}
+	_body, _err := client.DoROARequest(tea.String("CollectResumeMail"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/resumes/mails"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

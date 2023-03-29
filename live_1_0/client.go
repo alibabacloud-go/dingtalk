@@ -263,6 +263,8 @@ type CreateLiveRequest struct {
 	PreEndTime *int64 `json:"preEndTime,omitempty" xml:"preEndTime,omitempty"`
 	// 预计开播时间
 	PreStartTime *int64 `json:"preStartTime,omitempty" xml:"preStartTime,omitempty"`
+	// 直播分享范围 0:不公开 1:全面公开 2:组织内公开
+	PublicType *int64 `json:"publicType,omitempty" xml:"publicType,omitempty"`
 	// 标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 用户id（主播id）
@@ -294,6 +296,11 @@ func (s *CreateLiveRequest) SetPreEndTime(v int64) *CreateLiveRequest {
 
 func (s *CreateLiveRequest) SetPreStartTime(v int64) *CreateLiveRequest {
 	s.PreStartTime = &v
+	return s
+}
+
+func (s *CreateLiveRequest) SetPublicType(v int64) *CreateLiveRequest {
+	s.PublicType = &v
 	return s
 }
 
@@ -1859,6 +1866,8 @@ type QueryLiveInfoResponseBodyResultLiveInfo struct {
 	LivePlayUrl *string `json:"livePlayUrl,omitempty" xml:"livePlayUrl,omitempty"`
 	// 直播状态
 	LiveStatus *int32 `json:"liveStatus,omitempty" xml:"liveStatus,omitempty"`
+	// 直播回放时长
+	PlaybackDuration *int64 `json:"playbackDuration,omitempty" xml:"playbackDuration,omitempty"`
 	// 直播真实开始时间
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// 预约人数
@@ -1911,6 +1920,11 @@ func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetLivePlayUrl(v string) *Quer
 
 func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetLiveStatus(v int32) *QueryLiveInfoResponseBodyResultLiveInfo {
 	s.LiveStatus = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetPlaybackDuration(v int64) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.PlaybackDuration = &v
 	return s
 }
 
@@ -3215,6 +3229,10 @@ func (client *Client) CreateLiveWithOptions(request *CreateLiveRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.PreStartTime)) {
 		body["preStartTime"] = request.PreStartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PublicType)) {
+		body["publicType"] = request.PublicType
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Title)) {

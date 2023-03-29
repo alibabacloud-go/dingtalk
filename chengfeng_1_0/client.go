@@ -11,6 +11,317 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CfEmploymentRecordResp struct {
+	// 部门编码
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 部门名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 人员状态(2:试用,3:正式)
+	EmployeeStatus *string `json:"employeeStatus,omitempty" xml:"employeeStatus,omitempty"`
+	// 结束时间
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 是否是最新任职
+	IsLatestRecord *bool `json:"isLatestRecord,omitempty" xml:"isLatestRecord,omitempty"`
+	// 职级名称
+	JobLevelName *string `json:"jobLevelName,omitempty" xml:"jobLevelName,omitempty"`
+	// 职位编码
+	JobPositionCode *string `json:"jobPositionCode,omitempty" xml:"jobPositionCode,omitempty"`
+	// 职位名称
+	JobPositionName *string `json:"jobPositionName,omitempty" xml:"jobPositionName,omitempty"`
+	// 职务编码
+	JobPostCode *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
+	// 职务名称
+	JobPostName *string `json:"jobPostName,omitempty" xml:"jobPostName,omitempty"`
+	// 任职状态(1:任职中,2:任职结束)
+	ServiceStatus *string `json:"serviceStatus,omitempty" xml:"serviceStatus,omitempty"`
+	// 任职类型(5:主职, 6:兼职)
+	ServiceType *string `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
+	// 开始时间
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 工号
+	WorkNumbers *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
+}
+
+func (s CfEmploymentRecordResp) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CfEmploymentRecordResp) GoString() string {
+	return s.String()
+}
+
+func (s *CfEmploymentRecordResp) SetDeptCode(v string) *CfEmploymentRecordResp {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetDeptName(v string) *CfEmploymentRecordResp {
+	s.DeptName = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetEmployeeStatus(v string) *CfEmploymentRecordResp {
+	s.EmployeeStatus = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetEndDate(v string) *CfEmploymentRecordResp {
+	s.EndDate = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetIsLatestRecord(v bool) *CfEmploymentRecordResp {
+	s.IsLatestRecord = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetJobLevelName(v string) *CfEmploymentRecordResp {
+	s.JobLevelName = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetJobPositionCode(v string) *CfEmploymentRecordResp {
+	s.JobPositionCode = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetJobPositionName(v string) *CfEmploymentRecordResp {
+	s.JobPositionName = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetJobPostCode(v string) *CfEmploymentRecordResp {
+	s.JobPostCode = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetJobPostName(v string) *CfEmploymentRecordResp {
+	s.JobPostName = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetServiceStatus(v string) *CfEmploymentRecordResp {
+	s.ServiceStatus = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetServiceType(v string) *CfEmploymentRecordResp {
+	s.ServiceType = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetStartDate(v string) *CfEmploymentRecordResp {
+	s.StartDate = &v
+	return s
+}
+
+func (s *CfEmploymentRecordResp) SetWorkNumbers(v string) *CfEmploymentRecordResp {
+	s.WorkNumbers = &v
+	return s
+}
+
+type CfJobLevelResp struct {
+	// 级别
+	Level *int64 `json:"level,omitempty" xml:"level,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 生效日期
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 失效日期
+	StopDate *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
+}
+
+func (s CfJobLevelResp) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CfJobLevelResp) GoString() string {
+	return s.String()
+}
+
+func (s *CfJobLevelResp) SetLevel(v int64) *CfJobLevelResp {
+	s.Level = &v
+	return s
+}
+
+func (s *CfJobLevelResp) SetName(v string) *CfJobLevelResp {
+	s.Name = &v
+	return s
+}
+
+func (s *CfJobLevelResp) SetStartDate(v string) *CfJobLevelResp {
+	s.StartDate = &v
+	return s
+}
+
+func (s *CfJobLevelResp) SetStopDate(v string) *CfJobLevelResp {
+	s.StopDate = &v
+	return s
+}
+
+type CfJobPositionResp struct {
+	// 职位编码
+	JobPositionCode *string `json:"jobPositionCode,omitempty" xml:"jobPositionCode,omitempty"`
+	// 职位名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s CfJobPositionResp) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CfJobPositionResp) GoString() string {
+	return s.String()
+}
+
+func (s *CfJobPositionResp) SetJobPositionCode(v string) *CfJobPositionResp {
+	s.JobPositionCode = &v
+	return s
+}
+
+func (s *CfJobPositionResp) SetName(v string) *CfJobPositionResp {
+	s.Name = &v
+	return s
+}
+
+type CfJobPostResp struct {
+	// 职务编码
+	JobPostCode *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
+	// 职务名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s CfJobPostResp) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CfJobPostResp) GoString() string {
+	return s.String()
+}
+
+func (s *CfJobPostResp) SetJobPostCode(v string) *CfJobPostResp {
+	s.JobPostCode = &v
+	return s
+}
+
+func (s *CfJobPostResp) SetName(v string) *CfJobPostResp {
+	s.Name = &v
+	return s
+}
+
+type CfOrgResp struct {
+	// 部门编码
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 部门名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 级别
+	Level *int64 `json:"level,omitempty" xml:"level,omitempty"`
+	// 部门编码路径
+	OrganizationCodePath *string `json:"organizationCodePath,omitempty" xml:"organizationCodePath,omitempty"`
+	// 部门路径
+	OrganizationPath *string `json:"organizationPath,omitempty" xml:"organizationPath,omitempty"`
+	// 父级部门编码
+	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+}
+
+func (s CfOrgResp) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CfOrgResp) GoString() string {
+	return s.String()
+}
+
+func (s *CfOrgResp) SetDeptCode(v string) *CfOrgResp {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *CfOrgResp) SetDeptName(v string) *CfOrgResp {
+	s.DeptName = &v
+	return s
+}
+
+func (s *CfOrgResp) SetLevel(v int64) *CfOrgResp {
+	s.Level = &v
+	return s
+}
+
+func (s *CfOrgResp) SetOrganizationCodePath(v string) *CfOrgResp {
+	s.OrganizationCodePath = &v
+	return s
+}
+
+func (s *CfOrgResp) SetOrganizationPath(v string) *CfOrgResp {
+	s.OrganizationPath = &v
+	return s
+}
+
+func (s *CfOrgResp) SetParentDeptCode(v string) *CfOrgResp {
+	s.ParentDeptCode = &v
+	return s
+}
+
+type CfStaffResp struct {
+	// 部门编码
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 部门名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 手机号
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 花名
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 工号
+	WorkNumbers *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
+}
+
+func (s CfStaffResp) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CfStaffResp) GoString() string {
+	return s.String()
+}
+
+func (s *CfStaffResp) SetDeptCode(v string) *CfStaffResp {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *CfStaffResp) SetDeptName(v string) *CfStaffResp {
+	s.DeptName = &v
+	return s
+}
+
+func (s *CfStaffResp) SetEmail(v string) *CfStaffResp {
+	s.Email = &v
+	return s
+}
+
+func (s *CfStaffResp) SetMobile(v string) *CfStaffResp {
+	s.Mobile = &v
+	return s
+}
+
+func (s *CfStaffResp) SetName(v string) *CfStaffResp {
+	s.Name = &v
+	return s
+}
+
+func (s *CfStaffResp) SetNickName(v string) *CfStaffResp {
+	s.NickName = &v
+	return s
+}
+
+func (s *CfStaffResp) SetWorkNumbers(v string) *CfStaffResp {
+	s.WorkNumbers = &v
+	return s
+}
+
 type OpenAnalyzeDataDTO struct {
 	// 部门总人数
 	DeptCount *int32 `json:"deptCount,omitempty" xml:"deptCount,omitempty"`
@@ -421,6 +732,219 @@ func (s *TitleMention) SetUser(v *OpenUserDTO) *TitleMention {
 	return s
 }
 
+type GetAllJobLevelHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAllJobLevelHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllJobLevelHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllJobLevelHeaders) SetCommonHeaders(v map[string]*string) *GetAllJobLevelHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAllJobLevelHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllJobLevelHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAllJobLevelResponseBody struct {
+	// 返回数据
+	Content []*CfJobLevelResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetAllJobLevelResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllJobLevelResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllJobLevelResponseBody) SetContent(v []*CfJobLevelResp) *GetAllJobLevelResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetAllJobLevelResponseBody) SetRequestId(v string) *GetAllJobLevelResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetAllJobLevelResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAllJobLevelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAllJobLevelResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllJobLevelResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllJobLevelResponse) SetHeaders(v map[string]*string) *GetAllJobLevelResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAllJobLevelResponse) SetBody(v *GetAllJobLevelResponseBody) *GetAllJobLevelResponse {
+	s.Body = v
+	return s
+}
+
+type GetAllJobPositionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAllJobPositionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllJobPositionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllJobPositionHeaders) SetCommonHeaders(v map[string]*string) *GetAllJobPositionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAllJobPositionHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllJobPositionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAllJobPositionResponseBody struct {
+	// 职位列表
+	Content []*CfJobPositionResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetAllJobPositionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllJobPositionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllJobPositionResponseBody) SetContent(v []*CfJobPositionResp) *GetAllJobPositionResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetAllJobPositionResponseBody) SetRequestId(v string) *GetAllJobPositionResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetAllJobPositionResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAllJobPositionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAllJobPositionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllJobPositionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllJobPositionResponse) SetHeaders(v map[string]*string) *GetAllJobPositionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAllJobPositionResponse) SetBody(v *GetAllJobPositionResponseBody) *GetAllJobPositionResponse {
+	s.Body = v
+	return s
+}
+
+type GetAllJobPostHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAllJobPostHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllJobPostHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllJobPostHeaders) SetCommonHeaders(v map[string]*string) *GetAllJobPostHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAllJobPostHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllJobPostHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAllJobPostResponseBody struct {
+	// 返回数据
+	Content []*CfJobPostResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetAllJobPostResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllJobPostResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllJobPostResponseBody) SetContent(v []*CfJobPostResp) *GetAllJobPostResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetAllJobPostResponseBody) SetRequestId(v string) *GetAllJobPostResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetAllJobPostResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAllJobPostResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAllJobPostResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllJobPostResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllJobPostResponse) SetHeaders(v map[string]*string) *GetAllJobPostResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAllJobPostResponse) SetBody(v *GetAllJobPostResponseBody) *GetAllJobPostResponse {
+	s.Body = v
+	return s
+}
+
 type GetAnalyzeDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -518,6 +1042,95 @@ func (s *GetAnalyzeDataResponse) SetHeaders(v map[string]*string) *GetAnalyzeDat
 }
 
 func (s *GetAnalyzeDataResponse) SetBody(v *GetAnalyzeDataResponseBody) *GetAnalyzeDataResponse {
+	s.Body = v
+	return s
+}
+
+type GetChildOrgListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetChildOrgListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetChildOrgListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetChildOrgListHeaders) SetCommonHeaders(v map[string]*string) *GetChildOrgListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetChildOrgListHeaders) SetXAcsDingtalkAccessToken(v string) *GetChildOrgListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetChildOrgListRequest struct {
+	// 部门编码
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+}
+
+func (s GetChildOrgListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetChildOrgListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetChildOrgListRequest) SetDeptCode(v string) *GetChildOrgListRequest {
+	s.DeptCode = &v
+	return s
+}
+
+type GetChildOrgListResponseBody struct {
+	// 返回内容
+	Content []*CfOrgResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetChildOrgListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetChildOrgListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetChildOrgListResponseBody) SetContent(v []*CfOrgResp) *GetChildOrgListResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetChildOrgListResponseBody) SetRequestId(v string) *GetChildOrgListResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetChildOrgListResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetChildOrgListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetChildOrgListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetChildOrgListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetChildOrgListResponse) SetHeaders(v map[string]*string) *GetChildOrgListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetChildOrgListResponse) SetBody(v *GetChildOrgListResponseBody) *GetChildOrgListResponse {
 	s.Body = v
 	return s
 }
@@ -632,6 +1245,885 @@ func (s *GetEmployeeInfoByWorkNoResponse) SetHeaders(v map[string]*string) *GetE
 }
 
 func (s *GetEmployeeInfoByWorkNoResponse) SetBody(v *GetEmployeeInfoByWorkNoResponseBody) *GetEmployeeInfoByWorkNoResponse {
+	s.Body = v
+	return s
+}
+
+type GetEmploymentRecordByWorkNoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetEmploymentRecordByWorkNoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmploymentRecordByWorkNoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmploymentRecordByWorkNoHeaders) SetCommonHeaders(v map[string]*string) *GetEmploymentRecordByWorkNoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetEmploymentRecordByWorkNoHeaders) SetXAcsDingtalkAccessToken(v string) *GetEmploymentRecordByWorkNoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetEmploymentRecordByWorkNoResponseBody struct {
+	// 任职记录
+	Content []*CfEmploymentRecordResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetEmploymentRecordByWorkNoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmploymentRecordByWorkNoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmploymentRecordByWorkNoResponseBody) SetContent(v []*CfEmploymentRecordResp) *GetEmploymentRecordByWorkNoResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetEmploymentRecordByWorkNoResponseBody) SetRequestId(v string) *GetEmploymentRecordByWorkNoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetEmploymentRecordByWorkNoResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetEmploymentRecordByWorkNoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetEmploymentRecordByWorkNoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmploymentRecordByWorkNoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmploymentRecordByWorkNoResponse) SetHeaders(v map[string]*string) *GetEmploymentRecordByWorkNoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetEmploymentRecordByWorkNoResponse) SetBody(v *GetEmploymentRecordByWorkNoResponseBody) *GetEmploymentRecordByWorkNoResponse {
+	s.Body = v
+	return s
+}
+
+type GetJobPositionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetJobPositionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPositionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPositionHeaders) SetCommonHeaders(v map[string]*string) *GetJobPositionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetJobPositionHeaders) SetXAcsDingtalkAccessToken(v string) *GetJobPositionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetJobPositionRequest struct {
+	// 职位编码
+	JobPositionCode *string `json:"jobPositionCode,omitempty" xml:"jobPositionCode,omitempty"`
+}
+
+func (s GetJobPositionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPositionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPositionRequest) SetJobPositionCode(v string) *GetJobPositionRequest {
+	s.JobPositionCode = &v
+	return s
+}
+
+type GetJobPositionResponseBody struct {
+	// 职位详情
+	Content *GetJobPositionResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetJobPositionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPositionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPositionResponseBody) SetContent(v *GetJobPositionResponseBodyContent) *GetJobPositionResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetJobPositionResponseBody) SetRequestId(v string) *GetJobPositionResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetJobPositionResponseBodyContent struct {
+	// 职责描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 创建时间
+	EstablishDate *string `json:"establishDate,omitempty" xml:"establishDate,omitempty"`
+	// 职位编码
+	JobCode *string `json:"jobCode,omitempty" xml:"jobCode,omitempty"`
+	// 任职要求
+	JobRequirements *string `json:"jobRequirements,omitempty" xml:"jobRequirements,omitempty"`
+	// 职位名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 生效时间
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 失效时间
+	StopDate *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
+}
+
+func (s GetJobPositionResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPositionResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPositionResponseBodyContent) SetDescription(v string) *GetJobPositionResponseBodyContent {
+	s.Description = &v
+	return s
+}
+
+func (s *GetJobPositionResponseBodyContent) SetEstablishDate(v string) *GetJobPositionResponseBodyContent {
+	s.EstablishDate = &v
+	return s
+}
+
+func (s *GetJobPositionResponseBodyContent) SetJobCode(v string) *GetJobPositionResponseBodyContent {
+	s.JobCode = &v
+	return s
+}
+
+func (s *GetJobPositionResponseBodyContent) SetJobRequirements(v string) *GetJobPositionResponseBodyContent {
+	s.JobRequirements = &v
+	return s
+}
+
+func (s *GetJobPositionResponseBodyContent) SetName(v string) *GetJobPositionResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *GetJobPositionResponseBodyContent) SetStartDate(v string) *GetJobPositionResponseBodyContent {
+	s.StartDate = &v
+	return s
+}
+
+func (s *GetJobPositionResponseBodyContent) SetStopDate(v string) *GetJobPositionResponseBodyContent {
+	s.StopDate = &v
+	return s
+}
+
+type GetJobPositionResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetJobPositionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetJobPositionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPositionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPositionResponse) SetHeaders(v map[string]*string) *GetJobPositionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetJobPositionResponse) SetBody(v *GetJobPositionResponseBody) *GetJobPositionResponse {
+	s.Body = v
+	return s
+}
+
+type GetJobPostHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetJobPostHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPostHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPostHeaders) SetCommonHeaders(v map[string]*string) *GetJobPostHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetJobPostHeaders) SetXAcsDingtalkAccessToken(v string) *GetJobPostHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetJobPostRequest struct {
+	// 职务编码
+	JobPostCode *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
+}
+
+func (s GetJobPostRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPostRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPostRequest) SetJobPostCode(v string) *GetJobPostRequest {
+	s.JobPostCode = &v
+	return s
+}
+
+type GetJobPostResponseBody struct {
+	// 返回数据
+	Content *GetJobPostResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetJobPostResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPostResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPostResponseBody) SetContent(v *GetJobPostResponseBodyContent) *GetJobPostResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetJobPostResponseBody) SetRequestId(v string) *GetJobPostResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetJobPostResponseBodyContent struct {
+	// 职务编码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 设立日期
+	EstablishDate *string `json:"establishDate,omitempty" xml:"establishDate,omitempty"`
+	// 职务名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 生效日期
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 失效日期
+	StopDate *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
+}
+
+func (s GetJobPostResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPostResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPostResponseBodyContent) SetCode(v string) *GetJobPostResponseBodyContent {
+	s.Code = &v
+	return s
+}
+
+func (s *GetJobPostResponseBodyContent) SetEstablishDate(v string) *GetJobPostResponseBodyContent {
+	s.EstablishDate = &v
+	return s
+}
+
+func (s *GetJobPostResponseBodyContent) SetName(v string) *GetJobPostResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *GetJobPostResponseBodyContent) SetStartDate(v string) *GetJobPostResponseBodyContent {
+	s.StartDate = &v
+	return s
+}
+
+func (s *GetJobPostResponseBodyContent) SetStopDate(v string) *GetJobPostResponseBodyContent {
+	s.StopDate = &v
+	return s
+}
+
+type GetJobPostResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetJobPostResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetJobPostResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobPostResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobPostResponse) SetHeaders(v map[string]*string) *GetJobPostResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetJobPostResponse) SetBody(v *GetJobPostResponseBody) *GetJobPostResponse {
+	s.Body = v
+	return s
+}
+
+type GetOrgInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOrgInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgInfoHeaders) SetCommonHeaders(v map[string]*string) *GetOrgInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOrgInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetOrgInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOrgInfoRequest struct {
+	// 部门编码
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+}
+
+func (s GetOrgInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgInfoRequest) SetDeptCode(v string) *GetOrgInfoRequest {
+	s.DeptCode = &v
+	return s
+}
+
+type GetOrgInfoResponseBody struct {
+	// 部门详情
+	Content *GetOrgInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetOrgInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgInfoResponseBody) SetContent(v *GetOrgInfoResponseBodyContent) *GetOrgInfoResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetOrgInfoResponseBody) SetRequestId(v string) *GetOrgInfoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetOrgInfoResponseBodyContent struct {
+	// 部门编码
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 部门名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 部门人数
+	DeptNum *string `json:"deptNum,omitempty" xml:"deptNum,omitempty"`
+	// 部门层级
+	Level *string `json:"level,omitempty" xml:"level,omitempty"`
+	// 部门编码路径
+	OrganizationCodePath *string `json:"organizationCodePath,omitempty" xml:"organizationCodePath,omitempty"`
+	// 部门路径
+	OrganizationPath *string `json:"organizationPath,omitempty" xml:"organizationPath,omitempty"`
+	// 父级部门编码
+	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+	// 部门简称
+	ShortName *string `json:"shortName,omitempty" xml:"shortName,omitempty"`
+	// 生效日期
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 失效日期
+	StopDate *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
+}
+
+func (s GetOrgInfoResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgInfoResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetDeptCode(v string) *GetOrgInfoResponseBodyContent {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetDeptName(v string) *GetOrgInfoResponseBodyContent {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetDeptNum(v string) *GetOrgInfoResponseBodyContent {
+	s.DeptNum = &v
+	return s
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetLevel(v string) *GetOrgInfoResponseBodyContent {
+	s.Level = &v
+	return s
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetOrganizationCodePath(v string) *GetOrgInfoResponseBodyContent {
+	s.OrganizationCodePath = &v
+	return s
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetOrganizationPath(v string) *GetOrgInfoResponseBodyContent {
+	s.OrganizationPath = &v
+	return s
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetParentDeptCode(v string) *GetOrgInfoResponseBodyContent {
+	s.ParentDeptCode = &v
+	return s
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetShortName(v string) *GetOrgInfoResponseBodyContent {
+	s.ShortName = &v
+	return s
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetStartDate(v string) *GetOrgInfoResponseBodyContent {
+	s.StartDate = &v
+	return s
+}
+
+func (s *GetOrgInfoResponseBodyContent) SetStopDate(v string) *GetOrgInfoResponseBodyContent {
+	s.StopDate = &v
+	return s
+}
+
+type GetOrgInfoResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOrgInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOrgInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgInfoResponse) SetHeaders(v map[string]*string) *GetOrgInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOrgInfoResponse) SetBody(v *GetOrgInfoResponseBody) *GetOrgInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetStaffInfoByWorkNoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetStaffInfoByWorkNoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffInfoByWorkNoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffInfoByWorkNoHeaders) SetCommonHeaders(v map[string]*string) *GetStaffInfoByWorkNoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoHeaders) SetXAcsDingtalkAccessToken(v string) *GetStaffInfoByWorkNoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetStaffInfoByWorkNoRequest struct {
+	// 员工工号
+	WorkNumbers *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
+}
+
+func (s GetStaffInfoByWorkNoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffInfoByWorkNoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffInfoByWorkNoRequest) SetWorkNumbers(v string) *GetStaffInfoByWorkNoRequest {
+	s.WorkNumbers = &v
+	return s
+}
+
+type GetStaffInfoByWorkNoResponseBody struct {
+	// 员工详情
+	Content *GetStaffInfoByWorkNoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetStaffInfoByWorkNoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffInfoByWorkNoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffInfoByWorkNoResponseBody) SetContent(v *GetStaffInfoByWorkNoResponseBodyContent) *GetStaffInfoByWorkNoResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBody) SetRequestId(v string) *GetStaffInfoByWorkNoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetStaffInfoByWorkNoResponseBodyContent struct {
+	// 部门编码
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 部门名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 员工类型
+	EmployType *string `json:"employType,omitempty" xml:"employType,omitempty"`
+	// 员工状态
+	EmployeeStatus *string `json:"employeeStatus,omitempty" xml:"employeeStatus,omitempty"`
+	// 职级
+	JobLevelName *string `json:"jobLevelName,omitempty" xml:"jobLevelName,omitempty"`
+	// 职位编码
+	JobPositionCode *string `json:"jobPositionCode,omitempty" xml:"jobPositionCode,omitempty"`
+	// 职位名称
+	JobPositionName *string `json:"jobPositionName,omitempty" xml:"jobPositionName,omitempty"`
+	// 职务编码
+	JobPostCode *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
+	// 职务名称
+	JobPostName *string `json:"jobPostName,omitempty" xml:"jobPostName,omitempty"`
+	// 手机号
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 花名
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 工号
+	WorkNumbers *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
+}
+
+func (s GetStaffInfoByWorkNoResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffInfoByWorkNoResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetDeptCode(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetDeptName(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetEmail(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.Email = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetEmployType(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.EmployType = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetEmployeeStatus(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.EmployeeStatus = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetJobLevelName(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.JobLevelName = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetJobPositionCode(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.JobPositionCode = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetJobPositionName(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.JobPositionName = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetJobPostCode(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.JobPostCode = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetJobPostName(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.JobPostName = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetMobile(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.Mobile = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetName(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetNickName(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.NickName = &v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponseBodyContent) SetWorkNumbers(v string) *GetStaffInfoByWorkNoResponseBodyContent {
+	s.WorkNumbers = &v
+	return s
+}
+
+type GetStaffInfoByWorkNoResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetStaffInfoByWorkNoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetStaffInfoByWorkNoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffInfoByWorkNoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffInfoByWorkNoResponse) SetHeaders(v map[string]*string) *GetStaffInfoByWorkNoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponse) SetBody(v *GetStaffInfoByWorkNoResponseBody) *GetStaffInfoByWorkNoResponse {
+	s.Body = v
+	return s
+}
+
+type GetStaffPageQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetStaffPageQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffPageQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffPageQueryHeaders) SetCommonHeaders(v map[string]*string) *GetStaffPageQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetStaffPageQueryHeaders) SetXAcsDingtalkAccessToken(v string) *GetStaffPageQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetStaffPageQueryRequest struct {
+	// 部门编码
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 员工名称,模糊查询
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 当前页码
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 工号
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s GetStaffPageQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffPageQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffPageQueryRequest) SetDeptCode(v string) *GetStaffPageQueryRequest {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *GetStaffPageQueryRequest) SetName(v string) *GetStaffPageQueryRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *GetStaffPageQueryRequest) SetPageNumber(v int32) *GetStaffPageQueryRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetStaffPageQueryRequest) SetPageSize(v int32) *GetStaffPageQueryRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetStaffPageQueryRequest) SetWorkNo(v string) *GetStaffPageQueryRequest {
+	s.WorkNo = &v
+	return s
+}
+
+type GetStaffPageQueryResponseBody struct {
+	// 查询数据返回
+	Content *GetStaffPageQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetStaffPageQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffPageQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffPageQueryResponseBody) SetContent(v *GetStaffPageQueryResponseBodyContent) *GetStaffPageQueryResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetStaffPageQueryResponseBody) SetRequestId(v string) *GetStaffPageQueryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GetStaffPageQueryResponseBodyContent struct {
+	// 员工列表
+	Data []*CfStaffResp `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 当前页码
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetStaffPageQueryResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffPageQueryResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffPageQueryResponseBodyContent) SetData(v []*CfStaffResp) *GetStaffPageQueryResponseBodyContent {
+	s.Data = v
+	return s
+}
+
+func (s *GetStaffPageQueryResponseBodyContent) SetPageNumber(v int32) *GetStaffPageQueryResponseBodyContent {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetStaffPageQueryResponseBodyContent) SetPageSize(v int32) *GetStaffPageQueryResponseBodyContent {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetStaffPageQueryResponseBodyContent) SetTotalCount(v int64) *GetStaffPageQueryResponseBodyContent {
+	s.TotalCount = &v
+	return s
+}
+
+type GetStaffPageQueryResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetStaffPageQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetStaffPageQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStaffPageQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetStaffPageQueryResponse) SetHeaders(v map[string]*string) *GetStaffPageQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetStaffPageQueryResponse) SetBody(v *GetStaffPageQueryResponseBody) *GetStaffPageQueryResponse {
 	s.Body = v
 	return s
 }
@@ -1393,6 +2885,108 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) GetAllJobLevel() (_result *GetAllJobLevelResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAllJobLevelHeaders{}
+	_result = &GetAllJobLevelResponse{}
+	_body, _err := client.GetAllJobLevelWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAllJobLevelWithOptions(headers *GetAllJobLevelHeaders, runtime *util.RuntimeOptions) (_result *GetAllJobLevelResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetAllJobLevelResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAllJobLevel"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobLevels"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAllJobPosition() (_result *GetAllJobPositionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAllJobPositionHeaders{}
+	_result = &GetAllJobPositionResponse{}
+	_body, _err := client.GetAllJobPositionWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAllJobPositionWithOptions(headers *GetAllJobPositionHeaders, runtime *util.RuntimeOptions) (_result *GetAllJobPositionResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetAllJobPositionResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAllJobPosition"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobPositions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAllJobPost() (_result *GetAllJobPostResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAllJobPostHeaders{}
+	_result = &GetAllJobPostResponse{}
+	_body, _err := client.GetAllJobPostWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAllJobPostWithOptions(headers *GetAllJobPostHeaders, runtime *util.RuntimeOptions) (_result *GetAllJobPostResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetAllJobPostResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAllJobPost"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobPosts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetAnalyzeData(request *GetAnalyzeDataRequest) (_result *GetAnalyzeDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAnalyzeDataHeaders{}
@@ -1443,6 +3037,50 @@ func (client *Client) GetAnalyzeDataWithOptions(request *GetAnalyzeDataRequest, 
 	return _result, _err
 }
 
+func (client *Client) GetChildOrgList(request *GetChildOrgListRequest) (_result *GetChildOrgListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetChildOrgListHeaders{}
+	_result = &GetChildOrgListResponse{}
+	_body, _err := client.GetChildOrgListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetChildOrgListWithOptions(request *GetChildOrgListRequest, headers *GetChildOrgListHeaders, runtime *util.RuntimeOptions) (_result *GetChildOrgListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptCode)) {
+		query["deptCode"] = request.DeptCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetChildOrgListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetChildOrgList"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/organizations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetEmployeeInfoByWorkNo(request *GetEmployeeInfoByWorkNoRequest) (_result *GetEmployeeInfoByWorkNoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetEmployeeInfoByWorkNoHeaders{}
@@ -1480,6 +3118,277 @@ func (client *Client) GetEmployeeInfoByWorkNoWithOptions(request *GetEmployeeInf
 	}
 	_result = &GetEmployeeInfoByWorkNoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetEmployeeInfoByWorkNo"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/workNumbers/employees"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetEmploymentRecordByWorkNo(workNumbers *string) (_result *GetEmploymentRecordByWorkNoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetEmploymentRecordByWorkNoHeaders{}
+	_result = &GetEmploymentRecordByWorkNoResponse{}
+	_body, _err := client.GetEmploymentRecordByWorkNoWithOptions(workNumbers, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetEmploymentRecordByWorkNoWithOptions(workNumbers *string, headers *GetEmploymentRecordByWorkNoHeaders, runtime *util.RuntimeOptions) (_result *GetEmploymentRecordByWorkNoResponse, _err error) {
+	workNumbers = openapiutil.GetEncodeParam(workNumbers)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetEmploymentRecordByWorkNoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetEmploymentRecordByWorkNo"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/users/workNumber/"+tea.StringValue(workNumbers)+"employmentRecords"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetJobPosition(request *GetJobPositionRequest) (_result *GetJobPositionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetJobPositionHeaders{}
+	_result = &GetJobPositionResponse{}
+	_body, _err := client.GetJobPositionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetJobPositionWithOptions(request *GetJobPositionRequest, headers *GetJobPositionHeaders, runtime *util.RuntimeOptions) (_result *GetJobPositionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.JobPositionCode)) {
+		query["jobPositionCode"] = request.JobPositionCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetJobPositionResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetJobPosition"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobPositions/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetJobPost(request *GetJobPostRequest) (_result *GetJobPostResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetJobPostHeaders{}
+	_result = &GetJobPostResponse{}
+	_body, _err := client.GetJobPostWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetJobPostWithOptions(request *GetJobPostRequest, headers *GetJobPostHeaders, runtime *util.RuntimeOptions) (_result *GetJobPostResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.JobPostCode)) {
+		query["jobPostCode"] = request.JobPostCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetJobPostResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetJobPost"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobPosts/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOrgInfo(request *GetOrgInfoRequest) (_result *GetOrgInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOrgInfoHeaders{}
+	_result = &GetOrgInfoResponse{}
+	_body, _err := client.GetOrgInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOrgInfoWithOptions(request *GetOrgInfoRequest, headers *GetOrgInfoHeaders, runtime *util.RuntimeOptions) (_result *GetOrgInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptCode)) {
+		query["deptCode"] = request.DeptCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetOrgInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOrgInfo"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/organizations/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetStaffInfoByWorkNo(request *GetStaffInfoByWorkNoRequest) (_result *GetStaffInfoByWorkNoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetStaffInfoByWorkNoHeaders{}
+	_result = &GetStaffInfoByWorkNoResponse{}
+	_body, _err := client.GetStaffInfoByWorkNoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetStaffInfoByWorkNoWithOptions(request *GetStaffInfoByWorkNoRequest, headers *GetStaffInfoByWorkNoHeaders, runtime *util.RuntimeOptions) (_result *GetStaffInfoByWorkNoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.WorkNumbers)) {
+		query["workNumbers"] = request.WorkNumbers
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetStaffInfoByWorkNoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetStaffInfoByWorkNo"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/users"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetStaffPageQuery(request *GetStaffPageQueryRequest) (_result *GetStaffPageQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetStaffPageQueryHeaders{}
+	_result = &GetStaffPageQueryResponse{}
+	_body, _err := client.GetStaffPageQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetStaffPageQueryWithOptions(request *GetStaffPageQueryRequest, headers *GetStaffPageQueryHeaders, runtime *util.RuntimeOptions) (_result *GetStaffPageQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptCode)) {
+		query["deptCode"] = request.DeptCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkNo)) {
+		query["workNo"] = request.WorkNo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetStaffPageQueryResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetStaffPageQuery"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/chengfeng/users/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

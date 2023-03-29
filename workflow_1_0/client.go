@@ -119,6 +119,8 @@ type FormComponentProps struct {
 	Options []*SelectOption `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
 	// 输入提示
 	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 小数点位数
+	Precision *int32 `json:"precision,omitempty" xml:"precision,omitempty"`
 	// 字段是否可打印，1打印，0不打印，默认打印
 	Print *string `json:"print,omitempty" xml:"print,omitempty"`
 	// 是否必填
@@ -265,6 +267,11 @@ func (s *FormComponentProps) SetOptions(v []*SelectOption) *FormComponentProps {
 
 func (s *FormComponentProps) SetPlaceholder(v string) *FormComponentProps {
 	s.Placeholder = &v
+	return s
+}
+
+func (s *FormComponentProps) SetPrecision(v int32) *FormComponentProps {
+	s.Precision = &v
 	return s
 }
 
@@ -7279,6 +7286,8 @@ func (s *RedirectWorkflowTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Redi
 type RedirectWorkflowTaskRequest struct {
 	// 操作节点名
 	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// 文件。
+	File *RedirectWorkflowTaskRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
 	// 操作人的用户ID，需要跟任务的当前执行人保持一致，否则无法通过校验
 	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
 	// 转交备注信息
@@ -7302,6 +7311,11 @@ func (s *RedirectWorkflowTaskRequest) SetActionName(v string) *RedirectWorkflowT
 	return s
 }
 
+func (s *RedirectWorkflowTaskRequest) SetFile(v *RedirectWorkflowTaskRequestFile) *RedirectWorkflowTaskRequest {
+	s.File = v
+	return s
+}
+
 func (s *RedirectWorkflowTaskRequest) SetOperateUserId(v string) *RedirectWorkflowTaskRequest {
 	s.OperateUserId = &v
 	return s
@@ -7319,6 +7333,77 @@ func (s *RedirectWorkflowTaskRequest) SetTaskId(v int64) *RedirectWorkflowTaskRe
 
 func (s *RedirectWorkflowTaskRequest) SetToUserId(v string) *RedirectWorkflowTaskRequest {
 	s.ToUserId = &v
+	return s
+}
+
+type RedirectWorkflowTaskRequestFile struct {
+	// 附件列表。
+	Attachments []*RedirectWorkflowTaskRequestFileAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// 图片URL地址。
+	Photos []*string `json:"photos,omitempty" xml:"photos,omitempty" type:"Repeated"`
+}
+
+func (s RedirectWorkflowTaskRequestFile) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RedirectWorkflowTaskRequestFile) GoString() string {
+	return s.String()
+}
+
+func (s *RedirectWorkflowTaskRequestFile) SetAttachments(v []*RedirectWorkflowTaskRequestFileAttachments) *RedirectWorkflowTaskRequestFile {
+	s.Attachments = v
+	return s
+}
+
+func (s *RedirectWorkflowTaskRequestFile) SetPhotos(v []*string) *RedirectWorkflowTaskRequestFile {
+	s.Photos = v
+	return s
+}
+
+type RedirectWorkflowTaskRequestFileAttachments struct {
+	// 文件ID。
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// 文件名称。
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 文件大小。
+	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// 文件类型。
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 钉盘空间ID。
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s RedirectWorkflowTaskRequestFileAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RedirectWorkflowTaskRequestFileAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *RedirectWorkflowTaskRequestFileAttachments) SetFileId(v string) *RedirectWorkflowTaskRequestFileAttachments {
+	s.FileId = &v
+	return s
+}
+
+func (s *RedirectWorkflowTaskRequestFileAttachments) SetFileName(v string) *RedirectWorkflowTaskRequestFileAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *RedirectWorkflowTaskRequestFileAttachments) SetFileSize(v string) *RedirectWorkflowTaskRequestFileAttachments {
+	s.FileSize = &v
+	return s
+}
+
+func (s *RedirectWorkflowTaskRequestFileAttachments) SetFileType(v string) *RedirectWorkflowTaskRequestFileAttachments {
+	s.FileType = &v
+	return s
+}
+
+func (s *RedirectWorkflowTaskRequestFileAttachments) SetSpaceId(v string) *RedirectWorkflowTaskRequestFileAttachments {
+	s.SpaceId = &v
 	return s
 }
 
@@ -7792,6 +7877,7 @@ type SaveProcessRequestTemplateConfig struct {
 	CreateInstanceMobileUrl *string `json:"createInstanceMobileUrl,omitempty" xml:"createInstanceMobileUrl,omitempty"`
 	// 表单创建PC端地址
 	CreateInstancePcUrl *string `json:"createInstancePcUrl,omitempty" xml:"createInstancePcUrl,omitempty"`
+	DisableSendCard     *bool   `json:"disableSendCard,omitempty" xml:"disableSendCard,omitempty"`
 	// 是否为隐藏模板
 	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
 	// 模板编辑地址
@@ -7813,6 +7899,11 @@ func (s *SaveProcessRequestTemplateConfig) SetCreateInstanceMobileUrl(v string) 
 
 func (s *SaveProcessRequestTemplateConfig) SetCreateInstancePcUrl(v string) *SaveProcessRequestTemplateConfig {
 	s.CreateInstancePcUrl = &v
+	return s
+}
+
+func (s *SaveProcessRequestTemplateConfig) SetDisableSendCard(v bool) *SaveProcessRequestTemplateConfig {
+	s.DisableSendCard = &v
 	return s
 }
 
@@ -10340,6 +10431,10 @@ func (client *Client) RedirectWorkflowTaskWithOptions(request *RedirectWorkflowT
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ActionName)) {
 		body["actionName"] = request.ActionName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.File)) {
+		body["file"] = request.File
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {

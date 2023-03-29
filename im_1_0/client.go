@@ -313,6 +313,193 @@ func (s *AutoOpenDingTalkConnectResponse) SetBody(v *AutoOpenDingTalkConnectResp
 	return s
 }
 
+type BatchQueryFamilySchoolMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchQueryFamilySchoolMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryFamilySchoolMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryFamilySchoolMessageHeaders) SetCommonHeaders(v map[string]*string) *BatchQueryFamilySchoolMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQueryFamilySchoolMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchQueryFamilySchoolMessageRequest struct {
+	// 接收卡片的群的openConversationId
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OpenMessageIds     []*string `json:"openMessageIds,omitempty" xml:"openMessageIds,omitempty" type:"Repeated"`
+	// 用户唯一标识
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s BatchQueryFamilySchoolMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryFamilySchoolMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryFamilySchoolMessageRequest) SetOpenConversationId(v string) *BatchQueryFamilySchoolMessageRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageRequest) SetOpenMessageIds(v []*string) *BatchQueryFamilySchoolMessageRequest {
+	s.OpenMessageIds = v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageRequest) SetUnionId(v string) *BatchQueryFamilySchoolMessageRequest {
+	s.UnionId = &v
+	return s
+}
+
+type BatchQueryFamilySchoolMessageResponseBody struct {
+	// 消息数据
+	Messages []*BatchQueryFamilySchoolMessageResponseBodyMessages `json:"messages,omitempty" xml:"messages,omitempty" type:"Repeated"`
+}
+
+func (s BatchQueryFamilySchoolMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryFamilySchoolMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBody) SetMessages(v []*BatchQueryFamilySchoolMessageResponseBodyMessages) *BatchQueryFamilySchoolMessageResponseBody {
+	s.Messages = v
+	return s
+}
+
+type BatchQueryFamilySchoolMessageResponseBodyMessages struct {
+	// 消息类型，2-图片、202视频、3100富文本消息
+	ContentType *int32 `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// 消息的创建时间
+	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	// media文件对象列表
+	MediaModels []*BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels `json:"mediaModels,omitempty" xml:"mediaModels,omitempty" type:"Repeated"`
+	// 消息的唯一标识
+	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+}
+
+func (s BatchQueryFamilySchoolMessageResponseBodyMessages) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryFamilySchoolMessageResponseBodyMessages) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessages) SetContentType(v int32) *BatchQueryFamilySchoolMessageResponseBodyMessages {
+	s.ContentType = &v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessages) SetCreateAt(v int64) *BatchQueryFamilySchoolMessageResponseBodyMessages {
+	s.CreateAt = &v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessages) SetMediaModels(v []*BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) *BatchQueryFamilySchoolMessageResponseBodyMessages {
+	s.MediaModels = v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessages) SetOpenMsgId(v string) *BatchQueryFamilySchoolMessageResponseBodyMessages {
+	s.OpenMsgId = &v
+	return s
+}
+
+type BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels struct {
+	// 消息mediaId文件名称
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 消息mediaId文件类型
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 消息mediaId
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// 消息mediaId文件大小
+	Size *string `json:"size,omitempty" xml:"size,omitempty"`
+	// 消息mediaId对应的下载地址
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 视频文件缩略图mediaId
+	VideoPicMediaId *string `json:"videoPicMediaId,omitempty" xml:"videoPicMediaId,omitempty"`
+}
+
+func (s BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) SetFileName(v string) *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels {
+	s.FileName = &v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) SetFileType(v string) *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels {
+	s.FileType = &v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) SetMediaId(v string) *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels {
+	s.MediaId = &v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) SetSize(v string) *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels {
+	s.Size = &v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) SetUrl(v string) *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels {
+	s.Url = &v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) SetVideoPicMediaId(v string) *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels {
+	s.VideoPicMediaId = &v
+	return s
+}
+
+type BatchQueryFamilySchoolMessageResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchQueryFamilySchoolMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchQueryFamilySchoolMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryFamilySchoolMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryFamilySchoolMessageResponse) SetHeaders(v map[string]*string) *BatchQueryFamilySchoolMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponse) SetBody(v *BatchQueryFamilySchoolMessageResponseBody) *BatchQueryFamilySchoolMessageResponse {
+	s.Body = v
+	return s
+}
+
 type BatchQueryGroupMemberHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -785,6 +972,95 @@ func (s *ChatSubAdminUpdateResponse) SetHeaders(v map[string]*string) *ChatSubAd
 }
 
 func (s *ChatSubAdminUpdateResponse) SetBody(v *ChatSubAdminUpdateResponseBody) *ChatSubAdminUpdateResponse {
+	s.Body = v
+	return s
+}
+
+type CheckUserIsGroupMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CheckUserIsGroupMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckUserIsGroupMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CheckUserIsGroupMemberHeaders) SetCommonHeaders(v map[string]*string) *CheckUserIsGroupMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CheckUserIsGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *CheckUserIsGroupMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CheckUserIsGroupMemberRequest struct {
+	// 会话id。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CheckUserIsGroupMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckUserIsGroupMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CheckUserIsGroupMemberRequest) SetOpenConversationId(v string) *CheckUserIsGroupMemberRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CheckUserIsGroupMemberRequest) SetUserId(v string) *CheckUserIsGroupMemberRequest {
+	s.UserId = &v
+	return s
+}
+
+type CheckUserIsGroupMemberResponseBody struct {
+	// 用户是否为群成员。
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CheckUserIsGroupMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckUserIsGroupMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CheckUserIsGroupMemberResponseBody) SetResult(v bool) *CheckUserIsGroupMemberResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CheckUserIsGroupMemberResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CheckUserIsGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CheckUserIsGroupMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckUserIsGroupMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CheckUserIsGroupMemberResponse) SetHeaders(v map[string]*string) *CheckUserIsGroupMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CheckUserIsGroupMemberResponse) SetBody(v *CheckUserIsGroupMemberResponseBody) *CheckUserIsGroupMemberResponse {
 	s.Body = v
 	return s
 }
@@ -2228,6 +2504,123 @@ func (s *GetFamilySchoolConversationsResponse) SetBody(v *GetFamilySchoolConvers
 	return s
 }
 
+type GetInnerGroupMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInnerGroupMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInnerGroupMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInnerGroupMembersHeaders) SetCommonHeaders(v map[string]*string) *GetInnerGroupMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInnerGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *GetInnerGroupMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInnerGroupMembersRequest struct {
+	// 分页大小。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 会话id。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetInnerGroupMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInnerGroupMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInnerGroupMembersRequest) SetMaxResults(v int32) *GetInnerGroupMembersRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetInnerGroupMembersRequest) SetNextToken(v string) *GetInnerGroupMembersRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetInnerGroupMembersRequest) SetOpenConversationId(v string) *GetInnerGroupMembersRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetInnerGroupMembersRequest) SetUserId(v string) *GetInnerGroupMembersRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetInnerGroupMembersResponseBody struct {
+	// 是否还有更多数据。
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一次请求的游标，若没有更多数据，则此参数为空。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 群成员userId列表。
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetInnerGroupMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInnerGroupMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInnerGroupMembersResponseBody) SetHasMore(v bool) *GetInnerGroupMembersResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetInnerGroupMembersResponseBody) SetNextToken(v string) *GetInnerGroupMembersResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetInnerGroupMembersResponseBody) SetUserIds(v []*string) *GetInnerGroupMembersResponseBody {
+	s.UserIds = v
+	return s
+}
+
+type GetInnerGroupMembersResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInnerGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInnerGroupMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInnerGroupMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInnerGroupMembersResponse) SetHeaders(v map[string]*string) *GetInnerGroupMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInnerGroupMembersResponse) SetBody(v *GetInnerGroupMembersResponseBody) *GetInnerGroupMembersResponse {
+	s.Body = v
+	return s
+}
+
 type GetInterconnectionUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2380,6 +2773,127 @@ func (s *GetInterconnectionUrlResponse) SetBody(v *GetInterconnectionUrlResponse
 	return s
 }
 
+type GetNewestInnerGroupsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetNewestInnerGroupsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNewestInnerGroupsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetNewestInnerGroupsHeaders) SetCommonHeaders(v map[string]*string) *GetNewestInnerGroupsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetNewestInnerGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *GetNewestInnerGroupsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetNewestInnerGroupsRequest struct {
+	// 用户userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetNewestInnerGroupsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNewestInnerGroupsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetNewestInnerGroupsRequest) SetUserId(v string) *GetNewestInnerGroupsRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetNewestInnerGroupsResponseBody struct {
+	// 群列表
+	GroupInfos []*GetNewestInnerGroupsResponseBodyGroupInfos `json:"groupInfos,omitempty" xml:"groupInfos,omitempty" type:"Repeated"`
+}
+
+func (s GetNewestInnerGroupsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNewestInnerGroupsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetNewestInnerGroupsResponseBody) SetGroupInfos(v []*GetNewestInnerGroupsResponseBodyGroupInfos) *GetNewestInnerGroupsResponseBody {
+	s.GroupInfos = v
+	return s
+}
+
+type GetNewestInnerGroupsResponseBodyGroupInfos struct {
+	// 群头像。
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 群成员人数。
+	MemberAmount *string `json:"memberAmount,omitempty" xml:"memberAmount,omitempty"`
+	// 群聊会话id。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群名称。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetNewestInnerGroupsResponseBodyGroupInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNewestInnerGroupsResponseBodyGroupInfos) GoString() string {
+	return s.String()
+}
+
+func (s *GetNewestInnerGroupsResponseBodyGroupInfos) SetIcon(v string) *GetNewestInnerGroupsResponseBodyGroupInfos {
+	s.Icon = &v
+	return s
+}
+
+func (s *GetNewestInnerGroupsResponseBodyGroupInfos) SetMemberAmount(v string) *GetNewestInnerGroupsResponseBodyGroupInfos {
+	s.MemberAmount = &v
+	return s
+}
+
+func (s *GetNewestInnerGroupsResponseBodyGroupInfos) SetOpenConversationId(v string) *GetNewestInnerGroupsResponseBodyGroupInfos {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetNewestInnerGroupsResponseBodyGroupInfos) SetTitle(v string) *GetNewestInnerGroupsResponseBodyGroupInfos {
+	s.Title = &v
+	return s
+}
+
+type GetNewestInnerGroupsResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetNewestInnerGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetNewestInnerGroupsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNewestInnerGroupsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetNewestInnerGroupsResponse) SetHeaders(v map[string]*string) *GetNewestInnerGroupsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetNewestInnerGroupsResponse) SetBody(v *GetNewestInnerGroupsResponseBody) *GetNewestInnerGroupsResponse {
+	s.Body = v
+	return s
+}
+
 type GetSceneGroupInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2437,6 +2951,10 @@ type GetSceneGroupInfoResponseBody struct {
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	// 群主员工id
 	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// 群状态。
+	//  1：正常
+	//  2：已解散
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 	// result
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 	// 场景群模板ID
@@ -2470,6 +2988,11 @@ func (s *GetSceneGroupInfoResponseBody) SetOpenConversationId(v string) *GetScen
 
 func (s *GetSceneGroupInfoResponseBody) SetOwnerUserId(v string) *GetSceneGroupInfoResponseBody {
 	s.OwnerUserId = &v
+	return s
+}
+
+func (s *GetSceneGroupInfoResponseBody) SetStatus(v int32) *GetSceneGroupInfoResponseBody {
+	s.Status = &v
 	return s
 }
 
@@ -5048,6 +5571,141 @@ func (s *RemoveRobotFromConversationResponse) SetHeaders(v map[string]*string) *
 }
 
 func (s *RemoveRobotFromConversationResponse) SetBody(v *RemoveRobotFromConversationResponseBody) *RemoveRobotFromConversationResponse {
+	s.Body = v
+	return s
+}
+
+type SearchInnerGroupsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchInnerGroupsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchInnerGroupsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchInnerGroupsHeaders) SetCommonHeaders(v map[string]*string) *SearchInnerGroupsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchInnerGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchInnerGroupsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchInnerGroupsRequest struct {
+	// 查询最大数量。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 关键词。
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// 用户userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchInnerGroupsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchInnerGroupsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchInnerGroupsRequest) SetMaxResults(v int32) *SearchInnerGroupsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchInnerGroupsRequest) SetSearchKey(v string) *SearchInnerGroupsRequest {
+	s.SearchKey = &v
+	return s
+}
+
+func (s *SearchInnerGroupsRequest) SetUserId(v string) *SearchInnerGroupsRequest {
+	s.UserId = &v
+	return s
+}
+
+type SearchInnerGroupsResponseBody struct {
+	// 群列表。
+	GroupInfos []*SearchInnerGroupsResponseBodyGroupInfos `json:"groupInfos,omitempty" xml:"groupInfos,omitempty" type:"Repeated"`
+}
+
+func (s SearchInnerGroupsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchInnerGroupsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchInnerGroupsResponseBody) SetGroupInfos(v []*SearchInnerGroupsResponseBodyGroupInfos) *SearchInnerGroupsResponseBody {
+	s.GroupInfos = v
+	return s
+}
+
+type SearchInnerGroupsResponseBodyGroupInfos struct {
+	// 群头像。
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 群成员人数。
+	MemberAmount *string `json:"memberAmount,omitempty" xml:"memberAmount,omitempty"`
+	// 会话id。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群名称。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SearchInnerGroupsResponseBodyGroupInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchInnerGroupsResponseBodyGroupInfos) GoString() string {
+	return s.String()
+}
+
+func (s *SearchInnerGroupsResponseBodyGroupInfos) SetIcon(v string) *SearchInnerGroupsResponseBodyGroupInfos {
+	s.Icon = &v
+	return s
+}
+
+func (s *SearchInnerGroupsResponseBodyGroupInfos) SetMemberAmount(v string) *SearchInnerGroupsResponseBodyGroupInfos {
+	s.MemberAmount = &v
+	return s
+}
+
+func (s *SearchInnerGroupsResponseBodyGroupInfos) SetOpenConversationId(v string) *SearchInnerGroupsResponseBodyGroupInfos {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SearchInnerGroupsResponseBodyGroupInfos) SetTitle(v string) *SearchInnerGroupsResponseBodyGroupInfos {
+	s.Title = &v
+	return s
+}
+
+type SearchInnerGroupsResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchInnerGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchInnerGroupsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchInnerGroupsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchInnerGroupsResponse) SetHeaders(v map[string]*string) *SearchInnerGroupsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchInnerGroupsResponse) SetBody(v *SearchInnerGroupsResponseBody) *SearchInnerGroupsResponse {
 	s.Body = v
 	return s
 }
@@ -8040,6 +8698,58 @@ func (client *Client) AutoOpenDingTalkConnectWithOptions(headers *AutoOpenDingTa
 	return _result, _err
 }
 
+func (client *Client) BatchQueryFamilySchoolMessage(request *BatchQueryFamilySchoolMessageRequest) (_result *BatchQueryFamilySchoolMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchQueryFamilySchoolMessageHeaders{}
+	_result = &BatchQueryFamilySchoolMessageResponse{}
+	_body, _err := client.BatchQueryFamilySchoolMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchQueryFamilySchoolMessageWithOptions(request *BatchQueryFamilySchoolMessageRequest, headers *BatchQueryFamilySchoolMessageHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryFamilySchoolMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenMessageIds)) {
+		body["openMessageIds"] = request.OpenMessageIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchQueryFamilySchoolMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchQueryFamilySchoolMessage"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/familySchools/messages/batchQuery"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BatchQueryGroupMember(request *BatchQueryGroupMemberRequest) (_result *BatchQueryGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchQueryGroupMemberHeaders{}
@@ -8276,6 +8986,54 @@ func (client *Client) ChatSubAdminUpdateWithOptions(request *ChatSubAdminUpdateR
 	}
 	_result = &ChatSubAdminUpdateResponse{}
 	_body, _err := client.DoROARequest(tea.String("ChatSubAdminUpdate"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/subAdministrators"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckUserIsGroupMember(request *CheckUserIsGroupMemberRequest) (_result *CheckUserIsGroupMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckUserIsGroupMemberHeaders{}
+	_result = &CheckUserIsGroupMemberResponse{}
+	_body, _err := client.CheckUserIsGroupMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CheckUserIsGroupMemberWithOptions(request *CheckUserIsGroupMemberRequest, headers *CheckUserIsGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *CheckUserIsGroupMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CheckUserIsGroupMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("CheckUserIsGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/innerGroups/members/check"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8863,6 +9621,62 @@ func (client *Client) GetFamilySchoolConversationsWithOptions(request *GetFamily
 	return _result, _err
 }
 
+func (client *Client) GetInnerGroupMembers(request *GetInnerGroupMembersRequest) (_result *GetInnerGroupMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInnerGroupMembersHeaders{}
+	_result = &GetInnerGroupMembersResponse{}
+	_body, _err := client.GetInnerGroupMembersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInnerGroupMembersWithOptions(request *GetInnerGroupMembersRequest, headers *GetInnerGroupMembersHeaders, runtime *util.RuntimeOptions) (_result *GetInnerGroupMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetInnerGroupMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInnerGroupMembers"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/innerGroups/members/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetInterconnectionUrl(request *GetInterconnectionUrlRequest) (_result *GetInterconnectionUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInterconnectionUrlHeaders{}
@@ -8940,6 +9754,50 @@ func (client *Client) GetInterconnectionUrlWithOptions(request *GetInterconnecti
 	}
 	_result = &GetInterconnectionUrlResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetInterconnectionUrl"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/sessions/urls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetNewestInnerGroups(request *GetNewestInnerGroupsRequest) (_result *GetNewestInnerGroupsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetNewestInnerGroupsHeaders{}
+	_result = &GetNewestInnerGroupsResponse{}
+	_body, _err := client.GetNewestInnerGroupsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetNewestInnerGroupsWithOptions(request *GetNewestInnerGroupsRequest, headers *GetNewestInnerGroupsHeaders, runtime *util.RuntimeOptions) (_result *GetNewestInnerGroupsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetNewestInnerGroupsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetNewestInnerGroups"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/activities/innerGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10046,6 +10904,58 @@ func (client *Client) RemoveRobotFromConversationWithOptions(request *RemoveRobo
 	}
 	_result = &RemoveRobotFromConversationResponse{}
 	_body, _err := client.DoROARequest(tea.String("RemoveRobotFromConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/robots/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchInnerGroups(request *SearchInnerGroupsRequest) (_result *SearchInnerGroupsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchInnerGroupsHeaders{}
+	_result = &SearchInnerGroupsResponse{}
+	_body, _err := client.SearchInnerGroupsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchInnerGroupsWithOptions(request *SearchInnerGroupsRequest, headers *SearchInnerGroupsHeaders, runtime *util.RuntimeOptions) (_result *SearchInnerGroupsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		body["searchKey"] = request.SearchKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchInnerGroupsResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchInnerGroups"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/innerGroups/search"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

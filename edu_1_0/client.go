@@ -1648,6 +1648,116 @@ func (s *CheckRestrictionResponse) SetBody(v *CheckRestrictionResponseBody) *Che
 	return s
 }
 
+type ConsumePointHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConsumePointHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConsumePointHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConsumePointHeaders) SetCommonHeaders(v map[string]*string) *ConsumePointHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConsumePointHeaders) SetXAcsDingtalkAccessToken(v string) *ConsumePointHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConsumePointRequest struct {
+	// 扣减积分
+	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 业务id
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 扣减描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 产品编码
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+}
+
+func (s ConsumePointRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConsumePointRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConsumePointRequest) SetAmount(v int64) *ConsumePointRequest {
+	s.Amount = &v
+	return s
+}
+
+func (s *ConsumePointRequest) SetBizId(v string) *ConsumePointRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ConsumePointRequest) SetDescription(v string) *ConsumePointRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *ConsumePointRequest) SetProductCode(v string) *ConsumePointRequest {
+	s.ProductCode = &v
+	return s
+}
+
+type ConsumePointResponseBody struct {
+	// 结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// 操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ConsumePointResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConsumePointResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConsumePointResponseBody) SetResult(v bool) *ConsumePointResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ConsumePointResponseBody) SetSuccess(v bool) *ConsumePointResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ConsumePointResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ConsumePointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ConsumePointResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConsumePointResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConsumePointResponse) SetHeaders(v map[string]*string) *ConsumePointResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConsumePointResponse) SetBody(v *ConsumePointResponseBody) *ConsumePointResponse {
+	s.Body = v
+	return s
+}
+
 type CourseSchedulingComplimentNoticeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -16126,6 +16236,104 @@ func (s *VPaasProxyResponse) SetBody(v *VPaasProxyResponseBody) *VPaasProxyRespo
 	return s
 }
 
+type ValidateUserRoleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ValidateUserRoleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateUserRoleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateUserRoleHeaders) SetCommonHeaders(v map[string]*string) *ValidateUserRoleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ValidateUserRoleHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateUserRoleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ValidateUserRoleRequest struct {
+	// 时间阈值，查询在此时间之前的用户角色信息
+	TimeThreshold *int64 `json:"timeThreshold,omitempty" xml:"timeThreshold,omitempty"`
+	// 用户的uionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ValidateUserRoleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateUserRoleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateUserRoleRequest) SetTimeThreshold(v int64) *ValidateUserRoleRequest {
+	s.TimeThreshold = &v
+	return s
+}
+
+func (s *ValidateUserRoleRequest) SetUnionId(v string) *ValidateUserRoleRequest {
+	s.UnionId = &v
+	return s
+}
+
+type ValidateUserRoleResponseBody struct {
+	// 是否是家长身份。
+	// true表示是家长，false表示不是家长。
+	MatchParentIdentity *bool `json:"matchParentIdentity,omitempty" xml:"matchParentIdentity,omitempty"`
+	// 是否为老师身份。
+	// true表示是老师，false表示不是老师。
+	MatchTeacherIdentity *bool `json:"matchTeacherIdentity,omitempty" xml:"matchTeacherIdentity,omitempty"`
+}
+
+func (s ValidateUserRoleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateUserRoleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateUserRoleResponseBody) SetMatchParentIdentity(v bool) *ValidateUserRoleResponseBody {
+	s.MatchParentIdentity = &v
+	return s
+}
+
+func (s *ValidateUserRoleResponseBody) SetMatchTeacherIdentity(v bool) *ValidateUserRoleResponseBody {
+	s.MatchTeacherIdentity = &v
+	return s
+}
+
+type ValidateUserRoleResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ValidateUserRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ValidateUserRoleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateUserRoleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateUserRoleResponse) SetHeaders(v map[string]*string) *ValidateUserRoleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ValidateUserRoleResponse) SetBody(v *ValidateUserRoleResponseBody) *ValidateUserRoleResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -16746,6 +16954,62 @@ func (client *Client) CheckRestrictionWithOptions(request *CheckRestrictionReque
 	}
 	_result = &CheckRestrictionResponse{}
 	_body, _err := client.DoROARequest(tea.String("CheckRestriction"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/restrictions/check"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ConsumePoint(request *ConsumePointRequest) (_result *ConsumePointResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ConsumePointHeaders{}
+	_result = &ConsumePointResponse{}
+	_body, _err := client.ConsumePointWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ConsumePointWithOptions(request *ConsumePointRequest, headers *ConsumePointHeaders, runtime *util.RuntimeOptions) (_result *ConsumePointResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Amount)) {
+		body["amount"] = request.Amount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductCode)) {
+		body["productCode"] = request.ProductCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ConsumePointResponse{}
+	_body, _err := client.DoROARequest(tea.String("ConsumePoint"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/poins/consume"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -21865,6 +22129,54 @@ func (client *Client) VPaasProxyWithOptions(request *VPaasProxyRequest, headers 
 	}
 	_result = &VPaasProxyResponse{}
 	_body, _err := client.DoROARequest(tea.String("VPaasProxy"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/vpaas/proxy"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ValidateUserRole(request *ValidateUserRoleRequest) (_result *ValidateUserRoleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ValidateUserRoleHeaders{}
+	_result = &ValidateUserRoleResponse{}
+	_body, _err := client.ValidateUserRoleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ValidateUserRoleWithOptions(request *ValidateUserRoleRequest, headers *ValidateUserRoleHeaders, runtime *util.RuntimeOptions) (_result *ValidateUserRoleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TimeThreshold)) {
+		body["timeThreshold"] = request.TimeThreshold
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ValidateUserRoleResponse{}
+	_body, _err := client.DoROARequest(tea.String("ValidateUserRole"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/users/roles/validate"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

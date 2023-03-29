@@ -605,6 +605,102 @@ func (s *HrmProcessTransferResponse) SetBody(v *HrmProcessTransferResponseBody) 
 	return s
 }
 
+type HrmProcessUpdateTerminationInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmProcessUpdateTerminationInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessUpdateTerminationInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessUpdateTerminationInfoHeaders) SetCommonHeaders(v map[string]*string) *HrmProcessUpdateTerminationInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmProcessUpdateTerminationInfoHeaders) SetXAcsDingtalkAccessToken(v string) *HrmProcessUpdateTerminationInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmProcessUpdateTerminationInfoRequest struct {
+	// 离职备注
+	DismissionMemo *string `json:"dismissionMemo,omitempty" xml:"dismissionMemo,omitempty"`
+	// 最后工作日(离职日期)
+	LastWorkDate *int64 `json:"lastWorkDate,omitempty" xml:"lastWorkDate,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s HrmProcessUpdateTerminationInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessUpdateTerminationInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessUpdateTerminationInfoRequest) SetDismissionMemo(v string) *HrmProcessUpdateTerminationInfoRequest {
+	s.DismissionMemo = &v
+	return s
+}
+
+func (s *HrmProcessUpdateTerminationInfoRequest) SetLastWorkDate(v int64) *HrmProcessUpdateTerminationInfoRequest {
+	s.LastWorkDate = &v
+	return s
+}
+
+func (s *HrmProcessUpdateTerminationInfoRequest) SetUserId(v string) *HrmProcessUpdateTerminationInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type HrmProcessUpdateTerminationInfoResponseBody struct {
+	// 是否更新成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HrmProcessUpdateTerminationInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessUpdateTerminationInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessUpdateTerminationInfoResponseBody) SetResult(v bool) *HrmProcessUpdateTerminationInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+type HrmProcessUpdateTerminationInfoResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *HrmProcessUpdateTerminationInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s HrmProcessUpdateTerminationInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessUpdateTerminationInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessUpdateTerminationInfoResponse) SetHeaders(v map[string]*string) *HrmProcessUpdateTerminationInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmProcessUpdateTerminationInfoResponse) SetBody(v *HrmProcessUpdateTerminationInfoResponseBody) *HrmProcessUpdateTerminationInfoResponse {
+	s.Body = v
+	return s
+}
+
 type MasterDataQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3234,6 +3330,58 @@ func (client *Client) HrmProcessTransferWithOptions(request *HrmProcessTransferR
 	}
 	_result = &HrmProcessTransferResponse{}
 	_body, _err := client.DoROARequest(tea.String("HrmProcessTransfer"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/processes/transfer"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) HrmProcessUpdateTerminationInfo(request *HrmProcessUpdateTerminationInfoRequest) (_result *HrmProcessUpdateTerminationInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmProcessUpdateTerminationInfoHeaders{}
+	_result = &HrmProcessUpdateTerminationInfoResponse{}
+	_body, _err := client.HrmProcessUpdateTerminationInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) HrmProcessUpdateTerminationInfoWithOptions(request *HrmProcessUpdateTerminationInfoRequest, headers *HrmProcessUpdateTerminationInfoHeaders, runtime *util.RuntimeOptions) (_result *HrmProcessUpdateTerminationInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DismissionMemo)) {
+		body["dismissionMemo"] = request.DismissionMemo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LastWorkDate)) {
+		body["lastWorkDate"] = request.LastWorkDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &HrmProcessUpdateTerminationInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("HrmProcessUpdateTerminationInfo"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/hrm/processes/employees/terminations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

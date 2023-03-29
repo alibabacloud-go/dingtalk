@@ -540,6 +540,134 @@ func (s *QueryDeviceIpByCodeResponse) SetBody(v *QueryDeviceIpByCodeResponseBody
 	return s
 }
 
+type QueryDevicePropertiesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDevicePropertiesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDevicePropertiesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDevicePropertiesHeaders) SetCommonHeaders(v map[string]*string) *QueryDevicePropertiesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDevicePropertiesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDevicePropertiesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDevicePropertiesRequest struct {
+	// 设备属性名称列表
+	PropertyNames []*string `json:"propertyNames,omitempty" xml:"propertyNames,omitempty" type:"Repeated"`
+	// 查询设备id
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 查询设备unionId
+	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	// 查询人unionId
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+}
+
+func (s QueryDevicePropertiesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDevicePropertiesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDevicePropertiesRequest) SetPropertyNames(v []*string) *QueryDevicePropertiesRequest {
+	s.PropertyNames = v
+	return s
+}
+
+func (s *QueryDevicePropertiesRequest) SetDeviceId(v string) *QueryDevicePropertiesRequest {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *QueryDevicePropertiesRequest) SetDeviceUnionId(v string) *QueryDevicePropertiesRequest {
+	s.DeviceUnionId = &v
+	return s
+}
+
+func (s *QueryDevicePropertiesRequest) SetOperatorUnionId(v string) *QueryDevicePropertiesRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+type QueryDevicePropertiesResponseBody struct {
+	// 响应结果
+	Result []*QueryDevicePropertiesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryDevicePropertiesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDevicePropertiesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDevicePropertiesResponseBody) SetResult(v []*QueryDevicePropertiesResponseBodyResult) *QueryDevicePropertiesResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryDevicePropertiesResponseBodyResult struct {
+	// 设备属性名称
+	PropertyName *string `json:"propertyName,omitempty" xml:"propertyName,omitempty"`
+	// 设备属性值
+	PropertyValue *string `json:"propertyValue,omitempty" xml:"propertyValue,omitempty"`
+}
+
+func (s QueryDevicePropertiesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDevicePropertiesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDevicePropertiesResponseBodyResult) SetPropertyName(v string) *QueryDevicePropertiesResponseBodyResult {
+	s.PropertyName = &v
+	return s
+}
+
+func (s *QueryDevicePropertiesResponseBodyResult) SetPropertyValue(v string) *QueryDevicePropertiesResponseBodyResult {
+	s.PropertyValue = &v
+	return s
+}
+
+type QueryDevicePropertiesResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryDevicePropertiesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDevicePropertiesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDevicePropertiesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDevicePropertiesResponse) SetHeaders(v map[string]*string) *QueryDevicePropertiesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDevicePropertiesResponse) SetBody(v *QueryDevicePropertiesResponseBody) *QueryDevicePropertiesResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMeetingRoomHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -784,6 +912,299 @@ func (s *QueryMeetingRoomResponse) SetHeaders(v map[string]*string) *QueryMeetin
 }
 
 func (s *QueryMeetingRoomResponse) SetBody(v *QueryMeetingRoomResponseBody) *QueryMeetingRoomResponse {
+	s.Body = v
+	return s
+}
+
+type QueryMeetingRoomDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMeetingRoomDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomDeviceHeaders) SetCommonHeaders(v map[string]*string) *QueryMeetingRoomDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMeetingRoomDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMeetingRoomDeviceRequest struct {
+	// 查询设备id
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 查询设备unionId
+	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	// 查询人unionId
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+}
+
+func (s QueryMeetingRoomDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomDeviceRequest) SetDeviceId(v string) *QueryMeetingRoomDeviceRequest {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceRequest) SetDeviceUnionId(v string) *QueryMeetingRoomDeviceRequest {
+	s.DeviceUnionId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceRequest) SetOperatorUnionId(v string) *QueryMeetingRoomDeviceRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+type QueryMeetingRoomDeviceResponseBody struct {
+	// 响应结果
+	Result *QueryMeetingRoomDeviceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryMeetingRoomDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomDeviceResponseBody) SetResult(v *QueryMeetingRoomDeviceResponseBodyResult) *QueryMeetingRoomDeviceResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryMeetingRoomDeviceResponseBodyResult struct {
+	// 设备控制器
+	Controllers []*QueryMeetingRoomDeviceResponseBodyResultControllers `json:"controllers,omitempty" xml:"controllers,omitempty" type:"Repeated"`
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 设备id
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 设备mac地址
+	DeviceMac *string `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
+	// 设备型号
+	DeviceModel *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
+	// 设备名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// 设备注册serviceId
+	DeviceServiceId *int32 `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
+	// 设备sn
+	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	// 设备状态
+	DeviceStatus *string `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	// 设备类型
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// 设备unionId
+	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	// 设备绑定会议室id
+	OpenRoomId *string `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
+	// 设备投屏码
+	ShareCode *string `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
+}
+
+func (s QueryMeetingRoomDeviceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomDeviceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetControllers(v []*QueryMeetingRoomDeviceResponseBodyResultControllers) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.Controllers = v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetCorpId(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceId(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceMac(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DeviceMac = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceModel(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DeviceModel = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceName(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceServiceId(v int32) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DeviceServiceId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceSn(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DeviceSn = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceStatus(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DeviceStatus = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceType(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DeviceType = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceUnionId(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DeviceUnionId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetOpenRoomId(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.OpenRoomId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetShareCode(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.ShareCode = &v
+	return s
+}
+
+type QueryMeetingRoomDeviceResponseBodyResultControllers struct {
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 控制器设备id
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 控制器mac地址
+	DeviceMac *string `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
+	// 控制器型号
+	DeviceModel *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
+	// 控制器名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// 控制器注册serviceId
+	DeviceServiceId *int32 `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
+	// 控制器sn
+	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	// 控制器状态
+	DeviceStatus *string `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	// 设备类型
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// 控制器unionId
+	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	// 控制器绑定会议室id
+	OpenRoomId *string `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
+	// 控制器投屏码
+	ShareCode *string `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
+}
+
+func (s QueryMeetingRoomDeviceResponseBodyResultControllers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomDeviceResponseBodyResultControllers) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetCorpId(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetDeviceId(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetDeviceMac(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.DeviceMac = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetDeviceModel(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.DeviceModel = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetDeviceName(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetDeviceServiceId(v int32) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.DeviceServiceId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetDeviceSn(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.DeviceSn = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetDeviceStatus(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.DeviceStatus = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetDeviceType(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.DeviceType = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetDeviceUnionId(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.DeviceUnionId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetOpenRoomId(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.OpenRoomId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetShareCode(v string) *QueryMeetingRoomDeviceResponseBodyResultControllers {
+	s.ShareCode = &v
+	return s
+}
+
+type QueryMeetingRoomDeviceResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryMeetingRoomDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryMeetingRoomDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomDeviceResponse) SetHeaders(v map[string]*string) *QueryMeetingRoomDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponse) SetBody(v *QueryMeetingRoomDeviceResponseBody) *QueryMeetingRoomDeviceResponse {
 	s.Body = v
 	return s
 }
@@ -1827,6 +2248,64 @@ func (client *Client) QueryDeviceIpByCodeWithOptions(shareCode *string, request 
 	return _result, _err
 }
 
+func (client *Client) QueryDeviceProperties(request *QueryDevicePropertiesRequest) (_result *QueryDevicePropertiesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDevicePropertiesHeaders{}
+	_result = &QueryDevicePropertiesResponse{}
+	_body, _err := client.QueryDevicePropertiesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDevicePropertiesWithOptions(request *QueryDevicePropertiesRequest, headers *QueryDevicePropertiesHeaders, runtime *util.RuntimeOptions) (_result *QueryDevicePropertiesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceId)) {
+		query["deviceId"] = request.DeviceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceUnionId)) {
+		query["deviceUnionId"] = request.DeviceUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		query["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PropertyNames)) {
+		body["propertyNames"] = request.PropertyNames
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryDevicePropertiesResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryDeviceProperties"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/rooms/devices/properties/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryMeetingRoom(roomId *string, request *QueryMeetingRoomRequest) (_result *QueryMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMeetingRoomHeaders{}
@@ -1865,6 +2344,58 @@ func (client *Client) QueryMeetingRoomWithOptions(roomId *string, request *Query
 	}
 	_result = &QueryMeetingRoomResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryMeetingRoom"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/rooms/meetingRooms/"+tea.StringValue(roomId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryMeetingRoomDevice(request *QueryMeetingRoomDeviceRequest) (_result *QueryMeetingRoomDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMeetingRoomDeviceHeaders{}
+	_result = &QueryMeetingRoomDeviceResponse{}
+	_body, _err := client.QueryMeetingRoomDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryMeetingRoomDeviceWithOptions(request *QueryMeetingRoomDeviceRequest, headers *QueryMeetingRoomDeviceHeaders, runtime *util.RuntimeOptions) (_result *QueryMeetingRoomDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceId)) {
+		query["deviceId"] = request.DeviceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceUnionId)) {
+		query["deviceUnionId"] = request.DeviceUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		query["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryMeetingRoomDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryMeetingRoomDevice"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/rooms/devices"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

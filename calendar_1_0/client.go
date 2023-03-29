@@ -1686,7 +1686,8 @@ func (s *GetEventRequest) SetMaxAttendees(v int64) *GetEventRequest {
 }
 
 type GetEventResponseBody struct {
-	Attendees []*GetEventResponseBodyAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Attendees  []*GetEventResponseBodyAttendees  `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Categories []*GetEventResponseBodyCategories `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 日程描述
@@ -1701,6 +1702,7 @@ type GetEventResponseBody struct {
 	MeetingRooms      []*GetEventResponseBodyMeetingRooms    `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
 	OnlineMeetingInfo *GetEventResponseBodyOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
 	Organizer         *GetEventResponseBodyOrganizer         `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	OriginStart       *GetEventResponseBodyOriginStart       `json:"originStart,omitempty" xml:"originStart,omitempty" type:"Struct"`
 	Recurrence        *GetEventResponseBodyRecurrence        `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	Reminders         []*GetEventResponseBodyReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	// 重复日程的主日程id，非重复日程为空
@@ -1725,6 +1727,11 @@ func (s GetEventResponseBody) GoString() string {
 
 func (s *GetEventResponseBody) SetAttendees(v []*GetEventResponseBodyAttendees) *GetEventResponseBody {
 	s.Attendees = v
+	return s
+}
+
+func (s *GetEventResponseBody) SetCategories(v []*GetEventResponseBodyCategories) *GetEventResponseBody {
+	s.Categories = v
 	return s
 }
 
@@ -1775,6 +1782,11 @@ func (s *GetEventResponseBody) SetOnlineMeetingInfo(v *GetEventResponseBodyOnlin
 
 func (s *GetEventResponseBody) SetOrganizer(v *GetEventResponseBodyOrganizer) *GetEventResponseBody {
 	s.Organizer = v
+	return s
+}
+
+func (s *GetEventResponseBody) SetOriginStart(v *GetEventResponseBodyOriginStart) *GetEventResponseBody {
+	s.OriginStart = v
 	return s
 }
 
@@ -1854,6 +1866,23 @@ func (s *GetEventResponseBodyAttendees) SetResponseStatus(v string) *GetEventRes
 
 func (s *GetEventResponseBodyAttendees) SetSelf(v bool) *GetEventResponseBodyAttendees {
 	s.Self = &v
+	return s
+}
+
+type GetEventResponseBodyCategories struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s GetEventResponseBodyCategories) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventResponseBodyCategories) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventResponseBodyCategories) SetDisplayName(v string) *GetEventResponseBodyCategories {
+	s.DisplayName = &v
 	return s
 }
 
@@ -2048,6 +2077,23 @@ func (s *GetEventResponseBodyOrganizer) SetResponseStatus(v string) *GetEventRes
 
 func (s *GetEventResponseBodyOrganizer) SetSelf(v bool) *GetEventResponseBodyOrganizer {
 	s.Self = &v
+	return s
+}
+
+type GetEventResponseBodyOriginStart struct {
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+}
+
+func (s GetEventResponseBodyOriginStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventResponseBodyOriginStart) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventResponseBodyOriginStart) SetDateTime(v string) *GetEventResponseBodyOriginStart {
+	s.DateTime = &v
 	return s
 }
 
@@ -3605,7 +3651,8 @@ func (s *ListEventsResponseBody) SetSyncToken(v string) *ListEventsResponseBody 
 
 type ListEventsResponseBodyEvents struct {
 	// 日程参与人
-	Attendees []*ListEventsResponseBodyEventsAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Attendees  []*ListEventsResponseBodyEventsAttendees  `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Categories []*ListEventsResponseBodyEventsCategories `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 日程描述
@@ -3622,7 +3669,8 @@ type ListEventsResponseBodyEvents struct {
 	MeetingRooms      []*ListEventsResponseBodyEventsMeetingRooms    `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
 	OnlineMeetingInfo *ListEventsResponseBodyEventsOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
 	// 日程组织人
-	Organizer *ListEventsResponseBodyEventsOrganizer `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	Organizer   *ListEventsResponseBodyEventsOrganizer   `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	OriginStart *ListEventsResponseBodyEventsOriginStart `json:"originStart,omitempty" xml:"originStart,omitempty" type:"Struct"`
 	// 日程重复规则
 	Recurrence *ListEventsResponseBodyEventsRecurrence  `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	Reminders  []*ListEventsResponseBodyEventsReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
@@ -3648,6 +3696,11 @@ func (s ListEventsResponseBodyEvents) GoString() string {
 
 func (s *ListEventsResponseBodyEvents) SetAttendees(v []*ListEventsResponseBodyEventsAttendees) *ListEventsResponseBodyEvents {
 	s.Attendees = v
+	return s
+}
+
+func (s *ListEventsResponseBodyEvents) SetCategories(v []*ListEventsResponseBodyEventsCategories) *ListEventsResponseBodyEvents {
+	s.Categories = v
 	return s
 }
 
@@ -3698,6 +3751,11 @@ func (s *ListEventsResponseBodyEvents) SetOnlineMeetingInfo(v *ListEventsRespons
 
 func (s *ListEventsResponseBodyEvents) SetOrganizer(v *ListEventsResponseBodyEventsOrganizer) *ListEventsResponseBodyEvents {
 	s.Organizer = v
+	return s
+}
+
+func (s *ListEventsResponseBodyEvents) SetOriginStart(v *ListEventsResponseBodyEventsOriginStart) *ListEventsResponseBodyEvents {
+	s.OriginStart = v
 	return s
 }
 
@@ -3778,6 +3836,23 @@ func (s *ListEventsResponseBodyEventsAttendees) SetResponseStatus(v string) *Lis
 
 func (s *ListEventsResponseBodyEventsAttendees) SetSelf(v bool) *ListEventsResponseBodyEventsAttendees {
 	s.Self = &v
+	return s
+}
+
+type ListEventsResponseBodyEventsCategories struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s ListEventsResponseBodyEventsCategories) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsResponseBodyEventsCategories) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsResponseBodyEventsCategories) SetDisplayName(v string) *ListEventsResponseBodyEventsCategories {
+	s.DisplayName = &v
 	return s
 }
 
@@ -3974,6 +4049,23 @@ func (s *ListEventsResponseBodyEventsOrganizer) SetResponseStatus(v string) *Lis
 
 func (s *ListEventsResponseBodyEventsOrganizer) SetSelf(v bool) *ListEventsResponseBodyEventsOrganizer {
 	s.Self = &v
+	return s
+}
+
+type ListEventsResponseBodyEventsOriginStart struct {
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+}
+
+func (s ListEventsResponseBodyEventsOriginStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsResponseBodyEventsOriginStart) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsResponseBodyEventsOriginStart) SetDateTime(v string) *ListEventsResponseBodyEventsOriginStart {
+	s.DateTime = &v
 	return s
 }
 
@@ -4846,7 +4938,8 @@ func (s *ListEventsViewResponseBody) SetNextToken(v string) *ListEventsViewRespo
 
 type ListEventsViewResponseBodyEvents struct {
 	// 日程参与人
-	Attendees []*ListEventsViewResponseBodyEventsAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Attendees  []*ListEventsViewResponseBodyEventsAttendees  `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Categories []*ListEventsViewResponseBodyEventsCategories `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 日程描述
@@ -4862,7 +4955,8 @@ type ListEventsViewResponseBodyEvents struct {
 	Location          *ListEventsViewResponseBodyEventsLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
 	OnlineMeetingInfo *ListEventsViewResponseBodyEventsOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
 	// 日程组织人
-	Organizer *ListEventsViewResponseBodyEventsOrganizer `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	Organizer   *ListEventsViewResponseBodyEventsOrganizer   `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	OriginStart *ListEventsViewResponseBodyEventsOriginStart `json:"originStart,omitempty" xml:"originStart,omitempty" type:"Struct"`
 	// 日程重复规则
 	Recurrence *ListEventsViewResponseBodyEventsRecurrence `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	// 重复日程的主日程id，非重复日程为空
@@ -4887,6 +4981,11 @@ func (s ListEventsViewResponseBodyEvents) GoString() string {
 
 func (s *ListEventsViewResponseBodyEvents) SetAttendees(v []*ListEventsViewResponseBodyEventsAttendees) *ListEventsViewResponseBodyEvents {
 	s.Attendees = v
+	return s
+}
+
+func (s *ListEventsViewResponseBodyEvents) SetCategories(v []*ListEventsViewResponseBodyEventsCategories) *ListEventsViewResponseBodyEvents {
+	s.Categories = v
 	return s
 }
 
@@ -4932,6 +5031,11 @@ func (s *ListEventsViewResponseBodyEvents) SetOnlineMeetingInfo(v *ListEventsVie
 
 func (s *ListEventsViewResponseBodyEvents) SetOrganizer(v *ListEventsViewResponseBodyEventsOrganizer) *ListEventsViewResponseBodyEvents {
 	s.Organizer = v
+	return s
+}
+
+func (s *ListEventsViewResponseBodyEvents) SetOriginStart(v *ListEventsViewResponseBodyEventsOriginStart) *ListEventsViewResponseBodyEvents {
+	s.OriginStart = v
 	return s
 }
 
@@ -5007,6 +5111,23 @@ func (s *ListEventsViewResponseBodyEventsAttendees) SetResponseStatus(v string) 
 
 func (s *ListEventsViewResponseBodyEventsAttendees) SetSelf(v bool) *ListEventsViewResponseBodyEventsAttendees {
 	s.Self = &v
+	return s
+}
+
+type ListEventsViewResponseBodyEventsCategories struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s ListEventsViewResponseBodyEventsCategories) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewResponseBodyEventsCategories) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewResponseBodyEventsCategories) SetDisplayName(v string) *ListEventsViewResponseBodyEventsCategories {
+	s.DisplayName = &v
 	return s
 }
 
@@ -5174,6 +5295,23 @@ func (s *ListEventsViewResponseBodyEventsOrganizer) SetResponseStatus(v string) 
 
 func (s *ListEventsViewResponseBodyEventsOrganizer) SetSelf(v bool) *ListEventsViewResponseBodyEventsOrganizer {
 	s.Self = &v
+	return s
+}
+
+type ListEventsViewResponseBodyEventsOriginStart struct {
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+}
+
+func (s ListEventsViewResponseBodyEventsOriginStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewResponseBodyEventsOriginStart) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewResponseBodyEventsOriginStart) SetDateTime(v string) *ListEventsViewResponseBodyEventsOriginStart {
+	s.DateTime = &v
 	return s
 }
 

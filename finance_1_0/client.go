@@ -5763,7 +5763,8 @@ type UpdateInvoiceVerifyStatusRequest struct {
 	// 业务响应码
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 	// 企业Id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CorpId    *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
 	// 发票代码
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
@@ -5808,6 +5809,11 @@ func (s *UpdateInvoiceVerifyStatusRequest) SetCode(v string) *UpdateInvoiceVerif
 
 func (s *UpdateInvoiceVerifyStatusRequest) SetCorpId(v string) *UpdateInvoiceVerifyStatusRequest {
 	s.CorpId = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetExtension(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.Extension = &v
 	return s
 }
 
@@ -8755,6 +8761,10 @@ func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoic
 
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.InvoiceCode)) {

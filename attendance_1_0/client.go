@@ -5075,6 +5075,201 @@ func (s *InitAndGetLeaveALlocationQuotasResponse) SetBody(v *InitAndGetLeaveALlo
 	return s
 }
 
+type ListApproveByUsersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListApproveByUsersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApproveByUsersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListApproveByUsersHeaders) SetCommonHeaders(v map[string]*string) *ListApproveByUsersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListApproveByUsersHeaders) SetXAcsDingtalkAccessToken(v string) *ListApproveByUsersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListApproveByUsersRequest struct {
+	// 传入需要查询的审批单类型：
+	// ● 1：加班
+	// ● 2：出差、外出
+	// ● 3：请假
+	// ● 4:  补卡
+	// ● 5：外勤审批
+	BizTypes []*int32 `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
+	// 起始日期，Unix时间戳，单位毫秒。（不支持180天前）
+	FromDateTime *int64 `json:"fromDateTime,omitempty" xml:"fromDateTime,omitempty"`
+	// 结束日期，Unix时间戳，单位毫秒。（不支持180天前，开始和结束不能超过30天）
+	ToDateTime *int64 `json:"toDateTime,omitempty" xml:"toDateTime,omitempty"`
+	// 要查询的人员userId列表，多个userId用逗号分隔，一次最多可传50个
+	UserIds *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
+}
+
+func (s ListApproveByUsersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApproveByUsersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListApproveByUsersRequest) SetBizTypes(v []*int32) *ListApproveByUsersRequest {
+	s.BizTypes = v
+	return s
+}
+
+func (s *ListApproveByUsersRequest) SetFromDateTime(v int64) *ListApproveByUsersRequest {
+	s.FromDateTime = &v
+	return s
+}
+
+func (s *ListApproveByUsersRequest) SetToDateTime(v int64) *ListApproveByUsersRequest {
+	s.ToDateTime = &v
+	return s
+}
+
+func (s *ListApproveByUsersRequest) SetUserIds(v string) *ListApproveByUsersRequest {
+	s.UserIds = &v
+	return s
+}
+
+type ListApproveByUsersResponseBody struct {
+	Result []*ListApproveByUsersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ListApproveByUsersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApproveByUsersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListApproveByUsersResponseBody) SetResult(v []*ListApproveByUsersResponseBodyResult) *ListApproveByUsersResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListApproveByUsersResponseBodyResult struct {
+	// 审批单自定义id
+	ApproveId *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	// 审批单开始时间原始格式
+	BeginTime *string `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	// 审批单类型：
+	// ● 1：加班
+	// ● 2：出差、外出
+	// ● 3：请假
+	// ● 4:  补卡
+	// ● 5：外勤审批
+	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 计算方法：
+	// ● 0：按自然日计算
+	// ● 1：按工作日计算
+	CalculateModel *int32 `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
+	// 时长单位，支持格式如下：
+	// ● day
+	// ● halfDay
+	// ● hour
+	// 时间格式必须与时长单位对应：
+	// ● 2019-08-15对应day
+	// ● 2019-08-15 AM对应halfDay
+	// ● 2019-08-15 12:43对应hour
+	DurationUnit *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
+	// 审批单结束时间原始格式
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 子类型名称，最大长度20个字符
+	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	// 审批单类型名称，最大长度20个字符
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	// 用户userid
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListApproveByUsersResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApproveByUsersResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListApproveByUsersResponseBodyResult) SetApproveId(v string) *ListApproveByUsersResponseBodyResult {
+	s.ApproveId = &v
+	return s
+}
+
+func (s *ListApproveByUsersResponseBodyResult) SetBeginTime(v string) *ListApproveByUsersResponseBodyResult {
+	s.BeginTime = &v
+	return s
+}
+
+func (s *ListApproveByUsersResponseBodyResult) SetBizType(v int32) *ListApproveByUsersResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *ListApproveByUsersResponseBodyResult) SetCalculateModel(v int32) *ListApproveByUsersResponseBodyResult {
+	s.CalculateModel = &v
+	return s
+}
+
+func (s *ListApproveByUsersResponseBodyResult) SetDurationUnit(v string) *ListApproveByUsersResponseBodyResult {
+	s.DurationUnit = &v
+	return s
+}
+
+func (s *ListApproveByUsersResponseBodyResult) SetEndTime(v string) *ListApproveByUsersResponseBodyResult {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ListApproveByUsersResponseBodyResult) SetSubType(v string) *ListApproveByUsersResponseBodyResult {
+	s.SubType = &v
+	return s
+}
+
+func (s *ListApproveByUsersResponseBodyResult) SetTagName(v string) *ListApproveByUsersResponseBodyResult {
+	s.TagName = &v
+	return s
+}
+
+func (s *ListApproveByUsersResponseBodyResult) SetUserId(v string) *ListApproveByUsersResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type ListApproveByUsersResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListApproveByUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListApproveByUsersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApproveByUsersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListApproveByUsersResponse) SetHeaders(v map[string]*string) *ListApproveByUsersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListApproveByUsersResponse) SetBody(v *ListApproveByUsersResponseBody) *ListApproveByUsersResponse {
+	s.Body = v
+	return s
+}
+
 type ModifyWaterMarkTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7728,6 +7923,62 @@ func (client *Client) InitAndGetLeaveALlocationQuotasWithOptions(request *InitAn
 	}
 	_result = &InitAndGetLeaveALlocationQuotasResponse{}
 	_body, _err := client.DoROARequest(tea.String("InitAndGetLeaveALlocationQuotas"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/leaves/initializations/balances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListApproveByUsers(request *ListApproveByUsersRequest) (_result *ListApproveByUsersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListApproveByUsersHeaders{}
+	_result = &ListApproveByUsersResponse{}
+	_body, _err := client.ListApproveByUsersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListApproveByUsersWithOptions(request *ListApproveByUsersRequest, headers *ListApproveByUsersHeaders, runtime *util.RuntimeOptions) (_result *ListApproveByUsersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizTypes)) {
+		body["bizTypes"] = request.BizTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromDateTime)) {
+		body["fromDateTime"] = request.FromDateTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToDateTime)) {
+		body["toDateTime"] = request.ToDateTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListApproveByUsersResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListApproveByUsers"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/approvals/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
