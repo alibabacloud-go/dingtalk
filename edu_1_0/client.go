@@ -11037,6 +11037,116 @@ func (s *QueryClassScheduleConfigResponse) SetBody(v *QueryClassScheduleConfigRe
 	return s
 }
 
+type QueryDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceHeaders) SetCommonHeaders(v map[string]*string) *QueryDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDeviceRequest struct {
+	// 设备sn码
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s QueryDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceRequest) SetSn(v string) *QueryDeviceRequest {
+	s.Sn = &v
+	return s
+}
+
+type QueryDeviceResponseBody struct {
+	// 设备过期时间
+	GmtExpiry *int64 `json:"gmtExpiry,omitempty" xml:"gmtExpiry,omitempty"`
+	// 设备型号
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
+	// 设备名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 设备sn码
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 设备类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s QueryDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceResponseBody) SetGmtExpiry(v int64) *QueryDeviceResponseBody {
+	s.GmtExpiry = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBody) SetModel(v string) *QueryDeviceResponseBody {
+	s.Model = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBody) SetName(v string) *QueryDeviceResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBody) SetSn(v string) *QueryDeviceResponseBody {
+	s.Sn = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBody) SetType(v string) *QueryDeviceResponseBody {
+	s.Type = &v
+	return s
+}
+
+type QueryDeviceResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceResponse) SetHeaders(v map[string]*string) *QueryDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDeviceResponse) SetBody(v *QueryDeviceResponseBody) *QueryDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type QueryDeviceListByCorpIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11569,8 +11679,6 @@ type QueryOrderResponseBody struct {
 	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
 	// 用户唯一id。
 	OuterUserId *string `json:"outerUserId,omitempty" xml:"outerUserId,omitempty"`
-	// 买家支付id。
-	PayId *string `json:"payId,omitempty" xml:"payId,omitempty"`
 	// 买家支付登陆id。
 	PayLogonId *string `json:"payLogonId,omitempty" xml:"payLogonId,omitempty"`
 	PayStatus  *int32  `json:"payStatus,omitempty" xml:"payStatus,omitempty"`
@@ -11662,11 +11770,6 @@ func (s *QueryOrderResponseBody) SetOrderType(v string) *QueryOrderResponseBody 
 
 func (s *QueryOrderResponseBody) SetOuterUserId(v string) *QueryOrderResponseBody {
 	s.OuterUserId = &v
-	return s
-}
-
-func (s *QueryOrderResponseBody) SetPayId(v string) *QueryOrderResponseBody {
-	s.PayId = &v
 	return s
 }
 
@@ -12950,8 +13053,6 @@ type QuerySnsOrderResponseBody struct {
 	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
 	// 用户唯一id。
 	OuterUserId *string `json:"outerUserId,omitempty" xml:"outerUserId,omitempty"`
-	// 买家支付id。
-	PayId *string `json:"payId,omitempty" xml:"payId,omitempty"`
 	// 买家支付登陆id。
 	PayLogonId *string `json:"payLogonId,omitempty" xml:"payLogonId,omitempty"`
 	PayStatus  *int32  `json:"payStatus,omitempty" xml:"payStatus,omitempty"`
@@ -13043,11 +13144,6 @@ func (s *QuerySnsOrderResponseBody) SetOrderType(v string) *QuerySnsOrderRespons
 
 func (s *QuerySnsOrderResponseBody) SetOuterUserId(v string) *QuerySnsOrderResponseBody {
 	s.OuterUserId = &v
-	return s
-}
-
-func (s *QuerySnsOrderResponseBody) SetPayId(v string) *QuerySnsOrderResponseBody {
-	s.PayId = &v
 	return s
 }
 
@@ -20278,6 +20374,50 @@ func (client *Client) QueryClassScheduleConfigWithOptions(tmpReq *QueryClassSche
 	}
 	_result = &QueryClassScheduleConfigResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryClassScheduleConfig"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/schedules/configs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryDevice(request *QueryDeviceRequest) (_result *QueryDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDeviceHeaders{}
+	_result = &QueryDeviceResponse{}
+	_body, _err := client.QueryDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceWithOptions(request *QueryDeviceRequest, headers *QueryDeviceHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryDevice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/vpass/devices/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

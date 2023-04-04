@@ -6196,6 +6196,8 @@ type ListAuditLogResponseBodyList struct {
 	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
 	// 接收成员列表，仅分享文档返回
 	DocMemberList []*ListAuditLogResponseBodyListDocMemberList `json:"docMemberList,omitempty" xml:"docMemberList,omitempty" type:"Repeated"`
+	DocMobileUrl  *string                                      `json:"docMobileUrl,omitempty" xml:"docMobileUrl,omitempty"`
+	DocPcUrl      *string                                      `json:"docPcUrl,omitempty" xml:"docPcUrl,omitempty"`
 	// 成员授权列表，仅文档授权返回
 	DocReceiverList []*ListAuditLogResponseBodyListDocReceiverList `json:"docReceiverList,omitempty" xml:"docReceiverList,omitempty" type:"Repeated"`
 	// 记录生成时间，unix时间戳，单位ms
@@ -6235,7 +6237,11 @@ type ListAuditLogResponseBodyList struct {
 	// 空间id
 	TargetSpaceId *int64 `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
 	// 员工的userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	WorkSpaceId        *int64  `json:"workSpaceId,omitempty" xml:"workSpaceId,omitempty"`
+	WorkSpaceMobileUrl *string `json:"workSpaceMobileUrl,omitempty" xml:"workSpaceMobileUrl,omitempty"`
+	WorkSpaceName      *string `json:"workSpaceName,omitempty" xml:"workSpaceName,omitempty"`
+	WorkSpacePcUrl     *string `json:"workSpacePcUrl,omitempty" xml:"workSpacePcUrl,omitempty"`
 }
 
 func (s ListAuditLogResponseBodyList) String() string {
@@ -6263,6 +6269,16 @@ func (s *ListAuditLogResponseBodyList) SetBizId(v string) *ListAuditLogResponseB
 
 func (s *ListAuditLogResponseBodyList) SetDocMemberList(v []*ListAuditLogResponseBodyListDocMemberList) *ListAuditLogResponseBodyList {
 	s.DocMemberList = v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetDocMobileUrl(v string) *ListAuditLogResponseBodyList {
+	s.DocMobileUrl = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetDocPcUrl(v string) *ListAuditLogResponseBodyList {
+	s.DocPcUrl = &v
 	return s
 }
 
@@ -6363,6 +6379,26 @@ func (s *ListAuditLogResponseBodyList) SetTargetSpaceId(v int64) *ListAuditLogRe
 
 func (s *ListAuditLogResponseBodyList) SetUserId(v string) *ListAuditLogResponseBodyList {
 	s.UserId = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetWorkSpaceId(v int64) *ListAuditLogResponseBodyList {
+	s.WorkSpaceId = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetWorkSpaceMobileUrl(v string) *ListAuditLogResponseBodyList {
+	s.WorkSpaceMobileUrl = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetWorkSpaceName(v string) *ListAuditLogResponseBodyList {
+	s.WorkSpaceName = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetWorkSpacePcUrl(v string) *ListAuditLogResponseBodyList {
+	s.WorkSpacePcUrl = &v
 	return s
 }
 
