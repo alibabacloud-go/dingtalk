@@ -7324,7 +7324,7 @@ func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserList) SetUserId(v string) *D
 
 type DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList struct {
 	RoleName     *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	SourceRoleId *int64  `json:"sourceRoleId,omitempty" xml:"sourceRoleId,omitempty"`
+	SourceRoleId *string `json:"sourceRoleId,omitempty" xml:"sourceRoleId,omitempty"`
 }
 
 func (s DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList) String() string {
@@ -7340,14 +7340,14 @@ func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList) SetRoleName(v 
 	return s
 }
 
-func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList) SetSourceRoleId(v int64) *DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList {
+func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList) SetSourceRoleId(v string) *DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList {
 	s.SourceRoleId = &v
 	return s
 }
 
 type DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList struct {
-	DingDeptId   *int64 `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
-	SourceDeptId *int64 `json:"sourceDeptId,omitempty" xml:"sourceDeptId,omitempty"`
+	DingDeptId   *string `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
+	SourceDeptId *string `json:"sourceDeptId,omitempty" xml:"sourceDeptId,omitempty"`
 }
 
 func (s DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList) String() string {
@@ -7358,12 +7358,12 @@ func (s DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList) GoString() 
 	return s.String()
 }
 
-func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList) SetDingDeptId(v int64) *DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList {
+func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList) SetDingDeptId(v string) *DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList {
 	s.DingDeptId = &v
 	return s
 }
 
-func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList) SetSourceDeptId(v int64) *DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList {
+func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList) SetSourceDeptId(v string) *DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList {
 	s.SourceDeptId = &v
 	return s
 }

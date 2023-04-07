@@ -910,6 +910,10 @@ func (s *BatchCreateCustomerRequest) SetOperator(v string) *BatchCreateCustomerR
 type BatchCreateCustomerRequestCreateCustomerRequestList struct {
 	// 客户描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 开票人邮箱
+	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	// 开票人手机号
+	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
 	// 客户名字
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 购方账户
@@ -936,6 +940,16 @@ func (s BatchCreateCustomerRequestCreateCustomerRequestList) GoString() string {
 
 func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetDescription(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
 	s.Description = &v
+	return s
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetDrawerEmail(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.DrawerEmail = &v
+	return s
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetDrawerTelephone(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.DrawerTelephone = &v
 	return s
 }
 
@@ -1214,6 +1228,10 @@ type CreateCustomerRequest struct {
 	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	// 客户描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 开票人邮箱
+	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	// 开票人手机号
+	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
 	// 客户名字
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 购方账户
@@ -1245,6 +1263,16 @@ func (s *CreateCustomerRequest) SetCreator(v string) *CreateCustomerRequest {
 
 func (s *CreateCustomerRequest) SetDescription(v string) *CreateCustomerRequest {
 	s.Description = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetDrawerEmail(v string) *CreateCustomerRequest {
+	s.DrawerEmail = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetDrawerTelephone(v string) *CreateCustomerRequest {
+	s.DrawerTelephone = &v
 	return s
 }
 
@@ -4108,6 +4136,10 @@ type QueryCustomerInfoResponseBodyList struct {
 	ContactTelephone        *string `json:"contactTelephone,omitempty" xml:"contactTelephone,omitempty"`
 	// 客户描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 开票人邮箱
+	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	// 开票人手机号
+	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
 	// 客户名字
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 购方账户
@@ -4168,6 +4200,16 @@ func (s *QueryCustomerInfoResponseBodyList) SetContactTelephone(v string) *Query
 
 func (s *QueryCustomerInfoResponseBodyList) SetDescription(v string) *QueryCustomerInfoResponseBodyList {
 	s.Description = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetDrawerEmail(v string) *QueryCustomerInfoResponseBodyList {
+	s.DrawerEmail = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetDrawerTelephone(v string) *QueryCustomerInfoResponseBodyList {
+	s.DrawerTelephone = &v
 	return s
 }
 
@@ -5079,6 +5121,370 @@ func (s *QueryProjectByPageResponse) SetBody(v *QueryProjectByPageResponseBody) 
 	return s
 }
 
+type QueryReceiptDetailForInvoiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryReceiptDetailForInvoiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceHeaders) SetCommonHeaders(v map[string]*string) *QueryReceiptDetailForInvoiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryReceiptDetailForInvoiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryReceiptDetailForInvoiceRequest struct {
+	// 审批单id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s QueryReceiptDetailForInvoiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceRequest) SetInstanceId(v string) *QueryReceiptDetailForInvoiceRequest {
+	s.InstanceId = &v
+	return s
+}
+
+type QueryReceiptDetailForInvoiceResponseBody struct {
+	// 结果
+	Result *QueryReceiptDetailForInvoiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBody) SetResult(v *QueryReceiptDetailForInvoiceResponseBodyResult) *QueryReceiptDetailForInvoiceResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryReceiptDetailForInvoiceResponseBodyResult struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 开票状态
+	ApplyStatus *string `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 创建人
+	Creator *QueryReceiptDetailForInvoiceResponseBodyResultCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	// 客户
+	Customer *QueryReceiptDetailForInvoiceResponseBodyResultCustomer `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
+	// 开票人邮箱
+	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	// 开票人手机号码
+	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
+	// 发票种类
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	// 主数据modelId
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 商品列表
+	ProductInfoList []*QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList `json:"productInfoList,omitempty" xml:"productInfoList,omitempty" type:"Repeated"`
+	// 购方账户
+	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	// 购方地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankName *string `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
+	// 购方抬头
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	// 单据ID
+	ReceiptId *string `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
+	// 记录时间，默认为审批通过时间
+	RecordTime *string `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 来源
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 状态 agree running
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 单据标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetAmount(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.Amount = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetApplyStatus(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.ApplyStatus = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetCreateTime(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetCreator(v *QueryReceiptDetailForInvoiceResponseBodyResultCreator) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.Creator = v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetCustomer(v *QueryReceiptDetailForInvoiceResponseBodyResultCustomer) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.Customer = v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetDrawerEmail(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.DrawerEmail = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetDrawerTelephone(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.DrawerTelephone = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetInvoiceType(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.InvoiceType = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetModelId(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.ModelId = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetProductInfoList(v []*QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.ProductInfoList = v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetPurchaserAccount(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.PurchaserAccount = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetPurchaserAddress(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetPurchaserBankName(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.PurchaserBankName = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetPurchaserName(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetPurchaserTaxNo(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetPurchaserTel(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.PurchaserTel = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetReceiptId(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.ReceiptId = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetRecordTime(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.RecordTime = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetRemark(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.Remark = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetSource(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.Source = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetStatus(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetTitle(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+type QueryReceiptDetailForInvoiceResponseBodyResultCreator struct {
+	// 创建人头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 创建人昵称
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// 创建人工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultCreator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultCreator) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultCreator) SetAvatarUrl(v string) *QueryReceiptDetailForInvoiceResponseBodyResultCreator {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultCreator) SetNick(v string) *QueryReceiptDetailForInvoiceResponseBodyResultCreator {
+	s.Nick = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultCreator) SetUserId(v string) *QueryReceiptDetailForInvoiceResponseBodyResultCreator {
+	s.UserId = &v
+	return s
+}
+
+type QueryReceiptDetailForInvoiceResponseBodyResultCustomer struct {
+	// 客户code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 客户名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultCustomer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultCustomer) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultCustomer) SetCode(v string) *QueryReceiptDetailForInvoiceResponseBodyResultCustomer {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultCustomer) SetName(v string) *QueryReceiptDetailForInvoiceResponseBodyResultCustomer {
+	s.Name = &v
+	return s
+}
+
+type QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList struct {
+	// 含税金额
+	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	// 商品名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 数量
+	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// 规格型号
+	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 计量单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 含税单价
+	UnitPriceWithTax *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetAmountWithTax(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.AmountWithTax = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetName(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetQuantity(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.Quantity = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetSpecification(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.Specification = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetTaxRate(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetUnit(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.Unit = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetUnitPriceWithTax(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.UnitPriceWithTax = &v
+	return s
+}
+
+type QueryReceiptDetailForInvoiceResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryReceiptDetailForInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryReceiptDetailForInvoiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceResponse) SetHeaders(v map[string]*string) *QueryReceiptDetailForInvoiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponse) SetBody(v *QueryReceiptDetailForInvoiceResponseBody) *QueryReceiptDetailForInvoiceResponse {
+	s.Body = v
+	return s
+}
+
 type QueryReceiptForInvoiceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5204,10 +5610,16 @@ type QueryReceiptForInvoiceResponseBodyList struct {
 	Creator *QueryReceiptForInvoiceResponseBodyListCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	// 客户
 	Customer *QueryReceiptForInvoiceResponseBodyListCustomer `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
+	// 开票人邮箱
+	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	// 开票人手机号码
+	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
 	// 发票种类
 	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// 主数据modelId
 	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 商品列表
+	ProductInfoList []*QueryReceiptForInvoiceResponseBodyListProductInfoList `json:"productInfoList,omitempty" xml:"productInfoList,omitempty" type:"Repeated"`
 	// 购方账户
 	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
 	// 购方地址
@@ -5267,6 +5679,16 @@ func (s *QueryReceiptForInvoiceResponseBodyList) SetCustomer(v *QueryReceiptForI
 	return s
 }
 
+func (s *QueryReceiptForInvoiceResponseBodyList) SetDrawerEmail(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.DrawerEmail = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetDrawerTelephone(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.DrawerTelephone = &v
+	return s
+}
+
 func (s *QueryReceiptForInvoiceResponseBodyList) SetInvoiceType(v string) *QueryReceiptForInvoiceResponseBodyList {
 	s.InvoiceType = &v
 	return s
@@ -5274,6 +5696,11 @@ func (s *QueryReceiptForInvoiceResponseBodyList) SetInvoiceType(v string) *Query
 
 func (s *QueryReceiptForInvoiceResponseBodyList) SetModelId(v string) *QueryReceiptForInvoiceResponseBodyList {
 	s.ModelId = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetProductInfoList(v []*QueryReceiptForInvoiceResponseBodyListProductInfoList) *QueryReceiptForInvoiceResponseBodyList {
+	s.ProductInfoList = v
 	return s
 }
 
@@ -5391,6 +5818,66 @@ func (s *QueryReceiptForInvoiceResponseBodyListCustomer) SetCode(v string) *Quer
 
 func (s *QueryReceiptForInvoiceResponseBodyListCustomer) SetName(v string) *QueryReceiptForInvoiceResponseBodyListCustomer {
 	s.Name = &v
+	return s
+}
+
+type QueryReceiptForInvoiceResponseBodyListProductInfoList struct {
+	// 含税金额
+	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	// 商品名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 数量
+	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// 规格型号
+	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 计量单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 含税单价
+	UnitPriceWithTax *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
+}
+
+func (s QueryReceiptForInvoiceResponseBodyListProductInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptForInvoiceResponseBodyListProductInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetAmountWithTax(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.AmountWithTax = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetName(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetQuantity(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.Quantity = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetSpecification(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.Specification = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetTaxRate(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetUnit(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.Unit = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetUnitPriceWithTax(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.UnitPriceWithTax = &v
 	return s
 }
 
@@ -12764,6 +13251,14 @@ func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, 
 		body["description"] = request.Description
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.DrawerEmail)) {
+		body["drawerEmail"] = request.DrawerEmail
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DrawerTelephone)) {
+		body["drawerTelephone"] = request.DrawerTelephone
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
 	}
@@ -13829,6 +14324,50 @@ func (client *Client) QueryProjectByPageWithOptions(request *QueryProjectByPageR
 	}
 	_result = &QueryProjectByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryProjectByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/projects/list"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryReceiptDetailForInvoice(request *QueryReceiptDetailForInvoiceRequest) (_result *QueryReceiptDetailForInvoiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryReceiptDetailForInvoiceHeaders{}
+	_result = &QueryReceiptDetailForInvoiceResponse{}
+	_body, _err := client.QueryReceiptDetailForInvoiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryReceiptDetailForInvoiceWithOptions(request *QueryReceiptDetailForInvoiceRequest, headers *QueryReceiptDetailForInvoiceHeaders, runtime *util.RuntimeOptions) (_result *QueryReceiptDetailForInvoiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		query["instanceId"] = request.InstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryReceiptDetailForInvoiceResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryReceiptDetailForInvoice"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/receipts/details"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

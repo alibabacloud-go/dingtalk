@@ -2164,10 +2164,10 @@ type GetCardInfoResponseBodyExtensionCardContactInfo struct {
 	Address []*GetCardInfoResponseBodyExtensionCardContactInfoAddress `json:"address,omitempty" xml:"address,omitempty" type:"Repeated"`
 	// 邮箱
 	Email []*GetCardInfoResponseBodyExtensionCardContactInfoEmail `json:"email,omitempty" xml:"email,omitempty" type:"Repeated"`
+	// 微信
+	Link []*GetCardInfoResponseBodyExtensionCardContactInfoLink `json:"link,omitempty" xml:"link,omitempty" type:"Repeated"`
 	// 电话
 	Telephone []*GetCardInfoResponseBodyExtensionCardContactInfoTelephone `json:"telephone,omitempty" xml:"telephone,omitempty" type:"Repeated"`
-	// 微信
-	Wechat []*GetCardInfoResponseBodyExtensionCardContactInfoWechat `json:"wechat,omitempty" xml:"wechat,omitempty" type:"Repeated"`
 }
 
 func (s GetCardInfoResponseBodyExtensionCardContactInfo) String() string {
@@ -2188,13 +2188,13 @@ func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetEmail(v []*GetCardI
 	return s
 }
 
-func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetTelephone(v []*GetCardInfoResponseBodyExtensionCardContactInfoTelephone) *GetCardInfoResponseBodyExtensionCardContactInfo {
-	s.Telephone = v
+func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetLink(v []*GetCardInfoResponseBodyExtensionCardContactInfoLink) *GetCardInfoResponseBodyExtensionCardContactInfo {
+	s.Link = v
 	return s
 }
 
-func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetWechat(v []*GetCardInfoResponseBodyExtensionCardContactInfoWechat) *GetCardInfoResponseBodyExtensionCardContactInfo {
-	s.Wechat = v
+func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetTelephone(v []*GetCardInfoResponseBodyExtensionCardContactInfoTelephone) *GetCardInfoResponseBodyExtensionCardContactInfo {
+	s.Telephone = v
 	return s
 }
 
@@ -2271,6 +2271,29 @@ func (s *GetCardInfoResponseBodyExtensionCardContactInfoEmail) SetValue(v string
 	return s
 }
 
+type GetCardInfoResponseBodyExtensionCardContactInfoLink struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoLink) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoLink) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoLink) SetLabel(v string) *GetCardInfoResponseBodyExtensionCardContactInfoLink {
+	s.Label = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoLink) SetValue(v string) *GetCardInfoResponseBodyExtensionCardContactInfoLink {
+	s.Value = &v
+	return s
+}
+
 type GetCardInfoResponseBodyExtensionCardContactInfoTelephone struct {
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
@@ -2290,29 +2313,6 @@ func (s *GetCardInfoResponseBodyExtensionCardContactInfoTelephone) SetLabel(v st
 }
 
 func (s *GetCardInfoResponseBodyExtensionCardContactInfoTelephone) SetValue(v string) *GetCardInfoResponseBodyExtensionCardContactInfoTelephone {
-	s.Value = &v
-	return s
-}
-
-type GetCardInfoResponseBodyExtensionCardContactInfoWechat struct {
-	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
-}
-
-func (s GetCardInfoResponseBodyExtensionCardContactInfoWechat) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCardInfoResponseBodyExtensionCardContactInfoWechat) GoString() string {
-	return s.String()
-}
-
-func (s *GetCardInfoResponseBodyExtensionCardContactInfoWechat) SetLabel(v string) *GetCardInfoResponseBodyExtensionCardContactInfoWechat {
-	s.Label = &v
-	return s
-}
-
-func (s *GetCardInfoResponseBodyExtensionCardContactInfoWechat) SetValue(v string) *GetCardInfoResponseBodyExtensionCardContactInfoWechat {
 	s.Value = &v
 	return s
 }
@@ -7154,6 +7154,8 @@ type UniqueQueryUserCardResponseBody struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 组织名
 	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 用户设置
+	Settings map[string]interface{} `json:"settings,omitempty" xml:"settings,omitempty"`
 	// 模版id
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 	// 标题
@@ -7200,6 +7202,11 @@ func (s *UniqueQueryUserCardResponseBody) SetName(v string) *UniqueQueryUserCard
 
 func (s *UniqueQueryUserCardResponseBody) SetOrgName(v string) *UniqueQueryUserCardResponseBody {
 	s.OrgName = &v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetSettings(v map[string]interface{}) *UniqueQueryUserCardResponseBody {
+	s.Settings = v
 	return s
 }
 

@@ -4118,6 +4118,10 @@ func (s *GroupAddRequestBleDeviceList) SetDeviceId(v int64) *GroupAddRequestBleD
 }
 
 type GroupAddRequestFreeCheckSetting struct {
+	// 自由工时考勤组考勤开始时间与当天0点偏移分钟数。
+	//
+	// 例如：540表示9:00
+	DelimitOffsetMinutesBetweenDays *int32 `json:"delimitOffsetMinutesBetweenDays,omitempty" xml:"delimitOffsetMinutesBetweenDays,omitempty"`
 	// 休息日打卡间隔设置。
 	FreeCheckGap *GroupAddRequestFreeCheckSettingFreeCheckGap `json:"freeCheckGap,omitempty" xml:"freeCheckGap,omitempty" type:"Struct"`
 }
@@ -4128,6 +4132,11 @@ func (s GroupAddRequestFreeCheckSetting) String() string {
 
 func (s GroupAddRequestFreeCheckSetting) GoString() string {
 	return s.String()
+}
+
+func (s *GroupAddRequestFreeCheckSetting) SetDelimitOffsetMinutesBetweenDays(v int32) *GroupAddRequestFreeCheckSetting {
+	s.DelimitOffsetMinutesBetweenDays = &v
+	return s
 }
 
 func (s *GroupAddRequestFreeCheckSetting) SetFreeCheckGap(v *GroupAddRequestFreeCheckSettingFreeCheckGap) *GroupAddRequestFreeCheckSetting {
@@ -4349,8 +4358,8 @@ func (s *GroupAddRequestWifis) SetSsid(v string) *GroupAddRequestWifis {
 }
 
 type GroupAddResponseBody struct {
-	// Id of the request
-	Result []*GroupAddResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Result  *GroupAddResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                       `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GroupAddResponseBody) String() string {
@@ -4361,16 +4370,19 @@ func (s GroupAddResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GroupAddResponseBody) SetResult(v []*GroupAddResponseBodyResult) *GroupAddResponseBody {
+func (s *GroupAddResponseBody) SetResult(v *GroupAddResponseBodyResult) *GroupAddResponseBody {
 	s.Result = v
 	return s
 }
 
+func (s *GroupAddResponseBody) SetSuccess(v bool) *GroupAddResponseBody {
+	s.Success = &v
+	return s
+}
+
 type GroupAddResponseBodyResult struct {
-	// 考勤组id
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 考勤组名
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	Id   *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s GroupAddResponseBodyResult) String() string {
@@ -4381,13 +4393,13 @@ func (s GroupAddResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *GroupAddResponseBodyResult) SetGroupId(v int64) *GroupAddResponseBodyResult {
-	s.GroupId = &v
+func (s *GroupAddResponseBodyResult) SetId(v int64) *GroupAddResponseBodyResult {
+	s.Id = &v
 	return s
 }
 
-func (s *GroupAddResponseBodyResult) SetGroupName(v string) *GroupAddResponseBodyResult {
-	s.GroupName = &v
+func (s *GroupAddResponseBodyResult) SetName(v string) *GroupAddResponseBodyResult {
+	s.Name = &v
 	return s
 }
 
@@ -4659,6 +4671,10 @@ func (s *GroupUpdateRequest) SetOpUserId(v string) *GroupUpdateRequest {
 }
 
 type GroupUpdateRequestFreeCheckSetting struct {
+	// 自由工时考勤组考勤开始时间与当天0点偏移分钟数。
+	//
+	// 例如：540表示9:00
+	DelimitOffsetMinutesBetweenDays *int32 `json:"delimitOffsetMinutesBetweenDays,omitempty" xml:"delimitOffsetMinutesBetweenDays,omitempty"`
 	// 休息日打卡间隔设置。
 	FreeCheckGap *GroupUpdateRequestFreeCheckSettingFreeCheckGap `json:"freeCheckGap,omitempty" xml:"freeCheckGap,omitempty" type:"Struct"`
 }
@@ -4669,6 +4685,11 @@ func (s GroupUpdateRequestFreeCheckSetting) String() string {
 
 func (s GroupUpdateRequestFreeCheckSetting) GoString() string {
 	return s.String()
+}
+
+func (s *GroupUpdateRequestFreeCheckSetting) SetDelimitOffsetMinutesBetweenDays(v int32) *GroupUpdateRequestFreeCheckSetting {
+	s.DelimitOffsetMinutesBetweenDays = &v
+	return s
 }
 
 func (s *GroupUpdateRequestFreeCheckSetting) SetFreeCheckGap(v *GroupUpdateRequestFreeCheckSettingFreeCheckGap) *GroupUpdateRequestFreeCheckSetting {
@@ -4833,8 +4854,8 @@ func (s *GroupUpdateRequestShiftVOList) SetShiftId(v int64) *GroupUpdateRequestS
 }
 
 type GroupUpdateResponseBody struct {
-	// Id of the request
-	Result []*GroupUpdateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Result  *GroupUpdateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                          `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GroupUpdateResponseBody) String() string {
@@ -4845,16 +4866,19 @@ func (s GroupUpdateResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GroupUpdateResponseBody) SetResult(v []*GroupUpdateResponseBodyResult) *GroupUpdateResponseBody {
+func (s *GroupUpdateResponseBody) SetResult(v *GroupUpdateResponseBodyResult) *GroupUpdateResponseBody {
 	s.Result = v
 	return s
 }
 
+func (s *GroupUpdateResponseBody) SetSuccess(v bool) *GroupUpdateResponseBody {
+	s.Success = &v
+	return s
+}
+
 type GroupUpdateResponseBodyResult struct {
-	// 考勤组id
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 考勤组名
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	Id   *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s GroupUpdateResponseBodyResult) String() string {
@@ -4865,13 +4889,13 @@ func (s GroupUpdateResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *GroupUpdateResponseBodyResult) SetGroupId(v int64) *GroupUpdateResponseBodyResult {
-	s.GroupId = &v
+func (s *GroupUpdateResponseBodyResult) SetId(v int64) *GroupUpdateResponseBodyResult {
+	s.Id = &v
 	return s
 }
 
-func (s *GroupUpdateResponseBodyResult) SetGroupName(v string) *GroupUpdateResponseBodyResult {
-	s.GroupName = &v
+func (s *GroupUpdateResponseBodyResult) SetName(v string) *GroupUpdateResponseBodyResult {
+	s.Name = &v
 	return s
 }
 

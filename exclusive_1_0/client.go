@@ -8408,6 +8408,94 @@ func (s *SaveAndSubmitAuthInfoResponse) SetBody(v *SaveAndSubmitAuthInfoResponse
 	return s
 }
 
+type SaveWhiteAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveWhiteAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveWhiteAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveWhiteAppHeaders) SetCommonHeaders(v map[string]*string) *SaveWhiteAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveWhiteAppHeaders) SetXAcsDingtalkAccessToken(v string) *SaveWhiteAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveWhiteAppRequest struct {
+	// 微应用白名单AgentID
+	AgentIdList []*int64 `json:"agentIdList,omitempty" xml:"agentIdList,omitempty" type:"Repeated"`
+	// 操作符
+	Operation *string `json:"operation,omitempty" xml:"operation,omitempty"`
+}
+
+func (s SaveWhiteAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveWhiteAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveWhiteAppRequest) SetAgentIdList(v []*int64) *SaveWhiteAppRequest {
+	s.AgentIdList = v
+	return s
+}
+
+func (s *SaveWhiteAppRequest) SetOperation(v string) *SaveWhiteAppRequest {
+	s.Operation = &v
+	return s
+}
+
+type SaveWhiteAppResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SaveWhiteAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveWhiteAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveWhiteAppResponseBody) SetSuccess(v bool) *SaveWhiteAppResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SaveWhiteAppResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SaveWhiteAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveWhiteAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveWhiteAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveWhiteAppResponse) SetHeaders(v map[string]*string) *SaveWhiteAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveWhiteAppResponse) SetBody(v *SaveWhiteAppResponseBody) *SaveWhiteAppResponse {
+	s.Body = v
+	return s
+}
+
 type SearchOrgInnerGroupInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12471,6 +12559,54 @@ func (client *Client) SaveAndSubmitAuthInfoWithOptions(request *SaveAndSubmitAut
 	}
 	_result = &SaveAndSubmitAuthInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("SaveAndSubmitAuthInfo"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/ognizations/authInfos/saveAndSubmit"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveWhiteApp(request *SaveWhiteAppRequest) (_result *SaveWhiteAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveWhiteAppHeaders{}
+	_result = &SaveWhiteAppResponse{}
+	_body, _err := client.SaveWhiteAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveWhiteAppWithOptions(request *SaveWhiteAppRequest, headers *SaveWhiteAppHeaders, runtime *util.RuntimeOptions) (_result *SaveWhiteAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentIdList)) {
+		body["agentIdList"] = request.AgentIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operation)) {
+		body["operation"] = request.Operation
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SaveWhiteAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("SaveWhiteApp"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/miniApps/whiteLists/save"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
