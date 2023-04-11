@@ -4319,6 +4319,205 @@ func (s *GetOaOperatorLogListResponse) SetBody(v *GetOaOperatorLogListResponseBo
 	return s
 }
 
+type GetOutsideAuditGroupMessageByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOutsideAuditGroupMessageByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutsideAuditGroupMessageByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutsideAuditGroupMessageByPageHeaders) SetCommonHeaders(v map[string]*string) *GetOutsideAuditGroupMessageByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageHeaders) SetXAcsDingtalkAccessToken(v string) *GetOutsideAuditGroupMessageByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOutsideAuditGroupMessageByPageRequest struct {
+	// 页大小，一次请求几条消息，合法区间[20,50]
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 毫秒时间戳，从该时间向过去拉消息
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 会话
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetOutsideAuditGroupMessageByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutsideAuditGroupMessageByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutsideAuditGroupMessageByPageRequest) SetMaxResults(v int32) *GetOutsideAuditGroupMessageByPageRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageRequest) SetNextToken(v int64) *GetOutsideAuditGroupMessageByPageRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageRequest) SetOpenConversationId(v string) *GetOutsideAuditGroupMessageByPageRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetOutsideAuditGroupMessageByPageResponseBody struct {
+	// 返回结构体
+	ResponseBody *GetOutsideAuditGroupMessageByPageResponseBodyResponseBody `json:"responseBody,omitempty" xml:"responseBody,omitempty" type:"Struct"`
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBody) SetResponseBody(v *GetOutsideAuditGroupMessageByPageResponseBodyResponseBody) *GetOutsideAuditGroupMessageByPageResponseBody {
+	s.ResponseBody = v
+	return s
+}
+
+type GetOutsideAuditGroupMessageByPageResponseBodyResponseBody struct {
+	// 消息列表
+	MessageList []*GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList `json:"messageList,omitempty" xml:"messageList,omitempty" type:"Repeated"`
+	// 下一次请求的token,无返回值则下一条消息不存在
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponseBodyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponseBodyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBody) SetMessageList(v []*GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBody {
+	s.MessageList = v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBody) SetNextToken(v string) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList struct {
+	// 内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 内容类型 文本/语音/视频
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// 发送时间 格式:yyyy-MM-dd HH:mm:ss
+	CreateAt *string `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	// 会话id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 发送人
+	Sender *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender `json:"sender,omitempty" xml:"sender,omitempty" type:"Struct"`
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList) SetContent(v string) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList {
+	s.Content = &v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList) SetContentType(v string) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList {
+	s.ContentType = &v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList) SetCreateAt(v string) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList {
+	s.CreateAt = &v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList) SetOpenConversationId(v string) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList) SetSender(v *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageList {
+	s.Sender = v
+	return s
+}
+
+type GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender struct {
+	// 根据id的类型决定是哪一种id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 发送者的id类型，可以是userId或者unionId
+	IdType *string `json:"idType,omitempty" xml:"idType,omitempty"`
+	// 用户-user 机器人-bot 系统账号-sys
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender) SetId(v string) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender {
+	s.Id = &v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender) SetIdType(v string) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender {
+	s.IdType = &v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender) SetType(v string) *GetOutsideAuditGroupMessageByPageResponseBodyResponseBodyMessageListSender {
+	s.Type = &v
+	return s
+}
+
+type GetOutsideAuditGroupMessageByPageResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOutsideAuditGroupMessageByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutsideAuditGroupMessageByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponse) SetHeaders(v map[string]*string) *GetOutsideAuditGroupMessageByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOutsideAuditGroupMessageByPageResponse) SetBody(v *GetOutsideAuditGroupMessageByPageResponseBody) *GetOutsideAuditGroupMessageByPageResponse {
+	s.Body = v
+	return s
+}
+
 type GetPartnerTypeByParentIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11184,6 +11383,58 @@ func (client *Client) GetOaOperatorLogListWithOptions(request *GetOaOperatorLogL
 	}
 	_result = &GetOaOperatorLogListResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetOaOperatorLogList"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/oaOperatorLogs/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOutsideAuditGroupMessageByPage(request *GetOutsideAuditGroupMessageByPageRequest) (_result *GetOutsideAuditGroupMessageByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOutsideAuditGroupMessageByPageHeaders{}
+	_result = &GetOutsideAuditGroupMessageByPageResponse{}
+	_body, _err := client.GetOutsideAuditGroupMessageByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOutsideAuditGroupMessageByPageWithOptions(request *GetOutsideAuditGroupMessageByPageRequest, headers *GetOutsideAuditGroupMessageByPageHeaders, runtime *util.RuntimeOptions) (_result *GetOutsideAuditGroupMessageByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetOutsideAuditGroupMessageByPageResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOutsideAuditGroupMessageByPage"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/audits/outsideGroups/messages/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

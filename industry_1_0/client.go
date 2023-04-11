@@ -7192,6 +7192,7 @@ func (s *DigitalStoreSubNodesResponseBody) SetContent(v []*DigitalStoreSubNodesR
 }
 
 type DigitalStoreSubNodesResponseBodyContent struct {
+	DingDeptId *int64 `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
 	// 节点Id
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
 	// 门店名称
@@ -7208,6 +7209,11 @@ func (s DigitalStoreSubNodesResponseBodyContent) String() string {
 
 func (s DigitalStoreSubNodesResponseBodyContent) GoString() string {
 	return s.String()
+}
+
+func (s *DigitalStoreSubNodesResponseBodyContent) SetDingDeptId(v int64) *DigitalStoreSubNodesResponseBodyContent {
+	s.DingDeptId = &v
+	return s
 }
 
 func (s *DigitalStoreSubNodesResponseBodyContent) SetId(v int64) *DigitalStoreSubNodesResponseBodyContent {
@@ -16492,6 +16498,549 @@ func (s *SaveUserExtendValuesResponse) SetBody(v *SaveUserExtendValuesResponseBo
 	return s
 }
 
+type SupplyAddDeptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SupplyAddDeptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddDeptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddDeptHeaders) SetCommonHeaders(v map[string]*string) *SupplyAddDeptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SupplyAddDeptHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyAddDeptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SupplyAddDeptRequest struct {
+	// 部门名字
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 供应商编号
+	PartnerNumber *string `json:"partnerNumber,omitempty" xml:"partnerNumber,omitempty"`
+	// 上级部门id
+	SuperDeptId *int64 `json:"superDeptId,omitempty" xml:"superDeptId,omitempty"`
+	// 供应链部门类型
+	SupplyDeptType *string `json:"supplyDeptType,omitempty" xml:"supplyDeptType,omitempty"`
+}
+
+func (s SupplyAddDeptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddDeptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddDeptRequest) SetDeptName(v string) *SupplyAddDeptRequest {
+	s.DeptName = &v
+	return s
+}
+
+func (s *SupplyAddDeptRequest) SetPartnerNumber(v string) *SupplyAddDeptRequest {
+	s.PartnerNumber = &v
+	return s
+}
+
+func (s *SupplyAddDeptRequest) SetSuperDeptId(v int64) *SupplyAddDeptRequest {
+	s.SuperDeptId = &v
+	return s
+}
+
+func (s *SupplyAddDeptRequest) SetSupplyDeptType(v string) *SupplyAddDeptRequest {
+	s.SupplyDeptType = &v
+	return s
+}
+
+type SupplyAddDeptResponseBody struct {
+	Result *SupplyAddDeptResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SupplyAddDeptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddDeptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddDeptResponseBody) SetResult(v *SupplyAddDeptResponseBodyResult) *SupplyAddDeptResponseBody {
+	s.Result = v
+	return s
+}
+
+type SupplyAddDeptResponseBodyResult struct {
+	// 部门id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s SupplyAddDeptResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddDeptResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddDeptResponseBodyResult) SetDeptId(v int64) *SupplyAddDeptResponseBodyResult {
+	s.DeptId = &v
+	return s
+}
+
+type SupplyAddDeptResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SupplyAddDeptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SupplyAddDeptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddDeptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddDeptResponse) SetHeaders(v map[string]*string) *SupplyAddDeptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SupplyAddDeptResponse) SetBody(v *SupplyAddDeptResponseBody) *SupplyAddDeptResponse {
+	s.Body = v
+	return s
+}
+
+type SupplyAddMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SupplyAddMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddMemberHeaders) SetCommonHeaders(v map[string]*string) *SupplyAddMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SupplyAddMemberHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyAddMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SupplyAddMemberRequest struct {
+	// 是否为伙伴负责人
+	IsPartnerManager *bool `json:"isPartnerManager,omitempty" xml:"isPartnerManager,omitempty"`
+	// 成员手机号
+	MemberMobile *string `json:"memberMobile,omitempty" xml:"memberMobile,omitempty"`
+	// 成员名字
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// 成员编码/工号
+	MemberWorkNumber *string `json:"memberWorkNumber,omitempty" xml:"memberWorkNumber,omitempty"`
+	// 所属伙伴/子部门
+	SupplyDeptId *int64 `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
+}
+
+func (s SupplyAddMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddMemberRequest) SetIsPartnerManager(v bool) *SupplyAddMemberRequest {
+	s.IsPartnerManager = &v
+	return s
+}
+
+func (s *SupplyAddMemberRequest) SetMemberMobile(v string) *SupplyAddMemberRequest {
+	s.MemberMobile = &v
+	return s
+}
+
+func (s *SupplyAddMemberRequest) SetMemberName(v string) *SupplyAddMemberRequest {
+	s.MemberName = &v
+	return s
+}
+
+func (s *SupplyAddMemberRequest) SetMemberWorkNumber(v string) *SupplyAddMemberRequest {
+	s.MemberWorkNumber = &v
+	return s
+}
+
+func (s *SupplyAddMemberRequest) SetSupplyDeptId(v int64) *SupplyAddMemberRequest {
+	s.SupplyDeptId = &v
+	return s
+}
+
+type SupplyAddMemberResponseBody struct {
+	Result *SupplyAddMemberResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SupplyAddMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddMemberResponseBody) SetResult(v *SupplyAddMemberResponseBodyResult) *SupplyAddMemberResponseBody {
+	s.Result = v
+	return s
+}
+
+type SupplyAddMemberResponseBodyResult struct {
+	// 成员在钉钉组织的状态
+	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
+	// isv内用户唯一id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 已经进组织的用户唯一id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SupplyAddMemberResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddMemberResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddMemberResponseBodyResult) SetDingMemberStatus(v string) *SupplyAddMemberResponseBodyResult {
+	s.DingMemberStatus = &v
+	return s
+}
+
+func (s *SupplyAddMemberResponseBodyResult) SetUnionId(v string) *SupplyAddMemberResponseBodyResult {
+	s.UnionId = &v
+	return s
+}
+
+func (s *SupplyAddMemberResponseBodyResult) SetUserId(v string) *SupplyAddMemberResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type SupplyAddMemberResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SupplyAddMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SupplyAddMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyAddMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyAddMemberResponse) SetHeaders(v map[string]*string) *SupplyAddMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SupplyAddMemberResponse) SetBody(v *SupplyAddMemberResponseBody) *SupplyAddMemberResponse {
+	s.Body = v
+	return s
+}
+
+type SupplyGetMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SupplyGetMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyGetMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyGetMemberHeaders) SetCommonHeaders(v map[string]*string) *SupplyGetMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SupplyGetMemberHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyGetMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SupplyGetMemberRequest struct {
+	// isv下钉钉唯一账号ID
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 组织内钉钉员工ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SupplyGetMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyGetMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyGetMemberRequest) SetUnionId(v string) *SupplyGetMemberRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *SupplyGetMemberRequest) SetUserId(v string) *SupplyGetMemberRequest {
+	s.UserId = &v
+	return s
+}
+
+type SupplyGetMemberResponseBody struct {
+	Result *SupplyGetMemberResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SupplyGetMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyGetMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyGetMemberResponseBody) SetResult(v *SupplyGetMemberResponseBodyResult) *SupplyGetMemberResponseBody {
+	s.Result = v
+	return s
+}
+
+type SupplyGetMemberResponseBodyResult struct {
+	// 成员状态，已进组织或者待接收邀请
+	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
+	// 成员是否激活
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// 成员名字
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// 成员在上下游中的工号
+	MemberWorkNumber *string `json:"memberWorkNumber,omitempty" xml:"memberWorkNumber,omitempty"`
+}
+
+func (s SupplyGetMemberResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyGetMemberResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyGetMemberResponseBodyResult) SetDingMemberStatus(v string) *SupplyGetMemberResponseBodyResult {
+	s.DingMemberStatus = &v
+	return s
+}
+
+func (s *SupplyGetMemberResponseBodyResult) SetIsActive(v bool) *SupplyGetMemberResponseBodyResult {
+	s.IsActive = &v
+	return s
+}
+
+func (s *SupplyGetMemberResponseBodyResult) SetMemberName(v string) *SupplyGetMemberResponseBodyResult {
+	s.MemberName = &v
+	return s
+}
+
+func (s *SupplyGetMemberResponseBodyResult) SetMemberWorkNumber(v string) *SupplyGetMemberResponseBodyResult {
+	s.MemberWorkNumber = &v
+	return s
+}
+
+type SupplyGetMemberResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SupplyGetMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SupplyGetMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyGetMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyGetMemberResponse) SetHeaders(v map[string]*string) *SupplyGetMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SupplyGetMemberResponse) SetBody(v *SupplyGetMemberResponseBody) *SupplyGetMemberResponse {
+	s.Body = v
+	return s
+}
+
+type SupplyListDeptMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SupplyListDeptMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyListDeptMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyListDeptMembersHeaders) SetCommonHeaders(v map[string]*string) *SupplyListDeptMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SupplyListDeptMembersHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyListDeptMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SupplyListDeptMembersRequest struct {
+	// 页码
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 单页的条目数
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 供应链部门id
+	SupplyDeptId *int64 `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
+}
+
+func (s SupplyListDeptMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyListDeptMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyListDeptMembersRequest) SetPageNumber(v int64) *SupplyListDeptMembersRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *SupplyListDeptMembersRequest) SetPageSize(v int64) *SupplyListDeptMembersRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *SupplyListDeptMembersRequest) SetSupplyDeptId(v int64) *SupplyListDeptMembersRequest {
+	s.SupplyDeptId = &v
+	return s
+}
+
+type SupplyListDeptMembersResponseBody struct {
+	// 是否还有下一页
+	HasMore *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*SupplyListDeptMembersResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s SupplyListDeptMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyListDeptMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyListDeptMembersResponseBody) SetHasMore(v bool) *SupplyListDeptMembersResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *SupplyListDeptMembersResponseBody) SetList(v []*SupplyListDeptMembersResponseBodyList) *SupplyListDeptMembersResponseBody {
+	s.List = v
+	return s
+}
+
+type SupplyListDeptMembersResponseBodyList struct {
+	// 人员状态，已进组织 或 待接收邀请
+	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
+	// 是否激活
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// 名字
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// 人员在上下游中的工号
+	MemberWorkNumber *string `json:"memberWorkNumber,omitempty" xml:"memberWorkNumber,omitempty"`
+	// 应用层面的唯一id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 人员组织内id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SupplyListDeptMembersResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyListDeptMembersResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyListDeptMembersResponseBodyList) SetDingMemberStatus(v string) *SupplyListDeptMembersResponseBodyList {
+	s.DingMemberStatus = &v
+	return s
+}
+
+func (s *SupplyListDeptMembersResponseBodyList) SetIsActive(v bool) *SupplyListDeptMembersResponseBodyList {
+	s.IsActive = &v
+	return s
+}
+
+func (s *SupplyListDeptMembersResponseBodyList) SetMemberName(v string) *SupplyListDeptMembersResponseBodyList {
+	s.MemberName = &v
+	return s
+}
+
+func (s *SupplyListDeptMembersResponseBodyList) SetMemberWorkNumber(v string) *SupplyListDeptMembersResponseBodyList {
+	s.MemberWorkNumber = &v
+	return s
+}
+
+func (s *SupplyListDeptMembersResponseBodyList) SetUnionId(v string) *SupplyListDeptMembersResponseBodyList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *SupplyListDeptMembersResponseBodyList) SetUserId(v string) *SupplyListDeptMembersResponseBodyList {
+	s.UserId = &v
+	return s
+}
+
+type SupplyListDeptMembersResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SupplyListDeptMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SupplyListDeptMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyListDeptMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyListDeptMembersResponse) SetHeaders(v map[string]*string) *SupplyListDeptMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SupplyListDeptMembersResponse) SetBody(v *SupplyListDeptMembersResponseBody) *SupplyListDeptMembersResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateUserExtendInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -22641,6 +23190,222 @@ func (client *Client) SaveUserExtendValuesWithOptions(userId *string, request *S
 	}
 	_result = &SaveUserExtendValuesResponse{}
 	_body, _err := client.DoROARequest(tea.String("SaveUserExtendValues"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/medicals/users/"+tea.StringValue(userId)+"/extends"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SupplyAddDept(request *SupplyAddDeptRequest) (_result *SupplyAddDeptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SupplyAddDeptHeaders{}
+	_result = &SupplyAddDeptResponse{}
+	_body, _err := client.SupplyAddDeptWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SupplyAddDeptWithOptions(request *SupplyAddDeptRequest, headers *SupplyAddDeptHeaders, runtime *util.RuntimeOptions) (_result *SupplyAddDeptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptName)) {
+		query["deptName"] = request.DeptName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PartnerNumber)) {
+		query["partnerNumber"] = request.PartnerNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuperDeptId)) {
+		query["superDeptId"] = request.SuperDeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SupplyDeptType)) {
+		query["supplyDeptType"] = request.SupplyDeptType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SupplyAddDeptResponse{}
+	_body, _err := client.DoROARequest(tea.String("SupplyAddDept"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/supplyChains/departments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SupplyAddMember(request *SupplyAddMemberRequest) (_result *SupplyAddMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SupplyAddMemberHeaders{}
+	_result = &SupplyAddMemberResponse{}
+	_body, _err := client.SupplyAddMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SupplyAddMemberWithOptions(request *SupplyAddMemberRequest, headers *SupplyAddMemberHeaders, runtime *util.RuntimeOptions) (_result *SupplyAddMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsPartnerManager)) {
+		query["isPartnerManager"] = request.IsPartnerManager
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberMobile)) {
+		query["memberMobile"] = request.MemberMobile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberName)) {
+		query["memberName"] = request.MemberName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberWorkNumber)) {
+		query["memberWorkNumber"] = request.MemberWorkNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SupplyDeptId)) {
+		query["supplyDeptId"] = request.SupplyDeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SupplyAddMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("SupplyAddMember"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/supplyChains/members"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SupplyGetMember(request *SupplyGetMemberRequest) (_result *SupplyGetMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SupplyGetMemberHeaders{}
+	_result = &SupplyGetMemberResponse{}
+	_body, _err := client.SupplyGetMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SupplyGetMemberWithOptions(request *SupplyGetMemberRequest, headers *SupplyGetMemberHeaders, runtime *util.RuntimeOptions) (_result *SupplyGetMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SupplyGetMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("SupplyGetMember"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/supplyChains/members"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SupplyListDeptMembers(request *SupplyListDeptMembersRequest) (_result *SupplyListDeptMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SupplyListDeptMembersHeaders{}
+	_result = &SupplyListDeptMembersResponse{}
+	_body, _err := client.SupplyListDeptMembersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SupplyListDeptMembersWithOptions(request *SupplyListDeptMembersRequest, headers *SupplyListDeptMembersHeaders, runtime *util.RuntimeOptions) (_result *SupplyListDeptMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SupplyDeptId)) {
+		query["supplyDeptId"] = request.SupplyDeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SupplyListDeptMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("SupplyListDeptMembers"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/supplyChains/departments/members"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

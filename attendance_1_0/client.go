@@ -3838,13 +3838,8 @@ type GroupAddRequest struct {
 	// 考勤组负责人。
 	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
 	// 考勤地点相关设置信息。
-	Positions []*GroupAddRequestPositions `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
-	// 子管理员权限范围。
-	//
-	// w：可管理
-	//
-	// r：可读
-	ResourcePermissionMap []*GroupAddRequestResourcePermissionMap `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty" type:"Repeated"`
+	Positions             []*GroupAddRequestPositions `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
+	ResourcePermissionMap map[string]interface{}      `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
 	// 班次相关配置信息。
 	ShiftVOList []*GroupAddRequestShiftVOList `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
 	// 是否跳过节假日。
@@ -4054,7 +4049,7 @@ func (s *GroupAddRequest) SetPositions(v []*GroupAddRequestPositions) *GroupAddR
 	return s
 }
 
-func (s *GroupAddRequest) SetResourcePermissionMap(v []*GroupAddRequestResourcePermissionMap) *GroupAddRequest {
+func (s *GroupAddRequest) SetResourcePermissionMap(v map[string]interface{}) *GroupAddRequest {
 	s.ResourcePermissionMap = v
 	return s
 }
@@ -4247,73 +4242,6 @@ func (s *GroupAddRequestPositions) SetTitle(v string) *GroupAddRequestPositions 
 	return s
 }
 
-type GroupAddRequestResourcePermissionMap struct {
-	// 设置拍照打卡规则。
-	CameraCheck *string `json:"cameraCheck,omitempty" xml:"cameraCheck,omitempty"`
-	// 设置打卡方式。
-	CheckPositionType *string `json:"checkPositionType,omitempty" xml:"checkPositionType,omitempty"`
-	// 设置考勤时间。
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 设置参与考勤人员。
-	GroupMember *string `json:"groupMember,omitempty" xml:"groupMember,omitempty"`
-	// 设置考勤类型。
-	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
-	// 设置外勤打卡。
-	OutSideCheck *string `json:"outSideCheck,omitempty" xml:"outSideCheck,omitempty"`
-	// 设置加班规则。
-	OverTimeRule *string `json:"overTimeRule,omitempty" xml:"overTimeRule,omitempty"`
-	// 员工排班。
-	Schedule *string `json:"schedule,omitempty" xml:"schedule,omitempty"`
-}
-
-func (s GroupAddRequestResourcePermissionMap) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GroupAddRequestResourcePermissionMap) GoString() string {
-	return s.String()
-}
-
-func (s *GroupAddRequestResourcePermissionMap) SetCameraCheck(v string) *GroupAddRequestResourcePermissionMap {
-	s.CameraCheck = &v
-	return s
-}
-
-func (s *GroupAddRequestResourcePermissionMap) SetCheckPositionType(v string) *GroupAddRequestResourcePermissionMap {
-	s.CheckPositionType = &v
-	return s
-}
-
-func (s *GroupAddRequestResourcePermissionMap) SetCheckTime(v string) *GroupAddRequestResourcePermissionMap {
-	s.CheckTime = &v
-	return s
-}
-
-func (s *GroupAddRequestResourcePermissionMap) SetGroupMember(v string) *GroupAddRequestResourcePermissionMap {
-	s.GroupMember = &v
-	return s
-}
-
-func (s *GroupAddRequestResourcePermissionMap) SetGroupType(v string) *GroupAddRequestResourcePermissionMap {
-	s.GroupType = &v
-	return s
-}
-
-func (s *GroupAddRequestResourcePermissionMap) SetOutSideCheck(v string) *GroupAddRequestResourcePermissionMap {
-	s.OutSideCheck = &v
-	return s
-}
-
-func (s *GroupAddRequestResourcePermissionMap) SetOverTimeRule(v string) *GroupAddRequestResourcePermissionMap {
-	s.OverTimeRule = &v
-	return s
-}
-
-func (s *GroupAddRequestResourcePermissionMap) SetSchedule(v string) *GroupAddRequestResourcePermissionMap {
-	s.Schedule = &v
-	return s
-}
-
 type GroupAddRequestShiftVOList struct {
 	// 班次ID，可通过获取班次摘要信息接口获取。
 	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
@@ -4497,9 +4425,8 @@ type GroupUpdateRequest struct {
 	// 考勤组负责人。
 	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
 	// 考勤地点相关设置信息。
-	Positions []*GroupUpdateRequestPositions `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
-	// 子管理员权限范围。w：可管理r：可读
-	ResourcePermissionMap []*GroupUpdateRequestResourcePermissionMap `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty" type:"Repeated"`
+	Positions             []*GroupUpdateRequestPositions `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
+	ResourcePermissionMap map[string]interface{}         `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
 	// 班次相关配置信息。
 	ShiftVOList []*GroupUpdateRequestShiftVOList `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
 	// 是否跳过节假日。true：跳过（默认值）false：不跳过
@@ -4640,7 +4567,7 @@ func (s *GroupUpdateRequest) SetPositions(v []*GroupUpdateRequestPositions) *Gro
 	return s
 }
 
-func (s *GroupUpdateRequest) SetResourcePermissionMap(v []*GroupUpdateRequestResourcePermissionMap) *GroupUpdateRequest {
+func (s *GroupUpdateRequest) SetResourcePermissionMap(v map[string]interface{}) *GroupUpdateRequest {
 	s.ResourcePermissionMap = v
 	return s
 }
@@ -4765,73 +4692,6 @@ func (s *GroupUpdateRequestPositions) SetOffset(v int32) *GroupUpdateRequestPosi
 
 func (s *GroupUpdateRequestPositions) SetTitle(v string) *GroupUpdateRequestPositions {
 	s.Title = &v
-	return s
-}
-
-type GroupUpdateRequestResourcePermissionMap struct {
-	// 设置拍照打卡规则。
-	CameraCheck *string `json:"cameraCheck,omitempty" xml:"cameraCheck,omitempty"`
-	// 设置打卡方式。
-	CheckPositionType *string `json:"checkPositionType,omitempty" xml:"checkPositionType,omitempty"`
-	// 设置考勤时间。
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 设置参与考勤人员。
-	GroupMember *string `json:"groupMember,omitempty" xml:"groupMember,omitempty"`
-	// 设置考勤类型。
-	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
-	// 设置外勤打卡。
-	OutSideCheck *string `json:"outSideCheck,omitempty" xml:"outSideCheck,omitempty"`
-	// 设置加班规则。
-	OverTimeRule *string `json:"overTimeRule,omitempty" xml:"overTimeRule,omitempty"`
-	// 员工排班。
-	Schedule *string `json:"schedule,omitempty" xml:"schedule,omitempty"`
-}
-
-func (s GroupUpdateRequestResourcePermissionMap) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GroupUpdateRequestResourcePermissionMap) GoString() string {
-	return s.String()
-}
-
-func (s *GroupUpdateRequestResourcePermissionMap) SetCameraCheck(v string) *GroupUpdateRequestResourcePermissionMap {
-	s.CameraCheck = &v
-	return s
-}
-
-func (s *GroupUpdateRequestResourcePermissionMap) SetCheckPositionType(v string) *GroupUpdateRequestResourcePermissionMap {
-	s.CheckPositionType = &v
-	return s
-}
-
-func (s *GroupUpdateRequestResourcePermissionMap) SetCheckTime(v string) *GroupUpdateRequestResourcePermissionMap {
-	s.CheckTime = &v
-	return s
-}
-
-func (s *GroupUpdateRequestResourcePermissionMap) SetGroupMember(v string) *GroupUpdateRequestResourcePermissionMap {
-	s.GroupMember = &v
-	return s
-}
-
-func (s *GroupUpdateRequestResourcePermissionMap) SetGroupType(v string) *GroupUpdateRequestResourcePermissionMap {
-	s.GroupType = &v
-	return s
-}
-
-func (s *GroupUpdateRequestResourcePermissionMap) SetOutSideCheck(v string) *GroupUpdateRequestResourcePermissionMap {
-	s.OutSideCheck = &v
-	return s
-}
-
-func (s *GroupUpdateRequestResourcePermissionMap) SetOverTimeRule(v string) *GroupUpdateRequestResourcePermissionMap {
-	s.OverTimeRule = &v
-	return s
-}
-
-func (s *GroupUpdateRequestResourcePermissionMap) SetSchedule(v string) *GroupUpdateRequestResourcePermissionMap {
-	s.Schedule = &v
 	return s
 }
 
