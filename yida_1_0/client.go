@@ -3874,8 +3874,6 @@ type GetFormDataByIDResponseBody struct {
 	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
 	// 表单实例ID
 	FormInstId *string `json:"formInstId,omitempty" xml:"formInstId,omitempty"`
-	// 表单ID
-	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
 	// 最后修改时间
 	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
 	// 发起人详情
@@ -3897,11 +3895,6 @@ func (s *GetFormDataByIDResponseBody) SetFormData(v map[string]interface{}) *Get
 
 func (s *GetFormDataByIDResponseBody) SetFormInstId(v string) *GetFormDataByIDResponseBody {
 	s.FormInstId = &v
-	return s
-}
-
-func (s *GetFormDataByIDResponseBody) SetFormUuid(v string) *GetFormDataByIDResponseBody {
-	s.FormUuid = &v
 	return s
 }
 
@@ -14347,10 +14340,6 @@ func (s *SearchFormDatasResponseBodyData) SetVersion(v int64) *SearchFormDatasRe
 }
 
 type SearchFormDatasResponseBodyDataModifyUser struct {
-	// 部门名称
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 用户工号
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 用户名
@@ -14363,16 +14352,6 @@ func (s SearchFormDatasResponseBodyDataModifyUser) String() string {
 
 func (s SearchFormDatasResponseBodyDataModifyUser) GoString() string {
 	return s.String()
-}
-
-func (s *SearchFormDatasResponseBodyDataModifyUser) SetDepartmentName(v string) *SearchFormDatasResponseBodyDataModifyUser {
-	s.DepartmentName = &v
-	return s
-}
-
-func (s *SearchFormDatasResponseBodyDataModifyUser) SetEmail(v string) *SearchFormDatasResponseBodyDataModifyUser {
-	s.Email = &v
-	return s
 }
 
 func (s *SearchFormDatasResponseBodyDataModifyUser) SetUserId(v string) *SearchFormDatasResponseBodyDataModifyUser {
@@ -14418,10 +14397,6 @@ func (s *SearchFormDatasResponseBodyDataModifyUserUserName) SetType(v string) *S
 }
 
 type SearchFormDatasResponseBodyDataOriginator struct {
-	// 部门名称
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 用户工号
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 用户名
@@ -14434,16 +14409,6 @@ func (s SearchFormDatasResponseBodyDataOriginator) String() string {
 
 func (s SearchFormDatasResponseBodyDataOriginator) GoString() string {
 	return s.String()
-}
-
-func (s *SearchFormDatasResponseBodyDataOriginator) SetDepartmentName(v string) *SearchFormDatasResponseBodyDataOriginator {
-	s.DepartmentName = &v
-	return s
-}
-
-func (s *SearchFormDatasResponseBodyDataOriginator) SetEmail(v string) *SearchFormDatasResponseBodyDataOriginator {
-	s.Email = &v
-	return s
 }
 
 func (s *SearchFormDatasResponseBodyDataOriginator) SetUserId(v string) *SearchFormDatasResponseBodyDataOriginator {

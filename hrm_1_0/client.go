@@ -35,11 +35,13 @@ func (s *AddHrmPreentryHeaders) SetXAcsDingtalkAccessToken(v string) *AddHrmPree
 }
 
 type AddHrmPreentryRequest struct {
-	AgentId      *int64                         `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	Groups       []*AddHrmPreentryRequestGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
-	Mobile       *string                        `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	Name         *string                        `json:"name,omitempty" xml:"name,omitempty"`
-	PreEntryTime *int64                         `json:"preEntryTime,omitempty" xml:"preEntryTime,omitempty"`
+	AgentId *int64                         `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	Groups  []*AddHrmPreentryRequestGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
+	Mobile  *string                        `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Name    *string                        `json:"name,omitempty" xml:"name,omitempty"`
+	// 是否需要发送完善入职登记表的入职IM消息给员工本人
+	NeedSendPreEntryMsg *bool  `json:"needSendPreEntryMsg,omitempty" xml:"needSendPreEntryMsg,omitempty"`
+	PreEntryTime        *int64 `json:"preEntryTime,omitempty" xml:"preEntryTime,omitempty"`
 }
 
 func (s AddHrmPreentryRequest) String() string {
@@ -67,6 +69,11 @@ func (s *AddHrmPreentryRequest) SetMobile(v string) *AddHrmPreentryRequest {
 
 func (s *AddHrmPreentryRequest) SetName(v string) *AddHrmPreentryRequest {
 	s.Name = &v
+	return s
+}
+
+func (s *AddHrmPreentryRequest) SetNeedSendPreEntryMsg(v bool) *AddHrmPreentryRequest {
+	s.NeedSendPreEntryMsg = &v
 	return s
 }
 
@@ -3133,6 +3140,10 @@ func (client *Client) AddHrmPreentryWithOptions(request *AddHrmPreentryRequest, 
 
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedSendPreEntryMsg)) {
+		body["needSendPreEntryMsg"] = request.NeedSendPreEntryMsg
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PreEntryTime)) {

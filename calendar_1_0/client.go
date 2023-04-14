@@ -3563,7 +3563,8 @@ type ListEventsRequest struct {
 	// 返回的最大日程数，最大100个，默认100个
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 查询翻页token
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	SeriesMasterId *string `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
 	// 是否返回删除事件
 	ShowDeleted *bool `json:"showDeleted,omitempty" xml:"showDeleted,omitempty"`
 	// 增量查询token
@@ -3594,6 +3595,11 @@ func (s *ListEventsRequest) SetMaxResults(v int32) *ListEventsRequest {
 
 func (s *ListEventsRequest) SetNextToken(v string) *ListEventsRequest {
 	s.NextToken = &v
+	return s
+}
+
+func (s *ListEventsRequest) SetSeriesMasterId(v string) *ListEventsRequest {
+	s.SeriesMasterId = &v
 	return s
 }
 
@@ -8415,6 +8421,10 @@ func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, 
 
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SeriesMasterId)) {
+		query["seriesMasterId"] = request.SeriesMasterId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ShowDeleted)) {
