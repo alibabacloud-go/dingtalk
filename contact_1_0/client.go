@@ -2168,6 +2168,7 @@ type GetCardInfoResponseBodyExtensionCardContactInfo struct {
 	Link []*GetCardInfoResponseBodyExtensionCardContactInfoLink `json:"link,omitempty" xml:"link,omitempty" type:"Repeated"`
 	// 电话
 	Telephone []*GetCardInfoResponseBodyExtensionCardContactInfoTelephone `json:"telephone,omitempty" xml:"telephone,omitempty" type:"Repeated"`
+	WorkPhone []*GetCardInfoResponseBodyExtensionCardContactInfoWorkPhone `json:"workPhone,omitempty" xml:"workPhone,omitempty" type:"Repeated"`
 }
 
 func (s GetCardInfoResponseBodyExtensionCardContactInfo) String() string {
@@ -2195,6 +2196,11 @@ func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetLink(v []*GetCardIn
 
 func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetTelephone(v []*GetCardInfoResponseBodyExtensionCardContactInfoTelephone) *GetCardInfoResponseBodyExtensionCardContactInfo {
 	s.Telephone = v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetWorkPhone(v []*GetCardInfoResponseBodyExtensionCardContactInfoWorkPhone) *GetCardInfoResponseBodyExtensionCardContactInfo {
+	s.WorkPhone = v
 	return s
 }
 
@@ -2313,6 +2319,29 @@ func (s *GetCardInfoResponseBodyExtensionCardContactInfoTelephone) SetLabel(v st
 }
 
 func (s *GetCardInfoResponseBodyExtensionCardContactInfoTelephone) SetValue(v string) *GetCardInfoResponseBodyExtensionCardContactInfoTelephone {
+	s.Value = &v
+	return s
+}
+
+type GetCardInfoResponseBodyExtensionCardContactInfoWorkPhone struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoWorkPhone) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoWorkPhone) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoWorkPhone) SetLabel(v string) *GetCardInfoResponseBodyExtensionCardContactInfoWorkPhone {
+	s.Label = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoWorkPhone) SetValue(v string) *GetCardInfoResponseBodyExtensionCardContactInfoWorkPhone {
 	s.Value = &v
 	return s
 }

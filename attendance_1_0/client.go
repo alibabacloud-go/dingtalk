@@ -2395,6 +2395,8 @@ type GetLeaveRecordsResponseBodyResultLeaveRecords struct {
 	LeaveStatus *string `json:"leaveStatus,omitempty" xml:"leaveStatus,omitempty"`
 	// 显示单位。
 	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// 操作人userId。
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 	// 额度唯一标识。
 	QuotaId *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
 	// 假期记录唯一标识。
@@ -2459,6 +2461,11 @@ func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetLeaveStatus(v string)
 
 func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetLeaveViewUnit(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
 	s.LeaveViewUnit = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetOpUserId(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.OpUserId = &v
 	return s
 }
 

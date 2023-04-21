@@ -1336,7 +1336,7 @@ func (s *CreateProjectCustomfieldStatusRequest) SetValue(v []*CreateProjectCusto
 }
 
 type CreateProjectCustomfieldStatusRequestValue struct {
-	// 字段值id。
+	// 字段值id,当自定义字段是work类型该id表示文件id，当自定义字段是commongroup类型该id表示分类id，其他类型无意义。
 	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
 	// 字段值元信息(json格式)。
 	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
@@ -6529,13 +6529,11 @@ func (s *SearchUserTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SearchUser
 }
 
 type SearchUserTaskRequest struct {
-	// 每页返回最大数量。默认10，最大100。
+	// 每页返回最大数量。默认10，最大300。
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 分页标，从上一次请求结果中获取。
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 用户的任务角色, creator,executor,involveMember 中的一个或多个,以 ','拼接。例如：creator,executor。
-	RoleTypes *string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty"`
-	// tql，参考项目内的tql使用说明。
+	// 企业下任务搜索TQL语句。
 	Tql *string `json:"tql,omitempty" xml:"tql,omitempty"`
 }
 
@@ -6557,19 +6555,20 @@ func (s *SearchUserTaskRequest) SetNextToken(v string) *SearchUserTaskRequest {
 	return s
 }
 
-func (s *SearchUserTaskRequest) SetRoleTypes(v string) *SearchUserTaskRequest {
-	s.RoleTypes = &v
-	return s
-}
-
 func (s *SearchUserTaskRequest) SetTql(v string) *SearchUserTaskRequest {
 	s.Tql = &v
 	return s
 }
 
 type SearchUserTaskResponseBody struct {
-	// 任务详情集合。
-	Result []*SearchUserTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 分页标，供分页使用，下一页token。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 请求 ID，请求异常时可提供此 ID，进行问题排查。
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 任务ID列表。
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 任务总数。
+	TotalSize *int32 `json:"totalSize,omitempty" xml:"totalSize,omitempty"`
 }
 
 func (s SearchUserTaskResponseBody) String() string {
@@ -6580,272 +6579,23 @@ func (s SearchUserTaskResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *SearchUserTaskResponseBody) SetResult(v []*SearchUserTaskResponseBodyResult) *SearchUserTaskResponseBody {
+func (s *SearchUserTaskResponseBody) SetNextToken(v string) *SearchUserTaskResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBody) SetRequestId(v string) *SearchUserTaskResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBody) SetResult(v []*string) *SearchUserTaskResponseBody {
 	s.Result = v
 	return s
 }
 
-type SearchUserTaskResponseBodyResult struct {
-	// 任务完成时间(UTC)。
-	AccomplishTime *string `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
-	// 祖先任务ID列表。
-	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	// 任务标题。
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间(UTC)。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建人ID。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 自定义字段值集合。
-	Customfields []*SearchUserTaskResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	// 任务截止时间(UTC)。
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 执行人ID。
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 参与者ID集合。
-	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 是否任务放入回收站。
-	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	// 是否任务已完成。
-	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 任务备注。
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 父任务ID。
-	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
-	// 任务优先级。
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 项目ID。
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 重复规则列表。
-	Recurrence []*string `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
-	// 任务类型ID。
-	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
-	// 迭代ID。
-	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
-	// 任务列ID。
-	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
-	// 任务开始时间(UTC)。
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// StoryPoint。
-	StoryPoint *string `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
-	// 标签ID集合。
-	TagIds []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
-	// 任务状态ID。
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 任务列表ID。
-	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	// 任务数字ID。
-	UniqueId *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
-	// 更新时间(UTC)。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 任务隐私性，'involves'表达仅参与者可见; 'members'表达项目成员可见。
-	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
-}
-
-func (s SearchUserTaskResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchUserTaskResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetAccomplishTime(v string) *SearchUserTaskResponseBodyResult {
-	s.AccomplishTime = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetAncestorIds(v []*string) *SearchUserTaskResponseBodyResult {
-	s.AncestorIds = v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetContent(v string) *SearchUserTaskResponseBodyResult {
-	s.Content = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetCreated(v string) *SearchUserTaskResponseBodyResult {
-	s.Created = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetCreatorId(v string) *SearchUserTaskResponseBodyResult {
-	s.CreatorId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetCustomfields(v []*SearchUserTaskResponseBodyResultCustomfields) *SearchUserTaskResponseBodyResult {
-	s.Customfields = v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetDueDate(v string) *SearchUserTaskResponseBodyResult {
-	s.DueDate = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetExecutorId(v string) *SearchUserTaskResponseBodyResult {
-	s.ExecutorId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetInvolveMembers(v []*string) *SearchUserTaskResponseBodyResult {
-	s.InvolveMembers = v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetIsArchived(v bool) *SearchUserTaskResponseBodyResult {
-	s.IsArchived = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetIsDone(v bool) *SearchUserTaskResponseBodyResult {
-	s.IsDone = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetNote(v string) *SearchUserTaskResponseBodyResult {
-	s.Note = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetParentTaskId(v string) *SearchUserTaskResponseBodyResult {
-	s.ParentTaskId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetPriority(v int32) *SearchUserTaskResponseBodyResult {
-	s.Priority = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetProjectId(v string) *SearchUserTaskResponseBodyResult {
-	s.ProjectId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetRecurrence(v []*string) *SearchUserTaskResponseBodyResult {
-	s.Recurrence = v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetScenariofieldconfigId(v string) *SearchUserTaskResponseBodyResult {
-	s.ScenariofieldconfigId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetSprintId(v string) *SearchUserTaskResponseBodyResult {
-	s.SprintId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetStageId(v string) *SearchUserTaskResponseBodyResult {
-	s.StageId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetStartDate(v string) *SearchUserTaskResponseBodyResult {
-	s.StartDate = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetStoryPoint(v string) *SearchUserTaskResponseBodyResult {
-	s.StoryPoint = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetTagIds(v []*string) *SearchUserTaskResponseBodyResult {
-	s.TagIds = v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetTaskId(v string) *SearchUserTaskResponseBodyResult {
-	s.TaskId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetTaskListId(v string) *SearchUserTaskResponseBodyResult {
-	s.TaskListId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetUniqueId(v string) *SearchUserTaskResponseBodyResult {
-	s.UniqueId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetUpdated(v string) *SearchUserTaskResponseBodyResult {
-	s.Updated = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResult) SetVisible(v string) *SearchUserTaskResponseBodyResult {
-	s.Visible = &v
-	return s
-}
-
-type SearchUserTaskResponseBodyResultCustomfields struct {
-	// 自定义字段ID。
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 自定义字段类型。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 字段值集合。
-	Value []*SearchUserTaskResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
-}
-
-func (s SearchUserTaskResponseBodyResultCustomfields) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchUserTaskResponseBodyResultCustomfields) GoString() string {
-	return s.String()
-}
-
-func (s *SearchUserTaskResponseBodyResultCustomfields) SetCustomfieldId(v string) *SearchUserTaskResponseBodyResultCustomfields {
-	s.CustomfieldId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResultCustomfields) SetType(v string) *SearchUserTaskResponseBodyResultCustomfields {
-	s.Type = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResultCustomfields) SetValue(v []*SearchUserTaskResponseBodyResultCustomfieldsValue) *SearchUserTaskResponseBodyResultCustomfields {
-	s.Value = v
-	return s
-}
-
-type SearchUserTaskResponseBodyResultCustomfieldsValue struct {
-	// 字段值ID。
-	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	// 字段值元属性。
-	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	// 字段值内容。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-}
-
-func (s SearchUserTaskResponseBodyResultCustomfieldsValue) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchUserTaskResponseBodyResultCustomfieldsValue) GoString() string {
-	return s.String()
-}
-
-func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
-	s.FieldvalueId = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetMetaString(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
-	s.MetaString = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetTitle(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
-	s.Title = &v
+func (s *SearchUserTaskResponseBody) SetTotalSize(v int32) *SearchUserTaskResponseBody {
+	s.TotalSize = &v
 	return s
 }
 
@@ -8893,7 +8643,7 @@ func (s *UpdateTaskPriorityResponseBody) SetResult(v *UpdateTaskPriorityResponse
 }
 
 type UpdateTaskPriorityResponseBodyResult struct {
-	// 优先级。
+	// 优先级，默认的优先级包含：-10、0、1、2，含义分别为较低、普通、紧急、非常紧急。
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 	// 更新时间。
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
@@ -11299,10 +11049,6 @@ func (client *Client) SearchUserTaskWithOptions(userId *string, request *SearchU
 
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.RoleTypes)) {
-		query["roleTypes"] = request.RoleTypes
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Tql)) {
