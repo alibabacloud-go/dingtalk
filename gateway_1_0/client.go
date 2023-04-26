@@ -5,18 +5,16 @@
 package gateway_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type OpenConnectionRequest struct {
-	// 企业三方应用为suiteKey
-	// 企业自建应用为appKey
-	ClientId *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
-	// 企业三方应用为suiteSecret
-	// 企业自己应用为appSecret
+	ClientId      *string                               `json:"clientId,omitempty" xml:"clientId,omitempty"`
 	ClientSecret  *string                               `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
 	Subscriptions []*OpenConnectionRequestSubscriptions `json:"subscriptions,omitempty" xml:"subscriptions,omitempty" type:"Repeated"`
 }
@@ -45,10 +43,8 @@ func (s *OpenConnectionRequest) SetSubscriptions(v []*OpenConnectionRequestSubsc
 }
 
 type OpenConnectionRequestSubscriptions struct {
-	// 订阅的TOPIC
 	Topic *string `json:"topic,omitempty" xml:"topic,omitempty"`
-	// 订阅类型
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s OpenConnectionRequestSubscriptions) String() string {
@@ -70,10 +66,8 @@ func (s *OpenConnectionRequestSubscriptions) SetType(v string) *OpenConnectionRe
 }
 
 type OpenConnectionResponseBody struct {
-	// 长连接接入点
 	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
-	// 连接ticket
-	Ticket *string `json:"ticket,omitempty" xml:"ticket,omitempty"`
+	Ticket   *string `json:"ticket,omitempty" xml:"ticket,omitempty"`
 }
 
 func (s OpenConnectionResponseBody) String() string {
@@ -95,8 +89,9 @@ func (s *OpenConnectionResponseBody) SetTicket(v string) *OpenConnectionResponse
 }
 
 type OpenConnectionResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *OpenConnectionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *OpenConnectionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s OpenConnectionResponse) String() string {
@@ -109,6 +104,11 @@ func (s OpenConnectionResponse) GoString() string {
 
 func (s *OpenConnectionResponse) SetHeaders(v map[string]*string) *OpenConnectionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *OpenConnectionResponse) SetStatusCode(v int32) *OpenConnectionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -132,24 +132,19 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) OpenConnection(request *OpenConnectionRequest) (_result *OpenConnectionResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
-	_result = &OpenConnectionResponse{}
-	_body, _err := client.OpenConnectionWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) OpenConnectionWithOptions(request *OpenConnectionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *OpenConnectionResponse, _err error) {
@@ -174,11 +169,34 @@ func (client *Client) OpenConnectionWithOptions(request *OpenConnectionRequest, 
 		Headers: headers,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("OpenConnection"),
+		Version:     tea.String("gateway_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/gateway/connections/open"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &OpenConnectionResponse{}
-	_body, _err := client.DoROARequest(tea.String("OpenConnection"), tea.String("gateway_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/gateway/connections/open"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) OpenConnection(request *OpenConnectionRequest) (_result *OpenConnectionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &OpenConnectionResponse{}
+	_body, _err := client.OpenConnectionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

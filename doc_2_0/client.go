@@ -5,51 +5,34 @@
 package doc_2_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type DentryModel struct {
-	// 内容类型。alidoc-钉钉文档；link-快捷方式；archive-压缩包；document-文件。
-	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
-	// 创建时间。
-	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
-	// 创建者。
-	Creator *DentryModelCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 节点id。
-	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	// 节点类型。file-文件；folder-文件夹。
-	DentryType *string `json:"dentryType,omitempty" xml:"dentryType,omitempty"`
-	// 节点全局唯一标识id。
-	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
-	// 文档docKey，用于标识一篇钉钉文档的key。只有内容类型为alidoc的才会有值。
-	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
-	// 文件后缀名。
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 是否有子节点。
-	HasChildren *bool `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
-	// 快捷方式类型的节点，其指向的原始数据信息。
-	LinkSourceInfo *LinkSourceInfo `json:"linkSourceInfo,omitempty" xml:"linkSourceInfo,omitempty"`
-	// 节点名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 节点的路径。
-	Path *string `json:"path,omitempty" xml:"path,omitempty"`
-	// 知识库信息。
-	Space *SpaceModel `json:"space,omitempty" xml:"space,omitempty"`
-	// 知识库id。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 统计信息
+	ContentType     *string                     `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	CreatedTime     *int64                      `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	Creator         *DentryModelCreator         `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	DentryId        *string                     `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	DentryType      *string                     `json:"dentryType,omitempty" xml:"dentryType,omitempty"`
+	DentryUuid      *string                     `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	DocKey          *string                     `json:"docKey,omitempty" xml:"docKey,omitempty"`
+	Extension       *string                     `json:"extension,omitempty" xml:"extension,omitempty"`
+	HasChildren     *bool                       `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
+	LinkSourceInfo  *LinkSourceInfo             `json:"linkSourceInfo,omitempty" xml:"linkSourceInfo,omitempty"`
+	Name            *string                     `json:"name,omitempty" xml:"name,omitempty"`
+	Path            *string                     `json:"path,omitempty" xml:"path,omitempty"`
+	Space           *SpaceModel                 `json:"space,omitempty" xml:"space,omitempty"`
+	SpaceId         *string                     `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 	StatisticalInfo *DentryModelStatisticalInfo `json:"statisticalInfo,omitempty" xml:"statisticalInfo,omitempty" type:"Struct"`
-	// 更新时间。
-	UpdatedTime *int64 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
-	// 更新人。
-	Updater *DentryModelUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
-	// 节点访问url。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 访问者对当前节点的权限等信息。
-	VisitorInfo *DentryModelVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
+	UpdatedTime     *int64                      `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
+	Updater         *DentryModelUpdater         `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
+	Url             *string                     `json:"url,omitempty" xml:"url,omitempty"`
+	VisitorInfo     *DentryModelVisitorInfo     `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
 
 func (s DentryModel) String() string {
@@ -156,9 +139,7 @@ func (s *DentryModel) SetVisitorInfo(v *DentryModelVisitorInfo) *DentryModel {
 }
 
 type DentryModelCreator struct {
-	// 用户名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户unionId。
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -181,7 +162,6 @@ func (s *DentryModelCreator) SetUnionId(v string) *DentryModelCreator {
 }
 
 type DentryModelStatisticalInfo struct {
-	// 字数
 	WordCount *int64 `json:"wordCount,omitempty" xml:"wordCount,omitempty"`
 }
 
@@ -199,9 +179,7 @@ func (s *DentryModelStatisticalInfo) SetWordCount(v int64) *DentryModelStatistic
 }
 
 type DentryModelUpdater struct {
-	// 用户名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户unionId。
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -224,12 +202,9 @@ func (s *DentryModelUpdater) SetUnionId(v string) *DentryModelUpdater {
 }
 
 type DentryModelVisitorInfo struct {
-	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
-	// 当前用户对这个空间的访问角色。
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	// 空间的操作列表。
-	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
+	RoleCode      *string   `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	SpaceActions  []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
 
 func (s DentryModelVisitorInfo) String() string {
@@ -256,42 +231,24 @@ func (s *DentryModelVisitorInfo) SetSpaceActions(v []*string) *DentryModelVisito
 }
 
 type DentryVO struct {
-	// 内容类型。alidoc-钉钉文档；link-快捷方式；archive-压缩包；document-文件。
-	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
-	// 创建时间。
-	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
-	// 创建者。
-	Creator *DentryVOCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 节点id。
-	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	// 节点类型。file-文件；folder-文件夹。
-	DentryType *string `json:"dentryType,omitempty" xml:"dentryType,omitempty"`
-	// 节点全局唯一标识id。
-	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
-	// 文档docKey，用于标识一篇钉钉文档的key。只有内容类型为alidoc的才会有值。
-	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
-	// 文件后缀名。
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 是否有子节点。
-	HasChildren *bool `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
-	// 快捷方式类型的节点，其指向的原始数据信息。
-	LinkSourceInfo *LinkSourceInfo `json:"linkSourceInfo,omitempty" xml:"linkSourceInfo,omitempty"`
-	// 节点名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 节点的路径。
-	Path *string `json:"path,omitempty" xml:"path,omitempty"`
-	// 知识库信息。
-	Space *SpaceModel `json:"space,omitempty" xml:"space,omitempty"`
-	// 知识库id。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 更新时间。
-	UpdatedTime *int64 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
-	// 更新人。
-	Updater *DentryVOUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
-	// 节点访问url。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 访问者对当前节点的权限等信息。
-	VisitorInfo *DentryVOVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
+	ContentType    *string              `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	CreatedTime    *int64               `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	Creator        *DentryVOCreator     `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	DentryId       *string              `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	DentryType     *string              `json:"dentryType,omitempty" xml:"dentryType,omitempty"`
+	DentryUuid     *string              `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	DocKey         *string              `json:"docKey,omitempty" xml:"docKey,omitempty"`
+	Extension      *string              `json:"extension,omitempty" xml:"extension,omitempty"`
+	HasChildren    *bool                `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
+	LinkSourceInfo *LinkSourceInfo      `json:"linkSourceInfo,omitempty" xml:"linkSourceInfo,omitempty"`
+	Name           *string              `json:"name,omitempty" xml:"name,omitempty"`
+	Path           *string              `json:"path,omitempty" xml:"path,omitempty"`
+	Space          *SpaceModel          `json:"space,omitempty" xml:"space,omitempty"`
+	SpaceId        *string              `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	UpdatedTime    *int64               `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
+	Updater        *DentryVOUpdater     `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
+	Url            *string              `json:"url,omitempty" xml:"url,omitempty"`
+	VisitorInfo    *DentryVOVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
 
 func (s DentryVO) String() string {
@@ -393,9 +350,7 @@ func (s *DentryVO) SetVisitorInfo(v *DentryVOVisitorInfo) *DentryVO {
 }
 
 type DentryVOCreator struct {
-	// 用户名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户unionId。
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -418,9 +373,7 @@ func (s *DentryVOCreator) SetUnionId(v string) *DentryVOCreator {
 }
 
 type DentryVOUpdater struct {
-	// 用户名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户unionId。
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -443,12 +396,9 @@ func (s *DentryVOUpdater) SetUnionId(v string) *DentryVOUpdater {
 }
 
 type DentryVOVisitorInfo struct {
-	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
-	// 当前用户对这个空间的访问角色。
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	// 空间的操作列表。
-	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
+	RoleCode      *string   `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	SpaceActions  []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
 
 func (s DentryVOVisitorInfo) String() string {
@@ -475,16 +425,11 @@ func (s *DentryVOVisitorInfo) SetSpaceActions(v []*string) *DentryVOVisitorInfo 
 }
 
 type LinkSourceInfo struct {
-	// 快捷方式关联的源文件后缀。
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 非通用快捷方式的图标信息。
-	IconUrl *LinkSourceInfoIconUrl `json:"iconUrl,omitempty" xml:"iconUrl,omitempty" type:"Struct"`
-	// 快捷方式关联的源文件ID（空间内唯一）。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 快捷方式类型。0-通用快捷方式；1-闪会快捷方式；2-日志快捷方式；3-闪会2.0快捷方式。
-	LinkType *int64 `json:"linkType,omitempty" xml:"linkType,omitempty"`
-	// 快捷方式关联的源文件所属空间id。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	Extension *string                `json:"extension,omitempty" xml:"extension,omitempty"`
+	IconUrl   *LinkSourceInfoIconUrl `json:"iconUrl,omitempty" xml:"iconUrl,omitempty" type:"Struct"`
+	Id        *string                `json:"id,omitempty" xml:"id,omitempty"`
+	LinkType  *int64                 `json:"linkType,omitempty" xml:"linkType,omitempty"`
+	SpaceId   *string                `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s LinkSourceInfo) String() string {
@@ -521,9 +466,7 @@ func (s *LinkSourceInfo) SetSpaceId(v string) *LinkSourceInfo {
 }
 
 type LinkSourceInfoIconUrl struct {
-	// 默认的目录树图标。
-	Line *string `json:"line,omitempty" xml:"line,omitempty"`
-	// 被选中时的加深图标。
+	Line  *string `json:"line,omitempty" xml:"line,omitempty"`
 	Small *string `json:"small,omitempty" xml:"small,omitempty"`
 }
 
@@ -546,10 +489,8 @@ func (s *LinkSourceInfoIconUrl) SetSmall(v string) *LinkSourceInfoIconUrl {
 }
 
 type OpenActionModel struct {
-	// 操作人名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 操作时间戳。
-	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	Timestamp *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
 }
 
 func (s OpenActionModel) String() string {
@@ -571,27 +512,16 @@ func (s *OpenActionModel) SetTimestamp(v int64) *OpenActionModel {
 }
 
 type SpaceModel struct {
-	// 封面
-	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
-	// 空间描述信息
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 知识库高清图标
-	HdIconVO *SpaceModelHdIconVO `json:"hdIconVO,omitempty" xml:"hdIconVO,omitempty" type:"Struct"`
-	// 知识库图标
-	IconVO *SpaceModelIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
-	// 知识库id。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 知识库名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 知识库所有者。
-	Owner *SpaceModelOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	// 知识库中最近编辑的三篇文档。
-	RecentList []*DentryModel `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
-	// 知识库类型。
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
-	// 知识库访问url。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 访问者对当前知识库的权限等信息。
+	Cover       *string                `json:"cover,omitempty" xml:"cover,omitempty"`
+	Description *string                `json:"description,omitempty" xml:"description,omitempty"`
+	HdIconVO    *SpaceModelHdIconVO    `json:"hdIconVO,omitempty" xml:"hdIconVO,omitempty" type:"Struct"`
+	IconVO      *SpaceModelIconVO      `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
+	Id          *string                `json:"id,omitempty" xml:"id,omitempty"`
+	Name        *string                `json:"name,omitempty" xml:"name,omitempty"`
+	Owner       *SpaceModelOwner       `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	RecentList  []*DentryModel         `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+	Type        *int32                 `json:"type,omitempty" xml:"type,omitempty"`
+	Url         *string                `json:"url,omitempty" xml:"url,omitempty"`
 	VisitorInfo *SpaceModelVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
 
@@ -659,9 +589,7 @@ func (s *SpaceModel) SetVisitorInfo(v *SpaceModelVisitorInfo) *SpaceModel {
 }
 
 type SpaceModelHdIconVO struct {
-	// 图标
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 图标类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -684,9 +612,7 @@ func (s *SpaceModelHdIconVO) SetType(v string) *SpaceModelHdIconVO {
 }
 
 type SpaceModelIconVO struct {
-	// 图标
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 图标类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -709,9 +635,7 @@ func (s *SpaceModelIconVO) SetType(v string) *SpaceModelIconVO {
 }
 
 type SpaceModelOwner struct {
-	// 用户名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户unionId。
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -734,12 +658,9 @@ func (s *SpaceModelOwner) SetUnionId(v string) *SpaceModelOwner {
 }
 
 type SpaceModelVisitorInfo struct {
-	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
-	// 权限
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	// 空间的操作列表。
-	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
+	RoleCode      *string   `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	SpaceActions  []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
 
 func (s SpaceModelVisitorInfo) String() string {
@@ -766,23 +687,14 @@ func (s *SpaceModelVisitorInfo) SetSpaceActions(v []*string) *SpaceModelVisitorI
 }
 
 type SpaceVO struct {
-	// 封面
-	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
-	// 访问者对当前知识库的权限等信息
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 知识库图标
-	IconVO *SpaceVOIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
-	// 知识库id。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 知识库名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 知识库所有者。
-	Owner *SpaceVOOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	// 知识库类型。
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
-	// 知识库访问url。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 访问者对当前知识库的权限等信息。
+	Cover       *string             `json:"cover,omitempty" xml:"cover,omitempty"`
+	Description *string             `json:"description,omitempty" xml:"description,omitempty"`
+	IconVO      *SpaceVOIconVO      `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
+	Id          *string             `json:"id,omitempty" xml:"id,omitempty"`
+	Name        *string             `json:"name,omitempty" xml:"name,omitempty"`
+	Owner       *SpaceVOOwner       `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	Type        *int32              `json:"type,omitempty" xml:"type,omitempty"`
+	Url         *string             `json:"url,omitempty" xml:"url,omitempty"`
 	VisitorInfo *SpaceVOVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
 
@@ -840,9 +752,7 @@ func (s *SpaceVO) SetVisitorInfo(v *SpaceVOVisitorInfo) *SpaceVO {
 }
 
 type SpaceVOIconVO struct {
-	// 图标
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 图标类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -865,9 +775,7 @@ func (s *SpaceVOIconVO) SetType(v string) *SpaceVOIconVO {
 }
 
 type SpaceVOOwner struct {
-	// 用户名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户unionId。
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -890,12 +798,9 @@ func (s *SpaceVOOwner) SetUnionId(v string) *SpaceVOOwner {
 }
 
 type SpaceVOVisitorInfo struct {
-	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
-	// 权限
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	// 空间的操作列表。
-	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
+	RoleCode      *string   `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	SpaceActions  []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
 
 func (s SpaceVOVisitorInfo) String() string {
@@ -922,34 +827,20 @@ func (s *SpaceVOVisitorInfo) SetSpaceActions(v []*string) *SpaceVOVisitorInfo {
 }
 
 type TeamModel struct {
-	// 封面
-	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
-	// 创建时间
-	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
-	// 创建人
-	Creator *TeamModelCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 团队描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 团队ID
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 团队名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 关联部门信息
+	Cover           *string                   `json:"cover,omitempty" xml:"cover,omitempty"`
+	CreatedTime     *int64                    `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	Creator         *TeamModelCreator         `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Description     *string                   `json:"description,omitempty" xml:"description,omitempty"`
+	Icon            *string                   `json:"icon,omitempty" xml:"icon,omitempty"`
+	Id              *string                   `json:"id,omitempty" xml:"id,omitempty"`
+	Name            *string                   `json:"name,omitempty" xml:"name,omitempty"`
 	RelatedDeptInfo *TeamModelRelatedDeptInfo `json:"relatedDeptInfo,omitempty" xml:"relatedDeptInfo,omitempty" type:"Struct"`
-	// 团队状态
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 团队类型
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
-	// 更新时间
-	UpdatedTime *int64 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
-	// 更新人
-	Updater *TeamModelUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
-	// 团队链接
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 用户对这个团队的访问情况
-	VisitInfo *TeamModelVisitInfo `json:"visitInfo,omitempty" xml:"visitInfo,omitempty" type:"Struct"`
+	Status          *int32                    `json:"status,omitempty" xml:"status,omitempty"`
+	Type            *int32                    `json:"type,omitempty" xml:"type,omitempty"`
+	UpdatedTime     *int64                    `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
+	Updater         *TeamModelUpdater         `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
+	Url             *string                   `json:"url,omitempty" xml:"url,omitempty"`
+	VisitInfo       *TeamModelVisitInfo       `json:"visitInfo,omitempty" xml:"visitInfo,omitempty" type:"Struct"`
 }
 
 func (s TeamModel) String() string {
@@ -1031,9 +922,7 @@ func (s *TeamModel) SetVisitInfo(v *TeamModelVisitInfo) *TeamModel {
 }
 
 type TeamModelCreator struct {
-	// 名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// unionId
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1056,9 +945,7 @@ func (s *TeamModelCreator) SetUnionId(v string) *TeamModelCreator {
 }
 
 type TeamModelRelatedDeptInfo struct {
-	// 部门id
-	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 部门名称
+	DeptId   *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
 }
 
@@ -1081,9 +968,7 @@ func (s *TeamModelRelatedDeptInfo) SetDeptName(v string) *TeamModelRelatedDeptIn
 }
 
 type TeamModelUpdater struct {
-	// 名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// unionId
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1106,9 +991,7 @@ func (s *TeamModelUpdater) SetUnionId(v string) *TeamModelUpdater {
 }
 
 type TeamModelVisitInfo struct {
-	// 加入团队时间
 	JoinTime *string `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
-	// 用户对这个团队的访问情况
 	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 }
 
@@ -1131,34 +1014,20 @@ func (s *TeamModelVisitInfo) SetRoleCode(v string) *TeamModelVisitInfo {
 }
 
 type TeamVO struct {
-	// 封面
-	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
-	// 创建时间
-	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
-	// 创建人
-	Creator *TeamVOCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 团队描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 团队ID
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 团队名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 关联部门信息
+	Cover           *string                `json:"cover,omitempty" xml:"cover,omitempty"`
+	CreatedTime     *int64                 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	Creator         *TeamVOCreator         `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Description     *string                `json:"description,omitempty" xml:"description,omitempty"`
+	Icon            *string                `json:"icon,omitempty" xml:"icon,omitempty"`
+	Id              *string                `json:"id,omitempty" xml:"id,omitempty"`
+	Name            *string                `json:"name,omitempty" xml:"name,omitempty"`
 	RelatedDeptInfo *TeamVORelatedDeptInfo `json:"relatedDeptInfo,omitempty" xml:"relatedDeptInfo,omitempty" type:"Struct"`
-	// 团队状态
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 团队类型
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
-	// 更新时间
-	UpdatedTime *int64 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
-	// 更新人
-	Updater *TeamVOUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
-	// 团队链接
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 用户对这个团队的访问情况
-	VisitInfo *TeamVOVisitInfo `json:"visitInfo,omitempty" xml:"visitInfo,omitempty" type:"Struct"`
+	Status          *int32                 `json:"status,omitempty" xml:"status,omitempty"`
+	Type            *int32                 `json:"type,omitempty" xml:"type,omitempty"`
+	UpdatedTime     *int64                 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
+	Updater         *TeamVOUpdater         `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
+	Url             *string                `json:"url,omitempty" xml:"url,omitempty"`
+	VisitInfo       *TeamVOVisitInfo       `json:"visitInfo,omitempty" xml:"visitInfo,omitempty" type:"Struct"`
 }
 
 func (s TeamVO) String() string {
@@ -1240,9 +1109,7 @@ func (s *TeamVO) SetVisitInfo(v *TeamVOVisitInfo) *TeamVO {
 }
 
 type TeamVOCreator struct {
-	// 名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// unionId
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1265,9 +1132,7 @@ func (s *TeamVOCreator) SetUnionId(v string) *TeamVOCreator {
 }
 
 type TeamVORelatedDeptInfo struct {
-	// 部门id
-	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 部门名称
+	DeptId   *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
 }
 
@@ -1290,9 +1155,7 @@ func (s *TeamVORelatedDeptInfo) SetDeptName(v string) *TeamVORelatedDeptInfo {
 }
 
 type TeamVOUpdater struct {
-	// 名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// unionId
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1315,7 +1178,6 @@ func (s *TeamVOUpdater) SetUnionId(v string) *TeamVOUpdater {
 }
 
 type TeamVOVisitInfo struct {
-	// 用户对这个团队的访问情况
 	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 }
 
@@ -1356,12 +1218,8 @@ func (s *BatchDeleteRecentsHeaders) SetXAcsDingtalkAccessToken(v string) *BatchD
 }
 
 type BatchDeleteRecentsRequest struct {
-	// 移除最近记录文档uuid
-	// 最大size:
-	// 	20
 	DentryUuids []*string `json:"dentryUuids,omitempty" xml:"dentryUuids,omitempty" type:"Repeated"`
-	// 操作人id
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	OperatorId  *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s BatchDeleteRecentsRequest) String() string {
@@ -1383,7 +1241,6 @@ func (s *BatchDeleteRecentsRequest) SetOperatorId(v string) *BatchDeleteRecentsR
 }
 
 type BatchDeleteRecentsResponseBody struct {
-	// 本次操作是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1401,8 +1258,9 @@ func (s *BatchDeleteRecentsResponseBody) SetSuccess(v bool) *BatchDeleteRecentsR
 }
 
 type BatchDeleteRecentsResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchDeleteRecentsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchDeleteRecentsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchDeleteRecentsResponse) String() string {
@@ -1415,6 +1273,11 @@ func (s BatchDeleteRecentsResponse) GoString() string {
 
 func (s *BatchDeleteRecentsResponse) SetHeaders(v map[string]*string) *BatchDeleteRecentsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchDeleteRecentsResponse) SetStatusCode(v int32) *BatchDeleteRecentsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1447,18 +1310,12 @@ func (s *CopyDentryHeaders) SetXAcsDingtalkAccessToken(v string) *CopyDentryHead
 }
 
 type CopyDentryRequest struct {
-	// 拷贝后的文档名称，长度不能超过50。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 操作人unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 需要移动到的知识库id。
-	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	// 移动到目标位置的后置节点id。不为空时，需要是归属于 toParentDentryId 的子节点。
-	ToNextDentryId *string `json:"toNextDentryId,omitempty" xml:"toNextDentryId,omitempty"`
-	// 需要移动到目标位置的父节点id。如果为根目录，则不传；如果为非根目录，则需要传对应的id。
+	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
+	OperatorId       *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	TargetSpaceId    *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	ToNextDentryId   *string `json:"toNextDentryId,omitempty" xml:"toNextDentryId,omitempty"`
 	ToParentDentryId *string `json:"toParentDentryId,omitempty" xml:"toParentDentryId,omitempty"`
-	// 移动到目标位置的前置节点id。不为空时，需要是归属于 toParentDentryId 的子节点。
-	ToPrevDentryId *string `json:"toPrevDentryId,omitempty" xml:"toPrevDentryId,omitempty"`
+	ToPrevDentryId   *string `json:"toPrevDentryId,omitempty" xml:"toPrevDentryId,omitempty"`
 }
 
 func (s CopyDentryRequest) String() string {
@@ -1500,8 +1357,9 @@ func (s *CopyDentryRequest) SetToPrevDentryId(v string) *CopyDentryRequest {
 }
 
 type CopyDentryResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CopyDentryResponse) String() string {
@@ -1514,6 +1372,11 @@ func (s CopyDentryResponse) GoString() string {
 
 func (s *CopyDentryResponse) SetHeaders(v map[string]*string) *CopyDentryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CopyDentryResponse) SetStatusCode(v int32) *CopyDentryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1546,15 +1409,10 @@ func (s *CreateDentryHeaders) SetXAcsDingtalkAccessToken(v string) *CreateDentry
 }
 
 type CreateDentryRequest struct {
-	// 节点类型，file-文档，folder-文件夹。
-	DentryType *string `json:"dentryType,omitempty" xml:"dentryType,omitempty"`
-	// 节点类型为文档才有，0-文字，1-表格，2-PPT，3-白板，6-脑图，7-多维表。
-	DocumentType *int64 `json:"documentType,omitempty" xml:"documentType,omitempty"`
-	// 节点名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 操作人unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 父节点id，可为空。
+	DentryType     *string `json:"dentryType,omitempty" xml:"dentryType,omitempty"`
+	DocumentType   *int64  `json:"documentType,omitempty" xml:"documentType,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	OperatorId     *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	ParentDentryId *string `json:"parentDentryId,omitempty" xml:"parentDentryId,omitempty"`
 }
 
@@ -1592,8 +1450,9 @@ func (s *CreateDentryRequest) SetParentDentryId(v string) *CreateDentryRequest {
 }
 
 type CreateDentryResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateDentryResponse) String() string {
@@ -1606,6 +1465,11 @@ func (s CreateDentryResponse) GoString() string {
 
 func (s *CreateDentryResponse) SetHeaders(v map[string]*string) *CreateDentryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateDentryResponse) SetStatusCode(v int32) *CreateDentryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1638,22 +1502,13 @@ func (s *CreateSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSpaceHe
 }
 
 type CreateSpaceRequest struct {
-	// 知识库简介。
-	// 最大长度50。
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 知识库图标。
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 知识库名称。
-	// 最大长度50。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 操作人unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 知识库分组id。只有选择了所属小组的情况下，才需要设置知识库分组。
-	SectionId *string `json:"sectionId,omitempty" xml:"sectionId,omitempty"`
-	// 公开范围。
-	ShareScope *CreateSpaceRequestShareScope `json:"shareScope,omitempty" xml:"shareScope,omitempty" type:"Struct"`
-	// 所属小组id。
-	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	Description *string                       `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *string                       `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name        *string                       `json:"name,omitempty" xml:"name,omitempty"`
+	OperatorId  *string                       `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	SectionId   *string                       `json:"sectionId,omitempty" xml:"sectionId,omitempty"`
+	ShareScope  *CreateSpaceRequestShareScope `json:"shareScope,omitempty" xml:"shareScope,omitempty" type:"Struct"`
+	TeamId      *string                       `json:"teamId,omitempty" xml:"teamId,omitempty"`
 }
 
 func (s CreateSpaceRequest) String() string {
@@ -1700,9 +1555,6 @@ func (s *CreateSpaceRequest) SetTeamId(v string) *CreateSpaceRequest {
 }
 
 type CreateSpaceRequestShareScope struct {
-	// 公开范围。
-	// 0-仅知识库成员可见；
-	// 1-当前组织所有人可见。
 	Scope *int32 `json:"scope,omitempty" xml:"scope,omitempty"`
 }
 
@@ -1720,8 +1572,9 @@ func (s *CreateSpaceRequestShareScope) SetScope(v int32) *CreateSpaceRequestShar
 }
 
 type CreateSpaceResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SpaceVO           `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SpaceVO           `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateSpaceResponse) String() string {
@@ -1734,6 +1587,11 @@ func (s CreateSpaceResponse) GoString() string {
 
 func (s *CreateSpaceResponse) SetHeaders(v map[string]*string) *CreateSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateSpaceResponse) SetStatusCode(v int32) *CreateSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1766,24 +1624,13 @@ func (s *CreateTeamHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTeamHead
 }
 
 type CreateTeamRequest struct {
-	// 小组封面。
-	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
-	// 小组介绍。
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 小组图标。
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 小组成员列表。
-	Members []*CreateTeamRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	// 小组名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 操作人unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 小组类型。
-	// 0-默认；
-	// 1-部门；
-	// 2-项目组；
-	// 3-兴趣小组。
-	TeamType *int32 `json:"teamType,omitempty" xml:"teamType,omitempty"`
+	Cover       *string                     `json:"cover,omitempty" xml:"cover,omitempty"`
+	Description *string                     `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *string                     `json:"icon,omitempty" xml:"icon,omitempty"`
+	Members     []*CreateTeamRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	Name        *string                     `json:"name,omitempty" xml:"name,omitempty"`
+	OperatorId  *string                     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	TeamType    *int32                      `json:"teamType,omitempty" xml:"teamType,omitempty"`
 }
 
 func (s CreateTeamRequest) String() string {
@@ -1830,14 +1677,9 @@ func (s *CreateTeamRequest) SetTeamType(v int32) *CreateTeamRequest {
 }
 
 type CreateTeamRequestMembers struct {
-	// 成员unionId。
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 成员类型。
-	// 1-群；2-用户；3-组织；4-部门；5-虚拟组织；6-通讯录角色组。
-	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 成员角色。
-	// 0-无权限；1-只读；2-只读/下载；3-编辑；4-管理员；5-所有者。
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberType *int32  `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	RoleCode   *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 }
 
 func (s CreateTeamRequestMembers) String() string {
@@ -1864,8 +1706,9 @@ func (s *CreateTeamRequestMembers) SetRoleCode(v string) *CreateTeamRequestMembe
 }
 
 type CreateTeamResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *TeamVO            `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *TeamVO            `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateTeamResponse) String() string {
@@ -1878,6 +1721,11 @@ func (s CreateTeamResponse) GoString() string {
 
 func (s *CreateTeamResponse) SetHeaders(v map[string]*string) *CreateTeamResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateTeamResponse) SetStatusCode(v int32) *CreateTeamResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1910,7 +1758,6 @@ func (s *DeleteTeamHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteTeamHead
 }
 
 type DeleteTeamRequest struct {
-	// 操作人unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1928,8 +1775,9 @@ func (s *DeleteTeamRequest) SetOperatorId(v string) *DeleteTeamRequest {
 }
 
 type DeleteTeamResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *TeamVO            `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *TeamVO            `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteTeamResponse) String() string {
@@ -1942,6 +1790,11 @@ func (s DeleteTeamResponse) GoString() string {
 
 func (s *DeleteTeamResponse) SetHeaders(v map[string]*string) *DeleteTeamResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteTeamResponse) SetStatusCode(v int32) *DeleteTeamResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1974,7 +1827,6 @@ func (s *GetSchemaHeaders) SetXAcsDingtalkAccessToken(v string) *GetSchemaHeader
 }
 
 type GetSchemaRequest struct {
-	// 操作用户unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1992,10 +1844,8 @@ func (s *GetSchemaRequest) SetOperatorId(v string) *GetSchemaRequest {
 }
 
 type GetSchemaResponseBody struct {
-	// 当前版本。
-	Revision *int32 `json:"revision,omitempty" xml:"revision,omitempty"`
-	// schema内容。
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	Revision *int32  `json:"revision,omitempty" xml:"revision,omitempty"`
+	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s GetSchemaResponseBody) String() string {
@@ -2017,8 +1867,9 @@ func (s *GetSchemaResponseBody) SetValue(v string) *GetSchemaResponseBody {
 }
 
 type GetSchemaResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSchemaResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSchemaResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSchemaResponse) String() string {
@@ -2031,6 +1882,11 @@ func (s GetSchemaResponse) GoString() string {
 
 func (s *GetSchemaResponse) SetHeaders(v map[string]*string) *GetSchemaResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSchemaResponse) SetStatusCode(v int32) *GetSchemaResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2063,13 +1919,9 @@ func (s *GetSpaceDirectoriesHeaders) SetXAcsDingtalkAccessToken(v string) *GetSp
 }
 
 type GetSpaceDirectoriesRequest struct {
-	// 知识库节点id。
-	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	// 查询数量，最大500。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页token，第一页可不传。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 操作用户unionId。
+	DentryId   *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2102,12 +1954,9 @@ func (s *GetSpaceDirectoriesRequest) SetOperatorId(v string) *GetSpaceDirectorie
 }
 
 type GetSpaceDirectoriesResponseBody struct {
-	// 子节点列表。
-	Children []*DentryModel `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
-	// 是否还有后续可查询子节点。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 分页token。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Children  []*DentryModel `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	HasMore   *bool          `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string        `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetSpaceDirectoriesResponseBody) String() string {
@@ -2134,8 +1983,9 @@ func (s *GetSpaceDirectoriesResponseBody) SetNextToken(v string) *GetSpaceDirect
 }
 
 type GetSpaceDirectoriesResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSpaceDirectoriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSpaceDirectoriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSpaceDirectoriesResponse) String() string {
@@ -2148,6 +1998,11 @@ func (s GetSpaceDirectoriesResponse) GoString() string {
 
 func (s *GetSpaceDirectoriesResponse) SetHeaders(v map[string]*string) *GetSpaceDirectoriesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSpaceDirectoriesResponse) SetStatusCode(v int32) *GetSpaceDirectoriesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2180,7 +2035,6 @@ func (s *GetStarInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetStarInfoHe
 }
 
 type GetStarInfoRequest struct {
-	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2198,7 +2052,6 @@ func (s *GetStarInfoRequest) SetOperatorId(v string) *GetStarInfoRequest {
 }
 
 type GetStarInfoResponseBody struct {
-	// 是否已星标
 	Starred *bool `json:"starred,omitempty" xml:"starred,omitempty"`
 }
 
@@ -2216,8 +2069,9 @@ func (s *GetStarInfoResponseBody) SetStarred(v bool) *GetStarInfoResponseBody {
 }
 
 type GetStarInfoResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetStarInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetStarInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetStarInfoResponse) String() string {
@@ -2230,6 +2084,11 @@ func (s GetStarInfoResponse) GoString() string {
 
 func (s *GetStarInfoResponse) SetHeaders(v map[string]*string) *GetStarInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetStarInfoResponse) SetStatusCode(v int32) *GetStarInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2262,7 +2121,6 @@ func (s *GetTeamHeaders) SetXAcsDingtalkAccessToken(v string) *GetTeamHeaders {
 }
 
 type GetTeamRequest struct {
-	// 操作用户unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2280,8 +2138,9 @@ func (s *GetTeamRequest) SetOperatorId(v string) *GetTeamRequest {
 }
 
 type GetTeamResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *TeamVO            `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *TeamVO            `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetTeamResponse) String() string {
@@ -2294,6 +2153,11 @@ func (s GetTeamResponse) GoString() string {
 
 func (s *GetTeamResponse) SetHeaders(v map[string]*string) *GetTeamResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetTeamResponse) SetStatusCode(v int32) *GetTeamResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2326,12 +2190,9 @@ func (s *GetTotalNumberOfDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type GetTotalNumberOfDentriesRequest struct {
-	// 是否包含文件夹。默认包含。
-	IncludeFolder *bool `json:"includeFolder,omitempty" xml:"includeFolder,omitempty"`
-	// 操作用户unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 统计指定的知识库类型。0-我的文档；1-知识库。如果不传，则会统计全部数据。
-	SpaceTypes *string `json:"spaceTypes,omitempty" xml:"spaceTypes,omitempty"`
+	IncludeFolder *bool   `json:"includeFolder,omitempty" xml:"includeFolder,omitempty"`
+	OperatorId    *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	SpaceTypes    *string `json:"spaceTypes,omitempty" xml:"spaceTypes,omitempty"`
 }
 
 func (s GetTotalNumberOfDentriesRequest) String() string {
@@ -2375,8 +2236,9 @@ func (s *GetTotalNumberOfDentriesResponseBody) SetDentriesCount(v string) *GetTo
 }
 
 type GetTotalNumberOfDentriesResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetTotalNumberOfDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTotalNumberOfDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetTotalNumberOfDentriesResponse) String() string {
@@ -2389,6 +2251,11 @@ func (s GetTotalNumberOfDentriesResponse) GoString() string {
 
 func (s *GetTotalNumberOfDentriesResponse) SetHeaders(v map[string]*string) *GetTotalNumberOfDentriesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetTotalNumberOfDentriesResponse) SetStatusCode(v int32) *GetTotalNumberOfDentriesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2421,7 +2288,6 @@ func (s *GetTotalNumberOfSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetTotalNumberOfSpacesRequest struct {
-	// 操作用户unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2456,8 +2322,9 @@ func (s *GetTotalNumberOfSpacesResponseBody) SetSpacesCount(v string) *GetTotalN
 }
 
 type GetTotalNumberOfSpacesResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetTotalNumberOfSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTotalNumberOfSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetTotalNumberOfSpacesResponse) String() string {
@@ -2470,6 +2337,11 @@ func (s GetTotalNumberOfSpacesResponse) GoString() string {
 
 func (s *GetTotalNumberOfSpacesResponse) SetHeaders(v map[string]*string) *GetTotalNumberOfSpacesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetTotalNumberOfSpacesResponse) SetStatusCode(v int32) *GetTotalNumberOfSpacesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2502,9 +2374,7 @@ func (s *GetUserInfoByOpenTokenHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetUserInfoByOpenTokenRequest struct {
-	// 文档docKey，标识一篇文档的key。
-	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
-	// 文档颁发给三方应用的 OpenToken，用于三方应用在文档中的免登。
+	DocKey    *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
 	OpenToken *string `json:"openToken,omitempty" xml:"openToken,omitempty"`
 }
 
@@ -2527,10 +2397,8 @@ func (s *GetUserInfoByOpenTokenRequest) SetOpenToken(v string) *GetUserInfoByOpe
 }
 
 type GetUserInfoByOpenTokenResponseBody struct {
-	// 用户的 unionId。
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 用户的userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserInfoByOpenTokenResponseBody) String() string {
@@ -2552,8 +2420,9 @@ func (s *GetUserInfoByOpenTokenResponseBody) SetUserId(v string) *GetUserInfoByO
 }
 
 type GetUserInfoByOpenTokenResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserInfoByOpenTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserInfoByOpenTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserInfoByOpenTokenResponse) String() string {
@@ -2566,6 +2435,11 @@ func (s GetUserInfoByOpenTokenResponse) GoString() string {
 
 func (s *GetUserInfoByOpenTokenResponse) SetHeaders(v map[string]*string) *GetUserInfoByOpenTokenResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserInfoByOpenTokenResponse) SetStatusCode(v int32) *GetUserInfoByOpenTokenResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2598,14 +2472,10 @@ func (s *ListFeedsHeaders) SetXAcsDingtalkAccessToken(v string) *ListFeedsHeader
 }
 
 type ListFeedsRequest struct {
-	// 是否排除文件。
-	ExcludeFile *bool `json:"excludeFile,omitempty" xml:"excludeFile,omitempty"`
-	// 每页最大条目数，最大值50。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标，第一页可不传。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 操作用户unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	ExcludeFile *bool   `json:"excludeFile,omitempty" xml:"excludeFile,omitempty"`
+	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s ListFeedsRequest) String() string {
@@ -2637,12 +2507,9 @@ func (s *ListFeedsRequest) SetOperatorId(v string) *ListFeedsRequest {
 }
 
 type ListFeedsResponseBody struct {
-	// 是否还有更多数据。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 动态列表。
-	Items []*ListFeedsResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	// 分页游标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Items     []*ListFeedsResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NextToken *string                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListFeedsResponseBody) String() string {
@@ -2669,12 +2536,9 @@ func (s *ListFeedsResponseBody) SetNextToken(v string) *ListFeedsResponseBody {
 }
 
 type ListFeedsResponseBodyItems struct {
-	// 动态内容。
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 动态时间。
-	Time *int64 `json:"time,omitempty" xml:"time,omitempty"`
-	// 动态类型。
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Time    *int64  `json:"time,omitempty" xml:"time,omitempty"`
+	Type    *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListFeedsResponseBodyItems) String() string {
@@ -2701,8 +2565,9 @@ func (s *ListFeedsResponseBodyItems) SetType(v int32) *ListFeedsResponseBodyItem
 }
 
 type ListFeedsResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListFeedsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListFeedsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListFeedsResponse) String() string {
@@ -2715,6 +2580,11 @@ func (s ListFeedsResponse) GoString() string {
 
 func (s *ListFeedsResponse) SetHeaders(v map[string]*string) *ListFeedsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListFeedsResponse) SetStatusCode(v int32) *ListFeedsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2747,7 +2617,6 @@ func (s *ListHotDocsHeaders) SetXAcsDingtalkAccessToken(v string) *ListHotDocsHe
 }
 
 type ListHotDocsRequest struct {
-	// 操作用户unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2765,7 +2634,6 @@ func (s *ListHotDocsRequest) SetOperatorId(v string) *ListHotDocsRequest {
 }
 
 type ListHotDocsResponseBody struct {
-	// 热门文档列表。
 	Items []*DentryModel `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
 }
 
@@ -2783,8 +2651,9 @@ func (s *ListHotDocsResponseBody) SetItems(v []*DentryModel) *ListHotDocsRespons
 }
 
 type ListHotDocsResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListHotDocsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListHotDocsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListHotDocsResponse) String() string {
@@ -2797,6 +2666,11 @@ func (s ListHotDocsResponse) GoString() string {
 
 func (s *ListHotDocsResponse) SetHeaders(v map[string]*string) *ListHotDocsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListHotDocsResponse) SetStatusCode(v int32) *ListHotDocsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2829,10 +2703,8 @@ func (s *ListPinSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *ListPinSpac
 }
 
 type ListPinSpacesRequest struct {
-	// 可选参数
-	Option *ListPinSpacesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	// 操作人id
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Option     *ListPinSpacesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	OperatorId *string                     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s ListPinSpacesRequest) String() string {
@@ -2854,30 +2726,12 @@ func (s *ListPinSpacesRequest) SetOperatorId(v string) *ListPinSpacesRequest {
 }
 
 type ListPinSpacesRequestOption struct {
-	// 分页大小
-	// 默认值:
-	// 	20
-	// 最大值:
-	// 	20
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 是否获取知识库创建者信息
-	// 默认值:
-	// 	false
-	WithSpaceCreatorInfo *bool `json:"withSpaceCreatorInfo,omitempty" xml:"withSpaceCreatorInfo,omitempty"`
-	// 是否获取知识库修改者信息
-	// 默认值:
-	// 	false
-	WithSpaceModifierInfo *bool `json:"withSpaceModifierInfo,omitempty" xml:"withSpaceModifierInfo,omitempty"`
-	// 是否获取知识库权限
-	// 默认值:
-	// 	false
-	WithSpacePermissionRole *bool `json:"withSpacePermissionRole,omitempty" xml:"withSpacePermissionRole,omitempty"`
-	// 是否获取小组信息
-	// 默认值:
-	// 	false
-	WithTeamDetail *bool `json:"withTeamDetail,omitempty" xml:"withTeamDetail,omitempty"`
+	MaxResults              *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken               *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	WithSpaceCreatorInfo    *bool   `json:"withSpaceCreatorInfo,omitempty" xml:"withSpaceCreatorInfo,omitempty"`
+	WithSpaceModifierInfo   *bool   `json:"withSpaceModifierInfo,omitempty" xml:"withSpaceModifierInfo,omitempty"`
+	WithSpacePermissionRole *bool   `json:"withSpacePermissionRole,omitempty" xml:"withSpacePermissionRole,omitempty"`
+	WithTeamDetail          *bool   `json:"withTeamDetail,omitempty" xml:"withTeamDetail,omitempty"`
 }
 
 func (s ListPinSpacesRequestOption) String() string {
@@ -2919,12 +2773,7 @@ func (s *ListPinSpacesRequestOption) SetWithTeamDetail(v bool) *ListPinSpacesReq
 }
 
 type ListPinSpacesResponseBody struct {
-	// 分页游标
-	// 不为空表示有更多数据
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 知识库置顶数据集合
-	// 最大size:
-	// 	20
+	NextToken   *string                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	ResultItems []*ListPinSpacesResponseBodyResultItems `json:"resultItems,omitempty" xml:"resultItems,omitempty" type:"Repeated"`
 }
 
@@ -2947,23 +2796,11 @@ func (s *ListPinSpacesResponseBody) SetResultItems(v []*ListPinSpacesResponseBod
 }
 
 type ListPinSpacesResponseBodyResultItems struct {
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 修改时间
-	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 知识库信息
-	SpaceInfo *ListPinSpacesResponseBodyResultItemsSpaceInfo `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
-	// 知识库权限
-	// 枚举值:
-	// 	NO_PERMISSION: 无权限
-	// 	READ_ONLY: 仅可查看
-	// 	READ_AND_DOWNLOAD: 可查看/下载
-	// 	EDIT: 可编辑
-	// 	MANAGER: 可管理
-	// 	OWNER: 所有者
-	SpacePermissionRole *string `json:"spacePermissionRole,omitempty" xml:"spacePermissionRole,omitempty"`
-	// 小组信息
-	TeamInfo *ListPinSpacesResponseBodyResultItemsTeamInfo `json:"teamInfo,omitempty" xml:"teamInfo,omitempty" type:"Struct"`
+	CreateTime          *string                                        `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	ModifiedTime        *string                                        `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	SpaceInfo           *ListPinSpacesResponseBodyResultItemsSpaceInfo `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
+	SpacePermissionRole *string                                        `json:"spacePermissionRole,omitempty" xml:"spacePermissionRole,omitempty"`
+	TeamInfo            *ListPinSpacesResponseBodyResultItemsTeamInfo  `json:"teamInfo,omitempty" xml:"teamInfo,omitempty" type:"Struct"`
 }
 
 func (s ListPinSpacesResponseBodyResultItems) String() string {
@@ -3000,28 +2837,17 @@ func (s *ListPinSpacesResponseBodyResultItems) SetTeamInfo(v *ListPinSpacesRespo
 }
 
 type ListPinSpacesResponseBodyResultItemsSpaceInfo struct {
-	// 知识库封面路径
-	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建者信息
-	Creator *ListPinSpacesResponseBodyResultItemsSpaceInfoCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 知识库描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 知识库图标
-	IconVO *ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
-	// 知识库id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// Mobile 访问链接
-	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	// 修改时间
-	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 修改者信息
-	Modifier *ListPinSpacesResponseBodyResultItemsSpaceInfoModifier `json:"modifier,omitempty" xml:"modifier,omitempty" type:"Struct"`
-	// 知识库名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// PC 访问链接
-	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	Cover        *string                                                `json:"cover,omitempty" xml:"cover,omitempty"`
+	CreateTime   *string                                                `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator      *ListPinSpacesResponseBodyResultItemsSpaceInfoCreator  `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Description  *string                                                `json:"description,omitempty" xml:"description,omitempty"`
+	IconVO       *ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO   `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
+	Id           *string                                                `json:"id,omitempty" xml:"id,omitempty"`
+	MobileUrl    *string                                                `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	ModifiedTime *string                                                `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	Modifier     *ListPinSpacesResponseBodyResultItemsSpaceInfoModifier `json:"modifier,omitempty" xml:"modifier,omitempty" type:"Struct"`
+	Name         *string                                                `json:"name,omitempty" xml:"name,omitempty"`
+	PcUrl        *string                                                `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
 }
 
 func (s ListPinSpacesResponseBodyResultItemsSpaceInfo) String() string {
@@ -3088,9 +2914,7 @@ func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetPcUrl(v string) *List
 }
 
 type ListPinSpacesResponseBodyResultItemsSpaceInfoCreator struct {
-	// 用户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户id
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3113,12 +2937,7 @@ func (s *ListPinSpacesResponseBodyResultItemsSpaceInfoCreator) SetUserId(v strin
 }
 
 type ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO struct {
-	// 图片存放地址
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 图片存放类型
-	// 枚举值:
-	// 	UNICODE: unicode
-	// 	URL: url
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -3141,9 +2960,7 @@ func (s *ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO) SetType(v string) 
 }
 
 type ListPinSpacesResponseBodyResultItemsSpaceInfoModifier struct {
-	// 用户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户id
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3166,9 +2983,7 @@ func (s *ListPinSpacesResponseBodyResultItemsSpaceInfoModifier) SetUserId(v stri
 }
 
 type ListPinSpacesResponseBodyResultItemsTeamInfo struct {
-	// 小组id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 小组名称
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -3191,8 +3006,9 @@ func (s *ListPinSpacesResponseBodyResultItemsTeamInfo) SetName(v string) *ListPi
 }
 
 type ListPinSpacesResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListPinSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListPinSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListPinSpacesResponse) String() string {
@@ -3205,6 +3021,11 @@ func (s ListPinSpacesResponse) GoString() string {
 
 func (s *ListPinSpacesResponse) SetHeaders(v map[string]*string) *ListPinSpacesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListPinSpacesResponse) SetStatusCode(v int32) *ListPinSpacesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3237,11 +3058,8 @@ func (s *ListRelatedSpaceTeamsHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListRelatedSpaceTeamsRequest struct {
-	// 操作用户unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 团队类型。
-	// 0-空白团队；1-部门；2-项目组；3-兴趣小组。
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Type       *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListRelatedSpaceTeamsRequest) String() string {
@@ -3280,8 +3098,9 @@ func (s *ListRelatedSpaceTeamsResponseBody) SetItems(v []*TeamModel) *ListRelate
 }
 
 type ListRelatedSpaceTeamsResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListRelatedSpaceTeamsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListRelatedSpaceTeamsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListRelatedSpaceTeamsResponse) String() string {
@@ -3294,6 +3113,11 @@ func (s ListRelatedSpaceTeamsResponse) GoString() string {
 
 func (s *ListRelatedSpaceTeamsResponse) SetHeaders(v map[string]*string) *ListRelatedSpaceTeamsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListRelatedSpaceTeamsResponse) SetStatusCode(v int32) *ListRelatedSpaceTeamsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3326,15 +3150,10 @@ func (s *ListRelatedTeamsHeaders) SetXAcsDingtalkAccessToken(v string) *ListRela
 }
 
 type ListRelatedTeamsRequest struct {
-	// 每页最大条目数，最大值50。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标，第一页可不传。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 操作用户unionId。
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 小组类型。
-	// 0-默认；1-部门；2-项目组；3-兴趣小组。
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Type       *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListRelatedTeamsRequest) String() string {
@@ -3366,12 +3185,9 @@ func (s *ListRelatedTeamsRequest) SetType(v int32) *ListRelatedTeamsRequest {
 }
 
 type ListRelatedTeamsResponseBody struct {
-	// 是否还有更多数据。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 小组列表。
-	Items []*TeamModel `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	// 分页游标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Items     []*TeamModel `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NextToken *string      `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListRelatedTeamsResponseBody) String() string {
@@ -3398,8 +3214,9 @@ func (s *ListRelatedTeamsResponseBody) SetNextToken(v string) *ListRelatedTeamsR
 }
 
 type ListRelatedTeamsResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListRelatedTeamsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListRelatedTeamsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListRelatedTeamsResponse) String() string {
@@ -3412,6 +3229,11 @@ func (s ListRelatedTeamsResponse) GoString() string {
 
 func (s *ListRelatedTeamsResponse) SetHeaders(v map[string]*string) *ListRelatedTeamsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListRelatedTeamsResponse) SetStatusCode(v int32) *ListRelatedTeamsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3444,7 +3266,6 @@ func (s *ListSpaceSectionsHeaders) SetXAcsDingtalkAccessToken(v string) *ListSpa
 }
 
 type ListSpaceSectionsRequest struct {
-	// 操作用户unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -3462,7 +3283,6 @@ func (s *ListSpaceSectionsRequest) SetOperatorId(v string) *ListSpaceSectionsReq
 }
 
 type ListSpaceSectionsResponseBody struct {
-	// 空间分组列表。
 	Items []*ListSpaceSectionsResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
 }
 
@@ -3480,16 +3300,11 @@ func (s *ListSpaceSectionsResponseBody) SetItems(v []*ListSpaceSectionsResponseB
 }
 
 type ListSpaceSectionsResponseBodyItems struct {
-	// 展示类型。
-	DisplayType *string `json:"displayType,omitempty" xml:"displayType,omitempty"`
-	// 分组id。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 分组名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 知识库数量。
-	SpaceNum *int32 `json:"spaceNum,omitempty" xml:"spaceNum,omitempty"`
-	// 知识库列表
-	Spaces []*SpaceModel `json:"spaces,omitempty" xml:"spaces,omitempty" type:"Repeated"`
+	DisplayType *string       `json:"displayType,omitempty" xml:"displayType,omitempty"`
+	Id          *string       `json:"id,omitempty" xml:"id,omitempty"`
+	Name        *string       `json:"name,omitempty" xml:"name,omitempty"`
+	SpaceNum    *int32        `json:"spaceNum,omitempty" xml:"spaceNum,omitempty"`
+	Spaces      []*SpaceModel `json:"spaces,omitempty" xml:"spaces,omitempty" type:"Repeated"`
 }
 
 func (s ListSpaceSectionsResponseBodyItems) String() string {
@@ -3526,8 +3341,9 @@ func (s *ListSpaceSectionsResponseBodyItems) SetSpaces(v []*SpaceModel) *ListSpa
 }
 
 type ListSpaceSectionsResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListSpaceSectionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListSpaceSectionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListSpaceSectionsResponse) String() string {
@@ -3540,6 +3356,11 @@ func (s ListSpaceSectionsResponse) GoString() string {
 
 func (s *ListSpaceSectionsResponse) SetHeaders(v map[string]*string) *ListSpaceSectionsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListSpaceSectionsResponse) SetStatusCode(v int32) *ListSpaceSectionsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3572,10 +3393,8 @@ func (s *ListStarsHeaders) SetXAcsDingtalkAccessToken(v string) *ListStarsHeader
 }
 
 type ListStarsRequest struct {
-	// 可选参数
-	Option *ListStarsRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	// 操作人id
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Option     *ListStarsRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	OperatorId *string                 `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s ListStarsRequest) String() string {
@@ -3597,56 +3416,17 @@ func (s *ListStarsRequest) SetOperatorId(v string) *ListStarsRequest {
 }
 
 type ListStarsRequestOption struct {
-	// 文档类型
-	// 最大size:
-	// 	20
-	FilterDocTypes []*string `json:"filterDocTypes,omitempty" xml:"filterDocTypes,omitempty" type:"Repeated"`
-	// 分页大小
-	// 默认值:
-	// 	20
-	// 最大值:
-	// 	20
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 排序规则, 升降或降序
-	// 支持按字段排序，支持字段在orderBy中
-	// 枚举值:
-	// 	ASC: 升序
-	// 	DESC: 降序
-	// 默认值:
-	// 	ASC
-	Order *string `json:"order,omitempty" xml:"order,omitempty"`
-	// 排序字段, 根据选择字段排序
-	// 枚举值:
-	// 	UPDATE_TIME: updateTime
-	// 	NAME: name
-	// 	CREATE_TIME: createTime
-	OrderBy *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
-	// 是否获取文档创建者名称
-	// 默认值:
-	// 	false
-	WithDentryCreatorInfo *bool `json:"withDentryCreatorInfo,omitempty" xml:"withDentryCreatorInfo,omitempty"`
-	// 是否获取文档修改者名称
-	// 默认值:
-	// 	false
-	WithDentryModifierInfo *bool `json:"withDentryModifierInfo,omitempty" xml:"withDentryModifierInfo,omitempty"`
-	// 是否获取文档权限
-	// 默认值:
-	// 	false
-	WithDentryPermissionRole *bool `json:"withDentryPermissionRole,omitempty" xml:"withDentryPermissionRole,omitempty"`
-	// 是否获取知识库信息
-	// 默认值:
-	// 	false
-	WithSpaceDetail *bool `json:"withSpaceDetail,omitempty" xml:"withSpaceDetail,omitempty"`
-	// 是否获取知识库权限
-	// 默认值:
-	// 	false
-	WithSpacePermissionRole *bool `json:"withSpacePermissionRole,omitempty" xml:"withSpacePermissionRole,omitempty"`
-	// 是否获取小组信息
-	// 默认值:
-	// 	false
-	WithTeamDetail *bool `json:"withTeamDetail,omitempty" xml:"withTeamDetail,omitempty"`
+	FilterDocTypes           []*string `json:"filterDocTypes,omitempty" xml:"filterDocTypes,omitempty" type:"Repeated"`
+	MaxResults               *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken                *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Order                    *string   `json:"order,omitempty" xml:"order,omitempty"`
+	OrderBy                  *string   `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	WithDentryCreatorInfo    *bool     `json:"withDentryCreatorInfo,omitempty" xml:"withDentryCreatorInfo,omitempty"`
+	WithDentryModifierInfo   *bool     `json:"withDentryModifierInfo,omitempty" xml:"withDentryModifierInfo,omitempty"`
+	WithDentryPermissionRole *bool     `json:"withDentryPermissionRole,omitempty" xml:"withDentryPermissionRole,omitempty"`
+	WithSpaceDetail          *bool     `json:"withSpaceDetail,omitempty" xml:"withSpaceDetail,omitempty"`
+	WithSpacePermissionRole  *bool     `json:"withSpacePermissionRole,omitempty" xml:"withSpacePermissionRole,omitempty"`
+	WithTeamDetail           *bool     `json:"withTeamDetail,omitempty" xml:"withTeamDetail,omitempty"`
 }
 
 func (s ListStarsRequestOption) String() string {
@@ -3713,13 +3493,8 @@ func (s *ListStarsRequestOption) SetWithTeamDetail(v bool) *ListStarsRequestOpti
 }
 
 type ListStarsResponseBody struct {
-	// 分页游标
-	// 不为空表示有更多数据
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 星标数据集合
-	// 最大size:
-	// 	20
-	StarList []*ListStarsResponseBodyStarList `json:"starList,omitempty" xml:"starList,omitempty" type:"Repeated"`
+	NextToken *string                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	StarList  []*ListStarsResponseBodyStarList `json:"starList,omitempty" xml:"starList,omitempty" type:"Repeated"`
 }
 
 func (s ListStarsResponseBody) String() string {
@@ -3741,43 +3516,16 @@ func (s *ListStarsResponseBody) SetStarList(v []*ListStarsResponseBodyStarList) 
 }
 
 type ListStarsResponseBodyStarList struct {
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 资源实体数据
-	DentryInfo *ListStarsResponseBodyStarListDentryInfo `json:"dentryInfo,omitempty" xml:"dentryInfo,omitempty" type:"Struct"`
-	// 文档权限
-	// 枚举值:
-	// 	NO_PERMISSION: 无权限
-	// 	READ_ONLY: 仅可查看
-	// 	READ_AND_DOWNLOAD: 可查看/下载
-	// 	EDIT: 可编辑
-	// 	MANAGER: 可管理
-	// 	OWNER: 所有者
-	DentryPermissionRole *string `json:"dentryPermissionRole,omitempty" xml:"dentryPermissionRole,omitempty"`
-	// 星标id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 是否已经删除
-	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 修改时间
-	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 知识库信息
-	SpaceInfo *ListStarsResponseBodyStarListSpaceInfo `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
-	// 知识库权限
-	// 枚举值:
-	// 	NO_PERMISSION: 无权限
-	// 	READ_ONLY: 仅可查看
-	// 	READ_AND_DOWNLOAD: 可查看/下载
-	// 	EDIT: 可编辑
-	// 	MANAGER: 可管理
-	// 	OWNER: 所有者
-	SpacePermissionRole *string `json:"spacePermissionRole,omitempty" xml:"spacePermissionRole,omitempty"`
-	// 星标类型
-	// 枚举值:
-	// 	TOP: 置顶星标
-	// 	COMMON: 普通星标
-	StarType *string `json:"starType,omitempty" xml:"starType,omitempty"`
-	// 小组信息
-	TeamInfo *ListStarsResponseBodyStarListTeamInfo `json:"teamInfo,omitempty" xml:"teamInfo,omitempty" type:"Struct"`
+	CreateTime           *string                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	DentryInfo           *ListStarsResponseBodyStarListDentryInfo `json:"dentryInfo,omitempty" xml:"dentryInfo,omitempty" type:"Struct"`
+	DentryPermissionRole *string                                  `json:"dentryPermissionRole,omitempty" xml:"dentryPermissionRole,omitempty"`
+	Id                   *string                                  `json:"id,omitempty" xml:"id,omitempty"`
+	IsDeleted            *bool                                    `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	ModifiedTime         *string                                  `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	SpaceInfo            *ListStarsResponseBodyStarListSpaceInfo  `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
+	SpacePermissionRole  *string                                  `json:"spacePermissionRole,omitempty" xml:"spacePermissionRole,omitempty"`
+	StarType             *string                                  `json:"starType,omitempty" xml:"starType,omitempty"`
+	TeamInfo             *ListStarsResponseBodyStarListTeamInfo   `json:"teamInfo,omitempty" xml:"teamInfo,omitempty" type:"Struct"`
 }
 
 func (s ListStarsResponseBodyStarList) String() string {
@@ -3839,39 +3587,19 @@ func (s *ListStarsResponseBodyStarList) SetTeamInfo(v *ListStarsResponseBodyStar
 }
 
 type ListStarsResponseBodyStarListDentryInfo struct {
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建者信息
-	Creator *ListStarsResponseBodyStarListDentryInfoCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 后缀
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// Mobile访问链接
-	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	// 修改时间
-	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 修改者信息
-	Modifier *ListStarsResponseBodyStarListDentryInfoModifier `json:"modifier,omitempty" xml:"modifier,omitempty" type:"Struct"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// PC 访问链接
-	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	// 所在空间id
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 状态
-	// 枚举值:
-	// 	NORMAL: 正常
-	// 	DELETED: 已删除
-	// 	EXPIRED: 已过期
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 类型，目录或文件
-	// 枚举值:
-	// 	FILE: 文件
-	// 	FOLDER: 文件夹
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// uuid，如移动文件，此字段不变
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	CreateTime   *string                                          `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator      *ListStarsResponseBodyStarListDentryInfoCreator  `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Extension    *string                                          `json:"extension,omitempty" xml:"extension,omitempty"`
+	Id           *string                                          `json:"id,omitempty" xml:"id,omitempty"`
+	MobileUrl    *string                                          `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	ModifiedTime *string                                          `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	Modifier     *ListStarsResponseBodyStarListDentryInfoModifier `json:"modifier,omitempty" xml:"modifier,omitempty" type:"Struct"`
+	Name         *string                                          `json:"name,omitempty" xml:"name,omitempty"`
+	PcUrl        *string                                          `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	SpaceId      *string                                          `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	Status       *string                                          `json:"status,omitempty" xml:"status,omitempty"`
+	Type         *string                                          `json:"type,omitempty" xml:"type,omitempty"`
+	Uuid         *string                                          `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s ListStarsResponseBodyStarListDentryInfo) String() string {
@@ -3948,9 +3676,7 @@ func (s *ListStarsResponseBodyStarListDentryInfo) SetUuid(v string) *ListStarsRe
 }
 
 type ListStarsResponseBodyStarListDentryInfoCreator struct {
-	// 用户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户id
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3973,9 +3699,7 @@ func (s *ListStarsResponseBodyStarListDentryInfoCreator) SetUserId(v string) *Li
 }
 
 type ListStarsResponseBodyStarListDentryInfoModifier struct {
-	// 用户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户id
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3998,9 +3722,7 @@ func (s *ListStarsResponseBodyStarListDentryInfoModifier) SetUserId(v string) *L
 }
 
 type ListStarsResponseBodyStarListSpaceInfo struct {
-	// 空间id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 空间名称
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -4023,9 +3745,7 @@ func (s *ListStarsResponseBodyStarListSpaceInfo) SetName(v string) *ListStarsRes
 }
 
 type ListStarsResponseBodyStarListTeamInfo struct {
-	// 小组id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 小组名称
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -4048,8 +3768,9 @@ func (s *ListStarsResponseBodyStarListTeamInfo) SetName(v string) *ListStarsResp
 }
 
 type ListStarsResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListStarsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListStarsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListStarsResponse) String() string {
@@ -4062,6 +3783,11 @@ func (s ListStarsResponse) GoString() string {
 
 func (s *ListStarsResponse) SetHeaders(v map[string]*string) *ListStarsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListStarsResponse) SetStatusCode(v int32) *ListStarsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4094,7 +3820,6 @@ func (s *ListTeamMembersHeaders) SetXAcsDingtalkAccessToken(v string) *ListTeamM
 }
 
 type ListTeamMembersRequest struct {
-	// 操作用户unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4112,10 +3837,8 @@ func (s *ListTeamMembersRequest) SetOperatorId(v string) *ListTeamMembersRequest
 }
 
 type ListTeamMembersResponseBody struct {
-	// 小组成员列表。
-	Members []*ListTeamMembersResponseBodyMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	// 小组名称。
-	TeamName *string `json:"teamName,omitempty" xml:"teamName,omitempty"`
+	Members  []*ListTeamMembersResponseBodyMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	TeamName *string                               `json:"teamName,omitempty" xml:"teamName,omitempty"`
 }
 
 func (s ListTeamMembersResponseBody) String() string {
@@ -4137,16 +3860,10 @@ func (s *ListTeamMembersResponseBody) SetTeamName(v string) *ListTeamMembersResp
 }
 
 type ListTeamMembersResponseBodyMembers struct {
-	// 成员id。
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 成员类型。
-	// 1-群；2-用户；3-组织；4-部门；5-虚拟组。
-	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 成员名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 成员角色。
-	// 0-无权限；1-只读；2-只读/下载；3-编辑；4-管理员；5-所有者。
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberType *int32  `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	RoleCode   *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 }
 
 func (s ListTeamMembersResponseBodyMembers) String() string {
@@ -4178,8 +3895,9 @@ func (s *ListTeamMembersResponseBodyMembers) SetRoleCode(v string) *ListTeamMemb
 }
 
 type ListTeamMembersResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListTeamMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListTeamMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListTeamMembersResponse) String() string {
@@ -4192,6 +3910,11 @@ func (s ListTeamMembersResponse) GoString() string {
 
 func (s *ListTeamMembersResponse) SetHeaders(v map[string]*string) *ListTeamMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListTeamMembersResponse) SetStatusCode(v int32) *ListTeamMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4224,7 +3947,6 @@ func (s *MarkStarHeaders) SetXAcsDingtalkAccessToken(v string) *MarkStarHeaders 
 }
 
 type MarkStarRequest struct {
-	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4242,7 +3964,6 @@ func (s *MarkStarRequest) SetOperatorId(v string) *MarkStarRequest {
 }
 
 type MarkStarResponseBody struct {
-	// 本次操作是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -4260,8 +3981,9 @@ func (s *MarkStarResponseBody) SetSuccess(v bool) *MarkStarResponseBody {
 }
 
 type MarkStarResponse struct {
-	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *MarkStarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *MarkStarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s MarkStarResponse) String() string {
@@ -4274,6 +3996,11 @@ func (s MarkStarResponse) GoString() string {
 
 func (s *MarkStarResponse) SetHeaders(v map[string]*string) *MarkStarResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *MarkStarResponse) SetStatusCode(v int32) *MarkStarResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4306,16 +4033,11 @@ func (s *MoveDentryHeaders) SetXAcsDingtalkAccessToken(v string) *MoveDentryHead
 }
 
 type MoveDentryRequest struct {
-	// 操作人unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 需要移动到的知识库id。
-	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	// 移动到目标位置的后置节点id。不为空时，需要是归属于 toParentDentryId 的子节点。
-	ToNextDentryId *string `json:"toNextDentryId,omitempty" xml:"toNextDentryId,omitempty"`
-	// 需要移动到目标位置的父节点id。如果为根目录，则不传；如果为非根目录，则需要传对应的id。
+	OperatorId       *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	TargetSpaceId    *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	ToNextDentryId   *string `json:"toNextDentryId,omitempty" xml:"toNextDentryId,omitempty"`
 	ToParentDentryId *string `json:"toParentDentryId,omitempty" xml:"toParentDentryId,omitempty"`
-	// 移动到目标位置的前置节点id。不为空时，需要是归属于 toParentDentryId 的子节点。
-	ToPrevDentryId *string `json:"toPrevDentryId,omitempty" xml:"toPrevDentryId,omitempty"`
+	ToPrevDentryId   *string `json:"toPrevDentryId,omitempty" xml:"toPrevDentryId,omitempty"`
 }
 
 func (s MoveDentryRequest) String() string {
@@ -4352,8 +4074,9 @@ func (s *MoveDentryRequest) SetToPrevDentryId(v string) *MoveDentryRequest {
 }
 
 type MoveDentryResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s MoveDentryResponse) String() string {
@@ -4366,6 +4089,11 @@ func (s MoveDentryResponse) GoString() string {
 
 func (s *MoveDentryResponse) SetHeaders(v map[string]*string) *MoveDentryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *MoveDentryResponse) SetStatusCode(v int32) *MoveDentryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4398,7 +4126,6 @@ func (s *PinSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *PinSpaceHeaders 
 }
 
 type PinSpaceRequest struct {
-	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4416,7 +4143,6 @@ func (s *PinSpaceRequest) SetOperatorId(v string) *PinSpaceRequest {
 }
 
 type PinSpaceResponseBody struct {
-	// 本次操作是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -4434,8 +4160,9 @@ func (s *PinSpaceResponseBody) SetSuccess(v bool) *PinSpaceResponseBody {
 }
 
 type PinSpaceResponse struct {
-	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PinSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PinSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PinSpaceResponse) String() string {
@@ -4448,6 +4175,11 @@ func (s PinSpaceResponse) GoString() string {
 
 func (s *PinSpaceResponse) SetHeaders(v map[string]*string) *PinSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PinSpaceResponse) SetStatusCode(v int32) *PinSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4480,10 +4212,8 @@ func (s *QueryDentryHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDentryHe
 }
 
 type QueryDentryRequest struct {
-	// 是否查询知识库信息。
-	IncludeSpace *bool `json:"includeSpace,omitempty" xml:"includeSpace,omitempty"`
-	// 操作用户unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	IncludeSpace *bool   `json:"includeSpace,omitempty" xml:"includeSpace,omitempty"`
+	OperatorId   *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s QueryDentryRequest) String() string {
@@ -4505,8 +4235,9 @@ func (s *QueryDentryRequest) SetOperatorId(v string) *QueryDentryRequest {
 }
 
 type QueryDentryResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryDentryResponse) String() string {
@@ -4519,6 +4250,11 @@ func (s QueryDentryResponse) GoString() string {
 
 func (s *QueryDentryResponse) SetHeaders(v map[string]*string) *QueryDentryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryDentryResponse) SetStatusCode(v int32) *QueryDentryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4551,12 +4287,9 @@ func (s *QueryItemByUrlHeaders) SetXAcsDingtalkAccessToken(v string) *QueryItemB
 }
 
 type QueryItemByUrlRequest struct {
-	// 操作用户unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 链接url。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 是否查询统计信息
-	WithStatisticalInfo *bool `json:"withStatisticalInfo,omitempty" xml:"withStatisticalInfo,omitempty"`
+	OperatorId          *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Url                 *string `json:"url,omitempty" xml:"url,omitempty"`
+	WithStatisticalInfo *bool   `json:"withStatisticalInfo,omitempty" xml:"withStatisticalInfo,omitempty"`
 }
 
 func (s QueryItemByUrlRequest) String() string {
@@ -4583,13 +4316,10 @@ func (s *QueryItemByUrlRequest) SetWithStatisticalInfo(v bool) *QueryItemByUrlRe
 }
 
 type QueryItemByUrlResponseBody struct {
-	// 业务类型。可选值：dingpan-云盘中的文档；mainsite-知识库中的文档。
-	BizType *string      `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Dentry  *DentryModel `json:"dentry,omitempty" xml:"dentry,omitempty"`
-	// 资源类型。可选值有：space-知识库；file-文档；folder-文件夹。
-	ResourceType *string `json:"resourceType,omitempty" xml:"resourceType,omitempty"`
-	// 当resourceType为space时，这里会返回知识库信息。
-	Space *QueryItemByUrlResponseBodySpace `json:"space,omitempty" xml:"space,omitempty" type:"Struct"`
+	BizType      *string                          `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Dentry       *DentryModel                     `json:"dentry,omitempty" xml:"dentry,omitempty"`
+	ResourceType *string                          `json:"resourceType,omitempty" xml:"resourceType,omitempty"`
+	Space        *QueryItemByUrlResponseBodySpace `json:"space,omitempty" xml:"space,omitempty" type:"Struct"`
 }
 
 func (s QueryItemByUrlResponseBody) String() string {
@@ -4621,16 +4351,11 @@ func (s *QueryItemByUrlResponseBody) SetSpace(v *QueryItemByUrlResponseBodySpace
 }
 
 type QueryItemByUrlResponseBodySpace struct {
-	// 知识库简介。
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 知识库id。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 知识库名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 如果type=2，会返回其所有者。
-	Owner *QueryItemByUrlResponseBodySpaceOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	// 知识库类型。1-知识库；2-我的文档。
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Description *string                               `json:"description,omitempty" xml:"description,omitempty"`
+	Id          *string                               `json:"id,omitempty" xml:"id,omitempty"`
+	Name        *string                               `json:"name,omitempty" xml:"name,omitempty"`
+	Owner       *QueryItemByUrlResponseBodySpaceOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	Type        *int32                                `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s QueryItemByUrlResponseBodySpace) String() string {
@@ -4667,9 +4392,7 @@ func (s *QueryItemByUrlResponseBodySpace) SetType(v int32) *QueryItemByUrlRespon
 }
 
 type QueryItemByUrlResponseBodySpaceOwner struct {
-	// 知识库所有者名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 知识库所有者的unionId。
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -4692,8 +4415,9 @@ func (s *QueryItemByUrlResponseBodySpaceOwner) SetUnionId(v string) *QueryItemBy
 }
 
 type QueryItemByUrlResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryItemByUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryItemByUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryItemByUrlResponse) String() string {
@@ -4706,6 +4430,11 @@ func (s QueryItemByUrlResponse) GoString() string {
 
 func (s *QueryItemByUrlResponse) SetHeaders(v map[string]*string) *QueryItemByUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryItemByUrlResponse) SetStatusCode(v int32) *QueryItemByUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4738,8 +4467,9 @@ func (s *QueryMineSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMineS
 }
 
 type QueryMineSpaceResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SpaceVO           `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SpaceVO           `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryMineSpaceResponse) String() string {
@@ -4752,6 +4482,11 @@ func (s QueryMineSpaceResponse) GoString() string {
 
 func (s *QueryMineSpaceResponse) SetHeaders(v map[string]*string) *QueryMineSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryMineSpaceResponse) SetStatusCode(v int32) *QueryMineSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4784,18 +4519,12 @@ func (s *QueryRecentListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRece
 }
 
 type QueryRecentListRequest struct {
-	// 创建人类型。0-全部；1-我创建的；2-他人创建；不填也是查全部。
-	CreatorType *int32 `json:"creatorType,omitempty" xml:"creatorType,omitempty"`
-	// 访问文档类型：0-文字；1-表格；2-PPT；3-白板；6-脑图；7-多维表；不填的话，则默认是所有。
-	FileType *int32 `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	// 每页最大条目数，最大值10。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标，第一页可不传。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 操作用户unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 最近列表的类型：0-最近访问；1-最近编辑。
-	RecentType *int32 `json:"recentType,omitempty" xml:"recentType,omitempty"`
+	CreatorType *int32  `json:"creatorType,omitempty" xml:"creatorType,omitempty"`
+	FileType    *int32  `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	RecentType  *int32  `json:"recentType,omitempty" xml:"recentType,omitempty"`
 }
 
 func (s QueryRecentListRequest) String() string {
@@ -4837,11 +4566,8 @@ func (s *QueryRecentListRequest) SetRecentType(v int32) *QueryRecentListRequest 
 }
 
 type QueryRecentListResponseBody struct {
-	// 是否还有更多数据。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 分页游标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 子节点列表。
+	HasMore    *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken  *string                                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	RecentList []*QueryRecentListResponseBodyRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
 }
 
@@ -4869,14 +4595,10 @@ func (s *QueryRecentListResponseBody) SetRecentList(v []*QueryRecentListResponse
 }
 
 type QueryRecentListResponseBodyRecentList struct {
-	// 是否被删除。
-	Deleted *bool `json:"deleted,omitempty" xml:"deleted,omitempty"`
-	// 节点信息。
-	Dentry *DentryModel `json:"dentry,omitempty" xml:"dentry,omitempty"`
-	// 如果查询的是访问，那么这里是访问时间；否则就是编辑时间。
-	RecentTime *int64 `json:"recentTime,omitempty" xml:"recentTime,omitempty"`
-	// 小组信息
-	Team *QueryRecentListResponseBodyRecentListTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
+	Deleted    *bool                                      `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	Dentry     *DentryModel                               `json:"dentry,omitempty" xml:"dentry,omitempty"`
+	RecentTime *int64                                     `json:"recentTime,omitempty" xml:"recentTime,omitempty"`
+	Team       *QueryRecentListResponseBodyRecentListTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
 }
 
 func (s QueryRecentListResponseBodyRecentList) String() string {
@@ -4908,9 +4630,7 @@ func (s *QueryRecentListResponseBodyRecentList) SetTeam(v *QueryRecentListRespon
 }
 
 type QueryRecentListResponseBodyRecentListTeam struct {
-	// 小组id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 小组名称
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -4933,8 +4653,9 @@ func (s *QueryRecentListResponseBodyRecentListTeam) SetName(v string) *QueryRece
 }
 
 type QueryRecentListResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryRecentListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryRecentListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryRecentListResponse) String() string {
@@ -4947,6 +4668,11 @@ func (s QueryRecentListResponse) GoString() string {
 
 func (s *QueryRecentListResponse) SetHeaders(v map[string]*string) *QueryRecentListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryRecentListResponse) SetStatusCode(v int32) *QueryRecentListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4979,7 +4705,6 @@ func (s *QuerySpaceHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySpaceHead
 }
 
 type QuerySpaceRequest struct {
-	// 操作用户unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4997,8 +4722,9 @@ func (s *QuerySpaceRequest) SetOperatorId(v string) *QuerySpaceRequest {
 }
 
 type QuerySpaceResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SpaceVO           `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SpaceVO           `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QuerySpaceResponse) String() string {
@@ -5011,6 +4737,11 @@ func (s QuerySpaceResponse) GoString() string {
 
 func (s *QuerySpaceResponse) SetHeaders(v map[string]*string) *QuerySpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QuerySpaceResponse) SetStatusCode(v int32) *QuerySpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5043,14 +4774,10 @@ func (s *RelatedSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *RelatedSpac
 }
 
 type RelatedSpacesRequest struct {
-	// 每页最大条目数，最大值100。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标，第一页可不传。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 操作用户unionId。
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 小组id。
-	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	TeamId     *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
 }
 
 func (s RelatedSpacesRequest) String() string {
@@ -5082,11 +4809,9 @@ func (s *RelatedSpacesRequest) SetTeamId(v string) *RelatedSpacesRequest {
 }
 
 type RelatedSpacesResponseBody struct {
-	// 是否还有更多数据。
-	HasMore *bool                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	Items   []*RelatedSpacesResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	// 分页游标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Items     []*RelatedSpacesResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NextToken *string                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s RelatedSpacesResponseBody) String() string {
@@ -5113,27 +4838,16 @@ func (s *RelatedSpacesResponseBody) SetNextToken(v string) *RelatedSpacesRespons
 }
 
 type RelatedSpacesResponseBodyItems struct {
-	// 封面
-	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
-	// 空间描述信息
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 知识库高清图标
-	HdIconVO *RelatedSpacesResponseBodyItemsHdIconVO `json:"hdIconVO,omitempty" xml:"hdIconVO,omitempty" type:"Struct"`
-	// 知识库图标
-	IconVO *RelatedSpacesResponseBodyItemsIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
-	// 知识库id。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 知识库名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 知识库所有者。
-	Owner *RelatedSpacesResponseBodyItemsOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	// 知识库中最近编辑的三篇文档。
-	RecentList []*DentryModel `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
-	// 知识库类型。
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
-	// 知识库访问url。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 访问者对当前知识库的权限等信息。
+	Cover       *string                                    `json:"cover,omitempty" xml:"cover,omitempty"`
+	Description *string                                    `json:"description,omitempty" xml:"description,omitempty"`
+	HdIconVO    *RelatedSpacesResponseBodyItemsHdIconVO    `json:"hdIconVO,omitempty" xml:"hdIconVO,omitempty" type:"Struct"`
+	IconVO      *RelatedSpacesResponseBodyItemsIconVO      `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
+	Id          *string                                    `json:"id,omitempty" xml:"id,omitempty"`
+	Name        *string                                    `json:"name,omitempty" xml:"name,omitempty"`
+	Owner       *RelatedSpacesResponseBodyItemsOwner       `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	RecentList  []*DentryModel                             `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+	Type        *int32                                     `json:"type,omitempty" xml:"type,omitempty"`
+	Url         *string                                    `json:"url,omitempty" xml:"url,omitempty"`
 	VisitorInfo *RelatedSpacesResponseBodyItemsVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
 
@@ -5201,9 +4915,7 @@ func (s *RelatedSpacesResponseBodyItems) SetVisitorInfo(v *RelatedSpacesResponse
 }
 
 type RelatedSpacesResponseBodyItemsHdIconVO struct {
-	// 图标
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 图标类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -5226,9 +4938,7 @@ func (s *RelatedSpacesResponseBodyItemsHdIconVO) SetType(v string) *RelatedSpace
 }
 
 type RelatedSpacesResponseBodyItemsIconVO struct {
-	// 图标
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 图标类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -5251,9 +4961,7 @@ func (s *RelatedSpacesResponseBodyItemsIconVO) SetType(v string) *RelatedSpacesR
 }
 
 type RelatedSpacesResponseBodyItemsOwner struct {
-	// 用户名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户unionId。
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -5276,14 +4984,10 @@ func (s *RelatedSpacesResponseBodyItemsOwner) SetUnionId(v string) *RelatedSpace
 }
 
 type RelatedSpacesResponseBodyItemsVisitorInfo struct {
-	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
-	// 是否置顶
-	Pinned *bool `json:"pinned,omitempty" xml:"pinned,omitempty"`
-	// 权限
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	// 空间的操作列表。
-	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
+	Pinned        *bool     `json:"pinned,omitempty" xml:"pinned,omitempty"`
+	RoleCode      *string   `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	SpaceActions  []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
 
 func (s RelatedSpacesResponseBodyItemsVisitorInfo) String() string {
@@ -5315,8 +5019,9 @@ func (s *RelatedSpacesResponseBodyItemsVisitorInfo) SetSpaceActions(v []*string)
 }
 
 type RelatedSpacesResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RelatedSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RelatedSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RelatedSpacesResponse) String() string {
@@ -5329,6 +5034,11 @@ func (s RelatedSpacesResponse) GoString() string {
 
 func (s *RelatedSpacesResponse) SetHeaders(v map[string]*string) *RelatedSpacesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RelatedSpacesResponse) SetStatusCode(v int32) *RelatedSpacesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5361,12 +5071,9 @@ func (s *RemoveTeamMembersHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveT
 }
 
 type RemoveTeamMembersRequest struct {
-	// 待移除的成员列表。
-	Members []*RemoveTeamMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	// 是否通知被移除的成员，默认否。
-	Notify *bool `json:"notify,omitempty" xml:"notify,omitempty"`
-	// 操作人unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Members    []*RemoveTeamMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	Notify     *bool                              `json:"notify,omitempty" xml:"notify,omitempty"`
+	OperatorId *string                            `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s RemoveTeamMembersRequest) String() string {
@@ -5393,14 +5100,9 @@ func (s *RemoveTeamMembersRequest) SetOperatorId(v string) *RemoveTeamMembersReq
 }
 
 type RemoveTeamMembersRequestMembers struct {
-	// 成员id。
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 成员类型。
-	// 1-群；2-用户；3-组织；4-部门；5-虚拟组织；6-通讯录角色组。
-	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 成员角色。
-	// 0-无权限；1-只读；2-只读/下载；3-编辑；4-管理员；5-所有者。
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberType *int32  `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	RoleCode   *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 }
 
 func (s RemoveTeamMembersRequestMembers) String() string {
@@ -5427,11 +5129,8 @@ func (s *RemoveTeamMembersRequestMembers) SetRoleCode(v string) *RemoveTeamMembe
 }
 
 type RemoveTeamMembersResponseBody struct {
-	// 企业外的成员列表。
-	// 保存失败的时候会返回此列表。
 	NotInOrgMembers []*RemoveTeamMembersResponseBodyNotInOrgMembers `json:"notInOrgMembers,omitempty" xml:"notInOrgMembers,omitempty" type:"Repeated"`
-	// 是否保存成功。
-	SaveSuccess *bool `json:"saveSuccess,omitempty" xml:"saveSuccess,omitempty"`
+	SaveSuccess     *bool                                           `json:"saveSuccess,omitempty" xml:"saveSuccess,omitempty"`
 }
 
 func (s RemoveTeamMembersResponseBody) String() string {
@@ -5453,16 +5152,10 @@ func (s *RemoveTeamMembersResponseBody) SetSaveSuccess(v bool) *RemoveTeamMember
 }
 
 type RemoveTeamMembersResponseBodyNotInOrgMembers struct {
-	// 成员id。
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 成员类型。
-	// 1-群；2-用户；3-组织；4-部门；5-虚拟组织；6-通讯录角色组。
-	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 成员名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 成员角色。
-	// 0-无权限；1-只读；2-只读/下载；3-编辑、4-管理员；5-所有者。
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberType *int32  `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	RoleCode   *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 }
 
 func (s RemoveTeamMembersResponseBodyNotInOrgMembers) String() string {
@@ -5494,8 +5187,9 @@ func (s *RemoveTeamMembersResponseBodyNotInOrgMembers) SetRoleCode(v string) *Re
 }
 
 type RemoveTeamMembersResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RemoveTeamMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RemoveTeamMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RemoveTeamMembersResponse) String() string {
@@ -5508,6 +5202,11 @@ func (s RemoveTeamMembersResponse) GoString() string {
 
 func (s *RemoveTeamMembersResponse) SetHeaders(v map[string]*string) *RemoveTeamMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RemoveTeamMembersResponse) SetStatusCode(v int32) *RemoveTeamMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5540,9 +5239,7 @@ func (s *RenameDentryHeaders) SetXAcsDingtalkAccessToken(v string) *RenameDentry
 }
 
 type RenameDentryRequest struct {
-	// 重命名之后的节点名称，长度不能超过50。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 操作人unionId。
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -5565,8 +5262,9 @@ func (s *RenameDentryRequest) SetOperatorId(v string) *RenameDentryRequest {
 }
 
 type RenameDentryResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RenameDentryResponse) String() string {
@@ -5579,6 +5277,11 @@ func (s RenameDentryResponse) GoString() string {
 
 func (s *RenameDentryResponse) SetHeaders(v map[string]*string) *RenameDentryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RenameDentryResponse) SetStatusCode(v int32) *RenameDentryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5611,12 +5314,9 @@ func (s *SaveTeamMembersHeaders) SetXAcsDingtalkAccessToken(v string) *SaveTeamM
 }
 
 type SaveTeamMembersRequest struct {
-	// 待添加/修改的成员列表。
-	Members []*SaveTeamMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	// 是否通知被授权成员，默认否。
-	Notify *bool `json:"notify,omitempty" xml:"notify,omitempty"`
-	// 操作人unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Members    []*SaveTeamMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	Notify     *bool                            `json:"notify,omitempty" xml:"notify,omitempty"`
+	OperatorId *string                          `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s SaveTeamMembersRequest) String() string {
@@ -5643,14 +5343,9 @@ func (s *SaveTeamMembersRequest) SetOperatorId(v string) *SaveTeamMembersRequest
 }
 
 type SaveTeamMembersRequestMembers struct {
-	// 成员id。
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 成员类型。
-	// 1-群；2-用户；3-组织；4-部门；5-虚拟组织；6-通讯录角色组。
-	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 成员角色。
-	// 0-无权限；1-只读；2-只读/下载；3-编辑；4-管理员；5-所有者。
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberType *int32  `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	RoleCode   *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 }
 
 func (s SaveTeamMembersRequestMembers) String() string {
@@ -5677,11 +5372,8 @@ func (s *SaveTeamMembersRequestMembers) SetRoleCode(v string) *SaveTeamMembersRe
 }
 
 type SaveTeamMembersResponseBody struct {
-	// 企业外的成员列表。
-	// 保存失败的时候会返回此列表。
 	NotInOrgMembers []*SaveTeamMembersResponseBodyNotInOrgMembers `json:"notInOrgMembers,omitempty" xml:"notInOrgMembers,omitempty" type:"Repeated"`
-	// 是否保存成功。
-	SaveSuccess *bool `json:"saveSuccess,omitempty" xml:"saveSuccess,omitempty"`
+	SaveSuccess     *bool                                         `json:"saveSuccess,omitempty" xml:"saveSuccess,omitempty"`
 }
 
 func (s SaveTeamMembersResponseBody) String() string {
@@ -5703,16 +5395,10 @@ func (s *SaveTeamMembersResponseBody) SetSaveSuccess(v bool) *SaveTeamMembersRes
 }
 
 type SaveTeamMembersResponseBodyNotInOrgMembers struct {
-	// 成员id。
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 成员类型。
-	// 1-群；2-用户；3-组织；4-部门；5-虚拟组织；6-通讯录角色组。
-	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 成员名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 成员角色。
-	// 0-无权限；1-只读；2-只读/下载；3-编辑、4-管理员；5-所有者。
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberType *int32  `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	RoleCode   *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 }
 
 func (s SaveTeamMembersResponseBodyNotInOrgMembers) String() string {
@@ -5744,8 +5430,9 @@ func (s *SaveTeamMembersResponseBodyNotInOrgMembers) SetRoleCode(v string) *Save
 }
 
 type SaveTeamMembersResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SaveTeamMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SaveTeamMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SaveTeamMembersResponse) String() string {
@@ -5758,6 +5445,11 @@ func (s SaveTeamMembersResponse) GoString() string {
 
 func (s *SaveTeamMembersResponse) SetHeaders(v map[string]*string) *SaveTeamMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SaveTeamMembersResponse) SetStatusCode(v int32) *SaveTeamMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5790,14 +5482,10 @@ func (s *SearchHeaders) SetXAcsDingtalkAccessToken(v string) *SearchHeaders {
 }
 
 type SearchRequest struct {
-	// 节点搜索请求，和空间搜索请求二选一必填。
 	DentryRequest *SearchRequestDentryRequest `json:"dentryRequest,omitempty" xml:"dentryRequest,omitempty" type:"Struct"`
-	//  搜索关键词。
-	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	// 操作人unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 空间搜索请求，和节点搜索请求二选一必填。
-	SpaceRequest *SearchRequestSpaceRequest `json:"spaceRequest,omitempty" xml:"spaceRequest,omitempty" type:"Struct"`
+	Keyword       *string                     `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	OperatorId    *string                     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	SpaceRequest  *SearchRequestSpaceRequest  `json:"spaceRequest,omitempty" xml:"spaceRequest,omitempty" type:"Struct"`
 }
 
 func (s SearchRequest) String() string {
@@ -5829,19 +5517,12 @@ func (s *SearchRequest) SetSpaceRequest(v *SearchRequestSpaceRequest) *SearchReq
 }
 
 type SearchRequestDentryRequest struct {
-	// 每页最大条目数，最大值50。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标。如果是首次调用，可不传；如果非首次调用，该参数传上次调用时返回的nextToken。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 搜索的字段。支持的有：1-标题和内容；2-标题、内容和评论；3-标题和评论；4-标题；5-内容；6-评论。
-	SearchField *int32 `json:"searchField,omitempty" xml:"searchField,omitempty"`
-	// 搜索指定的文件类型。支持的类型有：1-文档；2-表格；3-脑图；4-演示；5-白板。
-	SearchFileType *int32 `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
-	// 知识库id，在指定的知识库中搜索。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 文档内容命中了搜索关键词的时候，需要返回的文档摘要长度。
-	SummaryLength *int32 `json:"summaryLength,omitempty" xml:"summaryLength,omitempty"`
-	// 文档访问时间的范围。
+	MaxResults     *int32                                    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *string                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	SearchField    *int32                                    `json:"searchField,omitempty" xml:"searchField,omitempty"`
+	SearchFileType *int32                                    `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
+	SpaceId        *string                                   `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SummaryLength  *int32                                    `json:"summaryLength,omitempty" xml:"summaryLength,omitempty"`
 	VisitTimeRange *SearchRequestDentryRequestVisitTimeRange `json:"visitTimeRange,omitempty" xml:"visitTimeRange,omitempty" type:"Struct"`
 }
 
@@ -5889,9 +5570,7 @@ func (s *SearchRequestDentryRequest) SetVisitTimeRange(v *SearchRequestDentryReq
 }
 
 type SearchRequestDentryRequestVisitTimeRange struct {
-	// 结束时间戳（ms）。
-	End *int64 `json:"end,omitempty" xml:"end,omitempty"`
-	// 起始时间戳（ms）。
+	End   *int64 `json:"end,omitempty" xml:"end,omitempty"`
 	Start *int64 `json:"start,omitempty" xml:"start,omitempty"`
 }
 
@@ -5914,12 +5593,9 @@ func (s *SearchRequestDentryRequestVisitTimeRange) SetStart(v int64) *SearchRequ
 }
 
 type SearchRequestSpaceRequest struct {
-	// 每页最大条目数，最大值50。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标。如果是首次调用，可不传；如果非首次调用，该参数传上次调用时返回的nextToken。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 同时请求知识小组信息
-	WithTeamInfo *bool `json:"withTeamInfo,omitempty" xml:"withTeamInfo,omitempty"`
+	MaxResults   *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken    *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	WithTeamInfo *bool   `json:"withTeamInfo,omitempty" xml:"withTeamInfo,omitempty"`
 }
 
 func (s SearchRequestSpaceRequest) String() string {
@@ -5946,10 +5622,8 @@ func (s *SearchRequestSpaceRequest) SetWithTeamInfo(v bool) *SearchRequestSpaceR
 }
 
 type SearchResponseBody struct {
-	// 节点搜索结果。
 	DentryResult *SearchResponseBodyDentryResult `json:"dentryResult,omitempty" xml:"dentryResult,omitempty" type:"Struct"`
-	// 知识库搜索结果。
-	SpaceResult *SearchResponseBodySpaceResult `json:"spaceResult,omitempty" xml:"spaceResult,omitempty" type:"Struct"`
+	SpaceResult  *SearchResponseBodySpaceResult  `json:"spaceResult,omitempty" xml:"spaceResult,omitempty" type:"Struct"`
 }
 
 func (s SearchResponseBody) String() string {
@@ -5971,12 +5645,9 @@ func (s *SearchResponseBody) SetSpaceResult(v *SearchResponseBodySpaceResult) *S
 }
 
 type SearchResponseBodyDentryResult struct {
-	// 是否还有更多数据。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 搜索命中的节点列表。
-	Items []*SearchResponseBodyDentryResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	// 分页游标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Items     []*SearchResponseBodyDentryResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NextToken *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s SearchResponseBodyDentryResult) String() string {
@@ -6003,36 +5674,21 @@ func (s *SearchResponseBodyDentryResult) SetNextToken(v string) *SearchResponseB
 }
 
 type SearchResponseBodyDentryResultItems struct {
-	// 如果内容命中了关键词，会返回该部分内容，带高亮。
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建信息。
-	Creation *OpenActionModel `json:"creation,omitempty" xml:"creation,omitempty"`
-	// 节点id。
-	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	// 节点唯一标识。
-	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
-	// 文件名扩展。
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 节点图标url。
-	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
-	// 最后修改信息。
-	LastEdition *OpenActionModel `json:"lastEdition,omitempty" xml:"lastEdition,omitempty"`
-	// 节点名称，如果命中了关键词，会带有高亮。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 节点原始名称，不带高亮。
-	OriginName *string `json:"originName,omitempty" xml:"originName,omitempty"`
-	// 节点的路径。
-	Path *string `json:"path,omitempty" xml:"path,omitempty"`
-	// 节点所属的业务场景。可选值有：1-知识库；2-我的文档；5-群聊。
-	SceneType *int32 `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
-	// 文件类型。1-文档；2-表格；3-脑图；4-演示；5-白板；6-office文字；7-office表格；8-office ppt；10-多维表格；11-文本；12-图片；13-视频；14-音频；15-压缩文件；16-其他。
-	SearchFileType *int32 `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
-	// 节点所属的知识库id。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 文档缩略图url。
-	ThumbnailUrl *string `json:"thumbnailUrl,omitempty" xml:"thumbnailUrl,omitempty"`
-	// 节点访问url。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	Content        *string          `json:"content,omitempty" xml:"content,omitempty"`
+	Creation       *OpenActionModel `json:"creation,omitempty" xml:"creation,omitempty"`
+	DentryId       *string          `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	DentryUuid     *string          `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	Extension      *string          `json:"extension,omitempty" xml:"extension,omitempty"`
+	IconUrl        *string          `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	LastEdition    *OpenActionModel `json:"lastEdition,omitempty" xml:"lastEdition,omitempty"`
+	Name           *string          `json:"name,omitempty" xml:"name,omitempty"`
+	OriginName     *string          `json:"originName,omitempty" xml:"originName,omitempty"`
+	Path           *string          `json:"path,omitempty" xml:"path,omitempty"`
+	SceneType      *int32           `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+	SearchFileType *int32           `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
+	SpaceId        *string          `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	ThumbnailUrl   *string          `json:"thumbnailUrl,omitempty" xml:"thumbnailUrl,omitempty"`
+	Url            *string          `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s SearchResponseBodyDentryResultItems) String() string {
@@ -6119,12 +5775,9 @@ func (s *SearchResponseBodyDentryResultItems) SetUrl(v string) *SearchResponseBo
 }
 
 type SearchResponseBodySpaceResult struct {
-	// 是否还有更多数据。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 搜索命中的知识库列表。
-	Items []*SearchResponseBodySpaceResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	// 分页游标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Items     []*SearchResponseBodySpaceResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NextToken *string                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s SearchResponseBodySpaceResult) String() string {
@@ -6151,19 +5804,12 @@ func (s *SearchResponseBodySpaceResult) SetNextToken(v string) *SearchResponseBo
 }
 
 type SearchResponseBodySpaceResultItems struct {
-	// 知识库图标。
-	IconVO *SearchResponseBodySpaceResultItemsIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
-	// 知识库名称，如果命中了关键词，会带有高亮。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 知识库原始名称，不带高亮。
-	OriginName *string `json:"originName,omitempty" xml:"originName,omitempty"`
-	// 知识库id。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 知识小组信息
-	TeamVO *SearchResponseBodySpaceResultItemsTeamVO `json:"teamVO,omitempty" xml:"teamVO,omitempty" type:"Struct"`
-	// 知识库访问url。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 用户最后一次操作信息。
+	IconVO            *SearchResponseBodySpaceResultItemsIconVO            `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
+	Name              *string                                              `json:"name,omitempty" xml:"name,omitempty"`
+	OriginName        *string                                              `json:"originName,omitempty" xml:"originName,omitempty"`
+	SpaceId           *string                                              `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	TeamVO            *SearchResponseBodySpaceResultItemsTeamVO            `json:"teamVO,omitempty" xml:"teamVO,omitempty" type:"Struct"`
+	Url               *string                                              `json:"url,omitempty" xml:"url,omitempty"`
 	UserLastOperation *SearchResponseBodySpaceResultItemsUserLastOperation `json:"userLastOperation,omitempty" xml:"userLastOperation,omitempty" type:"Struct"`
 }
 
@@ -6211,9 +5857,7 @@ func (s *SearchResponseBodySpaceResultItems) SetUserLastOperation(v *SearchRespo
 }
 
 type SearchResponseBodySpaceResultItemsIconVO struct {
-	// 图标信息。
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 知识库图标的类型。
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -6236,9 +5880,7 @@ func (s *SearchResponseBodySpaceResultItemsIconVO) SetType(v string) *SearchResp
 }
 
 type SearchResponseBodySpaceResultItemsTeamVO struct {
-	// 知识小组id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 知识小组名称
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -6261,10 +5903,8 @@ func (s *SearchResponseBodySpaceResultItemsTeamVO) SetName(v string) *SearchResp
 }
 
 type SearchResponseBodySpaceResultItemsUserLastOperation struct {
-	// 操作人名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 操作的时间戳（ms）。
-	Time *int64 `json:"time,omitempty" xml:"time,omitempty"`
+	Time *int64  `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s SearchResponseBodySpaceResultItemsUserLastOperation) String() string {
@@ -6286,8 +5926,9 @@ func (s *SearchResponseBodySpaceResultItemsUserLastOperation) SetTime(v int64) *
 }
 
 type SearchResponse struct {
-	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchResponse) String() string {
@@ -6300,6 +5941,11 @@ func (s SearchResponse) GoString() string {
 
 func (s *SearchResponse) SetHeaders(v map[string]*string) *SearchResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchResponse) SetStatusCode(v int32) *SearchResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6332,7 +5978,6 @@ func (s *UnmarkStarHeaders) SetXAcsDingtalkAccessToken(v string) *UnmarkStarHead
 }
 
 type UnmarkStarRequest struct {
-	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -6350,7 +5995,6 @@ func (s *UnmarkStarRequest) SetOperatorId(v string) *UnmarkStarRequest {
 }
 
 type UnmarkStarResponseBody struct {
-	// 本次操作是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -6368,8 +6012,9 @@ func (s *UnmarkStarResponseBody) SetSuccess(v bool) *UnmarkStarResponseBody {
 }
 
 type UnmarkStarResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UnmarkStarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UnmarkStarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UnmarkStarResponse) String() string {
@@ -6382,6 +6027,11 @@ func (s UnmarkStarResponse) GoString() string {
 
 func (s *UnmarkStarResponse) SetHeaders(v map[string]*string) *UnmarkStarResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UnmarkStarResponse) SetStatusCode(v int32) *UnmarkStarResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6414,7 +6064,6 @@ func (s *UnpinSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *UnpinSpaceHead
 }
 
 type UnpinSpaceRequest struct {
-	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -6432,7 +6081,6 @@ func (s *UnpinSpaceRequest) SetOperatorId(v string) *UnpinSpaceRequest {
 }
 
 type UnpinSpaceResponseBody struct {
-	// 本次操作是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -6450,8 +6098,9 @@ func (s *UnpinSpaceResponseBody) SetSuccess(v bool) *UnpinSpaceResponseBody {
 }
 
 type UnpinSpaceResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UnpinSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UnpinSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UnpinSpaceResponse) String() string {
@@ -6464,6 +6113,11 @@ func (s UnpinSpaceResponse) GoString() string {
 
 func (s *UnpinSpaceResponse) SetHeaders(v map[string]*string) *UnpinSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UnpinSpaceResponse) SetStatusCode(v int32) *UnpinSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6496,12 +6150,9 @@ func (s *UpdateTeamHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTeamHead
 }
 
 type UpdateTeamRequest struct {
-	// 小组介绍。和小组名称至少有一个必填。
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 小组名称。和小组介绍至少有一个必填。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 操作人unionId。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s UpdateTeamRequest) String() string {
@@ -6528,8 +6179,9 @@ func (s *UpdateTeamRequest) SetOperatorId(v string) *UpdateTeamRequest {
 }
 
 type UpdateTeamResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *TeamVO            `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *TeamVO            `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTeamResponse) String() string {
@@ -6542,6 +6194,11 @@ func (s UpdateTeamResponse) GoString() string {
 
 func (s *UpdateTeamResponse) SetHeaders(v map[string]*string) *UpdateTeamResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTeamResponse) SetStatusCode(v int32) *UpdateTeamResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6565,24 +6222,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) BatchDeleteRecents(request *BatchDeleteRecentsRequest) (_result *BatchDeleteRecentsResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &BatchDeleteRecentsHeaders{}
-	_result = &BatchDeleteRecentsResponse{}
-	_body, _err := client.BatchDeleteRecentsWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) BatchDeleteRecentsWithOptions(request *BatchDeleteRecentsRequest, headers *BatchDeleteRecentsHeaders, runtime *util.RuntimeOptions) (_result *BatchDeleteRecentsResponse, _err error) {
@@ -6614,8 +6265,19 @@ func (client *Client) BatchDeleteRecentsWithOptions(request *BatchDeleteRecentsR
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchDeleteRecents"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/recentRecords/batchRemove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchDeleteRecentsResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchDeleteRecents"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/dentries/recentRecords/batchRemove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6623,11 +6285,11 @@ func (client *Client) BatchDeleteRecentsWithOptions(request *BatchDeleteRecentsR
 	return _result, _err
 }
 
-func (client *Client) CopyDentry(spaceId *string, dentryId *string, request *CopyDentryRequest) (_result *CopyDentryResponse, _err error) {
+func (client *Client) BatchDeleteRecents(request *BatchDeleteRecentsRequest) (_result *BatchDeleteRecentsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CopyDentryHeaders{}
-	_result = &CopyDentryResponse{}
-	_body, _err := client.CopyDentryWithOptions(spaceId, dentryId, request, headers, runtime)
+	headers := &BatchDeleteRecentsHeaders{}
+	_result = &BatchDeleteRecentsResponse{}
+	_body, _err := client.BatchDeleteRecentsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6640,8 +6302,6 @@ func (client *Client) CopyDentryWithOptions(spaceId *string, dentryId *string, r
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	dentryId = openapiutil.GetEncodeParam(dentryId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
@@ -6680,8 +6340,19 @@ func (client *Client) CopyDentryWithOptions(spaceId *string, dentryId *string, r
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CopyDentry"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/" + tea.StringValue(spaceId) + "/dentries/" + tea.StringValue(dentryId) + "/copy"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CopyDentryResponse{}
-	_body, _err := client.DoROARequest(tea.String("CopyDentry"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/copy"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6689,11 +6360,11 @@ func (client *Client) CopyDentryWithOptions(spaceId *string, dentryId *string, r
 	return _result, _err
 }
 
-func (client *Client) CreateDentry(spaceId *string, request *CreateDentryRequest) (_result *CreateDentryResponse, _err error) {
+func (client *Client) CopyDentry(spaceId *string, dentryId *string, request *CopyDentryRequest) (_result *CopyDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateDentryHeaders{}
-	_result = &CreateDentryResponse{}
-	_body, _err := client.CreateDentryWithOptions(spaceId, request, headers, runtime)
+	headers := &CopyDentryHeaders{}
+	_result = &CopyDentryResponse{}
+	_body, _err := client.CopyDentryWithOptions(spaceId, dentryId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6706,7 +6377,6 @@ func (client *Client) CreateDentryWithOptions(spaceId *string, request *CreateDe
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DentryType)) {
 		body["dentryType"] = request.DentryType
@@ -6741,8 +6411,19 @@ func (client *Client) CreateDentryWithOptions(spaceId *string, request *CreateDe
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateDentry"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/" + tea.StringValue(spaceId) + "/dentries"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateDentryResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateDentry"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/dentries"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6750,11 +6431,11 @@ func (client *Client) CreateDentryWithOptions(spaceId *string, request *CreateDe
 	return _result, _err
 }
 
-func (client *Client) CreateSpace(request *CreateSpaceRequest) (_result *CreateSpaceResponse, _err error) {
+func (client *Client) CreateDentry(spaceId *string, request *CreateDentryRequest) (_result *CreateDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateSpaceHeaders{}
-	_result = &CreateSpaceResponse{}
-	_body, _err := client.CreateSpaceWithOptions(request, headers, runtime)
+	headers := &CreateDentryHeaders{}
+	_result = &CreateDentryResponse{}
+	_body, _err := client.CreateDentryWithOptions(spaceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6809,8 +6490,19 @@ func (client *Client) CreateSpaceWithOptions(request *CreateSpaceRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateSpace"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateSpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6818,11 +6510,11 @@ func (client *Client) CreateSpaceWithOptions(request *CreateSpaceRequest, header
 	return _result, _err
 }
 
-func (client *Client) CreateTeam(request *CreateTeamRequest) (_result *CreateTeamResponse, _err error) {
+func (client *Client) CreateSpace(request *CreateSpaceRequest) (_result *CreateSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateTeamHeaders{}
-	_result = &CreateTeamResponse{}
-	_body, _err := client.CreateTeamWithOptions(request, headers, runtime)
+	headers := &CreateSpaceHeaders{}
+	_result = &CreateSpaceResponse{}
+	_body, _err := client.CreateSpaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6877,8 +6569,74 @@ func (client *Client) CreateTeamWithOptions(request *CreateTeamRequest, headers 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateTeam"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateTeamResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateTeam"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/teams"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateTeam(request *CreateTeamRequest) (_result *CreateTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTeamHeaders{}
+	_result = &CreateTeamResponse{}
+	_body, _err := client.CreateTeamWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteTeamWithOptions(teamId *string, request *DeleteTeamRequest, headers *DeleteTeamHeaders, runtime *util.RuntimeOptions) (_result *DeleteTeamResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteTeam"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteTeamResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6898,12 +6656,11 @@ func (client *Client) DeleteTeam(teamId *string, request *DeleteTeamRequest) (_r
 	return _result, _err
 }
 
-func (client *Client) DeleteTeamWithOptions(teamId *string, request *DeleteTeamRequest, headers *DeleteTeamHeaders, runtime *util.RuntimeOptions) (_result *DeleteTeamResponse, _err error) {
+func (client *Client) GetSchemaWithOptions(teamId *string, request *GetSchemaRequest, headers *GetSchemaHeaders, runtime *util.RuntimeOptions) (_result *GetSchemaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	teamId = openapiutil.GetEncodeParam(teamId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -6922,8 +6679,19 @@ func (client *Client) DeleteTeamWithOptions(teamId *string, request *DeleteTeamR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &DeleteTeamResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteTeam"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("GetSchema"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId) + "/schemas"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSchemaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6943,57 +6711,11 @@ func (client *Client) GetSchema(teamId *string, request *GetSchemaRequest) (_res
 	return _result, _err
 }
 
-func (client *Client) GetSchemaWithOptions(teamId *string, request *GetSchemaRequest, headers *GetSchemaHeaders, runtime *util.RuntimeOptions) (_result *GetSchemaResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	teamId = openapiutil.GetEncodeParam(teamId)
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetSchemaResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSchema"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)+"/schemas"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetSpaceDirectories(spaceId *string, request *GetSpaceDirectoriesRequest) (_result *GetSpaceDirectoriesResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetSpaceDirectoriesHeaders{}
-	_result = &GetSpaceDirectoriesResponse{}
-	_body, _err := client.GetSpaceDirectoriesWithOptions(spaceId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) GetSpaceDirectoriesWithOptions(spaceId *string, request *GetSpaceDirectoriesRequest, headers *GetSpaceDirectoriesHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceDirectoriesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DentryId)) {
 		query["dentryId"] = request.DentryId
@@ -7024,8 +6746,74 @@ func (client *Client) GetSpaceDirectoriesWithOptions(spaceId *string, request *G
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSpaceDirectories"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/" + tea.StringValue(spaceId) + "/directories"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSpaceDirectoriesResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSpaceDirectories"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/directories"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSpaceDirectories(spaceId *string, request *GetSpaceDirectoriesRequest) (_result *GetSpaceDirectoriesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSpaceDirectoriesHeaders{}
+	_result = &GetSpaceDirectoriesResponse{}
+	_body, _err := client.GetSpaceDirectoriesWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetStarInfoWithOptions(dentryUuid *string, request *GetStarInfoRequest, headers *GetStarInfoHeaders, runtime *util.RuntimeOptions) (_result *GetStarInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetStarInfo"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/" + tea.StringValue(dentryUuid) + "/starInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetStarInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7045,12 +6833,11 @@ func (client *Client) GetStarInfo(dentryUuid *string, request *GetStarInfoReques
 	return _result, _err
 }
 
-func (client *Client) GetStarInfoWithOptions(dentryUuid *string, request *GetStarInfoRequest, headers *GetStarInfoHeaders, runtime *util.RuntimeOptions) (_result *GetStarInfoResponse, _err error) {
+func (client *Client) GetTeamWithOptions(teamId *string, request *GetTeamRequest, headers *GetTeamHeaders, runtime *util.RuntimeOptions) (_result *GetTeamResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	dentryUuid = openapiutil.GetEncodeParam(dentryUuid)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -7069,8 +6856,19 @@ func (client *Client) GetStarInfoWithOptions(dentryUuid *string, request *GetSta
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &GetStarInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetStarInfo"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/dentries/"+tea.StringValue(dentryUuid)+"/starInfos"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("GetTeam"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTeamResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7083,51 +6881,6 @@ func (client *Client) GetTeam(teamId *string, request *GetTeamRequest) (_result 
 	headers := &GetTeamHeaders{}
 	_result = &GetTeamResponse{}
 	_body, _err := client.GetTeamWithOptions(teamId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetTeamWithOptions(teamId *string, request *GetTeamRequest, headers *GetTeamHeaders, runtime *util.RuntimeOptions) (_result *GetTeamResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	teamId = openapiutil.GetEncodeParam(teamId)
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetTeamResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTeam"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetTotalNumberOfDentries(request *GetTotalNumberOfDentriesRequest) (_result *GetTotalNumberOfDentriesResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetTotalNumberOfDentriesHeaders{}
-	_result = &GetTotalNumberOfDentriesResponse{}
-	_body, _err := client.GetTotalNumberOfDentriesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7166,8 +6919,19 @@ func (client *Client) GetTotalNumberOfDentriesWithOptions(request *GetTotalNumbe
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTotalNumberOfDentries"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/statistics/dentryCounts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetTotalNumberOfDentriesResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTotalNumberOfDentries"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/statistics/dentryCounts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7175,11 +6939,11 @@ func (client *Client) GetTotalNumberOfDentriesWithOptions(request *GetTotalNumbe
 	return _result, _err
 }
 
-func (client *Client) GetTotalNumberOfSpaces(request *GetTotalNumberOfSpacesRequest) (_result *GetTotalNumberOfSpacesResponse, _err error) {
+func (client *Client) GetTotalNumberOfDentries(request *GetTotalNumberOfDentriesRequest) (_result *GetTotalNumberOfDentriesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetTotalNumberOfSpacesHeaders{}
-	_result = &GetTotalNumberOfSpacesResponse{}
-	_body, _err := client.GetTotalNumberOfSpacesWithOptions(request, headers, runtime)
+	headers := &GetTotalNumberOfDentriesHeaders{}
+	_result = &GetTotalNumberOfDentriesResponse{}
+	_body, _err := client.GetTotalNumberOfDentriesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7210,8 +6974,19 @@ func (client *Client) GetTotalNumberOfSpacesWithOptions(request *GetTotalNumberO
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTotalNumberOfSpaces"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/statistics/spaceCounts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetTotalNumberOfSpacesResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTotalNumberOfSpaces"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/statistics/spaceCounts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7219,11 +6994,11 @@ func (client *Client) GetTotalNumberOfSpacesWithOptions(request *GetTotalNumberO
 	return _result, _err
 }
 
-func (client *Client) GetUserInfoByOpenToken(request *GetUserInfoByOpenTokenRequest) (_result *GetUserInfoByOpenTokenResponse, _err error) {
+func (client *Client) GetTotalNumberOfSpaces(request *GetTotalNumberOfSpacesRequest) (_result *GetTotalNumberOfSpacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserInfoByOpenTokenHeaders{}
-	_result = &GetUserInfoByOpenTokenResponse{}
-	_body, _err := client.GetUserInfoByOpenTokenWithOptions(request, headers, runtime)
+	headers := &GetTotalNumberOfSpacesHeaders{}
+	_result = &GetTotalNumberOfSpacesResponse{}
+	_body, _err := client.GetTotalNumberOfSpacesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7258,8 +7033,19 @@ func (client *Client) GetUserInfoByOpenTokenWithOptions(request *GetUserInfoByOp
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserInfoByOpenToken"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/userInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserInfoByOpenTokenResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserInfoByOpenToken"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/userInfos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7267,11 +7053,11 @@ func (client *Client) GetUserInfoByOpenTokenWithOptions(request *GetUserInfoByOp
 	return _result, _err
 }
 
-func (client *Client) ListFeeds(teamId *string, request *ListFeedsRequest) (_result *ListFeedsResponse, _err error) {
+func (client *Client) GetUserInfoByOpenToken(request *GetUserInfoByOpenTokenRequest) (_result *GetUserInfoByOpenTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListFeedsHeaders{}
-	_result = &ListFeedsResponse{}
-	_body, _err := client.ListFeedsWithOptions(teamId, request, headers, runtime)
+	headers := &GetUserInfoByOpenTokenHeaders{}
+	_result = &GetUserInfoByOpenTokenResponse{}
+	_body, _err := client.GetUserInfoByOpenTokenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7284,7 +7070,6 @@ func (client *Client) ListFeedsWithOptions(teamId *string, request *ListFeedsReq
 	if _err != nil {
 		return _result, _err
 	}
-	teamId = openapiutil.GetEncodeParam(teamId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ExcludeFile)) {
 		query["excludeFile"] = request.ExcludeFile
@@ -7315,8 +7100,19 @@ func (client *Client) ListFeedsWithOptions(teamId *string, request *ListFeedsReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListFeeds"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId) + "/feeds"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListFeedsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListFeeds"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)+"/feeds"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7324,11 +7120,11 @@ func (client *Client) ListFeedsWithOptions(teamId *string, request *ListFeedsReq
 	return _result, _err
 }
 
-func (client *Client) ListHotDocs(teamId *string, request *ListHotDocsRequest) (_result *ListHotDocsResponse, _err error) {
+func (client *Client) ListFeeds(teamId *string, request *ListFeedsRequest) (_result *ListFeedsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListHotDocsHeaders{}
-	_result = &ListHotDocsResponse{}
-	_body, _err := client.ListHotDocsWithOptions(teamId, request, headers, runtime)
+	headers := &ListFeedsHeaders{}
+	_result = &ListFeedsResponse{}
+	_body, _err := client.ListFeedsWithOptions(teamId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7341,7 +7137,6 @@ func (client *Client) ListHotDocsWithOptions(teamId *string, request *ListHotDoc
 	if _err != nil {
 		return _result, _err
 	}
-	teamId = openapiutil.GetEncodeParam(teamId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -7360,8 +7155,19 @@ func (client *Client) ListHotDocsWithOptions(teamId *string, request *ListHotDoc
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListHotDocs"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId) + "/hotDocs"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListHotDocsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListHotDocs"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)+"/hotDocs"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7369,11 +7175,11 @@ func (client *Client) ListHotDocsWithOptions(teamId *string, request *ListHotDoc
 	return _result, _err
 }
 
-func (client *Client) ListPinSpaces(request *ListPinSpacesRequest) (_result *ListPinSpacesResponse, _err error) {
+func (client *Client) ListHotDocs(teamId *string, request *ListHotDocsRequest) (_result *ListHotDocsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListPinSpacesHeaders{}
-	_result = &ListPinSpacesResponse{}
-	_body, _err := client.ListPinSpacesWithOptions(request, headers, runtime)
+	headers := &ListHotDocsHeaders{}
+	_result = &ListHotDocsResponse{}
+	_body, _err := client.ListHotDocsWithOptions(teamId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7410,8 +7216,19 @@ func (client *Client) ListPinSpacesWithOptions(request *ListPinSpacesRequest, he
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListPinSpaces"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/pinLists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListPinSpacesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListPinSpaces"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/pinLists/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7419,11 +7236,11 @@ func (client *Client) ListPinSpacesWithOptions(request *ListPinSpacesRequest, he
 	return _result, _err
 }
 
-func (client *Client) ListRelatedSpaceTeams(request *ListRelatedSpaceTeamsRequest) (_result *ListRelatedSpaceTeamsResponse, _err error) {
+func (client *Client) ListPinSpaces(request *ListPinSpacesRequest) (_result *ListPinSpacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListRelatedSpaceTeamsHeaders{}
-	_result = &ListRelatedSpaceTeamsResponse{}
-	_body, _err := client.ListRelatedSpaceTeamsWithOptions(request, headers, runtime)
+	headers := &ListPinSpacesHeaders{}
+	_result = &ListPinSpacesResponse{}
+	_body, _err := client.ListPinSpacesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7458,8 +7275,19 @@ func (client *Client) ListRelatedSpaceTeamsWithOptions(request *ListRelatedSpace
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListRelatedSpaceTeams"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/relations/spaceTeams"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListRelatedSpaceTeamsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListRelatedSpaceTeams"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/relations/spaceTeams"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7467,11 +7295,11 @@ func (client *Client) ListRelatedSpaceTeamsWithOptions(request *ListRelatedSpace
 	return _result, _err
 }
 
-func (client *Client) ListRelatedTeams(request *ListRelatedTeamsRequest) (_result *ListRelatedTeamsResponse, _err error) {
+func (client *Client) ListRelatedSpaceTeams(request *ListRelatedSpaceTeamsRequest) (_result *ListRelatedSpaceTeamsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListRelatedTeamsHeaders{}
-	_result = &ListRelatedTeamsResponse{}
-	_body, _err := client.ListRelatedTeamsWithOptions(request, headers, runtime)
+	headers := &ListRelatedSpaceTeamsHeaders{}
+	_result = &ListRelatedSpaceTeamsResponse{}
+	_body, _err := client.ListRelatedSpaceTeamsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7514,8 +7342,19 @@ func (client *Client) ListRelatedTeamsWithOptions(request *ListRelatedTeamsReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListRelatedTeams"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListRelatedTeamsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListRelatedTeams"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7523,11 +7362,11 @@ func (client *Client) ListRelatedTeamsWithOptions(request *ListRelatedTeamsReque
 	return _result, _err
 }
 
-func (client *Client) ListSpaceSections(teamId *string, request *ListSpaceSectionsRequest) (_result *ListSpaceSectionsResponse, _err error) {
+func (client *Client) ListRelatedTeams(request *ListRelatedTeamsRequest) (_result *ListRelatedTeamsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListSpaceSectionsHeaders{}
-	_result = &ListSpaceSectionsResponse{}
-	_body, _err := client.ListSpaceSectionsWithOptions(teamId, request, headers, runtime)
+	headers := &ListRelatedTeamsHeaders{}
+	_result = &ListRelatedTeamsResponse{}
+	_body, _err := client.ListRelatedTeamsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7540,7 +7379,6 @@ func (client *Client) ListSpaceSectionsWithOptions(teamId *string, request *List
 	if _err != nil {
 		return _result, _err
 	}
-	teamId = openapiutil.GetEncodeParam(teamId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -7559,8 +7397,19 @@ func (client *Client) ListSpaceSectionsWithOptions(teamId *string, request *List
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListSpaceSections"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId) + "/spaceSections"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListSpaceSectionsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListSpaceSections"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)+"/spaceSections"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7568,11 +7417,11 @@ func (client *Client) ListSpaceSectionsWithOptions(teamId *string, request *List
 	return _result, _err
 }
 
-func (client *Client) ListStars(request *ListStarsRequest) (_result *ListStarsResponse, _err error) {
+func (client *Client) ListSpaceSections(teamId *string, request *ListSpaceSectionsRequest) (_result *ListSpaceSectionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListStarsHeaders{}
-	_result = &ListStarsResponse{}
-	_body, _err := client.ListStarsWithOptions(request, headers, runtime)
+	headers := &ListSpaceSectionsHeaders{}
+	_result = &ListSpaceSectionsResponse{}
+	_body, _err := client.ListSpaceSectionsWithOptions(teamId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7609,8 +7458,74 @@ func (client *Client) ListStarsWithOptions(request *ListStarsRequest, headers *L
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListStars"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/starLists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListStarsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListStars"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/dentries/starLists/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListStars(request *ListStarsRequest) (_result *ListStarsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListStarsHeaders{}
+	_result = &ListStarsResponse{}
+	_body, _err := client.ListStarsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListTeamMembersWithOptions(teamId *string, request *ListTeamMembersRequest, headers *ListTeamMembersHeaders, runtime *util.RuntimeOptions) (_result *ListTeamMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListTeamMembers"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId) + "/members"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListTeamMembersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7630,12 +7545,11 @@ func (client *Client) ListTeamMembers(teamId *string, request *ListTeamMembersRe
 	return _result, _err
 }
 
-func (client *Client) ListTeamMembersWithOptions(teamId *string, request *ListTeamMembersRequest, headers *ListTeamMembersHeaders, runtime *util.RuntimeOptions) (_result *ListTeamMembersResponse, _err error) {
+func (client *Client) MarkStarWithOptions(dentryUuid *string, request *MarkStarRequest, headers *MarkStarHeaders, runtime *util.RuntimeOptions) (_result *MarkStarResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	teamId = openapiutil.GetEncodeParam(teamId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -7654,8 +7568,19 @@ func (client *Client) ListTeamMembersWithOptions(teamId *string, request *ListTe
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &ListTeamMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListTeamMembers"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)+"/members"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("MarkStar"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/" + tea.StringValue(dentryUuid) + "/stars/mark"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &MarkStarResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7675,58 +7600,11 @@ func (client *Client) MarkStar(dentryUuid *string, request *MarkStarRequest) (_r
 	return _result, _err
 }
 
-func (client *Client) MarkStarWithOptions(dentryUuid *string, request *MarkStarRequest, headers *MarkStarHeaders, runtime *util.RuntimeOptions) (_result *MarkStarResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	dentryUuid = openapiutil.GetEncodeParam(dentryUuid)
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &MarkStarResponse{}
-	_body, _err := client.DoROARequest(tea.String("MarkStar"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/dentries/"+tea.StringValue(dentryUuid)+"/stars/mark"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) MoveDentry(spaceId *string, dentryId *string, request *MoveDentryRequest) (_result *MoveDentryResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &MoveDentryHeaders{}
-	_result = &MoveDentryResponse{}
-	_body, _err := client.MoveDentryWithOptions(spaceId, dentryId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) MoveDentryWithOptions(spaceId *string, dentryId *string, request *MoveDentryRequest, headers *MoveDentryHeaders, runtime *util.RuntimeOptions) (_result *MoveDentryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	dentryId = openapiutil.GetEncodeParam(dentryId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
@@ -7761,8 +7639,74 @@ func (client *Client) MoveDentryWithOptions(spaceId *string, dentryId *string, r
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("MoveDentry"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/" + tea.StringValue(spaceId) + "/dentries/" + tea.StringValue(dentryId) + "/move"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &MoveDentryResponse{}
-	_body, _err := client.DoROARequest(tea.String("MoveDentry"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/move"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MoveDentry(spaceId *string, dentryId *string, request *MoveDentryRequest) (_result *MoveDentryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MoveDentryHeaders{}
+	_result = &MoveDentryResponse{}
+	_body, _err := client.MoveDentryWithOptions(spaceId, dentryId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PinSpaceWithOptions(spaceId *string, request *PinSpaceRequest, headers *PinSpaceHeaders, runtime *util.RuntimeOptions) (_result *PinSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PinSpace"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/" + tea.StringValue(spaceId) + "/pin"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PinSpaceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7782,58 +7726,11 @@ func (client *Client) PinSpace(spaceId *string, request *PinSpaceRequest) (_resu
 	return _result, _err
 }
 
-func (client *Client) PinSpaceWithOptions(spaceId *string, request *PinSpaceRequest, headers *PinSpaceHeaders, runtime *util.RuntimeOptions) (_result *PinSpaceResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &PinSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("PinSpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/pin"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) QueryDentry(spaceId *string, dentryId *string, request *QueryDentryRequest) (_result *QueryDentryResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &QueryDentryHeaders{}
-	_result = &QueryDentryResponse{}
-	_body, _err := client.QueryDentryWithOptions(spaceId, dentryId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) QueryDentryWithOptions(spaceId *string, dentryId *string, request *QueryDentryRequest, headers *QueryDentryHeaders, runtime *util.RuntimeOptions) (_result *QueryDentryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	dentryId = openapiutil.GetEncodeParam(dentryId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.IncludeSpace)) {
 		query["includeSpace"] = request.IncludeSpace
@@ -7856,8 +7753,19 @@ func (client *Client) QueryDentryWithOptions(spaceId *string, dentryId *string, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDentry"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/" + tea.StringValue(spaceId) + "/dentries/" + tea.StringValue(dentryId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryDentryResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryDentry"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7865,11 +7773,11 @@ func (client *Client) QueryDentryWithOptions(spaceId *string, dentryId *string, 
 	return _result, _err
 }
 
-func (client *Client) QueryItemByUrl(request *QueryItemByUrlRequest) (_result *QueryItemByUrlResponse, _err error) {
+func (client *Client) QueryDentry(spaceId *string, dentryId *string, request *QueryDentryRequest) (_result *QueryDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryItemByUrlHeaders{}
-	_result = &QueryItemByUrlResponse{}
-	_body, _err := client.QueryItemByUrlWithOptions(request, headers, runtime)
+	headers := &QueryDentryHeaders{}
+	_result = &QueryDentryResponse{}
+	_body, _err := client.QueryDentryWithOptions(spaceId, dentryId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7908,8 +7816,19 @@ func (client *Client) QueryItemByUrlWithOptions(request *QueryItemByUrlRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryItemByUrl"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/items"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryItemByUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryItemByUrl"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/items"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7917,11 +7836,11 @@ func (client *Client) QueryItemByUrlWithOptions(request *QueryItemByUrlRequest, 
 	return _result, _err
 }
 
-func (client *Client) QueryMineSpace(unionId *string) (_result *QueryMineSpaceResponse, _err error) {
+func (client *Client) QueryItemByUrl(request *QueryItemByUrlRequest) (_result *QueryItemByUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryMineSpaceHeaders{}
-	_result = &QueryMineSpaceResponse{}
-	_body, _err := client.QueryMineSpaceWithOptions(unionId, headers, runtime)
+	headers := &QueryItemByUrlHeaders{}
+	_result = &QueryItemByUrlResponse{}
+	_body, _err := client.QueryItemByUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7930,7 +7849,6 @@ func (client *Client) QueryMineSpace(unionId *string) (_result *QueryMineSpaceRe
 }
 
 func (client *Client) QueryMineSpaceWithOptions(unionId *string, headers *QueryMineSpaceHeaders, runtime *util.RuntimeOptions) (_result *QueryMineSpaceResponse, _err error) {
-	unionId = openapiutil.GetEncodeParam(unionId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -7943,8 +7861,19 @@ func (client *Client) QueryMineSpaceWithOptions(unionId *string, headers *QueryM
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMineSpace"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/users/" + tea.StringValue(unionId) + "/mine"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryMineSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryMineSpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/users/"+tea.StringValue(unionId)+"/mine"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7952,11 +7881,11 @@ func (client *Client) QueryMineSpaceWithOptions(unionId *string, headers *QueryM
 	return _result, _err
 }
 
-func (client *Client) QueryRecentList(request *QueryRecentListRequest) (_result *QueryRecentListResponse, _err error) {
+func (client *Client) QueryMineSpace(unionId *string) (_result *QueryMineSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryRecentListHeaders{}
-	_result = &QueryRecentListResponse{}
-	_body, _err := client.QueryRecentListWithOptions(request, headers, runtime)
+	headers := &QueryMineSpaceHeaders{}
+	_result = &QueryMineSpaceResponse{}
+	_body, _err := client.QueryMineSpaceWithOptions(unionId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8007,8 +7936,19 @@ func (client *Client) QueryRecentListWithOptions(request *QueryRecentListRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryRecentList"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/docs/recent"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryRecentListResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryRecentList"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/docs/recent"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8016,11 +7956,11 @@ func (client *Client) QueryRecentListWithOptions(request *QueryRecentListRequest
 	return _result, _err
 }
 
-func (client *Client) QuerySpace(spaceId *string, request *QuerySpaceRequest) (_result *QuerySpaceResponse, _err error) {
+func (client *Client) QueryRecentList(request *QueryRecentListRequest) (_result *QueryRecentListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QuerySpaceHeaders{}
-	_result = &QuerySpaceResponse{}
-	_body, _err := client.QuerySpaceWithOptions(spaceId, request, headers, runtime)
+	headers := &QueryRecentListHeaders{}
+	_result = &QueryRecentListResponse{}
+	_body, _err := client.QueryRecentListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8033,7 +7973,6 @@ func (client *Client) QuerySpaceWithOptions(spaceId *string, request *QuerySpace
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -8052,8 +7991,19 @@ func (client *Client) QuerySpaceWithOptions(spaceId *string, request *QuerySpace
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySpace"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/" + tea.StringValue(spaceId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QuerySpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("QuerySpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8061,11 +8011,11 @@ func (client *Client) QuerySpaceWithOptions(spaceId *string, request *QuerySpace
 	return _result, _err
 }
 
-func (client *Client) RelatedSpaces(request *RelatedSpacesRequest) (_result *RelatedSpacesResponse, _err error) {
+func (client *Client) QuerySpace(spaceId *string, request *QuerySpaceRequest) (_result *QuerySpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RelatedSpacesHeaders{}
-	_result = &RelatedSpacesResponse{}
-	_body, _err := client.RelatedSpacesWithOptions(request, headers, runtime)
+	headers := &QuerySpaceHeaders{}
+	_result = &QuerySpaceResponse{}
+	_body, _err := client.QuerySpaceWithOptions(spaceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8108,8 +8058,19 @@ func (client *Client) RelatedSpacesWithOptions(request *RelatedSpacesRequest, he
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RelatedSpaces"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/relations/spaces"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RelatedSpacesResponse{}
-	_body, _err := client.DoROARequest(tea.String("RelatedSpaces"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/relations/spaces"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8117,11 +8078,11 @@ func (client *Client) RelatedSpacesWithOptions(request *RelatedSpacesRequest, he
 	return _result, _err
 }
 
-func (client *Client) RemoveTeamMembers(teamId *string, request *RemoveTeamMembersRequest) (_result *RemoveTeamMembersResponse, _err error) {
+func (client *Client) RelatedSpaces(request *RelatedSpacesRequest) (_result *RelatedSpacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RemoveTeamMembersHeaders{}
-	_result = &RemoveTeamMembersResponse{}
-	_body, _err := client.RemoveTeamMembersWithOptions(teamId, request, headers, runtime)
+	headers := &RelatedSpacesHeaders{}
+	_result = &RelatedSpacesResponse{}
+	_body, _err := client.RelatedSpacesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8134,7 +8095,6 @@ func (client *Client) RemoveTeamMembersWithOptions(teamId *string, request *Remo
 	if _err != nil {
 		return _result, _err
 	}
-	teamId = openapiutil.GetEncodeParam(teamId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Members)) {
 		body["members"] = request.Members
@@ -8161,8 +8121,19 @@ func (client *Client) RemoveTeamMembersWithOptions(teamId *string, request *Remo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveTeamMembers"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId) + "/members/remove"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RemoveTeamMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("RemoveTeamMembers"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)+"/members/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8170,11 +8141,11 @@ func (client *Client) RemoveTeamMembersWithOptions(teamId *string, request *Remo
 	return _result, _err
 }
 
-func (client *Client) RenameDentry(spaceId *string, dentryId *string, request *RenameDentryRequest) (_result *RenameDentryResponse, _err error) {
+func (client *Client) RemoveTeamMembers(teamId *string, request *RemoveTeamMembersRequest) (_result *RemoveTeamMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RenameDentryHeaders{}
-	_result = &RenameDentryResponse{}
-	_body, _err := client.RenameDentryWithOptions(spaceId, dentryId, request, headers, runtime)
+	headers := &RemoveTeamMembersHeaders{}
+	_result = &RemoveTeamMembersResponse{}
+	_body, _err := client.RemoveTeamMembersWithOptions(teamId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8187,8 +8158,6 @@ func (client *Client) RenameDentryWithOptions(spaceId *string, dentryId *string,
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	dentryId = openapiutil.GetEncodeParam(dentryId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		query["name"] = request.Name
@@ -8211,8 +8180,19 @@ func (client *Client) RenameDentryWithOptions(spaceId *string, dentryId *string,
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RenameDentry"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/" + tea.StringValue(spaceId) + "/dentries/" + tea.StringValue(dentryId) + "/rename"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RenameDentryResponse{}
-	_body, _err := client.DoROARequest(tea.String("RenameDentry"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/rename"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8220,11 +8200,11 @@ func (client *Client) RenameDentryWithOptions(spaceId *string, dentryId *string,
 	return _result, _err
 }
 
-func (client *Client) SaveTeamMembers(teamId *string, request *SaveTeamMembersRequest) (_result *SaveTeamMembersResponse, _err error) {
+func (client *Client) RenameDentry(spaceId *string, dentryId *string, request *RenameDentryRequest) (_result *RenameDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SaveTeamMembersHeaders{}
-	_result = &SaveTeamMembersResponse{}
-	_body, _err := client.SaveTeamMembersWithOptions(teamId, request, headers, runtime)
+	headers := &RenameDentryHeaders{}
+	_result = &RenameDentryResponse{}
+	_body, _err := client.RenameDentryWithOptions(spaceId, dentryId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8237,7 +8217,6 @@ func (client *Client) SaveTeamMembersWithOptions(teamId *string, request *SaveTe
 	if _err != nil {
 		return _result, _err
 	}
-	teamId = openapiutil.GetEncodeParam(teamId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Members)) {
 		body["members"] = request.Members
@@ -8264,8 +8243,19 @@ func (client *Client) SaveTeamMembersWithOptions(teamId *string, request *SaveTe
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveTeamMembers"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId) + "/members"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SaveTeamMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("SaveTeamMembers"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)+"/members"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8273,11 +8263,11 @@ func (client *Client) SaveTeamMembersWithOptions(teamId *string, request *SaveTe
 	return _result, _err
 }
 
-func (client *Client) Search(request *SearchRequest) (_result *SearchResponse, _err error) {
+func (client *Client) SaveTeamMembers(teamId *string, request *SaveTeamMembersRequest) (_result *SaveTeamMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchHeaders{}
-	_result = &SearchResponse{}
-	_body, _err := client.SearchWithOptions(request, headers, runtime)
+	headers := &SaveTeamMembersHeaders{}
+	_result = &SaveTeamMembersResponse{}
+	_body, _err := client.SaveTeamMembersWithOptions(teamId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8320,8 +8310,74 @@ func (client *Client) SearchWithOptions(request *SearchRequest, headers *SearchH
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("Search"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchResponse{}
-	_body, _err := client.DoROARequest(tea.String("Search"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) Search(request *SearchRequest) (_result *SearchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchHeaders{}
+	_result = &SearchResponse{}
+	_body, _err := client.SearchWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UnmarkStarWithOptions(dentryUuid *string, request *UnmarkStarRequest, headers *UnmarkStarHeaders, runtime *util.RuntimeOptions) (_result *UnmarkStarResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UnmarkStar"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/" + tea.StringValue(dentryUuid) + "/stars/unmark"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UnmarkStarResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8341,12 +8397,11 @@ func (client *Client) UnmarkStar(dentryUuid *string, request *UnmarkStarRequest)
 	return _result, _err
 }
 
-func (client *Client) UnmarkStarWithOptions(dentryUuid *string, request *UnmarkStarRequest, headers *UnmarkStarHeaders, runtime *util.RuntimeOptions) (_result *UnmarkStarResponse, _err error) {
+func (client *Client) UnpinSpaceWithOptions(spaceId *string, request *UnpinSpaceRequest, headers *UnpinSpaceHeaders, runtime *util.RuntimeOptions) (_result *UnpinSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	dentryUuid = openapiutil.GetEncodeParam(dentryUuid)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -8365,8 +8420,19 @@ func (client *Client) UnmarkStarWithOptions(dentryUuid *string, request *UnmarkS
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &UnmarkStarResponse{}
-	_body, _err := client.DoROARequest(tea.String("UnmarkStar"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/dentries/"+tea.StringValue(dentryUuid)+"/stars/unmark"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("UnpinSpace"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/spaces/" + tea.StringValue(spaceId) + "/unpin"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UnpinSpaceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8386,57 +8452,11 @@ func (client *Client) UnpinSpace(spaceId *string, request *UnpinSpaceRequest) (_
 	return _result, _err
 }
 
-func (client *Client) UnpinSpaceWithOptions(spaceId *string, request *UnpinSpaceRequest, headers *UnpinSpaceHeaders, runtime *util.RuntimeOptions) (_result *UnpinSpaceResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &UnpinSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("UnpinSpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/unpin"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) UpdateTeam(teamId *string, request *UpdateTeamRequest) (_result *UpdateTeamResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &UpdateTeamHeaders{}
-	_result = &UpdateTeamResponse{}
-	_body, _err := client.UpdateTeamWithOptions(teamId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) UpdateTeamWithOptions(teamId *string, request *UpdateTeamRequest, headers *UpdateTeamHeaders, runtime *util.RuntimeOptions) (_result *UpdateTeamResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	teamId = openapiutil.GetEncodeParam(teamId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Description)) {
 		body["description"] = request.Description
@@ -8463,11 +8483,34 @@ func (client *Client) UpdateTeamWithOptions(teamId *string, request *UpdateTeamR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTeam"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/" + tea.StringValue(teamId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateTeamResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTeam"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTeam(teamId *string, request *UpdateTeamRequest) (_result *UpdateTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTeamHeaders{}
+	_result = &UpdateTeamResponse{}
+	_body, _err := client.UpdateTeamWithOptions(teamId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

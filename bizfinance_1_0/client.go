@@ -5,11 +5,65 @@
 package bizfinance_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type RoleMemberMapValue struct {
+	RoleCode   *string                         `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	MemberList []*RoleMemberMapValueMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
+}
+
+func (s RoleMemberMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RoleMemberMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *RoleMemberMapValue) SetRoleCode(v string) *RoleMemberMapValue {
+	s.RoleCode = &v
+	return s
+}
+
+func (s *RoleMemberMapValue) SetMemberList(v []*RoleMemberMapValueMemberList) *RoleMemberMapValue {
+	s.MemberList = v
+	return s
+}
+
+type RoleMemberMapValueMemberList struct {
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+}
+
+func (s RoleMemberMapValueMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RoleMemberMapValueMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *RoleMemberMapValueMemberList) SetUserId(v string) *RoleMemberMapValueMemberList {
+	s.UserId = &v
+	return s
+}
+
+func (s *RoleMemberMapValueMemberList) SetNick(v string) *RoleMemberMapValueMemberList {
+	s.Nick = &v
+	return s
+}
+
+func (s *RoleMemberMapValueMemberList) SetAvatarUrl(v string) *RoleMemberMapValueMemberList {
+	s.AvatarUrl = &v
+	return s
+}
 
 type BatchAddInvoiceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -35,10 +89,8 @@ func (s *BatchAddInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAddI
 }
 
 type BatchAddInvoiceRequest struct {
-	// 发票模型
 	GeneralInvoiceVOList []*BatchAddInvoiceRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
-	// 操作员
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Operator             *string                                       `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s BatchAddInvoiceRequest) String() string {
@@ -60,83 +112,46 @@ func (s *BatchAddInvoiceRequest) SetOperator(v string) *BatchAddInvoiceRequest {
 }
 
 type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
-	// 账期时间
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 不含税金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 校验码
-	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	// 查验时间
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 开票日期
-	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	// 电票版式文件下载地址
-	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 资金类型 ，RED（红票），（BLUE）蓝票
-	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	// 常规发票明细
-	GeneralInvoiceDetailVOList []*BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票状态
-	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 机器码
-	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
-	// 成品油标识
-	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
-	// 收款人
-	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
-	// 审批单实例
-	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
-	// 审批单类型
-	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行账户
-	PurchaserBankAccount *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
-	// 购方银行名称
-	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
-	// 购方名称
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 备注
+	AccountPeriod                  *string                                                                     `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	Amount                         *string                                                                     `json:"amount,omitempty" xml:"amount,omitempty"`
+	AmountWithTax                  *string                                                                     `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CheckCode                      *string                                                                     `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	CheckTime                      *string                                                                     `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrewDate                       *string                                                                     `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	ElectronicUrl                  *string                                                                     `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	FinanceType                    *string                                                                     `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FundType                       *string                                                                     `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	GeneralInvoiceDetailVOList     []*BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	InvoiceCode                    *string                                                                     `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo                      *string                                                                     `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceStatus                  *string                                                                     `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	InvoiceType                    *string                                                                     `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	MachineCode                    *string                                                                     `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	OilFlag                        *string                                                                     `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	Payee                          *string                                                                     `json:"payee,omitempty" xml:"payee,omitempty"`
+	ProcessInstCode                *string                                                                     `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	ProcessInstType                *string                                                                     `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	PurchaserAddress               *string                                                                     `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankAccount           *string                                                                     `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
+	PurchaserBankNameAccount       *string                                                                     `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	PurchaserName                  *string                                                                     `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo                 *string                                                                     `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel                   *string                                                                     `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	Remark                         *string                                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
 	SecondHandCarInvoiceDetailList []*BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
-	// 销方地址
-	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行账户
-	SellerBankAccount *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
-	// 销方银行名称
-	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
-	// 销方名称
-	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
-	// 销方税号
-	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
-	// 销方电话
-	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 代开发票标识 1-自开，2-代开
-	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
-	// 税额
-	TaxAmount                   *string                                                                  `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	UsedVehicleSaleDetailVOList []*BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	VehicleSaleDetailVOList     []*BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	// 发票查验状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
-	// 凭证code
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 生成凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	SellerAddress                  *string                                                                     `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	SellerBankAccount              *string                                                                     `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
+	SellerBankNameAccount          *string                                                                     `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	SellerName                     *string                                                                     `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	SellerTaxNo                    *string                                                                     `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	SellerTel                      *string                                                                     `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	SupplySign                     *string                                                                     `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	TaxAmount                      *string                                                                     `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVOList    []*BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList    `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VehicleSaleDetailVOList        []*BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList        `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VerifyStatus                   *string                                                                     `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	VoucherCode                    *string                                                                     `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	VoucherStatus                  *string                                                                     `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s BatchAddInvoiceRequestGeneralInvoiceVOList) String() string {
@@ -348,30 +363,18 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetVoucherStatus(v string) 
 }
 
 type BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 规格型号
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	GoodsName     *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	Quantity      *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	RevenueCode   *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	RowNo         *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
 	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 是否享受税收优惠：0-不享受，1-享受
-	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
-	// 优惠政策类型
-	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 单价
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	TaxAmount     *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxPre        *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	TaxPreType    *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
+	TaxRate       *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit          *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPrice     *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 }
 
 func (s BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) String() string {
@@ -443,25 +446,15 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) S
 }
 
 type BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 车牌号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 通行日期止
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 税收分类编码
+	Amount      *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CardNo      *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	GoodsName   *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 通行日期起
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 类型
+	RowNo       *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaxAmount   *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxRate     *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
@@ -524,38 +517,22 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailLis
 }
 
 type BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList struct {
-	// 经营、拍卖单位
-	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
-	// 经营、拍卖单位地址
+	AuctionUnit        *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
 	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
-	// 经营、拍卖单位银行
-	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
-	// 经营、拍卖单位税号
-	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
-	// 经营、拍卖单位电话
-	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
-	// 厂牌型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌照号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 登记证号
-	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
-	// 转入地车辆管理所名称
-	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
-	// 二手车市场地址
-	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
-	// 二手车市场
-	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
-	// 二手车市场开户银行、账号
-	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
-	// 二手车市场电话
+	AuctionUnitBank    *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	AuctionUnitTaxNo   *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	AuctionUtilTel     *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	CarModel           *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CardNo             *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	Registration       *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	TransferVehicle    *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	UsedCarAddress     *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	UsedCarMarket      *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	UsedCarMarketBank  *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
 	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
-	// 二手车市场纳税人识别号
 	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
-	// 车架号/车辆识别号
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	VehicleNo          *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType        *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList) String() string {
@@ -647,36 +624,21 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList) 
 }
 
 type BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList struct {
-	// 品牌
-	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
-	// 合格证号
-	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
-	// 发动机号
-	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
-	// 身份证号/组织机构代码
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// 进口证书号
+	Brand               *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	CertificateNo       *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	EngineNo            *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	IdCardNo            *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
-	// 商检单号
-	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
-	// 限乘人数
-	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
-	// 产地
-	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
-	// 完税凭证号码
-	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
-	// 主管税务机关名称
-	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
-	// 主管税务机关代码
-	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 吨位
-	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
-	// 车架号码
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	InspectionListNo    *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
+	MaxPassengers       *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	OriginPlace         *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	PaymentVoucherNo    *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	TaxAuthorityName    *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	TaxAuthorityNo      *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Tonnage             *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	VehicleNo           *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType         *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList) String() string {
@@ -763,9 +725,7 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList) SetV
 }
 
 type BatchAddInvoiceResponseBody struct {
-	// 错误信息
-	ErrorResult []*BatchAddInvoiceResponseBodyErrorResult `json:"errorResult,omitempty" xml:"errorResult,omitempty" type:"Repeated"`
-	// 成功信息
+	ErrorResult   []*BatchAddInvoiceResponseBodyErrorResult   `json:"errorResult,omitempty" xml:"errorResult,omitempty" type:"Repeated"`
 	SuccessResult []*BatchAddInvoiceResponseBodySuccessResult `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
 }
 
@@ -788,9 +748,7 @@ func (s *BatchAddInvoiceResponseBody) SetSuccessResult(v []*BatchAddInvoiceRespo
 }
 
 type BatchAddInvoiceResponseBodyErrorResult struct {
-	// 错误数据的key
 	ErrorKey *string `json:"errorKey,omitempty" xml:"errorKey,omitempty"`
-	// 错误信息
 	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 }
 
@@ -813,10 +771,8 @@ func (s *BatchAddInvoiceResponseBodyErrorResult) SetErrorMsg(v string) *BatchAdd
 }
 
 type BatchAddInvoiceResponseBodySuccessResult struct {
-	// 发票代码
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
 func (s BatchAddInvoiceResponseBodySuccessResult) String() string {
@@ -838,8 +794,9 @@ func (s *BatchAddInvoiceResponseBodySuccessResult) SetInvoiceNo(v string) *Batch
 }
 
 type BatchAddInvoiceResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchAddInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchAddInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchAddInvoiceResponse) String() string {
@@ -852,6 +809,11 @@ func (s BatchAddInvoiceResponse) GoString() string {
 
 func (s *BatchAddInvoiceResponse) SetHeaders(v map[string]*string) *BatchAddInvoiceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchAddInvoiceResponse) SetStatusCode(v int32) *BatchAddInvoiceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -885,8 +847,7 @@ func (s *BatchCreateCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 
 type BatchCreateCustomerRequest struct {
 	CreateCustomerRequestList []*BatchCreateCustomerRequestCreateCustomerRequestList `json:"createCustomerRequestList,omitempty" xml:"createCustomerRequestList,omitempty" type:"Repeated"`
-	// 创建人userId
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Operator                  *string                                                `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s BatchCreateCustomerRequest) String() string {
@@ -908,26 +869,16 @@ func (s *BatchCreateCustomerRequest) SetOperator(v string) *BatchCreateCustomerR
 }
 
 type BatchCreateCustomerRequestCreateCustomerRequestList struct {
-	// 客户描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 开票人邮箱
-	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
-	// 开票人手机号
-	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
-	// 客户名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 购方账户
-	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
-	// 购房地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行
+	Description       *string `json:"description,omitempty" xml:"description,omitempty"`
+	DrawerEmail       *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	DrawerTelephone   *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
+	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
+	PurchaserAccount  *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	PurchaserAddress  *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
 	PurchaserBankName *string `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
-	// 购方名字
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	PurchaserName     *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo    *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel      *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 }
 
 func (s BatchCreateCustomerRequestCreateCustomerRequestList) String() string {
@@ -1035,8 +986,9 @@ func (s *BatchCreateCustomerResponseBodyErrorResult) SetErrorMsg(v string) *Batc
 }
 
 type BatchCreateCustomerResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchCreateCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchCreateCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchCreateCustomerResponse) String() string {
@@ -1049,6 +1001,11 @@ func (s BatchCreateCustomerResponse) GoString() string {
 
 func (s *BatchCreateCustomerResponse) SetHeaders(v map[string]*string) *BatchCreateCustomerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchCreateCustomerResponse) SetStatusCode(v int32) *BatchCreateCustomerResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1081,23 +1038,14 @@ func (s *CheckVoucherStatusHeaders) SetXAcsDingtalkAccessToken(v string) *CheckV
 }
 
 type CheckVoucherStatusRequest struct {
-	// 结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 进项发票/销项发票
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 发票编码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 页号
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 当前页大小
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 税号
-	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	// 发票认证状态
+	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	FinanceType  *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	InvoiceCode  *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo    *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	PageNumber   *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize     *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TaxNo        *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
 	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
 }
 
@@ -1178,8 +1126,9 @@ func (s *CheckVoucherStatusResponseBody) SetSuccess(v bool) *CheckVoucherStatusR
 }
 
 type CheckVoucherStatusResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CheckVoucherStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CheckVoucherStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CheckVoucherStatusResponse) String() string {
@@ -1192,6 +1141,11 @@ func (s CheckVoucherStatusResponse) GoString() string {
 
 func (s *CheckVoucherStatusResponse) SetHeaders(v map[string]*string) *CheckVoucherStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CheckVoucherStatusResponse) SetStatusCode(v int32) *CheckVoucherStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1224,28 +1178,17 @@ func (s *CreateCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCust
 }
 
 type CreateCustomerRequest struct {
-	// 创建人userId
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 客户描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 开票人邮箱
-	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
-	// 开票人手机号
-	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
-	// 客户名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 购方账户
-	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
-	// 购房地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行
+	Creator           *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	Description       *string `json:"description,omitempty" xml:"description,omitempty"`
+	DrawerEmail       *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	DrawerTelephone   *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
+	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
+	PurchaserAccount  *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	PurchaserAddress  *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
 	PurchaserBankName *string `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
-	// 购方名字
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	PurchaserName     *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo    *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel      *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 }
 
 func (s CreateCustomerRequest) String() string {
@@ -1312,7 +1255,6 @@ func (s *CreateCustomerRequest) SetPurchaserTel(v string) *CreateCustomerRequest
 }
 
 type CreateCustomerResponseBody struct {
-	// 客户CODE
 	CustomerCode *string `json:"customerCode,omitempty" xml:"customerCode,omitempty"`
 }
 
@@ -1330,8 +1272,9 @@ func (s *CreateCustomerResponseBody) SetCustomerCode(v string) *CreateCustomerRe
 }
 
 type CreateCustomerResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateCustomerResponse) String() string {
@@ -1344,6 +1287,11 @@ func (s CreateCustomerResponse) GoString() string {
 
 func (s *CreateCustomerResponse) SetHeaders(v map[string]*string) *CreateCustomerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateCustomerResponse) SetStatusCode(v int32) *CreateCustomerResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1376,7 +1324,6 @@ func (s *CreateReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *CreateRecei
 }
 
 type CreateReceiptRequest struct {
-	// 单据列表，不超过10条数据
 	Receipts []*CreateReceiptRequestReceipts `json:"receipts,omitempty" xml:"receipts,omitempty" type:"Repeated"`
 }
 
@@ -1394,34 +1341,20 @@ func (s *CreateReceiptRequest) SetReceipts(v []*CreateReceiptRequestReceipts) *C
 }
 
 type CreateReceiptRequestReceipts struct {
-	// 单据金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 关联收支类别code
-	CategoryCode *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
-	// 单据唯一编号
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 单据创建时间，默认当前时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建人工号
-	CreateUserId *string `json:"createUserId,omitempty" xml:"createUserId,omitempty"`
-	// 关联客户code
-	CustomerCode *string `json:"customerCode,omitempty" xml:"customerCode,omitempty"`
-	// 关联企业账户code
+	Amount               *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CategoryCode         *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	Code                 *string `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime           *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreateUserId         *string `json:"createUserId,omitempty" xml:"createUserId,omitempty"`
+	CustomerCode         *string `json:"customerCode,omitempty" xml:"customerCode,omitempty"`
 	EnterpriseAcountCode *string `json:"enterpriseAcountCode,omitempty" xml:"enterpriseAcountCode,omitempty"`
-	// 业务发生时间，默认当前时间
-	OccurDate *int64 `json:"occurDate,omitempty" xml:"occurDate,omitempty"`
-	// 负责人工号，传空代表不修改
-	PrincipalId *string `json:"principalId,omitempty" xml:"principalId,omitempty"`
-	// 关联项目code
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 单据类型：1付款单，2收款单
-	ReceiptType *int64 `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 关联供应商code
-	SupplierCode *string `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
-	// 单据标题，不传由系统默认生成
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	OccurDate            *int64  `json:"occurDate,omitempty" xml:"occurDate,omitempty"`
+	PrincipalId          *string `json:"principalId,omitempty" xml:"principalId,omitempty"`
+	ProjectCode          *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ReceiptType          *int64  `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
+	Remark               *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	SupplierCode         *string `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
+	Title                *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateReceiptRequestReceipts) String() string {
@@ -1503,7 +1436,6 @@ func (s *CreateReceiptRequestReceipts) SetTitle(v string) *CreateReceiptRequestR
 }
 
 type CreateReceiptResponseBody struct {
-	// 结果列表
 	Results []*CreateReceiptResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -1521,14 +1453,10 @@ func (s *CreateReceiptResponseBody) SetResults(v []*CreateReceiptResponseBodyRes
 }
 
 type CreateReceiptResponseBodyResults struct {
-	// 数据唯一编号
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 错误码
+	Code      *string `json:"code,omitempty" xml:"code,omitempty"`
 	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	// 错误信息
-	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateReceiptResponseBodyResults) String() string {
@@ -1560,8 +1488,9 @@ func (s *CreateReceiptResponseBodyResults) SetSuccess(v bool) *CreateReceiptResp
 }
 
 type CreateReceiptResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateReceiptResponse) String() string {
@@ -1574,6 +1503,11 @@ func (s CreateReceiptResponse) GoString() string {
 
 func (s *CreateReceiptResponse) SetHeaders(v map[string]*string) *CreateReceiptResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateReceiptResponse) SetStatusCode(v int32) *CreateReceiptResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1606,7 +1540,6 @@ func (s *DeleteReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteRecei
 }
 
 type DeleteReceiptRequest struct {
-	// 单据列表，最长不超过10条
 	Receipts []*DeleteReceiptRequestReceipts `json:"receipts,omitempty" xml:"receipts,omitempty" type:"Repeated"`
 }
 
@@ -1624,12 +1557,9 @@ func (s *DeleteReceiptRequest) SetReceipts(v []*DeleteReceiptRequestReceipts) *D
 }
 
 type DeleteReceiptRequestReceipts struct {
-	// 单据唯一编号
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 修改者工号
+	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
 	DeleteUserId *string `json:"deleteUserId,omitempty" xml:"deleteUserId,omitempty"`
-	// 单据类型：1付款单，2收款单
-	ReceiptType *int64 `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
+	ReceiptType  *int64  `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
 }
 
 func (s DeleteReceiptRequestReceipts) String() string {
@@ -1656,7 +1586,6 @@ func (s *DeleteReceiptRequestReceipts) SetReceiptType(v int64) *DeleteReceiptReq
 }
 
 type DeleteReceiptResponseBody struct {
-	// 结果列表
 	Results []*DeleteReceiptResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -1674,14 +1603,10 @@ func (s *DeleteReceiptResponseBody) SetResults(v []*DeleteReceiptResponseBodyRes
 }
 
 type DeleteReceiptResponseBodyResults struct {
-	// 数据唯一编号
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 错误码
+	Code      *string `json:"code,omitempty" xml:"code,omitempty"`
 	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	// 错误信息
-	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DeleteReceiptResponseBodyResults) String() string {
@@ -1713,8 +1638,9 @@ func (s *DeleteReceiptResponseBodyResults) SetSuccess(v bool) *DeleteReceiptResp
 }
 
 type DeleteReceiptResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteReceiptResponse) String() string {
@@ -1727,6 +1653,11 @@ func (s DeleteReceiptResponse) GoString() string {
 
 func (s *DeleteReceiptResponse) SetHeaders(v map[string]*string) *DeleteReceiptResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteReceiptResponse) SetStatusCode(v int32) *DeleteReceiptResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1759,7 +1690,6 @@ func (s *GetBookkeepingUserListHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetBookkeepingUserListResponseBody struct {
-	// staffId列表
 	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -1777,8 +1707,9 @@ func (s *GetBookkeepingUserListResponseBody) SetResult(v []*string) *GetBookkeep
 }
 
 type GetBookkeepingUserListResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetBookkeepingUserListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetBookkeepingUserListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetBookkeepingUserListResponse) String() string {
@@ -1791,6 +1722,11 @@ func (s GetBookkeepingUserListResponse) GoString() string {
 
 func (s *GetBookkeepingUserListResponse) SetHeaders(v map[string]*string) *GetBookkeepingUserListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetBookkeepingUserListResponse) SetStatusCode(v int32) *GetBookkeepingUserListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1823,7 +1759,6 @@ func (s *GetCategoryHeaders) SetXAcsDingtalkAccessToken(v string) *GetCategoryHe
 }
 
 type GetCategoryRequest struct {
-	// 类别code
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
@@ -1841,18 +1776,12 @@ func (s *GetCategoryRequest) SetCode(v string) *GetCategoryRequest {
 }
 
 type GetCategoryResponseBody struct {
-	// 类别code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 是否为目录
-	IsDir *bool `json:"isDir,omitempty" xml:"isDir,omitempty"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 父类别code
+	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
+	IsDir      *bool   `json:"isDir,omitempty" xml:"isDir,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
 	ParentCode *string `json:"parentCode,omitempty" xml:"parentCode,omitempty"`
-	// 状态:valid,invalid,deleted
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 类型：income收入，expense支出
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetCategoryResponseBody) String() string {
@@ -1894,8 +1823,9 @@ func (s *GetCategoryResponseBody) SetType(v string) *GetCategoryResponseBody {
 }
 
 type GetCategoryResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCategoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCategoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCategoryResponse) String() string {
@@ -1908,6 +1838,11 @@ func (s GetCategoryResponse) GoString() string {
 
 func (s *GetCategoryResponse) SetHeaders(v map[string]*string) *GetCategoryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCategoryResponse) SetStatusCode(v int32) *GetCategoryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1940,7 +1875,6 @@ func (s *GetCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *GetCustomerHe
 }
 
 type GetCustomerRequest struct {
-	// 客户code
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
@@ -1958,17 +1892,11 @@ func (s *GetCustomerRequest) SetCode(v string) *GetCustomerRequest {
 }
 
 type GetCustomerResponseBody struct {
-	// 客户Code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 创建时间(单位MS)
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 客户描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 客户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 状态：启用(valid), 停用(invalid), 删除(deleted)
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户自定义code
+	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
 	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
@@ -2011,8 +1939,9 @@ func (s *GetCustomerResponseBody) SetUserDefineCode(v string) *GetCustomerRespon
 }
 
 type GetCustomerResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCustomerResponse) String() string {
@@ -2025,6 +1954,11 @@ func (s GetCustomerResponse) GoString() string {
 
 func (s *GetCustomerResponse) SetHeaders(v map[string]*string) *GetCustomerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCustomerResponse) SetStatusCode(v int32) *GetCustomerResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2057,7 +1991,6 @@ func (s *GetFinanceAccountHeaders) SetXAcsDingtalkAccessToken(v string) *GetFina
 }
 
 type GetFinanceAccountRequest struct {
-	// 账户code
 	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
 }
 
@@ -2075,26 +2008,16 @@ func (s *GetFinanceAccountRequest) SetAccountCode(v string) *GetFinanceAccountRe
 }
 
 type GetFinanceAccountResponseBody struct {
-	// 账户code
-	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
-	// 关联资金账户id
-	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 账户名称
-	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	// 备注
+	AccountCode   *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+	AccountId     *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	AccountName   *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
 	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
-	// 账户类型:ALIPAY, BANKCARD, CASH, WECHAT
-	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	// 账户总额，保留2位小数
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 银行代号，如果是银行卡类型，有值，其他类型时，为空
-	BankCode *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
-	// 银行名称，如果是银行卡类型，有值，其他类型时，为空
-	BankName *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建人工号
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	AccountType   *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	BankCode      *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	BankName      *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	CreateTime    *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
 }
 
 func (s GetFinanceAccountResponseBody) String() string {
@@ -2156,8 +2079,9 @@ func (s *GetFinanceAccountResponseBody) SetCreator(v string) *GetFinanceAccountR
 }
 
 type GetFinanceAccountResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFinanceAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFinanceAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFinanceAccountResponse) String() string {
@@ -2170,6 +2094,11 @@ func (s GetFinanceAccountResponse) GoString() string {
 
 func (s *GetFinanceAccountResponse) SetHeaders(v map[string]*string) *GetFinanceAccountResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFinanceAccountResponse) SetStatusCode(v int32) *GetFinanceAccountResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2219,20 +2148,12 @@ func (s *GetInvoiceByPageRequest) SetRequest(v *GetInvoiceByPageRequestRequest) 
 }
 
 type GetInvoiceByPageRequestRequest struct {
-	// 结束时间
-	//
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 进项票/销项票
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 分页参数
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页参数
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 税号
-	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	// 认证状态
+	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	FinanceType  *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	PageNumber   *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize     *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TaxNo        *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
 	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
 }
 
@@ -2367,81 +2288,45 @@ func (s *GetInvoiceByPageResponseBodyResult) SetTotalCount(v int64) *GetInvoiceB
 }
 
 type GetInvoiceByPageResponseBodyResultList struct {
-	// 账期时间
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 不含税金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 校验码
-	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	// 查验时间
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 开票日期
-	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	// 电票版式文件下载地址
-	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 资金类型 ，RED（红票），（BLUE）蓝票
-	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	// 常规发票明细
-	GeneralInvoiceDetailVOList []*GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票状态
-	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 机器码
-	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
-	// 成品油标识
-	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
-	// 收款人
-	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
-	// 审批单实例
-	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
-	// 审批单类型
-	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行
-	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
-	// 购方名称
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 销方地址
-	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行
-	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
-	// 销方名称
-	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
-	// 销方税号
-	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
-	// 销方电话
-	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 代开发票标识 1-自开，2-代开
-	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
-	// 税额
+	AccountPeriod               *string                                                              `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	Amount                      *string                                                              `json:"amount,omitempty" xml:"amount,omitempty"`
+	AmountWithTax               *string                                                              `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CheckCode                   *string                                                              `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	CheckTime                   *string                                                              `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrewDate                    *string                                                              `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	ElectronicUrl               *string                                                              `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	FinanceType                 *string                                                              `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FundType                    *string                                                              `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	GeneralInvoiceDetailVOList  []*GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList  `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	InvoiceCode                 *string                                                              `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo                   *string                                                              `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceStatus               *string                                                              `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	InvoiceType                 *string                                                              `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	MachineCode                 *string                                                              `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	OilFlag                     *string                                                              `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	Payee                       *string                                                              `json:"payee,omitempty" xml:"payee,omitempty"`
+	ProcessInstCode             *string                                                              `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	ProcessInstType             *string                                                              `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	PurchaserAddress            *string                                                              `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankNameAccount    *string                                                              `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	PurchaserName               *string                                                              `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo              *string                                                              `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel                *string                                                              `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	Remark                      *string                                                              `json:"remark,omitempty" xml:"remark,omitempty"`
+	SellerAddress               *string                                                              `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	SellerBankNameAccount       *string                                                              `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	SellerName                  *string                                                              `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	SellerTaxNo                 *string                                                              `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	SellerTel                   *string                                                              `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	Status                      *string                                                              `json:"status,omitempty" xml:"status,omitempty"`
+	SupplySign                  *string                                                              `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
 	TaxAmount                   *string                                                              `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
 	TransportFeeDetailVOList    []*GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList    `json:"transportFeeDetailVOList,omitempty" xml:"transportFeeDetailVOList,omitempty" type:"Repeated"`
 	UsedVehicleSaleDetailVOList []*GetInvoiceByPageResponseBodyResultListUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
 	VehicleSaleDetailVOList     []*GetInvoiceByPageResponseBodyResultListVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	// 发票查验状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
-	// 凭证code
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 生成凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	VerifyStatus                *string                                                              `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	VoucherCode                 *string                                                              `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	VoucherStatus               *string                                                              `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s GetInvoiceByPageResponseBodyResultList) String() string {
@@ -2648,28 +2533,17 @@ func (s *GetInvoiceByPageResponseBodyResultList) SetVoucherStatus(v string) *Get
 }
 
 type GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 规格型号
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	GoodsName     *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	Quantity      *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	RevenueCode   *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	RowNo         *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
 	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 是否享受税收优惠：0-不享受，1-享受
-	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 单价
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	TaxAmount     *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxPre        *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	TaxRate       *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit          *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPrice     *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 }
 
 func (s GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList) String() string {
@@ -2736,25 +2610,15 @@ func (s *GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList) SetUn
 }
 
 type GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 车牌号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 通行日期止
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 税收分类编码
+	Amount      *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CardNo      *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	GoodsName   *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 通行日期起
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 类型
+	RowNo       *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaxAmount   *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxRate     *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
@@ -2817,38 +2681,22 @@ func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetVehi
 }
 
 type GetInvoiceByPageResponseBodyResultListUsedVehicleSaleDetailVOList struct {
-	// 经营、拍卖单位
-	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
-	// 经营、拍卖单位地址
+	AuctionUnit        *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
 	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
-	// 经营、拍卖单位银行
-	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
-	// 经营、拍卖单位税号
-	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
-	// 经营、拍卖单位电话
-	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
-	// 厂牌型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌照号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 登记证号
-	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
-	// 转入地车辆管理所名称
-	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
-	// 二手车市场地址
-	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
-	// 二手车市场
-	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
-	// 二手车市场开户银行、账号
-	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
-	// 二手车市场电话
+	AuctionUnitBank    *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	AuctionUnitTaxNo   *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	AuctionUtilTel     *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	CarModel           *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CardNo             *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	Registration       *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	TransferVehicle    *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	UsedCarAddress     *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	UsedCarMarket      *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	UsedCarMarketBank  *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
 	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
-	// 二手车市场纳税人识别号
 	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
-	// 车架号/车辆识别号
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	VehicleNo          *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType        *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s GetInvoiceByPageResponseBodyResultListUsedVehicleSaleDetailVOList) String() string {
@@ -2940,34 +2788,20 @@ func (s *GetInvoiceByPageResponseBodyResultListUsedVehicleSaleDetailVOList) SetV
 }
 
 type GetInvoiceByPageResponseBodyResultListVehicleSaleDetailVOList struct {
-	// 品牌
-	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
-	// 合格证号
-	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
-	// 发动机号
-	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
-	// 身份证号/组织机构代码
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// 进口证书号
+	Brand               *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	CertificateNo       *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	EngineNo            *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	IdCardNo            *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
-	// 限乘人数
-	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
-	// 产地
-	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
-	// 完税凭证号码
-	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
-	// 主管税务机关名称
-	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
-	// 主管税务机关代码
-	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 吨位
-	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
-	// 车架号码
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	MaxPassengers       *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	OriginPlace         *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	PaymentVoucherNo    *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	TaxAuthorityName    *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	TaxAuthorityNo      *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Tonnage             *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	VehicleNo           *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType         *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s GetInvoiceByPageResponseBodyResultListVehicleSaleDetailVOList) String() string {
@@ -3049,8 +2883,9 @@ func (s *GetInvoiceByPageResponseBodyResultListVehicleSaleDetailVOList) SetVehic
 }
 
 type GetInvoiceByPageResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetInvoiceByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetInvoiceByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetInvoiceByPageResponse) String() string {
@@ -3063,6 +2898,11 @@ func (s GetInvoiceByPageResponse) GoString() string {
 
 func (s *GetInvoiceByPageResponse) SetHeaders(v map[string]*string) *GetInvoiceByPageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetInvoiceByPageResponse) SetStatusCode(v int32) *GetInvoiceByPageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3118,8 +2958,9 @@ func (s *GetIsNewVersionResponseBody) SetSuccess(v bool) *GetIsNewVersionRespons
 }
 
 type GetIsNewVersionResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetIsNewVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetIsNewVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetIsNewVersionResponse) String() string {
@@ -3132,6 +2973,11 @@ func (s GetIsNewVersionResponse) GoString() string {
 
 func (s *GetIsNewVersionResponse) SetHeaders(v map[string]*string) *GetIsNewVersionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetIsNewVersionResponse) SetStatusCode(v int32) *GetIsNewVersionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3164,7 +3010,6 @@ func (s *GetProductHeaders) SetXAcsDingtalkAccessToken(v string) *GetProductHead
 }
 
 type GetProductRequest struct {
-	// 商品code
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
@@ -3182,21 +3027,13 @@ func (s *GetProductRequest) SetCode(v string) *GetProductRequest {
 }
 
 type GetProductResponseBody struct {
-	// Id of the request
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 商品备注
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 商品名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 规格型号
-	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 商品状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 商品单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 商品用户自定义码
+	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	Specification  *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
+	Unit           *string `json:"unit,omitempty" xml:"unit,omitempty"`
 	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
@@ -3249,8 +3086,9 @@ func (s *GetProductResponseBody) SetUserDefineCode(v string) *GetProductResponse
 }
 
 type GetProductResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetProductResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetProductResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetProductResponse) String() string {
@@ -3263,6 +3101,11 @@ func (s GetProductResponse) GoString() string {
 
 func (s *GetProductResponse) SetHeaders(v map[string]*string) *GetProductResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetProductResponse) SetStatusCode(v int32) *GetProductResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3295,7 +3138,6 @@ func (s *GetProjectHeaders) SetXAcsDingtalkAccessToken(v string) *GetProjectHead
 }
 
 type GetProjectRequest struct {
-	// 项目code
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
@@ -3313,23 +3155,14 @@ func (s *GetProjectRequest) SetCode(v string) *GetProjectRequest {
 }
 
 type GetProjectResponseBody struct {
-	// 项目code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建人工号
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 项目描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 项目名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 项目code，废弃，请使用code
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 项目名称，废弃，请使用name
-	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
-	// 状态:valid, invalid, deleted
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户自定义code
+	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator        *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	ProjectCode    *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ProjectName    *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
 	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
@@ -3387,8 +3220,9 @@ func (s *GetProjectResponseBody) SetUserDefineCode(v string) *GetProjectResponse
 }
 
 type GetProjectResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetProjectResponse) String() string {
@@ -3401,6 +3235,11 @@ func (s GetProjectResponse) GoString() string {
 
 func (s *GetProjectResponse) SetHeaders(v map[string]*string) *GetProjectResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetProjectResponse) SetStatusCode(v int32) *GetProjectResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3433,9 +3272,7 @@ func (s *GetReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *GetReceiptHead
 }
 
 type GetReceiptRequest struct {
-	// 单据号
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 模型id
+	Code    *string `json:"code,omitempty" xml:"code,omitempty"`
 	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
 }
 
@@ -3458,14 +3295,10 @@ func (s *GetReceiptRequest) SetModelId(v string) *GetReceiptRequest {
 }
 
 type GetReceiptResponseBody struct {
-	// 数据来源于开放时，对应的微应用id
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 单据数据体json
-	Data *string `json:"data,omitempty" xml:"data,omitempty"`
-	// 数据模型id
+	AppId   *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	Data    *string `json:"data,omitempty" xml:"data,omitempty"`
 	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
-	// 数据来源：审批(approval)，开放接口(openapi)
-	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	Source  *string `json:"source,omitempty" xml:"source,omitempty"`
 }
 
 func (s GetReceiptResponseBody) String() string {
@@ -3497,8 +3330,9 @@ func (s *GetReceiptResponseBody) SetSource(v string) *GetReceiptResponseBody {
 }
 
 type GetReceiptResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetReceiptResponse) String() string {
@@ -3511,6 +3345,11 @@ func (s GetReceiptResponse) GoString() string {
 
 func (s *GetReceiptResponse) SetHeaders(v map[string]*string) *GetReceiptResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetReceiptResponse) SetStatusCode(v int32) *GetReceiptResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3543,7 +3382,6 @@ func (s *GetSupplierHeaders) SetXAcsDingtalkAccessToken(v string) *GetSupplierHe
 }
 
 type GetSupplierRequest struct {
-	// 供应商code
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
@@ -3561,17 +3399,11 @@ func (s *GetSupplierRequest) SetCode(v string) *GetSupplierRequest {
 }
 
 type GetSupplierResponseBody struct {
-	// 供应商Code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 创建时间(单位MS)
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 供应商描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 供应商名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 状态：启用(valid), 停用(invalid), 删除(deleted)
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户自定义code
+	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
 	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
@@ -3614,8 +3446,9 @@ func (s *GetSupplierResponseBody) SetUserDefineCode(v string) *GetSupplierRespon
 }
 
 type GetSupplierResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSupplierResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSupplierResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSupplierResponse) String() string {
@@ -3628,6 +3461,11 @@ func (s GetSupplierResponse) GoString() string {
 
 func (s *GetSupplierResponse) SetHeaders(v map[string]*string) *GetSupplierResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSupplierResponse) SetStatusCode(v int32) *GetSupplierResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3660,14 +3498,9 @@ func (s *ProfessionBenefitConsumeHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type ProfessionBenefitConsumeRequest struct {
-	// 权益编码
-	//
-	BenefitCode *string `json:"benefitCode,omitempty" xml:"benefitCode,omitempty"`
-	// 幂等ID
-	//
+	BenefitCode  *string `json:"benefitCode,omitempty" xml:"benefitCode,omitempty"`
 	BizRequestId *string `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
-	// 核销数量
-	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	Quota        *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
 }
 
 func (s ProfessionBenefitConsumeRequest) String() string {
@@ -3694,7 +3527,6 @@ func (s *ProfessionBenefitConsumeRequest) SetQuota(v int64) *ProfessionBenefitCo
 }
 
 type ProfessionBenefitConsumeResponseBody struct {
-	// 是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3712,8 +3544,9 @@ func (s *ProfessionBenefitConsumeResponseBody) SetSuccess(v bool) *ProfessionBen
 }
 
 type ProfessionBenefitConsumeResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ProfessionBenefitConsumeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ProfessionBenefitConsumeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ProfessionBenefitConsumeResponse) String() string {
@@ -3726,6 +3559,11 @@ func (s ProfessionBenefitConsumeResponse) GoString() string {
 
 func (s *ProfessionBenefitConsumeResponse) SetHeaders(v map[string]*string) *ProfessionBenefitConsumeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ProfessionBenefitConsumeResponse) SetStatusCode(v int32) *ProfessionBenefitConsumeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3758,12 +3596,9 @@ func (s *QueryCategoryByPageHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryCategoryByPageRequest struct {
-	// 分页，从1开始
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小，默认10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 类型：income收入，expense支出
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s QueryCategoryByPageRequest) String() string {
@@ -3790,10 +3625,8 @@ func (s *QueryCategoryByPageRequest) SetType(v string) *QueryCategoryByPageReque
 }
 
 type QueryCategoryByPageResponseBody struct {
-	// 是否还有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// resultList
-	List []*QueryCategoryByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	HasMore *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryCategoryByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
 func (s QueryCategoryByPageResponseBody) String() string {
@@ -3815,18 +3648,12 @@ func (s *QueryCategoryByPageResponseBody) SetList(v []*QueryCategoryByPageRespon
 }
 
 type QueryCategoryByPageResponseBodyList struct {
-	// 类别code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 是否为目录
-	IsDir *bool `json:"isDir,omitempty" xml:"isDir,omitempty"`
-	// 名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 父类别code
+	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
+	IsDir      *bool   `json:"isDir,omitempty" xml:"isDir,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
 	ParentCode *string `json:"parentCode,omitempty" xml:"parentCode,omitempty"`
-	// 状态:valid,invalid,deleted
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 类型:income收入，expense支出
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s QueryCategoryByPageResponseBodyList) String() string {
@@ -3868,8 +3695,9 @@ func (s *QueryCategoryByPageResponseBodyList) SetType(v string) *QueryCategoryBy
 }
 
 type QueryCategoryByPageResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryCategoryByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryCategoryByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryCategoryByPageResponse) String() string {
@@ -3882,6 +3710,11 @@ func (s QueryCategoryByPageResponse) GoString() string {
 
 func (s *QueryCategoryByPageResponse) SetHeaders(v map[string]*string) *QueryCategoryByPageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryCategoryByPageResponse) SetStatusCode(v int32) *QueryCategoryByPageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3914,10 +3747,8 @@ func (s *QueryCustomerByPageHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryCustomerByPageRequest struct {
-	// 分页，从1开始
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小，默认10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryCustomerByPageRequest) String() string {
@@ -3939,10 +3770,8 @@ func (s *QueryCustomerByPageRequest) SetPageSize(v int64) *QueryCustomerByPageRe
 }
 
 type QueryCustomerByPageResponseBody struct {
-	// 是否还有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// resultList
-	List []*QueryCustomerByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	HasMore *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryCustomerByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
 func (s QueryCustomerByPageResponseBody) String() string {
@@ -3964,17 +3793,11 @@ func (s *QueryCustomerByPageResponseBody) SetList(v []*QueryCustomerByPageRespon
 }
 
 type QueryCustomerByPageResponseBodyList struct {
-	// 客户Code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 创建时间(单位MS)
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 客户描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 客户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 状态：启用(valid), 停用(invalid), 删除(deleted)
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户自定义code
+	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
 	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
@@ -4017,8 +3840,9 @@ func (s *QueryCustomerByPageResponseBodyList) SetUserDefineCode(v string) *Query
 }
 
 type QueryCustomerByPageResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryCustomerByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryCustomerByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryCustomerByPageResponse) String() string {
@@ -4031,6 +3855,11 @@ func (s QueryCustomerByPageResponse) GoString() string {
 
 func (s *QueryCustomerByPageResponse) SetHeaders(v map[string]*string) *QueryCustomerByPageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomerByPageResponse) SetStatusCode(v int32) *QueryCustomerByPageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4063,12 +3892,9 @@ func (s *QueryCustomerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCu
 }
 
 type QueryCustomerInfoRequest struct {
-	// 查询条件，目前支持 名字、税号、购方电话
-	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	// 查询页码，从1开始
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 每页查询数量
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Keyword    *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryCustomerInfoRequest) String() string {
@@ -4095,12 +3921,9 @@ func (s *QueryCustomerInfoRequest) SetPageSize(v int64) *QueryCustomerInfoReques
 }
 
 type QueryCustomerInfoResponseBody struct {
-	// 是否还有数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 客户分页数据
-	List []*QueryCustomerInfoResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 总数
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore    *bool                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*QueryCustomerInfoResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	TotalCount *int64                               `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryCustomerInfoResponseBody) String() string {
@@ -4127,37 +3950,24 @@ func (s *QueryCustomerInfoResponseBody) SetTotalCount(v int64) *QueryCustomerInf
 }
 
 type QueryCustomerInfoResponseBodyList struct {
-	// 客户code
 	Code                    *string `json:"code,omitempty" xml:"code,omitempty"`
 	ContactAddress          *string `json:"contactAddress,omitempty" xml:"contactAddress,omitempty"`
 	ContactCompanyTelephone *string `json:"contactCompanyTelephone,omitempty" xml:"contactCompanyTelephone,omitempty"`
 	ContactEmail            *string `json:"contactEmail,omitempty" xml:"contactEmail,omitempty"`
 	ContactName             *string `json:"contactName,omitempty" xml:"contactName,omitempty"`
 	ContactTelephone        *string `json:"contactTelephone,omitempty" xml:"contactTelephone,omitempty"`
-	// 客户描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 开票人邮箱
-	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
-	// 开票人手机号
-	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
-	// 客户名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 购方账户
-	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方姓名
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 购方银行
-	PurchaserrBankName *string `json:"purchaserrBankName,omitempty" xml:"purchaserrBankName,omitempty"`
-	// 状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户自定义code
-	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
+	Description             *string `json:"description,omitempty" xml:"description,omitempty"`
+	DrawerEmail             *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	DrawerTelephone         *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
+	Name                    *string `json:"name,omitempty" xml:"name,omitempty"`
+	PurchaserAccount        *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	PurchaserAddress        *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserName           *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo          *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel            *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	PurchaserrBankName      *string `json:"purchaserrBankName,omitempty" xml:"purchaserrBankName,omitempty"`
+	Status                  *string `json:"status,omitempty" xml:"status,omitempty"`
+	UserDefineCode          *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
 func (s QueryCustomerInfoResponseBodyList) String() string {
@@ -4259,8 +4069,9 @@ func (s *QueryCustomerInfoResponseBodyList) SetUserDefineCode(v string) *QueryCu
 }
 
 type QueryCustomerInfoResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryCustomerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryCustomerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryCustomerInfoResponse) String() string {
@@ -4273,6 +4084,11 @@ func (s QueryCustomerInfoResponse) GoString() string {
 
 func (s *QueryCustomerInfoResponse) SetHeaders(v map[string]*string) *QueryCustomerInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomerInfoResponse) SetStatusCode(v int32) *QueryCustomerInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4305,10 +4121,8 @@ func (s *QueryEnterpriseAccountByPageHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type QueryEnterpriseAccountByPageRequest struct {
-	// 分页，从1开始
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小，默认10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryEnterpriseAccountByPageRequest) String() string {
@@ -4330,10 +4144,8 @@ func (s *QueryEnterpriseAccountByPageRequest) SetPageSize(v int64) *QueryEnterpr
 }
 
 type QueryEnterpriseAccountByPageResponseBody struct {
-	// 是否还有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// resultList
-	List []*QueryEnterpriseAccountByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	HasMore *bool                                           `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryEnterpriseAccountByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
 func (s QueryEnterpriseAccountByPageResponseBody) String() string {
@@ -4355,26 +4167,16 @@ func (s *QueryEnterpriseAccountByPageResponseBody) SetList(v []*QueryEnterpriseA
 }
 
 type QueryEnterpriseAccountByPageResponseBodyList struct {
-	// 账户code
-	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
-	// 关联资金账号id
-	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 账户名称
-	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	// 备注
+	AccountCode   *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+	AccountId     *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	AccountName   *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
 	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
-	// 账户类型:ALIPAY, BANKCARD, CASH, WECHAT
-	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	// 账户总额，保留2位小数
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 银行代号，如果是银行卡类型，有值，其他类型时，为空
-	BankCode *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
-	// 银行名字，如果是银行卡类型，有值，其他类型时，为空
-	BankName *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建人工号
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	AccountType   *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	BankCode      *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	BankName      *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	CreateTime    *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
 }
 
 func (s QueryEnterpriseAccountByPageResponseBodyList) String() string {
@@ -4436,8 +4238,9 @@ func (s *QueryEnterpriseAccountByPageResponseBodyList) SetCreator(v string) *Que
 }
 
 type QueryEnterpriseAccountByPageResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryEnterpriseAccountByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryEnterpriseAccountByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryEnterpriseAccountByPageResponse) String() string {
@@ -4450,6 +4253,11 @@ func (s QueryEnterpriseAccountByPageResponse) GoString() string {
 
 func (s *QueryEnterpriseAccountByPageResponse) SetHeaders(v map[string]*string) *QueryEnterpriseAccountByPageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponse) SetStatusCode(v int32) *QueryEnterpriseAccountByPageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4511,8 +4319,9 @@ func (s *QueryFinanceCompanyInfoResponseBody) SetTaxNo(v string) *QueryFinanceCo
 }
 
 type QueryFinanceCompanyInfoResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryFinanceCompanyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryFinanceCompanyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryFinanceCompanyInfoResponse) String() string {
@@ -4525,6 +4334,11 @@ func (s QueryFinanceCompanyInfoResponse) GoString() string {
 
 func (s *QueryFinanceCompanyInfoResponse) SetHeaders(v map[string]*string) *QueryFinanceCompanyInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryFinanceCompanyInfoResponse) SetStatusCode(v int32) *QueryFinanceCompanyInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4574,8 +4388,9 @@ func (s *QueryInvoiceRelationCountResponseBody) SetRelationCountMap(v map[string
 }
 
 type QueryInvoiceRelationCountResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryInvoiceRelationCountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryInvoiceRelationCountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryInvoiceRelationCountResponse) String() string {
@@ -4588,6 +4403,11 @@ func (s QueryInvoiceRelationCountResponse) GoString() string {
 
 func (s *QueryInvoiceRelationCountResponse) SetHeaders(v map[string]*string) *QueryInvoiceRelationCountResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryInvoiceRelationCountResponse) SetStatusCode(v int32) *QueryInvoiceRelationCountResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4620,7 +4440,6 @@ func (s *QueryPermissionByUserIdHeaders) SetXAcsDingtalkAccessToken(v string) *Q
 }
 
 type QueryPermissionByUserIdRequest struct {
-	// 用户ID
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -4638,10 +4457,8 @@ func (s *QueryPermissionByUserIdRequest) SetUserId(v string) *QueryPermissionByU
 }
 
 type QueryPermissionByUserIdResponseBody struct {
-	// 权限信息列表
 	PermissionDTOList []*QueryPermissionByUserIdResponseBodyPermissionDTOList `json:"permissionDTOList,omitempty" xml:"permissionDTOList,omitempty" type:"Repeated"`
-	// 用户ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId            *string                                                 `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryPermissionByUserIdResponseBody) String() string {
@@ -4686,8 +4503,9 @@ func (s *QueryPermissionByUserIdResponseBodyPermissionDTOList) SetResourceIdenti
 }
 
 type QueryPermissionByUserIdResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryPermissionByUserIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryPermissionByUserIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryPermissionByUserIdResponse) String() string {
@@ -4700,6 +4518,11 @@ func (s QueryPermissionByUserIdResponse) GoString() string {
 
 func (s *QueryPermissionByUserIdResponse) SetHeaders(v map[string]*string) *QueryPermissionByUserIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryPermissionByUserIdResponse) SetStatusCode(v int32) *QueryPermissionByUserIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4732,7 +4555,6 @@ func (s *QueryPermissionRoleMemberHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryPermissionRoleMemberRequest struct {
-	// 角色的唯一标识列表
 	RoleCodeList []*string `json:"roleCodeList,omitempty" xml:"roleCodeList,omitempty" type:"Repeated"`
 }
 
@@ -4750,7 +4572,6 @@ func (s *QueryPermissionRoleMemberRequest) SetRoleCodeList(v []*string) *QueryPe
 }
 
 type QueryPermissionRoleMemberResponseBody struct {
-	// 角色下的成员MAP
 	RoleMemberMap map[string]*RoleMemberMapValue `json:"roleMemberMap,omitempty" xml:"roleMemberMap,omitempty"`
 }
 
@@ -4768,8 +4589,9 @@ func (s *QueryPermissionRoleMemberResponseBody) SetRoleMemberMap(v map[string]*R
 }
 
 type QueryPermissionRoleMemberResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryPermissionRoleMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryPermissionRoleMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryPermissionRoleMemberResponse) String() string {
@@ -4782,6 +4604,11 @@ func (s QueryPermissionRoleMemberResponse) GoString() string {
 
 func (s *QueryPermissionRoleMemberResponse) SetHeaders(v map[string]*string) *QueryPermissionRoleMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryPermissionRoleMemberResponse) SetStatusCode(v int32) *QueryPermissionRoleMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4814,10 +4641,8 @@ func (s *QueryProductByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryP
 }
 
 type QueryProductByPageRequest struct {
-	// 分页数
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryProductByPageRequest) String() string {
@@ -4862,21 +4687,13 @@ func (s *QueryProductByPageResponseBody) SetList(v []*QueryProductByPageResponse
 }
 
 type QueryProductByPageResponseBodyList struct {
-	// 商品code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 商品备注
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 商品名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 商品规格
-	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 商品状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 商品单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 商品用户自定义码
+	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	Specification  *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
+	Unit           *string `json:"unit,omitempty" xml:"unit,omitempty"`
 	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
@@ -4929,8 +4746,9 @@ func (s *QueryProductByPageResponseBodyList) SetUserDefineCode(v string) *QueryP
 }
 
 type QueryProductByPageResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryProductByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryProductByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryProductByPageResponse) String() string {
@@ -4943,6 +4761,11 @@ func (s QueryProductByPageResponse) GoString() string {
 
 func (s *QueryProductByPageResponse) SetHeaders(v map[string]*string) *QueryProductByPageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryProductByPageResponse) SetStatusCode(v int32) *QueryProductByPageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4975,10 +4798,8 @@ func (s *QueryProjectByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryP
 }
 
 type QueryProjectByPageRequest struct {
-	// 分页，从1开始
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小，默认10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryProjectByPageRequest) String() string {
@@ -5000,10 +4821,8 @@ func (s *QueryProjectByPageRequest) SetPageSize(v int64) *QueryProjectByPageRequ
 }
 
 type QueryProjectByPageResponseBody struct {
-	// 是否还有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// resultList
-	List []*QueryProjectByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	HasMore *bool                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryProjectByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
 func (s QueryProjectByPageResponseBody) String() string {
@@ -5025,23 +4844,14 @@ func (s *QueryProjectByPageResponseBody) SetList(v []*QueryProjectByPageResponse
 }
 
 type QueryProjectByPageResponseBodyList struct {
-	// 项目code
-	Caode *string `json:"caode,omitempty" xml:"caode,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建人工号
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 项目名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 项目code，废弃，请使用code
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 项目名称，废弃，请使用name
-	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
-	// 状态: valid, invalid, deleted
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户自定义code
+	Caode          *string `json:"caode,omitempty" xml:"caode,omitempty"`
+	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator        *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	ProjectCode    *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ProjectName    *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
 	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
@@ -5099,8 +4909,9 @@ func (s *QueryProjectByPageResponseBodyList) SetUserDefineCode(v string) *QueryP
 }
 
 type QueryProjectByPageResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryProjectByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryProjectByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryProjectByPageResponse) String() string {
@@ -5113,6 +4924,11 @@ func (s QueryProjectByPageResponse) GoString() string {
 
 func (s *QueryProjectByPageResponse) SetHeaders(v map[string]*string) *QueryProjectByPageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryProjectByPageResponse) SetStatusCode(v int32) *QueryProjectByPageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5145,7 +4961,6 @@ func (s *QueryReceiptDetailForInvoiceHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type QueryReceiptDetailForInvoiceRequest struct {
-	// 审批单id
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
@@ -5163,7 +4978,6 @@ func (s *QueryReceiptDetailForInvoiceRequest) SetInstanceId(v string) *QueryRece
 }
 
 type QueryReceiptDetailForInvoiceResponseBody struct {
-	// 结果
 	Result *QueryReceiptDetailForInvoiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -5181,50 +4995,28 @@ func (s *QueryReceiptDetailForInvoiceResponseBody) SetResult(v *QueryReceiptDeta
 }
 
 type QueryReceiptDetailForInvoiceResponseBodyResult struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 开票状态
-	ApplyStatus *string `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建人
-	Creator *QueryReceiptDetailForInvoiceResponseBodyResultCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 客户
-	Customer *QueryReceiptDetailForInvoiceResponseBodyResultCustomer `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
-	// 开票人邮箱
-	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
-	// 开票人手机号码
-	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
-	// 发票种类
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 主数据modelId
-	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
-	// 商品列表
-	ProductInfoList []*QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList `json:"productInfoList,omitempty" xml:"productInfoList,omitempty" type:"Repeated"`
-	// 购方账户
-	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行
-	PurchaserBankName *string `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
-	// 购方抬头
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 单据ID
-	ReceiptId *string `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
-	// 记录时间，默认为审批通过时间
-	RecordTime *string `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 来源
-	Source *string `json:"source,omitempty" xml:"source,omitempty"`
-	// 状态 agree running
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 单据标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Amount            *string                                                          `json:"amount,omitempty" xml:"amount,omitempty"`
+	ApplyStatus       *string                                                          `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
+	CreateTime        *string                                                          `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator           *QueryReceiptDetailForInvoiceResponseBodyResultCreator           `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Customer          *QueryReceiptDetailForInvoiceResponseBodyResultCustomer          `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
+	DrawerEmail       *string                                                          `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	DrawerTelephone   *string                                                          `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
+	InvoiceType       *string                                                          `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	ModelId           *string                                                          `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	ProductInfoList   []*QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList `json:"productInfoList,omitempty" xml:"productInfoList,omitempty" type:"Repeated"`
+	PurchaserAccount  *string                                                          `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	PurchaserAddress  *string                                                          `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankName *string                                                          `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
+	PurchaserName     *string                                                          `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo    *string                                                          `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel      *string                                                          `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	ReceiptId         *string                                                          `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
+	RecordTime        *string                                                          `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
+	Remark            *string                                                          `json:"remark,omitempty" xml:"remark,omitempty"`
+	Source            *string                                                          `json:"source,omitempty" xml:"source,omitempty"`
+	Status            *string                                                          `json:"status,omitempty" xml:"status,omitempty"`
+	Title             *string                                                          `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryReceiptDetailForInvoiceResponseBodyResult) String() string {
@@ -5346,12 +5138,9 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetTitle(v string) *Que
 }
 
 type QueryReceiptDetailForInvoiceResponseBodyResultCreator struct {
-	// 创建人头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 创建人昵称
-	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	// 创建人工号
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryReceiptDetailForInvoiceResponseBodyResultCreator) String() string {
@@ -5378,9 +5167,7 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResultCreator) SetUserId(v stri
 }
 
 type QueryReceiptDetailForInvoiceResponseBodyResultCustomer struct {
-	// 客户code
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 客户名字
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -5403,19 +5190,12 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResultCustomer) SetName(v strin
 }
 
 type QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList struct {
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 商品名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 规格型号
-	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 计量单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 含税单价
+	AmountWithTax    *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
+	Quantity         *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	Specification    *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	TaxRate          *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit             *string `json:"unit,omitempty" xml:"unit,omitempty"`
 	UnitPriceWithTax *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
 }
 
@@ -5463,8 +5243,9 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetUnitP
 }
 
 type QueryReceiptDetailForInvoiceResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryReceiptDetailForInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryReceiptDetailForInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryReceiptDetailForInvoiceResponse) String() string {
@@ -5477,6 +5258,11 @@ func (s QueryReceiptDetailForInvoiceResponse) GoString() string {
 
 func (s *QueryReceiptDetailForInvoiceResponse) SetHeaders(v map[string]*string) *QueryReceiptDetailForInvoiceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponse) SetStatusCode(v int32) *QueryReceiptDetailForInvoiceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5509,19 +5295,13 @@ func (s *QueryReceiptForInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryReceiptForInvoiceRequest struct {
-	// 发票状态筛选列表 applied 已生成、unapplied 未生成 、 ignore 已忽略
-	ApplyStatusList []*string `json:"applyStatusList,omitempty" xml:"applyStatusList,omitempty" type:"Repeated"`
-	EndTime         *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 分页参数，从1 开始
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页参数，每页查询个数
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 单据状态筛选条件列表，审批中、已通过 RUNNGIN、COMPLETED
+	ApplyStatusList   []*string `json:"applyStatusList,omitempty" xml:"applyStatusList,omitempty" type:"Repeated"`
+	EndTime           *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	PageNumber        *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize          *int64    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	ReceiptStatusList []*string `json:"receiptStatusList,omitempty" xml:"receiptStatusList,omitempty" type:"Repeated"`
-	// 开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 单据标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	StartTime         *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Title             *string   `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryReceiptForInvoiceRequest) String() string {
@@ -5568,12 +5348,9 @@ func (s *QueryReceiptForInvoiceRequest) SetTitle(v string) *QueryReceiptForInvoi
 }
 
 type QueryReceiptForInvoiceResponseBody struct {
-	// 是否还有数据
-	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 分页数据
-	List []*QueryReceiptForInvoiceResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 总数
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore    *string                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*QueryReceiptForInvoiceResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	TotalCount *int64                                    `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryReceiptForInvoiceResponseBody) String() string {
@@ -5600,50 +5377,28 @@ func (s *QueryReceiptForInvoiceResponseBody) SetTotalCount(v int64) *QueryReceip
 }
 
 type QueryReceiptForInvoiceResponseBodyList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 开票状态
-	ApplyStatus *string `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建人
-	Creator *QueryReceiptForInvoiceResponseBodyListCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 客户
-	Customer *QueryReceiptForInvoiceResponseBodyListCustomer `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
-	// 开票人邮箱
-	DrawerEmail *string `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
-	// 开票人手机号码
-	DrawerTelephone *string `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
-	// 发票种类
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 主数据modelId
-	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
-	// 商品列表
-	ProductInfoList []*QueryReceiptForInvoiceResponseBodyListProductInfoList `json:"productInfoList,omitempty" xml:"productInfoList,omitempty" type:"Repeated"`
-	// 购方账户
-	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行
-	PurchaserBankName *string `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
-	// 购方抬头
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 单据ID
-	ReceiptId *string `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
-	// 记录时间，默认为审批通过时间
-	RecordTime *string `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 来源
-	Source *string `json:"source,omitempty" xml:"source,omitempty"`
-	// 状态 agree running
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 单据标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Amount            *string                                                  `json:"amount,omitempty" xml:"amount,omitempty"`
+	ApplyStatus       *string                                                  `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
+	CreateTime        *string                                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator           *QueryReceiptForInvoiceResponseBodyListCreator           `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Customer          *QueryReceiptForInvoiceResponseBodyListCustomer          `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
+	DrawerEmail       *string                                                  `json:"drawerEmail,omitempty" xml:"drawerEmail,omitempty"`
+	DrawerTelephone   *string                                                  `json:"drawerTelephone,omitempty" xml:"drawerTelephone,omitempty"`
+	InvoiceType       *string                                                  `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	ModelId           *string                                                  `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	ProductInfoList   []*QueryReceiptForInvoiceResponseBodyListProductInfoList `json:"productInfoList,omitempty" xml:"productInfoList,omitempty" type:"Repeated"`
+	PurchaserAccount  *string                                                  `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	PurchaserAddress  *string                                                  `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankName *string                                                  `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
+	PurchaserName     *string                                                  `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo    *string                                                  `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel      *string                                                  `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	ReceiptId         *string                                                  `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
+	RecordTime        *string                                                  `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
+	Remark            *string                                                  `json:"remark,omitempty" xml:"remark,omitempty"`
+	Source            *string                                                  `json:"source,omitempty" xml:"source,omitempty"`
+	Status            *string                                                  `json:"status,omitempty" xml:"status,omitempty"`
+	Title             *string                                                  `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryReceiptForInvoiceResponseBodyList) String() string {
@@ -5765,12 +5520,9 @@ func (s *QueryReceiptForInvoiceResponseBodyList) SetTitle(v string) *QueryReceip
 }
 
 type QueryReceiptForInvoiceResponseBodyListCreator struct {
-	// 创建人头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 创建人昵称
-	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	// 创建人工号
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryReceiptForInvoiceResponseBodyListCreator) String() string {
@@ -5797,9 +5549,7 @@ func (s *QueryReceiptForInvoiceResponseBodyListCreator) SetUserId(v string) *Que
 }
 
 type QueryReceiptForInvoiceResponseBodyListCustomer struct {
-	// 客户code
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 客户名字
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -5822,19 +5572,12 @@ func (s *QueryReceiptForInvoiceResponseBodyListCustomer) SetName(v string) *Quer
 }
 
 type QueryReceiptForInvoiceResponseBodyListProductInfoList struct {
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 商品名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 规格型号
-	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 计量单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 含税单价
+	AmountWithTax    *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
+	Quantity         *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	Specification    *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	TaxRate          *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit             *string `json:"unit,omitempty" xml:"unit,omitempty"`
 	UnitPriceWithTax *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
 }
 
@@ -5882,8 +5625,9 @@ func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetUnitPriceWith
 }
 
 type QueryReceiptForInvoiceResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryReceiptForInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryReceiptForInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryReceiptForInvoiceResponse) String() string {
@@ -5896,6 +5640,11 @@ func (s QueryReceiptForInvoiceResponse) GoString() string {
 
 func (s *QueryReceiptForInvoiceResponse) SetHeaders(v map[string]*string) *QueryReceiptForInvoiceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponse) SetStatusCode(v int32) *QueryReceiptForInvoiceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5928,20 +5677,13 @@ func (s *QueryReceiptsBaseInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryReceiptsBaseInfoRequest struct {
-	// 结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 分页参数，从1 开始
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页参数，每页查询个数
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 时间筛选条件 gmt_create / record_time
+	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	PageNumber      *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize        *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	TimeFilterField *string `json:"timeFilterField,omitempty" xml:"timeFilterField,omitempty"`
-	// 单据标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	Title           *string `json:"title,omitempty" xml:"title,omitempty"`
+	VoucherStatus   *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s QueryReceiptsBaseInfoRequest) String() string {
@@ -5988,12 +5730,9 @@ func (s *QueryReceiptsBaseInfoRequest) SetVoucherStatus(v string) *QueryReceipts
 }
 
 type QueryReceiptsBaseInfoResponseBody struct {
-	// 是否还有数据
-	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 分页数据
-	List []*QueryReceiptsBaseInfoResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 总数
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore    *string                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*QueryReceiptsBaseInfoResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	TotalCount *int64                                   `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryReceiptsBaseInfoResponseBody) String() string {
@@ -6020,32 +5759,21 @@ func (s *QueryReceiptsBaseInfoResponseBody) SetTotalCount(v int64) *QueryReceipt
 }
 
 type QueryReceiptsBaseInfoResponseBodyList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建人
-	Creator *QueryReceiptsBaseInfoResponseBodyListCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 客户
-	Customer *QueryReceiptsBaseInfoResponseBodyListCustomer `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
-	// 主数据modelId
-	ModelId   *string                                         `json:"modelId,omitempty" xml:"modelId,omitempty"`
-	Principal *QueryReceiptsBaseInfoResponseBodyListPrincipal `json:"principal,omitempty" xml:"principal,omitempty" type:"Struct"`
-	Project   *QueryReceiptsBaseInfoResponseBodyListProject   `json:"project,omitempty" xml:"project,omitempty" type:"Struct"`
-	// 单据ID
-	ReceiptId *string `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
-	// 记录时间，默认为审批通过时间
-	RecordTime *string `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 来源
-	Source *string `json:"source,omitempty" xml:"source,omitempty"`
-	// 状态 agree running
-	Status   *string                                        `json:"status,omitempty" xml:"status,omitempty"`
-	Supplier *QueryReceiptsBaseInfoResponseBodyListSupplier `json:"supplier,omitempty" xml:"supplier,omitempty" type:"Struct"`
-	// 单据标题
-	Title         *string `json:"title,omitempty" xml:"title,omitempty"`
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	Amount        *string                                         `json:"amount,omitempty" xml:"amount,omitempty"`
+	CreateTime    *string                                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator       *QueryReceiptsBaseInfoResponseBodyListCreator   `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Customer      *QueryReceiptsBaseInfoResponseBodyListCustomer  `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
+	ModelId       *string                                         `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	Principal     *QueryReceiptsBaseInfoResponseBodyListPrincipal `json:"principal,omitempty" xml:"principal,omitempty" type:"Struct"`
+	Project       *QueryReceiptsBaseInfoResponseBodyListProject   `json:"project,omitempty" xml:"project,omitempty" type:"Struct"`
+	ReceiptId     *string                                         `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
+	RecordTime    *string                                         `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
+	Remark        *string                                         `json:"remark,omitempty" xml:"remark,omitempty"`
+	Source        *string                                         `json:"source,omitempty" xml:"source,omitempty"`
+	Status        *string                                         `json:"status,omitempty" xml:"status,omitempty"`
+	Supplier      *QueryReceiptsBaseInfoResponseBodyListSupplier  `json:"supplier,omitempty" xml:"supplier,omitempty" type:"Struct"`
+	Title         *string                                         `json:"title,omitempty" xml:"title,omitempty"`
+	VoucherStatus *string                                         `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s QueryReceiptsBaseInfoResponseBodyList) String() string {
@@ -6132,12 +5860,9 @@ func (s *QueryReceiptsBaseInfoResponseBodyList) SetVoucherStatus(v string) *Quer
 }
 
 type QueryReceiptsBaseInfoResponseBodyListCreator struct {
-	// 创建人头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 创建人昵称
-	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	// 创建人工号
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryReceiptsBaseInfoResponseBodyListCreator) String() string {
@@ -6164,9 +5889,7 @@ func (s *QueryReceiptsBaseInfoResponseBodyListCreator) SetUserId(v string) *Quer
 }
 
 type QueryReceiptsBaseInfoResponseBodyListCustomer struct {
-	// 客户code
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 客户名字
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -6264,8 +5987,9 @@ func (s *QueryReceiptsBaseInfoResponseBodyListSupplier) SetName(v string) *Query
 }
 
 type QueryReceiptsBaseInfoResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryReceiptsBaseInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryReceiptsBaseInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryReceiptsBaseInfoResponse) String() string {
@@ -6278,6 +6002,11 @@ func (s QueryReceiptsBaseInfoResponse) GoString() string {
 
 func (s *QueryReceiptsBaseInfoResponse) SetHeaders(v map[string]*string) *QueryReceiptsBaseInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponse) SetStatusCode(v int32) *QueryReceiptsBaseInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6310,17 +6039,11 @@ func (s *QueryReceiptsByPageHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryReceiptsByPageRequest struct {
-	// 检索结束时间，默认当前时间，离开始时间最长不超过180天
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 数据模型id
-	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
-	// 分页，从1开始
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小，默认10，最大100
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 检索开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 检索排序时间类型：创建时间(gmt_create)，更新时间(gmt_modified)
+	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ModelId         *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	PageNumber      *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize        *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	TimeFilterField *string `json:"timeFilterField,omitempty" xml:"timeFilterField,omitempty"`
 }
 
@@ -6363,10 +6086,8 @@ func (s *QueryReceiptsByPageRequest) SetTimeFilterField(v string) *QueryReceipts
 }
 
 type QueryReceiptsByPageResponseBody struct {
-	// 是否还有更多数据
-	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 数据列表
-	List []*QueryReceiptsByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	HasMore *string                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryReceiptsByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
 func (s QueryReceiptsByPageResponseBody) String() string {
@@ -6388,14 +6109,10 @@ func (s *QueryReceiptsByPageResponseBody) SetList(v []*QueryReceiptsByPageRespon
 }
 
 type QueryReceiptsByPageResponseBodyList struct {
-	// 数据来源于开放时，对应的微应用id
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 单据数据体json
-	Data *string `json:"data,omitempty" xml:"data,omitempty"`
-	// 模型id
+	AppId   *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	Data    *string `json:"data,omitempty" xml:"data,omitempty"`
 	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
-	// 数据来源：审批(approval)，开放接口(openapi)
-	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	Source  *string `json:"source,omitempty" xml:"source,omitempty"`
 }
 
 func (s QueryReceiptsByPageResponseBodyList) String() string {
@@ -6427,8 +6144,9 @@ func (s *QueryReceiptsByPageResponseBodyList) SetSource(v string) *QueryReceipts
 }
 
 type QueryReceiptsByPageResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryReceiptsByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryReceiptsByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryReceiptsByPageResponse) String() string {
@@ -6441,6 +6159,11 @@ func (s QueryReceiptsByPageResponse) GoString() string {
 
 func (s *QueryReceiptsByPageResponse) SetHeaders(v map[string]*string) *QueryReceiptsByPageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryReceiptsByPageResponse) SetStatusCode(v int32) *QueryReceiptsByPageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6473,10 +6196,8 @@ func (s *QuerySupplierByPageHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QuerySupplierByPageRequest struct {
-	// 分页，从1开始
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小，默认10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QuerySupplierByPageRequest) String() string {
@@ -6498,10 +6219,8 @@ func (s *QuerySupplierByPageRequest) SetPageSize(v int64) *QuerySupplierByPageRe
 }
 
 type QuerySupplierByPageResponseBody struct {
-	// 是否还有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// resultList
-	List []*QuerySupplierByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	HasMore *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QuerySupplierByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
 func (s QuerySupplierByPageResponseBody) String() string {
@@ -6523,17 +6242,11 @@ func (s *QuerySupplierByPageResponseBody) SetList(v []*QuerySupplierByPageRespon
 }
 
 type QuerySupplierByPageResponseBodyList struct {
-	// 供应商Code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 创建时间(单位MS)
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 供应商描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 供应商名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 状态：启用(valid), 停用(invalid), 删除(deleted)
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户自定义code
+	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
 	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
@@ -6576,8 +6289,9 @@ func (s *QuerySupplierByPageResponseBodyList) SetUserDefineCode(v string) *Query
 }
 
 type QuerySupplierByPageResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QuerySupplierByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QuerySupplierByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QuerySupplierByPageResponse) String() string {
@@ -6590,6 +6304,11 @@ func (s QuerySupplierByPageResponse) GoString() string {
 
 func (s *QuerySupplierByPageResponse) SetHeaders(v map[string]*string) *QuerySupplierByPageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QuerySupplierByPageResponse) SetStatusCode(v int32) *QuerySupplierByPageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6622,7 +6341,6 @@ func (s *QueryUserRoleListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUs
 }
 
 type QueryUserRoleListRequest struct {
-	// 用户id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -6657,9 +6375,7 @@ func (s *QueryUserRoleListResponseBody) SetRoleVOList(v []*QueryUserRoleListResp
 }
 
 type QueryUserRoleListResponseBodyRoleVOList struct {
-	// 角色Code
 	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	// 角色名字
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
@@ -6682,8 +6398,9 @@ func (s *QueryUserRoleListResponseBodyRoleVOList) SetRoleName(v string) *QueryUs
 }
 
 type QueryUserRoleListResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryUserRoleListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryUserRoleListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryUserRoleListResponse) String() string {
@@ -6696,6 +6413,11 @@ func (s QueryUserRoleListResponse) GoString() string {
 
 func (s *QueryUserRoleListResponse) SetHeaders(v map[string]*string) *QueryUserRoleListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryUserRoleListResponse) SetStatusCode(v int32) *QueryUserRoleListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6728,12 +6450,9 @@ func (s *UnbindApplyReceiptAndInvoiceRelatedHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type UnbindApplyReceiptAndInvoiceRelatedRequest struct {
-	// 审批单id
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	// 发票模型
+	InstanceId       *string                                                       `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 	InvoiceKeyVOList []*UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
-	// 操作员
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Operator         *string                                                       `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s UnbindApplyReceiptAndInvoiceRelatedRequest) String() string {
@@ -6760,10 +6479,8 @@ func (s *UnbindApplyReceiptAndInvoiceRelatedRequest) SetOperator(v string) *Unbi
 }
 
 type UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList struct {
-	// 发票代码
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
 func (s UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList) String() string {
@@ -6785,11 +6502,8 @@ func (s *UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList) SetInvoiceN
 }
 
 type UnbindApplyReceiptAndInvoiceRelatedResponseBody struct {
-	// 批量更新发票返回结果
-	//
 	BatchUpdateInvoiceResponse *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse `json:"batchUpdateInvoiceResponse,omitempty" xml:"batchUpdateInvoiceResponse,omitempty" type:"Struct"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Success                    *bool                                                                      `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UnbindApplyReceiptAndInvoiceRelatedResponseBody) String() string {
@@ -6811,8 +6525,6 @@ func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBody) SetSuccess(v bool) *Un
 }
 
 type UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse struct {
-	// 错误结果列表
-	//
 	InvoiceKeyVOList []*UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
 }
 
@@ -6830,10 +6542,8 @@ func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceRespon
 }
 
 type UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList struct {
-	// 发票编码
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
 func (s UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) String() string {
@@ -6855,8 +6565,9 @@ func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceRespon
 }
 
 type UnbindApplyReceiptAndInvoiceRelatedResponse struct {
-	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UnbindApplyReceiptAndInvoiceRelatedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UnbindApplyReceiptAndInvoiceRelatedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UnbindApplyReceiptAndInvoiceRelatedResponse) String() string {
@@ -6869,6 +6580,11 @@ func (s UnbindApplyReceiptAndInvoiceRelatedResponse) GoString() string {
 
 func (s *UnbindApplyReceiptAndInvoiceRelatedResponse) SetHeaders(v map[string]*string) *UnbindApplyReceiptAndInvoiceRelatedResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponse) SetStatusCode(v int32) *UnbindApplyReceiptAndInvoiceRelatedResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6901,12 +6617,9 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedRequest struct {
-	// 发票模型
 	GeneralInvoiceVOList []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
-	// 审批单id
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	// 操作员
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	InstanceId           *string                                                           `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	Operator             *string                                                           `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedRequest) String() string {
@@ -6933,83 +6646,46 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequest) SetOperator(v string) *Upda
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList struct {
-	// 账期时间
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 不含税金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 校验码
-	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	// 查验时间
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 开票日期
-	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	// 电票版式文件下载地址
-	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 资金类型 ，RED（红票），（BLUE）蓝票
-	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	// 常规发票明细
-	GeneralInvoiceDetailVOList []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票状态
-	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 机器码
-	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
-	// 成品油标识
-	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
-	// 收款人
-	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
-	// 审批单实例
-	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
-	// 审批单类型
-	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行账户
-	PurchaserBankAccount *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
-	// 购方银行名称
-	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
-	// 购方名称
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 备注
+	AccountPeriod                  *string                                                                                         `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	Amount                         *string                                                                                         `json:"amount,omitempty" xml:"amount,omitempty"`
+	AmountWithTax                  *string                                                                                         `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CheckCode                      *string                                                                                         `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	CheckTime                      *string                                                                                         `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrewDate                       *string                                                                                         `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	ElectronicUrl                  *string                                                                                         `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	FinanceType                    *string                                                                                         `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FundType                       *string                                                                                         `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	GeneralInvoiceDetailVOList     []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	InvoiceCode                    *string                                                                                         `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo                      *string                                                                                         `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceStatus                  *string                                                                                         `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	InvoiceType                    *string                                                                                         `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	MachineCode                    *string                                                                                         `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	OilFlag                        *string                                                                                         `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	Payee                          *string                                                                                         `json:"payee,omitempty" xml:"payee,omitempty"`
+	ProcessInstCode                *string                                                                                         `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	ProcessInstType                *string                                                                                         `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	PurchaserAddress               *string                                                                                         `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankAccount           *string                                                                                         `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
+	PurchaserBankNameAccount       *string                                                                                         `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	PurchaserName                  *string                                                                                         `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo                 *string                                                                                         `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel                   *string                                                                                         `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	Remark                         *string                                                                                         `json:"remark,omitempty" xml:"remark,omitempty"`
 	SecondHandCarInvoiceDetailList []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
-	// 销方地址
-	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行账户
-	SellerBankAccount *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
-	// 销方银行名称
-	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
-	// 销方名称
-	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
-	// 销方税号
-	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
-	// 销方电话
-	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 代开发票标识 1-自开，2-代开
-	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
-	// 税额
-	TaxAmount                   *string                                                                                      `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	UsedVehicleSaleDetailVOList []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	VehicleSaleDetailVOList     []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	// 发票查验状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
-	// 凭证code
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 生成凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	SellerAddress                  *string                                                                                         `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	SellerBankAccount              *string                                                                                         `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
+	SellerBankNameAccount          *string                                                                                         `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	SellerName                     *string                                                                                         `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	SellerTaxNo                    *string                                                                                         `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	SellerTel                      *string                                                                                         `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	SupplySign                     *string                                                                                         `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	TaxAmount                      *string                                                                                         `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVOList    []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList    `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VehicleSaleDetailVOList        []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListVehicleSaleDetailVOList        `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VerifyStatus                   *string                                                                                         `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	VoucherCode                    *string                                                                                         `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	VoucherStatus                  *string                                                                                         `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) String() string {
@@ -7221,30 +6897,18 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetVouc
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 规格型号
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	GoodsName     *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	Quantity      *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	RevenueCode   *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	RowNo         *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
 	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 是否享受税收优惠：0-不享受，1-享受
-	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
-	// 优惠政策类型
-	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 单价
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	TaxAmount     *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxPre        *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	TaxPreType    *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
+	TaxRate       *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit          *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPrice     *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) String() string {
@@ -7316,25 +6980,15 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralIn
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 车牌号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 通行日期止
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 税收分类编码
+	Amount      *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CardNo      *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	GoodsName   *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 通行日期起
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 类型
+	RowNo       *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaxAmount   *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxRate     *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
@@ -7397,38 +7051,22 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListSecondHan
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList struct {
-	// 经营、拍卖单位
-	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
-	// 经营、拍卖单位地址
+	AuctionUnit        *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
 	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
-	// 经营、拍卖单位银行
-	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
-	// 经营、拍卖单位税号
-	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
-	// 经营、拍卖单位电话
-	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
-	// 厂牌型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌照号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 登记证号
-	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
-	// 转入地车辆管理所名称
-	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
-	// 二手车市场地址
-	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
-	// 二手车市场
-	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
-	// 二手车市场开户银行、账号
-	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
-	// 二手车市场电话
+	AuctionUnitBank    *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	AuctionUnitTaxNo   *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	AuctionUtilTel     *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	CarModel           *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CardNo             *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	Registration       *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	TransferVehicle    *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	UsedCarAddress     *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	UsedCarMarket      *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	UsedCarMarketBank  *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
 	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
-	// 二手车市场纳税人识别号
 	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
-	// 车架号/车辆识别号
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	VehicleNo          *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType        *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList) String() string {
@@ -7520,36 +7158,21 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListUsedVehic
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListVehicleSaleDetailVOList struct {
-	// 品牌
-	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
-	// 合格证号
-	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
-	// 发动机号
-	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
-	// 身份证号/组织机构代码
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// 进口证书号
+	Brand               *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	CertificateNo       *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	EngineNo            *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	IdCardNo            *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
-	// 商检单号
-	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
-	// 限乘人数
-	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
-	// 产地
-	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
-	// 完税凭证号码
-	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
-	// 主管税务机关名称
-	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
-	// 主管税务机关代码
-	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 吨位
-	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
-	// 车架号码
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	InspectionListNo    *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
+	MaxPassengers       *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	OriginPlace         *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	PaymentVoucherNo    *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	TaxAuthorityName    *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	TaxAuthorityNo      *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Tonnage             *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	VehicleNo           *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType         *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListVehicleSaleDetailVOList) String() string {
@@ -7636,11 +7259,8 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListVehicleSa
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedResponseBody struct {
-	// 批量更新发票返回结果
-	//
 	BatchUpdateInvoiceResponse *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse `json:"batchUpdateInvoiceResponse,omitempty" xml:"batchUpdateInvoiceResponse,omitempty" type:"Struct"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Success                    *bool                                                                      `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedResponseBody) String() string {
@@ -7662,8 +7282,6 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBody) SetSuccess(v bool) *Up
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse struct {
-	// 错误结果列表
-	//
 	InvoiceKeyVOList []*UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
 }
 
@@ -7681,10 +7299,8 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceRespon
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList struct {
-	// 发票编码
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) String() string {
@@ -7706,8 +7322,9 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceRespon
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedResponse struct {
-	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateApplyReceiptAndInvoiceRelatedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateApplyReceiptAndInvoiceRelatedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedResponse) String() string {
@@ -7720,6 +7337,11 @@ func (s UpdateApplyReceiptAndInvoiceRelatedResponse) GoString() string {
 
 func (s *UpdateApplyReceiptAndInvoiceRelatedResponse) SetHeaders(v map[string]*string) *UpdateApplyReceiptAndInvoiceRelatedResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedResponse) SetStatusCode(v int32) *UpdateApplyReceiptAndInvoiceRelatedResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7752,14 +7374,10 @@ func (s *UpdateDigitalInvoiceOrgInfoHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type UpdateDigitalInvoiceOrgInfoRequest struct {
-	// 支持的全电票种
 	DigitalInvoiceType []*string `json:"digitalInvoiceType,omitempty" xml:"digitalInvoiceType,omitempty" type:"Repeated"`
-	// 是否为全电企业
-	IsDigitalOrg *bool `json:"isDigitalOrg,omitempty" xml:"isDigitalOrg,omitempty"`
-	// 报税地点
-	Location *string `json:"location,omitempty" xml:"location,omitempty"`
-	// 员工id
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	IsDigitalOrg       *bool     `json:"isDigitalOrg,omitempty" xml:"isDigitalOrg,omitempty"`
+	Location           *string   `json:"location,omitempty" xml:"location,omitempty"`
+	Operator           *string   `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s UpdateDigitalInvoiceOrgInfoRequest) String() string {
@@ -7791,7 +7409,6 @@ func (s *UpdateDigitalInvoiceOrgInfoRequest) SetOperator(v string) *UpdateDigita
 }
 
 type UpdateDigitalInvoiceOrgInfoResponseBody struct {
-	// 返回结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -7809,8 +7426,9 @@ func (s *UpdateDigitalInvoiceOrgInfoResponseBody) SetResult(v bool) *UpdateDigit
 }
 
 type UpdateDigitalInvoiceOrgInfoResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateDigitalInvoiceOrgInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateDigitalInvoiceOrgInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateDigitalInvoiceOrgInfoResponse) String() string {
@@ -7823,6 +7441,11 @@ func (s UpdateDigitalInvoiceOrgInfoResponse) GoString() string {
 
 func (s *UpdateDigitalInvoiceOrgInfoResponse) SetHeaders(v map[string]*string) *UpdateDigitalInvoiceOrgInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateDigitalInvoiceOrgInfoResponse) SetStatusCode(v int32) *UpdateDigitalInvoiceOrgInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7855,14 +7478,10 @@ func (s *UpdateFinanceCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdateFinanceCompanyInfoRequest struct {
-	// 公司名字
 	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
-	// 纳税性质 小规模纳税人 一般纳税人
-	TaxNature *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
-	// 税号
-	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	// 用户ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	TaxNature   *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	TaxNo       *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateFinanceCompanyInfoRequest) String() string {
@@ -7911,8 +7530,9 @@ func (s *UpdateFinanceCompanyInfoResponseBody) SetResult(v bool) *UpdateFinanceC
 }
 
 type UpdateFinanceCompanyInfoResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateFinanceCompanyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateFinanceCompanyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateFinanceCompanyInfoResponse) String() string {
@@ -7925,6 +7545,11 @@ func (s UpdateFinanceCompanyInfoResponse) GoString() string {
 
 func (s *UpdateFinanceCompanyInfoResponse) SetHeaders(v map[string]*string) *UpdateFinanceCompanyInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateFinanceCompanyInfoResponse) SetStatusCode(v int32) *UpdateFinanceCompanyInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7957,26 +7582,16 @@ func (s *UpdateInvoiceAbandonStatusHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateInvoiceAbandonStatusRequest struct {
-	// 发票全票面信息（蓝票）
 	BlueGeneralInvoiceVO *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO `json:"blueGeneralInvoiceVO,omitempty" xml:"blueGeneralInvoiceVO,omitempty" type:"Struct"`
-	// 发票编码（蓝票）
-	BlueInvoiceCode *string `json:"blueInvoiceCode,omitempty" xml:"blueInvoiceCode,omitempty"`
-	// 发票号码（蓝票）
-	BlueInvoiceNo *string `json:"blueInvoiceNo,omitempty" xml:"blueInvoiceNo,omitempty"`
-	// 状态-红冲、废弃
-	BlueInvoiceStatus *string `json:"blueInvoiceStatus,omitempty" xml:"blueInvoiceStatus,omitempty"`
-	// 操作员
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 发票全票面信息（红票）
-	RedGeneralInvoiceVO *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO `json:"redGeneralInvoiceVO,omitempty" xml:"redGeneralInvoiceVO,omitempty" type:"Struct"`
-	// 红字发票code
-	RedInvoiceCode *string `json:"redInvoiceCode,omitempty" xml:"redInvoiceCode,omitempty"`
-	// 红字发票编码
-	RedInvoiceNo *string `json:"redInvoiceNo,omitempty" xml:"redInvoiceNo,omitempty"`
-	// 红字发票状态
-	RedInvoiceStatus *string `json:"redInvoiceStatus,omitempty" xml:"redInvoiceStatus,omitempty"`
-	// 目标发票
-	TargetInvoice *string `json:"targetInvoice,omitempty" xml:"targetInvoice,omitempty"`
+	BlueInvoiceCode      *string                                                `json:"blueInvoiceCode,omitempty" xml:"blueInvoiceCode,omitempty"`
+	BlueInvoiceNo        *string                                                `json:"blueInvoiceNo,omitempty" xml:"blueInvoiceNo,omitempty"`
+	BlueInvoiceStatus    *string                                                `json:"blueInvoiceStatus,omitempty" xml:"blueInvoiceStatus,omitempty"`
+	Operator             *string                                                `json:"operator,omitempty" xml:"operator,omitempty"`
+	RedGeneralInvoiceVO  *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO  `json:"redGeneralInvoiceVO,omitempty" xml:"redGeneralInvoiceVO,omitempty" type:"Struct"`
+	RedInvoiceCode       *string                                                `json:"redInvoiceCode,omitempty" xml:"redInvoiceCode,omitempty"`
+	RedInvoiceNo         *string                                                `json:"redInvoiceNo,omitempty" xml:"redInvoiceNo,omitempty"`
+	RedInvoiceStatus     *string                                                `json:"redInvoiceStatus,omitempty" xml:"redInvoiceStatus,omitempty"`
+	TargetInvoice        *string                                                `json:"targetInvoice,omitempty" xml:"targetInvoice,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequest) String() string {
@@ -8038,83 +7653,46 @@ func (s *UpdateInvoiceAbandonStatusRequest) SetTargetInvoice(v string) *UpdateIn
 }
 
 type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO struct {
-	// 账期时间
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 不含税金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 校验码
-	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	// 查验时间
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 开票日期
-	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	// 电票版式文件下载地址
-	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 资金类型 ，RED（红票），（BLUE）蓝票
-	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	// 常规发票明细
-	GeneralInvoiceDetailVOList []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票状态
-	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 机器码
-	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
-	// 成品油标识
-	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
-	// 收款人
-	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
-	// 审批单实例
-	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
-	// 审批单类型
-	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行账户
-	PurchaserBankAccount *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
-	// 购方银行名称
-	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
-	// 购方名称
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 备注
+	AccountPeriod                  *string                                                                                `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	Amount                         *string                                                                                `json:"amount,omitempty" xml:"amount,omitempty"`
+	AmountWithTax                  *string                                                                                `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CheckCode                      *string                                                                                `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	CheckTime                      *string                                                                                `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrewDate                       *string                                                                                `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	ElectronicUrl                  *string                                                                                `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	FinanceType                    *string                                                                                `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FundType                       *string                                                                                `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	GeneralInvoiceDetailVOList     []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	InvoiceCode                    *string                                                                                `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo                      *string                                                                                `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceStatus                  *string                                                                                `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	InvoiceType                    *string                                                                                `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	MachineCode                    *string                                                                                `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	OilFlag                        *string                                                                                `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	Payee                          *string                                                                                `json:"payee,omitempty" xml:"payee,omitempty"`
+	ProcessInstCode                *string                                                                                `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	ProcessInstType                *string                                                                                `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	PurchaserAddress               *string                                                                                `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankAccount           *string                                                                                `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
+	PurchaserBankNameAccount       *string                                                                                `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	PurchaserName                  *string                                                                                `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo                 *string                                                                                `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel                   *string                                                                                `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	Remark                         *string                                                                                `json:"remark,omitempty" xml:"remark,omitempty"`
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
-	// 销方地址
-	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行账户
-	SellerBankAccount *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
-	// 销方银行
-	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
-	// 销方名称
-	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
-	// 销方税号
-	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
-	// 销方电话
-	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 代开发票标识 1-自开，2-代开
-	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
-	// 税额
-	TaxAmount                   *string                                                                             `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	UsedVehicleSaleDetailVOList []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	VehicleSaleDetailVOList     []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	// 发票查验状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
-	// 凭证code
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 生成凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	SellerAddress                  *string                                                                                `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	SellerBankAccount              *string                                                                                `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
+	SellerBankNameAccount          *string                                                                                `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	SellerName                     *string                                                                                `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	SellerTaxNo                    *string                                                                                `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	SellerTel                      *string                                                                                `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	SupplySign                     *string                                                                                `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	TaxAmount                      *string                                                                                `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVOList    []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVOList    `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VehicleSaleDetailVOList        []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVOList        `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VerifyStatus                   *string                                                                                `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	VoucherCode                    *string                                                                                `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	VoucherStatus                  *string                                                                                `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) String() string {
@@ -8326,30 +7904,18 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetVoucherStatus
 }
 
 type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 规格型号
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	GoodsName     *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	Quantity      *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	RevenueCode   *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	RowNo         *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
 	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 是否享受税收优惠：0-不享受，1-享受
-	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
-	// 优惠政策类型
-	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 单价
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	TaxAmount     *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxPre        *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	TaxPreType    *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
+	TaxRate       *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit          *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPrice     *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList) String() string {
@@ -8421,25 +7987,15 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDeta
 }
 
 type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 车牌号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 通行日期止
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 税收分类编码
+	Amount      *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CardNo      *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	GoodsName   *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 通行日期起
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 类型
+	RowNo       *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaxAmount   *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxRate     *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
@@ -8502,38 +8058,22 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoi
 }
 
 type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVOList struct {
-	// 经营、拍卖单位
-	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
-	// 经营、拍卖单位地址
+	AuctionUnit        *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
 	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
-	// 经营、拍卖单位银行
-	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
-	// 经营、拍卖单位税号
-	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
-	// 经营、拍卖单位电话
-	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
-	// 厂牌型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌照号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 登记证号
-	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
-	// 转入地车辆管理所名称
-	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
-	// 二手车市场地址
-	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
-	// 二手车市场
-	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
-	// 二手车市场开户银行、账号
-	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
-	// 二手车市场电话
+	AuctionUnitBank    *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	AuctionUnitTaxNo   *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	AuctionUtilTel     *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	CarModel           *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CardNo             *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	Registration       *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	TransferVehicle    *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	UsedCarAddress     *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	UsedCarMarket      *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	UsedCarMarketBank  *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
 	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
-	// 二手车市场纳税人识别号
 	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
-	// 车架号/车辆识别号
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	VehicleNo          *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType        *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVOList) String() string {
@@ -8625,35 +8165,21 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDet
 }
 
 type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVOList struct {
-	// 品牌
-	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
-	// 合格证号
-	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
-	// 发动机号
-	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
-	// 身份证号/组织机构代码
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// 进口证书号
+	Brand               *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	CertificateNo       *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	EngineNo            *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	IdCardNo            *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
 	InspectionListNo    *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
-	// 限乘人数
-	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
-	// 产地
-	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
-	// 完税凭证号码
-	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
-	// 主管税务机关名称
-	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
-	// 主管税务机关代码
-	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 吨位
-	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
-	// 车架号码
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	MaxPassengers       *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	OriginPlace         *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	PaymentVoucherNo    *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	TaxAuthorityName    *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	TaxAuthorityNo      *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Tonnage             *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	VehicleNo           *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType         *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVOList) String() string {
@@ -8740,83 +8266,46 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailV
 }
 
 type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO struct {
-	// 账期时间
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 不含税金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 校验码
-	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	// 查验时间
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 开票日期
-	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	// 电票版式文件下载地址
-	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 资金类型 ，RED（红票），（BLUE）蓝票
-	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	// 常规发票明细
-	GeneralInvoiceDetailVOList []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票状态
-	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 机器码
-	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
-	// 成品油标识
-	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
-	// 收款人
-	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
-	// 审批单实例
-	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
-	// 审批单类型
-	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行账户
-	PurchaserBankAccount *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
-	// 购方银行
-	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
-	// 购方名称
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 备注
+	AccountPeriod                  *string                                                                               `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	Amount                         *string                                                                               `json:"amount,omitempty" xml:"amount,omitempty"`
+	AmountWithTax                  *string                                                                               `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CheckCode                      *string                                                                               `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	CheckTime                      *string                                                                               `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrewDate                       *string                                                                               `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	ElectronicUrl                  *string                                                                               `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	FinanceType                    *string                                                                               `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FundType                       *string                                                                               `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	GeneralInvoiceDetailVOList     []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	InvoiceCode                    *string                                                                               `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo                      *string                                                                               `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceStatus                  *string                                                                               `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	InvoiceType                    *string                                                                               `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	MachineCode                    *string                                                                               `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	OilFlag                        *string                                                                               `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	Payee                          *string                                                                               `json:"payee,omitempty" xml:"payee,omitempty"`
+	ProcessInstCode                *string                                                                               `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	ProcessInstType                *string                                                                               `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	PurchaserAddress               *string                                                                               `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankAccount           *string                                                                               `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
+	PurchaserBankNameAccount       *string                                                                               `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	PurchaserName                  *string                                                                               `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo                 *string                                                                               `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel                   *string                                                                               `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	Remark                         *string                                                                               `json:"remark,omitempty" xml:"remark,omitempty"`
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
-	// 销方地址
-	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 购方银行账户
-	SellerBankAccount *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
-	// 销方银行
-	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
-	// 销方名称
-	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
-	// 销方税号
-	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
-	// 销方电话
-	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 代开发票标识 1-自开，2-代开
-	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
-	// 税额
-	TaxAmount                   *string                                                                            `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	UsedVehicleSaleDetailVOList []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	VehicleSaleDetailVOList     []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	// 发票查验状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
-	// 凭证code
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 生成凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	SellerAddress                  *string                                                                               `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	SellerBankAccount              *string                                                                               `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
+	SellerBankNameAccount          *string                                                                               `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	SellerName                     *string                                                                               `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	SellerTaxNo                    *string                                                                               `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	SellerTel                      *string                                                                               `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	SupplySign                     *string                                                                               `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	TaxAmount                      *string                                                                               `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVOList    []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVOList    `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VehicleSaleDetailVOList        []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVOList        `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VerifyStatus                   *string                                                                               `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	VoucherCode                    *string                                                                               `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	VoucherStatus                  *string                                                                               `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) String() string {
@@ -9028,30 +8517,18 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetVoucherStatus(
 }
 
 type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 规格型号
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	GoodsName     *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	Quantity      *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	RevenueCode   *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	RowNo         *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
 	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 是否享受税收优惠：0-不享受，1-享受
-	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
-	// 优惠政策类型
-	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 单价
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	TaxAmount     *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxPre        *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	TaxPreType    *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
+	TaxRate       *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit          *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPrice     *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) String() string {
@@ -9123,25 +8600,15 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetai
 }
 
 type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 车牌号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 通行日期止
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 税收分类编码
+	Amount      *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CardNo      *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	GoodsName   *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 通行日期起
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 类型
+	RowNo       *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaxAmount   *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxRate     *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
@@ -9204,38 +8671,22 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoic
 }
 
 type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVOList struct {
-	// 经营、拍卖单位
-	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
-	// 经营、拍卖单位地址
+	AuctionUnit        *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
 	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
-	// 经营、拍卖单位银行
-	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
-	// 经营、拍卖单位税号
-	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
-	// 经营、拍卖单位电话
-	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
-	// 厂牌型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌照号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 登记证号
-	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
-	// 转入地车辆管理所名称
-	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
-	// 二手车市场地址
-	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
-	// 二手车市场
-	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
-	// 二手车市场开户银行、账号
-	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
-	// 二手车市场电话
+	AuctionUnitBank    *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	AuctionUnitTaxNo   *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	AuctionUtilTel     *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	CarModel           *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CardNo             *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	Registration       *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	TransferVehicle    *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	UsedCarAddress     *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	UsedCarMarket      *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	UsedCarMarketBank  *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
 	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
-	// 二手车市场纳税人识别号
 	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
-	// 车架号/车辆识别号
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	VehicleNo          *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType        *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVOList) String() string {
@@ -9327,36 +8778,21 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDeta
 }
 
 type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVOList struct {
-	// 品牌
-	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
-	// 合格证号
-	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
-	// 发动机号
-	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
-	// 身份证号/组织机构代码
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// 进口证书号
+	Brand               *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	CertificateNo       *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	EngineNo            *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	IdCardNo            *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
-	// 商检单号
-	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
-	// 限乘人数
-	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
-	// 产地
-	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
-	// 完税凭证号码
-	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
-	// 主管税务机关名称
-	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
-	// 主管税务机关代码
-	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 吨位
-	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
-	// 车架号码
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	InspectionListNo    *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
+	MaxPassengers       *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	OriginPlace         *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	PaymentVoucherNo    *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	TaxAuthorityName    *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	TaxAuthorityNo      *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Tonnage             *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	VehicleNo           *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType         *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVOList) String() string {
@@ -9460,8 +8896,9 @@ func (s *UpdateInvoiceAbandonStatusResponseBody) SetResult(v bool) *UpdateInvoic
 }
 
 type UpdateInvoiceAbandonStatusResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInvoiceAbandonStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInvoiceAbandonStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInvoiceAbandonStatusResponse) String() string {
@@ -9474,6 +8911,11 @@ func (s UpdateInvoiceAbandonStatusResponse) GoString() string {
 
 func (s *UpdateInvoiceAbandonStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceAbandonStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusResponse) SetStatusCode(v int32) *UpdateInvoiceAbandonStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -9506,14 +8948,10 @@ func (s *UpdateInvoiceAccountPeriodHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateInvoiceAccountPeriodRequest struct {
-	// 认证状态
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 发票模型
+	AccountPeriod        *string                                                  `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
 	GeneralInvoiceVOList []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
-	// 发票主键列表
-	InvoiceKeyVOList []*UpdateInvoiceAccountPeriodRequestInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
-	// 操作员
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	InvoiceKeyVOList     []*UpdateInvoiceAccountPeriodRequestInvoiceKeyVOList     `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
+	Operator             *string                                                  `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s UpdateInvoiceAccountPeriodRequest) String() string {
@@ -9545,83 +8983,46 @@ func (s *UpdateInvoiceAccountPeriodRequest) SetOperator(v string) *UpdateInvoice
 }
 
 type UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList struct {
-	// 账期时间
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 不含税金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 校验码
-	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	// 查验时间
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 开票日期
-	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	// 电票版式文件下载地址
-	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 资金类型 ，RED（红票），（BLUE）蓝票
-	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	// 常规发票明细
-	GeneralInvoiceDetailVOList []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票状态
-	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 机器码
-	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
-	// 成品油标识
-	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
-	// 收款人
-	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
-	// 审批单实例
-	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
-	// 审批单类型
-	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行账户
-	PurchaserBankAccount *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
-	// 购方银行名称
-	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
-	// 购方名称
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 备注
+	AccountPeriod                  *string                                                                                `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	Amount                         *string                                                                                `json:"amount,omitempty" xml:"amount,omitempty"`
+	AmountWithTax                  *string                                                                                `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CheckCode                      *string                                                                                `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	CheckTime                      *string                                                                                `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrewDate                       *string                                                                                `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	ElectronicUrl                  *string                                                                                `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	FinanceType                    *string                                                                                `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FundType                       *string                                                                                `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	GeneralInvoiceDetailVOList     []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	InvoiceCode                    *string                                                                                `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo                      *string                                                                                `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceStatus                  *string                                                                                `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	InvoiceType                    *string                                                                                `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	MachineCode                    *string                                                                                `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	OilFlag                        *string                                                                                `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	Payee                          *string                                                                                `json:"payee,omitempty" xml:"payee,omitempty"`
+	ProcessInstCode                *string                                                                                `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	ProcessInstType                *string                                                                                `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	PurchaserAddress               *string                                                                                `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankAccount           *string                                                                                `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
+	PurchaserBankNameAccount       *string                                                                                `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	PurchaserName                  *string                                                                                `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo                 *string                                                                                `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel                   *string                                                                                `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	Remark                         *string                                                                                `json:"remark,omitempty" xml:"remark,omitempty"`
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
-	// 销方地址
-	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行账户
-	SellerBankAccount *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
-	// 销方银行名称
-	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
-	// 销方名称
-	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
-	// 销方税号
-	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
-	// 销方电话
-	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 代开发票标识 1-自开，2-代开
-	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
-	// 税额
-	TaxAmount                   *string                                                                             `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	UsedVehicleSaleDetailVOList []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	VehicleSaleDetailVOList     []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	// 发票查验状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
-	// 凭证code
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 生成凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	SellerAddress                  *string                                                                                `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	SellerBankAccount              *string                                                                                `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
+	SellerBankNameAccount          *string                                                                                `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	SellerName                     *string                                                                                `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	SellerTaxNo                    *string                                                                                `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	SellerTel                      *string                                                                                `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	SupplySign                     *string                                                                                `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	TaxAmount                      *string                                                                                `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVOList    []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList    `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VehicleSaleDetailVOList        []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListVehicleSaleDetailVOList        `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VerifyStatus                   *string                                                                                `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	VoucherCode                    *string                                                                                `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	VoucherStatus                  *string                                                                                `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) String() string {
@@ -9833,30 +9234,18 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetVoucherStatus
 }
 
 type UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 规格型号
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	GoodsName     *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	Quantity      *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	RevenueCode   *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	RowNo         *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
 	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 是否享受税收优惠：0-不享受，1-享受
-	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
-	// 优惠政策类型
-	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 单价
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	TaxAmount     *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxPre        *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	TaxPreType    *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
+	TaxRate       *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit          *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPrice     *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 }
 
 func (s UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) String() string {
@@ -9928,25 +9317,15 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDeta
 }
 
 type UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 车牌号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 通行日期止
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 税收分类编码
+	Amount      *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CardNo      *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	GoodsName   *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 通行日期起
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 类型
+	RowNo       *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaxAmount   *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxRate     *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
@@ -10009,38 +9388,22 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListSecondHandCarInvoi
 }
 
 type UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList struct {
-	// 经营、拍卖单位
-	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
-	// 经营、拍卖单位地址
+	AuctionUnit        *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
 	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
-	// 经营、拍卖单位银行
-	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
-	// 经营、拍卖单位税号
-	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
-	// 经营、拍卖单位电话
-	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
-	// 厂牌型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌照号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 登记证号
-	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
-	// 转入地车辆管理所名称
-	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
-	// 二手车市场地址
-	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
-	// 二手车市场
-	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
-	// 二手车市场开户银行、账号
-	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
-	// 二手车市场电话
+	AuctionUnitBank    *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	AuctionUnitTaxNo   *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	AuctionUtilTel     *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	CarModel           *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CardNo             *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	Registration       *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	TransferVehicle    *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	UsedCarAddress     *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	UsedCarMarket      *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	UsedCarMarketBank  *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
 	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
-	// 二手车市场纳税人识别号
 	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
-	// 车架号/车辆识别号
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	VehicleNo          *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType        *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList) String() string {
@@ -10132,36 +9495,21 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListUsedVehicleSaleDet
 }
 
 type UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListVehicleSaleDetailVOList struct {
-	// 品牌
-	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
-	// 合格证号
-	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
-	// 发动机号
-	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
-	// 身份证号/组织机构代码
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// 进口证书号
+	Brand               *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	CertificateNo       *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	EngineNo            *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	IdCardNo            *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
-	// 商检单号
-	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
-	// 限乘人数
-	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
-	// 产地
-	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
-	// 完税凭证号码
-	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
-	// 主管税务机关名称
-	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
-	// 主管税务机关代码
-	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 吨位
-	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
-	// 车架号码
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	InspectionListNo    *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
+	MaxPassengers       *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	OriginPlace         *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	PaymentVoucherNo    *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	TaxAuthorityName    *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	TaxAuthorityNo      *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Tonnage             *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	VehicleNo           *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType         *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListVehicleSaleDetailVOList) String() string {
@@ -10248,10 +9596,8 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListVehicleSaleDetailV
 }
 
 type UpdateInvoiceAccountPeriodRequestInvoiceKeyVOList struct {
-	// 发票编码
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
 func (s UpdateInvoiceAccountPeriodRequestInvoiceKeyVOList) String() string {
@@ -10273,9 +9619,7 @@ func (s *UpdateInvoiceAccountPeriodRequestInvoiceKeyVOList) SetInvoiceNo(v strin
 }
 
 type UpdateInvoiceAccountPeriodResponseBody struct {
-	// 错误信息
-	ErrorResult []*UpdateInvoiceAccountPeriodResponseBodyErrorResult `json:"errorResult,omitempty" xml:"errorResult,omitempty" type:"Repeated"`
-	// 成功信息
+	ErrorResult   []*UpdateInvoiceAccountPeriodResponseBodyErrorResult   `json:"errorResult,omitempty" xml:"errorResult,omitempty" type:"Repeated"`
 	SuccessResult []*UpdateInvoiceAccountPeriodResponseBodySuccessResult `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
 }
 
@@ -10298,9 +9642,7 @@ func (s *UpdateInvoiceAccountPeriodResponseBody) SetSuccessResult(v []*UpdateInv
 }
 
 type UpdateInvoiceAccountPeriodResponseBodyErrorResult struct {
-	// 错误数据的key
 	ErrorKey *string `json:"errorKey,omitempty" xml:"errorKey,omitempty"`
-	// 错误信息
 	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 }
 
@@ -10323,10 +9665,8 @@ func (s *UpdateInvoiceAccountPeriodResponseBodyErrorResult) SetErrorMsg(v string
 }
 
 type UpdateInvoiceAccountPeriodResponseBodySuccessResult struct {
-	// 发票代码
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
 func (s UpdateInvoiceAccountPeriodResponseBodySuccessResult) String() string {
@@ -10348,8 +9688,9 @@ func (s *UpdateInvoiceAccountPeriodResponseBodySuccessResult) SetInvoiceNo(v str
 }
 
 type UpdateInvoiceAccountPeriodResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInvoiceAccountPeriodResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInvoiceAccountPeriodResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInvoiceAccountPeriodResponse) String() string {
@@ -10362,6 +9703,11 @@ func (s UpdateInvoiceAccountPeriodResponse) GoString() string {
 
 func (s *UpdateInvoiceAccountPeriodResponse) SetHeaders(v map[string]*string) *UpdateInvoiceAccountPeriodResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceAccountPeriodResponse) SetStatusCode(v int32) *UpdateInvoiceAccountPeriodResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -10394,10 +9740,8 @@ func (s *UpdateInvoiceAccountingPeriodDateHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type UpdateInvoiceAccountingPeriodDateRequest struct {
-	// 发票财务信息列表
 	InvoiceFinanceInfoVOList []*UpdateInvoiceAccountingPeriodDateRequestInvoiceFinanceInfoVOList `json:"invoiceFinanceInfoVOList,omitempty" xml:"invoiceFinanceInfoVOList,omitempty" type:"Repeated"`
-	// 员工id
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Operator                 *string                                                             `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s UpdateInvoiceAccountingPeriodDateRequest) String() string {
@@ -10419,14 +9763,10 @@ func (s *UpdateInvoiceAccountingPeriodDateRequest) SetOperator(v string) *Update
 }
 
 type UpdateInvoiceAccountingPeriodDateRequestInvoiceFinanceInfoVOList struct {
-	// 入账日期
 	AccountingPeriodData *string `json:"accountingPeriodData,omitempty" xml:"accountingPeriodData,omitempty"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	InvoiceCode          *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo            *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceType          *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 }
 
 func (s UpdateInvoiceAccountingPeriodDateRequestInvoiceFinanceInfoVOList) String() string {
@@ -10475,12 +9815,9 @@ func (s *UpdateInvoiceAccountingPeriodDateResponseBody) SetResult(v *UpdateInvoi
 }
 
 type UpdateInvoiceAccountingPeriodDateResponseBodyResult struct {
-	// 失败发票数
-	FailCount *int64 `json:"failCount,omitempty" xml:"failCount,omitempty"`
-	// 失败发票列表
+	FailCount    *int64                                                             `json:"failCount,omitempty" xml:"failCount,omitempty"`
 	FailInvoices []*UpdateInvoiceAccountingPeriodDateResponseBodyResultFailInvoices `json:"failInvoices,omitempty" xml:"failInvoices,omitempty" type:"Repeated"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Success      *bool                                                              `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateInvoiceAccountingPeriodDateResponseBodyResult) String() string {
@@ -10507,14 +9844,10 @@ func (s *UpdateInvoiceAccountingPeriodDateResponseBodyResult) SetSuccess(v bool)
 }
 
 type UpdateInvoiceAccountingPeriodDateResponseBodyResultFailInvoices struct {
-	// 错误码
-	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	// 错误信息
-	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	// 发票代码
+	ErrorCode   *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg    *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
 func (s UpdateInvoiceAccountingPeriodDateResponseBodyResultFailInvoices) String() string {
@@ -10546,8 +9879,9 @@ func (s *UpdateInvoiceAccountingPeriodDateResponseBodyResultFailInvoices) SetInv
 }
 
 type UpdateInvoiceAccountingPeriodDateResponse struct {
-	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInvoiceAccountingPeriodDateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInvoiceAccountingPeriodDateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInvoiceAccountingPeriodDateResponse) String() string {
@@ -10560,6 +9894,11 @@ func (s UpdateInvoiceAccountingPeriodDateResponse) GoString() string {
 
 func (s *UpdateInvoiceAccountingPeriodDateResponse) SetHeaders(v map[string]*string) *UpdateInvoiceAccountingPeriodDateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceAccountingPeriodDateResponse) SetStatusCode(v int32) *UpdateInvoiceAccountingPeriodDateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -10592,10 +9931,8 @@ func (s *UpdateInvoiceAccountingStatusHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type UpdateInvoiceAccountingStatusRequest struct {
-	// 发票财务模型列表
 	InvoiceFinanceInfoVOList []*UpdateInvoiceAccountingStatusRequestInvoiceFinanceInfoVOList `json:"invoiceFinanceInfoVOList,omitempty" xml:"invoiceFinanceInfoVOList,omitempty" type:"Repeated"`
-	// 员工id
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Operator                 *string                                                         `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s UpdateInvoiceAccountingStatusRequest) String() string {
@@ -10617,14 +9954,10 @@ func (s *UpdateInvoiceAccountingStatusRequest) SetOperator(v string) *UpdateInvo
 }
 
 type UpdateInvoiceAccountingStatusRequestInvoiceFinanceInfoVOList struct {
-	// 入账状态
 	AccountingStatus *string `json:"accountingStatus,omitempty" xml:"accountingStatus,omitempty"`
-	// 发票号码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票代码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	InvoiceCode      *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo        *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceType      *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 }
 
 func (s UpdateInvoiceAccountingStatusRequestInvoiceFinanceInfoVOList) String() string {
@@ -10673,12 +10006,9 @@ func (s *UpdateInvoiceAccountingStatusResponseBody) SetResult(v *UpdateInvoiceAc
 }
 
 type UpdateInvoiceAccountingStatusResponseBodyResult struct {
-	// 失败发票数
-	FailCount *int64 `json:"failCount,omitempty" xml:"failCount,omitempty"`
-	// 失败发票列表
+	FailCount    *int64                                                         `json:"failCount,omitempty" xml:"failCount,omitempty"`
 	FailInvoices []*UpdateInvoiceAccountingStatusResponseBodyResultFailInvoices `json:"failInvoices,omitempty" xml:"failInvoices,omitempty" type:"Repeated"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Success      *bool                                                          `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateInvoiceAccountingStatusResponseBodyResult) String() string {
@@ -10705,14 +10035,10 @@ func (s *UpdateInvoiceAccountingStatusResponseBodyResult) SetSuccess(v bool) *Up
 }
 
 type UpdateInvoiceAccountingStatusResponseBodyResultFailInvoices struct {
-	// 错误码
-	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	// 错误信息
-	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	// 发票代码
+	ErrorCode   *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg    *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
 func (s UpdateInvoiceAccountingStatusResponseBodyResultFailInvoices) String() string {
@@ -10744,8 +10070,9 @@ func (s *UpdateInvoiceAccountingStatusResponseBodyResultFailInvoices) SetInvoice
 }
 
 type UpdateInvoiceAccountingStatusResponse struct {
-	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInvoiceAccountingStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInvoiceAccountingStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInvoiceAccountingStatusResponse) String() string {
@@ -10758,6 +10085,11 @@ func (s UpdateInvoiceAccountingStatusResponse) GoString() string {
 
 func (s *UpdateInvoiceAccountingStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceAccountingStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceAccountingStatusResponse) SetStatusCode(v int32) *UpdateInvoiceAccountingStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -10790,16 +10122,11 @@ func (s *UpdateInvoiceAndReceiptRelatedHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type UpdateInvoiceAndReceiptRelatedRequest struct {
-	// 发票全票面信息
 	GeneralInvoiceVO *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO `json:"generalInvoiceVO,omitempty" xml:"generalInvoiceVO,omitempty" type:"Struct"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 操作员
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 钉钉审批单号
-	ReceiptCode *string `json:"receiptCode,omitempty" xml:"receiptCode,omitempty"`
+	InvoiceCode      *string                                                `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo        *string                                                `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	Operator         *string                                                `json:"operator,omitempty" xml:"operator,omitempty"`
+	ReceiptCode      *string                                                `json:"receiptCode,omitempty" xml:"receiptCode,omitempty"`
 }
 
 func (s UpdateInvoiceAndReceiptRelatedRequest) String() string {
@@ -10836,82 +10163,46 @@ func (s *UpdateInvoiceAndReceiptRelatedRequest) SetReceiptCode(v string) *Update
 }
 
 type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
-	// 账期时间
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 不含税金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 校验码
-	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	// 查验时间
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 开票日期
-	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	// 电票版式文件下载地址
-	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 资金类型 ，RED（红票），（BLUE）蓝票
-	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	// 常规发票明细
-	GeneralInvoiceDetailVOList []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票状态
-	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 机器码
-	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
-	// 成品油标识
-	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
-	// 收款人
-	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
-	// 审批单实例
-	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
-	// 审批单类型
-	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行账户
-	//
-	PurchaserBankAccount     *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
-	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
-	// 购方名称
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 备注
+	AccountPeriod                  *string                                                                                `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	Amount                         *string                                                                                `json:"amount,omitempty" xml:"amount,omitempty"`
+	AmountWithTax                  *string                                                                                `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CheckCode                      *string                                                                                `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	CheckTime                      *string                                                                                `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrewDate                       *string                                                                                `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	ElectronicUrl                  *string                                                                                `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	FinanceType                    *string                                                                                `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FundType                       *string                                                                                `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	GeneralInvoiceDetailVOList     []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	InvoiceCode                    *string                                                                                `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo                      *string                                                                                `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceStatus                  *string                                                                                `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	InvoiceType                    *string                                                                                `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	MachineCode                    *string                                                                                `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	OilFlag                        *string                                                                                `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	Payee                          *string                                                                                `json:"payee,omitempty" xml:"payee,omitempty"`
+	ProcessInstCode                *string                                                                                `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	ProcessInstType                *string                                                                                `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	PurchaserAddress               *string                                                                                `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankAccount           *string                                                                                `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
+	PurchaserBankNameAccount       *string                                                                                `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	PurchaserName                  *string                                                                                `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo                 *string                                                                                `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel                   *string                                                                                `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	Remark                         *string                                                                                `json:"remark,omitempty" xml:"remark,omitempty"`
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
-	// 销方地址
-	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行账户
-	SellerBankAccount     *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
-	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
-	// 销方名称
-	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
-	// 销方税号
-	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
-	// 销方电话
-	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 代开发票标识 1-自开，2-代开
-	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
-	// 税额
-	TaxAmount                   *string                                                                             `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	UsedVehicleSaleDetailVOList []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	VehicleSaleDetailVOList     []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	// 发票查验状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
-	// 凭证code
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 生成凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	SellerAddress                  *string                                                                                `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	SellerBankAccount              *string                                                                                `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
+	SellerBankNameAccount          *string                                                                                `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	SellerName                     *string                                                                                `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	SellerTaxNo                    *string                                                                                `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	SellerTel                      *string                                                                                `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	SupplySign                     *string                                                                                `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	TaxAmount                      *string                                                                                `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVOList    []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList    `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VehicleSaleDetailVOList        []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOList        `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VerifyStatus                   *string                                                                                `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	VoucherCode                    *string                                                                                `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	VoucherStatus                  *string                                                                                `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) String() string {
@@ -11123,30 +10414,18 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetVoucherStatus
 }
 
 type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 规格型号
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	GoodsName     *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	Quantity      *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	RevenueCode   *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	RowNo         *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
 	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 是否享受税收优惠：0-不享受，1-享受
-	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
-	// 优惠政策类型
-	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 单价
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	TaxAmount     *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxPre        *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	TaxPreType    *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
+	TaxRate       *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit          *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPrice     *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 }
 
 func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) String() string {
@@ -11218,25 +10497,15 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDeta
 }
 
 type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 车牌号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 通行日期止
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 税收分类编码
+	Amount      *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CardNo      *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	GoodsName   *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 通行日期起
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 类型
+	RowNo       *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaxAmount   *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxRate     *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
@@ -11299,38 +10568,22 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoi
 }
 
 type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList struct {
-	// 经营、拍卖单位
-	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
-	// 经营、拍卖单位地址
+	AuctionUnit        *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
 	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
-	// 经营、拍卖单位银行
-	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
-	// 经营、拍卖单位税号
-	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
-	// 经营、拍卖单位电话
-	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
-	// 厂牌型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌照号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 登记证号
-	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
-	// 转入地车辆管理所名称
-	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
-	// 二手车市场地址
-	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
-	// 二手车市场
-	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
-	// 二手车市场开户银行、账号
-	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
-	// 二手车市场电话
+	AuctionUnitBank    *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	AuctionUnitTaxNo   *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	AuctionUtilTel     *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	CarModel           *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CardNo             *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	Registration       *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	TransferVehicle    *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	UsedCarAddress     *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	UsedCarMarket      *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	UsedCarMarketBank  *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
 	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
-	// 二手车市场纳税人识别号
 	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
-	// 车架号/车辆识别号
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	VehicleNo          *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType        *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) String() string {
@@ -11422,36 +10675,21 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDet
 }
 
 type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOList struct {
-	// 品牌
-	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
-	// 合格证号
-	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
-	// 发动机号
-	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
-	// 身份证号/组织机构代码
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// 进口证书号
+	Brand               *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	CertificateNo       *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	EngineNo            *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	IdCardNo            *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
-	// 商检单号
-	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
-	// 限乘人数
-	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
-	// 产地
-	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
-	// 完税凭证号码
-	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
-	// 主管税务机关名称
-	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
-	// 主管税务机关代码
-	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 吨位
-	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
-	// 车架号码
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	InspectionListNo    *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
+	MaxPassengers       *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	OriginPlace         *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	PaymentVoucherNo    *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	TaxAuthorityName    *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	TaxAuthorityNo      *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Tonnage             *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	VehicleNo           *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType         *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOList) String() string {
@@ -11555,8 +10793,9 @@ func (s *UpdateInvoiceAndReceiptRelatedResponseBody) SetResult(v bool) *UpdateIn
 }
 
 type UpdateInvoiceAndReceiptRelatedResponse struct {
-	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInvoiceAndReceiptRelatedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInvoiceAndReceiptRelatedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInvoiceAndReceiptRelatedResponse) String() string {
@@ -11569,6 +10808,11 @@ func (s UpdateInvoiceAndReceiptRelatedResponse) GoString() string {
 
 func (s *UpdateInvoiceAndReceiptRelatedResponse) SetHeaders(v map[string]*string) *UpdateInvoiceAndReceiptRelatedResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedResponse) SetStatusCode(v int32) *UpdateInvoiceAndReceiptRelatedResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -11601,12 +10845,9 @@ func (s *UpdateInvoiceIgnoreStatusHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateInvoiceIgnoreStatusRequest struct {
-	// 审批单id
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	// 操作员
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Operator   *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s UpdateInvoiceIgnoreStatusRequest) String() string {
@@ -11650,8 +10891,9 @@ func (s *UpdateInvoiceIgnoreStatusResponseBody) SetResult(v bool) *UpdateInvoice
 }
 
 type UpdateInvoiceIgnoreStatusResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInvoiceIgnoreStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInvoiceIgnoreStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInvoiceIgnoreStatusResponse) String() string {
@@ -11664,6 +10906,11 @@ func (s UpdateInvoiceIgnoreStatusResponse) GoString() string {
 
 func (s *UpdateInvoiceIgnoreStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceIgnoreStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusResponse) SetStatusCode(v int32) *UpdateInvoiceIgnoreStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -11696,17 +10943,11 @@ func (s *UpdateInvoiceVerifyStatusHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateInvoiceVerifyStatusRequest struct {
-	// 抵扣状态
-	//
-	DeductStatus *string `json:"deductStatus,omitempty" xml:"deductStatus,omitempty"`
-	// 发票模型
+	DeductStatus         *string                                                 `json:"deductStatus,omitempty" xml:"deductStatus,omitempty"`
 	GeneralInvoiceVOList []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
-	// 待更新
-	InvoiceKeyVOList []*UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
-	// 操作员
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 认证状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	InvoiceKeyVOList     []*UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList     `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
+	Operator             *string                                                 `json:"operator,omitempty" xml:"operator,omitempty"`
+	VerifyStatus         *string                                                 `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
 }
 
 func (s UpdateInvoiceVerifyStatusRequest) String() string {
@@ -11743,83 +10984,46 @@ func (s *UpdateInvoiceVerifyStatusRequest) SetVerifyStatus(v string) *UpdateInvo
 }
 
 type UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList struct {
-	// 账期时间
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 不含税金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 校验码
-	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	// 查验时间
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 开票日期
-	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	// 电票版式文件下载地址
-	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 资金类型 ，RED（红票），（BLUE）蓝票
-	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	// 常规发票明细
-	GeneralInvoiceDetailVOList []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票状态
-	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 机器码
-	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
-	// 成品油标识
-	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
-	// 收款人
-	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
-	// 审批单实例
-	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
-	// 审批单类型
-	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行账户
-	PurchaserBankAccount *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
-	// 购方银行名称
-	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
-	// 购方名称
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 备注
+	AccountPeriod                  *string                                                                               `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	Amount                         *string                                                                               `json:"amount,omitempty" xml:"amount,omitempty"`
+	AmountWithTax                  *string                                                                               `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CheckCode                      *string                                                                               `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	CheckTime                      *string                                                                               `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrewDate                       *string                                                                               `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	ElectronicUrl                  *string                                                                               `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	FinanceType                    *string                                                                               `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FundType                       *string                                                                               `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	GeneralInvoiceDetailVOList     []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	InvoiceCode                    *string                                                                               `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo                      *string                                                                               `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceStatus                  *string                                                                               `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	InvoiceType                    *string                                                                               `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	MachineCode                    *string                                                                               `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	OilFlag                        *string                                                                               `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	Payee                          *string                                                                               `json:"payee,omitempty" xml:"payee,omitempty"`
+	ProcessInstCode                *string                                                                               `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	ProcessInstType                *string                                                                               `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	PurchaserAddress               *string                                                                               `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	PurchaserBankAccount           *string                                                                               `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
+	PurchaserBankNameAccount       *string                                                                               `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	PurchaserName                  *string                                                                               `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	PurchaserTaxNo                 *string                                                                               `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	PurchaserTel                   *string                                                                               `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	Remark                         *string                                                                               `json:"remark,omitempty" xml:"remark,omitempty"`
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
-	// 销方地址
-	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行账户
-	SellerBankAccount *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
-	// 销方银行名称
-	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
-	// 销方名称
-	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
-	// 销方税号
-	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
-	// 销方电话
-	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 代开发票标识 1-自开，2-代开
-	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
-	// 税额
-	TaxAmount                   *string                                                                            `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	UsedVehicleSaleDetailVOList []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	VehicleSaleDetailVOList     []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	// 发票查验状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
-	// 凭证code
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 生成凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	SellerAddress                  *string                                                                               `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	SellerBankAccount              *string                                                                               `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
+	SellerBankNameAccount          *string                                                                               `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	SellerName                     *string                                                                               `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	SellerTaxNo                    *string                                                                               `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	SellerTel                      *string                                                                               `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	SupplySign                     *string                                                                               `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	TaxAmount                      *string                                                                               `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVOList    []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList    `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VehicleSaleDetailVOList        []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListVehicleSaleDetailVOList        `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
+	VerifyStatus                   *string                                                                               `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	VoucherCode                    *string                                                                               `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	VoucherStatus                  *string                                                                               `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) String() string {
@@ -12031,30 +11235,18 @@ func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetVoucherStatus(
 }
 
 type UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 规格型号
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	GoodsName     *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	Quantity      *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	RevenueCode   *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	RowNo         *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
 	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 是否享受税收优惠：0-不享受，1-享受
-	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
-	// 优惠政策类型
-	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 单价
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	TaxAmount     *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxPre        *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	TaxPreType    *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
+	TaxRate       *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit          *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPrice     *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 }
 
 func (s UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) String() string {
@@ -12126,25 +11318,15 @@ func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListGeneralInvoiceDetai
 }
 
 type UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 车牌号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 通行日期止
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 税收分类编码
+	Amount      *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CardNo      *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	GoodsName   *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 通行日期起
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 类型
+	RowNo       *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaxAmount   *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TaxRate     *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
@@ -12207,38 +11389,22 @@ func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListSecondHandCarInvoic
 }
 
 type UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList struct {
-	// 经营、拍卖单位
-	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
-	// 经营、拍卖单位地址
+	AuctionUnit        *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
 	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
-	// 经营、拍卖单位银行
-	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
-	// 经营、拍卖单位税号
-	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
-	// 经营、拍卖单位电话
-	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
-	// 厂牌型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌照号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 登记证号
-	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
-	// 转入地车辆管理所名称
-	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
-	// 二手车市场地址
-	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
-	// 二手车市场
-	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
-	// 二手车市场开户银行、账号
-	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
-	// 二手车市场电话
+	AuctionUnitBank    *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	AuctionUnitTaxNo   *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	AuctionUtilTel     *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	CarModel           *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CardNo             *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	Registration       *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	TransferVehicle    *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	UsedCarAddress     *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	UsedCarMarket      *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	UsedCarMarketBank  *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
 	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
-	// 二手车市场纳税人识别号
 	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
-	// 车架号/车辆识别号
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	VehicleNo          *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType        *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListUsedVehicleSaleDetailVOList) String() string {
@@ -12330,36 +11496,21 @@ func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListUsedVehicleSaleDeta
 }
 
 type UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListVehicleSaleDetailVOList struct {
-	// 品牌
-	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
-	// 合格证号
-	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
-	// 发动机号
-	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
-	// 身份证号/组织机构代码
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// 进口证书号
+	Brand               *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	CertificateNo       *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	EngineNo            *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	IdCardNo            *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
-	// 商检单号
-	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
-	// 限乘人数
-	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
-	// 产地
-	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
-	// 完税凭证号码
-	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
-	// 主管税务机关名称
-	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
-	// 主管税务机关代码
-	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 吨位
-	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
-	// 车架号码
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+	InspectionListNo    *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
+	MaxPassengers       *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	OriginPlace         *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	PaymentVoucherNo    *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	TaxAuthorityName    *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	TaxAuthorityNo      *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Tonnage             *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	VehicleNo           *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	VehicleType         *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
 func (s UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListVehicleSaleDetailVOList) String() string {
@@ -12446,10 +11597,8 @@ func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListVehicleSaleDetailVO
 }
 
 type UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList struct {
-	// 发票编码
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
 func (s UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList) String() string {
@@ -12488,8 +11637,9 @@ func (s *UpdateInvoiceVerifyStatusResponseBody) SetResult(v bool) *UpdateInvoice
 }
 
 type UpdateInvoiceVerifyStatusResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInvoiceVerifyStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInvoiceVerifyStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInvoiceVerifyStatusResponse) String() string {
@@ -12502,6 +11652,11 @@ func (s UpdateInvoiceVerifyStatusResponse) GoString() string {
 
 func (s *UpdateInvoiceVerifyStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceVerifyStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusResponse) SetStatusCode(v int32) *UpdateInvoiceVerifyStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -12534,16 +11689,11 @@ func (s *UpdateInvoiceVoucherStatusHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateInvoiceVoucherStatusRequest struct {
-	// 操作类型
-	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 发票编码
+	ActionType  *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 操作员
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 凭证id
-	VoucherId *string `json:"voucherId,omitempty" xml:"voucherId,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	Operator    *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	VoucherId   *string `json:"voucherId,omitempty" xml:"voucherId,omitempty"`
 }
 
 func (s UpdateInvoiceVoucherStatusRequest) String() string {
@@ -12580,9 +11730,7 @@ func (s *UpdateInvoiceVoucherStatusRequest) SetVoucherId(v string) *UpdateInvoic
 }
 
 type UpdateInvoiceVoucherStatusResponseBody struct {
-	// 业务返回结果
-	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
-	// 系统调用结果
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -12605,8 +11753,9 @@ func (s *UpdateInvoiceVoucherStatusResponseBody) SetSuccess(v bool) *UpdateInvoi
 }
 
 type UpdateInvoiceVoucherStatusResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInvoiceVoucherStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInvoiceVoucherStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInvoiceVoucherStatusResponse) String() string {
@@ -12619,6 +11768,11 @@ func (s UpdateInvoiceVoucherStatusResponse) GoString() string {
 
 func (s *UpdateInvoiceVoucherStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceVoucherStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceVoucherStatusResponse) SetStatusCode(v int32) *UpdateInvoiceVoucherStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -12651,7 +11805,6 @@ func (s *UpdateReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRecei
 }
 
 type UpdateReceiptRequest struct {
-	// 单据列表 ，最长10
 	Receipts []*UpdateReceiptRequestReceipts `json:"receipts,omitempty" xml:"receipts,omitempty" type:"Repeated"`
 }
 
@@ -12669,34 +11822,20 @@ func (s *UpdateReceiptRequest) SetReceipts(v []*UpdateReceiptRequestReceipts) *U
 }
 
 type UpdateReceiptRequestReceipts struct {
-	// 总金额，传空代表不修改
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 关联收支类别，传空代表不修改
-	CategoryCode *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
-	// 单据唯一编号
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 关联客户code，传空代表不修改
-	CustomerCode *string `json:"customerCode,omitempty" xml:"customerCode,omitempty"`
-	// 关联企业账户code，传空代表不修改
+	Amount               *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	CategoryCode         *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	Code                 *string `json:"code,omitempty" xml:"code,omitempty"`
+	CustomerCode         *string `json:"customerCode,omitempty" xml:"customerCode,omitempty"`
 	EnterpriseAcountCode *string `json:"enterpriseAcountCode,omitempty" xml:"enterpriseAcountCode,omitempty"`
-	// 业务发生时间，传空代表不修改
-	OccurDate *int64 `json:"occurDate,omitempty" xml:"occurDate,omitempty"`
-	// 负责人工号，传空代表不修改
-	PrincipalId *string `json:"principalId,omitempty" xml:"principalId,omitempty"`
-	// 关联项目code，传空代表不修改
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 单据类型：1付款单，2收款单
-	ReceiptType *int64 `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
-	// 备注，传空代表不修改
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 关联供应商code，传空代表不修改
-	SupplierCode *string `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
-	// 单据标题，传空代表不修改
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 单据更新时间
-	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
-	// 修改者工号
-	UpdateUserId *string `json:"updateUserId,omitempty" xml:"updateUserId,omitempty"`
+	OccurDate            *int64  `json:"occurDate,omitempty" xml:"occurDate,omitempty"`
+	PrincipalId          *string `json:"principalId,omitempty" xml:"principalId,omitempty"`
+	ProjectCode          *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ReceiptType          *int64  `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
+	Remark               *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	SupplierCode         *string `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
+	Title                *string `json:"title,omitempty" xml:"title,omitempty"`
+	UpdateTime           *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	UpdateUserId         *string `json:"updateUserId,omitempty" xml:"updateUserId,omitempty"`
 }
 
 func (s UpdateReceiptRequestReceipts) String() string {
@@ -12778,7 +11917,6 @@ func (s *UpdateReceiptRequestReceipts) SetUpdateUserId(v string) *UpdateReceiptR
 }
 
 type UpdateReceiptResponseBody struct {
-	// 结果列表
 	Results []*UpdateReceiptResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -12796,14 +11934,10 @@ func (s *UpdateReceiptResponseBody) SetResults(v []*UpdateReceiptResponseBodyRes
 }
 
 type UpdateReceiptResponseBodyResults struct {
-	// 数据唯一编号
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 错误码
+	Code      *string `json:"code,omitempty" xml:"code,omitempty"`
 	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	// 错误信息
-	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateReceiptResponseBodyResults) String() string {
@@ -12835,8 +11969,9 @@ func (s *UpdateReceiptResponseBodyResults) SetSuccess(v bool) *UpdateReceiptResp
 }
 
 type UpdateReceiptResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateReceiptResponse) String() string {
@@ -12849,6 +11984,11 @@ func (s UpdateReceiptResponse) GoString() string {
 
 func (s *UpdateReceiptResponse) SetHeaders(v map[string]*string) *UpdateReceiptResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateReceiptResponse) SetStatusCode(v int32) *UpdateReceiptResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -12881,18 +12021,12 @@ func (s *UpdateReceiptVoucherStatusHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateReceiptVoucherStatusRequest struct {
-	// 账期
 	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 操作类型 add 添加凭证关系、delete 删除凭证关系
-	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 操作人工号
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 审批单据ID
-	ReceiptId *string `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
-	// 凭证CODE
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 凭证ID
-	VoucherId *string `json:"voucherId,omitempty" xml:"voucherId,omitempty"`
+	ActionType    *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	OperatorId    *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	ReceiptId     *string `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
+	VoucherCode   *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	VoucherId     *string `json:"voucherId,omitempty" xml:"voucherId,omitempty"`
 }
 
 func (s UpdateReceiptVoucherStatusRequest) String() string {
@@ -12951,8 +12085,9 @@ func (s *UpdateReceiptVoucherStatusResponseBody) SetResult(v bool) *UpdateReceip
 }
 
 type UpdateReceiptVoucherStatusResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateReceiptVoucherStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateReceiptVoucherStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateReceiptVoucherStatusResponse) String() string {
@@ -12968,65 +12103,13 @@ func (s *UpdateReceiptVoucherStatusResponse) SetHeaders(v map[string]*string) *U
 	return s
 }
 
+func (s *UpdateReceiptVoucherStatusResponse) SetStatusCode(v int32) *UpdateReceiptVoucherStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *UpdateReceiptVoucherStatusResponse) SetBody(v *UpdateReceiptVoucherStatusResponseBody) *UpdateReceiptVoucherStatusResponse {
 	s.Body = v
-	return s
-}
-
-type RoleMemberMapValue struct {
-	// 角色唯一标识
-	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	// 成员信息列表
-	MemberList []*RoleMemberMapValueMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
-}
-
-func (s RoleMemberMapValue) String() string {
-	return tea.Prettify(s)
-}
-
-func (s RoleMemberMapValue) GoString() string {
-	return s.String()
-}
-
-func (s *RoleMemberMapValue) SetRoleCode(v string) *RoleMemberMapValue {
-	s.RoleCode = &v
-	return s
-}
-
-func (s *RoleMemberMapValue) SetMemberList(v []*RoleMemberMapValueMemberList) *RoleMemberMapValue {
-	s.MemberList = v
-	return s
-}
-
-type RoleMemberMapValueMemberList struct {
-	// 用户ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 昵称
-	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	// 头像URL
-	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-}
-
-func (s RoleMemberMapValueMemberList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s RoleMemberMapValueMemberList) GoString() string {
-	return s.String()
-}
-
-func (s *RoleMemberMapValueMemberList) SetUserId(v string) *RoleMemberMapValueMemberList {
-	s.UserId = &v
-	return s
-}
-
-func (s *RoleMemberMapValueMemberList) SetNick(v string) *RoleMemberMapValueMemberList {
-	s.Nick = &v
-	return s
-}
-
-func (s *RoleMemberMapValueMemberList) SetAvatarUrl(v string) *RoleMemberMapValueMemberList {
-	s.AvatarUrl = &v
 	return s
 }
 
@@ -13045,24 +12128,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) BatchAddInvoice(request *BatchAddInvoiceRequest) (_result *BatchAddInvoiceResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &BatchAddInvoiceHeaders{}
-	_result = &BatchAddInvoiceResponse{}
-	_body, _err := client.BatchAddInvoiceWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest, headers *BatchAddInvoiceHeaders, runtime *util.RuntimeOptions) (_result *BatchAddInvoiceResponse, _err error) {
@@ -13092,8 +12169,19 @@ func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchAddInvoice"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchAddInvoiceResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchAddInvoice"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/batch"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13101,11 +12189,11 @@ func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest
 	return _result, _err
 }
 
-func (client *Client) BatchCreateCustomer(request *BatchCreateCustomerRequest) (_result *BatchCreateCustomerResponse, _err error) {
+func (client *Client) BatchAddInvoice(request *BatchAddInvoiceRequest) (_result *BatchAddInvoiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchCreateCustomerHeaders{}
-	_result = &BatchCreateCustomerResponse{}
-	_body, _err := client.BatchCreateCustomerWithOptions(request, headers, runtime)
+	headers := &BatchAddInvoiceHeaders{}
+	_result = &BatchAddInvoiceResponse{}
+	_body, _err := client.BatchAddInvoiceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13140,8 +12228,19 @@ func (client *Client) BatchCreateCustomerWithOptions(request *BatchCreateCustome
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchCreateCustomer"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/auxiliaries/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchCreateCustomerResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchCreateCustomer"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/auxiliaries/batch"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13149,11 +12248,11 @@ func (client *Client) BatchCreateCustomerWithOptions(request *BatchCreateCustome
 	return _result, _err
 }
 
-func (client *Client) CheckVoucherStatus(request *CheckVoucherStatusRequest) (_result *CheckVoucherStatusResponse, _err error) {
+func (client *Client) BatchCreateCustomer(request *BatchCreateCustomerRequest) (_result *BatchCreateCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CheckVoucherStatusHeaders{}
-	_result = &CheckVoucherStatusResponse{}
-	_body, _err := client.CheckVoucherStatusWithOptions(request, headers, runtime)
+	headers := &BatchCreateCustomerHeaders{}
+	_result = &BatchCreateCustomerResponse{}
+	_body, _err := client.BatchCreateCustomerWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13216,8 +12315,19 @@ func (client *Client) CheckVoucherStatusWithOptions(request *CheckVoucherStatusR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CheckVoucherStatus"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/checkVoucherStatus/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CheckVoucherStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("CheckVoucherStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/checkVoucherStatus/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13225,11 +12335,11 @@ func (client *Client) CheckVoucherStatusWithOptions(request *CheckVoucherStatusR
 	return _result, _err
 }
 
-func (client *Client) CreateCustomer(request *CreateCustomerRequest) (_result *CreateCustomerResponse, _err error) {
+func (client *Client) CheckVoucherStatus(request *CheckVoucherStatusRequest) (_result *CheckVoucherStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateCustomerHeaders{}
-	_result = &CreateCustomerResponse{}
-	_body, _err := client.CreateCustomerWithOptions(request, headers, runtime)
+	headers := &CheckVoucherStatusHeaders{}
+	_result = &CheckVoucherStatusResponse{}
+	_body, _err := client.CheckVoucherStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13300,8 +12410,19 @@ func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateCustomer"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/auxiliaries/customers"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateCustomerResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateCustomer"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/auxiliaries/customers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13309,11 +12430,11 @@ func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, 
 	return _result, _err
 }
 
-func (client *Client) CreateReceipt(request *CreateReceiptRequest) (_result *CreateReceiptResponse, _err error) {
+func (client *Client) CreateCustomer(request *CreateCustomerRequest) (_result *CreateCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateReceiptHeaders{}
-	_result = &CreateReceiptResponse{}
-	_body, _err := client.CreateReceiptWithOptions(request, headers, runtime)
+	headers := &CreateCustomerHeaders{}
+	_result = &CreateCustomerResponse{}
+	_body, _err := client.CreateCustomerWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13344,8 +12465,19 @@ func (client *Client) CreateReceiptWithOptions(request *CreateReceiptRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateReceipt"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/receipts"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateReceiptResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateReceipt"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13353,11 +12485,11 @@ func (client *Client) CreateReceiptWithOptions(request *CreateReceiptRequest, he
 	return _result, _err
 }
 
-func (client *Client) DeleteReceipt(request *DeleteReceiptRequest) (_result *DeleteReceiptResponse, _err error) {
+func (client *Client) CreateReceipt(request *CreateReceiptRequest) (_result *CreateReceiptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteReceiptHeaders{}
-	_result = &DeleteReceiptResponse{}
-	_body, _err := client.DeleteReceiptWithOptions(request, headers, runtime)
+	headers := &CreateReceiptHeaders{}
+	_result = &CreateReceiptResponse{}
+	_body, _err := client.CreateReceiptWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13388,8 +12520,19 @@ func (client *Client) DeleteReceiptWithOptions(request *DeleteReceiptRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteReceipt"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/receipts/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteReceiptResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteReceipt"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13397,11 +12540,11 @@ func (client *Client) DeleteReceiptWithOptions(request *DeleteReceiptRequest, he
 	return _result, _err
 }
 
-func (client *Client) GetBookkeepingUserList() (_result *GetBookkeepingUserListResponse, _err error) {
+func (client *Client) DeleteReceipt(request *DeleteReceiptRequest) (_result *DeleteReceiptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetBookkeepingUserListHeaders{}
-	_result = &GetBookkeepingUserListResponse{}
-	_body, _err := client.GetBookkeepingUserListWithOptions(headers, runtime)
+	headers := &DeleteReceiptHeaders{}
+	_result = &DeleteReceiptResponse{}
+	_body, _err := client.DeleteReceiptWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13422,8 +12565,19 @@ func (client *Client) GetBookkeepingUserListWithOptions(headers *GetBookkeepingU
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetBookkeepingUserList"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/bookkeeping/users"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetBookkeepingUserListResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetBookkeepingUserList"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/bookkeeping/users"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13431,11 +12585,11 @@ func (client *Client) GetBookkeepingUserListWithOptions(headers *GetBookkeepingU
 	return _result, _err
 }
 
-func (client *Client) GetCategory(request *GetCategoryRequest) (_result *GetCategoryResponse, _err error) {
+func (client *Client) GetBookkeepingUserList() (_result *GetBookkeepingUserListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetCategoryHeaders{}
-	_result = &GetCategoryResponse{}
-	_body, _err := client.GetCategoryWithOptions(request, headers, runtime)
+	headers := &GetBookkeepingUserListHeaders{}
+	_result = &GetBookkeepingUserListResponse{}
+	_body, _err := client.GetBookkeepingUserListWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13466,8 +12620,19 @@ func (client *Client) GetCategoryWithOptions(request *GetCategoryRequest, header
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCategory"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/categories/get"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCategoryResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCategory"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/categories/get"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13475,11 +12640,11 @@ func (client *Client) GetCategoryWithOptions(request *GetCategoryRequest, header
 	return _result, _err
 }
 
-func (client *Client) GetCustomer(request *GetCustomerRequest) (_result *GetCustomerResponse, _err error) {
+func (client *Client) GetCategory(request *GetCategoryRequest) (_result *GetCategoryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetCustomerHeaders{}
-	_result = &GetCustomerResponse{}
-	_body, _err := client.GetCustomerWithOptions(request, headers, runtime)
+	headers := &GetCategoryHeaders{}
+	_result = &GetCategoryResponse{}
+	_body, _err := client.GetCategoryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13510,8 +12675,19 @@ func (client *Client) GetCustomerWithOptions(request *GetCustomerRequest, header
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCustomer"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/customers/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCustomerResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCustomer"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/customers/details"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13519,11 +12695,11 @@ func (client *Client) GetCustomerWithOptions(request *GetCustomerRequest, header
 	return _result, _err
 }
 
-func (client *Client) GetFinanceAccount(request *GetFinanceAccountRequest) (_result *GetFinanceAccountResponse, _err error) {
+func (client *Client) GetCustomer(request *GetCustomerRequest) (_result *GetCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFinanceAccountHeaders{}
-	_result = &GetFinanceAccountResponse{}
-	_body, _err := client.GetFinanceAccountWithOptions(request, headers, runtime)
+	headers := &GetCustomerHeaders{}
+	_result = &GetCustomerResponse{}
+	_body, _err := client.GetCustomerWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13554,8 +12730,19 @@ func (client *Client) GetFinanceAccountWithOptions(request *GetFinanceAccountReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFinanceAccount"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/financeAccounts/get"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFinanceAccountResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFinanceAccount"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/financeAccounts/get"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13563,11 +12750,11 @@ func (client *Client) GetFinanceAccountWithOptions(request *GetFinanceAccountReq
 	return _result, _err
 }
 
-func (client *Client) GetInvoiceByPage(request *GetInvoiceByPageRequest) (_result *GetInvoiceByPageResponse, _err error) {
+func (client *Client) GetFinanceAccount(request *GetFinanceAccountRequest) (_result *GetFinanceAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetInvoiceByPageHeaders{}
-	_result = &GetInvoiceByPageResponse{}
-	_body, _err := client.GetInvoiceByPageWithOptions(request, headers, runtime)
+	headers := &GetFinanceAccountHeaders{}
+	_result = &GetFinanceAccountResponse{}
+	_body, _err := client.GetFinanceAccountWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13604,8 +12791,19 @@ func (client *Client) GetInvoiceByPageWithOptions(tmpReq *GetInvoiceByPageReques
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetInvoiceByPage"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetInvoiceByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetInvoiceByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13613,11 +12811,11 @@ func (client *Client) GetInvoiceByPageWithOptions(tmpReq *GetInvoiceByPageReques
 	return _result, _err
 }
 
-func (client *Client) GetIsNewVersion() (_result *GetIsNewVersionResponse, _err error) {
+func (client *Client) GetInvoiceByPage(request *GetInvoiceByPageRequest) (_result *GetInvoiceByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetIsNewVersionHeaders{}
-	_result = &GetIsNewVersionResponse{}
-	_body, _err := client.GetIsNewVersionWithOptions(headers, runtime)
+	headers := &GetInvoiceByPageHeaders{}
+	_result = &GetInvoiceByPageResponse{}
+	_body, _err := client.GetInvoiceByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13638,8 +12836,19 @@ func (client *Client) GetIsNewVersionWithOptions(headers *GetIsNewVersionHeaders
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetIsNewVersion"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/accounts/uses"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetIsNewVersionResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetIsNewVersion"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/accounts/uses"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13647,11 +12856,11 @@ func (client *Client) GetIsNewVersionWithOptions(headers *GetIsNewVersionHeaders
 	return _result, _err
 }
 
-func (client *Client) GetProduct(request *GetProductRequest) (_result *GetProductResponse, _err error) {
+func (client *Client) GetIsNewVersion() (_result *GetIsNewVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetProductHeaders{}
-	_result = &GetProductResponse{}
-	_body, _err := client.GetProductWithOptions(request, headers, runtime)
+	headers := &GetIsNewVersionHeaders{}
+	_result = &GetIsNewVersionResponse{}
+	_body, _err := client.GetIsNewVersionWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13682,8 +12891,19 @@ func (client *Client) GetProductWithOptions(request *GetProductRequest, headers 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProduct"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/products"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetProductResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProduct"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/products"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13691,11 +12911,11 @@ func (client *Client) GetProductWithOptions(request *GetProductRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) GetProject(request *GetProjectRequest) (_result *GetProjectResponse, _err error) {
+func (client *Client) GetProduct(request *GetProductRequest) (_result *GetProductResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetProjectHeaders{}
-	_result = &GetProjectResponse{}
-	_body, _err := client.GetProjectWithOptions(request, headers, runtime)
+	headers := &GetProductHeaders{}
+	_result = &GetProductResponse{}
+	_body, _err := client.GetProductWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13726,8 +12946,19 @@ func (client *Client) GetProjectWithOptions(request *GetProjectRequest, headers 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProject"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/projects/get"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetProjectResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProject"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/projects/get"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13735,11 +12966,11 @@ func (client *Client) GetProjectWithOptions(request *GetProjectRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) GetReceipt(request *GetReceiptRequest) (_result *GetReceiptResponse, _err error) {
+func (client *Client) GetProject(request *GetProjectRequest) (_result *GetProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetReceiptHeaders{}
-	_result = &GetReceiptResponse{}
-	_body, _err := client.GetReceiptWithOptions(request, headers, runtime)
+	headers := &GetProjectHeaders{}
+	_result = &GetProjectResponse{}
+	_body, _err := client.GetProjectWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13774,8 +13005,19 @@ func (client *Client) GetReceiptWithOptions(request *GetReceiptRequest, headers 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetReceipt"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/receipts/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetReceiptResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetReceipt"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts/details"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13783,11 +13025,11 @@ func (client *Client) GetReceiptWithOptions(request *GetReceiptRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) GetSupplier(request *GetSupplierRequest) (_result *GetSupplierResponse, _err error) {
+func (client *Client) GetReceipt(request *GetReceiptRequest) (_result *GetReceiptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSupplierHeaders{}
-	_result = &GetSupplierResponse{}
-	_body, _err := client.GetSupplierWithOptions(request, headers, runtime)
+	headers := &GetReceiptHeaders{}
+	_result = &GetReceiptResponse{}
+	_body, _err := client.GetReceiptWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13818,8 +13060,19 @@ func (client *Client) GetSupplierWithOptions(request *GetSupplierRequest, header
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSupplier"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/suppliers/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSupplierResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSupplier"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/suppliers/details"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13827,11 +13080,11 @@ func (client *Client) GetSupplierWithOptions(request *GetSupplierRequest, header
 	return _result, _err
 }
 
-func (client *Client) ProfessionBenefitConsume(request *ProfessionBenefitConsumeRequest) (_result *ProfessionBenefitConsumeResponse, _err error) {
+func (client *Client) GetSupplier(request *GetSupplierRequest) (_result *GetSupplierResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ProfessionBenefitConsumeHeaders{}
-	_result = &ProfessionBenefitConsumeResponse{}
-	_body, _err := client.ProfessionBenefitConsumeWithOptions(request, headers, runtime)
+	headers := &GetSupplierHeaders{}
+	_result = &GetSupplierResponse{}
+	_body, _err := client.GetSupplierWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13870,8 +13123,19 @@ func (client *Client) ProfessionBenefitConsumeWithOptions(request *ProfessionBen
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ProfessionBenefitConsume"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/professions/benefits/consume"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ProfessionBenefitConsumeResponse{}
-	_body, _err := client.DoROARequest(tea.String("ProfessionBenefitConsume"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/professions/benefits/consume"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13879,11 +13143,11 @@ func (client *Client) ProfessionBenefitConsumeWithOptions(request *ProfessionBen
 	return _result, _err
 }
 
-func (client *Client) QueryCategoryByPage(request *QueryCategoryByPageRequest) (_result *QueryCategoryByPageResponse, _err error) {
+func (client *Client) ProfessionBenefitConsume(request *ProfessionBenefitConsumeRequest) (_result *ProfessionBenefitConsumeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryCategoryByPageHeaders{}
-	_result = &QueryCategoryByPageResponse{}
-	_body, _err := client.QueryCategoryByPageWithOptions(request, headers, runtime)
+	headers := &ProfessionBenefitConsumeHeaders{}
+	_result = &ProfessionBenefitConsumeResponse{}
+	_body, _err := client.ProfessionBenefitConsumeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13922,8 +13186,19 @@ func (client *Client) QueryCategoryByPageWithOptions(request *QueryCategoryByPag
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCategoryByPage"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/categories/list"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryCategoryByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCategoryByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/categories/list"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13931,11 +13206,11 @@ func (client *Client) QueryCategoryByPageWithOptions(request *QueryCategoryByPag
 	return _result, _err
 }
 
-func (client *Client) QueryCustomerByPage(request *QueryCustomerByPageRequest) (_result *QueryCustomerByPageResponse, _err error) {
+func (client *Client) QueryCategoryByPage(request *QueryCategoryByPageRequest) (_result *QueryCategoryByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryCustomerByPageHeaders{}
-	_result = &QueryCustomerByPageResponse{}
-	_body, _err := client.QueryCustomerByPageWithOptions(request, headers, runtime)
+	headers := &QueryCategoryByPageHeaders{}
+	_result = &QueryCategoryByPageResponse{}
+	_body, _err := client.QueryCategoryByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13970,8 +13245,19 @@ func (client *Client) QueryCustomerByPageWithOptions(request *QueryCustomerByPag
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCustomerByPage"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/customers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryCustomerByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCustomerByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/customers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13979,11 +13265,11 @@ func (client *Client) QueryCustomerByPageWithOptions(request *QueryCustomerByPag
 	return _result, _err
 }
 
-func (client *Client) QueryCustomerInfo(request *QueryCustomerInfoRequest) (_result *QueryCustomerInfoResponse, _err error) {
+func (client *Client) QueryCustomerByPage(request *QueryCustomerByPageRequest) (_result *QueryCustomerByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryCustomerInfoHeaders{}
-	_result = &QueryCustomerInfoResponse{}
-	_body, _err := client.QueryCustomerInfoWithOptions(request, headers, runtime)
+	headers := &QueryCustomerByPageHeaders{}
+	_result = &QueryCustomerByPageResponse{}
+	_body, _err := client.QueryCustomerByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14022,8 +13308,19 @@ func (client *Client) QueryCustomerInfoWithOptions(request *QueryCustomerInfoReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCustomerInfo"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/auxiliaries/customers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryCustomerInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCustomerInfo"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/auxiliaries/customers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14031,11 +13328,11 @@ func (client *Client) QueryCustomerInfoWithOptions(request *QueryCustomerInfoReq
 	return _result, _err
 }
 
-func (client *Client) QueryEnterpriseAccountByPage(request *QueryEnterpriseAccountByPageRequest) (_result *QueryEnterpriseAccountByPageResponse, _err error) {
+func (client *Client) QueryCustomerInfo(request *QueryCustomerInfoRequest) (_result *QueryCustomerInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryEnterpriseAccountByPageHeaders{}
-	_result = &QueryEnterpriseAccountByPageResponse{}
-	_body, _err := client.QueryEnterpriseAccountByPageWithOptions(request, headers, runtime)
+	headers := &QueryCustomerInfoHeaders{}
+	_result = &QueryCustomerInfoResponse{}
+	_body, _err := client.QueryCustomerInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14070,8 +13367,19 @@ func (client *Client) QueryEnterpriseAccountByPageWithOptions(request *QueryEnte
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryEnterpriseAccountByPage"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/financeAccounts/list"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryEnterpriseAccountByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryEnterpriseAccountByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/financeAccounts/list"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14079,11 +13387,11 @@ func (client *Client) QueryEnterpriseAccountByPageWithOptions(request *QueryEnte
 	return _result, _err
 }
 
-func (client *Client) QueryFinanceCompanyInfo() (_result *QueryFinanceCompanyInfoResponse, _err error) {
+func (client *Client) QueryEnterpriseAccountByPage(request *QueryEnterpriseAccountByPageRequest) (_result *QueryEnterpriseAccountByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryFinanceCompanyInfoHeaders{}
-	_result = &QueryFinanceCompanyInfoResponse{}
-	_body, _err := client.QueryFinanceCompanyInfoWithOptions(headers, runtime)
+	headers := &QueryEnterpriseAccountByPageHeaders{}
+	_result = &QueryEnterpriseAccountByPageResponse{}
+	_body, _err := client.QueryEnterpriseAccountByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14104,8 +13412,19 @@ func (client *Client) QueryFinanceCompanyInfoWithOptions(headers *QueryFinanceCo
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryFinanceCompanyInfo"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/companies"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryFinanceCompanyInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryFinanceCompanyInfo"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/companies"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14113,11 +13432,11 @@ func (client *Client) QueryFinanceCompanyInfoWithOptions(headers *QueryFinanceCo
 	return _result, _err
 }
 
-func (client *Client) QueryInvoiceRelationCount() (_result *QueryInvoiceRelationCountResponse, _err error) {
+func (client *Client) QueryFinanceCompanyInfo() (_result *QueryFinanceCompanyInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryInvoiceRelationCountHeaders{}
-	_result = &QueryInvoiceRelationCountResponse{}
-	_body, _err := client.QueryInvoiceRelationCountWithOptions(headers, runtime)
+	headers := &QueryFinanceCompanyInfoHeaders{}
+	_result = &QueryFinanceCompanyInfoResponse{}
+	_body, _err := client.QueryFinanceCompanyInfoWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14138,8 +13457,19 @@ func (client *Client) QueryInvoiceRelationCountWithOptions(headers *QueryInvoice
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryInvoiceRelationCount"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/relationReceipts/counts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryInvoiceRelationCountResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryInvoiceRelationCount"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/relationReceipts/counts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14147,11 +13477,11 @@ func (client *Client) QueryInvoiceRelationCountWithOptions(headers *QueryInvoice
 	return _result, _err
 }
 
-func (client *Client) QueryPermissionByUserId(request *QueryPermissionByUserIdRequest) (_result *QueryPermissionByUserIdResponse, _err error) {
+func (client *Client) QueryInvoiceRelationCount() (_result *QueryInvoiceRelationCountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryPermissionByUserIdHeaders{}
-	_result = &QueryPermissionByUserIdResponse{}
-	_body, _err := client.QueryPermissionByUserIdWithOptions(request, headers, runtime)
+	headers := &QueryInvoiceRelationCountHeaders{}
+	_result = &QueryInvoiceRelationCountResponse{}
+	_body, _err := client.QueryInvoiceRelationCountWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14182,8 +13512,19 @@ func (client *Client) QueryPermissionByUserIdWithOptions(request *QueryPermissio
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPermissionByUserId"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/permissions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryPermissionByUserIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryPermissionByUserId"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/permissions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14191,11 +13532,11 @@ func (client *Client) QueryPermissionByUserIdWithOptions(request *QueryPermissio
 	return _result, _err
 }
 
-func (client *Client) QueryPermissionRoleMember(request *QueryPermissionRoleMemberRequest) (_result *QueryPermissionRoleMemberResponse, _err error) {
+func (client *Client) QueryPermissionByUserId(request *QueryPermissionByUserIdRequest) (_result *QueryPermissionByUserIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryPermissionRoleMemberHeaders{}
-	_result = &QueryPermissionRoleMemberResponse{}
-	_body, _err := client.QueryPermissionRoleMemberWithOptions(request, headers, runtime)
+	headers := &QueryPermissionByUserIdHeaders{}
+	_result = &QueryPermissionByUserIdResponse{}
+	_body, _err := client.QueryPermissionByUserIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14226,8 +13567,19 @@ func (client *Client) QueryPermissionRoleMemberWithOptions(request *QueryPermiss
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPermissionRoleMember"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/roles/members/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryPermissionRoleMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryPermissionRoleMember"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/roles/members/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14235,11 +13587,11 @@ func (client *Client) QueryPermissionRoleMemberWithOptions(request *QueryPermiss
 	return _result, _err
 }
 
-func (client *Client) QueryProductByPage(request *QueryProductByPageRequest) (_result *QueryProductByPageResponse, _err error) {
+func (client *Client) QueryPermissionRoleMember(request *QueryPermissionRoleMemberRequest) (_result *QueryPermissionRoleMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryProductByPageHeaders{}
-	_result = &QueryProductByPageResponse{}
-	_body, _err := client.QueryProductByPageWithOptions(request, headers, runtime)
+	headers := &QueryPermissionRoleMemberHeaders{}
+	_result = &QueryPermissionRoleMemberResponse{}
+	_body, _err := client.QueryPermissionRoleMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14274,8 +13626,19 @@ func (client *Client) QueryProductByPageWithOptions(request *QueryProductByPageR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryProductByPage"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/products/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryProductByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryProductByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/products/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14283,11 +13646,11 @@ func (client *Client) QueryProductByPageWithOptions(request *QueryProductByPageR
 	return _result, _err
 }
 
-func (client *Client) QueryProjectByPage(request *QueryProjectByPageRequest) (_result *QueryProjectByPageResponse, _err error) {
+func (client *Client) QueryProductByPage(request *QueryProductByPageRequest) (_result *QueryProductByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryProjectByPageHeaders{}
-	_result = &QueryProjectByPageResponse{}
-	_body, _err := client.QueryProjectByPageWithOptions(request, headers, runtime)
+	headers := &QueryProductByPageHeaders{}
+	_result = &QueryProductByPageResponse{}
+	_body, _err := client.QueryProductByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14322,8 +13685,19 @@ func (client *Client) QueryProjectByPageWithOptions(request *QueryProjectByPageR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryProjectByPage"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/projects/list"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryProjectByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryProjectByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/projects/list"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14331,11 +13705,11 @@ func (client *Client) QueryProjectByPageWithOptions(request *QueryProjectByPageR
 	return _result, _err
 }
 
-func (client *Client) QueryReceiptDetailForInvoice(request *QueryReceiptDetailForInvoiceRequest) (_result *QueryReceiptDetailForInvoiceResponse, _err error) {
+func (client *Client) QueryProjectByPage(request *QueryProjectByPageRequest) (_result *QueryProjectByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryReceiptDetailForInvoiceHeaders{}
-	_result = &QueryReceiptDetailForInvoiceResponse{}
-	_body, _err := client.QueryReceiptDetailForInvoiceWithOptions(request, headers, runtime)
+	headers := &QueryProjectByPageHeaders{}
+	_result = &QueryProjectByPageResponse{}
+	_body, _err := client.QueryProjectByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14366,8 +13740,19 @@ func (client *Client) QueryReceiptDetailForInvoiceWithOptions(request *QueryRece
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryReceiptDetailForInvoice"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/receipts/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryReceiptDetailForInvoiceResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryReceiptDetailForInvoice"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/receipts/details"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14375,11 +13760,11 @@ func (client *Client) QueryReceiptDetailForInvoiceWithOptions(request *QueryRece
 	return _result, _err
 }
 
-func (client *Client) QueryReceiptForInvoice(request *QueryReceiptForInvoiceRequest) (_result *QueryReceiptForInvoiceResponse, _err error) {
+func (client *Client) QueryReceiptDetailForInvoice(request *QueryReceiptDetailForInvoiceRequest) (_result *QueryReceiptDetailForInvoiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryReceiptForInvoiceHeaders{}
-	_result = &QueryReceiptForInvoiceResponse{}
-	_body, _err := client.QueryReceiptForInvoiceWithOptions(request, headers, runtime)
+	headers := &QueryReceiptDetailForInvoiceHeaders{}
+	_result = &QueryReceiptDetailForInvoiceResponse{}
+	_body, _err := client.QueryReceiptDetailForInvoiceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14434,8 +13819,19 @@ func (client *Client) QueryReceiptForInvoiceWithOptions(request *QueryReceiptFor
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryReceiptForInvoice"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/receipts/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryReceiptForInvoiceResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryReceiptForInvoice"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/receipts/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14443,11 +13839,11 @@ func (client *Client) QueryReceiptForInvoiceWithOptions(request *QueryReceiptFor
 	return _result, _err
 }
 
-func (client *Client) QueryReceiptsBaseInfo(request *QueryReceiptsBaseInfoRequest) (_result *QueryReceiptsBaseInfoResponse, _err error) {
+func (client *Client) QueryReceiptForInvoice(request *QueryReceiptForInvoiceRequest) (_result *QueryReceiptForInvoiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryReceiptsBaseInfoHeaders{}
-	_result = &QueryReceiptsBaseInfoResponse{}
-	_body, _err := client.QueryReceiptsBaseInfoWithOptions(request, headers, runtime)
+	headers := &QueryReceiptForInvoiceHeaders{}
+	_result = &QueryReceiptForInvoiceResponse{}
+	_body, _err := client.QueryReceiptForInvoiceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14502,8 +13898,19 @@ func (client *Client) QueryReceiptsBaseInfoWithOptions(request *QueryReceiptsBas
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryReceiptsBaseInfo"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/receipts/dataInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryReceiptsBaseInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryReceiptsBaseInfo"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts/dataInfos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14511,11 +13918,11 @@ func (client *Client) QueryReceiptsBaseInfoWithOptions(request *QueryReceiptsBas
 	return _result, _err
 }
 
-func (client *Client) QueryReceiptsByPage(request *QueryReceiptsByPageRequest) (_result *QueryReceiptsByPageResponse, _err error) {
+func (client *Client) QueryReceiptsBaseInfo(request *QueryReceiptsBaseInfoRequest) (_result *QueryReceiptsBaseInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryReceiptsByPageHeaders{}
-	_result = &QueryReceiptsByPageResponse{}
-	_body, _err := client.QueryReceiptsByPageWithOptions(request, headers, runtime)
+	headers := &QueryReceiptsBaseInfoHeaders{}
+	_result = &QueryReceiptsBaseInfoResponse{}
+	_body, _err := client.QueryReceiptsBaseInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14566,8 +13973,19 @@ func (client *Client) QueryReceiptsByPageWithOptions(request *QueryReceiptsByPag
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryReceiptsByPage"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/receipts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryReceiptsByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryReceiptsByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14575,11 +13993,11 @@ func (client *Client) QueryReceiptsByPageWithOptions(request *QueryReceiptsByPag
 	return _result, _err
 }
 
-func (client *Client) QuerySupplierByPage(request *QuerySupplierByPageRequest) (_result *QuerySupplierByPageResponse, _err error) {
+func (client *Client) QueryReceiptsByPage(request *QueryReceiptsByPageRequest) (_result *QueryReceiptsByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QuerySupplierByPageHeaders{}
-	_result = &QuerySupplierByPageResponse{}
-	_body, _err := client.QuerySupplierByPageWithOptions(request, headers, runtime)
+	headers := &QueryReceiptsByPageHeaders{}
+	_result = &QueryReceiptsByPageResponse{}
+	_body, _err := client.QueryReceiptsByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14614,8 +14032,19 @@ func (client *Client) QuerySupplierByPageWithOptions(request *QuerySupplierByPag
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySupplierByPage"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/suppliers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QuerySupplierByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("QuerySupplierByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/suppliers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14623,11 +14052,11 @@ func (client *Client) QuerySupplierByPageWithOptions(request *QuerySupplierByPag
 	return _result, _err
 }
 
-func (client *Client) QueryUserRoleList(request *QueryUserRoleListRequest) (_result *QueryUserRoleListResponse, _err error) {
+func (client *Client) QuerySupplierByPage(request *QuerySupplierByPageRequest) (_result *QuerySupplierByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryUserRoleListHeaders{}
-	_result = &QueryUserRoleListResponse{}
-	_body, _err := client.QueryUserRoleListWithOptions(request, headers, runtime)
+	headers := &QuerySupplierByPageHeaders{}
+	_result = &QuerySupplierByPageResponse{}
+	_body, _err := client.QuerySupplierByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14658,8 +14087,19 @@ func (client *Client) QueryUserRoleListWithOptions(request *QueryUserRoleListReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUserRoleList"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/users/roles"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryUserRoleListResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryUserRoleList"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/users/roles"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14667,11 +14107,11 @@ func (client *Client) QueryUserRoleListWithOptions(request *QueryUserRoleListReq
 	return _result, _err
 }
 
-func (client *Client) UnbindApplyReceiptAndInvoiceRelated(request *UnbindApplyReceiptAndInvoiceRelatedRequest) (_result *UnbindApplyReceiptAndInvoiceRelatedResponse, _err error) {
+func (client *Client) QueryUserRoleList(request *QueryUserRoleListRequest) (_result *QueryUserRoleListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UnbindApplyReceiptAndInvoiceRelatedHeaders{}
-	_result = &UnbindApplyReceiptAndInvoiceRelatedResponse{}
-	_body, _err := client.UnbindApplyReceiptAndInvoiceRelatedWithOptions(request, headers, runtime)
+	headers := &QueryUserRoleListHeaders{}
+	_result = &QueryUserRoleListResponse{}
+	_body, _err := client.QueryUserRoleListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14710,8 +14150,19 @@ func (client *Client) UnbindApplyReceiptAndInvoiceRelatedWithOptions(request *Un
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UnbindApplyReceiptAndInvoiceRelated"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/unbind"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UnbindApplyReceiptAndInvoiceRelatedResponse{}
-	_body, _err := client.DoROARequest(tea.String("UnbindApplyReceiptAndInvoiceRelated"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/unbind"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14719,11 +14170,11 @@ func (client *Client) UnbindApplyReceiptAndInvoiceRelatedWithOptions(request *Un
 	return _result, _err
 }
 
-func (client *Client) UpdateApplyReceiptAndInvoiceRelated(request *UpdateApplyReceiptAndInvoiceRelatedRequest) (_result *UpdateApplyReceiptAndInvoiceRelatedResponse, _err error) {
+func (client *Client) UnbindApplyReceiptAndInvoiceRelated(request *UnbindApplyReceiptAndInvoiceRelatedRequest) (_result *UnbindApplyReceiptAndInvoiceRelatedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateApplyReceiptAndInvoiceRelatedHeaders{}
-	_result = &UpdateApplyReceiptAndInvoiceRelatedResponse{}
-	_body, _err := client.UpdateApplyReceiptAndInvoiceRelatedWithOptions(request, headers, runtime)
+	headers := &UnbindApplyReceiptAndInvoiceRelatedHeaders{}
+	_result = &UnbindApplyReceiptAndInvoiceRelatedResponse{}
+	_body, _err := client.UnbindApplyReceiptAndInvoiceRelatedWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14762,8 +14213,19 @@ func (client *Client) UpdateApplyReceiptAndInvoiceRelatedWithOptions(request *Up
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateApplyReceiptAndInvoiceRelated"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/applyReceipts/relate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateApplyReceiptAndInvoiceRelatedResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateApplyReceiptAndInvoiceRelated"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/applyReceipts/relate"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14771,11 +14233,11 @@ func (client *Client) UpdateApplyReceiptAndInvoiceRelatedWithOptions(request *Up
 	return _result, _err
 }
 
-func (client *Client) UpdateDigitalInvoiceOrgInfo(request *UpdateDigitalInvoiceOrgInfoRequest) (_result *UpdateDigitalInvoiceOrgInfoResponse, _err error) {
+func (client *Client) UpdateApplyReceiptAndInvoiceRelated(request *UpdateApplyReceiptAndInvoiceRelatedRequest) (_result *UpdateApplyReceiptAndInvoiceRelatedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateDigitalInvoiceOrgInfoHeaders{}
-	_result = &UpdateDigitalInvoiceOrgInfoResponse{}
-	_body, _err := client.UpdateDigitalInvoiceOrgInfoWithOptions(request, headers, runtime)
+	headers := &UpdateApplyReceiptAndInvoiceRelatedHeaders{}
+	_result = &UpdateApplyReceiptAndInvoiceRelatedResponse{}
+	_body, _err := client.UpdateApplyReceiptAndInvoiceRelatedWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14818,8 +14280,19 @@ func (client *Client) UpdateDigitalInvoiceOrgInfoWithOptions(request *UpdateDigi
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateDigitalInvoiceOrgInfo"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/organizationInfos"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateDigitalInvoiceOrgInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateDigitalInvoiceOrgInfo"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/organizationInfos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14827,11 +14300,11 @@ func (client *Client) UpdateDigitalInvoiceOrgInfoWithOptions(request *UpdateDigi
 	return _result, _err
 }
 
-func (client *Client) UpdateFinanceCompanyInfo(request *UpdateFinanceCompanyInfoRequest) (_result *UpdateFinanceCompanyInfoResponse, _err error) {
+func (client *Client) UpdateDigitalInvoiceOrgInfo(request *UpdateDigitalInvoiceOrgInfoRequest) (_result *UpdateDigitalInvoiceOrgInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateFinanceCompanyInfoHeaders{}
-	_result = &UpdateFinanceCompanyInfoResponse{}
-	_body, _err := client.UpdateFinanceCompanyInfoWithOptions(request, headers, runtime)
+	headers := &UpdateDigitalInvoiceOrgInfoHeaders{}
+	_result = &UpdateDigitalInvoiceOrgInfoResponse{}
+	_body, _err := client.UpdateDigitalInvoiceOrgInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14874,8 +14347,19 @@ func (client *Client) UpdateFinanceCompanyInfoWithOptions(request *UpdateFinance
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateFinanceCompanyInfo"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/companies"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateFinanceCompanyInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateFinanceCompanyInfo"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/companies"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14883,11 +14367,11 @@ func (client *Client) UpdateFinanceCompanyInfoWithOptions(request *UpdateFinance
 	return _result, _err
 }
 
-func (client *Client) UpdateInvoiceAbandonStatus(request *UpdateInvoiceAbandonStatusRequest) (_result *UpdateInvoiceAbandonStatusResponse, _err error) {
+func (client *Client) UpdateFinanceCompanyInfo(request *UpdateFinanceCompanyInfoRequest) (_result *UpdateFinanceCompanyInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInvoiceAbandonStatusHeaders{}
-	_result = &UpdateInvoiceAbandonStatusResponse{}
-	_body, _err := client.UpdateInvoiceAbandonStatusWithOptions(request, headers, runtime)
+	headers := &UpdateFinanceCompanyInfoHeaders{}
+	_result = &UpdateFinanceCompanyInfoResponse{}
+	_body, _err := client.UpdateFinanceCompanyInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14954,8 +14438,19 @@ func (client *Client) UpdateInvoiceAbandonStatusWithOptions(request *UpdateInvoi
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInvoiceAbandonStatus"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/abandonStatus"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInvoiceAbandonStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceAbandonStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/abandonStatus"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14963,11 +14458,11 @@ func (client *Client) UpdateInvoiceAbandonStatusWithOptions(request *UpdateInvoi
 	return _result, _err
 }
 
-func (client *Client) UpdateInvoiceAccountPeriod(request *UpdateInvoiceAccountPeriodRequest) (_result *UpdateInvoiceAccountPeriodResponse, _err error) {
+func (client *Client) UpdateInvoiceAbandonStatus(request *UpdateInvoiceAbandonStatusRequest) (_result *UpdateInvoiceAbandonStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInvoiceAccountPeriodHeaders{}
-	_result = &UpdateInvoiceAccountPeriodResponse{}
-	_body, _err := client.UpdateInvoiceAccountPeriodWithOptions(request, headers, runtime)
+	headers := &UpdateInvoiceAbandonStatusHeaders{}
+	_result = &UpdateInvoiceAbandonStatusResponse{}
+	_body, _err := client.UpdateInvoiceAbandonStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15010,8 +14505,19 @@ func (client *Client) UpdateInvoiceAccountPeriodWithOptions(request *UpdateInvoi
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInvoiceAccountPeriod"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/accountPeriods"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInvoiceAccountPeriodResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceAccountPeriod"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/accountPeriods"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15019,11 +14525,11 @@ func (client *Client) UpdateInvoiceAccountPeriodWithOptions(request *UpdateInvoi
 	return _result, _err
 }
 
-func (client *Client) UpdateInvoiceAccountingPeriodDate(request *UpdateInvoiceAccountingPeriodDateRequest) (_result *UpdateInvoiceAccountingPeriodDateResponse, _err error) {
+func (client *Client) UpdateInvoiceAccountPeriod(request *UpdateInvoiceAccountPeriodRequest) (_result *UpdateInvoiceAccountPeriodResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInvoiceAccountingPeriodDateHeaders{}
-	_result = &UpdateInvoiceAccountingPeriodDateResponse{}
-	_body, _err := client.UpdateInvoiceAccountingPeriodDateWithOptions(request, headers, runtime)
+	headers := &UpdateInvoiceAccountPeriodHeaders{}
+	_result = &UpdateInvoiceAccountPeriodResponse{}
+	_body, _err := client.UpdateInvoiceAccountPeriodWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15058,8 +14564,19 @@ func (client *Client) UpdateInvoiceAccountingPeriodDateWithOptions(request *Upda
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInvoiceAccountingPeriodDate"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/accounts/periodDates"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInvoiceAccountingPeriodDateResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceAccountingPeriodDate"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/accounts/periodDates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15067,11 +14584,11 @@ func (client *Client) UpdateInvoiceAccountingPeriodDateWithOptions(request *Upda
 	return _result, _err
 }
 
-func (client *Client) UpdateInvoiceAccountingStatus(request *UpdateInvoiceAccountingStatusRequest) (_result *UpdateInvoiceAccountingStatusResponse, _err error) {
+func (client *Client) UpdateInvoiceAccountingPeriodDate(request *UpdateInvoiceAccountingPeriodDateRequest) (_result *UpdateInvoiceAccountingPeriodDateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInvoiceAccountingStatusHeaders{}
-	_result = &UpdateInvoiceAccountingStatusResponse{}
-	_body, _err := client.UpdateInvoiceAccountingStatusWithOptions(request, headers, runtime)
+	headers := &UpdateInvoiceAccountingPeriodDateHeaders{}
+	_result = &UpdateInvoiceAccountingPeriodDateResponse{}
+	_body, _err := client.UpdateInvoiceAccountingPeriodDateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15106,8 +14623,19 @@ func (client *Client) UpdateInvoiceAccountingStatusWithOptions(request *UpdateIn
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInvoiceAccountingStatus"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/accounts/statuses"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInvoiceAccountingStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceAccountingStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/accounts/statuses"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15115,11 +14643,11 @@ func (client *Client) UpdateInvoiceAccountingStatusWithOptions(request *UpdateIn
 	return _result, _err
 }
 
-func (client *Client) UpdateInvoiceAndReceiptRelated(request *UpdateInvoiceAndReceiptRelatedRequest) (_result *UpdateInvoiceAndReceiptRelatedResponse, _err error) {
+func (client *Client) UpdateInvoiceAccountingStatus(request *UpdateInvoiceAccountingStatusRequest) (_result *UpdateInvoiceAccountingStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInvoiceAndReceiptRelatedHeaders{}
-	_result = &UpdateInvoiceAndReceiptRelatedResponse{}
-	_body, _err := client.UpdateInvoiceAndReceiptRelatedWithOptions(request, headers, runtime)
+	headers := &UpdateInvoiceAccountingStatusHeaders{}
+	_result = &UpdateInvoiceAccountingStatusResponse{}
+	_body, _err := client.UpdateInvoiceAccountingStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15166,8 +14694,19 @@ func (client *Client) UpdateInvoiceAndReceiptRelatedWithOptions(request *UpdateI
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInvoiceAndReceiptRelated"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/approvalReceipts"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInvoiceAndReceiptRelatedResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceAndReceiptRelated"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/approvalReceipts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15175,11 +14714,11 @@ func (client *Client) UpdateInvoiceAndReceiptRelatedWithOptions(request *UpdateI
 	return _result, _err
 }
 
-func (client *Client) UpdateInvoiceIgnoreStatus(request *UpdateInvoiceIgnoreStatusRequest) (_result *UpdateInvoiceIgnoreStatusResponse, _err error) {
+func (client *Client) UpdateInvoiceAndReceiptRelated(request *UpdateInvoiceAndReceiptRelatedRequest) (_result *UpdateInvoiceAndReceiptRelatedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInvoiceIgnoreStatusHeaders{}
-	_result = &UpdateInvoiceIgnoreStatusResponse{}
-	_body, _err := client.UpdateInvoiceIgnoreStatusWithOptions(request, headers, runtime)
+	headers := &UpdateInvoiceAndReceiptRelatedHeaders{}
+	_result = &UpdateInvoiceAndReceiptRelatedResponse{}
+	_body, _err := client.UpdateInvoiceAndReceiptRelatedWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15218,8 +14757,19 @@ func (client *Client) UpdateInvoiceIgnoreStatusWithOptions(request *UpdateInvoic
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInvoiceIgnoreStatus"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/ignoreStatus"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInvoiceIgnoreStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceIgnoreStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/ignoreStatus"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15227,11 +14777,11 @@ func (client *Client) UpdateInvoiceIgnoreStatusWithOptions(request *UpdateInvoic
 	return _result, _err
 }
 
-func (client *Client) UpdateInvoiceVerifyStatus(request *UpdateInvoiceVerifyStatusRequest) (_result *UpdateInvoiceVerifyStatusResponse, _err error) {
+func (client *Client) UpdateInvoiceIgnoreStatus(request *UpdateInvoiceIgnoreStatusRequest) (_result *UpdateInvoiceIgnoreStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInvoiceVerifyStatusHeaders{}
-	_result = &UpdateInvoiceVerifyStatusResponse{}
-	_body, _err := client.UpdateInvoiceVerifyStatusWithOptions(request, headers, runtime)
+	headers := &UpdateInvoiceIgnoreStatusHeaders{}
+	_result = &UpdateInvoiceIgnoreStatusResponse{}
+	_body, _err := client.UpdateInvoiceIgnoreStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15278,8 +14828,19 @@ func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoic
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInvoiceVerifyStatus"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/verifyStatus"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInvoiceVerifyStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceVerifyStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/verifyStatus"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15287,11 +14848,11 @@ func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoic
 	return _result, _err
 }
 
-func (client *Client) UpdateInvoiceVoucherStatus(request *UpdateInvoiceVoucherStatusRequest) (_result *UpdateInvoiceVoucherStatusResponse, _err error) {
+func (client *Client) UpdateInvoiceVerifyStatus(request *UpdateInvoiceVerifyStatusRequest) (_result *UpdateInvoiceVerifyStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInvoiceVoucherStatusHeaders{}
-	_result = &UpdateInvoiceVoucherStatusResponse{}
-	_body, _err := client.UpdateInvoiceVoucherStatusWithOptions(request, headers, runtime)
+	headers := &UpdateInvoiceVerifyStatusHeaders{}
+	_result = &UpdateInvoiceVerifyStatusResponse{}
+	_body, _err := client.UpdateInvoiceVerifyStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15338,8 +14899,19 @@ func (client *Client) UpdateInvoiceVoucherStatusWithOptions(request *UpdateInvoi
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInvoiceVoucherStatus"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/vouchers/states"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInvoiceVoucherStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceVoucherStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/vouchers/states"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15347,11 +14919,11 @@ func (client *Client) UpdateInvoiceVoucherStatusWithOptions(request *UpdateInvoi
 	return _result, _err
 }
 
-func (client *Client) UpdateReceipt(request *UpdateReceiptRequest) (_result *UpdateReceiptResponse, _err error) {
+func (client *Client) UpdateInvoiceVoucherStatus(request *UpdateInvoiceVoucherStatusRequest) (_result *UpdateInvoiceVoucherStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateReceiptHeaders{}
-	_result = &UpdateReceiptResponse{}
-	_body, _err := client.UpdateReceiptWithOptions(request, headers, runtime)
+	headers := &UpdateInvoiceVoucherStatusHeaders{}
+	_result = &UpdateInvoiceVoucherStatusResponse{}
+	_body, _err := client.UpdateInvoiceVoucherStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15382,8 +14954,19 @@ func (client *Client) UpdateReceiptWithOptions(request *UpdateReceiptRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateReceipt"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/receipts"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateReceiptResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateReceipt"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15391,11 +14974,11 @@ func (client *Client) UpdateReceiptWithOptions(request *UpdateReceiptRequest, he
 	return _result, _err
 }
 
-func (client *Client) UpdateReceiptVoucherStatus(request *UpdateReceiptVoucherStatusRequest) (_result *UpdateReceiptVoucherStatusResponse, _err error) {
+func (client *Client) UpdateReceipt(request *UpdateReceiptRequest) (_result *UpdateReceiptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateReceiptVoucherStatusHeaders{}
-	_result = &UpdateReceiptVoucherStatusResponse{}
-	_body, _err := client.UpdateReceiptVoucherStatusWithOptions(request, headers, runtime)
+	headers := &UpdateReceiptHeaders{}
+	_result = &UpdateReceiptResponse{}
+	_body, _err := client.UpdateReceiptWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15446,11 +15029,34 @@ func (client *Client) UpdateReceiptVoucherStatusWithOptions(request *UpdateRecei
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateReceiptVoucherStatus"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/vouchers/recepits"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateReceiptVoucherStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateReceiptVoucherStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/vouchers/recepits"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateReceiptVoucherStatus(request *UpdateReceiptVoucherStatusRequest) (_result *UpdateReceiptVoucherStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateReceiptVoucherStatusHeaders{}
+	_result = &UpdateReceiptVoucherStatusResponse{}
+	_body, _err := client.UpdateReceiptVoucherStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

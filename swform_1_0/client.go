@@ -5,9 +5,11 @@
 package swform_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,7 +37,6 @@ func (s *GetFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *GetFormIn
 }
 
 type GetFormInstanceRequest struct {
-	// 填表类型。0表示通用填表，1表示教育版填表
 	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
 }
 
@@ -53,10 +54,8 @@ func (s *GetFormInstanceRequest) SetBizType(v int32) *GetFormInstanceRequest {
 }
 
 type GetFormInstanceResponseBody struct {
-	// 返回结果对象。
-	Result *GetFormInstanceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 是否成功。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *GetFormInstanceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetFormInstanceResponseBody) String() string {
@@ -78,18 +77,12 @@ func (s *GetFormInstanceResponseBody) SetSuccess(v bool) *GetFormInstanceRespons
 }
 
 type GetFormInstanceResponseBodyResult struct {
-	// 创建时间。iso8601格式。
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建者userid
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 填表code，用此code可调接口获取填表实例列表。
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 表单内容列表。
-	Forms []*GetFormInstanceResponseBodyResultForms `json:"forms,omitempty" xml:"forms,omitempty" type:"Repeated"`
-	// 更新时间。iso8601格式。
-	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	// 填表名称。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	CreateTime *string                                   `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator    *string                                   `json:"creator,omitempty" xml:"creator,omitempty"`
+	FormCode   *string                                   `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	Forms      []*GetFormInstanceResponseBodyResultForms `json:"forms,omitempty" xml:"forms,omitempty" type:"Repeated"`
+	ModifyTime *string                                   `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	Title      *string                                   `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetFormInstanceResponseBodyResult) String() string {
@@ -131,11 +124,8 @@ func (s *GetFormInstanceResponseBodyResult) SetTitle(v string) *GetFormInstanceR
 }
 
 type GetFormInstanceResponseBodyResultForms struct {
-	// 表单控件key。
-	Key *string `json:"key,omitempty" xml:"key,omitempty"`
-	// 表单主题。  当label字段为空或不存在时，忽略这个label和value。
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	// 表单的值。
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -163,8 +153,9 @@ func (s *GetFormInstanceResponseBodyResultForms) SetValue(v string) *GetFormInst
 }
 
 type GetFormInstanceResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFormInstanceResponse) String() string {
@@ -177,6 +168,11 @@ func (s GetFormInstanceResponse) GoString() string {
 
 func (s *GetFormInstanceResponse) SetHeaders(v map[string]*string) *GetFormInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFormInstanceResponse) SetStatusCode(v int32) *GetFormInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -209,14 +205,10 @@ func (s *ListFormInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *ListFor
 }
 
 type ListFormInstancesRequest struct {
-	// 时间，必须是YYYY-MM-DD的格式。循环填表才需要传这个参数。
 	ActionDate *string `json:"actionDate,omitempty" xml:"actionDate,omitempty"`
-	// 填表类型。0表示通用填表，1表示教育版填表
-	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 分页大小，最大100。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页起始，从0开始。当返回结果中hasMore为false时，表示没有下一页了。否则取返回结果中nextToken的值作为下一次请求的offset。
-	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	BizType    *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListFormInstancesRequest) String() string {
@@ -248,7 +240,6 @@ func (s *ListFormInstancesRequest) SetNextToken(v int32) *ListFormInstancesReque
 }
 
 type ListFormInstancesResponseBody struct {
-	// 返回结果对象。
 	Result  *ListFormInstancesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -272,12 +263,9 @@ func (s *ListFormInstancesResponseBody) SetSuccess(v bool) *ListFormInstancesRes
 }
 
 type ListFormInstancesResponseBodyResult struct {
-	// 是否还有下一页数据。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 填表实例列表。
-	List []*ListFormInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 下一次分页offset的值。
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                                      `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*ListFormInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *int64                                     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListFormInstancesResponseBodyResult) String() string {
@@ -304,30 +292,18 @@ func (s *ListFormInstancesResponseBodyResult) SetNextToken(v int64) *ListFormIns
 }
 
 type ListFormInstancesResponseBodyResultList struct {
-	// 创建时间。iso8601格式。
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 填表code，用此code可调接口获取填表列表。
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 实例ID。
-	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	// 表单内容列表。
-	Forms []*ListFormInstancesResponseBodyResultListForms `json:"forms,omitempty" xml:"forms,omitempty" type:"Repeated"`
-	// 更新时间。iso8601格式。
-	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	// 学生班级ID。
-	StudentClassId *string `json:"studentClassId,omitempty" xml:"studentClassId,omitempty"`
-	// 学生班级名称。
-	StudentClassName *string `json:"studentClassName,omitempty" xml:"studentClassName,omitempty"`
-	// 学生名称。
-	StudentName *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
-	// 学生ID。
-	StudentUserId *string `json:"studentUserId,omitempty" xml:"studentUserId,omitempty"`
-	// 提交人的userid。
-	SubmitterUserId *string `json:"submitterUserId,omitempty" xml:"submitterUserId,omitempty"`
-	// 提交人姓名。
-	SubmitterUserName *string `json:"submitterUserName,omitempty" xml:"submitterUserName,omitempty"`
-	// 填表名称。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	CreateTime        *string                                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FormCode          *string                                         `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	FormInstanceId    *string                                         `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	Forms             []*ListFormInstancesResponseBodyResultListForms `json:"forms,omitempty" xml:"forms,omitempty" type:"Repeated"`
+	ModifyTime        *string                                         `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	StudentClassId    *string                                         `json:"studentClassId,omitempty" xml:"studentClassId,omitempty"`
+	StudentClassName  *string                                         `json:"studentClassName,omitempty" xml:"studentClassName,omitempty"`
+	StudentName       *string                                         `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	StudentUserId     *string                                         `json:"studentUserId,omitempty" xml:"studentUserId,omitempty"`
+	SubmitterUserId   *string                                         `json:"submitterUserId,omitempty" xml:"submitterUserId,omitempty"`
+	SubmitterUserName *string                                         `json:"submitterUserName,omitempty" xml:"submitterUserName,omitempty"`
+	Title             *string                                         `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s ListFormInstancesResponseBodyResultList) String() string {
@@ -399,11 +375,8 @@ func (s *ListFormInstancesResponseBodyResultList) SetTitle(v string) *ListFormIn
 }
 
 type ListFormInstancesResponseBodyResultListForms struct {
-	// 表单控件key。
-	Key *string `json:"key,omitempty" xml:"key,omitempty"`
-	// 表单主题。  当label字段为空或不存在时，忽略这个label和value。
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	// 表单的值。
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -431,8 +404,9 @@ func (s *ListFormInstancesResponseBodyResultListForms) SetValue(v string) *ListF
 }
 
 type ListFormInstancesResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListFormInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListFormInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListFormInstancesResponse) String() string {
@@ -445,6 +419,11 @@ func (s ListFormInstancesResponse) GoString() string {
 
 func (s *ListFormInstancesResponse) SetHeaders(v map[string]*string) *ListFormInstancesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListFormInstancesResponse) SetStatusCode(v int32) *ListFormInstancesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -477,14 +456,10 @@ func (s *ListFormSchemasByCreatorHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type ListFormSchemasByCreatorRequest struct {
-	// 填表类型。0表示通用填表，1表示教育版填表
-	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 填表创建人userid
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 分页大小，最大200
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标，从0开始。后续取返回结果中nextToken的值。
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	BizType    *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Creator    *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListFormSchemasByCreatorRequest) String() string {
@@ -516,10 +491,8 @@ func (s *ListFormSchemasByCreatorRequest) SetNextToken(v int64) *ListFormSchemas
 }
 
 type ListFormSchemasByCreatorResponseBody struct {
-	// 返回结果对象。
-	Result *ListFormSchemasByCreatorResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 是否成功。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *ListFormSchemasByCreatorResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ListFormSchemasByCreatorResponseBody) String() string {
@@ -541,12 +514,9 @@ func (s *ListFormSchemasByCreatorResponseBody) SetSuccess(v bool) *ListFormSchem
 }
 
 type ListFormSchemasByCreatorResponseBodyResult struct {
-	// 是否还有下一页数据。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 创建的填表列表。
-	List []*ListFormSchemasByCreatorResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 下一次分页offset的值。
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*ListFormSchemasByCreatorResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *int64                                            `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListFormSchemasByCreatorResponseBodyResult) String() string {
@@ -573,16 +543,11 @@ func (s *ListFormSchemasByCreatorResponseBodyResult) SetNextToken(v int64) *List
 }
 
 type ListFormSchemasByCreatorResponseBodyResultList struct {
-	// 创建人。
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 填表code，用此code可调接口获取填表列表。
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 填表提示。
-	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
-	// 填表名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 填表设置。
-	Setting *ListFormSchemasByCreatorResponseBodyResultListSetting `json:"setting,omitempty" xml:"setting,omitempty" type:"Struct"`
+	Creator  *string                                                `json:"creator,omitempty" xml:"creator,omitempty"`
+	FormCode *string                                                `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	Memo     *string                                                `json:"memo,omitempty" xml:"memo,omitempty"`
+	Name     *string                                                `json:"name,omitempty" xml:"name,omitempty"`
+	Setting  *ListFormSchemasByCreatorResponseBodyResultListSetting `json:"setting,omitempty" xml:"setting,omitempty" type:"Struct"`
 }
 
 func (s ListFormSchemasByCreatorResponseBodyResultList) String() string {
@@ -619,20 +584,13 @@ func (s *ListFormSchemasByCreatorResponseBodyResultList) SetSetting(v *ListFormS
 }
 
 type ListFormSchemasByCreatorResponseBodyResultListSetting struct {
-	// 表单类型：  0：一次性填表  1：周期性填表
-	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 创建时间。iso8601格式。
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 截止时间。iso8601格式。
-	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 表单类型：  0：一次性填表  1：周期性填表
-	FormType *int32 `json:"formType,omitempty" xml:"formType,omitempty"`
-	// 填表周期，周一到周日分别用1-7表示。
-	LoopDays []*int32 `json:"loopDays,omitempty" xml:"loopDays,omitempty" type:"Repeated"`
-	// 循环执行的时间点。
-	LoopTime *string `json:"loopTime,omitempty" xml:"loopTime,omitempty"`
-	// 填表是否终止的标记。
-	Stop *bool `json:"stop,omitempty" xml:"stop,omitempty"`
+	BizType    *int32   `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CreateTime *string  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	EndTime    *string  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	FormType   *int32   `json:"formType,omitempty" xml:"formType,omitempty"`
+	LoopDays   []*int32 `json:"loopDays,omitempty" xml:"loopDays,omitempty" type:"Repeated"`
+	LoopTime   *string  `json:"loopTime,omitempty" xml:"loopTime,omitempty"`
+	Stop       *bool    `json:"stop,omitempty" xml:"stop,omitempty"`
 }
 
 func (s ListFormSchemasByCreatorResponseBodyResultListSetting) String() string {
@@ -679,8 +637,9 @@ func (s *ListFormSchemasByCreatorResponseBodyResultListSetting) SetStop(v bool) 
 }
 
 type ListFormSchemasByCreatorResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListFormSchemasByCreatorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListFormSchemasByCreatorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListFormSchemasByCreatorResponse) String() string {
@@ -693,6 +652,11 @@ func (s ListFormSchemasByCreatorResponse) GoString() string {
 
 func (s *ListFormSchemasByCreatorResponse) SetHeaders(v map[string]*string) *ListFormSchemasByCreatorResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListFormSchemasByCreatorResponse) SetStatusCode(v int32) *ListFormSchemasByCreatorResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -716,6 +680,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -724,24 +694,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) GetFormInstance(formInstanceId *string, request *GetFormInstanceRequest) (_result *GetFormInstanceResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetFormInstanceHeaders{}
-	_result = &GetFormInstanceResponse{}
-	_body, _err := client.GetFormInstanceWithOptions(formInstanceId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) GetFormInstanceWithOptions(formInstanceId *string, request *GetFormInstanceRequest, headers *GetFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *GetFormInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	formInstanceId = openapiutil.GetEncodeParam(formInstanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizType)) {
 		query["bizType"] = request.BizType
@@ -760,8 +717,19 @@ func (client *Client) GetFormInstanceWithOptions(formInstanceId *string, request
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFormInstance"),
+		Version:     tea.String("swform_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/swform/instances/" + tea.StringValue(formInstanceId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFormInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFormInstance"), tea.String("swform_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/swform/instances/"+tea.StringValue(formInstanceId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -769,11 +737,11 @@ func (client *Client) GetFormInstanceWithOptions(formInstanceId *string, request
 	return _result, _err
 }
 
-func (client *Client) ListFormInstances(formCode *string, request *ListFormInstancesRequest) (_result *ListFormInstancesResponse, _err error) {
+func (client *Client) GetFormInstance(formInstanceId *string, request *GetFormInstanceRequest) (_result *GetFormInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListFormInstancesHeaders{}
-	_result = &ListFormInstancesResponse{}
-	_body, _err := client.ListFormInstancesWithOptions(formCode, request, headers, runtime)
+	headers := &GetFormInstanceHeaders{}
+	_result = &GetFormInstanceResponse{}
+	_body, _err := client.GetFormInstanceWithOptions(formInstanceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -786,7 +754,6 @@ func (client *Client) ListFormInstancesWithOptions(formCode *string, request *Li
 	if _err != nil {
 		return _result, _err
 	}
-	formCode = openapiutil.GetEncodeParam(formCode)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ActionDate)) {
 		query["actionDate"] = request.ActionDate
@@ -817,8 +784,19 @@ func (client *Client) ListFormInstancesWithOptions(formCode *string, request *Li
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListFormInstances"),
+		Version:     tea.String("swform_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/swform/forms/" + tea.StringValue(formCode) + "/instances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListFormInstancesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListFormInstances"), tea.String("swform_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/swform/forms/"+tea.StringValue(formCode)+"/instances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -826,11 +804,11 @@ func (client *Client) ListFormInstancesWithOptions(formCode *string, request *Li
 	return _result, _err
 }
 
-func (client *Client) ListFormSchemasByCreator(request *ListFormSchemasByCreatorRequest) (_result *ListFormSchemasByCreatorResponse, _err error) {
+func (client *Client) ListFormInstances(formCode *string, request *ListFormInstancesRequest) (_result *ListFormInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListFormSchemasByCreatorHeaders{}
-	_result = &ListFormSchemasByCreatorResponse{}
-	_body, _err := client.ListFormSchemasByCreatorWithOptions(request, headers, runtime)
+	headers := &ListFormInstancesHeaders{}
+	_result = &ListFormInstancesResponse{}
+	_body, _err := client.ListFormInstancesWithOptions(formCode, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -873,11 +851,34 @@ func (client *Client) ListFormSchemasByCreatorWithOptions(request *ListFormSchem
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListFormSchemasByCreator"),
+		Version:     tea.String("swform_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/swform/users/forms"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListFormSchemasByCreatorResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListFormSchemasByCreator"), tea.String("swform_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/swform/users/forms"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListFormSchemasByCreator(request *ListFormSchemasByCreatorRequest) (_result *ListFormSchemasByCreatorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListFormSchemasByCreatorHeaders{}
+	_result = &ListFormSchemasByCreatorResponse{}
+	_body, _err := client.ListFormSchemasByCreatorWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

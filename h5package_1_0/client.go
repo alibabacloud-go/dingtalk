@@ -5,9 +5,11 @@
 package h5package_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,13 +37,9 @@ func (s *CreatePackageHeaders) SetXAcsDingtalkAccessToken(v string) *CreatePacka
 }
 
 type CreatePackageRequest struct {
-	// 企业内部微应用agentId
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 第三方企业应用appId
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 离线包入口页面地址。没有设置时，默认值是应用设置中的应用首页地址。
-	HomeUrl *string `json:"homeUrl,omitempty" xml:"homeUrl,omitempty"`
-	// 通过获取上传凭据接口返回的name值
+	AgentId      *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppId        *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	HomeUrl      *string `json:"homeUrl,omitempty" xml:"homeUrl,omitempty"`
 	OssObjectKey *string `json:"ossObjectKey,omitempty" xml:"ossObjectKey,omitempty"`
 }
 
@@ -74,7 +72,6 @@ func (s *CreatePackageRequest) SetOssObjectKey(v string) *CreatePackageRequest {
 }
 
 type CreatePackageResponseBody struct {
-	// 创建任务ID
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
@@ -92,8 +89,9 @@ func (s *CreatePackageResponseBody) SetTaskId(v string) *CreatePackageResponseBo
 }
 
 type CreatePackageResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreatePackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreatePackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreatePackageResponse) String() string {
@@ -106,6 +104,11 @@ func (s CreatePackageResponse) GoString() string {
 
 func (s *CreatePackageResponse) SetHeaders(v map[string]*string) *CreatePackageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreatePackageResponse) SetStatusCode(v int32) *CreatePackageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -138,10 +141,8 @@ func (s *GetAccessTokenHeaders) SetXAcsDingtalkAccessToken(v string) *GetAccessT
 }
 
 type GetAccessTokenRequest struct {
-	// 企业内部微应用agentId。
 	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 第三方企业应用appId。
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppId   *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
 }
 
 func (s GetAccessTokenRequest) String() string {
@@ -163,22 +164,14 @@ func (s *GetAccessTokenRequest) SetAppId(v int64) *GetAccessTokenRequest {
 }
 
 type GetAccessTokenResponseBody struct {
-	// 阿里云OSS SDK初始化配置项
-	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
-	// 阿里云OSS SDK初始化配置项
+	AccessKeyId     *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
 	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
-	// 阿里云OSS SDK初始化配置项
-	Bucket *string `json:"bucket,omitempty" xml:"bucket,omitempty"`
-	// 阿里云OSS SDK初始化配置项
-	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
-	// 阿里云OSS SDK初始化配置项
-	Expiration *string `json:"expiration,omitempty" xml:"expiration,omitempty"`
-	// 可上传的阿里云OSS文件地址
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 阿里云OSS SDK初始化配置项
-	Region *string `json:"region,omitempty" xml:"region,omitempty"`
-	// 阿里云OSS SDK初始化配置项
-	StsToken *string `json:"stsToken,omitempty" xml:"stsToken,omitempty"`
+	Bucket          *string `json:"bucket,omitempty" xml:"bucket,omitempty"`
+	Endpoint        *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
+	Expiration      *string `json:"expiration,omitempty" xml:"expiration,omitempty"`
+	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
+	Region          *string `json:"region,omitempty" xml:"region,omitempty"`
+	StsToken        *string `json:"stsToken,omitempty" xml:"stsToken,omitempty"`
 }
 
 func (s GetAccessTokenResponseBody) String() string {
@@ -230,8 +223,9 @@ func (s *GetAccessTokenResponseBody) SetStsToken(v string) *GetAccessTokenRespon
 }
 
 type GetAccessTokenResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAccessTokenResponse) String() string {
@@ -244,6 +238,11 @@ func (s GetAccessTokenResponse) GoString() string {
 
 func (s *GetAccessTokenResponse) SetHeaders(v map[string]*string) *GetAccessTokenResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetAccessTokenResponse) SetStatusCode(v int32) *GetAccessTokenResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -276,7 +275,6 @@ func (s *GetCreateStatusHeaders) SetXAcsDingtalkAccessToken(v string) *GetCreate
 }
 
 type GetCreateStatusRequest struct {
-	// 创建离线包接口返回的taskId
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
@@ -294,18 +292,12 @@ func (s *GetCreateStatusRequest) SetTaskId(v string) *GetCreateStatusRequest {
 }
 
 type GetCreateStatusResponseBody struct {
-	// 创建时间
-	BuildTime *int64 `json:"buildTime,omitempty" xml:"buildTime,omitempty"`
-	// 任务是否已结束
-	Finished *bool `json:"finished,omitempty" xml:"finished,omitempty"`
-	// H5离线包体积，单位Byte
-	PackageSize *int64 `json:"packageSize,omitempty" xml:"packageSize,omitempty"`
-	// 任务状态。1：构建中；2：成功；3：失败；5：超时。
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 创建离线包接口返回的taskId
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// H5离线包版本号
-	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+	BuildTime   *int64  `json:"buildTime,omitempty" xml:"buildTime,omitempty"`
+	Finished    *bool   `json:"finished,omitempty" xml:"finished,omitempty"`
+	PackageSize *int64  `json:"packageSize,omitempty" xml:"packageSize,omitempty"`
+	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId      *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Version     *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s GetCreateStatusResponseBody) String() string {
@@ -347,8 +339,9 @@ func (s *GetCreateStatusResponseBody) SetVersion(v string) *GetCreateStatusRespo
 }
 
 type GetCreateStatusResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCreateStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCreateStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCreateStatusResponse) String() string {
@@ -361,6 +354,11 @@ func (s GetCreateStatusResponse) GoString() string {
 
 func (s *GetCreateStatusResponse) SetHeaders(v map[string]*string) *GetCreateStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCreateStatusResponse) SetStatusCode(v int32) *GetCreateStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -393,11 +391,8 @@ func (s *PublishPackageHeaders) SetXAcsDingtalkAccessToken(v string) *PublishPac
 }
 
 type PublishPackageRequest struct {
-	// 企业内部微应用agentId
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 第三方企业应用appId
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
-	// H5离线包版本号
+	AgentId *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppId   *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
 	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
@@ -425,7 +420,6 @@ func (s *PublishPackageRequest) SetVersion(v string) *PublishPackageRequest {
 }
 
 type PublishPackageResponseBody struct {
-	// 成功标记
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -443,8 +437,9 @@ func (s *PublishPackageResponseBody) SetSuccess(v bool) *PublishPackageResponseB
 }
 
 type PublishPackageResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PublishPackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PublishPackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PublishPackageResponse) String() string {
@@ -457,6 +452,11 @@ func (s PublishPackageResponse) GoString() string {
 
 func (s *PublishPackageResponse) SetHeaders(v map[string]*string) *PublishPackageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PublishPackageResponse) SetStatusCode(v int32) *PublishPackageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -480,24 +480,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreatePackage(request *CreatePackageRequest) (_result *CreatePackageResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreatePackageHeaders{}
-	_result = &CreatePackageResponse{}
-	_body, _err := client.CreatePackageWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreatePackageWithOptions(request *CreatePackageRequest, headers *CreatePackageHeaders, runtime *util.RuntimeOptions) (_result *CreatePackageResponse, _err error) {
@@ -535,8 +529,19 @@ func (client *Client) CreatePackageWithOptions(request *CreatePackageRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreatePackage"),
+		Version:     tea.String("h5package_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/h5package/asyncUpload"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreatePackageResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreatePackage"), tea.String("h5package_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/h5package/asyncUpload"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -544,11 +549,11 @@ func (client *Client) CreatePackageWithOptions(request *CreatePackageRequest, he
 	return _result, _err
 }
 
-func (client *Client) GetAccessToken(request *GetAccessTokenRequest) (_result *GetAccessTokenResponse, _err error) {
+func (client *Client) CreatePackage(request *CreatePackageRequest) (_result *CreatePackageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetAccessTokenHeaders{}
-	_result = &GetAccessTokenResponse{}
-	_body, _err := client.GetAccessTokenWithOptions(request, headers, runtime)
+	headers := &CreatePackageHeaders{}
+	_result = &CreatePackageResponse{}
+	_body, _err := client.CreatePackageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -583,8 +588,19 @@ func (client *Client) GetAccessTokenWithOptions(request *GetAccessTokenRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAccessToken"),
+		Version:     tea.String("h5package_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/h5package/uploadTokens"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetAccessTokenResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAccessToken"), tea.String("h5package_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/h5package/uploadTokens"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -592,11 +608,11 @@ func (client *Client) GetAccessTokenWithOptions(request *GetAccessTokenRequest, 
 	return _result, _err
 }
 
-func (client *Client) GetCreateStatus(request *GetCreateStatusRequest) (_result *GetCreateStatusResponse, _err error) {
+func (client *Client) GetAccessToken(request *GetAccessTokenRequest) (_result *GetAccessTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetCreateStatusHeaders{}
-	_result = &GetCreateStatusResponse{}
-	_body, _err := client.GetCreateStatusWithOptions(request, headers, runtime)
+	headers := &GetAccessTokenHeaders{}
+	_result = &GetAccessTokenResponse{}
+	_body, _err := client.GetAccessTokenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -627,8 +643,19 @@ func (client *Client) GetCreateStatusWithOptions(request *GetCreateStatusRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCreateStatus"),
+		Version:     tea.String("h5package_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/h5package/uploadStatus"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCreateStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCreateStatus"), tea.String("h5package_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/h5package/uploadStatus"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -636,11 +663,11 @@ func (client *Client) GetCreateStatusWithOptions(request *GetCreateStatusRequest
 	return _result, _err
 }
 
-func (client *Client) PublishPackage(request *PublishPackageRequest) (_result *PublishPackageResponse, _err error) {
+func (client *Client) GetCreateStatus(request *GetCreateStatusRequest) (_result *GetCreateStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PublishPackageHeaders{}
-	_result = &PublishPackageResponse{}
-	_body, _err := client.PublishPackageWithOptions(request, headers, runtime)
+	headers := &GetCreateStatusHeaders{}
+	_result = &GetCreateStatusResponse{}
+	_body, _err := client.GetCreateStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -679,11 +706,34 @@ func (client *Client) PublishPackageWithOptions(request *PublishPackageRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PublishPackage"),
+		Version:     tea.String("h5package_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/h5package/publish"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PublishPackageResponse{}
-	_body, _err := client.DoROARequest(tea.String("PublishPackage"), tea.String("h5package_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/h5package/publish"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PublishPackage(request *PublishPackageRequest) (_result *PublishPackageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PublishPackageHeaders{}
+	_result = &PublishPackageResponse{}
+	_body, _err := client.PublishPackageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

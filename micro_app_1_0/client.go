@@ -5,9 +5,11 @@
 package micro_app_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,14 +37,10 @@ func (s *AddAppRolesToMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddAp
 }
 
 type AddAppRolesToMemberRequest struct {
-	// 人员id
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 人员类型，“DEPT”表示部门，“USER”表示员工
-	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 执行用户userId
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 角色Id列表
-	RoleList []*AddAppRolesToMemberRequestRoleList `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
+	MemberId   *string                               `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberType *string                               `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	OpUserId   *string                               `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	RoleList   []*AddAppRolesToMemberRequestRoleList `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
 }
 
 func (s AddAppRolesToMemberRequest) String() string {
@@ -74,9 +72,7 @@ func (s *AddAppRolesToMemberRequest) SetRoleList(v []*AddAppRolesToMemberRequest
 }
 
 type AddAppRolesToMemberRequestRoleList struct {
-	// 角色ID
-	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	// 角色范围版本号
+	RoleId       *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
 	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
 }
 
@@ -116,14 +112,11 @@ func (s *AddAppRolesToMemberResponseBody) SetResult(v []*AddAppRolesToMemberResp
 }
 
 type AddAppRolesToMemberResponseBodyResult struct {
-	// 角色范围最新版本号
-	LatestScopeVersion *int64 `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
-	// 角色id
-	RoleId       *int64  `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	SubErrorCode *string `json:"subErrorCode,omitempty" xml:"subErrorCode,omitempty"`
-	SubErrorMsg  *string `json:"subErrorMsg,omitempty" xml:"subErrorMsg,omitempty"`
-	// 角色添加结果，true: 成功，false: 失败
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	LatestScopeVersion *int64  `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
+	RoleId             *int64  `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	SubErrorCode       *string `json:"subErrorCode,omitempty" xml:"subErrorCode,omitempty"`
+	SubErrorMsg        *string `json:"subErrorMsg,omitempty" xml:"subErrorMsg,omitempty"`
+	Success            *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddAppRolesToMemberResponseBodyResult) String() string {
@@ -160,8 +153,9 @@ func (s *AddAppRolesToMemberResponseBodyResult) SetSuccess(v bool) *AddAppRolesT
 }
 
 type AddAppRolesToMemberResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddAppRolesToMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddAppRolesToMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddAppRolesToMemberResponse) String() string {
@@ -174,6 +168,11 @@ func (s AddAppRolesToMemberResponse) GoString() string {
 
 func (s *AddAppRolesToMemberResponse) SetHeaders(v map[string]*string) *AddAppRolesToMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddAppRolesToMemberResponse) SetStatusCode(v int32) *AddAppRolesToMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -206,12 +205,9 @@ func (s *AddAppToWorkBenchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Ad
 }
 
 type AddAppToWorkBenchGroupRequest struct {
-	// 工作台分组id
-	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
-	// 关联组织corpId
+	ComponentId      *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
 	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
-	// 创建人unionId
-	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	OpUnionId        *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
 func (s AddAppToWorkBenchGroupRequest) String() string {
@@ -238,7 +234,6 @@ func (s *AddAppToWorkBenchGroupRequest) SetOpUnionId(v string) *AddAppToWorkBenc
 }
 
 type AddAppToWorkBenchGroupResponseBody struct {
-	// 更新结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -256,8 +251,9 @@ func (s *AddAppToWorkBenchGroupResponseBody) SetResult(v bool) *AddAppToWorkBenc
 }
 
 type AddAppToWorkBenchGroupResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddAppToWorkBenchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddAppToWorkBenchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddAppToWorkBenchGroupResponse) String() string {
@@ -270,6 +266,11 @@ func (s AddAppToWorkBenchGroupResponse) GoString() string {
 
 func (s *AddAppToWorkBenchGroupResponse) SetHeaders(v map[string]*string) *AddAppToWorkBenchGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddAppToWorkBenchGroupResponse) SetStatusCode(v int32) *AddAppToWorkBenchGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -302,14 +303,10 @@ func (s *AddMemberToAppRoleHeaders) SetXAcsDingtalkAccessToken(v string) *AddMem
 }
 
 type AddMemberToAppRoleRequest struct {
-	// 部门id列表
-	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	// 执行用户userId
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 角色范围版本号
-	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
-	// 员工userId列表
-	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	DeptIdList   []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	OpUserId     *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	ScopeVersion *int64    `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
+	UserIdList   []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s AddMemberToAppRoleRequest) String() string {
@@ -341,7 +338,6 @@ func (s *AddMemberToAppRoleRequest) SetUserIdList(v []*string) *AddMemberToAppRo
 }
 
 type AddMemberToAppRoleResponseBody struct {
-	// 角色范围最新版本号
 	LatestScopeVersion *int64 `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
 }
 
@@ -359,8 +355,9 @@ func (s *AddMemberToAppRoleResponseBody) SetLatestScopeVersion(v int64) *AddMemb
 }
 
 type AddMemberToAppRoleResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddMemberToAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddMemberToAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddMemberToAppRoleResponse) String() string {
@@ -373,6 +370,11 @@ func (s AddMemberToAppRoleResponse) GoString() string {
 
 func (s *AddMemberToAppRoleResponse) SetHeaders(v map[string]*string) *AddMemberToAppRoleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddMemberToAppRoleResponse) SetStatusCode(v int32) *AddMemberToAppRoleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -488,9 +490,7 @@ func (s *CreateApaasAppRequest) SetTemplateKey(v string) *CreateApaasAppRequest 
 }
 
 type CreateApaasAppResponseBody struct {
-	// 钉钉侧应用id
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// ISV侧应用id
+	AgentId  *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
 	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
 }
 
@@ -513,8 +513,9 @@ func (s *CreateApaasAppResponseBody) SetBizAppId(v string) *CreateApaasAppRespon
 }
 
 type CreateApaasAppResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateApaasAppResponse) String() string {
@@ -527,6 +528,11 @@ func (s CreateApaasAppResponse) GoString() string {
 
 func (s *CreateApaasAppResponse) SetHeaders(v map[string]*string) *CreateApaasAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateApaasAppResponse) SetStatusCode(v int32) *CreateApaasAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -559,25 +565,16 @@ func (s *CreateInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *CreateInne
 }
 
 type CreateInnerAppRequest struct {
-	// 应用描述
-	Desc        *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	DevelopType *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
-	// 应用首页地址
-	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	// 应用图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 服务器出口ip白名单
-	IpWhiteList []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
-	// 应用名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 应用管理后台地址
-	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	// 创建人unionId
-	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	// 应用PC端地址
-	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
-	// 权限类型
-	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	Desc           *string   `json:"desc,omitempty" xml:"desc,omitempty"`
+	DevelopType    *int32    `json:"developType,omitempty" xml:"developType,omitempty"`
+	HomepageLink   *string   `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	Icon           *string   `json:"icon,omitempty" xml:"icon,omitempty"`
+	IpWhiteList    []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
+	Name           *string   `json:"name,omitempty" xml:"name,omitempty"`
+	OmpLink        *string   `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	OpUnionId      *string   `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	PcHomepageLink *string   `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	ScopeType      *string   `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
 }
 
 func (s CreateInnerAppRequest) String() string {
@@ -639,7 +636,6 @@ func (s *CreateInnerAppRequest) SetScopeType(v string) *CreateInnerAppRequest {
 }
 
 type CreateInnerAppResponseBody struct {
-	// 应用id
 	AgentId   *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
 	AppKey    *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
 	AppSecret *string `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
@@ -669,8 +665,9 @@ func (s *CreateInnerAppResponseBody) SetAppSecret(v string) *CreateInnerAppRespo
 }
 
 type CreateInnerAppResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateInnerAppResponse) String() string {
@@ -683,6 +680,11 @@ func (s CreateInnerAppResponse) GoString() string {
 
 func (s *CreateInnerAppResponse) SetHeaders(v map[string]*string) *CreateInnerAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateInnerAppResponse) SetStatusCode(v int32) *CreateInnerAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -732,7 +734,6 @@ func (s *DeleteAppRoleRequest) SetOpUserId(v string) *DeleteAppRoleRequest {
 }
 
 type DeleteAppRoleResponseBody struct {
-	// 删除结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -750,8 +751,9 @@ func (s *DeleteAppRoleResponseBody) SetResult(v bool) *DeleteAppRoleResponseBody
 }
 
 type DeleteAppRoleResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteAppRoleResponse) String() string {
@@ -764,6 +766,11 @@ func (s DeleteAppRoleResponse) GoString() string {
 
 func (s *DeleteAppRoleResponse) SetHeaders(v map[string]*string) *DeleteAppRoleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteAppRoleResponse) SetStatusCode(v int32) *DeleteAppRoleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -796,7 +803,6 @@ func (s *DeleteInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteInne
 }
 
 type DeleteInnerAppRequest struct {
-	// 操作人unionId
 	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
@@ -814,7 +820,6 @@ func (s *DeleteInnerAppRequest) SetOpUnionId(v string) *DeleteInnerAppRequest {
 }
 
 type DeleteInnerAppResponseBody struct {
-	// 删除结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -832,8 +837,9 @@ func (s *DeleteInnerAppResponseBody) SetResult(v bool) *DeleteInnerAppResponseBo
 }
 
 type DeleteInnerAppResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteInnerAppResponse) String() string {
@@ -846,6 +852,11 @@ func (s DeleteInnerAppResponse) GoString() string {
 
 func (s *DeleteInnerAppResponse) SetHeaders(v map[string]*string) *DeleteInnerAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteInnerAppResponse) SetStatusCode(v int32) *DeleteInnerAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -878,11 +889,8 @@ func (s *GetApaasAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetApaasAppHe
 }
 
 type GetApaasAppResponseBody struct {
-	// 钉钉侧应用id
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// ISV侧应用id
-	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
-	// 发布状态
+	AgentId       *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	BizAppId      *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
 	PublishStatus *string `json:"publishStatus,omitempty" xml:"publishStatus,omitempty"`
 }
 
@@ -910,8 +918,9 @@ func (s *GetApaasAppResponseBody) SetPublishStatus(v string) *GetApaasAppRespons
 }
 
 type GetApaasAppResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetApaasAppResponse) String() string {
@@ -924,6 +933,11 @@ func (s GetApaasAppResponse) GoString() string {
 
 func (s *GetApaasAppResponse) SetHeaders(v map[string]*string) *GetApaasAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetApaasAppResponse) SetStatusCode(v int32) *GetApaasAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -956,20 +970,13 @@ func (s *GetAppRoleScopeByRoleIdHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetAppRoleScopeByRoleIdResponseBody struct {
-	// 是否拥有角色管理权限，默认false
-	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
-	// 部门id列表
-	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	// 角色id
-	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	// 角色名称
-	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	// 角色范围类型，“ALL_VISIBLE”表示全员，“PART_VISIBLE”表示部分
-	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
-	// 角色范围版本号
-	ScopeVersion *string `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
-	// 员工userId列表
-	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	CanManageRole *bool     `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
+	DeptIdList    []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	RoleId        *int64    `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	RoleName      *string   `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	ScopeType     *string   `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	ScopeVersion  *string   `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
+	UserIdList    []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s GetAppRoleScopeByRoleIdResponseBody) String() string {
@@ -1016,8 +1023,9 @@ func (s *GetAppRoleScopeByRoleIdResponseBody) SetUserIdList(v []*string) *GetApp
 }
 
 type GetAppRoleScopeByRoleIdResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAppRoleScopeByRoleIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAppRoleScopeByRoleIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAppRoleScopeByRoleIdResponse) String() string {
@@ -1030,6 +1038,11 @@ func (s GetAppRoleScopeByRoleIdResponse) GoString() string {
 
 func (s *GetAppRoleScopeByRoleIdResponse) SetHeaders(v map[string]*string) *GetAppRoleScopeByRoleIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetAppRoleScopeByRoleIdResponse) SetStatusCode(v int32) *GetAppRoleScopeByRoleIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1062,10 +1075,8 @@ func (s *GetInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetInnerAppHe
 }
 
 type GetInnerAppRequest struct {
-	// 关联组织corpId
 	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
-	// 操作人unionId
-	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	OpUnionId        *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
 func (s GetInnerAppRequest) String() string {
@@ -1087,26 +1098,16 @@ func (s *GetInnerAppRequest) SetOpUnionId(v string) *GetInnerAppRequest {
 }
 
 type GetInnerAppResponseBody struct {
-	// 应用id
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 应用的appkey
-	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	// 应用的secret
-	AppSecret *string `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
-	// 应用描述
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 应用移动端首页地址
-	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	// 应用图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 服务器出口ip
-	IpWhiteList []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
-	// 应用名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 应用管理后台地址
-	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	// 应用PC端首页地址
-	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	AgentId        *int64    `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppKey         *string   `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	AppSecret      *string   `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
+	Desc           *string   `json:"desc,omitempty" xml:"desc,omitempty"`
+	HomepageLink   *string   `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	Icon           *string   `json:"icon,omitempty" xml:"icon,omitempty"`
+	IpWhiteList    []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
+	Name           *string   `json:"name,omitempty" xml:"name,omitempty"`
+	OmpLink        *string   `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	PcHomepageLink *string   `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
 func (s GetInnerAppResponseBody) String() string {
@@ -1168,8 +1169,9 @@ func (s *GetInnerAppResponseBody) SetPcHomepageLink(v string) *GetInnerAppRespon
 }
 
 type GetInnerAppResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetInnerAppResponse) String() string {
@@ -1182,6 +1184,11 @@ func (s GetInnerAppResponse) GoString() string {
 
 func (s *GetInnerAppResponse) SetHeaders(v map[string]*string) *GetInnerAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetInnerAppResponse) SetStatusCode(v int32) *GetInnerAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1214,7 +1221,6 @@ func (s *GetMicroAppScopeHeaders) SetXAcsDingtalkAccessToken(v string) *GetMicro
 }
 
 type GetMicroAppScopeResponseBody struct {
-	// 可见范围结果
 	Result *GetMicroAppScopeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1232,14 +1238,10 @@ func (s *GetMicroAppScopeResponseBody) SetResult(v *GetMicroAppScopeResponseBody
 }
 
 type GetMicroAppScopeResponseBodyResult struct {
-	// 部门可见列表
-	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
-	// 是否管理员可见。如果为true，优先看这个字段
-	OnlyAdminVisible *bool `json:"onlyAdminVisible,omitempty" xml:"onlyAdminVisible,omitempty"`
-	// 角色可见列表
-	RoleIds []*int64 `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
-	// 用户可见列表
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	DeptIds          []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	OnlyAdminVisible *bool     `json:"onlyAdminVisible,omitempty" xml:"onlyAdminVisible,omitempty"`
+	RoleIds          []*int64  `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	UserIds          []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetMicroAppScopeResponseBodyResult) String() string {
@@ -1271,8 +1273,9 @@ func (s *GetMicroAppScopeResponseBodyResult) SetUserIds(v []*string) *GetMicroAp
 }
 
 type GetMicroAppScopeResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetMicroAppScopeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMicroAppScopeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetMicroAppScopeResponse) String() string {
@@ -1285,6 +1288,11 @@ func (s GetMicroAppScopeResponse) GoString() string {
 
 func (s *GetMicroAppScopeResponse) SetHeaders(v map[string]*string) *GetMicroAppScopeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetMicroAppScopeResponse) SetStatusCode(v int32) *GetMicroAppScopeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1317,7 +1325,6 @@ func (s *GetMicroAppUserAccessHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetMicroAppUserAccessResponseBody struct {
-	// 结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1335,8 +1342,9 @@ func (s *GetMicroAppUserAccessResponseBody) SetResult(v bool) *GetMicroAppUserAc
 }
 
 type GetMicroAppUserAccessResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetMicroAppUserAccessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMicroAppUserAccessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetMicroAppUserAccessResponse) String() string {
@@ -1349,6 +1357,11 @@ func (s GetMicroAppUserAccessResponse) GoString() string {
 
 func (s *GetMicroAppUserAccessResponse) SetHeaders(v map[string]*string) *GetMicroAppUserAccessResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetMicroAppUserAccessResponse) SetStatusCode(v int32) *GetMicroAppUserAccessResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1398,8 +1411,9 @@ func (s *GetUserAppDevAccessResponseBody) SetResult(v bool) *GetUserAppDevAccess
 }
 
 type GetUserAppDevAccessResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserAppDevAccessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserAppDevAccessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserAppDevAccessResponse) String() string {
@@ -1412,6 +1426,11 @@ func (s GetUserAppDevAccessResponse) GoString() string {
 
 func (s *GetUserAppDevAccessResponse) SetHeaders(v map[string]*string) *GetUserAppDevAccessResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserAppDevAccessResponse) SetStatusCode(v int32) *GetUserAppDevAccessResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1444,7 +1463,6 @@ func (s *ListAllAppHeaders) SetXAcsDingtalkAccessToken(v string) *ListAllAppHead
 }
 
 type ListAllAppResponseBody struct {
-	// 应用列表
 	AppList []*ListAllAppResponseBodyAppList `json:"appList,omitempty" xml:"appList,omitempty" type:"Repeated"`
 }
 
@@ -1462,25 +1480,15 @@ func (s *ListAllAppResponseBody) SetAppList(v []*ListAllAppResponseBodyAppList) 
 }
 
 type ListAllAppResponseBodyAppList struct {
-	// 应用id
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 三方应用id，如果是企业内部应用，返回0
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 应用状态，0：停用，1：启用 ，3：过期
-	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
-	// 应用描述
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 应用类型，0表示h5应用，1表示小程序
-	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
-	// 应用移动端首页地址
-	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	// 应用图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 应用名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 应用管理后台地址
-	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	// 应用PC端首页地址
+	AgentId        *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppId          *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppStatus      *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	DevelopType    *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
+	HomepageLink   *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	OmpLink        *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
 	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
@@ -1543,8 +1551,9 @@ func (s *ListAllAppResponseBodyAppList) SetPcHomepageLink(v string) *ListAllAppR
 }
 
 type ListAllAppResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListAllAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListAllAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListAllAppResponse) String() string {
@@ -1557,6 +1566,11 @@ func (s ListAllAppResponse) GoString() string {
 
 func (s *ListAllAppResponse) SetHeaders(v map[string]*string) *ListAllAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListAllAppResponse) SetStatusCode(v int32) *ListAllAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1589,7 +1603,6 @@ func (s *ListAllInnerAppsHeaders) SetXAcsDingtalkAccessToken(v string) *ListAllI
 }
 
 type ListAllInnerAppsResponseBody struct {
-	// 应用列表
 	AppList []*ListAllInnerAppsResponseBodyAppList `json:"appList,omitempty" xml:"appList,omitempty" type:"Repeated"`
 }
 
@@ -1607,25 +1620,15 @@ func (s *ListAllInnerAppsResponseBody) SetAppList(v []*ListAllInnerAppsResponseB
 }
 
 type ListAllInnerAppsResponseBodyAppList struct {
-	// 应用id
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 三方应用id，如果是企业内部应用，返回0
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 应用状态，0：停用，1：启用 ，3：过期
-	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
-	// 应用描述
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 应用类型，0表示h5应用，1表示小程序
-	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
-	// 应用移动端首页地址
-	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	// 应用图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 应用名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 应用管理后台地址
-	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	// 应用PC端首页地址
+	AgentId        *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppId          *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppStatus      *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	DevelopType    *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
+	HomepageLink   *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	OmpLink        *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
 	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
@@ -1688,8 +1691,9 @@ func (s *ListAllInnerAppsResponseBodyAppList) SetPcHomepageLink(v string) *ListA
 }
 
 type ListAllInnerAppsResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListAllInnerAppsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListAllInnerAppsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListAllInnerAppsResponse) String() string {
@@ -1702,6 +1706,11 @@ func (s ListAllInnerAppsResponse) GoString() string {
 
 func (s *ListAllInnerAppsResponse) SetHeaders(v map[string]*string) *ListAllInnerAppsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListAllInnerAppsResponse) SetStatusCode(v int32) *ListAllInnerAppsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1734,10 +1743,8 @@ func (s *ListAppRoleScopesHeaders) SetXAcsDingtalkAccessToken(v string) *ListApp
 }
 
 type ListAppRoleScopesRequest struct {
-	// 起始点，默认0
 	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 数据量，默认20，最大50
-	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	Size      *int64 `json:"size,omitempty" xml:"size,omitempty"`
 }
 
 func (s ListAppRoleScopesRequest) String() string {
@@ -1759,12 +1766,9 @@ func (s *ListAppRoleScopesRequest) SetSize(v int64) *ListAppRoleScopesRequest {
 }
 
 type ListAppRoleScopesResponseBody struct {
-	// 数据列表
-	DataList []*ListAppRoleScopesResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
-	// 是否还有数据，true: 还有；false: 已经全部拉取完成
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 下一次请求的起始点
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	DataList  []*ListAppRoleScopesResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	HasMore   *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *int64                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListAppRoleScopesResponseBody) String() string {
@@ -1791,20 +1795,13 @@ func (s *ListAppRoleScopesResponseBody) SetNextToken(v int64) *ListAppRoleScopes
 }
 
 type ListAppRoleScopesResponseBodyDataList struct {
-	// 是否拥有角色管理权限，默认false
-	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
-	// 部门id列表
-	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	// 角色Id
-	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	// 角色名称
-	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	// 角色范围类型，“ALL_VISIBLE”表示全员，“PART_VISIBLE”表示部分
-	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
-	// 角色范围最新版本号
-	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
-	// 员工userId列表
-	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	CanManageRole *bool     `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
+	DeptIdList    []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	RoleId        *int64    `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	RoleName      *string   `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	ScopeType     *string   `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	ScopeVersion  *int64    `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
+	UserIdList    []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s ListAppRoleScopesResponseBodyDataList) String() string {
@@ -1851,8 +1848,9 @@ func (s *ListAppRoleScopesResponseBodyDataList) SetUserIdList(v []*string) *List
 }
 
 type ListAppRoleScopesResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListAppRoleScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListAppRoleScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListAppRoleScopesResponse) String() string {
@@ -1865,6 +1863,11 @@ func (s ListAppRoleScopesResponse) GoString() string {
 
 func (s *ListAppRoleScopesResponse) SetHeaders(v map[string]*string) *ListAppRoleScopesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListAppRoleScopesResponse) SetStatusCode(v int32) *ListAppRoleScopesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1897,7 +1900,6 @@ func (s *ListInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *ListInnerApp
 }
 
 type ListInnerAppRequest struct {
-	// 合作空间corpId
 	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
 }
 
@@ -1915,7 +1917,6 @@ func (s *ListInnerAppRequest) SetEcologicalCorpId(v string) *ListInnerAppRequest
 }
 
 type ListInnerAppResponseBody struct {
-	// 应用列表
 	AppList []*ListInnerAppResponseBodyAppList `json:"appList,omitempty" xml:"appList,omitempty" type:"Repeated"`
 }
 
@@ -1933,19 +1934,12 @@ func (s *ListInnerAppResponseBody) SetAppList(v []*ListInnerAppResponseBodyAppLi
 }
 
 type ListInnerAppResponseBodyAppList struct {
-	// 应用id
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 应用描述
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 应用移动端首页地址
-	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	// 应用图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 应用名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 应用管理后台地址
-	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	// 应用PC端首页地址
+	AgentId        *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	HomepageLink   *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	OmpLink        *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
 	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
@@ -1993,8 +1987,9 @@ func (s *ListInnerAppResponseBodyAppList) SetPcHomepageLink(v string) *ListInner
 }
 
 type ListInnerAppResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListInnerAppResponse) String() string {
@@ -2007,6 +2002,11 @@ func (s ListInnerAppResponse) GoString() string {
 
 func (s *ListInnerAppResponse) SetHeaders(v map[string]*string) *ListInnerAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListInnerAppResponse) SetStatusCode(v int32) *ListInnerAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2039,7 +2039,6 @@ func (s *ListInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *ListI
 }
 
 type ListInnerAppVersionResponseBody struct {
-	// 企业内部小程序版本号列表
 	AppVersionList []*ListInnerAppVersionResponseBodyAppVersionList `json:"appVersionList,omitempty" xml:"appVersionList,omitempty" type:"Repeated"`
 }
 
@@ -2057,20 +2056,13 @@ func (s *ListInnerAppVersionResponseBody) SetAppVersionList(v []*ListInnerAppVer
 }
 
 type ListInnerAppVersionResponseBodyAppVersionList struct {
-	// 小程序版本号
-	AppVersion *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
-	// 小程序版本id，用于发布和回滚的版本唯一标识。
-	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
-	// 小程序版本类型，0表示开发版本，2表示正式版本，3表示体验版本
-	AppVersionType *int32 `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
-	// 小程序版本创建事件，格式:yyyy-MM-dd HH:mm:ss
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 小程序id
-	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	// 是否支持PC端打开小程序，false表示只支持移动端，true表示既支持移动端又支持PC端
-	MiniAppOnPc *bool `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
-	// 小程序版本号更新时间，格式:yyyy-MM-dd HH:mm:ss
-	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	AppVersion     *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
+	AppVersionId   *int64  `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	AppVersionType *int32  `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
+	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	MiniAppId      *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	MiniAppOnPc    *bool   `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
+	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 }
 
 func (s ListInnerAppVersionResponseBodyAppVersionList) String() string {
@@ -2117,8 +2109,9 @@ func (s *ListInnerAppVersionResponseBodyAppVersionList) SetModifyTime(v string) 
 }
 
 type ListInnerAppVersionResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListInnerAppVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListInnerAppVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListInnerAppVersionResponse) String() string {
@@ -2131,6 +2124,11 @@ func (s ListInnerAppVersionResponse) GoString() string {
 
 func (s *ListInnerAppVersionResponse) SetHeaders(v map[string]*string) *ListInnerAppVersionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListInnerAppVersionResponse) SetStatusCode(v int32) *ListInnerAppVersionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2180,12 +2178,9 @@ func (s *ListRoleInfoByUserResponseBody) SetResult(v []*ListRoleInfoByUserRespon
 }
 
 type ListRoleInfoByUserResponseBodyResult struct {
-	// 是否拥有角色管理权限，默认false
-	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
-	// 角色id
-	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	// 角色名称
-	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	CanManageRole *bool   `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
+	RoleId        *int64  `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	RoleName      *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
 func (s ListRoleInfoByUserResponseBodyResult) String() string {
@@ -2212,8 +2207,9 @@ func (s *ListRoleInfoByUserResponseBodyResult) SetRoleName(v string) *ListRoleIn
 }
 
 type ListRoleInfoByUserResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListRoleInfoByUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListRoleInfoByUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListRoleInfoByUserResponse) String() string {
@@ -2226,6 +2222,11 @@ func (s ListRoleInfoByUserResponse) GoString() string {
 
 func (s *ListRoleInfoByUserResponse) SetHeaders(v map[string]*string) *ListRoleInfoByUserResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListRoleInfoByUserResponse) SetStatusCode(v int32) *ListRoleInfoByUserResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2258,7 +2259,6 @@ func (s *ListUserVilebleAppHeaders) SetXAcsDingtalkAccessToken(v string) *ListUs
 }
 
 type ListUserVilebleAppResponseBody struct {
-	// 应用列表
 	AppList []*ListUserVilebleAppResponseBodyAppList `json:"appList,omitempty" xml:"appList,omitempty" type:"Repeated"`
 }
 
@@ -2276,25 +2276,15 @@ func (s *ListUserVilebleAppResponseBody) SetAppList(v []*ListUserVilebleAppRespo
 }
 
 type ListUserVilebleAppResponseBodyAppList struct {
-	// 应用id
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 三方应用id，如果是企业内部应用，返回0
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 应用状态，0：停用，1：启用 ，3：过期
-	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
-	// 应用描述
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 应用类型，0表示h5应用，1表示小程序
-	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
-	// 应用移动端首页地址
-	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	// 应用图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 应用名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 应用管理后台地址
-	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	// 应用PC端首页地址
+	AgentId        *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppId          *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppStatus      *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	DevelopType    *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
+	HomepageLink   *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	OmpLink        *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
 	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
@@ -2357,8 +2347,9 @@ func (s *ListUserVilebleAppResponseBodyAppList) SetPcHomepageLink(v string) *Lis
 }
 
 type ListUserVilebleAppResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListUserVilebleAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListUserVilebleAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListUserVilebleAppResponse) String() string {
@@ -2371,6 +2362,11 @@ func (s ListUserVilebleAppResponse) GoString() string {
 
 func (s *ListUserVilebleAppResponse) SetHeaders(v map[string]*string) *ListUserVilebleAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListUserVilebleAppResponse) SetStatusCode(v int32) *ListUserVilebleAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2403,10 +2399,8 @@ func (s *PageInnerAppHistoryVersionHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type PageInnerAppHistoryVersionRequest struct {
-	// 当前页
 	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 本次读取的最大数据记录数量
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageSize   *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s PageInnerAppHistoryVersionRequest) String() string {
@@ -2428,10 +2422,8 @@ func (s *PageInnerAppHistoryVersionRequest) SetPageSize(v int32) *PageInnerAppHi
 }
 
 type PageInnerAppHistoryVersionResponseBody struct {
-	// 企业内部小程序版本号列表
 	MiniAppVersionList []*PageInnerAppHistoryVersionResponseBodyMiniAppVersionList `json:"miniAppVersionList,omitempty" xml:"miniAppVersionList,omitempty" type:"Repeated"`
-	// 当前小程序历史版本的总数量
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	TotalCount         *int64                                                      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s PageInnerAppHistoryVersionResponseBody) String() string {
@@ -2453,20 +2445,13 @@ func (s *PageInnerAppHistoryVersionResponseBody) SetTotalCount(v int64) *PageInn
 }
 
 type PageInnerAppHistoryVersionResponseBodyMiniAppVersionList struct {
-	// 小程序版本号
-	AppVersion *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
-	// 小程序版本号id，用于小程序的发布和回滚等操作的唯一标识。
-	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
-	// 小程序版本类型，0表示开发版本，2表示正式版本，3表示体验版本
-	AppVersionType *int32 `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
-	// 小程序版本创建事件，格式:yyyy-MM-dd HH:mm:ss
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 小程序id
-	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	// 是否支持PC端打开小程序，false表示只支持移动端，true表示既支持移动端又支持PC端
-	MiniAppOnPc *bool `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
-	// 小程序版本号更新时间，格式:yyyy-MM-dd HH:mm:ss
-	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	AppVersion     *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
+	AppVersionId   *int64  `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	AppVersionType *int32  `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
+	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	MiniAppId      *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	MiniAppOnPc    *bool   `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
+	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 }
 
 func (s PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) String() string {
@@ -2513,8 +2498,9 @@ func (s *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) SetModifyTime
 }
 
 type PageInnerAppHistoryVersionResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PageInnerAppHistoryVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PageInnerAppHistoryVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PageInnerAppHistoryVersionResponse) String() string {
@@ -2527,6 +2513,11 @@ func (s PageInnerAppHistoryVersionResponse) GoString() string {
 
 func (s *PageInnerAppHistoryVersionResponse) SetHeaders(v map[string]*string) *PageInnerAppHistoryVersionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionResponse) SetStatusCode(v int32) *PageInnerAppHistoryVersionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2559,14 +2550,10 @@ func (s *PublishInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *Pu
 }
 
 type PublishInnerAppVersionRequest struct {
-	// 小程序版本id，用于唯一标识小程序版本信息。
-	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
-	// 小程序是否在PC端发布，true表示发布移动端和PC端，false表示只发布移动端
-	MiniAppOnPc *bool `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
-	// 操作人unionId
-	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	// 小程序发布类型，”online“表示发布线上版本，”experience“表示发布体验版本
-	PublishType *string `json:"publishType,omitempty" xml:"publishType,omitempty"`
+	AppVersionId *int64  `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	MiniAppOnPc  *bool   `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
+	OpUnionId    *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	PublishType  *string `json:"publishType,omitempty" xml:"publishType,omitempty"`
 }
 
 func (s PublishInnerAppVersionRequest) String() string {
@@ -2598,7 +2585,6 @@ func (s *PublishInnerAppVersionRequest) SetPublishType(v string) *PublishInnerAp
 }
 
 type PublishInnerAppVersionResponseBody struct {
-	// 小程序发布结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2616,8 +2602,9 @@ func (s *PublishInnerAppVersionResponseBody) SetResult(v bool) *PublishInnerAppV
 }
 
 type PublishInnerAppVersionResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PublishInnerAppVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PublishInnerAppVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PublishInnerAppVersionResponse) String() string {
@@ -2630,6 +2617,11 @@ func (s PublishInnerAppVersionResponse) GoString() string {
 
 func (s *PublishInnerAppVersionResponse) SetHeaders(v map[string]*string) *PublishInnerAppVersionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PublishInnerAppVersionResponse) SetStatusCode(v int32) *PublishInnerAppVersionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2662,16 +2654,11 @@ func (s *RebuildRoleScopeForAppRoleHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type RebuildRoleScopeForAppRoleRequest struct {
-	// 部门id列表
-	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	// 执行用户userId
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 角色范围类型，“ALL_VISIBLE”表示全员，“PART_VISIBLE”表示部分
-	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
-	// 角色范围最新版本号
-	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
-	// 员工userId列表
-	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	DeptIdList   []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	OpUserId     *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	ScopeType    *string   `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	ScopeVersion *int64    `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
+	UserIdList   []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s RebuildRoleScopeForAppRoleRequest) String() string {
@@ -2708,7 +2695,6 @@ func (s *RebuildRoleScopeForAppRoleRequest) SetUserIdList(v []*string) *RebuildR
 }
 
 type RebuildRoleScopeForAppRoleResponseBody struct {
-	// 角色范围最新版本号
 	LatestScopeVersion *int64 `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
 }
 
@@ -2726,8 +2712,9 @@ func (s *RebuildRoleScopeForAppRoleResponseBody) SetLatestScopeVersion(v int64) 
 }
 
 type RebuildRoleScopeForAppRoleResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RebuildRoleScopeForAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RebuildRoleScopeForAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RebuildRoleScopeForAppRoleResponse) String() string {
@@ -2740,6 +2727,11 @@ func (s RebuildRoleScopeForAppRoleResponse) GoString() string {
 
 func (s *RebuildRoleScopeForAppRoleResponse) SetHeaders(v map[string]*string) *RebuildRoleScopeForAppRoleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RebuildRoleScopeForAppRoleResponse) SetStatusCode(v int32) *RebuildRoleScopeForAppRoleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2772,12 +2764,9 @@ func (s *RegisterCustomAppRoleHeaders) SetXAcsDingtalkAccessToken(v string) *Reg
 }
 
 type RegisterCustomAppRoleRequest struct {
-	// 是否拥有管理角色的权限，可不传，默认false
-	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
-	// 执行用户userId
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 角色名称
-	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	CanManageRole *bool   `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
+	OpUserId      *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	RoleName      *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
 func (s RegisterCustomAppRoleRequest) String() string {
@@ -2804,9 +2793,7 @@ func (s *RegisterCustomAppRoleRequest) SetRoleName(v string) *RegisterCustomAppR
 }
 
 type RegisterCustomAppRoleResponseBody struct {
-	// 角色id
-	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	// 角色版本号
+	RoleId       *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
 	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
 }
 
@@ -2829,8 +2816,9 @@ func (s *RegisterCustomAppRoleResponseBody) SetScopeVersion(v int64) *RegisterCu
 }
 
 type RegisterCustomAppRoleResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RegisterCustomAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RegisterCustomAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RegisterCustomAppRoleResponse) String() string {
@@ -2843,6 +2831,11 @@ func (s RegisterCustomAppRoleResponse) GoString() string {
 
 func (s *RegisterCustomAppRoleResponse) SetHeaders(v map[string]*string) *RegisterCustomAppRoleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RegisterCustomAppRoleResponse) SetStatusCode(v int32) *RegisterCustomAppRoleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2898,7 +2891,6 @@ func (s *RemoveApaasAppRequest) SetOpUserId(v string) *RemoveApaasAppRequest {
 }
 
 type RemoveApaasAppResponseBody struct {
-	// 结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2916,8 +2908,9 @@ func (s *RemoveApaasAppResponseBody) SetResult(v bool) *RemoveApaasAppResponseBo
 }
 
 type RemoveApaasAppResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RemoveApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RemoveApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RemoveApaasAppResponse) String() string {
@@ -2930,6 +2923,11 @@ func (s RemoveApaasAppResponse) GoString() string {
 
 func (s *RemoveApaasAppResponse) SetHeaders(v map[string]*string) *RemoveApaasAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RemoveApaasAppResponse) SetStatusCode(v int32) *RemoveApaasAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2962,14 +2960,10 @@ func (s *RemoveMemberForAppRoleHeaders) SetXAcsDingtalkAccessToken(v string) *Re
 }
 
 type RemoveMemberForAppRoleRequest struct {
-	// 部门id列表
-	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	// 执行用户userId
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 角色范围版本号
-	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
-	// 员工userId列表
-	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	DeptIdList   []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	OpUserId     *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	ScopeVersion *int64    `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
+	UserIdList   []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s RemoveMemberForAppRoleRequest) String() string {
@@ -3001,7 +2995,6 @@ func (s *RemoveMemberForAppRoleRequest) SetUserIdList(v []*string) *RemoveMember
 }
 
 type RemoveMemberForAppRoleResponseBody struct {
-	// 角色最新版本号
 	LatestScopeVersion *int64 `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
 }
 
@@ -3019,8 +3012,9 @@ func (s *RemoveMemberForAppRoleResponseBody) SetLatestScopeVersion(v int64) *Rem
 }
 
 type RemoveMemberForAppRoleResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RemoveMemberForAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RemoveMemberForAppRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RemoveMemberForAppRoleResponse) String() string {
@@ -3033,6 +3027,11 @@ func (s RemoveMemberForAppRoleResponse) GoString() string {
 
 func (s *RemoveMemberForAppRoleResponse) SetHeaders(v map[string]*string) *RemoveMemberForAppRoleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RemoveMemberForAppRoleResponse) SetStatusCode(v int32) *RemoveMemberForAppRoleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3065,10 +3064,8 @@ func (s *RollbackInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *R
 }
 
 type RollbackInnerAppVersionRequest struct {
-	// 小程序版本id，用于唯一标识小程序版本信息。
-	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
-	// 操作人unionId
-	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	AppVersionId *int64  `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	OpUnionId    *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
 func (s RollbackInnerAppVersionRequest) String() string {
@@ -3090,7 +3087,6 @@ func (s *RollbackInnerAppVersionRequest) SetOpUnionId(v string) *RollbackInnerAp
 }
 
 type RollbackInnerAppVersionResponseBody struct {
-	// 小程序回滚结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3108,8 +3104,9 @@ func (s *RollbackInnerAppVersionResponseBody) SetResult(v bool) *RollbackInnerAp
 }
 
 type RollbackInnerAppVersionResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RollbackInnerAppVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RollbackInnerAppVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RollbackInnerAppVersionResponse) String() string {
@@ -3122,6 +3119,11 @@ func (s RollbackInnerAppVersionResponse) GoString() string {
 
 func (s *RollbackInnerAppVersionResponse) SetHeaders(v map[string]*string) *RollbackInnerAppVersionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RollbackInnerAppVersionResponse) SetStatusCode(v int32) *RollbackInnerAppVersionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3154,20 +3156,13 @@ func (s *SetMicroAppScopeHeaders) SetXAcsDingtalkAccessToken(v string) *SetMicro
 }
 
 type SetMicroAppScopeRequest struct {
-	// 增加的可见部门
-	AddDeptIds []*int64 `json:"addDeptIds,omitempty" xml:"addDeptIds,omitempty" type:"Repeated"`
-	// 增加的可见角色
-	AddRoleIds []*int64 `json:"addRoleIds,omitempty" xml:"addRoleIds,omitempty" type:"Repeated"`
-	// 增加的可见用户
-	AddUserIds []*string `json:"addUserIds,omitempty" xml:"addUserIds,omitempty" type:"Repeated"`
-	// 删除的可见部门
-	DelDeptIds []*int64 `json:"delDeptIds,omitempty" xml:"delDeptIds,omitempty" type:"Repeated"`
-	// 删除的可见角色
-	DelRoleIds []*int64 `json:"delRoleIds,omitempty" xml:"delRoleIds,omitempty" type:"Repeated"`
-	// 删除的可见用户
-	DelUserIds []*string `json:"delUserIds,omitempty" xml:"delUserIds,omitempty" type:"Repeated"`
-	// 是否管理员可见
-	OnlyAdminVisible *bool `json:"onlyAdminVisible,omitempty" xml:"onlyAdminVisible,omitempty"`
+	AddDeptIds       []*int64  `json:"addDeptIds,omitempty" xml:"addDeptIds,omitempty" type:"Repeated"`
+	AddRoleIds       []*int64  `json:"addRoleIds,omitempty" xml:"addRoleIds,omitempty" type:"Repeated"`
+	AddUserIds       []*string `json:"addUserIds,omitempty" xml:"addUserIds,omitempty" type:"Repeated"`
+	DelDeptIds       []*int64  `json:"delDeptIds,omitempty" xml:"delDeptIds,omitempty" type:"Repeated"`
+	DelRoleIds       []*int64  `json:"delRoleIds,omitempty" xml:"delRoleIds,omitempty" type:"Repeated"`
+	DelUserIds       []*string `json:"delUserIds,omitempty" xml:"delUserIds,omitempty" type:"Repeated"`
+	OnlyAdminVisible *bool     `json:"onlyAdminVisible,omitempty" xml:"onlyAdminVisible,omitempty"`
 }
 
 func (s SetMicroAppScopeRequest) String() string {
@@ -3214,7 +3209,6 @@ func (s *SetMicroAppScopeRequest) SetOnlyAdminVisible(v bool) *SetMicroAppScopeR
 }
 
 type SetMicroAppScopeResponseBody struct {
-	// 结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3232,8 +3226,9 @@ func (s *SetMicroAppScopeResponseBody) SetResult(v bool) *SetMicroAppScopeRespon
 }
 
 type SetMicroAppScopeResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SetMicroAppScopeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SetMicroAppScopeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SetMicroAppScopeResponse) String() string {
@@ -3246,6 +3241,11 @@ func (s SetMicroAppScopeResponse) GoString() string {
 
 func (s *SetMicroAppScopeResponse) SetHeaders(v map[string]*string) *SetMicroAppScopeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SetMicroAppScopeResponse) SetStatusCode(v int32) *SetMicroAppScopeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3319,9 +3319,7 @@ func (s *UpdateApaasAppRequest) SetOpUserId(v string) *UpdateApaasAppRequest {
 }
 
 type UpdateApaasAppResponseBody struct {
-	// 钉钉侧应用id
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// ISV侧应用id
+	AgentId  *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
 	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
 }
 
@@ -3344,8 +3342,9 @@ func (s *UpdateApaasAppResponseBody) SetBizAppId(v string) *UpdateApaasAppRespon
 }
 
 type UpdateApaasAppResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateApaasAppResponse) String() string {
@@ -3358,6 +3357,11 @@ func (s UpdateApaasAppResponse) GoString() string {
 
 func (s *UpdateApaasAppResponse) SetHeaders(v map[string]*string) *UpdateApaasAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateApaasAppResponse) SetStatusCode(v int32) *UpdateApaasAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3390,12 +3394,9 @@ func (s *UpdateAppRoleInfoHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateA
 }
 
 type UpdateAppRoleInfoRequest struct {
-	// 变更角色管理权限，可不传，不传则不变
-	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
-	// 变更角色名称，可不传，不传则不变
-	NewRoleName *string `json:"newRoleName,omitempty" xml:"newRoleName,omitempty"`
-	// 执行用户userId
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	CanManageRole *bool   `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
+	NewRoleName   *string `json:"newRoleName,omitempty" xml:"newRoleName,omitempty"`
+	OpUserId      *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s UpdateAppRoleInfoRequest) String() string {
@@ -3422,7 +3423,6 @@ func (s *UpdateAppRoleInfoRequest) SetOpUserId(v string) *UpdateAppRoleInfoReque
 }
 
 type UpdateAppRoleInfoResponseBody struct {
-	// 更新结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3440,8 +3440,9 @@ func (s *UpdateAppRoleInfoResponseBody) SetResult(v bool) *UpdateAppRoleInfoResp
 }
 
 type UpdateAppRoleInfoResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateAppRoleInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateAppRoleInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateAppRoleInfoResponse) String() string {
@@ -3454,6 +3455,11 @@ func (s UpdateAppRoleInfoResponse) GoString() string {
 
 func (s *UpdateAppRoleInfoResponse) SetHeaders(v map[string]*string) *UpdateAppRoleInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateAppRoleInfoResponse) SetStatusCode(v int32) *UpdateAppRoleInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3486,22 +3492,14 @@ func (s *UpdateInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInne
 }
 
 type UpdateInnerAppRequest struct {
-	// 应用描述
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 应用首页地址
-	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	// 应用图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 服务器出口ip白名单
-	IpWhiteList []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
-	// 应用名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 应用管理后台地址
-	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	// 创建人unionId
-	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	// 应用PC端地址
-	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	Desc           *string   `json:"desc,omitempty" xml:"desc,omitempty"`
+	HomepageLink   *string   `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	Icon           *string   `json:"icon,omitempty" xml:"icon,omitempty"`
+	IpWhiteList    []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
+	Name           *string   `json:"name,omitempty" xml:"name,omitempty"`
+	OmpLink        *string   `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	OpUnionId      *string   `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	PcHomepageLink *string   `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
 func (s UpdateInnerAppRequest) String() string {
@@ -3553,7 +3551,6 @@ func (s *UpdateInnerAppRequest) SetPcHomepageLink(v string) *UpdateInnerAppReque
 }
 
 type UpdateInnerAppResponseBody struct {
-	// 更新结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3571,8 +3568,9 @@ func (s *UpdateInnerAppResponseBody) SetResult(v bool) *UpdateInnerAppResponseBo
 }
 
 type UpdateInnerAppResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInnerAppResponse) String() string {
@@ -3585,6 +3583,11 @@ func (s UpdateInnerAppResponse) GoString() string {
 
 func (s *UpdateInnerAppResponse) SetHeaders(v map[string]*string) *UpdateInnerAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInnerAppResponse) SetStatusCode(v int32) *UpdateInnerAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3608,6 +3611,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3616,24 +3625,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) AddAppRolesToMember(agentId *string, request *AddAppRolesToMemberRequest) (_result *AddAppRolesToMemberResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddAppRolesToMemberHeaders{}
-	_result = &AddAppRolesToMemberResponse{}
-	_body, _err := client.AddAppRolesToMemberWithOptions(agentId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) AddAppRolesToMemberWithOptions(agentId *string, request *AddAppRolesToMemberRequest, headers *AddAppRolesToMemberHeaders, runtime *util.RuntimeOptions) (_result *AddAppRolesToMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MemberId)) {
 		body["memberId"] = request.MemberId
@@ -3664,8 +3660,19 @@ func (client *Client) AddAppRolesToMemberWithOptions(agentId *string, request *A
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddAppRolesToMember"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/members/roles"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddAppRolesToMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddAppRolesToMember"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/members/roles"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3673,11 +3680,11 @@ func (client *Client) AddAppRolesToMemberWithOptions(agentId *string, request *A
 	return _result, _err
 }
 
-func (client *Client) AddAppToWorkBenchGroup(agentId *string, request *AddAppToWorkBenchGroupRequest) (_result *AddAppToWorkBenchGroupResponse, _err error) {
+func (client *Client) AddAppRolesToMember(agentId *string, request *AddAppRolesToMemberRequest) (_result *AddAppRolesToMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddAppToWorkBenchGroupHeaders{}
-	_result = &AddAppToWorkBenchGroupResponse{}
-	_body, _err := client.AddAppToWorkBenchGroupWithOptions(agentId, request, headers, runtime)
+	headers := &AddAppRolesToMemberHeaders{}
+	_result = &AddAppRolesToMemberResponse{}
+	_body, _err := client.AddAppRolesToMemberWithOptions(agentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3690,7 +3697,6 @@ func (client *Client) AddAppToWorkBenchGroupWithOptions(agentId *string, request
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ComponentId)) {
 		body["componentId"] = request.ComponentId
@@ -3717,8 +3723,19 @@ func (client *Client) AddAppToWorkBenchGroupWithOptions(agentId *string, request
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddAppToWorkBenchGroup"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/addToWorkBenchGroup"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddAppToWorkBenchGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddAppToWorkBenchGroup"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/addToWorkBenchGroup"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3726,11 +3743,11 @@ func (client *Client) AddAppToWorkBenchGroupWithOptions(agentId *string, request
 	return _result, _err
 }
 
-func (client *Client) AddMemberToAppRole(agentId *string, roleId *string, request *AddMemberToAppRoleRequest) (_result *AddMemberToAppRoleResponse, _err error) {
+func (client *Client) AddAppToWorkBenchGroup(agentId *string, request *AddAppToWorkBenchGroupRequest) (_result *AddAppToWorkBenchGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddMemberToAppRoleHeaders{}
-	_result = &AddMemberToAppRoleResponse{}
-	_body, _err := client.AddMemberToAppRoleWithOptions(agentId, roleId, request, headers, runtime)
+	headers := &AddAppToWorkBenchGroupHeaders{}
+	_result = &AddAppToWorkBenchGroupResponse{}
+	_body, _err := client.AddAppToWorkBenchGroupWithOptions(agentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3743,8 +3760,6 @@ func (client *Client) AddMemberToAppRoleWithOptions(agentId *string, roleId *str
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
-	roleId = openapiutil.GetEncodeParam(roleId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DeptIdList)) {
 		body["deptIdList"] = request.DeptIdList
@@ -3775,8 +3790,19 @@ func (client *Client) AddMemberToAppRoleWithOptions(agentId *string, roleId *str
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddMemberToAppRole"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/roles/" + tea.StringValue(roleId) + "/members"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddMemberToAppRoleResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddMemberToAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)+"/members"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3784,11 +3810,11 @@ func (client *Client) AddMemberToAppRoleWithOptions(agentId *string, roleId *str
 	return _result, _err
 }
 
-func (client *Client) CreateApaasApp(request *CreateApaasAppRequest) (_result *CreateApaasAppResponse, _err error) {
+func (client *Client) AddMemberToAppRole(agentId *string, roleId *string, request *AddMemberToAppRoleRequest) (_result *AddMemberToAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateApaasAppHeaders{}
-	_result = &CreateApaasAppResponse{}
-	_body, _err := client.CreateApaasAppWithOptions(request, headers, runtime)
+	headers := &AddMemberToAppRoleHeaders{}
+	_result = &AddMemberToAppRoleResponse{}
+	_body, _err := client.AddMemberToAppRoleWithOptions(agentId, roleId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3863,8 +3889,19 @@ func (client *Client) CreateApaasAppWithOptions(request *CreateApaasAppRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateApaasApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apaasApps"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateApaasAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateApaasApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apaasApps"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3872,11 +3909,11 @@ func (client *Client) CreateApaasAppWithOptions(request *CreateApaasAppRequest, 
 	return _result, _err
 }
 
-func (client *Client) CreateInnerApp(request *CreateInnerAppRequest) (_result *CreateInnerAppResponse, _err error) {
+func (client *Client) CreateApaasApp(request *CreateApaasAppRequest) (_result *CreateApaasAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateInnerAppHeaders{}
-	_result = &CreateInnerAppResponse{}
-	_body, _err := client.CreateInnerAppWithOptions(request, headers, runtime)
+	headers := &CreateApaasAppHeaders{}
+	_result = &CreateApaasAppResponse{}
+	_body, _err := client.CreateApaasAppWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3943,8 +3980,74 @@ func (client *Client) CreateInnerAppWithOptions(request *CreateInnerAppRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateInnerApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateInnerAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateInnerApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateInnerApp(request *CreateInnerAppRequest) (_result *CreateInnerAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateInnerAppHeaders{}
+	_result = &CreateInnerAppResponse{}
+	_body, _err := client.CreateInnerAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteAppRoleWithOptions(agentId *string, roleId *string, request *DeleteAppRoleRequest, headers *DeleteAppRoleHeaders, runtime *util.RuntimeOptions) (_result *DeleteAppRoleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteAppRole"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/roles/" + tea.StringValue(roleId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteAppRoleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3964,16 +4067,14 @@ func (client *Client) DeleteAppRole(agentId *string, roleId *string, request *De
 	return _result, _err
 }
 
-func (client *Client) DeleteAppRoleWithOptions(agentId *string, roleId *string, request *DeleteAppRoleRequest, headers *DeleteAppRoleHeaders, runtime *util.RuntimeOptions) (_result *DeleteAppRoleResponse, _err error) {
+func (client *Client) DeleteInnerAppWithOptions(agentId *string, request *DeleteInnerAppRequest, headers *DeleteInnerAppHeaders, runtime *util.RuntimeOptions) (_result *DeleteInnerAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
-	roleId = openapiutil.GetEncodeParam(roleId)
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
-		query["opUserId"] = request.OpUserId
+	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
+		query["opUnionId"] = request.OpUnionId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3989,8 +4090,19 @@ func (client *Client) DeleteAppRoleWithOptions(agentId *string, roleId *string, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &DeleteAppRoleResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("DeleteInnerApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteInnerAppResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4010,17 +4122,7 @@ func (client *Client) DeleteInnerApp(agentId *string, request *DeleteInnerAppReq
 	return _result, _err
 }
 
-func (client *Client) DeleteInnerAppWithOptions(agentId *string, request *DeleteInnerAppRequest, headers *DeleteInnerAppHeaders, runtime *util.RuntimeOptions) (_result *DeleteInnerAppResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	agentId = openapiutil.GetEncodeParam(agentId)
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
-		query["opUnionId"] = request.OpUnionId
-	}
-
+func (client *Client) GetApaasAppWithOptions(bizAppId *string, headers *GetApaasAppHeaders, runtime *util.RuntimeOptions) (_result *GetApaasAppResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4032,10 +4134,20 @@ func (client *Client) DeleteInnerAppWithOptions(agentId *string, request *Delete
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
 	}
-	_result = &DeleteInnerAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteInnerApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("GetApaasApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apaasApps/" + tea.StringValue(bizAppId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetApaasAppResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4055,8 +4167,7 @@ func (client *Client) GetApaasApp(bizAppId *string) (_result *GetApaasAppRespons
 	return _result, _err
 }
 
-func (client *Client) GetApaasAppWithOptions(bizAppId *string, headers *GetApaasAppHeaders, runtime *util.RuntimeOptions) (_result *GetApaasAppResponse, _err error) {
-	bizAppId = openapiutil.GetEncodeParam(bizAppId)
+func (client *Client) GetAppRoleScopeByRoleIdWithOptions(agentId *string, roleId *string, headers *GetAppRoleScopeByRoleIdHeaders, runtime *util.RuntimeOptions) (_result *GetAppRoleScopeByRoleIdResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4069,8 +4180,19 @@ func (client *Client) GetApaasAppWithOptions(bizAppId *string, headers *GetApaas
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &GetApaasAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetApaasApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apaasApps/"+tea.StringValue(bizAppId)), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("GetAppRoleScopeByRoleId"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/roles/" + tea.StringValue(roleId) + "/scopes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetAppRoleScopeByRoleIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4090,48 +4212,11 @@ func (client *Client) GetAppRoleScopeByRoleId(agentId *string, roleId *string) (
 	return _result, _err
 }
 
-func (client *Client) GetAppRoleScopeByRoleIdWithOptions(agentId *string, roleId *string, headers *GetAppRoleScopeByRoleIdHeaders, runtime *util.RuntimeOptions) (_result *GetAppRoleScopeByRoleIdResponse, _err error) {
-	agentId = openapiutil.GetEncodeParam(agentId)
-	roleId = openapiutil.GetEncodeParam(roleId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &GetAppRoleScopeByRoleIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAppRoleScopeByRoleId"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)+"/scopes"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetInnerApp(agentId *string, request *GetInnerAppRequest) (_result *GetInnerAppResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetInnerAppHeaders{}
-	_result = &GetInnerAppResponse{}
-	_body, _err := client.GetInnerAppWithOptions(agentId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) GetInnerAppWithOptions(agentId *string, request *GetInnerAppRequest, headers *GetInnerAppHeaders, runtime *util.RuntimeOptions) (_result *GetInnerAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.EcologicalCorpId)) {
 		query["ecologicalCorpId"] = request.EcologicalCorpId
@@ -4154,8 +4239,64 @@ func (client *Client) GetInnerAppWithOptions(agentId *string, request *GetInnerA
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetInnerApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetInnerAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetInnerApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetInnerApp(agentId *string, request *GetInnerAppRequest) (_result *GetInnerAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInnerAppHeaders{}
+	_result = &GetInnerAppResponse{}
+	_body, _err := client.GetInnerAppWithOptions(agentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMicroAppScopeWithOptions(agentId *string, headers *GetMicroAppScopeHeaders, runtime *util.RuntimeOptions) (_result *GetMicroAppScopeResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMicroAppScope"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/scopes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetMicroAppScopeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4175,8 +4316,7 @@ func (client *Client) GetMicroAppScope(agentId *string) (_result *GetMicroAppSco
 	return _result, _err
 }
 
-func (client *Client) GetMicroAppScopeWithOptions(agentId *string, headers *GetMicroAppScopeHeaders, runtime *util.RuntimeOptions) (_result *GetMicroAppScopeResponse, _err error) {
-	agentId = openapiutil.GetEncodeParam(agentId)
+func (client *Client) GetMicroAppUserAccessWithOptions(agentId *string, userId *string, headers *GetMicroAppUserAccessHeaders, runtime *util.RuntimeOptions) (_result *GetMicroAppUserAccessResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4189,8 +4329,19 @@ func (client *Client) GetMicroAppScopeWithOptions(agentId *string, headers *GetM
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &GetMicroAppScopeResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetMicroAppScope"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/scopes"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("GetMicroAppUserAccess"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/users/" + tea.StringValue(userId) + "/adminAccess"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetMicroAppUserAccessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4210,9 +4361,7 @@ func (client *Client) GetMicroAppUserAccess(agentId *string, userId *string) (_r
 	return _result, _err
 }
 
-func (client *Client) GetMicroAppUserAccessWithOptions(agentId *string, userId *string, headers *GetMicroAppUserAccessHeaders, runtime *util.RuntimeOptions) (_result *GetMicroAppUserAccessResponse, _err error) {
-	agentId = openapiutil.GetEncodeParam(agentId)
-	userId = openapiutil.GetEncodeParam(userId)
+func (client *Client) GetUserAppDevAccessWithOptions(userId *string, headers *GetUserAppDevAccessHeaders, runtime *util.RuntimeOptions) (_result *GetUserAppDevAccessResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4225,8 +4374,19 @@ func (client *Client) GetMicroAppUserAccessWithOptions(agentId *string, userId *
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &GetMicroAppUserAccessResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetMicroAppUserAccess"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/users/"+tea.StringValue(userId)+"/adminAccess"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("GetUserAppDevAccess"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/users/" + tea.StringValue(userId) + "/devAccesses"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetUserAppDevAccessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4239,41 +4399,6 @@ func (client *Client) GetUserAppDevAccess(userId *string) (_result *GetUserAppDe
 	headers := &GetUserAppDevAccessHeaders{}
 	_result = &GetUserAppDevAccessResponse{}
 	_body, _err := client.GetUserAppDevAccessWithOptions(userId, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetUserAppDevAccessWithOptions(userId *string, headers *GetUserAppDevAccessHeaders, runtime *util.RuntimeOptions) (_result *GetUserAppDevAccessResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &GetUserAppDevAccessResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserAppDevAccess"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/users/"+tea.StringValue(userId)+"/devAccesses"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) ListAllApp() (_result *ListAllAppResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &ListAllAppHeaders{}
-	_result = &ListAllAppResponse{}
-	_body, _err := client.ListAllAppWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4294,8 +4419,19 @@ func (client *Client) ListAllAppWithOptions(headers *ListAllAppHeaders, runtime 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAllApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/allApps"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListAllAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListAllApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/allApps"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4303,11 +4439,11 @@ func (client *Client) ListAllAppWithOptions(headers *ListAllAppHeaders, runtime 
 	return _result, _err
 }
 
-func (client *Client) ListAllInnerApps() (_result *ListAllInnerAppsResponse, _err error) {
+func (client *Client) ListAllApp() (_result *ListAllAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListAllInnerAppsHeaders{}
-	_result = &ListAllInnerAppsResponse{}
-	_body, _err := client.ListAllInnerAppsWithOptions(headers, runtime)
+	headers := &ListAllAppHeaders{}
+	_result = &ListAllAppResponse{}
+	_body, _err := client.ListAllAppWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4328,8 +4464,19 @@ func (client *Client) ListAllInnerAppsWithOptions(headers *ListAllInnerAppsHeade
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAllInnerApps"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/allInnerApps"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListAllInnerAppsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListAllInnerApps"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/allInnerApps"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4337,11 +4484,11 @@ func (client *Client) ListAllInnerAppsWithOptions(headers *ListAllInnerAppsHeade
 	return _result, _err
 }
 
-func (client *Client) ListAppRoleScopes(agentId *string, request *ListAppRoleScopesRequest) (_result *ListAppRoleScopesResponse, _err error) {
+func (client *Client) ListAllInnerApps() (_result *ListAllInnerAppsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListAppRoleScopesHeaders{}
-	_result = &ListAppRoleScopesResponse{}
-	_body, _err := client.ListAppRoleScopesWithOptions(agentId, request, headers, runtime)
+	headers := &ListAllInnerAppsHeaders{}
+	_result = &ListAllInnerAppsResponse{}
+	_body, _err := client.ListAllInnerAppsWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4354,7 +4501,6 @@ func (client *Client) ListAppRoleScopesWithOptions(agentId *string, request *Lis
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
@@ -4377,8 +4523,19 @@ func (client *Client) ListAppRoleScopesWithOptions(agentId *string, request *Lis
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAppRoleScopes"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/roles"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListAppRoleScopesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListAppRoleScopes"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4386,11 +4543,11 @@ func (client *Client) ListAppRoleScopesWithOptions(agentId *string, request *Lis
 	return _result, _err
 }
 
-func (client *Client) ListInnerApp(request *ListInnerAppRequest) (_result *ListInnerAppResponse, _err error) {
+func (client *Client) ListAppRoleScopes(agentId *string, request *ListAppRoleScopesRequest) (_result *ListAppRoleScopesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListInnerAppHeaders{}
-	_result = &ListInnerAppResponse{}
-	_body, _err := client.ListInnerAppWithOptions(request, headers, runtime)
+	headers := &ListAppRoleScopesHeaders{}
+	_result = &ListAppRoleScopesResponse{}
+	_body, _err := client.ListAppRoleScopesWithOptions(agentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4421,8 +4578,64 @@ func (client *Client) ListInnerAppWithOptions(request *ListInnerAppRequest, head
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListInnerApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListInnerAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListInnerApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListInnerApp(request *ListInnerAppRequest) (_result *ListInnerAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListInnerAppHeaders{}
+	_result = &ListInnerAppResponse{}
+	_body, _err := client.ListInnerAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListInnerAppVersionWithOptions(agentId *string, headers *ListInnerAppVersionHeaders, runtime *util.RuntimeOptions) (_result *ListInnerAppVersionResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListInnerAppVersion"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/innerMiniApps/" + tea.StringValue(agentId) + "/versions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListInnerAppVersionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4442,8 +4655,7 @@ func (client *Client) ListInnerAppVersion(agentId *string) (_result *ListInnerAp
 	return _result, _err
 }
 
-func (client *Client) ListInnerAppVersionWithOptions(agentId *string, headers *ListInnerAppVersionHeaders, runtime *util.RuntimeOptions) (_result *ListInnerAppVersionResponse, _err error) {
-	agentId = openapiutil.GetEncodeParam(agentId)
+func (client *Client) ListRoleInfoByUserWithOptions(agentId *string, userId *string, headers *ListRoleInfoByUserHeaders, runtime *util.RuntimeOptions) (_result *ListRoleInfoByUserResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4456,8 +4668,19 @@ func (client *Client) ListInnerAppVersionWithOptions(agentId *string, headers *L
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &ListInnerAppVersionResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListInnerAppVersion"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/innerMiniApps/"+tea.StringValue(agentId)+"/versions"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("ListRoleInfoByUser"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/users/" + tea.StringValue(userId) + "/roles"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListRoleInfoByUserResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4477,9 +4700,7 @@ func (client *Client) ListRoleInfoByUser(agentId *string, userId *string) (_resu
 	return _result, _err
 }
 
-func (client *Client) ListRoleInfoByUserWithOptions(agentId *string, userId *string, headers *ListRoleInfoByUserHeaders, runtime *util.RuntimeOptions) (_result *ListRoleInfoByUserResponse, _err error) {
-	agentId = openapiutil.GetEncodeParam(agentId)
-	userId = openapiutil.GetEncodeParam(userId)
+func (client *Client) ListUserVilebleAppWithOptions(userId *string, headers *ListUserVilebleAppHeaders, runtime *util.RuntimeOptions) (_result *ListUserVilebleAppResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4492,8 +4713,19 @@ func (client *Client) ListRoleInfoByUserWithOptions(agentId *string, userId *str
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &ListRoleInfoByUserResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListRoleInfoByUser"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/users/"+tea.StringValue(userId)+"/roles"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("ListUserVilebleApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/users/" + tea.StringValue(userId) + "/apps"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListUserVilebleAppResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4513,47 +4745,11 @@ func (client *Client) ListUserVilebleApp(userId *string) (_result *ListUserVileb
 	return _result, _err
 }
 
-func (client *Client) ListUserVilebleAppWithOptions(userId *string, headers *ListUserVilebleAppHeaders, runtime *util.RuntimeOptions) (_result *ListUserVilebleAppResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &ListUserVilebleAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListUserVilebleApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/users/"+tea.StringValue(userId)+"/apps"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) PageInnerAppHistoryVersion(agentId *string, request *PageInnerAppHistoryVersionRequest) (_result *PageInnerAppHistoryVersionResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &PageInnerAppHistoryVersionHeaders{}
-	_result = &PageInnerAppHistoryVersionResponse{}
-	_body, _err := client.PageInnerAppHistoryVersionWithOptions(agentId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) PageInnerAppHistoryVersionWithOptions(agentId *string, request *PageInnerAppHistoryVersionRequest, headers *PageInnerAppHistoryVersionHeaders, runtime *util.RuntimeOptions) (_result *PageInnerAppHistoryVersionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
 		query["pageNumber"] = request.PageNumber
@@ -4576,8 +4772,19 @@ func (client *Client) PageInnerAppHistoryVersionWithOptions(agentId *string, req
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PageInnerAppHistoryVersion"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/innerMiniApps/" + tea.StringValue(agentId) + "/historyVersions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PageInnerAppHistoryVersionResponse{}
-	_body, _err := client.DoROARequest(tea.String("PageInnerAppHistoryVersion"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/innerMiniApps/"+tea.StringValue(agentId)+"/historyVersions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4585,11 +4792,11 @@ func (client *Client) PageInnerAppHistoryVersionWithOptions(agentId *string, req
 	return _result, _err
 }
 
-func (client *Client) PublishInnerAppVersion(agentId *string, request *PublishInnerAppVersionRequest) (_result *PublishInnerAppVersionResponse, _err error) {
+func (client *Client) PageInnerAppHistoryVersion(agentId *string, request *PageInnerAppHistoryVersionRequest) (_result *PageInnerAppHistoryVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PublishInnerAppVersionHeaders{}
-	_result = &PublishInnerAppVersionResponse{}
-	_body, _err := client.PublishInnerAppVersionWithOptions(agentId, request, headers, runtime)
+	headers := &PageInnerAppHistoryVersionHeaders{}
+	_result = &PageInnerAppHistoryVersionResponse{}
+	_body, _err := client.PageInnerAppHistoryVersionWithOptions(agentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4602,7 +4809,6 @@ func (client *Client) PublishInnerAppVersionWithOptions(agentId *string, request
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppVersionId)) {
 		body["appVersionId"] = request.AppVersionId
@@ -4633,8 +4839,19 @@ func (client *Client) PublishInnerAppVersionWithOptions(agentId *string, request
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PublishInnerAppVersion"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/innerMiniApps/" + tea.StringValue(agentId) + "/versions/publish"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PublishInnerAppVersionResponse{}
-	_body, _err := client.DoROARequest(tea.String("PublishInnerAppVersion"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/innerMiniApps/"+tea.StringValue(agentId)+"/versions/publish"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4642,11 +4859,11 @@ func (client *Client) PublishInnerAppVersionWithOptions(agentId *string, request
 	return _result, _err
 }
 
-func (client *Client) RebuildRoleScopeForAppRole(agentId *string, roleId *string, request *RebuildRoleScopeForAppRoleRequest) (_result *RebuildRoleScopeForAppRoleResponse, _err error) {
+func (client *Client) PublishInnerAppVersion(agentId *string, request *PublishInnerAppVersionRequest) (_result *PublishInnerAppVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RebuildRoleScopeForAppRoleHeaders{}
-	_result = &RebuildRoleScopeForAppRoleResponse{}
-	_body, _err := client.RebuildRoleScopeForAppRoleWithOptions(agentId, roleId, request, headers, runtime)
+	headers := &PublishInnerAppVersionHeaders{}
+	_result = &PublishInnerAppVersionResponse{}
+	_body, _err := client.PublishInnerAppVersionWithOptions(agentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4659,8 +4876,6 @@ func (client *Client) RebuildRoleScopeForAppRoleWithOptions(agentId *string, rol
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
-	roleId = openapiutil.GetEncodeParam(roleId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DeptIdList)) {
 		body["deptIdList"] = request.DeptIdList
@@ -4695,8 +4910,19 @@ func (client *Client) RebuildRoleScopeForAppRoleWithOptions(agentId *string, rol
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RebuildRoleScopeForAppRole"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/roles/" + tea.StringValue(roleId) + "/scopes/rebuild"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RebuildRoleScopeForAppRoleResponse{}
-	_body, _err := client.DoROARequest(tea.String("RebuildRoleScopeForAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)+"/scopes/rebuild"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4704,11 +4930,11 @@ func (client *Client) RebuildRoleScopeForAppRoleWithOptions(agentId *string, rol
 	return _result, _err
 }
 
-func (client *Client) RegisterCustomAppRole(agentId *string, request *RegisterCustomAppRoleRequest) (_result *RegisterCustomAppRoleResponse, _err error) {
+func (client *Client) RebuildRoleScopeForAppRole(agentId *string, roleId *string, request *RebuildRoleScopeForAppRoleRequest) (_result *RebuildRoleScopeForAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RegisterCustomAppRoleHeaders{}
-	_result = &RegisterCustomAppRoleResponse{}
-	_body, _err := client.RegisterCustomAppRoleWithOptions(agentId, request, headers, runtime)
+	headers := &RebuildRoleScopeForAppRoleHeaders{}
+	_result = &RebuildRoleScopeForAppRoleResponse{}
+	_body, _err := client.RebuildRoleScopeForAppRoleWithOptions(agentId, roleId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4721,7 +4947,6 @@ func (client *Client) RegisterCustomAppRoleWithOptions(agentId *string, request 
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CanManageRole)) {
 		body["canManageRole"] = request.CanManageRole
@@ -4748,8 +4973,19 @@ func (client *Client) RegisterCustomAppRoleWithOptions(agentId *string, request 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RegisterCustomAppRole"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/roles"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RegisterCustomAppRoleResponse{}
-	_body, _err := client.DoROARequest(tea.String("RegisterCustomAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4757,11 +4993,11 @@ func (client *Client) RegisterCustomAppRoleWithOptions(agentId *string, request 
 	return _result, _err
 }
 
-func (client *Client) RemoveApaasApp(request *RemoveApaasAppRequest) (_result *RemoveApaasAppResponse, _err error) {
+func (client *Client) RegisterCustomAppRole(agentId *string, request *RegisterCustomAppRoleRequest) (_result *RegisterCustomAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RemoveApaasAppHeaders{}
-	_result = &RemoveApaasAppResponse{}
-	_body, _err := client.RemoveApaasAppWithOptions(request, headers, runtime)
+	headers := &RegisterCustomAppRoleHeaders{}
+	_result = &RegisterCustomAppRoleResponse{}
+	_body, _err := client.RegisterCustomAppRoleWithOptions(agentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4796,8 +5032,19 @@ func (client *Client) RemoveApaasAppWithOptions(request *RemoveApaasAppRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveApaasApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apaasApps/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RemoveApaasAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("RemoveApaasApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apaasApps/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4805,11 +5052,11 @@ func (client *Client) RemoveApaasAppWithOptions(request *RemoveApaasAppRequest, 
 	return _result, _err
 }
 
-func (client *Client) RemoveMemberForAppRole(agentId *string, roleId *string, request *RemoveMemberForAppRoleRequest) (_result *RemoveMemberForAppRoleResponse, _err error) {
+func (client *Client) RemoveApaasApp(request *RemoveApaasAppRequest) (_result *RemoveApaasAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RemoveMemberForAppRoleHeaders{}
-	_result = &RemoveMemberForAppRoleResponse{}
-	_body, _err := client.RemoveMemberForAppRoleWithOptions(agentId, roleId, request, headers, runtime)
+	headers := &RemoveApaasAppHeaders{}
+	_result = &RemoveApaasAppResponse{}
+	_body, _err := client.RemoveApaasAppWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4822,8 +5069,6 @@ func (client *Client) RemoveMemberForAppRoleWithOptions(agentId *string, roleId 
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
-	roleId = openapiutil.GetEncodeParam(roleId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DeptIdList)) {
 		body["deptIdList"] = request.DeptIdList
@@ -4854,8 +5099,19 @@ func (client *Client) RemoveMemberForAppRoleWithOptions(agentId *string, roleId 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveMemberForAppRole"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/roles/" + tea.StringValue(roleId) + "/members/batchRemove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RemoveMemberForAppRoleResponse{}
-	_body, _err := client.DoROARequest(tea.String("RemoveMemberForAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)+"/members/batchRemove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4863,11 +5119,11 @@ func (client *Client) RemoveMemberForAppRoleWithOptions(agentId *string, roleId 
 	return _result, _err
 }
 
-func (client *Client) RollbackInnerAppVersion(agentId *string, request *RollbackInnerAppVersionRequest) (_result *RollbackInnerAppVersionResponse, _err error) {
+func (client *Client) RemoveMemberForAppRole(agentId *string, roleId *string, request *RemoveMemberForAppRoleRequest) (_result *RemoveMemberForAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RollbackInnerAppVersionHeaders{}
-	_result = &RollbackInnerAppVersionResponse{}
-	_body, _err := client.RollbackInnerAppVersionWithOptions(agentId, request, headers, runtime)
+	headers := &RemoveMemberForAppRoleHeaders{}
+	_result = &RemoveMemberForAppRoleResponse{}
+	_body, _err := client.RemoveMemberForAppRoleWithOptions(agentId, roleId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4880,7 +5136,6 @@ func (client *Client) RollbackInnerAppVersionWithOptions(agentId *string, reques
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppVersionId)) {
 		body["appVersionId"] = request.AppVersionId
@@ -4903,8 +5158,19 @@ func (client *Client) RollbackInnerAppVersionWithOptions(agentId *string, reques
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RollbackInnerAppVersion"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/innerMiniApps/" + tea.StringValue(agentId) + "/versions/rollback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RollbackInnerAppVersionResponse{}
-	_body, _err := client.DoROARequest(tea.String("RollbackInnerAppVersion"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/innerMiniApps/"+tea.StringValue(agentId)+"/versions/rollback"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4912,11 +5178,11 @@ func (client *Client) RollbackInnerAppVersionWithOptions(agentId *string, reques
 	return _result, _err
 }
 
-func (client *Client) SetMicroAppScope(agentId *string, request *SetMicroAppScopeRequest) (_result *SetMicroAppScopeResponse, _err error) {
+func (client *Client) RollbackInnerAppVersion(agentId *string, request *RollbackInnerAppVersionRequest) (_result *RollbackInnerAppVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SetMicroAppScopeHeaders{}
-	_result = &SetMicroAppScopeResponse{}
-	_body, _err := client.SetMicroAppScopeWithOptions(agentId, request, headers, runtime)
+	headers := &RollbackInnerAppVersionHeaders{}
+	_result = &RollbackInnerAppVersionResponse{}
+	_body, _err := client.RollbackInnerAppVersionWithOptions(agentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4929,7 +5195,6 @@ func (client *Client) SetMicroAppScopeWithOptions(agentId *string, request *SetM
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AddDeptIds)) {
 		body["addDeptIds"] = request.AddDeptIds
@@ -4972,8 +5237,19 @@ func (client *Client) SetMicroAppScopeWithOptions(agentId *string, request *SetM
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SetMicroAppScope"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/scopes"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SetMicroAppScopeResponse{}
-	_body, _err := client.DoROARequest(tea.String("SetMicroAppScope"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/scopes"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4981,11 +5257,11 @@ func (client *Client) SetMicroAppScopeWithOptions(agentId *string, request *SetM
 	return _result, _err
 }
 
-func (client *Client) UpdateApaasApp(request *UpdateApaasAppRequest) (_result *UpdateApaasAppResponse, _err error) {
+func (client *Client) SetMicroAppScope(agentId *string, request *SetMicroAppScopeRequest) (_result *SetMicroAppScopeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateApaasAppHeaders{}
-	_result = &UpdateApaasAppResponse{}
-	_body, _err := client.UpdateApaasAppWithOptions(request, headers, runtime)
+	headers := &SetMicroAppScopeHeaders{}
+	_result = &SetMicroAppScopeResponse{}
+	_body, _err := client.SetMicroAppScopeWithOptions(agentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5032,8 +5308,19 @@ func (client *Client) UpdateApaasAppWithOptions(request *UpdateApaasAppRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateApaasApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apaasApps"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateApaasAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateApaasApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/microApp/apaasApps"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5041,11 +5328,11 @@ func (client *Client) UpdateApaasAppWithOptions(request *UpdateApaasAppRequest, 
 	return _result, _err
 }
 
-func (client *Client) UpdateAppRoleInfo(agentId *string, roleId *string, request *UpdateAppRoleInfoRequest) (_result *UpdateAppRoleInfoResponse, _err error) {
+func (client *Client) UpdateApaasApp(request *UpdateApaasAppRequest) (_result *UpdateApaasAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateAppRoleInfoHeaders{}
-	_result = &UpdateAppRoleInfoResponse{}
-	_body, _err := client.UpdateAppRoleInfoWithOptions(agentId, roleId, request, headers, runtime)
+	headers := &UpdateApaasAppHeaders{}
+	_result = &UpdateApaasAppResponse{}
+	_body, _err := client.UpdateApaasAppWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5058,8 +5345,6 @@ func (client *Client) UpdateAppRoleInfoWithOptions(agentId *string, roleId *stri
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
-	roleId = openapiutil.GetEncodeParam(roleId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CanManageRole)) {
 		body["canManageRole"] = request.CanManageRole
@@ -5086,8 +5371,19 @@ func (client *Client) UpdateAppRoleInfoWithOptions(agentId *string, roleId *stri
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateAppRoleInfo"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId) + "/roles/" + tea.StringValue(roleId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateAppRoleInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateAppRoleInfo"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5095,11 +5391,11 @@ func (client *Client) UpdateAppRoleInfoWithOptions(agentId *string, roleId *stri
 	return _result, _err
 }
 
-func (client *Client) UpdateInnerApp(agentId *string, request *UpdateInnerAppRequest) (_result *UpdateInnerAppResponse, _err error) {
+func (client *Client) UpdateAppRoleInfo(agentId *string, roleId *string, request *UpdateAppRoleInfoRequest) (_result *UpdateAppRoleInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInnerAppHeaders{}
-	_result = &UpdateInnerAppResponse{}
-	_body, _err := client.UpdateInnerAppWithOptions(agentId, request, headers, runtime)
+	headers := &UpdateAppRoleInfoHeaders{}
+	_result = &UpdateAppRoleInfoResponse{}
+	_body, _err := client.UpdateAppRoleInfoWithOptions(agentId, roleId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5112,7 +5408,6 @@ func (client *Client) UpdateInnerAppWithOptions(agentId *string, request *Update
 	if _err != nil {
 		return _result, _err
 	}
-	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Desc)) {
 		body["desc"] = request.Desc
@@ -5159,11 +5454,34 @@ func (client *Client) UpdateInnerAppWithOptions(agentId *string, request *Update
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInnerApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInnerAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInnerApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInnerApp(agentId *string, request *UpdateInnerAppRequest) (_result *UpdateInnerAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInnerAppHeaders{}
+	_result = &UpdateInnerAppResponse{}
+	_body, _err := client.UpdateInnerAppWithOptions(agentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

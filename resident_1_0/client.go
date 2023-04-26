@@ -5,9 +5,11 @@
 package resident_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,20 +37,13 @@ func (s *AddPointHeaders) SetXAcsDingtalkAccessToken(v string) *AddPointHeaders 
 }
 
 type AddPointRequest struct {
-	// 增加积分的时间戳毫秒数，如果为空使用系统当前毫秒数
-	ActionTime *int64 `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
-	// 是否查询全员圈积分
-	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
-	// 规则代码（可空）,如果不为空的话，score值使用ruleCode对应的score增加分数
-	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
-	// 规则名字
-	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
-	// 本次增加积分：正数表示增加/负数表示扣减
-	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
-	// 成员id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 加积分的唯一幂等标志
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	ActionTime *int64  `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
+	IsCircle   *bool   `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
+	RuleCode   *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	RuleName   *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
+	Score      *int32  `json:"score,omitempty" xml:"score,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Uuid       *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s AddPointRequest) String() string {
@@ -95,7 +90,8 @@ func (s *AddPointRequest) SetUuid(v string) *AddPointRequest {
 }
 
 type AddPointResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s AddPointResponse) String() string {
@@ -108,6 +104,11 @@ func (s AddPointResponse) GoString() string {
 
 func (s *AddPointResponse) SetHeaders(v map[string]*string) *AddPointResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddPointResponse) SetStatusCode(v int32) *AddPointResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -135,12 +136,9 @@ func (s *AddResidentDepartmentHeaders) SetXAcsDingtalkAccessToken(v string) *Add
 }
 
 type AddResidentDepartmentRequest struct {
-	// 部门名字
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 是否为组
-	IsResidenceGroup *bool `json:"isResidenceGroup,omitempty" xml:"isResidenceGroup,omitempty"`
-	// 父部门id
-	ParentDepartmentId *int64 `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
+	DepartmentName     *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	IsResidenceGroup   *bool   `json:"isResidenceGroup,omitempty" xml:"isResidenceGroup,omitempty"`
+	ParentDepartmentId *int64  `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
 }
 
 func (s AddResidentDepartmentRequest) String() string {
@@ -167,7 +165,6 @@ func (s *AddResidentDepartmentRequest) SetParentDepartmentId(v int64) *AddReside
 }
 
 type AddResidentDepartmentResponseBody struct {
-	// 创建成功的deptId
 	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -185,8 +182,9 @@ func (s *AddResidentDepartmentResponseBody) SetResult(v int64) *AddResidentDepar
 }
 
 type AddResidentDepartmentResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddResidentDepartmentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddResidentDepartmentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddResidentDepartmentResponse) String() string {
@@ -199,6 +197,11 @@ func (s AddResidentDepartmentResponse) GoString() string {
 
 func (s *AddResidentDepartmentResponse) SetHeaders(v map[string]*string) *AddResidentDepartmentResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddResidentDepartmentResponse) SetStatusCode(v int32) *AddResidentDepartmentResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -231,7 +234,6 @@ func (s *AddResidentMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddResi
 }
 
 type AddResidentMemberRequest struct {
-	// 人员信息
 	ResidentAddInfo *AddResidentMemberRequestResidentAddInfo `json:"residentAddInfo,omitempty" xml:"residentAddInfo,omitempty" type:"Struct"`
 }
 
@@ -249,18 +251,12 @@ func (s *AddResidentMemberRequest) SetResidentAddInfo(v *AddResidentMemberReques
 }
 
 type AddResidentMemberRequestResidentAddInfo struct {
-	// 部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 是否是产权人
-	IsPropertyOwner *bool `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
-	// 人员扩展信息，目前只有租客的起止时间
+	DeptId              *int64                 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	IsPropertyOwner     *bool                  `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
 	MemberDeptExtension map[string]interface{} `json:"memberDeptExtension,omitempty" xml:"memberDeptExtension,omitempty"`
-	// 手机号
-	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	// 姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 身份，1：业主，2：租客，3：亲友
-	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	Mobile              *string                `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Name                *string                `json:"name,omitempty" xml:"name,omitempty"`
+	RelateType          *string                `json:"relateType,omitempty" xml:"relateType,omitempty"`
 }
 
 func (s AddResidentMemberRequestResidentAddInfo) String() string {
@@ -302,12 +298,9 @@ func (s *AddResidentMemberRequestResidentAddInfo) SetRelateType(v string) *AddRe
 }
 
 type AddResidentMemberResponseBody struct {
-	// 用户状态
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户ID
+	Status  *int32  `json:"status,omitempty" xml:"status,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 用户员工ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddResidentMemberResponseBody) String() string {
@@ -334,8 +327,9 @@ func (s *AddResidentMemberResponseBody) SetUserId(v string) *AddResidentMemberRe
 }
 
 type AddResidentMemberResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddResidentMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddResidentMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddResidentMemberResponse) String() string {
@@ -348,6 +342,11 @@ func (s AddResidentMemberResponse) GoString() string {
 
 func (s *AddResidentMemberResponse) SetHeaders(v map[string]*string) *AddResidentMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddResidentMemberResponse) SetStatusCode(v int32) *AddResidentMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -380,20 +379,13 @@ func (s *AddResidentUsersHeaders) SetXAcsDingtalkAccessToken(v string) *AddResid
 }
 
 type AddResidentUsersRequest struct {
-	// 家庭住址
-	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 户/租户部门id
-	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 扩展字段（包括身份证/性别/民族）
-	ExtField []*AddResidentUsersRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
-	// 是否是租客
-	IsLeaseholder *bool `json:"isLeaseholder,omitempty" xml:"isLeaseholder,omitempty"`
-	// 手机号码
-	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	// 与户主的关系
-	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
-	// 居民名字
-	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	Address       *string                            `json:"address,omitempty" xml:"address,omitempty"`
+	DepartmentId  *int64                             `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	ExtField      []*AddResidentUsersRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
+	IsLeaseholder *bool                              `json:"isLeaseholder,omitempty" xml:"isLeaseholder,omitempty"`
+	Mobile        *string                            `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	RelateType    *string                            `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	UserName      *string                            `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s AddResidentUsersRequest) String() string {
@@ -440,9 +432,7 @@ func (s *AddResidentUsersRequest) SetUserName(v string) *AddResidentUsersRequest
 }
 
 type AddResidentUsersRequestExtField struct {
-	// 扩展字段名字
-	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
-	// 扩展字段值
+	ItemName  *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
 	ItemValue *string `json:"itemValue,omitempty" xml:"itemValue,omitempty"`
 }
 
@@ -465,7 +455,6 @@ func (s *AddResidentUsersRequestExtField) SetItemValue(v string) *AddResidentUse
 }
 
 type AddResidentUsersResponseBody struct {
-	// 创建成功的userId
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -483,8 +472,9 @@ func (s *AddResidentUsersResponseBody) SetResult(v string) *AddResidentUsersResp
 }
 
 type AddResidentUsersResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddResidentUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddResidentUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddResidentUsersResponse) String() string {
@@ -497,6 +487,11 @@ func (s AddResidentUsersResponse) GoString() string {
 
 func (s *AddResidentUsersResponse) SetHeaders(v map[string]*string) *AddResidentUsersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddResidentUsersResponse) SetStatusCode(v int32) *AddResidentUsersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -529,9 +524,8 @@ func (s *CreateResidentBlackBoardHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CreateResidentBlackBoardRequest struct {
-	Context *string `json:"context,omitempty" xml:"context,omitempty"`
-	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	// 格式yyyy-MM-dd HH:mm:ss
+	Context  *string `json:"context,omitempty" xml:"context,omitempty"`
+	MediaId  *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 	SendTime *string `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
 	Title    *string `json:"title,omitempty" xml:"title,omitempty"`
 }
@@ -582,8 +576,9 @@ func (s *CreateResidentBlackBoardResponseBody) SetBlackBoardId(v string) *Create
 }
 
 type CreateResidentBlackBoardResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateResidentBlackBoardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateResidentBlackBoardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateResidentBlackBoardResponse) String() string {
@@ -596,6 +591,11 @@ func (s CreateResidentBlackBoardResponse) GoString() string {
 
 func (s *CreateResidentBlackBoardResponse) SetHeaders(v map[string]*string) *CreateResidentBlackBoardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateResidentBlackBoardResponse) SetStatusCode(v int32) *CreateResidentBlackBoardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -628,22 +628,14 @@ func (s *CreateSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSpaceHe
 }
 
 type CreateSpaceRequest struct {
-	// 仅当tag未房屋时有用
-	BillingArea *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
-	// 仅当tag未房屋时有用
+	BillingArea  *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
 	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
-	// 仅当tag未房屋时有用
-	Floor *string `json:"floor,omitempty" xml:"floor,omitempty"`
-	// 仅当tag未房屋时有用
-	HouseState *int64 `json:"houseState,omitempty" xml:"houseState,omitempty"`
-	// 空间名称，如A栋，二单元，406室等
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 父节点id，根节点为-7
-	ParentDeptId *string `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
-	// 空间tag标识，目前有House/Unit/Building/Partition
-	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
-	// * 空间类型为楼时，1住宅/2公寓/3排屋/4洋房/5叠墅/6别墅/7商铺/8办公用房/9经营用房/10其他      * 空间类型为房屋是，1普通住宅/2公寓/3排屋/4物业管理用房/5社区用房/6别墅/7商铺/8办公用房（商写）/9经营用房/10其他
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Floor        *string  `json:"floor,omitempty" xml:"floor,omitempty"`
+	HouseState   *int64   `json:"houseState,omitempty" xml:"houseState,omitempty"`
+	Name         *string  `json:"name,omitempty" xml:"name,omitempty"`
+	ParentDeptId *string  `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	TagCode      *string  `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	Type         *string  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CreateSpaceRequest) String() string {
@@ -695,7 +687,6 @@ func (s *CreateSpaceRequest) SetType(v string) *CreateSpaceRequest {
 }
 
 type CreateSpaceResponseBody struct {
-	// deptId
 	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -713,8 +704,9 @@ func (s *CreateSpaceResponseBody) SetDeptId(v string) *CreateSpaceResponseBody {
 }
 
 type CreateSpaceResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateSpaceResponse) String() string {
@@ -727,6 +719,11 @@ func (s CreateSpaceResponse) GoString() string {
 
 func (s *CreateSpaceResponse) SetHeaders(v map[string]*string) *CreateSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateSpaceResponse) SetStatusCode(v int32) *CreateSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -793,8 +790,9 @@ func (s *DeleteResidentBlackBoardResponseBody) SetSuccess(v bool) *DeleteResiden
 }
 
 type DeleteResidentBlackBoardResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteResidentBlackBoardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteResidentBlackBoardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteResidentBlackBoardResponse) String() string {
@@ -807,6 +805,11 @@ func (s DeleteResidentBlackBoardResponse) GoString() string {
 
 func (s *DeleteResidentBlackBoardResponse) SetHeaders(v map[string]*string) *DeleteResidentBlackBoardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteResidentBlackBoardResponse) SetStatusCode(v int32) *DeleteResidentBlackBoardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -839,7 +842,6 @@ func (s *DeleteResidentDepartmentHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type DeleteResidentDepartmentRequest struct {
-	// 组/户id
 	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 }
 
@@ -857,7 +859,6 @@ func (s *DeleteResidentDepartmentRequest) SetDepartmentId(v int64) *DeleteReside
 }
 
 type DeleteResidentDepartmentResponseBody struct {
-	// 是否删除成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -875,8 +876,9 @@ func (s *DeleteResidentDepartmentResponseBody) SetResult(v bool) *DeleteResident
 }
 
 type DeleteResidentDepartmentResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteResidentDepartmentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteResidentDepartmentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteResidentDepartmentResponse) String() string {
@@ -889,6 +891,11 @@ func (s DeleteResidentDepartmentResponse) GoString() string {
 
 func (s *DeleteResidentDepartmentResponse) SetHeaders(v map[string]*string) *DeleteResidentDepartmentResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteResidentDepartmentResponse) SetStatusCode(v int32) *DeleteResidentDepartmentResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -921,7 +928,6 @@ func (s *DeleteSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSpaceHe
 }
 
 type DeleteSpaceRequest struct {
-	// 部门id
 	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
 }
 
@@ -939,10 +945,8 @@ func (s *DeleteSpaceRequest) SetDeptIds(v []*int64) *DeleteSpaceRequest {
 }
 
 type DeleteSpaceResponseBody struct {
-	// 失败列表
-	DelFailedDept []*DeleteSpaceResponseBodyDelFailedDept `json:"delFailedDept,omitempty" xml:"delFailedDept,omitempty" type:"Repeated"`
-	// 删除成功数量
-	DelSuccessCount *bool `json:"delSuccessCount,omitempty" xml:"delSuccessCount,omitempty"`
+	DelFailedDept   []*DeleteSpaceResponseBodyDelFailedDept `json:"delFailedDept,omitempty" xml:"delFailedDept,omitempty" type:"Repeated"`
+	DelSuccessCount *bool                                   `json:"delSuccessCount,omitempty" xml:"delSuccessCount,omitempty"`
 }
 
 func (s DeleteSpaceResponseBody) String() string {
@@ -964,7 +968,6 @@ func (s *DeleteSpaceResponseBody) SetDelSuccessCount(v bool) *DeleteSpaceRespons
 }
 
 type DeleteSpaceResponseBodyDelFailedDept struct {
-	// 部门id
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -982,8 +985,9 @@ func (s *DeleteSpaceResponseBodyDelFailedDept) SetDeptId(v int64) *DeleteSpaceRe
 }
 
 type DeleteSpaceResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteSpaceResponse) String() string {
@@ -996,6 +1000,11 @@ func (s DeleteSpaceResponse) GoString() string {
 
 func (s *DeleteSpaceResponse) SetHeaders(v map[string]*string) *DeleteSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteSpaceResponse) SetStatusCode(v int32) *DeleteSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1062,8 +1071,9 @@ func (s *GetConversationIdResponseBody) SetOpenConversationId(v string) *GetConv
 }
 
 type GetConversationIdResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetConversationIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetConversationIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetConversationIdResponse) String() string {
@@ -1076,6 +1086,11 @@ func (s GetConversationIdResponse) GoString() string {
 
 func (s *GetConversationIdResponse) SetHeaders(v map[string]*string) *GetConversationIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetConversationIdResponse) SetStatusCode(v int32) *GetConversationIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1108,7 +1123,6 @@ func (s *GetIndustryTypeHeaders) SetXAcsDingtalkAccessToken(v string) *GetIndust
 }
 
 type GetIndustryTypeResponseBody struct {
-	// 行业类型
 	IndustryType *string `json:"industryType,omitempty" xml:"industryType,omitempty"`
 }
 
@@ -1126,8 +1140,9 @@ func (s *GetIndustryTypeResponseBody) SetIndustryType(v string) *GetIndustryType
 }
 
 type GetIndustryTypeResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetIndustryTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetIndustryTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetIndustryTypeResponse) String() string {
@@ -1140,6 +1155,11 @@ func (s GetIndustryTypeResponse) GoString() string {
 
 func (s *GetIndustryTypeResponse) SetHeaders(v map[string]*string) *GetIndustryTypeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetIndustryTypeResponse) SetStatusCode(v int32) *GetIndustryTypeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1172,7 +1192,6 @@ func (s *GetPropertyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetProper
 }
 
 type GetPropertyInfoRequest struct {
-	// dingCropId
 	PropertyCorpId *string `json:"propertyCorpId,omitempty" xml:"propertyCorpId,omitempty"`
 }
 
@@ -1231,8 +1250,9 @@ func (s *GetPropertyInfoResponseBody) SetUnifiedSocialCredit(v string) *GetPrope
 }
 
 type GetPropertyInfoResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetPropertyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPropertyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetPropertyInfoResponse) String() string {
@@ -1245,6 +1265,11 @@ func (s GetPropertyInfoResponse) GoString() string {
 
 func (s *GetPropertyInfoResponse) SetHeaders(v map[string]*string) *GetPropertyInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetPropertyInfoResponse) SetStatusCode(v int32) *GetPropertyInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1294,46 +1319,27 @@ func (s *GetResidentInfoRequest) SetResidentCorpId(v string) *GetResidentInfoReq
 }
 
 type GetResidentInfoResponseBody struct {
-	// 小区地址
-	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 全员群opencid
-	AllUserGroupOpenConversationId *string `json:"allUserGroupOpenConversationId,omitempty" xml:"allUserGroupOpenConversationId,omitempty"`
-	// 全员群群主 userid
-	AllUserGroupOwnerUserId *string  `json:"allUserGroupOwnerUserId,omitempty" xml:"allUserGroupOwnerUserId,omitempty"`
-	BuildingArea            *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
-	// 小区归属的市的id
-	CityId *int32 `json:"cityId,omitempty" xml:"cityId,omitempty"`
-	// 通信录模式:0标准/1自定义
-	ContactMode *int32 `json:"contactMode,omitempty" xml:"contactMode,omitempty"`
-	// 小区归属的区/县的id
-	CountyId *int32 `json:"countyId,omitempty" xml:"countyId,omitempty"`
-	// 交付时间
-	DeliveryTime *int64 `json:"deliveryTime,omitempty" xml:"deliveryTime,omitempty"`
-	// 经纬度，格式：经度,纬度
-	Location *string `json:"location,omitempty" xml:"location,omitempty"`
-	// 小区名称
-	Name           *string                                    `json:"name,omitempty" xml:"name,omitempty"`
-	ProjectManager *GetResidentInfoResponseBodyProjectManager `json:"projectManager,omitempty" xml:"projectManager,omitempty" type:"Struct"`
-	// 物业部门群cid
-	PropertyDeptGroupOpenConversationId *string `json:"propertyDeptGroupOpenConversationId,omitempty" xml:"propertyDeptGroupOpenConversationId,omitempty"`
-	// 物业部门群主userid
-	PropertyDeptGroupOwnerUserId *string `json:"propertyDeptGroupOwnerUserId,omitempty" xml:"propertyDeptGroupOwnerUserId,omitempty"`
-	// 小区归属的省的id
-	ProvId *int64 `json:"provId,omitempty" xml:"provId,omitempty"`
-	// 物业管理范围-东
-	ScopeEast *string `json:"scopeEast,omitempty" xml:"scopeEast,omitempty"`
-	// 物业管理范围-北
-	ScopeNorth *string `json:"scopeNorth,omitempty" xml:"scopeNorth,omitempty"`
-	// 物业管理范围-南
-	ScopeSouth *string `json:"scopeSouth,omitempty" xml:"scopeSouth,omitempty"`
-	// 物业管理范围-西
-	ScopeWest *string `json:"scopeWest,omitempty" xml:"scopeWest,omitempty"`
-	// 物业电话
-	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
-	// 小区归属的街道/镇的id
-	TownId *int32 `json:"townId,omitempty" xml:"townId,omitempty"`
-	// 1纯住宅；2:商住混合；3:办公；4:办公商业混合；5:商业；6:公共场所；7:其他
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Address                             *string                                    `json:"address,omitempty" xml:"address,omitempty"`
+	AllUserGroupOpenConversationId      *string                                    `json:"allUserGroupOpenConversationId,omitempty" xml:"allUserGroupOpenConversationId,omitempty"`
+	AllUserGroupOwnerUserId             *string                                    `json:"allUserGroupOwnerUserId,omitempty" xml:"allUserGroupOwnerUserId,omitempty"`
+	BuildingArea                        *float32                                   `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	CityId                              *int32                                     `json:"cityId,omitempty" xml:"cityId,omitempty"`
+	ContactMode                         *int32                                     `json:"contactMode,omitempty" xml:"contactMode,omitempty"`
+	CountyId                            *int32                                     `json:"countyId,omitempty" xml:"countyId,omitempty"`
+	DeliveryTime                        *int64                                     `json:"deliveryTime,omitempty" xml:"deliveryTime,omitempty"`
+	Location                            *string                                    `json:"location,omitempty" xml:"location,omitempty"`
+	Name                                *string                                    `json:"name,omitempty" xml:"name,omitempty"`
+	ProjectManager                      *GetResidentInfoResponseBodyProjectManager `json:"projectManager,omitempty" xml:"projectManager,omitempty" type:"Struct"`
+	PropertyDeptGroupOpenConversationId *string                                    `json:"propertyDeptGroupOpenConversationId,omitempty" xml:"propertyDeptGroupOpenConversationId,omitempty"`
+	PropertyDeptGroupOwnerUserId        *string                                    `json:"propertyDeptGroupOwnerUserId,omitempty" xml:"propertyDeptGroupOwnerUserId,omitempty"`
+	ProvId                              *int64                                     `json:"provId,omitempty" xml:"provId,omitempty"`
+	ScopeEast                           *string                                    `json:"scopeEast,omitempty" xml:"scopeEast,omitempty"`
+	ScopeNorth                          *string                                    `json:"scopeNorth,omitempty" xml:"scopeNorth,omitempty"`
+	ScopeSouth                          *string                                    `json:"scopeSouth,omitempty" xml:"scopeSouth,omitempty"`
+	ScopeWest                           *string                                    `json:"scopeWest,omitempty" xml:"scopeWest,omitempty"`
+	Telephone                           *string                                    `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	TownId                              *int32                                     `json:"townId,omitempty" xml:"townId,omitempty"`
+	Type                                *int32                                     `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetResidentInfoResponseBody) String() string {
@@ -1450,11 +1456,8 @@ func (s *GetResidentInfoResponseBody) SetType(v int32) *GetResidentInfoResponseB
 }
 
 type GetResidentInfoResponseBodyProjectManager struct {
-	// 头像
-	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
-	// 人员唯一标识
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 姓名
+	Avatar   *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
@@ -1482,8 +1485,9 @@ func (s *GetResidentInfoResponseBodyProjectManager) SetUserName(v string) *GetRe
 }
 
 type GetResidentInfoResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetResidentInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetResidentInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetResidentInfoResponse) String() string {
@@ -1496,6 +1500,11 @@ func (s GetResidentInfoResponse) GoString() string {
 
 func (s *GetResidentInfoResponse) SetHeaders(v map[string]*string) *GetResidentInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetResidentInfoResponse) SetStatusCode(v int32) *GetResidentInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1551,7 +1560,6 @@ func (s *GetResidentMembersInfoRequest) SetUserIdList(v []*string) *GetResidentM
 }
 
 type GetResidentMembersInfoResponseBody struct {
-	// result
 	ResidenceList []*GetResidentMembersInfoResponseBodyResidenceList `json:"residenceList,omitempty" xml:"residenceList,omitempty" type:"Repeated"`
 }
 
@@ -1569,15 +1577,11 @@ func (s *GetResidentMembersInfoResponseBody) SetResidenceList(v []*GetResidentMe
 }
 
 type GetResidentMembersInfoResponseBodyResidenceList struct {
-	// 是否激活
-	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
-	// 扩展字段，如果是租客存起止时间
-	ExtField *string `json:"extField,omitempty" xml:"extField,omitempty"`
-	// 是否是产权人
+	Active          *bool   `json:"active,omitempty" xml:"active,omitempty"`
+	ExtField        *string `json:"extField,omitempty" xml:"extField,omitempty"`
 	IsPropertyOwner *bool   `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
 	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 业主/租客/亲友等
-	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	RelateType      *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
 }
 
 func (s GetResidentMembersInfoResponseBodyResidenceList) String() string {
@@ -1614,8 +1618,9 @@ func (s *GetResidentMembersInfoResponseBodyResidenceList) SetRelateType(v string
 }
 
 type GetResidentMembersInfoResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetResidentMembersInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetResidentMembersInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetResidentMembersInfoResponse) String() string {
@@ -1628,6 +1633,11 @@ func (s GetResidentMembersInfoResponse) GoString() string {
 
 func (s *GetResidentMembersInfoResponse) SetHeaders(v map[string]*string) *GetResidentMembersInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetResidentMembersInfoResponse) SetStatusCode(v int32) *GetResidentMembersInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1660,7 +1670,6 @@ func (s *GetSpaceIdByTypeHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpace
 }
 
 type GetSpaceIdByTypeRequest struct {
-	// 部门类型
 	DepartmentType *string `json:"departmentType,omitempty" xml:"departmentType,omitempty"`
 }
 
@@ -1678,7 +1687,6 @@ func (s *GetSpaceIdByTypeRequest) SetDepartmentType(v string) *GetSpaceIdByTypeR
 }
 
 type GetSpaceIdByTypeResponseBody struct {
-	// 部门id
 	ReferId *int64 `json:"referId,omitempty" xml:"referId,omitempty"`
 }
 
@@ -1696,8 +1704,9 @@ func (s *GetSpaceIdByTypeResponseBody) SetReferId(v int64) *GetSpaceIdByTypeResp
 }
 
 type GetSpaceIdByTypeResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSpaceIdByTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSpaceIdByTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSpaceIdByTypeResponse) String() string {
@@ -1710,6 +1719,11 @@ func (s GetSpaceIdByTypeResponse) GoString() string {
 
 func (s *GetSpaceIdByTypeResponse) SetHeaders(v map[string]*string) *GetSpaceIdByTypeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSpaceIdByTypeResponse) SetStatusCode(v int32) *GetSpaceIdByTypeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1765,7 +1779,6 @@ func (s *GetSpacesInfoRequest) SetResidentCorpId(v string) *GetSpacesInfoRequest
 }
 
 type GetSpacesInfoResponseBody struct {
-	// result
 	SpaceList []*GetSpacesInfoResponseBodySpaceList `json:"spaceList,omitempty" xml:"spaceList,omitempty" type:"Repeated"`
 }
 
@@ -1783,18 +1796,16 @@ func (s *GetSpacesInfoResponseBody) SetSpaceList(v []*GetSpacesInfoResponseBodyS
 }
 
 type GetSpacesInfoResponseBodySpaceList struct {
-	BillingArea  *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
-	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
-	Floor        *string  `json:"floor,omitempty" xml:"floor,omitempty"`
-	// 房屋状态：0空置/1未领/2入住/3空关/4装修
-	HouseState    *int32  `json:"houseState,omitempty" xml:"houseState,omitempty"`
-	IsVirtual     *int32  `json:"isVirtual,omitempty" xml:"isVirtual,omitempty"`
-	ParentReferId *int64  `json:"parentReferId,omitempty" xml:"parentReferId,omitempty"`
-	ReferId       *int64  `json:"referId,omitempty" xml:"referId,omitempty"`
-	SpaceName     *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
-	TagCode       *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
-	// 空间类型为楼时，1高层/2低层/3别墅/4其他，空间类型为房屋是，1住宅/2公寓/3排屋/4洋房/5叠墅/6别墅/7商铺/8办公用房/9经营用房/10其他
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	BillingArea   *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
+	BuildingArea  *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	Floor         *string  `json:"floor,omitempty" xml:"floor,omitempty"`
+	HouseState    *int32   `json:"houseState,omitempty" xml:"houseState,omitempty"`
+	IsVirtual     *int32   `json:"isVirtual,omitempty" xml:"isVirtual,omitempty"`
+	ParentReferId *int64   `json:"parentReferId,omitempty" xml:"parentReferId,omitempty"`
+	ReferId       *int64   `json:"referId,omitempty" xml:"referId,omitempty"`
+	SpaceName     *string  `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	TagCode       *string  `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	Type          *string  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetSpacesInfoResponseBodySpaceList) String() string {
@@ -1856,8 +1867,9 @@ func (s *GetSpacesInfoResponseBodySpaceList) SetType(v string) *GetSpacesInfoRes
 }
 
 type GetSpacesInfoResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSpacesInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSpacesInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSpacesInfoResponse) String() string {
@@ -1870,6 +1882,11 @@ func (s GetSpacesInfoResponse) GoString() string {
 
 func (s *GetSpacesInfoResponse) SetHeaders(v map[string]*string) *GetSpacesInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSpacesInfoResponse) SetStatusCode(v int32) *GetSpacesInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1902,7 +1919,6 @@ func (s *ListIndustryRoleUsersHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListIndustryRoleUsersRequest struct {
-	// 行业角色编码
 	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
 
@@ -1920,7 +1936,6 @@ func (s *ListIndustryRoleUsersRequest) SetTagCode(v string) *ListIndustryRoleUse
 }
 
 type ListIndustryRoleUsersResponseBody struct {
-	// 用户id列表
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
@@ -1938,8 +1953,9 @@ func (s *ListIndustryRoleUsersResponseBody) SetUserIdList(v []*string) *ListIndu
 }
 
 type ListIndustryRoleUsersResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListIndustryRoleUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListIndustryRoleUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListIndustryRoleUsersResponse) String() string {
@@ -1952,6 +1968,11 @@ func (s ListIndustryRoleUsersResponse) GoString() string {
 
 func (s *ListIndustryRoleUsersResponse) SetHeaders(v map[string]*string) *ListIndustryRoleUsersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListIndustryRoleUsersResponse) SetStatusCode(v int32) *ListIndustryRoleUsersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1984,7 +2005,6 @@ func (s *ListPointRulesHeaders) SetXAcsDingtalkAccessToken(v string) *ListPointR
 }
 
 type ListPointRulesRequest struct {
-	// 是否查询全员圈积分
 	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
 }
 
@@ -2002,7 +2022,6 @@ func (s *ListPointRulesRequest) SetIsCircle(v bool) *ListPointRulesRequest {
 }
 
 type ListPointRulesResponseBody struct {
-	// 查询所得积分规则集合
 	PointRuleList []*ListPointRulesResponseBodyPointRuleList `json:"pointRuleList,omitempty" xml:"pointRuleList,omitempty" type:"Repeated"`
 }
 
@@ -2020,22 +2039,14 @@ func (s *ListPointRulesResponseBody) SetPointRuleList(v []*ListPointRulesRespons
 }
 
 type ListPointRulesResponseBodyPointRuleList struct {
-	// 单日计次上限，0表示无上限
-	DayLimitTimes *int32 `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
-	// 扩展字段
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 分组ID, 默认写入为0
-	GroupId *int32 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 排序ID
-	OrderId *int32 `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	// 对应的行为代码（可空）
-	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
-	// 对应的行为名字
-	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
-	// 增加或减少的分数（增加为正数，减少为负数）
-	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
-	// 生效状态 0：不生效，1：生效
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	DayLimitTimes *int32  `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
+	Extension     *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	GroupId       *int32  `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	OrderId       *int32  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	RuleCode      *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	RuleName      *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
+	Score         *int32  `json:"score,omitempty" xml:"score,omitempty"`
+	Status        *int32  `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s ListPointRulesResponseBodyPointRuleList) String() string {
@@ -2087,8 +2098,9 @@ func (s *ListPointRulesResponseBodyPointRuleList) SetStatus(v int32) *ListPointR
 }
 
 type ListPointRulesResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListPointRulesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListPointRulesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListPointRulesResponse) String() string {
@@ -2101,6 +2113,11 @@ func (s ListPointRulesResponse) GoString() string {
 
 func (s *ListPointRulesResponse) SetHeaders(v map[string]*string) *ListPointRulesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListPointRulesResponse) SetStatusCode(v int32) *ListPointRulesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2133,8 +2150,7 @@ func (s *ListSubSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *ListSubSpace
 }
 
 type ListSubSpaceRequest struct {
-	ReferId *int64 `json:"referId,omitempty" xml:"referId,omitempty"`
-	// A short description of struct
+	ReferId        *int64  `json:"referId,omitempty" xml:"referId,omitempty"`
 	ResidentCorpId *string `json:"residentCorpId,omitempty" xml:"residentCorpId,omitempty"`
 }
 
@@ -2157,7 +2173,6 @@ func (s *ListSubSpaceRequest) SetResidentCorpId(v string) *ListSubSpaceRequest {
 }
 
 type ListSubSpaceResponseBody struct {
-	// result
 	SpaceList []*ListSubSpaceResponseBodySpaceList `json:"spaceList,omitempty" xml:"spaceList,omitempty" type:"Repeated"`
 }
 
@@ -2175,18 +2190,16 @@ func (s *ListSubSpaceResponseBody) SetSpaceList(v []*ListSubSpaceResponseBodySpa
 }
 
 type ListSubSpaceResponseBodySpaceList struct {
-	BillingArea  *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
-	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
-	Floor        *string  `json:"floor,omitempty" xml:"floor,omitempty"`
-	// 房屋状态：0空置/1未领/2入住/3空关/4装修
-	HouseState    *int32  `json:"houseState,omitempty" xml:"houseState,omitempty"`
-	IsVirtual     *int32  `json:"isVirtual,omitempty" xml:"isVirtual,omitempty"`
-	ParentReferId *int64  `json:"parentReferId,omitempty" xml:"parentReferId,omitempty"`
-	ReferId       *int64  `json:"referId,omitempty" xml:"referId,omitempty"`
-	SpaceName     *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
-	TagCode       *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
-	// 空间类型为楼时，1高层/2低层/3别墅/4其他，空间类型为房屋是，1住宅/2公寓/3排屋/4洋房/5叠墅/6别墅/7商铺/8办公用房/9经营用房/10其他
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	BillingArea   *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
+	BuildingArea  *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	Floor         *string  `json:"floor,omitempty" xml:"floor,omitempty"`
+	HouseState    *int32   `json:"houseState,omitempty" xml:"houseState,omitempty"`
+	IsVirtual     *int32   `json:"isVirtual,omitempty" xml:"isVirtual,omitempty"`
+	ParentReferId *int64   `json:"parentReferId,omitempty" xml:"parentReferId,omitempty"`
+	ReferId       *int64   `json:"referId,omitempty" xml:"referId,omitempty"`
+	SpaceName     *string  `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	TagCode       *string  `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	Type          *string  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListSubSpaceResponseBodySpaceList) String() string {
@@ -2248,8 +2261,9 @@ func (s *ListSubSpaceResponseBodySpaceList) SetType(v string) *ListSubSpaceRespo
 }
 
 type ListSubSpaceResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListSubSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListSubSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListSubSpaceResponse) String() string {
@@ -2262,6 +2276,11 @@ func (s ListSubSpaceResponse) GoString() string {
 
 func (s *ListSubSpaceResponse) SetHeaders(v map[string]*string) *ListSubSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListSubSpaceResponse) SetStatusCode(v int32) *ListSubSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2294,14 +2313,10 @@ func (s *ListUncheckUsersHeaders) SetXAcsDingtalkAccessToken(v string) *ListUnch
 }
 
 type ListUncheckUsersRequest struct {
-	// 条目数
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 开始位置
-	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 起始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 状态
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	NextToken  *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	StartTime  *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Status     *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s ListUncheckUsersRequest) String() string {
@@ -2333,12 +2348,9 @@ func (s *ListUncheckUsersRequest) SetStatus(v int32) *ListUncheckUsersRequest {
 }
 
 type ListUncheckUsersResponseBody struct {
-	// 是否仍有数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 下一个数据序号
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// result
-	Values []*ListUncheckUsersResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	HasMore   *bool                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *int64                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Values    []*ListUncheckUsersResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s ListUncheckUsersResponseBody) String() string {
@@ -2365,22 +2377,14 @@ func (s *ListUncheckUsersResponseBody) SetValues(v []*ListUncheckUsersResponseBo
 }
 
 type ListUncheckUsersResponseBodyValues struct {
-	// 部门ID
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 扩展信息
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 邀请时间
-	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 邀请更新时间
-	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// 是否产权人
-	IsPropertyOwner *bool `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
-	// 用户名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 状态
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户ID
-	UnionId *int64 `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	DeptId          *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	Extension       *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	GmtCreate       *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified     *int64  `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	IsPropertyOwner *bool   `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
+	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
+	Status          *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	UnionId         *int64  `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ListUncheckUsersResponseBodyValues) String() string {
@@ -2432,8 +2436,9 @@ func (s *ListUncheckUsersResponseBodyValues) SetUnionId(v int64) *ListUncheckUse
 }
 
 type ListUncheckUsersResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListUncheckUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListUncheckUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListUncheckUsersResponse) String() string {
@@ -2446,6 +2451,11 @@ func (s ListUncheckUsersResponse) GoString() string {
 
 func (s *ListUncheckUsersResponse) SetHeaders(v map[string]*string) *ListUncheckUsersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListUncheckUsersResponse) SetStatusCode(v int32) *ListUncheckUsersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2478,7 +2488,6 @@ func (s *ListUserIndustryRolesHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListUserIndustryRolesRequest struct {
-	// 用户id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2496,7 +2505,6 @@ func (s *ListUserIndustryRolesRequest) SetUserId(v string) *ListUserIndustryRole
 }
 
 type ListUserIndustryRolesResponseBody struct {
-	// result
 	RoleList []*ListUserIndustryRolesResponseBodyRoleList `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
 }
 
@@ -2514,12 +2522,9 @@ func (s *ListUserIndustryRolesResponseBody) SetRoleList(v []*ListUserIndustryRol
 }
 
 type ListUserIndustryRolesResponseBodyRoleList struct {
-	// 角色id
-	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	// 角色名字
+	RoleId   *int64  `json:"roleId,omitempty" xml:"roleId,omitempty"`
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	// 行业角色编码
-	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	TagCode  *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
 
 func (s ListUserIndustryRolesResponseBodyRoleList) String() string {
@@ -2546,8 +2551,9 @@ func (s *ListUserIndustryRolesResponseBodyRoleList) SetTagCode(v string) *ListUs
 }
 
 type ListUserIndustryRolesResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListUserIndustryRolesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListUserIndustryRolesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListUserIndustryRolesResponse) String() string {
@@ -2560,6 +2566,11 @@ func (s ListUserIndustryRolesResponse) GoString() string {
 
 func (s *ListUserIndustryRolesResponse) SetHeaders(v map[string]*string) *ListUserIndustryRolesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListUserIndustryRolesResponse) SetStatusCode(v int32) *ListUserIndustryRolesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2592,18 +2603,12 @@ func (s *PagePointHistoryHeaders) SetXAcsDingtalkAccessToken(v string) *PagePoin
 }
 
 type PagePointHistoryRequest struct {
-	// 结束时间Unix时间戳（不包含），可空
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 是否查询全员圈积分
-	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
-	// 本次读取的最大数据记录数量，最大20
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 用来标记当前开始读取的位置
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 起始时间Unix时间戳，可空
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 用户userid，可空，不传表示查询组织内所有用户的流水数据
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	IsCircle   *bool   `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	StartTime  *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PagePointHistoryRequest) String() string {
@@ -2645,14 +2650,10 @@ func (s *PagePointHistoryRequest) SetUserId(v string) *PagePointHistoryRequest {
 }
 
 type PagePointHistoryResponseBody struct {
-	// 是否有下一页
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 下一个游标值
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 查询所得积分流水集合
+	HasMore         *bool                                          `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken       *int64                                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	PointRecordList []*PagePointHistoryResponseBodyPointRecordList `json:"pointRecordList,omitempty" xml:"pointRecordList,omitempty" type:"Repeated"`
-	// 总数，如果为-1则不计算总数
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	TotalCount      *int64                                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s PagePointHistoryResponseBody) String() string {
@@ -2684,18 +2685,12 @@ func (s *PagePointHistoryResponseBody) SetTotalCount(v int64) *PagePointHistoryR
 }
 
 type PagePointHistoryResponseBodyPointRecordList struct {
-	// 创建时间（精确到毫秒数）
-	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
-	// 对应的行为代码（可空）
+	CreateAt *int64  `json:"createAt,omitempty" xml:"createAt,omitempty"`
 	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
-	// 对应的行为名字
 	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
-	// 增加或减少的分数（增加为正数，减少为负数）
-	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
-	// 成员id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 幂等键
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Score    *int32  `json:"score,omitempty" xml:"score,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Uuid     *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s PagePointHistoryResponseBodyPointRecordList) String() string {
@@ -2737,8 +2732,9 @@ func (s *PagePointHistoryResponseBodyPointRecordList) SetUuid(v string) *PagePoi
 }
 
 type PagePointHistoryResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PagePointHistoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PagePointHistoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PagePointHistoryResponse) String() string {
@@ -2751,6 +2747,11 @@ func (s PagePointHistoryResponse) GoString() string {
 
 func (s *PagePointHistoryResponse) SetHeaders(v map[string]*string) *PagePointHistoryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PagePointHistoryResponse) SetStatusCode(v int32) *PagePointHistoryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2783,12 +2784,9 @@ func (s *RemoveResidentMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Remo
 }
 
 type RemoveResidentMemberRequest struct {
-	// 空位标识
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// unionId
+	DeptId  *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 人员标识
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s RemoveResidentMemberRequest) String() string {
@@ -2815,7 +2813,6 @@ func (s *RemoveResidentMemberRequest) SetUserId(v string) *RemoveResidentMemberR
 }
 
 type RemoveResidentMemberResponseBody struct {
-	// 是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2833,8 +2830,9 @@ func (s *RemoveResidentMemberResponseBody) SetSuccess(v bool) *RemoveResidentMem
 }
 
 type RemoveResidentMemberResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RemoveResidentMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RemoveResidentMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RemoveResidentMemberResponse) String() string {
@@ -2847,6 +2845,11 @@ func (s RemoveResidentMemberResponse) GoString() string {
 
 func (s *RemoveResidentMemberResponse) SetHeaders(v map[string]*string) *RemoveResidentMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RemoveResidentMemberResponse) SetStatusCode(v int32) *RemoveResidentMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2879,10 +2882,8 @@ func (s *RemoveResidentUserHeaders) SetXAcsDingtalkAccessToken(v string) *Remove
 }
 
 type RemoveResidentUserRequest struct {
-	// 户/租户部门id
-	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	DepartmentId *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s RemoveResidentUserRequest) String() string {
@@ -2904,7 +2905,6 @@ func (s *RemoveResidentUserRequest) SetUserId(v string) *RemoveResidentUserReque
 }
 
 type RemoveResidentUserResponseBody struct {
-	// 是否移除成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2922,8 +2922,9 @@ func (s *RemoveResidentUserResponseBody) SetResult(v bool) *RemoveResidentUserRe
 }
 
 type RemoveResidentUserResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RemoveResidentUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RemoveResidentUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RemoveResidentUserResponse) String() string {
@@ -2936,6 +2937,11 @@ func (s RemoveResidentUserResponse) GoString() string {
 
 func (s *RemoveResidentUserResponse) SetHeaders(v map[string]*string) *RemoveResidentUserResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RemoveResidentUserResponse) SetStatusCode(v int32) *RemoveResidentUserResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2991,7 +2997,6 @@ func (s *SearchResidentRequest) SetSearchWord(v string) *SearchResidentRequest {
 }
 
 type SearchResidentResponseBody struct {
-	// result
 	ResidenceList []*SearchResidentResponseBodyResidenceList `json:"residenceList,omitempty" xml:"residenceList,omitempty" type:"Repeated"`
 }
 
@@ -3009,15 +3014,11 @@ func (s *SearchResidentResponseBody) SetResidenceList(v []*SearchResidentRespons
 }
 
 type SearchResidentResponseBodyResidenceList struct {
-	// 是否激活
-	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
-	// 扩展字段，如果是租客存起止时间
-	ExtField *string `json:"extField,omitempty" xml:"extField,omitempty"`
-	// 是否是产权人
+	Active          *bool   `json:"active,omitempty" xml:"active,omitempty"`
+	ExtField        *string `json:"extField,omitempty" xml:"extField,omitempty"`
 	IsPropertyOwner *bool   `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
 	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 业主/租客/亲友等
-	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	RelateType      *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
 }
 
 func (s SearchResidentResponseBodyResidenceList) String() string {
@@ -3054,8 +3055,9 @@ func (s *SearchResidentResponseBodyResidenceList) SetRelateType(v string) *Searc
 }
 
 type SearchResidentResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchResidentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchResidentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchResidentResponse) String() string {
@@ -3068,6 +3070,11 @@ func (s SearchResidentResponse) GoString() string {
 
 func (s *SearchResidentResponse) SetHeaders(v map[string]*string) *SearchResidentResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchResidentResponse) SetStatusCode(v int32) *SearchResidentResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3100,12 +3107,9 @@ func (s *UpdateResideceGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Updat
 }
 
 type UpdateResideceGroupRequest struct {
-	// 组id
-	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 组名字
+	DepartmentId   *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 组长userid
-	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
+	ManagerUserId  *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
 }
 
 func (s UpdateResideceGroupRequest) String() string {
@@ -3132,7 +3136,6 @@ func (s *UpdateResideceGroupRequest) SetManagerUserId(v string) *UpdateResideceG
 }
 
 type UpdateResideceGroupResponseBody struct {
-	// 是否更新成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3150,8 +3153,9 @@ func (s *UpdateResideceGroupResponseBody) SetResult(v bool) *UpdateResideceGroup
 }
 
 type UpdateResideceGroupResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateResideceGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateResideceGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateResideceGroupResponse) String() string {
@@ -3164,6 +3168,11 @@ func (s UpdateResideceGroupResponse) GoString() string {
 
 func (s *UpdateResideceGroupResponse) SetHeaders(v map[string]*string) *UpdateResideceGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateResideceGroupResponse) SetStatusCode(v int32) *UpdateResideceGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3196,20 +3205,13 @@ func (s *UpdateResidenceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRes
 }
 
 type UpdateResidenceRequest struct {
-	// 组id
-	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 户名字
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 是否是贫困户
-	Destitute *bool `json:"destitute,omitempty" xml:"destitute,omitempty"`
-	// 所属网格
-	Grid *string `json:"grid,omitempty" xml:"grid,omitempty"`
-	// 家庭电话
-	HomeTel *string `json:"homeTel,omitempty" xml:"homeTel,omitempty"`
-	// 家庭管理员用户id
-	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
-	// 组id
-	ParentDepartmentId *int64 `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
+	DepartmentId       *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	DepartmentName     *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	Destitute          *bool   `json:"destitute,omitempty" xml:"destitute,omitempty"`
+	Grid               *string `json:"grid,omitempty" xml:"grid,omitempty"`
+	HomeTel            *string `json:"homeTel,omitempty" xml:"homeTel,omitempty"`
+	ManagerUserId      *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
+	ParentDepartmentId *int64  `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
 }
 
 func (s UpdateResidenceRequest) String() string {
@@ -3256,7 +3258,6 @@ func (s *UpdateResidenceRequest) SetParentDepartmentId(v int64) *UpdateResidence
 }
 
 type UpdateResidenceResponseBody struct {
-	// 是否更新成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3274,8 +3275,9 @@ func (s *UpdateResidenceResponseBody) SetResult(v bool) *UpdateResidenceResponse
 }
 
 type UpdateResidenceResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateResidenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateResidenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateResidenceResponse) String() string {
@@ -3288,6 +3290,11 @@ func (s UpdateResidenceResponse) GoString() string {
 
 func (s *UpdateResidenceResponse) SetHeaders(v map[string]*string) *UpdateResidenceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateResidenceResponse) SetStatusCode(v int32) *UpdateResidenceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3372,8 +3379,9 @@ func (s *UpdateResidentBlackBoardResponseBody) SetSuccess(v bool) *UpdateResiden
 }
 
 type UpdateResidentBlackBoardResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateResidentBlackBoardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateResidentBlackBoardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateResidentBlackBoardResponse) String() string {
@@ -3386,6 +3394,11 @@ func (s UpdateResidentBlackBoardResponse) GoString() string {
 
 func (s *UpdateResidentBlackBoardResponse) SetHeaders(v map[string]*string) *UpdateResidentBlackBoardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardResponse) SetStatusCode(v int32) *UpdateResidentBlackBoardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3418,25 +3431,16 @@ func (s *UpdateResidentInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Update
 }
 
 type UpdateResidentInfoRequest struct {
-	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 建筑面积，组多支持2位小数，总长不超过8位
-	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
-	// 市的名字，有值时provName必填
-	CityName *string `json:"cityName,omitempty" xml:"cityName,omitempty"`
-	// 1纯住宅；2:商住混合；3:办公；4:办公商业混合；5:商业；6:公共场所；7:其他
-	CommunityType *int64 `json:"communityType,omitempty" xml:"communityType,omitempty"`
-	// 区/县名，有值是provName，cityName必填
-	CountyName *string `json:"countyName,omitempty" xml:"countyName,omitempty"`
-	// 经纬度，格式：经度,纬度
-	Location *string `json:"location,omitempty" xml:"location,omitempty"`
-	// 小区名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 省的名字
-	ProvName *string `json:"provName,omitempty" xml:"provName,omitempty"`
-	// 小区状态：0正常/1关闭/2作废
-	State *int64 `json:"state,omitempty" xml:"state,omitempty"`
-	// 小区服务电话
-	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	Address       *string  `json:"address,omitempty" xml:"address,omitempty"`
+	BuildingArea  *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	CityName      *string  `json:"cityName,omitempty" xml:"cityName,omitempty"`
+	CommunityType *int64   `json:"communityType,omitempty" xml:"communityType,omitempty"`
+	CountyName    *string  `json:"countyName,omitempty" xml:"countyName,omitempty"`
+	Location      *string  `json:"location,omitempty" xml:"location,omitempty"`
+	Name          *string  `json:"name,omitempty" xml:"name,omitempty"`
+	ProvName      *string  `json:"provName,omitempty" xml:"provName,omitempty"`
+	State         *int64   `json:"state,omitempty" xml:"state,omitempty"`
+	Telephone     *string  `json:"telephone,omitempty" xml:"telephone,omitempty"`
 }
 
 func (s UpdateResidentInfoRequest) String() string {
@@ -3498,7 +3502,6 @@ func (s *UpdateResidentInfoRequest) SetTelephone(v string) *UpdateResidentInfoRe
 }
 
 type UpdateResidentInfoResponseBody struct {
-	// 是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3516,8 +3519,9 @@ func (s *UpdateResidentInfoResponseBody) SetSuccess(v bool) *UpdateResidentInfoR
 }
 
 type UpdateResidentInfoResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateResidentInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateResidentInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateResidentInfoResponse) String() string {
@@ -3530,6 +3534,11 @@ func (s UpdateResidentInfoResponse) GoString() string {
 
 func (s *UpdateResidentInfoResponse) SetHeaders(v map[string]*string) *UpdateResidentInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateResidentInfoResponse) SetStatusCode(v int32) *UpdateResidentInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3562,10 +3571,8 @@ func (s *UpdateResidentMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateResidentMemberRequest struct {
-	// 人员更新信息
 	ResidentUpdateInfo *UpdateResidentMemberRequestResidentUpdateInfo `json:"residentUpdateInfo,omitempty" xml:"residentUpdateInfo,omitempty" type:"Struct"`
-	// unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UnionId            *string                                        `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateResidentMemberRequest) String() string {
@@ -3587,20 +3594,13 @@ func (s *UpdateResidentMemberRequest) SetUnionId(v string) *UpdateResidentMember
 }
 
 type UpdateResidentMemberRequestResidentUpdateInfo struct {
-	// 部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 是否是产权人
-	IsPropertyOwner *bool `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
-	// 人员扩展信息，目前只有租客的起止时间
+	DeptId              *int64             `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	IsPropertyOwner     *bool              `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
 	MemberDeptExtension map[string]*string `json:"memberDeptExtension,omitempty" xml:"memberDeptExtension,omitempty"`
-	// 姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 旧部门id
-	OldDeptId *int64 `json:"oldDeptId,omitempty" xml:"oldDeptId,omitempty"`
-	// 身份，1：业主，2：租客，3：亲友
-	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name                *string            `json:"name,omitempty" xml:"name,omitempty"`
+	OldDeptId           *int64             `json:"oldDeptId,omitempty" xml:"oldDeptId,omitempty"`
+	RelateType          *string            `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	UserId              *string            `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateResidentMemberRequestResidentUpdateInfo) String() string {
@@ -3647,7 +3647,6 @@ func (s *UpdateResidentMemberRequestResidentUpdateInfo) SetUserId(v string) *Upd
 }
 
 type UpdateResidentMemberResponseBody struct {
-	// 是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3665,8 +3664,9 @@ func (s *UpdateResidentMemberResponseBody) SetSuccess(v bool) *UpdateResidentMem
 }
 
 type UpdateResidentMemberResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateResidentMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateResidentMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateResidentMemberResponse) String() string {
@@ -3679,6 +3679,11 @@ func (s UpdateResidentMemberResponse) GoString() string {
 
 func (s *UpdateResidentMemberResponse) SetHeaders(v map[string]*string) *UpdateResidentMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateResidentMemberResponse) SetStatusCode(v int32) *UpdateResidentMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3711,24 +3716,15 @@ func (s *UpdateResidentUserHeaders) SetXAcsDingtalkAccessToken(v string) *Update
 }
 
 type UpdateResidentUserRequest struct {
-	// 家庭住址
-	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 所在新的户/租户部门id
-	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 扩展字段（包括身份证/性别/民族）
-	ExtField []*UpdateResidentUserRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
-	// 是否保留原部门
-	IsRetainOldDept *bool `json:"isRetainOldDept,omitempty" xml:"isRetainOldDept,omitempty"`
-	// 手机号码
-	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	// 原所在部门id
-	OldDepartmentId *int64 `json:"oldDepartmentId,omitempty" xml:"oldDepartmentId,omitempty"`
-	// 与户主的关系
-	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
-	// 人员userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 居民名字
-	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	Address         *string                              `json:"address,omitempty" xml:"address,omitempty"`
+	DepartmentId    *int64                               `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	ExtField        []*UpdateResidentUserRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
+	IsRetainOldDept *bool                                `json:"isRetainOldDept,omitempty" xml:"isRetainOldDept,omitempty"`
+	Mobile          *string                              `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	OldDepartmentId *int64                               `json:"oldDepartmentId,omitempty" xml:"oldDepartmentId,omitempty"`
+	RelateType      *string                              `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	UserId          *string                              `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName        *string                              `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s UpdateResidentUserRequest) String() string {
@@ -3785,9 +3781,7 @@ func (s *UpdateResidentUserRequest) SetUserName(v string) *UpdateResidentUserReq
 }
 
 type UpdateResidentUserRequestExtField struct {
-	// 扩展字段名字
-	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
-	// 扩展字段值
+	ItemName  *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
 	ItemValue *string `json:"itemValue,omitempty" xml:"itemValue,omitempty"`
 }
 
@@ -3810,7 +3804,6 @@ func (s *UpdateResidentUserRequestExtField) SetItemValue(v string) *UpdateReside
 }
 
 type UpdateResidentUserResponseBody struct {
-	// 是否更新成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3828,8 +3821,9 @@ func (s *UpdateResidentUserResponseBody) SetResult(v bool) *UpdateResidentUserRe
 }
 
 type UpdateResidentUserResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateResidentUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateResidentUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateResidentUserResponse) String() string {
@@ -3842,6 +3836,11 @@ func (s UpdateResidentUserResponse) GoString() string {
 
 func (s *UpdateResidentUserResponse) SetHeaders(v map[string]*string) *UpdateResidentUserResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateResidentUserResponse) SetStatusCode(v int32) *UpdateResidentUserResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3874,7 +3873,6 @@ func (s *UpdateSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSpaceHe
 }
 
 type UpdateSpaceRequest struct {
-	// 修改后空间信息
 	SpaceInfoVOList []*UpdateSpaceRequestSpaceInfoVOList `json:"spaceInfoVOList,omitempty" xml:"spaceInfoVOList,omitempty" type:"Repeated"`
 }
 
@@ -3892,25 +3890,16 @@ func (s *UpdateSpaceRequest) SetSpaceInfoVOList(v []*UpdateSpaceRequestSpaceInfo
 }
 
 type UpdateSpaceRequestSpaceInfoVOList struct {
-	// 计费面积
-	BillingArea *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
-	// 建筑面积
+	BillingArea  *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
 	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
-	// 楼栋类型
-	BuildingType *int64 `json:"buildingType,omitempty" xml:"buildingType,omitempty"`
-	// 修改的空间的唯一标识
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 房屋所在楼层，当tagCode为House时选填
-	Floor *string `json:"floor,omitempty" xml:"floor,omitempty"`
-	// 房屋状态，tagcode为house时选填，0空置/1未领/2入住/3空关/4装修
-	HouseState *int64 `json:"houseState,omitempty" xml:"houseState,omitempty"`
-	// 房屋类型，当tagcode为House时必填
-	HouseType *int64 `json:"houseType,omitempty" xml:"houseType,omitempty"`
-	// 修改后名称
-	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
-	ParentDeptId *int64  `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
-	// 空间类型
-	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	BuildingType *int64   `json:"buildingType,omitempty" xml:"buildingType,omitempty"`
+	DeptId       *int64   `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	Floor        *string  `json:"floor,omitempty" xml:"floor,omitempty"`
+	HouseState   *int64   `json:"houseState,omitempty" xml:"houseState,omitempty"`
+	HouseType    *int64   `json:"houseType,omitempty" xml:"houseType,omitempty"`
+	Name         *string  `json:"name,omitempty" xml:"name,omitempty"`
+	ParentDeptId *int64   `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	TagCode      *string  `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
 
 func (s UpdateSpaceRequestSpaceInfoVOList) String() string {
@@ -3972,7 +3961,6 @@ func (s *UpdateSpaceRequestSpaceInfoVOList) SetTagCode(v string) *UpdateSpaceReq
 }
 
 type UpdateSpaceResponseBody struct {
-	// 是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3990,8 +3978,9 @@ func (s *UpdateSpaceResponseBody) SetSuccess(v bool) *UpdateSpaceResponseBody {
 }
 
 type UpdateSpaceResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateSpaceResponse) String() string {
@@ -4004,6 +3993,11 @@ func (s UpdateSpaceResponse) GoString() string {
 
 func (s *UpdateSpaceResponse) SetHeaders(v map[string]*string) *UpdateSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateSpaceResponse) SetStatusCode(v int32) *UpdateSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4027,24 +4021,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) AddPoint(request *AddPointRequest) (_result *AddPointResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddPointHeaders{}
-	_result = &AddPointResponse{}
-	_body, _err := client.AddPointWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) AddPointWithOptions(request *AddPointRequest, headers *AddPointHeaders, runtime *util.RuntimeOptions) (_result *AddPointResponse, _err error) {
@@ -4094,8 +4082,19 @@ func (client *Client) AddPointWithOptions(request *AddPointRequest, headers *Add
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddPoint"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/points"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddPointResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddPoint"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/points"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4103,11 +4102,11 @@ func (client *Client) AddPointWithOptions(request *AddPointRequest, headers *Add
 	return _result, _err
 }
 
-func (client *Client) AddResidentDepartment(request *AddResidentDepartmentRequest) (_result *AddResidentDepartmentResponse, _err error) {
+func (client *Client) AddPoint(request *AddPointRequest) (_result *AddPointResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddResidentDepartmentHeaders{}
-	_result = &AddResidentDepartmentResponse{}
-	_body, _err := client.AddResidentDepartmentWithOptions(request, headers, runtime)
+	headers := &AddPointHeaders{}
+	_result = &AddPointResponse{}
+	_body, _err := client.AddPointWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4146,8 +4145,19 @@ func (client *Client) AddResidentDepartmentWithOptions(request *AddResidentDepar
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddResidentDepartment"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/departments"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddResidentDepartmentResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddResidentDepartment"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/departments"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4155,11 +4165,11 @@ func (client *Client) AddResidentDepartmentWithOptions(request *AddResidentDepar
 	return _result, _err
 }
 
-func (client *Client) AddResidentMember(request *AddResidentMemberRequest) (_result *AddResidentMemberResponse, _err error) {
+func (client *Client) AddResidentDepartment(request *AddResidentDepartmentRequest) (_result *AddResidentDepartmentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddResidentMemberHeaders{}
-	_result = &AddResidentMemberResponse{}
-	_body, _err := client.AddResidentMemberWithOptions(request, headers, runtime)
+	headers := &AddResidentDepartmentHeaders{}
+	_result = &AddResidentDepartmentResponse{}
+	_body, _err := client.AddResidentDepartmentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4190,8 +4200,19 @@ func (client *Client) AddResidentMemberWithOptions(request *AddResidentMemberReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddResidentMember"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/members"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddResidentMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddResidentMember"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/members"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4199,11 +4220,11 @@ func (client *Client) AddResidentMemberWithOptions(request *AddResidentMemberReq
 	return _result, _err
 }
 
-func (client *Client) AddResidentUsers(request *AddResidentUsersRequest) (_result *AddResidentUsersResponse, _err error) {
+func (client *Client) AddResidentMember(request *AddResidentMemberRequest) (_result *AddResidentMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddResidentUsersHeaders{}
-	_result = &AddResidentUsersResponse{}
-	_body, _err := client.AddResidentUsersWithOptions(request, headers, runtime)
+	headers := &AddResidentMemberHeaders{}
+	_result = &AddResidentMemberResponse{}
+	_body, _err := client.AddResidentMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4258,8 +4279,19 @@ func (client *Client) AddResidentUsersWithOptions(request *AddResidentUsersReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddResidentUsers"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/users"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddResidentUsersResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddResidentUsers"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/users"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4267,11 +4299,11 @@ func (client *Client) AddResidentUsersWithOptions(request *AddResidentUsersReque
 	return _result, _err
 }
 
-func (client *Client) CreateResidentBlackBoard(request *CreateResidentBlackBoardRequest) (_result *CreateResidentBlackBoardResponse, _err error) {
+func (client *Client) AddResidentUsers(request *AddResidentUsersRequest) (_result *AddResidentUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateResidentBlackBoardHeaders{}
-	_result = &CreateResidentBlackBoardResponse{}
-	_body, _err := client.CreateResidentBlackBoardWithOptions(request, headers, runtime)
+	headers := &AddResidentUsersHeaders{}
+	_result = &AddResidentUsersResponse{}
+	_body, _err := client.AddResidentUsersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4314,8 +4346,19 @@ func (client *Client) CreateResidentBlackBoardWithOptions(request *CreateResiden
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateResidentBlackBoard"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/blackboards"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateResidentBlackBoardResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateResidentBlackBoard"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/blackboards"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4323,11 +4366,11 @@ func (client *Client) CreateResidentBlackBoardWithOptions(request *CreateResiden
 	return _result, _err
 }
 
-func (client *Client) CreateSpace(request *CreateSpaceRequest) (_result *CreateSpaceResponse, _err error) {
+func (client *Client) CreateResidentBlackBoard(request *CreateResidentBlackBoardRequest) (_result *CreateResidentBlackBoardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateSpaceHeaders{}
-	_result = &CreateSpaceResponse{}
-	_body, _err := client.CreateSpaceWithOptions(request, headers, runtime)
+	headers := &CreateResidentBlackBoardHeaders{}
+	_result = &CreateResidentBlackBoardResponse{}
+	_body, _err := client.CreateResidentBlackBoardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4386,8 +4429,19 @@ func (client *Client) CreateSpaceWithOptions(request *CreateSpaceRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateSpace"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/spaces"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateSpace"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/spaces"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4395,11 +4449,11 @@ func (client *Client) CreateSpaceWithOptions(request *CreateSpaceRequest, header
 	return _result, _err
 }
 
-func (client *Client) DeleteResidentBlackBoard(request *DeleteResidentBlackBoardRequest) (_result *DeleteResidentBlackBoardResponse, _err error) {
+func (client *Client) CreateSpace(request *CreateSpaceRequest) (_result *CreateSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteResidentBlackBoardHeaders{}
-	_result = &DeleteResidentBlackBoardResponse{}
-	_body, _err := client.DeleteResidentBlackBoardWithOptions(request, headers, runtime)
+	headers := &CreateSpaceHeaders{}
+	_result = &CreateSpaceResponse{}
+	_body, _err := client.CreateSpaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4430,8 +4484,19 @@ func (client *Client) DeleteResidentBlackBoardWithOptions(request *DeleteResiden
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteResidentBlackBoard"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/blackboards"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteResidentBlackBoardResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteResidentBlackBoard"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/resident/blackboards"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4439,11 +4504,11 @@ func (client *Client) DeleteResidentBlackBoardWithOptions(request *DeleteResiden
 	return _result, _err
 }
 
-func (client *Client) DeleteResidentDepartment(request *DeleteResidentDepartmentRequest) (_result *DeleteResidentDepartmentResponse, _err error) {
+func (client *Client) DeleteResidentBlackBoard(request *DeleteResidentBlackBoardRequest) (_result *DeleteResidentBlackBoardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteResidentDepartmentHeaders{}
-	_result = &DeleteResidentDepartmentResponse{}
-	_body, _err := client.DeleteResidentDepartmentWithOptions(request, headers, runtime)
+	headers := &DeleteResidentBlackBoardHeaders{}
+	_result = &DeleteResidentBlackBoardResponse{}
+	_body, _err := client.DeleteResidentBlackBoardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4474,8 +4539,19 @@ func (client *Client) DeleteResidentDepartmentWithOptions(request *DeleteResiden
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteResidentDepartment"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/departments"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteResidentDepartmentResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteResidentDepartment"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/resident/departments"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4483,11 +4559,11 @@ func (client *Client) DeleteResidentDepartmentWithOptions(request *DeleteResiden
 	return _result, _err
 }
 
-func (client *Client) DeleteSpace(request *DeleteSpaceRequest) (_result *DeleteSpaceResponse, _err error) {
+func (client *Client) DeleteResidentDepartment(request *DeleteResidentDepartmentRequest) (_result *DeleteResidentDepartmentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteSpaceHeaders{}
-	_result = &DeleteSpaceResponse{}
-	_body, _err := client.DeleteSpaceWithOptions(request, headers, runtime)
+	headers := &DeleteResidentDepartmentHeaders{}
+	_result = &DeleteResidentDepartmentResponse{}
+	_body, _err := client.DeleteResidentDepartmentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4518,8 +4594,19 @@ func (client *Client) DeleteSpaceWithOptions(request *DeleteSpaceRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteSpace"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/spaces/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteSpace"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/spaces/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4527,11 +4614,11 @@ func (client *Client) DeleteSpaceWithOptions(request *DeleteSpaceRequest, header
 	return _result, _err
 }
 
-func (client *Client) GetConversationId(request *GetConversationIdRequest) (_result *GetConversationIdResponse, _err error) {
+func (client *Client) DeleteSpace(request *DeleteSpaceRequest) (_result *DeleteSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetConversationIdHeaders{}
-	_result = &GetConversationIdResponse{}
-	_body, _err := client.GetConversationIdWithOptions(request, headers, runtime)
+	headers := &DeleteSpaceHeaders{}
+	_result = &DeleteSpaceResponse{}
+	_body, _err := client.DeleteSpaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4562,8 +4649,19 @@ func (client *Client) GetConversationIdWithOptions(request *GetConversationIdReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetConversationId"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/conversations"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetConversationIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetConversationId"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/conversations"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4571,11 +4669,11 @@ func (client *Client) GetConversationIdWithOptions(request *GetConversationIdReq
 	return _result, _err
 }
 
-func (client *Client) GetIndustryType() (_result *GetIndustryTypeResponse, _err error) {
+func (client *Client) GetConversationId(request *GetConversationIdRequest) (_result *GetConversationIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetIndustryTypeHeaders{}
-	_result = &GetIndustryTypeResponse{}
-	_body, _err := client.GetIndustryTypeWithOptions(headers, runtime)
+	headers := &GetConversationIdHeaders{}
+	_result = &GetConversationIdResponse{}
+	_body, _err := client.GetConversationIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4596,8 +4694,19 @@ func (client *Client) GetIndustryTypeWithOptions(headers *GetIndustryTypeHeaders
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetIndustryType"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/organizations/industryTypes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetIndustryTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetIndustryType"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/organizations/industryTypes"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4605,11 +4714,11 @@ func (client *Client) GetIndustryTypeWithOptions(headers *GetIndustryTypeHeaders
 	return _result, _err
 }
 
-func (client *Client) GetPropertyInfo(request *GetPropertyInfoRequest) (_result *GetPropertyInfoResponse, _err error) {
+func (client *Client) GetIndustryType() (_result *GetIndustryTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetPropertyInfoHeaders{}
-	_result = &GetPropertyInfoResponse{}
-	_body, _err := client.GetPropertyInfoWithOptions(request, headers, runtime)
+	headers := &GetIndustryTypeHeaders{}
+	_result = &GetIndustryTypeResponse{}
+	_body, _err := client.GetIndustryTypeWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4640,8 +4749,19 @@ func (client *Client) GetPropertyInfoWithOptions(request *GetPropertyInfoRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPropertyInfo"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/propertyInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetPropertyInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetPropertyInfo"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/propertyInfos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4649,11 +4769,11 @@ func (client *Client) GetPropertyInfoWithOptions(request *GetPropertyInfoRequest
 	return _result, _err
 }
 
-func (client *Client) GetResidentInfo(request *GetResidentInfoRequest) (_result *GetResidentInfoResponse, _err error) {
+func (client *Client) GetPropertyInfo(request *GetPropertyInfoRequest) (_result *GetPropertyInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetResidentInfoHeaders{}
-	_result = &GetResidentInfoResponse{}
-	_body, _err := client.GetResidentInfoWithOptions(request, headers, runtime)
+	headers := &GetPropertyInfoHeaders{}
+	_result = &GetPropertyInfoResponse{}
+	_body, _err := client.GetPropertyInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4684,8 +4804,19 @@ func (client *Client) GetResidentInfoWithOptions(request *GetResidentInfoRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetResidentInfo"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/residentInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetResidentInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetResidentInfo"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/residentInfos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4693,11 +4824,11 @@ func (client *Client) GetResidentInfoWithOptions(request *GetResidentInfoRequest
 	return _result, _err
 }
 
-func (client *Client) GetResidentMembersInfo(request *GetResidentMembersInfoRequest) (_result *GetResidentMembersInfoResponse, _err error) {
+func (client *Client) GetResidentInfo(request *GetResidentInfoRequest) (_result *GetResidentInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetResidentMembersInfoHeaders{}
-	_result = &GetResidentMembersInfoResponse{}
-	_body, _err := client.GetResidentMembersInfoWithOptions(request, headers, runtime)
+	headers := &GetResidentInfoHeaders{}
+	_result = &GetResidentInfoResponse{}
+	_body, _err := client.GetResidentInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4732,8 +4863,19 @@ func (client *Client) GetResidentMembersInfoWithOptions(request *GetResidentMemb
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetResidentMembersInfo"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/residences/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetResidentMembersInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetResidentMembersInfo"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/residences/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4741,11 +4883,11 @@ func (client *Client) GetResidentMembersInfoWithOptions(request *GetResidentMemb
 	return _result, _err
 }
 
-func (client *Client) GetSpaceIdByType(request *GetSpaceIdByTypeRequest) (_result *GetSpaceIdByTypeResponse, _err error) {
+func (client *Client) GetResidentMembersInfo(request *GetResidentMembersInfoRequest) (_result *GetResidentMembersInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSpaceIdByTypeHeaders{}
-	_result = &GetSpaceIdByTypeResponse{}
-	_body, _err := client.GetSpaceIdByTypeWithOptions(request, headers, runtime)
+	headers := &GetResidentMembersInfoHeaders{}
+	_result = &GetResidentMembersInfoResponse{}
+	_body, _err := client.GetResidentMembersInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4776,8 +4918,19 @@ func (client *Client) GetSpaceIdByTypeWithOptions(request *GetSpaceIdByTypeReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSpaceIdByType"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/spaces/types"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSpaceIdByTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSpaceIdByType"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/spaces/types"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4785,11 +4938,11 @@ func (client *Client) GetSpaceIdByTypeWithOptions(request *GetSpaceIdByTypeReque
 	return _result, _err
 }
 
-func (client *Client) GetSpacesInfo(request *GetSpacesInfoRequest) (_result *GetSpacesInfoResponse, _err error) {
+func (client *Client) GetSpaceIdByType(request *GetSpaceIdByTypeRequest) (_result *GetSpaceIdByTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSpacesInfoHeaders{}
-	_result = &GetSpacesInfoResponse{}
-	_body, _err := client.GetSpacesInfoWithOptions(request, headers, runtime)
+	headers := &GetSpaceIdByTypeHeaders{}
+	_result = &GetSpaceIdByTypeResponse{}
+	_body, _err := client.GetSpaceIdByTypeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4824,8 +4977,19 @@ func (client *Client) GetSpacesInfoWithOptions(request *GetSpacesInfoRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSpacesInfo"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/spaces/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSpacesInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSpacesInfo"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/spaces/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4833,11 +4997,11 @@ func (client *Client) GetSpacesInfoWithOptions(request *GetSpacesInfoRequest, he
 	return _result, _err
 }
 
-func (client *Client) ListIndustryRoleUsers(request *ListIndustryRoleUsersRequest) (_result *ListIndustryRoleUsersResponse, _err error) {
+func (client *Client) GetSpacesInfo(request *GetSpacesInfoRequest) (_result *GetSpacesInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListIndustryRoleUsersHeaders{}
-	_result = &ListIndustryRoleUsersResponse{}
-	_body, _err := client.ListIndustryRoleUsersWithOptions(request, headers, runtime)
+	headers := &GetSpacesInfoHeaders{}
+	_result = &GetSpacesInfoResponse{}
+	_body, _err := client.GetSpacesInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4868,8 +5032,19 @@ func (client *Client) ListIndustryRoleUsersWithOptions(request *ListIndustryRole
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListIndustryRoleUsers"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/industryRoles/users"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListIndustryRoleUsersResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListIndustryRoleUsers"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/industryRoles/users"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4877,11 +5052,11 @@ func (client *Client) ListIndustryRoleUsersWithOptions(request *ListIndustryRole
 	return _result, _err
 }
 
-func (client *Client) ListPointRules(request *ListPointRulesRequest) (_result *ListPointRulesResponse, _err error) {
+func (client *Client) ListIndustryRoleUsers(request *ListIndustryRoleUsersRequest) (_result *ListIndustryRoleUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListPointRulesHeaders{}
-	_result = &ListPointRulesResponse{}
-	_body, _err := client.ListPointRulesWithOptions(request, headers, runtime)
+	headers := &ListIndustryRoleUsersHeaders{}
+	_result = &ListIndustryRoleUsersResponse{}
+	_body, _err := client.ListIndustryRoleUsersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4912,8 +5087,19 @@ func (client *Client) ListPointRulesWithOptions(request *ListPointRulesRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListPointRules"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/points/rules"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListPointRulesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListPointRules"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/points/rules"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4921,11 +5107,11 @@ func (client *Client) ListPointRulesWithOptions(request *ListPointRulesRequest, 
 	return _result, _err
 }
 
-func (client *Client) ListSubSpace(request *ListSubSpaceRequest) (_result *ListSubSpaceResponse, _err error) {
+func (client *Client) ListPointRules(request *ListPointRulesRequest) (_result *ListPointRulesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListSubSpaceHeaders{}
-	_result = &ListSubSpaceResponse{}
-	_body, _err := client.ListSubSpaceWithOptions(request, headers, runtime)
+	headers := &ListPointRulesHeaders{}
+	_result = &ListPointRulesResponse{}
+	_body, _err := client.ListPointRulesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4960,8 +5146,19 @@ func (client *Client) ListSubSpaceWithOptions(request *ListSubSpaceRequest, head
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListSubSpace"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/spaces/subSpaces"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListSubSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListSubSpace"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/spaces/subSpaces"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4969,11 +5166,11 @@ func (client *Client) ListSubSpaceWithOptions(request *ListSubSpaceRequest, head
 	return _result, _err
 }
 
-func (client *Client) ListUncheckUsers(request *ListUncheckUsersRequest) (_result *ListUncheckUsersResponse, _err error) {
+func (client *Client) ListSubSpace(request *ListSubSpaceRequest) (_result *ListSubSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListUncheckUsersHeaders{}
-	_result = &ListUncheckUsersResponse{}
-	_body, _err := client.ListUncheckUsersWithOptions(request, headers, runtime)
+	headers := &ListSubSpaceHeaders{}
+	_result = &ListSubSpaceResponse{}
+	_body, _err := client.ListSubSpaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5016,8 +5213,19 @@ func (client *Client) ListUncheckUsersWithOptions(request *ListUncheckUsersReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListUncheckUsers"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/organizations/noJoinUsers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListUncheckUsersResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListUncheckUsers"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/organizations/noJoinUsers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5025,11 +5233,11 @@ func (client *Client) ListUncheckUsersWithOptions(request *ListUncheckUsersReque
 	return _result, _err
 }
 
-func (client *Client) ListUserIndustryRoles(request *ListUserIndustryRolesRequest) (_result *ListUserIndustryRolesResponse, _err error) {
+func (client *Client) ListUncheckUsers(request *ListUncheckUsersRequest) (_result *ListUncheckUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListUserIndustryRolesHeaders{}
-	_result = &ListUserIndustryRolesResponse{}
-	_body, _err := client.ListUserIndustryRolesWithOptions(request, headers, runtime)
+	headers := &ListUncheckUsersHeaders{}
+	_result = &ListUncheckUsersResponse{}
+	_body, _err := client.ListUncheckUsersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5060,8 +5268,19 @@ func (client *Client) ListUserIndustryRolesWithOptions(request *ListUserIndustry
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListUserIndustryRoles"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/users/industryRoles"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListUserIndustryRolesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListUserIndustryRoles"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/users/industryRoles"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5069,11 +5288,11 @@ func (client *Client) ListUserIndustryRolesWithOptions(request *ListUserIndustry
 	return _result, _err
 }
 
-func (client *Client) PagePointHistory(request *PagePointHistoryRequest) (_result *PagePointHistoryResponse, _err error) {
+func (client *Client) ListUserIndustryRoles(request *ListUserIndustryRolesRequest) (_result *ListUserIndustryRolesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PagePointHistoryHeaders{}
-	_result = &PagePointHistoryResponse{}
-	_body, _err := client.PagePointHistoryWithOptions(request, headers, runtime)
+	headers := &ListUserIndustryRolesHeaders{}
+	_result = &ListUserIndustryRolesResponse{}
+	_body, _err := client.ListUserIndustryRolesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5124,8 +5343,19 @@ func (client *Client) PagePointHistoryWithOptions(request *PagePointHistoryReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PagePointHistory"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/points/records"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PagePointHistoryResponse{}
-	_body, _err := client.DoROARequest(tea.String("PagePointHistory"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/points/records"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5133,11 +5363,11 @@ func (client *Client) PagePointHistoryWithOptions(request *PagePointHistoryReque
 	return _result, _err
 }
 
-func (client *Client) RemoveResidentMember(request *RemoveResidentMemberRequest) (_result *RemoveResidentMemberResponse, _err error) {
+func (client *Client) PagePointHistory(request *PagePointHistoryRequest) (_result *PagePointHistoryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RemoveResidentMemberHeaders{}
-	_result = &RemoveResidentMemberResponse{}
-	_body, _err := client.RemoveResidentMemberWithOptions(request, headers, runtime)
+	headers := &PagePointHistoryHeaders{}
+	_result = &PagePointHistoryResponse{}
+	_body, _err := client.PagePointHistoryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5176,8 +5406,19 @@ func (client *Client) RemoveResidentMemberWithOptions(request *RemoveResidentMem
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveResidentMember"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/members/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RemoveResidentMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("RemoveResidentMember"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/members/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5185,11 +5426,11 @@ func (client *Client) RemoveResidentMemberWithOptions(request *RemoveResidentMem
 	return _result, _err
 }
 
-func (client *Client) RemoveResidentUser(request *RemoveResidentUserRequest) (_result *RemoveResidentUserResponse, _err error) {
+func (client *Client) RemoveResidentMember(request *RemoveResidentMemberRequest) (_result *RemoveResidentMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RemoveResidentUserHeaders{}
-	_result = &RemoveResidentUserResponse{}
-	_body, _err := client.RemoveResidentUserWithOptions(request, headers, runtime)
+	headers := &RemoveResidentMemberHeaders{}
+	_result = &RemoveResidentMemberResponse{}
+	_body, _err := client.RemoveResidentMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5224,8 +5465,19 @@ func (client *Client) RemoveResidentUserWithOptions(request *RemoveResidentUserR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveResidentUser"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/users/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RemoveResidentUserResponse{}
-	_body, _err := client.DoROARequest(tea.String("RemoveResidentUser"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/users/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5233,11 +5485,11 @@ func (client *Client) RemoveResidentUserWithOptions(request *RemoveResidentUserR
 	return _result, _err
 }
 
-func (client *Client) SearchResident(request *SearchResidentRequest) (_result *SearchResidentResponse, _err error) {
+func (client *Client) RemoveResidentUser(request *RemoveResidentUserRequest) (_result *RemoveResidentUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchResidentHeaders{}
-	_result = &SearchResidentResponse{}
-	_body, _err := client.SearchResidentWithOptions(request, headers, runtime)
+	headers := &RemoveResidentUserHeaders{}
+	_result = &RemoveResidentUserResponse{}
+	_body, _err := client.RemoveResidentUserWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5272,8 +5524,19 @@ func (client *Client) SearchResidentWithOptions(request *SearchResidentRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchResident"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/residences"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchResidentResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchResident"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/residences"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5281,11 +5544,11 @@ func (client *Client) SearchResidentWithOptions(request *SearchResidentRequest, 
 	return _result, _err
 }
 
-func (client *Client) UpdateResideceGroup(request *UpdateResideceGroupRequest) (_result *UpdateResideceGroupResponse, _err error) {
+func (client *Client) SearchResident(request *SearchResidentRequest) (_result *SearchResidentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateResideceGroupHeaders{}
-	_result = &UpdateResideceGroupResponse{}
-	_body, _err := client.UpdateResideceGroupWithOptions(request, headers, runtime)
+	headers := &SearchResidentHeaders{}
+	_result = &SearchResidentResponse{}
+	_body, _err := client.SearchResidentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5324,8 +5587,19 @@ func (client *Client) UpdateResideceGroupWithOptions(request *UpdateResideceGrou
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateResideceGroup"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/departments/updateResideceGroup"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateResideceGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateResideceGroup"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/departments/updateResideceGroup"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5333,11 +5607,11 @@ func (client *Client) UpdateResideceGroupWithOptions(request *UpdateResideceGrou
 	return _result, _err
 }
 
-func (client *Client) UpdateResidence(request *UpdateResidenceRequest) (_result *UpdateResidenceResponse, _err error) {
+func (client *Client) UpdateResideceGroup(request *UpdateResideceGroupRequest) (_result *UpdateResideceGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateResidenceHeaders{}
-	_result = &UpdateResidenceResponse{}
-	_body, _err := client.UpdateResidenceWithOptions(request, headers, runtime)
+	headers := &UpdateResideceGroupHeaders{}
+	_result = &UpdateResideceGroupResponse{}
+	_body, _err := client.UpdateResideceGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5392,8 +5666,19 @@ func (client *Client) UpdateResidenceWithOptions(request *UpdateResidenceRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateResidence"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/departments/updateResidece"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateResidenceResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateResidence"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/departments/updateResidece"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5401,11 +5686,11 @@ func (client *Client) UpdateResidenceWithOptions(request *UpdateResidenceRequest
 	return _result, _err
 }
 
-func (client *Client) UpdateResidentBlackBoard(request *UpdateResidentBlackBoardRequest) (_result *UpdateResidentBlackBoardResponse, _err error) {
+func (client *Client) UpdateResidence(request *UpdateResidenceRequest) (_result *UpdateResidenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateResidentBlackBoardHeaders{}
-	_result = &UpdateResidentBlackBoardResponse{}
-	_body, _err := client.UpdateResidentBlackBoardWithOptions(request, headers, runtime)
+	headers := &UpdateResidenceHeaders{}
+	_result = &UpdateResidenceResponse{}
+	_body, _err := client.UpdateResidenceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5448,8 +5733,19 @@ func (client *Client) UpdateResidentBlackBoardWithOptions(request *UpdateResiden
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateResidentBlackBoard"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/blackboards"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateResidentBlackBoardResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateResidentBlackBoard"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/blackboards"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5457,11 +5753,11 @@ func (client *Client) UpdateResidentBlackBoardWithOptions(request *UpdateResiden
 	return _result, _err
 }
 
-func (client *Client) UpdateResidentInfo(request *UpdateResidentInfoRequest) (_result *UpdateResidentInfoResponse, _err error) {
+func (client *Client) UpdateResidentBlackBoard(request *UpdateResidentBlackBoardRequest) (_result *UpdateResidentBlackBoardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateResidentInfoHeaders{}
-	_result = &UpdateResidentInfoResponse{}
-	_body, _err := client.UpdateResidentInfoWithOptions(request, headers, runtime)
+	headers := &UpdateResidentBlackBoardHeaders{}
+	_result = &UpdateResidentBlackBoardResponse{}
+	_body, _err := client.UpdateResidentBlackBoardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5528,8 +5824,19 @@ func (client *Client) UpdateResidentInfoWithOptions(request *UpdateResidentInfoR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateResidentInfo"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/residences"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateResidentInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateResidentInfo"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/residences"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5537,11 +5844,11 @@ func (client *Client) UpdateResidentInfoWithOptions(request *UpdateResidentInfoR
 	return _result, _err
 }
 
-func (client *Client) UpdateResidentMember(request *UpdateResidentMemberRequest) (_result *UpdateResidentMemberResponse, _err error) {
+func (client *Client) UpdateResidentInfo(request *UpdateResidentInfoRequest) (_result *UpdateResidentInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateResidentMemberHeaders{}
-	_result = &UpdateResidentMemberResponse{}
-	_body, _err := client.UpdateResidentMemberWithOptions(request, headers, runtime)
+	headers := &UpdateResidentInfoHeaders{}
+	_result = &UpdateResidentInfoResponse{}
+	_body, _err := client.UpdateResidentInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5576,8 +5883,19 @@ func (client *Client) UpdateResidentMemberWithOptions(request *UpdateResidentMem
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateResidentMember"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/members"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateResidentMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateResidentMember"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/members"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5585,11 +5903,11 @@ func (client *Client) UpdateResidentMemberWithOptions(request *UpdateResidentMem
 	return _result, _err
 }
 
-func (client *Client) UpdateResidentUser(request *UpdateResidentUserRequest) (_result *UpdateResidentUserResponse, _err error) {
+func (client *Client) UpdateResidentMember(request *UpdateResidentMemberRequest) (_result *UpdateResidentMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateResidentUserHeaders{}
-	_result = &UpdateResidentUserResponse{}
-	_body, _err := client.UpdateResidentUserWithOptions(request, headers, runtime)
+	headers := &UpdateResidentMemberHeaders{}
+	_result = &UpdateResidentMemberResponse{}
+	_body, _err := client.UpdateResidentMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5652,8 +5970,19 @@ func (client *Client) UpdateResidentUserWithOptions(request *UpdateResidentUserR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateResidentUser"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/users"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateResidentUserResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateResidentUser"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/users"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5661,11 +5990,11 @@ func (client *Client) UpdateResidentUserWithOptions(request *UpdateResidentUserR
 	return _result, _err
 }
 
-func (client *Client) UpdateSpace(request *UpdateSpaceRequest) (_result *UpdateSpaceResponse, _err error) {
+func (client *Client) UpdateResidentUser(request *UpdateResidentUserRequest) (_result *UpdateResidentUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateSpaceHeaders{}
-	_result = &UpdateSpaceResponse{}
-	_body, _err := client.UpdateSpaceWithOptions(request, headers, runtime)
+	headers := &UpdateResidentUserHeaders{}
+	_result = &UpdateResidentUserResponse{}
+	_body, _err := client.UpdateResidentUserWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5696,11 +6025,34 @@ func (client *Client) UpdateSpaceWithOptions(request *UpdateSpaceRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateSpace"),
+		Version:     tea.String("resident_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/resident/spaces"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateSpace"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/spaces"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateSpace(request *UpdateSpaceRequest) (_result *UpdateSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateSpaceHeaders{}
+	_result = &UpdateSpaceResponse{}
+	_body, _err := client.UpdateSpaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

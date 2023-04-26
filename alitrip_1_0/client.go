@@ -5,9 +5,11 @@
 package alitrip_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,38 +37,22 @@ func (s *AddCityCarApplyHeaders) SetXAcsDingtalkAccessToken(v string) *AddCityCa
 }
 
 type AddCityCarApplyRequest struct {
-	// 出差事由
-	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
-	// 用车城市
-	City *string `json:"city,omitempty" xml:"city,omitempty"`
-	// 第三方企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 用车时间，按天管控，比如传值2021-03-18 20:26:56表示2021-03-18当天可用车，跨天情况配合finishedDate参数使用
-	Date *string `json:"date,omitempty" xml:"date,omitempty"`
-	// 用车截止时间，按天管控，比如date传值2021-03-18 20:26:56、finished_date传值2021-03-30 20:26:56表示2021-03-18(含)到2021-03-30(含)之间可用车，该参数不传值情况使用date作为用车截止时间；
-	FinishedDate *string `json:"finishedDate,omitempty" xml:"finishedDate,omitempty"`
-	// 审批单关联的项目code
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 审批单关联的项目名
-	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
-	// 审批单状态：0-申请，1-同意，2-拒绝
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 三方审批单ID
-	ThirdPartApplyId *string `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
-	// 审批单关联的三方成本中心ID
+	Cause                 *string `json:"cause,omitempty" xml:"cause,omitempty"`
+	City                  *string `json:"city,omitempty" xml:"city,omitempty"`
+	CorpId                *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Date                  *string `json:"date,omitempty" xml:"date,omitempty"`
+	FinishedDate          *string `json:"finishedDate,omitempty" xml:"finishedDate,omitempty"`
+	ProjectCode           *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ProjectName           *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	Status                *int64  `json:"status,omitempty" xml:"status,omitempty"`
+	ThirdPartApplyId      *string `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
 	ThirdPartCostCenterId *string `json:"thirdPartCostCenterId,omitempty" xml:"thirdPartCostCenterId,omitempty"`
-	// 审批单关联的三方发票抬头ID
-	ThirdPartInvoiceId *string `json:"thirdPartInvoiceId,omitempty" xml:"thirdPartInvoiceId,omitempty"`
-	// 审批单可用总次数
-	TimesTotal *int64 `json:"timesTotal,omitempty" xml:"timesTotal,omitempty"`
-	// 审批单可用次数类型：1-次数不限制，2-用户可指定次数，3-管理员限制次数；如果企业没有限制审批单使用次数的需求，这个参数传1(次数不限制)，同时times_total和times_used都传0即可
-	TimesType *int64 `json:"timesType,omitempty" xml:"timesType,omitempty"`
-	// 审批单已用次数
-	TimesUsed *int64 `json:"timesUsed,omitempty" xml:"timesUsed,omitempty"`
-	// 审批单标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 发起审批的第三方员工ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	ThirdPartInvoiceId    *string `json:"thirdPartInvoiceId,omitempty" xml:"thirdPartInvoiceId,omitempty"`
+	TimesTotal            *int64  `json:"timesTotal,omitempty" xml:"timesTotal,omitempty"`
+	TimesType             *int64  `json:"timesType,omitempty" xml:"timesType,omitempty"`
+	TimesUsed             *int64  `json:"timesUsed,omitempty" xml:"timesUsed,omitempty"`
+	Title                 *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserId                *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddCityCarApplyRequest) String() string {
@@ -158,7 +144,6 @@ func (s *AddCityCarApplyRequest) SetUserId(v string) *AddCityCarApplyRequest {
 }
 
 type AddCityCarApplyResponseBody struct {
-	// 商旅内部审批单ID
 	ApplyId *int64 `json:"applyId,omitempty" xml:"applyId,omitempty"`
 }
 
@@ -176,8 +161,9 @@ func (s *AddCityCarApplyResponseBody) SetApplyId(v int64) *AddCityCarApplyRespon
 }
 
 type AddCityCarApplyResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddCityCarApplyResponse) String() string {
@@ -190,6 +176,11 @@ func (s AddCityCarApplyResponse) GoString() string {
 
 func (s *AddCityCarApplyResponse) SetHeaders(v map[string]*string) *AddCityCarApplyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddCityCarApplyResponse) SetStatusCode(v int32) *AddCityCarApplyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -222,18 +213,12 @@ func (s *ApproveCityCarApplyHeaders) SetXAcsDingtalkAccessToken(v string) *Appro
 }
 
 type ApproveCityCarApplyRequest struct {
-	// 第三方企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 审批时间
-	OperateTime *string `json:"operateTime,omitempty" xml:"operateTime,omitempty"`
-	// 审批备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 审批结果：1-同意，2-拒绝
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 第三方审批单ID
+	CorpId           *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	OperateTime      *string `json:"operateTime,omitempty" xml:"operateTime,omitempty"`
+	Remark           *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	Status           *int64  `json:"status,omitempty" xml:"status,omitempty"`
 	ThirdPartApplyId *string `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
-	// 审批的第三方员工ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ApproveCityCarApplyRequest) String() string {
@@ -275,7 +260,6 @@ func (s *ApproveCityCarApplyRequest) SetUserId(v string) *ApproveCityCarApplyReq
 }
 
 type ApproveCityCarApplyResponseBody struct {
-	// 审批结果
 	ApproveResult *bool `json:"approveResult,omitempty" xml:"approveResult,omitempty"`
 }
 
@@ -293,8 +277,9 @@ func (s *ApproveCityCarApplyResponseBody) SetApproveResult(v bool) *ApproveCityC
 }
 
 type ApproveCityCarApplyResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ApproveCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ApproveCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ApproveCityCarApplyResponse) String() string {
@@ -307,6 +292,11 @@ func (s ApproveCityCarApplyResponse) GoString() string {
 
 func (s *ApproveCityCarApplyResponse) SetHeaders(v map[string]*string) *ApproveCityCarApplyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ApproveCityCarApplyResponse) SetStatusCode(v int32) *ApproveCityCarApplyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -386,14 +376,10 @@ func (s *BillSettementBtripTrainRequest) SetPeriodStart(v string) *BillSettement
 }
 
 type BillSettementBtripTrainResponseBody struct {
-	// module
-	Module *BillSettementBtripTrainResponseBodyModule `json:"module,omitempty" xml:"module,omitempty" type:"Struct"`
-	// 结果code
-	ResultCode *int64 `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
-	// 结果msg
-	ResultMsg *string `json:"resultMsg,omitempty" xml:"resultMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Module     *BillSettementBtripTrainResponseBodyModule `json:"module,omitempty" xml:"module,omitempty" type:"Struct"`
+	ResultCode *int64                                     `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
+	ResultMsg  *string                                    `json:"resultMsg,omitempty" xml:"resultMsg,omitempty"`
+	Success    *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BillSettementBtripTrainResponseBody) String() string {
@@ -425,18 +411,12 @@ func (s *BillSettementBtripTrainResponseBody) SetSuccess(v bool) *BillSettementB
 }
 
 type BillSettementBtripTrainResponseBodyModule struct {
-	// 类目
-	Category *int64 `json:"category,omitempty" xml:"category,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 数据集合
-	DataList []*BillSettementBtripTrainResponseBodyModuleDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
-	// 记账更新开始时间
-	PeriodEnd *string `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
-	// 记账更新结束时间
-	PeriodStart *string `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
-	// 总数据量
-	TotalNum *int64 `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
+	Category    *int64                                               `json:"category,omitempty" xml:"category,omitempty"`
+	CorpId      *string                                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DataList    []*BillSettementBtripTrainResponseBodyModuleDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	PeriodEnd   *string                                              `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
+	PeriodStart *string                                              `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
+	TotalNum    *int64                                               `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
 }
 
 func (s BillSettementBtripTrainResponseBodyModule) String() string {
@@ -478,104 +458,55 @@ func (s *BillSettementBtripTrainResponseBodyModule) SetTotalNum(v int64) *BillSe
 }
 
 type BillSettementBtripTrainResponseBodyModuleDataList struct {
-	// 交易流水号
-	AlipayTradeNo *string `json:"alipayTradeNo,omitempty" xml:"alipayTradeNo,omitempty"`
-	// 审批单号
-	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 到达日期
-	ArrDate *string `json:"arrDate,omitempty" xml:"arrDate,omitempty"`
-	// 到达站点
-	ArrStation *string `json:"arrStation,omitempty" xml:"arrStation,omitempty"`
-	// 到达时间
-	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
-	// 入账时间
-	BillRecordTime *string `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
-	// 预定时间
-	BookTime *string `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
-	// 预定人use id
-	BookerId *string `json:"bookerId,omitempty" xml:"bookerId,omitempty"`
-	// 预订人工号
-	BookerJobNo *string `json:"bookerJobNo,omitempty" xml:"bookerJobNo,omitempty"`
-	// 预订人名称
-	BookerName *string `json:"bookerName,omitempty" xml:"bookerName,omitempty"`
-	// 资金方向
-	CapitalDirection *string `json:"capitalDirection,omitempty" xml:"capitalDirection,omitempty"`
-	// 级联部门
-	CascadeDepartment *string `json:"cascadeDepartment,omitempty" xml:"cascadeDepartment,omitempty"`
-	// 改签手续费
-	ChangeFee *float64 `json:"changeFee,omitempty" xml:"changeFee,omitempty"`
-	// 成本中心名称
-	CostCenter *string `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
-	// 成本中心编码
-	CostCenterNumber *string `json:"costCenterNumber,omitempty" xml:"costCenterNumber,omitempty"`
-	// 折扣率
-	Coupon *float64 `json:"coupon,omitempty" xml:"coupon,omitempty"`
-	// 末级部门
-	Department *string `json:"department,omitempty" xml:"department,omitempty"`
-	// 部门id
-	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 出发日期
-	DeptDate *string `json:"deptDate,omitempty" xml:"deptDate,omitempty"`
-	// 出发站
-	DeptStation *string `json:"deptStation,omitempty" xml:"deptStation,omitempty"`
-	// 出发时间
-	DeptTime *string `json:"deptTime,omitempty" xml:"deptTime,omitempty"`
-	// 费用类型
-	FeeType *string `json:"feeType,omitempty" xml:"feeType,omitempty"`
-	// 序号
-	Index *string `json:"index,omitempty" xml:"index,omitempty"`
-	// 发票抬头
-	InvoiceTitle *string `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
-	// 订单号
-	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	// 订单金额
-	OrderPrice *float64 `json:"orderPrice,omitempty" xml:"orderPrice,omitempty"`
-	// 超标审批单号
-	OverApplyId *string `json:"overApplyId,omitempty" xml:"overApplyId,omitempty"`
-	// 主键id
-	PrimaryId *int64 `json:"primaryId,omitempty" xml:"primaryId,omitempty"`
-	// 项目编号
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 项目名称
-	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
-	// 退款手续费
-	RefundFee *float64 `json:"refundFee,omitempty" xml:"refundFee,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 运行时长
-	RunTime *string `json:"runTime,omitempty" xml:"runTime,omitempty"`
-	// 座位号
-	SeatNo *string `json:"seatNo,omitempty" xml:"seatNo,omitempty"`
-	// 坐席
-	SeatType *string `json:"seatType,omitempty" xml:"seatType,omitempty"`
-	// 服务费，仅在feeType 6007、6008中展示
-	ServiceFee *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
-	// 结算金额
-	SettlementFee *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
-	// 预存赠送金额消费
+	AlipayTradeNo      *string  `json:"alipayTradeNo,omitempty" xml:"alipayTradeNo,omitempty"`
+	ApplyId            *string  `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	ArrDate            *string  `json:"arrDate,omitempty" xml:"arrDate,omitempty"`
+	ArrStation         *string  `json:"arrStation,omitempty" xml:"arrStation,omitempty"`
+	ArrTime            *string  `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	BillRecordTime     *string  `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
+	BookTime           *string  `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
+	BookerId           *string  `json:"bookerId,omitempty" xml:"bookerId,omitempty"`
+	BookerJobNo        *string  `json:"bookerJobNo,omitempty" xml:"bookerJobNo,omitempty"`
+	BookerName         *string  `json:"bookerName,omitempty" xml:"bookerName,omitempty"`
+	CapitalDirection   *string  `json:"capitalDirection,omitempty" xml:"capitalDirection,omitempty"`
+	CascadeDepartment  *string  `json:"cascadeDepartment,omitempty" xml:"cascadeDepartment,omitempty"`
+	ChangeFee          *float64 `json:"changeFee,omitempty" xml:"changeFee,omitempty"`
+	CostCenter         *string  `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterNumber   *string  `json:"costCenterNumber,omitempty" xml:"costCenterNumber,omitempty"`
+	Coupon             *float64 `json:"coupon,omitempty" xml:"coupon,omitempty"`
+	Department         *string  `json:"department,omitempty" xml:"department,omitempty"`
+	DepartmentId       *string  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	DeptDate           *string  `json:"deptDate,omitempty" xml:"deptDate,omitempty"`
+	DeptStation        *string  `json:"deptStation,omitempty" xml:"deptStation,omitempty"`
+	DeptTime           *string  `json:"deptTime,omitempty" xml:"deptTime,omitempty"`
+	FeeType            *string  `json:"feeType,omitempty" xml:"feeType,omitempty"`
+	Index              *string  `json:"index,omitempty" xml:"index,omitempty"`
+	InvoiceTitle       *string  `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	OrderId            *string  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	OrderPrice         *float64 `json:"orderPrice,omitempty" xml:"orderPrice,omitempty"`
+	OverApplyId        *string  `json:"overApplyId,omitempty" xml:"overApplyId,omitempty"`
+	PrimaryId          *int64   `json:"primaryId,omitempty" xml:"primaryId,omitempty"`
+	ProjectCode        *string  `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ProjectName        *string  `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	RefundFee          *float64 `json:"refundFee,omitempty" xml:"refundFee,omitempty"`
+	Remark             *string  `json:"remark,omitempty" xml:"remark,omitempty"`
+	RunTime            *string  `json:"runTime,omitempty" xml:"runTime,omitempty"`
+	SeatNo             *string  `json:"seatNo,omitempty" xml:"seatNo,omitempty"`
+	SeatType           *string  `json:"seatType,omitempty" xml:"seatType,omitempty"`
+	ServiceFee         *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
+	SettlementFee      *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
 	SettlementGrantFee *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
-	// 结算时间
-	SettlementTime *string `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
-	// 结算类型
-	SettlementType *string `json:"settlementType,omitempty" xml:"settlementType,omitempty"`
-	// 入账状态
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 票面票号
-	TicketNo *string `json:"ticketNo,omitempty" xml:"ticketNo,omitempty"`
-	// 票价
-	TicketPrice *float64 `json:"ticketPrice,omitempty" xml:"ticketPrice,omitempty"`
-	// 车次号
-	TrainNo *string `json:"trainNo,omitempty" xml:"trainNo,omitempty"`
-	// 车次类型
-	TrainType *string `json:"trainType,omitempty" xml:"trainType,omitempty"`
-	// 出行人useId
-	TravelerId *string `json:"travelerId,omitempty" xml:"travelerId,omitempty"`
-	// 出行人工号
-	TravelerJobNo *string `json:"travelerJobNo,omitempty" xml:"travelerJobNo,omitempty"`
-	// 出行人名称
-	TravelerName *string `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
-	// 发票类型
-	VoucherType *int64 `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
+	SettlementTime     *string  `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
+	SettlementType     *string  `json:"settlementType,omitempty" xml:"settlementType,omitempty"`
+	Status             *int64   `json:"status,omitempty" xml:"status,omitempty"`
+	TicketNo           *string  `json:"ticketNo,omitempty" xml:"ticketNo,omitempty"`
+	TicketPrice        *float64 `json:"ticketPrice,omitempty" xml:"ticketPrice,omitempty"`
+	TrainNo            *string  `json:"trainNo,omitempty" xml:"trainNo,omitempty"`
+	TrainType          *string  `json:"trainType,omitempty" xml:"trainType,omitempty"`
+	TravelerId         *string  `json:"travelerId,omitempty" xml:"travelerId,omitempty"`
+	TravelerJobNo      *string  `json:"travelerJobNo,omitempty" xml:"travelerJobNo,omitempty"`
+	TravelerName       *string  `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
+	VoucherType        *int64   `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
 }
 
 func (s BillSettementBtripTrainResponseBodyModuleDataList) String() string {
@@ -832,8 +763,9 @@ func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetVoucherType(v int
 }
 
 type BillSettementBtripTrainResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BillSettementBtripTrainResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BillSettementBtripTrainResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BillSettementBtripTrainResponse) String() string {
@@ -846,6 +778,11 @@ func (s BillSettementBtripTrainResponse) GoString() string {
 
 func (s *BillSettementBtripTrainResponse) SetHeaders(v map[string]*string) *BillSettementBtripTrainResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BillSettementBtripTrainResponse) SetStatusCode(v int32) *BillSettementBtripTrainResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -925,14 +862,10 @@ func (s *BillSettementCarRequest) SetPeriodStart(v string) *BillSettementCarRequ
 }
 
 type BillSettementCarResponseBody struct {
-	// module
-	Module *BillSettementCarResponseBodyModule `json:"module,omitempty" xml:"module,omitempty" type:"Struct"`
-	// 结果code
-	ResultCode *int64 `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
-	// 结果msg
-	ResultMsg *string `json:"resultMsg,omitempty" xml:"resultMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Module     *BillSettementCarResponseBodyModule `json:"module,omitempty" xml:"module,omitempty" type:"Struct"`
+	ResultCode *int64                              `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
+	ResultMsg  *string                             `json:"resultMsg,omitempty" xml:"resultMsg,omitempty"`
+	Success    *bool                               `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BillSettementCarResponseBody) String() string {
@@ -964,18 +897,12 @@ func (s *BillSettementCarResponseBody) SetSuccess(v bool) *BillSettementCarRespo
 }
 
 type BillSettementCarResponseBodyModule struct {
-	// 类目
-	Category *int64 `json:"category,omitempty" xml:"category,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 数据集合
-	DataList []*BillSettementCarResponseBodyModuleDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
-	// 记账更新开始日期
-	PeriodEnd *string `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
-	// 记账更新结束日期
-	PeriodStart *string `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
-	// 总数量
-	TotalNum *int64 `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
+	Category    *int64                                        `json:"category,omitempty" xml:"category,omitempty"`
+	CorpId      *string                                       `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DataList    []*BillSettementCarResponseBodyModuleDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	PeriodEnd   *string                                       `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
+	PeriodStart *string                                       `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
+	TotalNum    *int64                                        `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
 }
 
 func (s BillSettementCarResponseBodyModule) String() string {
@@ -1017,119 +944,63 @@ func (s *BillSettementCarResponseBodyModule) SetTotalNum(v int64) *BillSettement
 }
 
 type BillSettementCarResponseBodyModuleDataList struct {
-	// 支付交易流水号
-	AlipayTradeNo *string `json:"alipayTradeNo,omitempty" xml:"alipayTradeNo,omitempty"`
-	// 审批单号
-	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 到达城市
-	ArrCity *string `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
-	// 到达日期
-	ArrDate *string `json:"arrDate,omitempty" xml:"arrDate,omitempty"`
-	// 到达地
-	ArrLocation *string `json:"arrLocation,omitempty" xml:"arrLocation,omitempty"`
-	// 到达时间
-	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
-	// 入账时间
-	BillRecordTime *string `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
-	// 预定时间
-	BookTime *string `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
-	// 预定人use id
-	BookerId *string `json:"bookerId,omitempty" xml:"bookerId,omitempty"`
-	// 预订人工号
-	BookerJobNo *string `json:"bookerJobNo,omitempty" xml:"bookerJobNo,omitempty"`
-	// 预订人名称
-	BookerName *string `json:"bookerName,omitempty" xml:"bookerName,omitempty"`
-	// 用车事由
-	BusinessCategory *string `json:"businessCategory,omitempty" xml:"businessCategory,omitempty"`
-	// 资金方向
-	CapitalDirection *string `json:"capitalDirection,omitempty" xml:"capitalDirection,omitempty"`
-	// 车型
-	CarLevel *string `json:"carLevel,omitempty" xml:"carLevel,omitempty"`
-	// 级联部门
-	CascadeDepartment *string `json:"cascadeDepartment,omitempty" xml:"cascadeDepartment,omitempty"`
-	// 成本中心名称
-	CostCenter *string `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
-	// 成本中心编号
-	CostCenterNumber *string `json:"costCenterNumber,omitempty" xml:"costCenterNumber,omitempty"`
-	// 优惠券
-	Coupon *float64 `json:"coupon,omitempty" xml:"coupon,omitempty"`
-	// 优惠金额
-	CouponPrice *float64 `json:"couponPrice,omitempty" xml:"couponPrice,omitempty"`
-	// 末级部门
-	Department *string `json:"department,omitempty" xml:"department,omitempty"`
-	// 部门id
-	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 出发城市
-	DeptCity *string `json:"deptCity,omitempty" xml:"deptCity,omitempty"`
-	// 出发日期
-	DeptDate *string `json:"deptDate,omitempty" xml:"deptDate,omitempty"`
-	// 出发地
-	DeptLocation *string `json:"deptLocation,omitempty" xml:"deptLocation,omitempty"`
-	// 出发时间
-	DeptTime *string `json:"deptTime,omitempty" xml:"deptTime,omitempty"`
-	// 预估行驶距离
-	EstimateDriveDistance *string `json:"estimateDriveDistance,omitempty" xml:"estimateDriveDistance,omitempty"`
-	// 预估金额
-	EstimatePrice *float64 `json:"estimatePrice,omitempty" xml:"estimatePrice,omitempty"`
-	// 费用类型
-	FeeType *string `json:"feeType,omitempty" xml:"feeType,omitempty"`
-	// 序号
-	Index *string `json:"index,omitempty" xml:"index,omitempty"`
-	// 发票抬头
-	InvoiceTitle *string `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
-	// 用车事由
-	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
-	// 订单id
-	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	// 订单金额
-	OrderPrice *float64 `json:"orderPrice,omitempty" xml:"orderPrice,omitempty"`
-	// 超标审批单号
-	OverApplyId *string `json:"overApplyId,omitempty" xml:"overApplyId,omitempty"`
-	// 个人支付金额
-	PersonSettleFee *float64 `json:"personSettleFee,omitempty" xml:"personSettleFee,omitempty"`
-	PrimaryId       *string  `json:"primaryId,omitempty" xml:"primaryId,omitempty"`
-	// 项目编码
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 项目名称
-	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
-	// 供应商
-	ProviderName *string `json:"providerName,omitempty" xml:"providerName,omitempty"`
-	// 实际行驶距离
-	RealDriveDistance *string `json:"realDriveDistance,omitempty" xml:"realDriveDistance,omitempty"`
-	// 实际上车点
-	RealFromAddr *string `json:"realFromAddr,omitempty" xml:"realFromAddr,omitempty"`
-	// 实际下车点
-	RealToAddr *string `json:"realToAddr,omitempty" xml:"realToAddr,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 服务费，仅在feeType 40111 中展示
-	ServiceFee *string `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
-	// 结算金额
-	SettlementFee *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
-	// 预存赠送金额消费
-	SettlementGrantFee *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
-	// 结算时间
-	SettlementTime *string `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
-	// 结算类型
-	SettlementType *string `json:"settlementType,omitempty" xml:"settlementType,omitempty"`
-	// 特别关注订单
-	SpecialOrder *string `json:"specialOrder,omitempty" xml:"specialOrder,omitempty"`
-	// 特别关注原因
-	SpecialReason *string `json:"specialReason,omitempty" xml:"specialReason,omitempty"`
-	// 入账状态
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 子订单号
-	SubOrderId *string `json:"subOrderId,omitempty" xml:"subOrderId,omitempty"`
-	// 出行人use id
-	TravelerId *string `json:"travelerId,omitempty" xml:"travelerId,omitempty"`
-	// 出行人工号
-	TravelerJobNo *string `json:"travelerJobNo,omitempty" xml:"travelerJobNo,omitempty"`
-	// 出行人名称
-	TravelerName *string `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
-	// 员工是否认可
-	UserConfirmDesc *string `json:"userConfirmDesc,omitempty" xml:"userConfirmDesc,omitempty"`
-	// 发票类型
-	VoucherType *int64 `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
+	AlipayTradeNo         *string  `json:"alipayTradeNo,omitempty" xml:"alipayTradeNo,omitempty"`
+	ApplyId               *string  `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	ArrCity               *string  `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
+	ArrDate               *string  `json:"arrDate,omitempty" xml:"arrDate,omitempty"`
+	ArrLocation           *string  `json:"arrLocation,omitempty" xml:"arrLocation,omitempty"`
+	ArrTime               *string  `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	BillRecordTime        *string  `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
+	BookTime              *string  `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
+	BookerId              *string  `json:"bookerId,omitempty" xml:"bookerId,omitempty"`
+	BookerJobNo           *string  `json:"bookerJobNo,omitempty" xml:"bookerJobNo,omitempty"`
+	BookerName            *string  `json:"bookerName,omitempty" xml:"bookerName,omitempty"`
+	BusinessCategory      *string  `json:"businessCategory,omitempty" xml:"businessCategory,omitempty"`
+	CapitalDirection      *string  `json:"capitalDirection,omitempty" xml:"capitalDirection,omitempty"`
+	CarLevel              *string  `json:"carLevel,omitempty" xml:"carLevel,omitempty"`
+	CascadeDepartment     *string  `json:"cascadeDepartment,omitempty" xml:"cascadeDepartment,omitempty"`
+	CostCenter            *string  `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterNumber      *string  `json:"costCenterNumber,omitempty" xml:"costCenterNumber,omitempty"`
+	Coupon                *float64 `json:"coupon,omitempty" xml:"coupon,omitempty"`
+	CouponPrice           *float64 `json:"couponPrice,omitempty" xml:"couponPrice,omitempty"`
+	Department            *string  `json:"department,omitempty" xml:"department,omitempty"`
+	DepartmentId          *string  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	DeptCity              *string  `json:"deptCity,omitempty" xml:"deptCity,omitempty"`
+	DeptDate              *string  `json:"deptDate,omitempty" xml:"deptDate,omitempty"`
+	DeptLocation          *string  `json:"deptLocation,omitempty" xml:"deptLocation,omitempty"`
+	DeptTime              *string  `json:"deptTime,omitempty" xml:"deptTime,omitempty"`
+	EstimateDriveDistance *string  `json:"estimateDriveDistance,omitempty" xml:"estimateDriveDistance,omitempty"`
+	EstimatePrice         *float64 `json:"estimatePrice,omitempty" xml:"estimatePrice,omitempty"`
+	FeeType               *string  `json:"feeType,omitempty" xml:"feeType,omitempty"`
+	Index                 *string  `json:"index,omitempty" xml:"index,omitempty"`
+	InvoiceTitle          *string  `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	Memo                  *string  `json:"memo,omitempty" xml:"memo,omitempty"`
+	OrderId               *string  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	OrderPrice            *float64 `json:"orderPrice,omitempty" xml:"orderPrice,omitempty"`
+	OverApplyId           *string  `json:"overApplyId,omitempty" xml:"overApplyId,omitempty"`
+	PersonSettleFee       *float64 `json:"personSettleFee,omitempty" xml:"personSettleFee,omitempty"`
+	PrimaryId             *string  `json:"primaryId,omitempty" xml:"primaryId,omitempty"`
+	ProjectCode           *string  `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ProjectName           *string  `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	ProviderName          *string  `json:"providerName,omitempty" xml:"providerName,omitempty"`
+	RealDriveDistance     *string  `json:"realDriveDistance,omitempty" xml:"realDriveDistance,omitempty"`
+	RealFromAddr          *string  `json:"realFromAddr,omitempty" xml:"realFromAddr,omitempty"`
+	RealToAddr            *string  `json:"realToAddr,omitempty" xml:"realToAddr,omitempty"`
+	Remark                *string  `json:"remark,omitempty" xml:"remark,omitempty"`
+	ServiceFee            *string  `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
+	SettlementFee         *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
+	SettlementGrantFee    *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
+	SettlementTime        *string  `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
+	SettlementType        *string  `json:"settlementType,omitempty" xml:"settlementType,omitempty"`
+	SpecialOrder          *string  `json:"specialOrder,omitempty" xml:"specialOrder,omitempty"`
+	SpecialReason         *string  `json:"specialReason,omitempty" xml:"specialReason,omitempty"`
+	Status                *int64   `json:"status,omitempty" xml:"status,omitempty"`
+	SubOrderId            *string  `json:"subOrderId,omitempty" xml:"subOrderId,omitempty"`
+	TravelerId            *string  `json:"travelerId,omitempty" xml:"travelerId,omitempty"`
+	TravelerJobNo         *string  `json:"travelerJobNo,omitempty" xml:"travelerJobNo,omitempty"`
+	TravelerName          *string  `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
+	UserConfirmDesc       *string  `json:"userConfirmDesc,omitempty" xml:"userConfirmDesc,omitempty"`
+	VoucherType           *int64   `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
 }
 
 func (s BillSettementCarResponseBodyModuleDataList) String() string {
@@ -1426,8 +1297,9 @@ func (s *BillSettementCarResponseBodyModuleDataList) SetVoucherType(v int64) *Bi
 }
 
 type BillSettementCarResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BillSettementCarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BillSettementCarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BillSettementCarResponse) String() string {
@@ -1440,6 +1312,11 @@ func (s BillSettementCarResponse) GoString() string {
 
 func (s *BillSettementCarResponse) SetHeaders(v map[string]*string) *BillSettementCarResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BillSettementCarResponse) SetStatusCode(v int32) *BillSettementCarResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1472,17 +1349,11 @@ func (s *BillSettementFlightHeaders) SetXAcsDingtalkAccessToken(v string) *BillS
 }
 
 type BillSettementFlightRequest struct {
-	// 类目：机酒火车 1：机票； 2：酒店； 4：用车 6：商旅火车票
-	Category *int64 `json:"category,omitempty" xml:"category,omitempty"`
-	// 第三方企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 页数，从1开始
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 每页数据量，默认100，最高500
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 记账更新结束日期
-	PeriodEnd *string `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
-	// 记账更新开始日期
+	Category    *int64  `json:"category,omitempty" xml:"category,omitempty"`
+	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	PageNumber  *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize    *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PeriodEnd   *string `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
 	PeriodStart *string `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
 }
 
@@ -1525,14 +1396,10 @@ func (s *BillSettementFlightRequest) SetPeriodStart(v string) *BillSettementFlig
 }
 
 type BillSettementFlightResponseBody struct {
-	// module
-	Module *BillSettementFlightResponseBodyModule `json:"module,omitempty" xml:"module,omitempty" type:"Struct"`
-	// 结果code
-	ResultCode *int64 `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
-	// 结果msg
-	ResultMsg *string `json:"resultMsg,omitempty" xml:"resultMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Module     *BillSettementFlightResponseBodyModule `json:"module,omitempty" xml:"module,omitempty" type:"Struct"`
+	ResultCode *int64                                 `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
+	ResultMsg  *string                                `json:"resultMsg,omitempty" xml:"resultMsg,omitempty"`
+	Success    *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BillSettementFlightResponseBody) String() string {
@@ -1564,18 +1431,12 @@ func (s *BillSettementFlightResponseBody) SetSuccess(v bool) *BillSettementFligh
 }
 
 type BillSettementFlightResponseBodyModule struct {
-	// 类目
-	Category *int64 `json:"category,omitempty" xml:"category,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 数据集合
-	DataList []*BillSettementFlightResponseBodyModuleDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
-	// 记账更新开始日期
-	PeriodEnd *string `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
-	// 记账更新结束日期
-	PeriodStart *string `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
-	// 总数据量
-	TotalNum *int64 `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
+	Category    *int64                                           `json:"category,omitempty" xml:"category,omitempty"`
+	CorpId      *string                                          `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DataList    []*BillSettementFlightResponseBodyModuleDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	PeriodEnd   *string                                          `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
+	PeriodStart *string                                          `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
+	TotalNum    *int64                                           `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
 }
 
 func (s BillSettementFlightResponseBodyModule) String() string {
@@ -1617,148 +1478,77 @@ func (s *BillSettementFlightResponseBodyModule) SetTotalNum(v int64) *BillSettem
 }
 
 type BillSettementFlightResponseBodyModuleDataList struct {
-	// 提前预定天数
-	AdvanceDay *int64 `json:"advanceDay,omitempty" xml:"advanceDay,omitempty"`
-	// 航司三字码
-	AirlineCorpCode *string `json:"airlineCorpCode,omitempty" xml:"airlineCorpCode,omitempty"`
-	// 航司名称
-	AirlineCorpName *string `json:"airlineCorpName,omitempty" xml:"airlineCorpName,omitempty"`
-	// 交易流水号
-	AlipayTradeNo *string `json:"alipayTradeNo,omitempty" xml:"alipayTradeNo,omitempty"`
-	// 审批单号
-	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 到达机场二字码
-	ArrAirportCode *string `json:"arrAirportCode,omitempty" xml:"arrAirportCode,omitempty"`
-	// 到达城市
-	ArrCity *string `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
-	// 到达日期
-	ArrDate *string `json:"arrDate,omitempty" xml:"arrDate,omitempty"`
-	// 到达机场
-	ArrStation *string `json:"arrStation,omitempty" xml:"arrStation,omitempty"`
-	// 到达时间
-	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
-	// 入账时间
-	BillRecordTime *string `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
-	// 预定时间
-	BookTime *string `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
-	// 预订人use id
-	BookerId *string `json:"bookerId,omitempty" xml:"bookerId,omitempty"`
-	// 预订人工号
-	BookerJobNo *string `json:"bookerJobNo,omitempty" xml:"bookerJobNo,omitempty"`
-	// 预订人名称
-	BookerName *string `json:"bookerName,omitempty" xml:"bookerName,omitempty"`
-	// 商旅优惠金额
-	BtripCouponFee *float64 `json:"btripCouponFee,omitempty" xml:"btripCouponFee,omitempty"`
-	// 基建费
-	BuildFee *float64 `json:"buildFee,omitempty" xml:"buildFee,omitempty"`
-	// 舱位
-	Cabin *string `json:"cabin,omitempty" xml:"cabin,omitempty"`
-	// 舱位码
-	CabinClass *string `json:"cabinClass,omitempty" xml:"cabinClass,omitempty"`
-	// 资金方向
-	CapitalDirection *string `json:"capitalDirection,omitempty" xml:"capitalDirection,omitempty"`
-	// 级联部门
-	CascadeDepartment *string `json:"cascadeDepartment,omitempty" xml:"cascadeDepartment,omitempty"`
-	// 改签费用
-	ChangeFee *float64 `json:"changeFee,omitempty" xml:"changeFee,omitempty"`
-	// 订单金额
-	CorpPayOrderFee *float64 `json:"corpPayOrderFee,omitempty" xml:"corpPayOrderFee,omitempty"`
-	// 成本中心名称
-	CostCenter *string `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
-	// 成本中心编号
-	CostCenterNumber *string `json:"costCenterNumber,omitempty" xml:"costCenterNumber,omitempty"`
-	// 优惠券
-	Coupon *float64 `json:"coupon,omitempty" xml:"coupon,omitempty"`
-	// 起飞机场二字码
-	DepAirportCode *string `json:"depAirportCode,omitempty" xml:"depAirportCode,omitempty"`
-	// 末级部门
-	Department *string `json:"department,omitempty" xml:"department,omitempty"`
-	// 部门id
-	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 起飞城市
-	DeptCity *string `json:"deptCity,omitempty" xml:"deptCity,omitempty"`
-	// 起飞日期
-	DeptDate *string `json:"deptDate,omitempty" xml:"deptDate,omitempty"`
-	// 起飞机场
-	DeptStation *string `json:"deptStation,omitempty" xml:"deptStation,omitempty"`
-	// 起飞时间
-	DeptTime *string `json:"deptTime,omitempty" xml:"deptTime,omitempty"`
-	// 折扣率
-	Discount *string `json:"discount,omitempty" xml:"discount,omitempty"`
-	// 费用类型
-	FeeType *string `json:"feeType,omitempty" xml:"feeType,omitempty"`
-	// 航班号
-	FlightNo *string `json:"flightNo,omitempty" xml:"flightNo,omitempty"`
-	// 序号
-	Index *string `json:"index,omitempty" xml:"index,omitempty"`
-	// 保险费
-	InsuranceFee *float64 `json:"insuranceFee,omitempty" xml:"insuranceFee,omitempty"`
-	// 发票抬头
-	InvoiceTitle *string `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
-	// 行程单打印序号
-	ItineraryNum *string `json:"itineraryNum,omitempty" xml:"itineraryNum,omitempty"`
-	// 行程单金额
-	ItineraryPrice *float64 `json:"itineraryPrice,omitempty" xml:"itineraryPrice,omitempty"`
-	// 低价提醒（起飞时间）
-	MostDifferenceDeptTime *string `json:"mostDifferenceDeptTime,omitempty" xml:"mostDifferenceDeptTime,omitempty"`
-	// 低价提醒（折扣）
-	MostDifferenceDiscount *string `json:"mostDifferenceDiscount,omitempty" xml:"mostDifferenceDiscount,omitempty"`
-	// 低价提醒(航班号)
-	MostDifferenceFlightNo *string `json:"mostDifferenceFlightNo,omitempty" xml:"mostDifferenceFlightNo,omitempty"`
-	// 低价提醒(与最低价差额)
-	MostDifferencePrice *float64 `json:"mostDifferencePrice,omitempty" xml:"mostDifferencePrice,omitempty"`
-	// 不选低价原因
-	MostDifferenceReason *string `json:"mostDifferenceReason,omitempty" xml:"mostDifferenceReason,omitempty"`
-	// 低价航班价格
-	MostPrice *float64 `json:"mostPrice,omitempty" xml:"mostPrice,omitempty"`
-	// 协议价优惠金额
-	NegotiationCouponFee *float64 `json:"negotiationCouponFee,omitempty" xml:"negotiationCouponFee,omitempty"`
-	// 燃油费
-	OilFee *float64 `json:"oilFee,omitempty" xml:"oilFee,omitempty"`
-	// 订单号
-	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	// 超标审批单号
-	OverApplyId *string `json:"overApplyId,omitempty" xml:"overApplyId,omitempty"`
-	// 主键id
-	PrimaryId *int64 `json:"primaryId,omitempty" xml:"primaryId,omitempty"`
-	// 项目代码
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 项目名称
-	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
-	// 退款手续费
-	RefundFee *float64 `json:"refundFee,omitempty" xml:"refundFee,omitempty"`
-	// 改签退票手续费
-	RefundUpgradeCost *float64 `json:"refundUpgradeCost,omitempty" xml:"refundUpgradeCost,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 是否重复退
-	RepeatRefund *string `json:"repeatRefund,omitempty" xml:"repeatRefund,omitempty"`
-	// 销售价
-	SealPrice *float64 `json:"sealPrice,omitempty" xml:"sealPrice,omitempty"`
-	// 服务费，仅在feeType  11001、11002中展示
-	ServiceFee *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
-	// 结算金额
-	SettlementFee *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
-	// 预存赠送金额消费
-	SettlementGrantFee *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
-	// 结算时间
-	SettlementTime *string `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
-	// 结算类型
-	SettlementType *string `json:"settlementType,omitempty" xml:"settlementType,omitempty"`
-	// 入账状态
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 行程单号
-	TicketId *string `json:"ticketId,omitempty" xml:"ticketId,omitempty"`
-	// 出行人use id
-	TravelerId *string `json:"travelerId,omitempty" xml:"travelerId,omitempty"`
-	// 出行人工号
-	TravelerJobNo *string `json:"travelerJobNo,omitempty" xml:"travelerJobNo,omitempty"`
-	// 出行人名称
-	TravelerName *string `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
-	// 改签差价
-	UpgradeCost *float64 `json:"upgradeCost,omitempty" xml:"upgradeCost,omitempty"`
-	// 发票类型
-	VoucherType *int64 `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
+	AdvanceDay             *int64   `json:"advanceDay,omitempty" xml:"advanceDay,omitempty"`
+	AirlineCorpCode        *string  `json:"airlineCorpCode,omitempty" xml:"airlineCorpCode,omitempty"`
+	AirlineCorpName        *string  `json:"airlineCorpName,omitempty" xml:"airlineCorpName,omitempty"`
+	AlipayTradeNo          *string  `json:"alipayTradeNo,omitempty" xml:"alipayTradeNo,omitempty"`
+	ApplyId                *string  `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	ArrAirportCode         *string  `json:"arrAirportCode,omitempty" xml:"arrAirportCode,omitempty"`
+	ArrCity                *string  `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
+	ArrDate                *string  `json:"arrDate,omitempty" xml:"arrDate,omitempty"`
+	ArrStation             *string  `json:"arrStation,omitempty" xml:"arrStation,omitempty"`
+	ArrTime                *string  `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	BillRecordTime         *string  `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
+	BookTime               *string  `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
+	BookerId               *string  `json:"bookerId,omitempty" xml:"bookerId,omitempty"`
+	BookerJobNo            *string  `json:"bookerJobNo,omitempty" xml:"bookerJobNo,omitempty"`
+	BookerName             *string  `json:"bookerName,omitempty" xml:"bookerName,omitempty"`
+	BtripCouponFee         *float64 `json:"btripCouponFee,omitempty" xml:"btripCouponFee,omitempty"`
+	BuildFee               *float64 `json:"buildFee,omitempty" xml:"buildFee,omitempty"`
+	Cabin                  *string  `json:"cabin,omitempty" xml:"cabin,omitempty"`
+	CabinClass             *string  `json:"cabinClass,omitempty" xml:"cabinClass,omitempty"`
+	CapitalDirection       *string  `json:"capitalDirection,omitempty" xml:"capitalDirection,omitempty"`
+	CascadeDepartment      *string  `json:"cascadeDepartment,omitempty" xml:"cascadeDepartment,omitempty"`
+	ChangeFee              *float64 `json:"changeFee,omitempty" xml:"changeFee,omitempty"`
+	CorpPayOrderFee        *float64 `json:"corpPayOrderFee,omitempty" xml:"corpPayOrderFee,omitempty"`
+	CostCenter             *string  `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterNumber       *string  `json:"costCenterNumber,omitempty" xml:"costCenterNumber,omitempty"`
+	Coupon                 *float64 `json:"coupon,omitempty" xml:"coupon,omitempty"`
+	DepAirportCode         *string  `json:"depAirportCode,omitempty" xml:"depAirportCode,omitempty"`
+	Department             *string  `json:"department,omitempty" xml:"department,omitempty"`
+	DepartmentId           *string  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	DeptCity               *string  `json:"deptCity,omitempty" xml:"deptCity,omitempty"`
+	DeptDate               *string  `json:"deptDate,omitempty" xml:"deptDate,omitempty"`
+	DeptStation            *string  `json:"deptStation,omitempty" xml:"deptStation,omitempty"`
+	DeptTime               *string  `json:"deptTime,omitempty" xml:"deptTime,omitempty"`
+	Discount               *string  `json:"discount,omitempty" xml:"discount,omitempty"`
+	FeeType                *string  `json:"feeType,omitempty" xml:"feeType,omitempty"`
+	FlightNo               *string  `json:"flightNo,omitempty" xml:"flightNo,omitempty"`
+	Index                  *string  `json:"index,omitempty" xml:"index,omitempty"`
+	InsuranceFee           *float64 `json:"insuranceFee,omitempty" xml:"insuranceFee,omitempty"`
+	InvoiceTitle           *string  `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	ItineraryNum           *string  `json:"itineraryNum,omitempty" xml:"itineraryNum,omitempty"`
+	ItineraryPrice         *float64 `json:"itineraryPrice,omitempty" xml:"itineraryPrice,omitempty"`
+	MostDifferenceDeptTime *string  `json:"mostDifferenceDeptTime,omitempty" xml:"mostDifferenceDeptTime,omitempty"`
+	MostDifferenceDiscount *string  `json:"mostDifferenceDiscount,omitempty" xml:"mostDifferenceDiscount,omitempty"`
+	MostDifferenceFlightNo *string  `json:"mostDifferenceFlightNo,omitempty" xml:"mostDifferenceFlightNo,omitempty"`
+	MostDifferencePrice    *float64 `json:"mostDifferencePrice,omitempty" xml:"mostDifferencePrice,omitempty"`
+	MostDifferenceReason   *string  `json:"mostDifferenceReason,omitempty" xml:"mostDifferenceReason,omitempty"`
+	MostPrice              *float64 `json:"mostPrice,omitempty" xml:"mostPrice,omitempty"`
+	NegotiationCouponFee   *float64 `json:"negotiationCouponFee,omitempty" xml:"negotiationCouponFee,omitempty"`
+	OilFee                 *float64 `json:"oilFee,omitempty" xml:"oilFee,omitempty"`
+	OrderId                *string  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	OverApplyId            *string  `json:"overApplyId,omitempty" xml:"overApplyId,omitempty"`
+	PrimaryId              *int64   `json:"primaryId,omitempty" xml:"primaryId,omitempty"`
+	ProjectCode            *string  `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ProjectName            *string  `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	RefundFee              *float64 `json:"refundFee,omitempty" xml:"refundFee,omitempty"`
+	RefundUpgradeCost      *float64 `json:"refundUpgradeCost,omitempty" xml:"refundUpgradeCost,omitempty"`
+	Remark                 *string  `json:"remark,omitempty" xml:"remark,omitempty"`
+	RepeatRefund           *string  `json:"repeatRefund,omitempty" xml:"repeatRefund,omitempty"`
+	SealPrice              *float64 `json:"sealPrice,omitempty" xml:"sealPrice,omitempty"`
+	ServiceFee             *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
+	SettlementFee          *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
+	SettlementGrantFee     *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
+	SettlementTime         *string  `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
+	SettlementType         *string  `json:"settlementType,omitempty" xml:"settlementType,omitempty"`
+	Status                 *int64   `json:"status,omitempty" xml:"status,omitempty"`
+	TicketId               *string  `json:"ticketId,omitempty" xml:"ticketId,omitempty"`
+	TravelerId             *string  `json:"travelerId,omitempty" xml:"travelerId,omitempty"`
+	TravelerJobNo          *string  `json:"travelerJobNo,omitempty" xml:"travelerJobNo,omitempty"`
+	TravelerName           *string  `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
+	UpgradeCost            *float64 `json:"upgradeCost,omitempty" xml:"upgradeCost,omitempty"`
+	VoucherType            *int64   `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
 }
 
 func (s BillSettementFlightResponseBodyModuleDataList) String() string {
@@ -2125,8 +1915,9 @@ func (s *BillSettementFlightResponseBodyModuleDataList) SetVoucherType(v int64) 
 }
 
 type BillSettementFlightResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BillSettementFlightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BillSettementFlightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BillSettementFlightResponse) String() string {
@@ -2139,6 +1930,11 @@ func (s BillSettementFlightResponse) GoString() string {
 
 func (s *BillSettementFlightResponse) SetHeaders(v map[string]*string) *BillSettementFlightResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BillSettementFlightResponse) SetStatusCode(v int32) *BillSettementFlightResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2171,17 +1967,11 @@ func (s *BillSettementHotelHeaders) SetXAcsDingtalkAccessToken(v string) *BillSe
 }
 
 type BillSettementHotelRequest struct {
-	// 类目：机酒火车 1：机票； 2：酒店； 4：用车 6：商旅火车票
-	Category *int64 `json:"category,omitempty" xml:"category,omitempty"`
-	// 第三方企业
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 页数，从1开始
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 每页数据量，默认100，最高500
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 记账更新结束日期
-	PeriodEnd *string `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
-	// 记账更新开始日期
+	Category    *int64  `json:"category,omitempty" xml:"category,omitempty"`
+	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	PageNumber  *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize    *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PeriodEnd   *string `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
 	PeriodStart *string `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
 }
 
@@ -2224,14 +2014,10 @@ func (s *BillSettementHotelRequest) SetPeriodStart(v string) *BillSettementHotel
 }
 
 type BillSettementHotelResponseBody struct {
-	// module
-	Module *BillSettementHotelResponseBodyModule `json:"module,omitempty" xml:"module,omitempty" type:"Struct"`
-	// 结果code
-	ResultCode *int64 `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
-	// 结果msg
-	ResultMsg *string `json:"resultMsg,omitempty" xml:"resultMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Module     *BillSettementHotelResponseBodyModule `json:"module,omitempty" xml:"module,omitempty" type:"Struct"`
+	ResultCode *int64                                `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
+	ResultMsg  *string                               `json:"resultMsg,omitempty" xml:"resultMsg,omitempty"`
+	Success    *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BillSettementHotelResponseBody) String() string {
@@ -2263,18 +2049,12 @@ func (s *BillSettementHotelResponseBody) SetSuccess(v bool) *BillSettementHotelR
 }
 
 type BillSettementHotelResponseBodyModule struct {
-	// 类目
-	Category *int64 `json:"category,omitempty" xml:"category,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 数据集合
-	DataList []*BillSettementHotelResponseBodyModuleDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
-	// 记账更新结束日期
-	PeriodEnd *string `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
-	// 记账更新开始日期
-	PeriodStart *string `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
-	// 总数据量
-	TotalNum *int64 `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
+	Category    *int64                                          `json:"category,omitempty" xml:"category,omitempty"`
+	CorpId      *string                                         `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DataList    []*BillSettementHotelResponseBodyModuleDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	PeriodEnd   *string                                         `json:"periodEnd,omitempty" xml:"periodEnd,omitempty"`
+	PeriodStart *string                                         `json:"periodStart,omitempty" xml:"periodStart,omitempty"`
+	TotalNum    *int64                                          `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
 }
 
 func (s BillSettementHotelResponseBodyModule) String() string {
@@ -2316,112 +2096,59 @@ func (s *BillSettementHotelResponseBodyModule) SetTotalNum(v int64) *BillSetteme
 }
 
 type BillSettementHotelResponseBodyModuleDataList struct {
-	// 交易流水号
-	AlipayTradeNo *string `json:"alipayTradeNo,omitempty" xml:"alipayTradeNo,omitempty"`
-	// 审批单号
-	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 入账时间
-	BillRecordTime *string `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
-	// 预定时间
-	BookTime *string `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
-	// 预定人use id
-	BookerId *string `json:"bookerId,omitempty" xml:"bookerId,omitempty"`
-	// 预订人工号
-	BookerJobNo *string `json:"bookerJobNo,omitempty" xml:"bookerJobNo,omitempty"`
-	// 预订人名称
-	BookerName *string `json:"bookerName,omitempty" xml:"bookerName,omitempty"`
-	// 资金方向
-	CapitalDirection *string `json:"capitalDirection,omitempty" xml:"capitalDirection,omitempty"`
-	// 级联部门
-	CascadeDepartment *string `json:"cascadeDepartment,omitempty" xml:"cascadeDepartment,omitempty"`
-	// 入住时间
-	CheckInDate *string `json:"checkInDate,omitempty" xml:"checkInDate,omitempty"`
-	// 离店时间
-	CheckoutDate *string `json:"checkoutDate,omitempty" xml:"checkoutDate,omitempty"`
-	// 入住城市
-	City *string `json:"city,omitempty" xml:"city,omitempty"`
-	// 城市编码
-	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
-	// 企业退款金额
-	CorpRefundFee *float64 `json:"corpRefundFee,omitempty" xml:"corpRefundFee,omitempty"`
-	// 企业支付金额
-	CorpTotalFee *float64 `json:"corpTotalFee,omitempty" xml:"corpTotalFee,omitempty"`
-	// 成本中心名称
-	CostCenter *string `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
-	// 成本中心编码
-	CostCenterNumber *string `json:"costCenterNumber,omitempty" xml:"costCenterNumber,omitempty"`
-	// 末级部门
-	Department *string `json:"department,omitempty" xml:"department,omitempty"`
-	// 部门id
-	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 费用类型
-	FeeType *string `json:"feeType,omitempty" xml:"feeType,omitempty"`
-	// 杂费
-	Fees *float64 `json:"fees,omitempty" xml:"fees,omitempty"`
-	// 福豆支付
-	FuPointFee *float64 `json:"fuPointFee,omitempty" xml:"fuPointFee,omitempty"`
-	// 酒店名称
-	HotelName *string `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
-	// 序号
-	Index *string `json:"index,omitempty" xml:"index,omitempty"`
-	// 发票抬头
-	InvoiceTitle *string `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
-	// 是否协议价
-	IsNegotiation *bool `json:"isNegotiation,omitempty" xml:"isNegotiation,omitempty"`
-	// 是否合住
-	IsShareStr *string `json:"isShareStr,omitempty" xml:"isShareStr,omitempty"`
-	// 入住天数
-	Nights *int64 `json:"nights,omitempty" xml:"nights,omitempty"`
-	// 订单号
-	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	// 订单金额
-	OrderPrice *float64 `json:"orderPrice,omitempty" xml:"orderPrice,omitempty"`
-	// 订单类型
-	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
-	// 超标审批单号
-	OverApplyId *string `json:"overApplyId,omitempty" xml:"overApplyId,omitempty"`
-	// 个人退款金额
-	PersonRefundFee *float64 `json:"personRefundFee,omitempty" xml:"personRefundFee,omitempty"`
-	// 个人支付金额
-	PersonSettlePrice *float64 `json:"personSettlePrice,omitempty" xml:"personSettlePrice,omitempty"`
-	// 主键id
-	PrimaryId *int64 `json:"primaryId,omitempty" xml:"primaryId,omitempty"`
-	// 项目编码
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 项目名称
-	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
-	// 优惠券
-	PromotionFee *float64 `json:"promotionFee,omitempty" xml:"promotionFee,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 房间数
-	RoomNumber *int64 `json:"roomNumber,omitempty" xml:"roomNumber,omitempty"`
-	// 房价
-	RoomPrice *float64 `json:"roomPrice,omitempty" xml:"roomPrice,omitempty"`
-	// 房间类型
-	RoomType *string `json:"roomType,omitempty" xml:"roomType,omitempty"`
-	// 服务费,仅在 feeType 20111、20112中展示
-	ServiceFee *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
-	// 结算金额
-	SettlementFee *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
-	// 预存赠送金额消费
+	AlipayTradeNo      *string  `json:"alipayTradeNo,omitempty" xml:"alipayTradeNo,omitempty"`
+	ApplyId            *string  `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	BillRecordTime     *string  `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
+	BookTime           *string  `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
+	BookerId           *string  `json:"bookerId,omitempty" xml:"bookerId,omitempty"`
+	BookerJobNo        *string  `json:"bookerJobNo,omitempty" xml:"bookerJobNo,omitempty"`
+	BookerName         *string  `json:"bookerName,omitempty" xml:"bookerName,omitempty"`
+	CapitalDirection   *string  `json:"capitalDirection,omitempty" xml:"capitalDirection,omitempty"`
+	CascadeDepartment  *string  `json:"cascadeDepartment,omitempty" xml:"cascadeDepartment,omitempty"`
+	CheckInDate        *string  `json:"checkInDate,omitempty" xml:"checkInDate,omitempty"`
+	CheckoutDate       *string  `json:"checkoutDate,omitempty" xml:"checkoutDate,omitempty"`
+	City               *string  `json:"city,omitempty" xml:"city,omitempty"`
+	CityCode           *string  `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	CorpRefundFee      *float64 `json:"corpRefundFee,omitempty" xml:"corpRefundFee,omitempty"`
+	CorpTotalFee       *float64 `json:"corpTotalFee,omitempty" xml:"corpTotalFee,omitempty"`
+	CostCenter         *string  `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterNumber   *string  `json:"costCenterNumber,omitempty" xml:"costCenterNumber,omitempty"`
+	Department         *string  `json:"department,omitempty" xml:"department,omitempty"`
+	DepartmentId       *string  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	FeeType            *string  `json:"feeType,omitempty" xml:"feeType,omitempty"`
+	Fees               *float64 `json:"fees,omitempty" xml:"fees,omitempty"`
+	FuPointFee         *float64 `json:"fuPointFee,omitempty" xml:"fuPointFee,omitempty"`
+	HotelName          *string  `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
+	Index              *string  `json:"index,omitempty" xml:"index,omitempty"`
+	InvoiceTitle       *string  `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	IsNegotiation      *bool    `json:"isNegotiation,omitempty" xml:"isNegotiation,omitempty"`
+	IsShareStr         *string  `json:"isShareStr,omitempty" xml:"isShareStr,omitempty"`
+	Nights             *int64   `json:"nights,omitempty" xml:"nights,omitempty"`
+	OrderId            *string  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	OrderPrice         *float64 `json:"orderPrice,omitempty" xml:"orderPrice,omitempty"`
+	OrderType          *string  `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	OverApplyId        *string  `json:"overApplyId,omitempty" xml:"overApplyId,omitempty"`
+	PersonRefundFee    *float64 `json:"personRefundFee,omitempty" xml:"personRefundFee,omitempty"`
+	PersonSettlePrice  *float64 `json:"personSettlePrice,omitempty" xml:"personSettlePrice,omitempty"`
+	PrimaryId          *int64   `json:"primaryId,omitempty" xml:"primaryId,omitempty"`
+	ProjectCode        *string  `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ProjectName        *string  `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	PromotionFee       *float64 `json:"promotionFee,omitempty" xml:"promotionFee,omitempty"`
+	Remark             *string  `json:"remark,omitempty" xml:"remark,omitempty"`
+	RoomNumber         *int64   `json:"roomNumber,omitempty" xml:"roomNumber,omitempty"`
+	RoomPrice          *float64 `json:"roomPrice,omitempty" xml:"roomPrice,omitempty"`
+	RoomType           *string  `json:"roomType,omitempty" xml:"roomType,omitempty"`
+	ServiceFee         *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
+	SettlementFee      *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
 	SettlementGrantFee *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
-	// 结算时间
-	SettlementTime *string `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
-	// 结算类型
-	SettlementType *string `json:"settlementType,omitempty" xml:"settlementType,omitempty"`
-	// 入账状态
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 总间夜数
-	TotalNights *int64 `json:"totalNights,omitempty" xml:"totalNights,omitempty"`
-	// 出行人use id
-	TravelerId *string `json:"travelerId,omitempty" xml:"travelerId,omitempty"`
-	// 出行人工号
-	TravelerJobNo *string `json:"travelerJobNo,omitempty" xml:"travelerJobNo,omitempty"`
-	// 出行人名称
-	TravelerName *string `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
-	// 发票类型
-	VoucherType *int64 `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
+	SettlementTime     *string  `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
+	SettlementType     *string  `json:"settlementType,omitempty" xml:"settlementType,omitempty"`
+	Status             *int64   `json:"status,omitempty" xml:"status,omitempty"`
+	TotalNights        *int64   `json:"totalNights,omitempty" xml:"totalNights,omitempty"`
+	TravelerId         *string  `json:"travelerId,omitempty" xml:"travelerId,omitempty"`
+	TravelerJobNo      *string  `json:"travelerJobNo,omitempty" xml:"travelerJobNo,omitempty"`
+	TravelerName       *string  `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
+	VoucherType        *int64   `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
 }
 
 func (s BillSettementHotelResponseBodyModuleDataList) String() string {
@@ -2698,8 +2425,9 @@ func (s *BillSettementHotelResponseBodyModuleDataList) SetVoucherType(v int64) *
 }
 
 type BillSettementHotelResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BillSettementHotelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BillSettementHotelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BillSettementHotelResponse) String() string {
@@ -2712,6 +2440,11 @@ func (s BillSettementHotelResponse) GoString() string {
 
 func (s *BillSettementHotelResponse) SetHeaders(v map[string]*string) *BillSettementHotelResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BillSettementHotelResponse) SetStatusCode(v int32) *BillSettementHotelResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2744,10 +2477,8 @@ func (s *GetFlightExceedApplyHeaders) SetXAcsDingtalkAccessToken(v string) *GetF
 }
 
 type GetFlightExceedApplyRequest struct {
-	// 商旅超标审批单id
 	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 第三方企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CorpId  *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s GetFlightExceedApplyRequest) String() string {
@@ -2769,28 +2500,17 @@ func (s *GetFlightExceedApplyRequest) SetCorpId(v string) *GetFlightExceedApplyR
 }
 
 type GetFlightExceedApplyResponseBody struct {
-	// 商旅超标审批单id
-	ApplyId *int64 `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 意向出行信息
+	ApplyId              *int64                                                `json:"applyId,omitempty" xml:"applyId,omitempty"`
 	ApplyIntentionInfoDO *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO `json:"applyIntentionInfoDO,omitempty" xml:"applyIntentionInfoDO,omitempty" type:"Struct"`
-	// 出差原因
-	BtripCause *string `json:"btripCause,omitempty" xml:"btripCause,omitempty"`
-	// 第三方企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 超标原因
-	ExceedReason *string `json:"exceedReason,omitempty" xml:"exceedReason,omitempty"`
-	// 超标类型，1:折扣 2,8,10:时间 3,9,11:折扣和时间
-	ExceedType *int32 `json:"exceedType,omitempty" xml:"exceedType,omitempty"`
-	// 原差旅标准
-	OriginStandard *string `json:"originStandard,omitempty" xml:"originStandard,omitempty"`
-	// 审批单状态 0:审批中 1:已同意 2:已拒绝
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 审批单提交时间
-	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
-	// 第三方出差审批单号
-	ThirdpartApplyId *string `json:"thirdpartApplyId,omitempty" xml:"thirdpartApplyId,omitempty"`
-	// 第三方用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	BtripCause           *string                                               `json:"btripCause,omitempty" xml:"btripCause,omitempty"`
+	CorpId               *string                                               `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExceedReason         *string                                               `json:"exceedReason,omitempty" xml:"exceedReason,omitempty"`
+	ExceedType           *int32                                                `json:"exceedType,omitempty" xml:"exceedType,omitempty"`
+	OriginStandard       *string                                               `json:"originStandard,omitempty" xml:"originStandard,omitempty"`
+	Status               *int32                                                `json:"status,omitempty" xml:"status,omitempty"`
+	SubmitTime           *string                                               `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	ThirdpartApplyId     *string                                               `json:"thirdpartApplyId,omitempty" xml:"thirdpartApplyId,omitempty"`
+	UserId               *string                                               `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFlightExceedApplyResponseBody) String() string {
@@ -2857,32 +2577,19 @@ func (s *GetFlightExceedApplyResponseBody) SetUserId(v string) *GetFlightExceedA
 }
 
 type GetFlightExceedApplyResponseBodyApplyIntentionInfoDO struct {
-	// 到达城市三字码
-	ArrCity *string `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
-	// 到达城市名称
-	ArrCityName *string `json:"arrCityName,omitempty" xml:"arrCityName,omitempty"`
-	// 到达时间
-	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
-	// 超标的舱位，F：头等舱 C：商务舱 Y：经济舱 P：超值经济舱
-	Cabin *string `json:"cabin,omitempty" xml:"cabin,omitempty"`
-	// 申请超标的舱等 0：头等舱 1：商务舱 2：经济舱 3：超值经济舱
-	CabinClass *int32 `json:"cabinClass,omitempty" xml:"cabinClass,omitempty"`
-	// 舱等描述，头等舱，商务舱，经济舱，超值经济舱
-	CabinClassStr *string `json:"cabinClassStr,omitempty" xml:"cabinClassStr,omitempty"`
-	// 出发城市三字码
-	DepCity *string `json:"depCity,omitempty" xml:"depCity,omitempty"`
-	// 出发城市名称
-	DepCityName *string `json:"depCityName,omitempty" xml:"depCityName,omitempty"`
-	// 出发时间
-	DepTime *string `json:"depTime,omitempty" xml:"depTime,omitempty"`
-	// 折扣
-	Discount *float64 `json:"discount,omitempty" xml:"discount,omitempty"`
-	// 航班号
-	FlightNo *string `json:"flightNo,omitempty" xml:"flightNo,omitempty"`
-	// 意向航班价格（元）
-	Price *int64 `json:"price,omitempty" xml:"price,omitempty"`
-	// 超标类型，1:折扣 2,8,10:时间 3,9,11:折扣和时间
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	ArrCity       *string  `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
+	ArrCityName   *string  `json:"arrCityName,omitempty" xml:"arrCityName,omitempty"`
+	ArrTime       *string  `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	Cabin         *string  `json:"cabin,omitempty" xml:"cabin,omitempty"`
+	CabinClass    *int32   `json:"cabinClass,omitempty" xml:"cabinClass,omitempty"`
+	CabinClassStr *string  `json:"cabinClassStr,omitempty" xml:"cabinClassStr,omitempty"`
+	DepCity       *string  `json:"depCity,omitempty" xml:"depCity,omitempty"`
+	DepCityName   *string  `json:"depCityName,omitempty" xml:"depCityName,omitempty"`
+	DepTime       *string  `json:"depTime,omitempty" xml:"depTime,omitempty"`
+	Discount      *float64 `json:"discount,omitempty" xml:"discount,omitempty"`
+	FlightNo      *string  `json:"flightNo,omitempty" xml:"flightNo,omitempty"`
+	Price         *int64   `json:"price,omitempty" xml:"price,omitempty"`
+	Type          *int32   `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) String() string {
@@ -2959,8 +2666,9 @@ func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetType(v int32) 
 }
 
 type GetFlightExceedApplyResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFlightExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFlightExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFlightExceedApplyResponse) String() string {
@@ -2973,6 +2681,11 @@ func (s GetFlightExceedApplyResponse) GoString() string {
 
 func (s *GetFlightExceedApplyResponse) SetHeaders(v map[string]*string) *GetFlightExceedApplyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponse) SetStatusCode(v int32) *GetFlightExceedApplyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3005,10 +2718,8 @@ func (s *GetHotelExceedApplyHeaders) SetXAcsDingtalkAccessToken(v string) *GetHo
 }
 
 type GetHotelExceedApplyRequest struct {
-	// 商旅超标审批单id
 	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 第三方企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CorpId  *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s GetHotelExceedApplyRequest) String() string {
@@ -3030,28 +2741,17 @@ func (s *GetHotelExceedApplyRequest) SetCorpId(v string) *GetHotelExceedApplyReq
 }
 
 type GetHotelExceedApplyResponseBody struct {
-	// 商旅超标审批单id
-	ApplyId *int64 `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 意向出行信息
+	ApplyId              *int64                                               `json:"applyId,omitempty" xml:"applyId,omitempty"`
 	ApplyIntentionInfoDO *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO `json:"applyIntentionInfoDO,omitempty" xml:"applyIntentionInfoDO,omitempty" type:"Struct"`
-	// 出差原因
-	BtripCause *string `json:"btripCause,omitempty" xml:"btripCause,omitempty"`
-	// 第三方企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 超标原因
-	ExceedReason *string `json:"exceedReason,omitempty" xml:"exceedReason,omitempty"`
-	// 超标类型，32：金额超标
-	ExceedType *int32 `json:"exceedType,omitempty" xml:"exceedType,omitempty"`
-	// 原差旅标准
-	OriginStandard *string `json:"originStandard,omitempty" xml:"originStandard,omitempty"`
-	// 审批单状态 0:审批中 1:已同意 2:已拒绝
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 审批单提交时间
-	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
-	// 第三方出差审批单号
-	ThirdpartApplyId *string `json:"thirdpartApplyId,omitempty" xml:"thirdpartApplyId,omitempty"`
-	// 第三方用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	BtripCause           *string                                              `json:"btripCause,omitempty" xml:"btripCause,omitempty"`
+	CorpId               *string                                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExceedReason         *string                                              `json:"exceedReason,omitempty" xml:"exceedReason,omitempty"`
+	ExceedType           *int32                                               `json:"exceedType,omitempty" xml:"exceedType,omitempty"`
+	OriginStandard       *string                                              `json:"originStandard,omitempty" xml:"originStandard,omitempty"`
+	Status               *int32                                               `json:"status,omitempty" xml:"status,omitempty"`
+	SubmitTime           *string                                              `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	ThirdpartApplyId     *string                                              `json:"thirdpartApplyId,omitempty" xml:"thirdpartApplyId,omitempty"`
+	UserId               *string                                              `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetHotelExceedApplyResponseBody) String() string {
@@ -3118,20 +2818,13 @@ func (s *GetHotelExceedApplyResponseBody) SetUserId(v string) *GetHotelExceedApp
 }
 
 type GetHotelExceedApplyResponseBodyApplyIntentionInfoDO struct {
-	// 入住日期
-	CheckIn *string `json:"checkIn,omitempty" xml:"checkIn,omitempty"`
-	// 离店日期
+	CheckIn  *string `json:"checkIn,omitempty" xml:"checkIn,omitempty"`
 	CheckOut *string `json:"checkOut,omitempty" xml:"checkOut,omitempty"`
-	// 入住城市三字码
 	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
-	// 入住城市名称
 	CityName *string `json:"cityName,omitempty" xml:"cityName,omitempty"`
-	// 意向酒店金额（分）
-	Price *int64 `json:"price,omitempty" xml:"price,omitempty"`
-	// 是否合住
-	Together *bool `json:"together,omitempty" xml:"together,omitempty"`
-	// 超标类型，32：金额超标
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Price    *int64  `json:"price,omitempty" xml:"price,omitempty"`
+	Together *bool   `json:"together,omitempty" xml:"together,omitempty"`
+	Type     *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) String() string {
@@ -3178,8 +2871,9 @@ func (s *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) SetType(v int32) *
 }
 
 type GetHotelExceedApplyResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetHotelExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetHotelExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetHotelExceedApplyResponse) String() string {
@@ -3192,6 +2886,11 @@ func (s GetHotelExceedApplyResponse) GoString() string {
 
 func (s *GetHotelExceedApplyResponse) SetHeaders(v map[string]*string) *GetHotelExceedApplyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponse) SetStatusCode(v int32) *GetHotelExceedApplyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3224,10 +2923,8 @@ func (s *GetTrainExceedApplyHeaders) SetXAcsDingtalkAccessToken(v string) *GetTr
 }
 
 type GetTrainExceedApplyRequest struct {
-	// 商旅超标审批单id
 	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 第三方企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CorpId  *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s GetTrainExceedApplyRequest) String() string {
@@ -3249,28 +2946,17 @@ func (s *GetTrainExceedApplyRequest) SetCorpId(v string) *GetTrainExceedApplyReq
 }
 
 type GetTrainExceedApplyResponseBody struct {
-	// 商旅超标审批单id
-	ApplyId *int64 `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 意向出行信息
+	ApplyId              *int64                                               `json:"applyId,omitempty" xml:"applyId,omitempty"`
 	ApplyIntentionInfoDO *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO `json:"applyIntentionInfoDO,omitempty" xml:"applyIntentionInfoDO,omitempty" type:"Struct"`
-	// 出差原因
-	BtripCause *string `json:"btripCause,omitempty" xml:"btripCause,omitempty"`
-	// 第三方企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 超标原因
-	ExceedReason *string `json:"exceedReason,omitempty" xml:"exceedReason,omitempty"`
-	// 超标类型，32：坐席超标
-	ExceedType *int32 `json:"exceedType,omitempty" xml:"exceedType,omitempty"`
-	// 原差旅标准
-	OriginStandard *string `json:"originStandard,omitempty" xml:"originStandard,omitempty"`
-	// 审批单状态 0:审批中 1:已同意 2:已拒绝
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 审批单提交时间
-	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
-	// 第三方出差审批单号
-	ThirdpartApplyId *string `json:"thirdpartApplyId,omitempty" xml:"thirdpartApplyId,omitempty"`
-	// 第三方用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	BtripCause           *string                                              `json:"btripCause,omitempty" xml:"btripCause,omitempty"`
+	CorpId               *string                                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExceedReason         *string                                              `json:"exceedReason,omitempty" xml:"exceedReason,omitempty"`
+	ExceedType           *int32                                               `json:"exceedType,omitempty" xml:"exceedType,omitempty"`
+	OriginStandard       *string                                              `json:"originStandard,omitempty" xml:"originStandard,omitempty"`
+	Status               *int32                                               `json:"status,omitempty" xml:"status,omitempty"`
+	SubmitTime           *string                                              `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	ThirdpartApplyId     *string                                              `json:"thirdpartApplyId,omitempty" xml:"thirdpartApplyId,omitempty"`
+	UserId               *string                                              `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetTrainExceedApplyResponseBody) String() string {
@@ -3337,29 +3023,17 @@ func (s *GetTrainExceedApplyResponseBody) SetUserId(v string) *GetTrainExceedApp
 }
 
 type GetTrainExceedApplyResponseBodyApplyIntentionInfoDO struct {
-	// 到达城市三字码
-	ArrCity *string `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
-	// 到达城市名
-	ArrCityName *string `json:"arrCityName,omitempty" xml:"arrCityName,omitempty"`
-	// 到达站点名称
-	ArrStation *string `json:"arrStation,omitempty" xml:"arrStation,omitempty"`
-	// 到达时间
-	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
-	// 出发城市三字码
-	DepCity *string `json:"depCity,omitempty" xml:"depCity,omitempty"`
-	// 出发城市名
-	DepCityName *string `json:"depCityName,omitempty" xml:"depCityName,omitempty"`
-	// 出发站点名称
-	DepStation *string `json:"depStation,omitempty" xml:"depStation,omitempty"`
-	// 出发时间
-	DepTime *string `json:"depTime,omitempty" xml:"depTime,omitempty"`
-	// 意向坐席价格（分）
-	Price *int64 `json:"price,omitempty" xml:"price,omitempty"`
-	// 意向坐席名称
-	SeatName *string `json:"seatName,omitempty" xml:"seatName,omitempty"`
-	// 意向车次号
-	TrainNo *string `json:"trainNo,omitempty" xml:"trainNo,omitempty"`
-	// 意向车次类型
+	ArrCity       *string `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
+	ArrCityName   *string `json:"arrCityName,omitempty" xml:"arrCityName,omitempty"`
+	ArrStation    *string `json:"arrStation,omitempty" xml:"arrStation,omitempty"`
+	ArrTime       *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	DepCity       *string `json:"depCity,omitempty" xml:"depCity,omitempty"`
+	DepCityName   *string `json:"depCityName,omitempty" xml:"depCityName,omitempty"`
+	DepStation    *string `json:"depStation,omitempty" xml:"depStation,omitempty"`
+	DepTime       *string `json:"depTime,omitempty" xml:"depTime,omitempty"`
+	Price         *int64  `json:"price,omitempty" xml:"price,omitempty"`
+	SeatName      *string `json:"seatName,omitempty" xml:"seatName,omitempty"`
+	TrainNo       *string `json:"trainNo,omitempty" xml:"trainNo,omitempty"`
 	TrainTypeDesc *string `json:"trainTypeDesc,omitempty" xml:"trainTypeDesc,omitempty"`
 }
 
@@ -3432,8 +3106,9 @@ func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetTrainTypeDesc(v
 }
 
 type GetTrainExceedApplyResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetTrainExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTrainExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetTrainExceedApplyResponse) String() string {
@@ -3446,6 +3121,11 @@ func (s GetTrainExceedApplyResponse) GoString() string {
 
 func (s *GetTrainExceedApplyResponse) SetHeaders(v map[string]*string) *GetTrainExceedApplyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponse) SetStatusCode(v int32) *GetTrainExceedApplyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3478,20 +3158,13 @@ func (s *QueryCityCarApplyHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCi
 }
 
 type QueryCityCarApplyRequest struct {
-	// 第三方企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 审批单创建时间小于值
-	CreatedEndAt *string `json:"createdEndAt,omitempty" xml:"createdEndAt,omitempty"`
-	// 审批单创建时间大于等于值
-	CreatedStartAt *string `json:"createdStartAt,omitempty" xml:"createdStartAt,omitempty"`
-	// 页码，要求大于等于1，默认1
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 每页数据量，要求大于等于1，默认20
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 三方审批单ID
+	CorpId           *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreatedEndAt     *string `json:"createdEndAt,omitempty" xml:"createdEndAt,omitempty"`
+	CreatedStartAt   *string `json:"createdStartAt,omitempty" xml:"createdStartAt,omitempty"`
+	PageNumber       *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize         *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	ThirdPartApplyId *string `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
-	// 第三方员工ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryCityCarApplyRequest) String() string {
@@ -3538,10 +3211,8 @@ func (s *QueryCityCarApplyRequest) SetUserId(v string) *QueryCityCarApplyRequest
 }
 
 type QueryCityCarApplyResponseBody struct {
-	// 审批单列表
 	ApplyList []*QueryCityCarApplyResponseBodyApplyList `json:"applyList,omitempty" xml:"applyList,omitempty" type:"Repeated"`
-	// 总数
-	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+	Total     *int64                                    `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s QueryCityCarApplyResponseBody) String() string {
@@ -3563,32 +3234,19 @@ func (s *QueryCityCarApplyResponseBody) SetTotal(v int64) *QueryCityCarApplyResp
 }
 
 type QueryCityCarApplyResponseBodyApplyList struct {
-	// 审批单列表
-	ApproverList []*QueryCityCarApplyResponseBodyApplyListApproverList `json:"approverList,omitempty" xml:"approverList,omitempty" type:"Repeated"`
-	// 员工所在部门ID
-	DepartId *string `json:"departId,omitempty" xml:"departId,omitempty"`
-	// 员工所在部门名
-	DepartName *string `json:"departName,omitempty" xml:"departName,omitempty"`
-	// 创建时间
-	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 最近修改时间
-	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// 审批单关联的行程
-	ItineraryList []*QueryCityCarApplyResponseBodyApplyListItineraryList `json:"itineraryList,omitempty" xml:"itineraryList,omitempty" type:"Repeated"`
-	// 审批单状态：0-申请，1-同意，2-拒绝
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 审批单状态：0-申请，1-同意，2-拒绝
-	StatusDesc *string `json:"statusDesc,omitempty" xml:"statusDesc,omitempty"`
-	// 三方审批单ID
-	ThirdPartApplyId *string `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
-	// 申请事由
-	TripCause *string `json:"tripCause,omitempty" xml:"tripCause,omitempty"`
-	// 审批单标题
-	TripTitle *string `json:"tripTitle,omitempty" xml:"tripTitle,omitempty"`
-	// 发起审批员工ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 发起审批员工名
-	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	ApproverList     []*QueryCityCarApplyResponseBodyApplyListApproverList  `json:"approverList,omitempty" xml:"approverList,omitempty" type:"Repeated"`
+	DepartId         *string                                                `json:"departId,omitempty" xml:"departId,omitempty"`
+	DepartName       *string                                                `json:"departName,omitempty" xml:"departName,omitempty"`
+	GmtCreate        *string                                                `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified      *string                                                `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	ItineraryList    []*QueryCityCarApplyResponseBodyApplyListItineraryList `json:"itineraryList,omitempty" xml:"itineraryList,omitempty" type:"Repeated"`
+	Status           *int64                                                 `json:"status,omitempty" xml:"status,omitempty"`
+	StatusDesc       *string                                                `json:"statusDesc,omitempty" xml:"statusDesc,omitempty"`
+	ThirdPartApplyId *string                                                `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
+	TripCause        *string                                                `json:"tripCause,omitempty" xml:"tripCause,omitempty"`
+	TripTitle        *string                                                `json:"tripTitle,omitempty" xml:"tripTitle,omitempty"`
+	UserId           *string                                                `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName         *string                                                `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s QueryCityCarApplyResponseBodyApplyList) String() string {
@@ -3665,20 +3323,13 @@ func (s *QueryCityCarApplyResponseBodyApplyList) SetUserName(v string) *QueryCit
 }
 
 type QueryCityCarApplyResponseBodyApplyListApproverList struct {
-	// 审批备注
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 审批时间
+	Note        *string `json:"note,omitempty" xml:"note,omitempty"`
 	OperateTime *string `json:"operateTime,omitempty" xml:"operateTime,omitempty"`
-	// 审批人排序值
-	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
-	// 审批状态枚举：审批状态：0-审批中，1-已同意，2-已拒绝
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 审批状态描述
-	StatusDesc *string `json:"statusDesc,omitempty" xml:"statusDesc,omitempty"`
-	// 审批员工ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 审批员工名
-	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	Order       *int64  `json:"order,omitempty" xml:"order,omitempty"`
+	Status      *int64  `json:"status,omitempty" xml:"status,omitempty"`
+	StatusDesc  *string `json:"statusDesc,omitempty" xml:"statusDesc,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName    *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s QueryCityCarApplyResponseBodyApplyListApproverList) String() string {
@@ -3725,34 +3376,20 @@ func (s *QueryCityCarApplyResponseBodyApplyListApproverList) SetUserName(v strin
 }
 
 type QueryCityCarApplyResponseBodyApplyListItineraryList struct {
-	// 目的地城市
-	ArrCity *string `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
-	// 目的地城市三字码
-	ArrCityCode *string `json:"arrCityCode,omitempty" xml:"arrCityCode,omitempty"`
-	// 到达目的地城市时间
-	ArrDate *string `json:"arrDate,omitempty" xml:"arrDate,omitempty"`
-	// 商旅内部成本中心ID
-	CostCenterId *int64 `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
-	// 成本中心名称
+	ArrCity        *string `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
+	ArrCityCode    *string `json:"arrCityCode,omitempty" xml:"arrCityCode,omitempty"`
+	ArrDate        *string `json:"arrDate,omitempty" xml:"arrDate,omitempty"`
+	CostCenterId   *int64  `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
 	CostCenterName *string `json:"costCenterName,omitempty" xml:"costCenterName,omitempty"`
-	// 出发城市
-	DepCity *string `json:"depCity,omitempty" xml:"depCity,omitempty"`
-	// 出发城市三字码
-	DepCityCode *string `json:"depCityCode,omitempty" xml:"depCityCode,omitempty"`
-	// 出发时间
-	DepDate *string `json:"depDate,omitempty" xml:"depDate,omitempty"`
-	// 商旅内部发票抬头ID
-	InvoiceId *int64 `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
-	// 发票抬头名称
-	InvoiceName *string `json:"invoiceName,omitempty" xml:"invoiceName,omitempty"`
-	// 商旅内部行程单ID
-	ItineraryId *string `json:"itineraryId,omitempty" xml:"itineraryId,omitempty"`
-	// 项目code
-	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	// 项目名称
-	ProjectTitle *string `json:"projectTitle,omitempty" xml:"projectTitle,omitempty"`
-	// 交通方式：4-市内交通
-	TrafficType *int64 `json:"trafficType,omitempty" xml:"trafficType,omitempty"`
+	DepCity        *string `json:"depCity,omitempty" xml:"depCity,omitempty"`
+	DepCityCode    *string `json:"depCityCode,omitempty" xml:"depCityCode,omitempty"`
+	DepDate        *string `json:"depDate,omitempty" xml:"depDate,omitempty"`
+	InvoiceId      *int64  `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	InvoiceName    *string `json:"invoiceName,omitempty" xml:"invoiceName,omitempty"`
+	ItineraryId    *string `json:"itineraryId,omitempty" xml:"itineraryId,omitempty"`
+	ProjectCode    *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ProjectTitle   *string `json:"projectTitle,omitempty" xml:"projectTitle,omitempty"`
+	TrafficType    *int64  `json:"trafficType,omitempty" xml:"trafficType,omitempty"`
 }
 
 func (s QueryCityCarApplyResponseBodyApplyListItineraryList) String() string {
@@ -3834,8 +3471,9 @@ func (s *QueryCityCarApplyResponseBodyApplyListItineraryList) SetTrafficType(v i
 }
 
 type QueryCityCarApplyResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryCityCarApplyResponse) String() string {
@@ -3848,6 +3486,11 @@ func (s QueryCityCarApplyResponse) GoString() string {
 
 func (s *QueryCityCarApplyResponse) SetHeaders(v map[string]*string) *QueryCityCarApplyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryCityCarApplyResponse) SetStatusCode(v int32) *QueryCityCarApplyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3880,12 +3523,9 @@ func (s *QueryUnionOrderHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUnio
 }
 
 type QueryUnionOrderRequest struct {
-	// 第三方企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 第三方申请单id
+	CorpId           *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	ThirdPartApplyId *string `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
-	// 关联单号
-	UnionNo *string `json:"unionNo,omitempty" xml:"unionNo,omitempty"`
+	UnionNo          *string `json:"unionNo,omitempty" xml:"unionNo,omitempty"`
 }
 
 func (s QueryUnionOrderRequest) String() string {
@@ -3912,15 +3552,10 @@ func (s *QueryUnionOrderRequest) SetUnionNo(v string) *QueryUnionOrderRequest {
 }
 
 type QueryUnionOrderResponseBody struct {
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 飞机订单信息
-	FlightList []*QueryUnionOrderResponseBodyFlightList `json:"flightList,omitempty" xml:"flightList,omitempty" type:"Repeated"`
-	// 酒店订单信息
-	HotelList []*QueryUnionOrderResponseBodyHotelList `json:"hotelList,omitempty" xml:"hotelList,omitempty" type:"Repeated"`
-	// 火车订单信息
-	TrainList []*QueryUnionOrderResponseBodyTrainList `json:"trainList,omitempty" xml:"trainList,omitempty" type:"Repeated"`
-	// 用车订单信息
+	CorpId      *string                                   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	FlightList  []*QueryUnionOrderResponseBodyFlightList  `json:"flightList,omitempty" xml:"flightList,omitempty" type:"Repeated"`
+	HotelList   []*QueryUnionOrderResponseBodyHotelList   `json:"hotelList,omitempty" xml:"hotelList,omitempty" type:"Repeated"`
+	TrainList   []*QueryUnionOrderResponseBodyTrainList   `json:"trainList,omitempty" xml:"trainList,omitempty" type:"Repeated"`
 	VehicleList []*QueryUnionOrderResponseBodyVehicleList `json:"vehicleList,omitempty" xml:"vehicleList,omitempty" type:"Repeated"`
 }
 
@@ -3958,9 +3593,7 @@ func (s *QueryUnionOrderResponseBody) SetVehicleList(v []*QueryUnionOrderRespons
 }
 
 type QueryUnionOrderResponseBodyFlightList struct {
-	// 订单id
-	FlightOrderId *int64 `json:"flightOrderId,omitempty" xml:"flightOrderId,omitempty"`
-	// 订单状态：0待支付,1出票中,2已关闭,3有改签单,4有退票单,5出票成功,6退票申请中,7改签申请中
+	FlightOrderId     *int64 `json:"flightOrderId,omitempty" xml:"flightOrderId,omitempty"`
 	FlightOrderStatus *int64 `json:"flightOrderStatus,omitempty" xml:"flightOrderStatus,omitempty"`
 }
 
@@ -3983,9 +3616,7 @@ func (s *QueryUnionOrderResponseBodyFlightList) SetFlightOrderStatus(v int64) *Q
 }
 
 type QueryUnionOrderResponseBodyHotelList struct {
-	// 酒店订单号
-	HotelOrderId *int64 `json:"hotelOrderId,omitempty" xml:"hotelOrderId,omitempty"`
-	// 订单状态1:等待确认,2:等待付款,3:预订成功,4:申请退款,5:退款成功,6:已关闭,7:结账成功,8:支付成功
+	HotelOrderId     *int64 `json:"hotelOrderId,omitempty" xml:"hotelOrderId,omitempty"`
 	HotelOrderStatus *int64 `json:"hotelOrderStatus,omitempty" xml:"hotelOrderStatus,omitempty"`
 }
 
@@ -4008,9 +3639,7 @@ func (s *QueryUnionOrderResponseBodyHotelList) SetHotelOrderStatus(v int64) *Que
 }
 
 type QueryUnionOrderResponseBodyTrainList struct {
-	// 火车订单号
-	TrainOrderId *int64 `json:"trainOrderId,omitempty" xml:"trainOrderId,omitempty"`
-	// 订单状态：0待支付,1出票中,2已关闭,3,改签成功,4退票成功,5出票完成,6退票申请中,7改签申请中,8已出票,已发货,9出票失败,10改签失败,11退票失败
+	TrainOrderId     *int64 `json:"trainOrderId,omitempty" xml:"trainOrderId,omitempty"`
 	TrainOrderstatus *int64 `json:"trainOrderstatus,omitempty" xml:"trainOrderstatus,omitempty"`
 }
 
@@ -4033,9 +3662,7 @@ func (s *QueryUnionOrderResponseBodyTrainList) SetTrainOrderstatus(v int64) *Que
 }
 
 type QueryUnionOrderResponseBodyVehicleList struct {
-	// 用车订单号
-	VehicleOrderId *int64 `json:"vehicleOrderId,omitempty" xml:"vehicleOrderId,omitempty"`
-	// 订单状态:0:初始状态,1:已超时,2:派单成功,3:派单失败,4:已退款,5:已支付,6:已取消
+	VehicleOrderId     *int64 `json:"vehicleOrderId,omitempty" xml:"vehicleOrderId,omitempty"`
 	VehicleOrderStatus *int64 `json:"vehicleOrderStatus,omitempty" xml:"vehicleOrderStatus,omitempty"`
 }
 
@@ -4058,8 +3685,9 @@ func (s *QueryUnionOrderResponseBodyVehicleList) SetVehicleOrderStatus(v int64) 
 }
 
 type QueryUnionOrderResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryUnionOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryUnionOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryUnionOrderResponse) String() string {
@@ -4072,6 +3700,11 @@ func (s QueryUnionOrderResponse) GoString() string {
 
 func (s *QueryUnionOrderResponse) SetHeaders(v map[string]*string) *QueryUnionOrderResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryUnionOrderResponse) SetStatusCode(v int32) *QueryUnionOrderResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4104,18 +3737,12 @@ func (s *SyncExceedApplyHeaders) SetXAcsDingtalkAccessToken(v string) *SyncExcee
 }
 
 type SyncExceedApplyRequest struct {
-	// 商旅超标审批单id
-	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 审批意见
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 审批单状态 1同意2拒绝
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 第三方流程实例id
+	ApplyId          *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	CorpId           *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Remark           *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	Status           *int32  `json:"status,omitempty" xml:"status,omitempty"`
 	ThirdpartyFlowId *string `json:"thirdpartyFlowId,omitempty" xml:"thirdpartyFlowId,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SyncExceedApplyRequest) String() string {
@@ -4157,7 +3784,6 @@ func (s *SyncExceedApplyRequest) SetUserId(v string) *SyncExceedApplyRequest {
 }
 
 type SyncExceedApplyResponseBody struct {
-	// 是否同步成功
 	Module *bool `json:"module,omitempty" xml:"module,omitempty"`
 }
 
@@ -4175,8 +3801,9 @@ func (s *SyncExceedApplyResponseBody) SetModule(v bool) *SyncExceedApplyResponse
 }
 
 type SyncExceedApplyResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SyncExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SyncExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SyncExceedApplyResponse) String() string {
@@ -4189,6 +3816,11 @@ func (s SyncExceedApplyResponse) GoString() string {
 
 func (s *SyncExceedApplyResponse) SetHeaders(v map[string]*string) *SyncExceedApplyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SyncExceedApplyResponse) SetStatusCode(v int32) *SyncExceedApplyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4212,24 +3844,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) AddCityCarApply(request *AddCityCarApplyRequest) (_result *AddCityCarApplyResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddCityCarApplyHeaders{}
-	_result = &AddCityCarApplyResponse{}
-	_body, _err := client.AddCityCarApplyWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) AddCityCarApplyWithOptions(request *AddCityCarApplyRequest, headers *AddCityCarApplyHeaders, runtime *util.RuntimeOptions) (_result *AddCityCarApplyResponse, _err error) {
@@ -4315,8 +3941,19 @@ func (client *Client) AddCityCarApplyWithOptions(request *AddCityCarApplyRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddCityCarApply"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/cityCarApprovals"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddCityCarApplyResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddCityCarApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/alitrip/cityCarApprovals"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4324,11 +3961,11 @@ func (client *Client) AddCityCarApplyWithOptions(request *AddCityCarApplyRequest
 	return _result, _err
 }
 
-func (client *Client) ApproveCityCarApply(request *ApproveCityCarApplyRequest) (_result *ApproveCityCarApplyResponse, _err error) {
+func (client *Client) AddCityCarApply(request *AddCityCarApplyRequest) (_result *AddCityCarApplyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ApproveCityCarApplyHeaders{}
-	_result = &ApproveCityCarApplyResponse{}
-	_body, _err := client.ApproveCityCarApplyWithOptions(request, headers, runtime)
+	headers := &AddCityCarApplyHeaders{}
+	_result = &AddCityCarApplyResponse{}
+	_body, _err := client.AddCityCarApplyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4379,8 +4016,19 @@ func (client *Client) ApproveCityCarApplyWithOptions(request *ApproveCityCarAppl
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ApproveCityCarApply"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/cityCarApprovals"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ApproveCityCarApplyResponse{}
-	_body, _err := client.DoROARequest(tea.String("ApproveCityCarApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/alitrip/cityCarApprovals"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4388,11 +4036,11 @@ func (client *Client) ApproveCityCarApplyWithOptions(request *ApproveCityCarAppl
 	return _result, _err
 }
 
-func (client *Client) BillSettementBtripTrain(request *BillSettementBtripTrainRequest) (_result *BillSettementBtripTrainResponse, _err error) {
+func (client *Client) ApproveCityCarApply(request *ApproveCityCarApplyRequest) (_result *ApproveCityCarApplyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BillSettementBtripTrainHeaders{}
-	_result = &BillSettementBtripTrainResponse{}
-	_body, _err := client.BillSettementBtripTrainWithOptions(request, headers, runtime)
+	headers := &ApproveCityCarApplyHeaders{}
+	_result = &ApproveCityCarApplyResponse{}
+	_body, _err := client.ApproveCityCarApplyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4443,8 +4091,19 @@ func (client *Client) BillSettementBtripTrainWithOptions(request *BillSettementB
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BillSettementBtripTrain"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/billSettlements/btripTrains"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BillSettementBtripTrainResponse{}
-	_body, _err := client.DoROARequest(tea.String("BillSettementBtripTrain"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/billSettlements/btripTrains"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4452,11 +4111,11 @@ func (client *Client) BillSettementBtripTrainWithOptions(request *BillSettementB
 	return _result, _err
 }
 
-func (client *Client) BillSettementCar(request *BillSettementCarRequest) (_result *BillSettementCarResponse, _err error) {
+func (client *Client) BillSettementBtripTrain(request *BillSettementBtripTrainRequest) (_result *BillSettementBtripTrainResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BillSettementCarHeaders{}
-	_result = &BillSettementCarResponse{}
-	_body, _err := client.BillSettementCarWithOptions(request, headers, runtime)
+	headers := &BillSettementBtripTrainHeaders{}
+	_result = &BillSettementBtripTrainResponse{}
+	_body, _err := client.BillSettementBtripTrainWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4507,8 +4166,19 @@ func (client *Client) BillSettementCarWithOptions(request *BillSettementCarReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BillSettementCar"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/billSettlements/cars"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BillSettementCarResponse{}
-	_body, _err := client.DoROARequest(tea.String("BillSettementCar"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/billSettlements/cars"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4516,11 +4186,11 @@ func (client *Client) BillSettementCarWithOptions(request *BillSettementCarReque
 	return _result, _err
 }
 
-func (client *Client) BillSettementFlight(request *BillSettementFlightRequest) (_result *BillSettementFlightResponse, _err error) {
+func (client *Client) BillSettementCar(request *BillSettementCarRequest) (_result *BillSettementCarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BillSettementFlightHeaders{}
-	_result = &BillSettementFlightResponse{}
-	_body, _err := client.BillSettementFlightWithOptions(request, headers, runtime)
+	headers := &BillSettementCarHeaders{}
+	_result = &BillSettementCarResponse{}
+	_body, _err := client.BillSettementCarWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4571,8 +4241,19 @@ func (client *Client) BillSettementFlightWithOptions(request *BillSettementFligh
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BillSettementFlight"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/billSettlements/flights"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BillSettementFlightResponse{}
-	_body, _err := client.DoROARequest(tea.String("BillSettementFlight"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/billSettlements/flights"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4580,11 +4261,11 @@ func (client *Client) BillSettementFlightWithOptions(request *BillSettementFligh
 	return _result, _err
 }
 
-func (client *Client) BillSettementHotel(request *BillSettementHotelRequest) (_result *BillSettementHotelResponse, _err error) {
+func (client *Client) BillSettementFlight(request *BillSettementFlightRequest) (_result *BillSettementFlightResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BillSettementHotelHeaders{}
-	_result = &BillSettementHotelResponse{}
-	_body, _err := client.BillSettementHotelWithOptions(request, headers, runtime)
+	headers := &BillSettementFlightHeaders{}
+	_result = &BillSettementFlightResponse{}
+	_body, _err := client.BillSettementFlightWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4635,8 +4316,19 @@ func (client *Client) BillSettementHotelWithOptions(request *BillSettementHotelR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BillSettementHotel"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/billSettlements/hotels"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BillSettementHotelResponse{}
-	_body, _err := client.DoROARequest(tea.String("BillSettementHotel"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/billSettlements/hotels"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4644,11 +4336,11 @@ func (client *Client) BillSettementHotelWithOptions(request *BillSettementHotelR
 	return _result, _err
 }
 
-func (client *Client) GetFlightExceedApply(request *GetFlightExceedApplyRequest) (_result *GetFlightExceedApplyResponse, _err error) {
+func (client *Client) BillSettementHotel(request *BillSettementHotelRequest) (_result *BillSettementHotelResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFlightExceedApplyHeaders{}
-	_result = &GetFlightExceedApplyResponse{}
-	_body, _err := client.GetFlightExceedApplyWithOptions(request, headers, runtime)
+	headers := &BillSettementHotelHeaders{}
+	_result = &BillSettementHotelResponse{}
+	_body, _err := client.BillSettementHotelWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4683,8 +4375,19 @@ func (client *Client) GetFlightExceedApplyWithOptions(request *GetFlightExceedAp
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFlightExceedApply"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/exceedapply/getFlight"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFlightExceedApplyResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFlightExceedApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/exceedapply/getFlight"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4692,11 +4395,11 @@ func (client *Client) GetFlightExceedApplyWithOptions(request *GetFlightExceedAp
 	return _result, _err
 }
 
-func (client *Client) GetHotelExceedApply(request *GetHotelExceedApplyRequest) (_result *GetHotelExceedApplyResponse, _err error) {
+func (client *Client) GetFlightExceedApply(request *GetFlightExceedApplyRequest) (_result *GetFlightExceedApplyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetHotelExceedApplyHeaders{}
-	_result = &GetHotelExceedApplyResponse{}
-	_body, _err := client.GetHotelExceedApplyWithOptions(request, headers, runtime)
+	headers := &GetFlightExceedApplyHeaders{}
+	_result = &GetFlightExceedApplyResponse{}
+	_body, _err := client.GetFlightExceedApplyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4731,8 +4434,19 @@ func (client *Client) GetHotelExceedApplyWithOptions(request *GetHotelExceedAppl
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetHotelExceedApply"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/exceedapply/getHotel"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetHotelExceedApplyResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetHotelExceedApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/exceedapply/getHotel"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4740,11 +4454,11 @@ func (client *Client) GetHotelExceedApplyWithOptions(request *GetHotelExceedAppl
 	return _result, _err
 }
 
-func (client *Client) GetTrainExceedApply(request *GetTrainExceedApplyRequest) (_result *GetTrainExceedApplyResponse, _err error) {
+func (client *Client) GetHotelExceedApply(request *GetHotelExceedApplyRequest) (_result *GetHotelExceedApplyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetTrainExceedApplyHeaders{}
-	_result = &GetTrainExceedApplyResponse{}
-	_body, _err := client.GetTrainExceedApplyWithOptions(request, headers, runtime)
+	headers := &GetHotelExceedApplyHeaders{}
+	_result = &GetHotelExceedApplyResponse{}
+	_body, _err := client.GetHotelExceedApplyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4779,8 +4493,19 @@ func (client *Client) GetTrainExceedApplyWithOptions(request *GetTrainExceedAppl
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTrainExceedApply"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/exceedapply/getTrain"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetTrainExceedApplyResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTrainExceedApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/exceedapply/getTrain"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4788,11 +4513,11 @@ func (client *Client) GetTrainExceedApplyWithOptions(request *GetTrainExceedAppl
 	return _result, _err
 }
 
-func (client *Client) QueryCityCarApply(request *QueryCityCarApplyRequest) (_result *QueryCityCarApplyResponse, _err error) {
+func (client *Client) GetTrainExceedApply(request *GetTrainExceedApplyRequest) (_result *GetTrainExceedApplyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryCityCarApplyHeaders{}
-	_result = &QueryCityCarApplyResponse{}
-	_body, _err := client.QueryCityCarApplyWithOptions(request, headers, runtime)
+	headers := &GetTrainExceedApplyHeaders{}
+	_result = &GetTrainExceedApplyResponse{}
+	_body, _err := client.GetTrainExceedApplyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4847,8 +4572,19 @@ func (client *Client) QueryCityCarApplyWithOptions(request *QueryCityCarApplyReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCityCarApply"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/cityCarApprovals"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryCityCarApplyResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCityCarApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/cityCarApprovals"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4856,11 +4592,11 @@ func (client *Client) QueryCityCarApplyWithOptions(request *QueryCityCarApplyReq
 	return _result, _err
 }
 
-func (client *Client) QueryUnionOrder(request *QueryUnionOrderRequest) (_result *QueryUnionOrderResponse, _err error) {
+func (client *Client) QueryCityCarApply(request *QueryCityCarApplyRequest) (_result *QueryCityCarApplyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryUnionOrderHeaders{}
-	_result = &QueryUnionOrderResponse{}
-	_body, _err := client.QueryUnionOrderWithOptions(request, headers, runtime)
+	headers := &QueryCityCarApplyHeaders{}
+	_result = &QueryCityCarApplyResponse{}
+	_body, _err := client.QueryCityCarApplyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4899,8 +4635,19 @@ func (client *Client) QueryUnionOrderWithOptions(request *QueryUnionOrderRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUnionOrder"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/unionOrders"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryUnionOrderResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryUnionOrder"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/unionOrders"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4908,11 +4655,11 @@ func (client *Client) QueryUnionOrderWithOptions(request *QueryUnionOrderRequest
 	return _result, _err
 }
 
-func (client *Client) SyncExceedApply(request *SyncExceedApplyRequest) (_result *SyncExceedApplyResponse, _err error) {
+func (client *Client) QueryUnionOrder(request *QueryUnionOrderRequest) (_result *QueryUnionOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SyncExceedApplyHeaders{}
-	_result = &SyncExceedApplyResponse{}
-	_body, _err := client.SyncExceedApplyWithOptions(request, headers, runtime)
+	headers := &QueryUnionOrderHeaders{}
+	_result = &QueryUnionOrderResponse{}
+	_body, _err := client.QueryUnionOrderWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4963,11 +4710,34 @@ func (client *Client) SyncExceedApplyWithOptions(request *SyncExceedApplyRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncExceedApply"),
+		Version:     tea.String("alitrip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/alitrip/exceedapply/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SyncExceedApplyResponse{}
-	_body, _err := client.DoROARequest(tea.String("SyncExceedApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/alitrip/exceedapply/sync"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncExceedApply(request *SyncExceedApplyRequest) (_result *SyncExceedApplyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncExceedApplyHeaders{}
+	_result = &SyncExceedApplyResponse{}
+	_body, _err := client.SyncExceedApplyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

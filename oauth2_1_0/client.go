@@ -5,9 +5,11 @@
 package oauth2_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,9 +37,7 @@ func (s *CreateJsapiTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CreateJ
 }
 
 type CreateJsapiTicketResponseBody struct {
-	// 超时时间
-	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
-	// jsapi ticket
+	ExpireIn    *int64  `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
 	JsapiTicket *string `json:"jsapiTicket,omitempty" xml:"jsapiTicket,omitempty"`
 }
 
@@ -60,8 +60,9 @@ func (s *CreateJsapiTicketResponseBody) SetJsapiTicket(v string) *CreateJsapiTic
 }
 
 type CreateJsapiTicketResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateJsapiTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateJsapiTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateJsapiTicketResponse) String() string {
@@ -77,15 +78,18 @@ func (s *CreateJsapiTicketResponse) SetHeaders(v map[string]*string) *CreateJsap
 	return s
 }
 
+func (s *CreateJsapiTicketResponse) SetStatusCode(v int32) *CreateJsapiTicketResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *CreateJsapiTicketResponse) SetBody(v *CreateJsapiTicketResponseBody) *CreateJsapiTicketResponse {
 	s.Body = v
 	return s
 }
 
 type GetAccessTokenRequest struct {
-	// 应用id
-	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	// 应用密码
+	AppKey    *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
 	AppSecret *string `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
 }
 
@@ -108,10 +112,8 @@ func (s *GetAccessTokenRequest) SetAppSecret(v string) *GetAccessTokenRequest {
 }
 
 type GetAccessTokenResponseBody struct {
-	// accessToken
 	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
-	// 超时时间
-	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
+	ExpireIn    *int64  `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
 }
 
 func (s GetAccessTokenResponseBody) String() string {
@@ -133,8 +135,9 @@ func (s *GetAccessTokenResponseBody) SetExpireIn(v int64) *GetAccessTokenRespons
 }
 
 type GetAccessTokenResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAccessTokenResponse) String() string {
@@ -147,6 +150,11 @@ func (s GetAccessTokenResponse) GoString() string {
 
 func (s *GetAccessTokenResponse) SetHeaders(v map[string]*string) *GetAccessTokenResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetAccessTokenResponse) SetStatusCode(v int32) *GetAccessTokenResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -196,11 +204,8 @@ func (s *GetAuthInfoRequest) SetAuthCorpId(v string) *GetAuthInfoRequest {
 }
 
 type GetAuthInfoResponseBody struct {
-	// 授权应用信息
-	AuthAppInfo *GetAuthInfoResponseBodyAuthAppInfo `json:"authAppInfo,omitempty" xml:"authAppInfo,omitempty" type:"Struct"`
-	// 应用企业信息
+	AuthAppInfo  *GetAuthInfoResponseBodyAuthAppInfo  `json:"authAppInfo,omitempty" xml:"authAppInfo,omitempty" type:"Struct"`
 	AuthCorpInfo *GetAuthInfoResponseBodyAuthCorpInfo `json:"authCorpInfo,omitempty" xml:"authCorpInfo,omitempty" type:"Struct"`
-	// 授权用户信息
 	AuthUserInfo *GetAuthInfoResponseBodyAuthUserInfo `json:"authUserInfo,omitempty" xml:"authUserInfo,omitempty" type:"Struct"`
 }
 
@@ -245,14 +250,10 @@ func (s *GetAuthInfoResponseBodyAuthAppInfo) SetAgentList(v []*GetAuthInfoRespon
 }
 
 type GetAuthInfoResponseBodyAuthAppInfoAgentList struct {
-	// 对此微应用有管理权限的管理员列表
 	AdminList []*string `json:"adminList,omitempty" xml:"adminList,omitempty" type:"Repeated"`
-	// 应用id
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 应用名称
-	AgentName *string `json:"agentName,omitempty" xml:"agentName,omitempty"`
-	// 三方应用id
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	AgentId   *int64    `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AgentName *string   `json:"agentName,omitempty" xml:"agentName,omitempty"`
+	AppId     *int64    `json:"appId,omitempty" xml:"appId,omitempty"`
 }
 
 func (s GetAuthInfoResponseBodyAuthAppInfoAgentList) String() string {
@@ -284,24 +285,15 @@ func (s *GetAuthInfoResponseBodyAuthAppInfoAgentList) SetAppId(v int64) *GetAuth
 }
 
 type GetAuthInfoResponseBodyAuthCorpInfo struct {
-	// 渠道码。
-	AuthChannel *string `json:"authChannel,omitempty" xml:"authChannel,omitempty"`
-	// 渠道类型。  为了避免渠道码重复，可与渠道码共同确认渠道。可能为空，非空时当前只有满天星类型，值为STAR_ACTIVITY。
+	AuthChannel     *string `json:"authChannel,omitempty" xml:"authChannel,omitempty"`
 	AuthChannelType *string `json:"authChannelType,omitempty" xml:"authChannelType,omitempty"`
-	// 企业认证等级：  0：未认证  1：高级认证  2：中级认证  3：初级认证
-	AuthLevel *int64 `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
-	// 企业logo。
-	CorpLogoUrl *string `json:"corpLogoUrl,omitempty" xml:"corpLogoUrl,omitempty"`
-	// 授权方企业名称。
-	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
-	// 企业所属行业。
-	Industry *string `json:"industry,omitempty" xml:"industry,omitempty"`
-	// 邀请码，只有自己邀请的企业才会返回邀请码，可用该邀请码统计不同渠道的拉新，否则值为空字符串。
-	InviteCode *string `json:"inviteCode,omitempty" xml:"inviteCode,omitempty"`
-	// 企业邀请链接。
-	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
-	// 序列号。
-	LicenseCode *string `json:"licenseCode,omitempty" xml:"licenseCode,omitempty"`
+	AuthLevel       *int64  `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	CorpLogoUrl     *string `json:"corpLogoUrl,omitempty" xml:"corpLogoUrl,omitempty"`
+	CorpName        *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	Industry        *string `json:"industry,omitempty" xml:"industry,omitempty"`
+	InviteCode      *string `json:"inviteCode,omitempty" xml:"inviteCode,omitempty"`
+	InviteUrl       *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
+	LicenseCode     *string `json:"licenseCode,omitempty" xml:"licenseCode,omitempty"`
 }
 
 func (s GetAuthInfoResponseBodyAuthCorpInfo) String() string {
@@ -358,7 +350,6 @@ func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetLicenseCode(v string) *GetAuthI
 }
 
 type GetAuthInfoResponseBodyAuthUserInfo struct {
-	// 授权管理员id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -376,8 +367,9 @@ func (s *GetAuthInfoResponseBodyAuthUserInfo) SetUserId(v string) *GetAuthInfoRe
 }
 
 type GetAuthInfoResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAuthInfoResponse) String() string {
@@ -393,19 +385,20 @@ func (s *GetAuthInfoResponse) SetHeaders(v map[string]*string) *GetAuthInfoRespo
 	return s
 }
 
+func (s *GetAuthInfoResponse) SetStatusCode(v int32) *GetAuthInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *GetAuthInfoResponse) SetBody(v *GetAuthInfoResponseBody) *GetAuthInfoResponse {
 	s.Body = v
 	return s
 }
 
 type GetCorpAccessTokenRequest struct {
-	// OAuth 2.0 临时授权码
-	AuthCorpId *string `json:"authCorpId,omitempty" xml:"authCorpId,omitempty"`
-	// 应用id
-	SuiteKey *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
-	// 应用密码
+	AuthCorpId  *string `json:"authCorpId,omitempty" xml:"authCorpId,omitempty"`
+	SuiteKey    *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
 	SuiteSecret *string `json:"suiteSecret,omitempty" xml:"suiteSecret,omitempty"`
-	// suiteTicket
 	SuiteTicket *string `json:"suiteTicket,omitempty" xml:"suiteTicket,omitempty"`
 }
 
@@ -438,10 +431,8 @@ func (s *GetCorpAccessTokenRequest) SetSuiteTicket(v string) *GetCorpAccessToken
 }
 
 type GetCorpAccessTokenResponseBody struct {
-	// accessToken
 	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
-	// 超时时间
-	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
+	ExpireIn    *int64  `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
 }
 
 func (s GetCorpAccessTokenResponseBody) String() string {
@@ -463,8 +454,9 @@ func (s *GetCorpAccessTokenResponseBody) SetExpireIn(v int64) *GetCorpAccessToke
 }
 
 type GetCorpAccessTokenResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCorpAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCorpAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCorpAccessTokenResponse) String() string {
@@ -477,6 +469,11 @@ func (s GetCorpAccessTokenResponse) GoString() string {
 
 func (s *GetCorpAccessTokenResponse) SetHeaders(v map[string]*string) *GetCorpAccessTokenResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCorpAccessTokenResponse) SetStatusCode(v int32) *GetCorpAccessTokenResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -509,7 +506,6 @@ func (s *GetPersonalAuthRuleHeaders) SetXAcsDingtalkAccessToken(v string) *GetPe
 }
 
 type GetPersonalAuthRuleResponseBody struct {
-	// list
 	Result []*GetPersonalAuthRuleResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -527,10 +523,8 @@ func (s *GetPersonalAuthRuleResponseBody) SetResult(v []*GetPersonalAuthRuleResp
 }
 
 type GetPersonalAuthRuleResponseBodyResult struct {
-	// authItems
 	AuthItems []*string `json:"authItems,omitempty" xml:"authItems,omitempty" type:"Repeated"`
-	// resource
-	Resource *string `json:"resource,omitempty" xml:"resource,omitempty"`
+	Resource  *string   `json:"resource,omitempty" xml:"resource,omitempty"`
 }
 
 func (s GetPersonalAuthRuleResponseBodyResult) String() string {
@@ -552,8 +546,9 @@ func (s *GetPersonalAuthRuleResponseBodyResult) SetResource(v string) *GetPerson
 }
 
 type GetPersonalAuthRuleResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetPersonalAuthRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPersonalAuthRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetPersonalAuthRuleResponse) String() string {
@@ -569,15 +564,18 @@ func (s *GetPersonalAuthRuleResponse) SetHeaders(v map[string]*string) *GetPerso
 	return s
 }
 
+func (s *GetPersonalAuthRuleResponse) SetStatusCode(v int32) *GetPersonalAuthRuleResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *GetPersonalAuthRuleResponse) SetBody(v *GetPersonalAuthRuleResponseBody) *GetPersonalAuthRuleResponse {
 	s.Body = v
 	return s
 }
 
 type GetSsoAccessTokenRequest struct {
-	// 企业id
-	Corpid *string `json:"corpid,omitempty" xml:"corpid,omitempty"`
-	// sso密码
+	Corpid    *string `json:"corpid,omitempty" xml:"corpid,omitempty"`
 	SsoSecret *string `json:"ssoSecret,omitempty" xml:"ssoSecret,omitempty"`
 }
 
@@ -600,10 +598,8 @@ func (s *GetSsoAccessTokenRequest) SetSsoSecret(v string) *GetSsoAccessTokenRequ
 }
 
 type GetSsoAccessTokenResponseBody struct {
-	// accessToken
 	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
-	// 超时时间
-	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
+	ExpireIn    *int64  `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
 }
 
 func (s GetSsoAccessTokenResponseBody) String() string {
@@ -625,8 +621,9 @@ func (s *GetSsoAccessTokenResponseBody) SetExpireIn(v int64) *GetSsoAccessTokenR
 }
 
 type GetSsoAccessTokenResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSsoAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSsoAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSsoAccessTokenResponse) String() string {
@@ -639,6 +636,11 @@ func (s GetSsoAccessTokenResponse) GoString() string {
 
 func (s *GetSsoAccessTokenResponse) SetHeaders(v map[string]*string) *GetSsoAccessTokenResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSsoAccessTokenResponse) SetStatusCode(v int32) *GetSsoAccessTokenResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -688,19 +690,12 @@ func (s *GetSsoUserInfoRequest) SetCode(v string) *GetSsoUserInfoRequest {
 }
 
 type GetSsoUserInfoResponseBody struct {
-	// 用户头像链接
-	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
-	// 微应用免登用户所在企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 微应用免登用户所在企业名称
+	Avatar   *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
-	// 用户邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
-	// 是否为企业管理员
-	IsAdmin *bool `json:"isAdmin,omitempty" xml:"isAdmin,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 用户名称
+	Email    *string `json:"email,omitempty" xml:"email,omitempty"`
+	IsAdmin  *bool   `json:"isAdmin,omitempty" xml:"isAdmin,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
@@ -748,8 +743,9 @@ func (s *GetSsoUserInfoResponseBody) SetUserName(v string) *GetSsoUserInfoRespon
 }
 
 type GetSsoUserInfoResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSsoUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSsoUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSsoUserInfoResponse) String() string {
@@ -765,17 +761,19 @@ func (s *GetSsoUserInfoResponse) SetHeaders(v map[string]*string) *GetSsoUserInf
 	return s
 }
 
+func (s *GetSsoUserInfoResponse) SetStatusCode(v int32) *GetSsoUserInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *GetSsoUserInfoResponse) SetBody(v *GetSsoUserInfoResponseBody) *GetSsoUserInfoResponse {
 	s.Body = v
 	return s
 }
 
 type GetSuiteAccessTokenRequest struct {
-	// 应用id
-	SuiteKey *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
-	// 应用密码
+	SuiteKey    *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
 	SuiteSecret *string `json:"suiteSecret,omitempty" xml:"suiteSecret,omitempty"`
-	// suiteTicket
 	SuiteTicket *string `json:"suiteTicket,omitempty" xml:"suiteTicket,omitempty"`
 }
 
@@ -803,10 +801,8 @@ func (s *GetSuiteAccessTokenRequest) SetSuiteTicket(v string) *GetSuiteAccessTok
 }
 
 type GetSuiteAccessTokenResponseBody struct {
-	// accessToken
 	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
-	// 超时时间
-	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
+	ExpireIn    *int64  `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
 }
 
 func (s GetSuiteAccessTokenResponseBody) String() string {
@@ -828,8 +824,9 @@ func (s *GetSuiteAccessTokenResponseBody) SetExpireIn(v int64) *GetSuiteAccessTo
 }
 
 type GetSuiteAccessTokenResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSuiteAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSuiteAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSuiteAccessTokenResponse) String() string {
@@ -845,21 +842,21 @@ func (s *GetSuiteAccessTokenResponse) SetHeaders(v map[string]*string) *GetSuite
 	return s
 }
 
+func (s *GetSuiteAccessTokenResponse) SetStatusCode(v int32) *GetSuiteAccessTokenResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *GetSuiteAccessTokenResponse) SetBody(v *GetSuiteAccessTokenResponseBody) *GetSuiteAccessTokenResponse {
 	s.Body = v
 	return s
 }
 
 type GetUserTokenRequest struct {
-	// 应用id
-	ClientId *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
-	// 应用密码
+	ClientId     *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
 	ClientSecret *string `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
-	// OAuth 2.0 临时授权码
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 分为authorization_code和refresh_token。使用授权码换token，传authorization_code；使用刷新token换用户token，传refresh_token
-	GrantType *string `json:"grantType,omitempty" xml:"grantType,omitempty"`
-	// OAuth 2.0 刷新令牌
+	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
+	GrantType    *string `json:"grantType,omitempty" xml:"grantType,omitempty"`
 	RefreshToken *string `json:"refreshToken,omitempty" xml:"refreshToken,omitempty"`
 }
 
@@ -897,13 +894,9 @@ func (s *GetUserTokenRequest) SetRefreshToken(v string) *GetUserTokenRequest {
 }
 
 type GetUserTokenResponseBody struct {
-	// accessToken
-	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
-	// 所选企业corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 超时时间
-	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
-	// refreshToken
+	AccessToken  *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
+	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExpireIn     *int64  `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
 	RefreshToken *string `json:"refreshToken,omitempty" xml:"refreshToken,omitempty"`
 }
 
@@ -936,8 +929,9 @@ func (s *GetUserTokenResponseBody) SetRefreshToken(v string) *GetUserTokenRespon
 }
 
 type GetUserTokenResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserTokenResponse) String() string {
@@ -950,6 +944,11 @@ func (s GetUserTokenResponse) GoString() string {
 
 func (s *GetUserTokenResponse) SetHeaders(v map[string]*string) *GetUserTokenResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserTokenResponse) SetStatusCode(v int32) *GetUserTokenResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -973,24 +972,19 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateJsapiTicket() (_result *CreateJsapiTicketResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateJsapiTicketHeaders{}
-	_result = &CreateJsapiTicketResponse{}
-	_body, _err := client.CreateJsapiTicketWithOptions(headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateJsapiTicketWithOptions(headers *CreateJsapiTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateJsapiTicketResponse, _err error) {
@@ -1006,8 +1000,19 @@ func (client *Client) CreateJsapiTicketWithOptions(headers *CreateJsapiTicketHea
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateJsapiTicket"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/jsapiTickets"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateJsapiTicketResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateJsapiTicket"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/jsapiTickets"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1015,11 +1020,11 @@ func (client *Client) CreateJsapiTicketWithOptions(headers *CreateJsapiTicketHea
 	return _result, _err
 }
 
-func (client *Client) GetAccessToken(request *GetAccessTokenRequest) (_result *GetAccessTokenResponse, _err error) {
+func (client *Client) CreateJsapiTicket() (_result *CreateJsapiTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
-	_result = &GetAccessTokenResponse{}
-	_body, _err := client.GetAccessTokenWithOptions(request, headers, runtime)
+	headers := &CreateJsapiTicketHeaders{}
+	_result = &CreateJsapiTicketResponse{}
+	_body, _err := client.CreateJsapiTicketWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1045,8 +1050,19 @@ func (client *Client) GetAccessTokenWithOptions(request *GetAccessTokenRequest, 
 		Headers: headers,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAccessToken"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/accessToken"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetAccessTokenResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAccessToken"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/accessToken"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1054,11 +1070,11 @@ func (client *Client) GetAccessTokenWithOptions(request *GetAccessTokenRequest, 
 	return _result, _err
 }
 
-func (client *Client) GetAuthInfo(request *GetAuthInfoRequest) (_result *GetAuthInfoResponse, _err error) {
+func (client *Client) GetAccessToken(request *GetAccessTokenRequest) (_result *GetAccessTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetAuthInfoHeaders{}
-	_result = &GetAuthInfoResponse{}
-	_body, _err := client.GetAuthInfoWithOptions(request, headers, runtime)
+	headers := make(map[string]*string)
+	_result = &GetAccessTokenResponse{}
+	_body, _err := client.GetAccessTokenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1089,8 +1105,19 @@ func (client *Client) GetAuthInfoWithOptions(request *GetAuthInfoRequest, header
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAuthInfo"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/apps/authInfo"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetAuthInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAuthInfo"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/oauth2/apps/authInfo"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1098,11 +1125,11 @@ func (client *Client) GetAuthInfoWithOptions(request *GetAuthInfoRequest, header
 	return _result, _err
 }
 
-func (client *Client) GetCorpAccessToken(request *GetCorpAccessTokenRequest) (_result *GetCorpAccessTokenResponse, _err error) {
+func (client *Client) GetAuthInfo(request *GetAuthInfoRequest) (_result *GetAuthInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
-	_result = &GetCorpAccessTokenResponse{}
-	_body, _err := client.GetCorpAccessTokenWithOptions(request, headers, runtime)
+	headers := &GetAuthInfoHeaders{}
+	_result = &GetAuthInfoResponse{}
+	_body, _err := client.GetAuthInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1136,8 +1163,19 @@ func (client *Client) GetCorpAccessTokenWithOptions(request *GetCorpAccessTokenR
 		Headers: headers,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCorpAccessToken"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/corpAccessToken"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCorpAccessTokenResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCorpAccessToken"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/corpAccessToken"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1145,11 +1183,11 @@ func (client *Client) GetCorpAccessTokenWithOptions(request *GetCorpAccessTokenR
 	return _result, _err
 }
 
-func (client *Client) GetPersonalAuthRule() (_result *GetPersonalAuthRuleResponse, _err error) {
+func (client *Client) GetCorpAccessToken(request *GetCorpAccessTokenRequest) (_result *GetCorpAccessTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetPersonalAuthRuleHeaders{}
-	_result = &GetPersonalAuthRuleResponse{}
-	_body, _err := client.GetPersonalAuthRuleWithOptions(headers, runtime)
+	headers := make(map[string]*string)
+	_result = &GetCorpAccessTokenResponse{}
+	_body, _err := client.GetCorpAccessTokenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1170,8 +1208,19 @@ func (client *Client) GetPersonalAuthRuleWithOptions(headers *GetPersonalAuthRul
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPersonalAuthRule"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/authRules/user"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetPersonalAuthRuleResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetPersonalAuthRule"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/oauth2/authRules/user"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1179,11 +1228,11 @@ func (client *Client) GetPersonalAuthRuleWithOptions(headers *GetPersonalAuthRul
 	return _result, _err
 }
 
-func (client *Client) GetSsoAccessToken(request *GetSsoAccessTokenRequest) (_result *GetSsoAccessTokenResponse, _err error) {
+func (client *Client) GetPersonalAuthRule() (_result *GetPersonalAuthRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
-	_result = &GetSsoAccessTokenResponse{}
-	_body, _err := client.GetSsoAccessTokenWithOptions(request, headers, runtime)
+	headers := &GetPersonalAuthRuleHeaders{}
+	_result = &GetPersonalAuthRuleResponse{}
+	_body, _err := client.GetPersonalAuthRuleWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1209,8 +1258,19 @@ func (client *Client) GetSsoAccessTokenWithOptions(request *GetSsoAccessTokenReq
 		Headers: headers,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSsoAccessToken"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/ssoAccessToken"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSsoAccessTokenResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSsoAccessToken"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/ssoAccessToken"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1218,11 +1278,11 @@ func (client *Client) GetSsoAccessTokenWithOptions(request *GetSsoAccessTokenReq
 	return _result, _err
 }
 
-func (client *Client) GetSsoUserInfo(request *GetSsoUserInfoRequest) (_result *GetSsoUserInfoResponse, _err error) {
+func (client *Client) GetSsoAccessToken(request *GetSsoAccessTokenRequest) (_result *GetSsoAccessTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSsoUserInfoHeaders{}
-	_result = &GetSsoUserInfoResponse{}
-	_body, _err := client.GetSsoUserInfoWithOptions(request, headers, runtime)
+	headers := make(map[string]*string)
+	_result = &GetSsoAccessTokenResponse{}
+	_body, _err := client.GetSsoAccessTokenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1253,8 +1313,19 @@ func (client *Client) GetSsoUserInfoWithOptions(request *GetSsoUserInfoRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSsoUserInfo"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/ssoUserInfo"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSsoUserInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSsoUserInfo"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/oauth2/ssoUserInfo"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1262,11 +1333,11 @@ func (client *Client) GetSsoUserInfoWithOptions(request *GetSsoUserInfoRequest, 
 	return _result, _err
 }
 
-func (client *Client) GetSuiteAccessToken(request *GetSuiteAccessTokenRequest) (_result *GetSuiteAccessTokenResponse, _err error) {
+func (client *Client) GetSsoUserInfo(request *GetSsoUserInfoRequest) (_result *GetSsoUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
-	_result = &GetSuiteAccessTokenResponse{}
-	_body, _err := client.GetSuiteAccessTokenWithOptions(request, headers, runtime)
+	headers := &GetSsoUserInfoHeaders{}
+	_result = &GetSsoUserInfoResponse{}
+	_body, _err := client.GetSsoUserInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1296,8 +1367,19 @@ func (client *Client) GetSuiteAccessTokenWithOptions(request *GetSuiteAccessToke
 		Headers: headers,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSuiteAccessToken"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/suiteAccessToken"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSuiteAccessTokenResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSuiteAccessToken"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/suiteAccessToken"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1305,11 +1387,11 @@ func (client *Client) GetSuiteAccessTokenWithOptions(request *GetSuiteAccessToke
 	return _result, _err
 }
 
-func (client *Client) GetUserToken(request *GetUserTokenRequest) (_result *GetUserTokenResponse, _err error) {
+func (client *Client) GetSuiteAccessToken(request *GetSuiteAccessTokenRequest) (_result *GetSuiteAccessTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
-	_result = &GetUserTokenResponse{}
-	_body, _err := client.GetUserTokenWithOptions(request, headers, runtime)
+	_result = &GetSuiteAccessTokenResponse{}
+	_body, _err := client.GetSuiteAccessTokenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1347,11 +1429,34 @@ func (client *Client) GetUserTokenWithOptions(request *GetUserTokenRequest, head
 		Headers: headers,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserToken"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/userAccessToken"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserTokenResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserToken"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/userAccessToken"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserToken(request *GetUserTokenRequest) (_result *GetUserTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &GetUserTokenResponse{}
+	_body, _err := client.GetUserTokenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

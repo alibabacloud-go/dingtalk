@@ -5,9 +5,11 @@
 package event_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,10 +37,8 @@ func (s *GetCallBackFaileResultHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetCallBackFaileResultRequest struct {
-	// 大于等于时间戳
 	BeginTime *int64 `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	// 小于等于时间戳
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	EndTime   *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
 }
 
 func (s GetCallBackFaileResultRequest) String() string {
@@ -60,10 +60,8 @@ func (s *GetCallBackFaileResultRequest) SetEndTime(v int64) *GetCallBackFaileRes
 }
 
 type GetCallBackFaileResultResponseBody struct {
-	// 推送失败的事件列表，一次最多200个。
 	FailedList []*GetCallBackFaileResultResponseBodyFailedList `json:"failedList,omitempty" xml:"failedList,omitempty" type:"Repeated"`
-	// 是否还有推送失败的变更事件，若为true，则表示还有未回调的事件，或传入时间时范围内还有未回调的事件。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	HasMore    *bool                                           `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
 
 func (s GetCallBackFaileResultResponseBody) String() string {
@@ -85,14 +83,10 @@ func (s *GetCallBackFaileResultResponseBody) SetHasMore(v bool) *GetCallBackFail
 }
 
 type GetCallBackFaileResultResponseBodyFailedList struct {
-	// 返回的事件内容
 	CallBackData *string `json:"callBackData,omitempty" xml:"callBackData,omitempty"`
-	// 事件类型
-	CallBackTag *string `json:"callBackTag,omitempty" xml:"callBackTag,omitempty"`
-	// 事件所属的corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 事件的时间戳。
-	EventTime *int64 `json:"eventTime,omitempty" xml:"eventTime,omitempty"`
+	CallBackTag  *string `json:"callBackTag,omitempty" xml:"callBackTag,omitempty"`
+	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	EventTime    *int64  `json:"eventTime,omitempty" xml:"eventTime,omitempty"`
 }
 
 func (s GetCallBackFaileResultResponseBodyFailedList) String() string {
@@ -124,8 +118,9 @@ func (s *GetCallBackFaileResultResponseBodyFailedList) SetEventTime(v int64) *Ge
 }
 
 type GetCallBackFaileResultResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCallBackFaileResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCallBackFaileResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCallBackFaileResultResponse) String() string {
@@ -138,6 +133,11 @@ func (s GetCallBackFaileResultResponse) GoString() string {
 
 func (s *GetCallBackFaileResultResponse) SetHeaders(v map[string]*string) *GetCallBackFaileResultResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCallBackFaileResultResponse) SetStatusCode(v int32) *GetCallBackFaileResultResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -161,24 +161,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) GetCallBackFaileResult(request *GetCallBackFaileResultRequest) (_result *GetCallBackFaileResultResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetCallBackFaileResultHeaders{}
-	_result = &GetCallBackFaileResultResponse{}
-	_body, _err := client.GetCallBackFaileResultWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) GetCallBackFaileResultWithOptions(request *GetCallBackFaileResultRequest, headers *GetCallBackFaileResultHeaders, runtime *util.RuntimeOptions) (_result *GetCallBackFaileResultResponse, _err error) {
@@ -208,11 +202,34 @@ func (client *Client) GetCallBackFaileResultWithOptions(request *GetCallBackFail
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCallBackFaileResult"),
+		Version:     tea.String("event_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/event/callbacks/failedResults"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCallBackFaileResultResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCallBackFaileResult"), tea.String("event_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/event/callbacks/failedResults"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCallBackFaileResult(request *GetCallBackFaileResultRequest) (_result *GetCallBackFaileResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCallBackFaileResultHeaders{}
+	_result = &GetCallBackFaileResultResponse{}
+	_body, _err := client.GetCallBackFaileResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

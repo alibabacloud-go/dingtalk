@@ -5,9 +5,11 @@
 package org_culture_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,21 +37,12 @@ func (s *AssignOrgHoldingToEmpHoldingBatchHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type AssignOrgHoldingToEmpHoldingBatchRequest struct {
-	// 备注信息 长度小于40
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 是否发送组织文化通知
-	SendOrgCultureInform *bool `json:"sendOrgCultureInform,omitempty" xml:"sendOrgCultureInform,omitempty"`
-	// 发放积分或额度数量 1～100000
-	SingleAmount *int64 `json:"singleAmount,omitempty" xml:"singleAmount,omitempty"`
-	// 发放人sourceUsage  发放人与接受人usage应一一对应
-	// 发放积分sourceUsage：OPEN_ORG_POINT_PERSONAL_ASSIGN 对应的targetUsage为OPEN_EMP_POINT_PERSONAL_RECEIVE；
-	// 发额度sourceUsage：OPEN_ORG_POINT_HOLDING_ASSIGN 对应的 targetUsage为OPEN_EMP_POINT_HOLDING_RECEIVE；
-	// 行为规则发积分 sourceUsage：OPEN_ACTION_RULE_PERSONAL_ASSIGN 对应的 targetUsage为OPEN_ACTION_RULE_PERSONAL_RECEIVE
-	SourceUsage *string `json:"sourceUsage,omitempty" xml:"sourceUsage,omitempty"`
-	// 接受人targetUsage  发放人与接受人usage应一一对应
-	TargetUsage *string `json:"targetUsage,omitempty" xml:"targetUsage,omitempty"`
-	// 发放目标用户
-	TargetUserList []*AssignOrgHoldingToEmpHoldingBatchRequestTargetUserList `json:"targetUserList,omitempty" xml:"targetUserList,omitempty" type:"Repeated"`
+	Remark               *string                                                   `json:"remark,omitempty" xml:"remark,omitempty"`
+	SendOrgCultureInform *bool                                                     `json:"sendOrgCultureInform,omitempty" xml:"sendOrgCultureInform,omitempty"`
+	SingleAmount         *int64                                                    `json:"singleAmount,omitempty" xml:"singleAmount,omitempty"`
+	SourceUsage          *string                                                   `json:"sourceUsage,omitempty" xml:"sourceUsage,omitempty"`
+	TargetUsage          *string                                                   `json:"targetUsage,omitempty" xml:"targetUsage,omitempty"`
+	TargetUserList       []*AssignOrgHoldingToEmpHoldingBatchRequestTargetUserList `json:"targetUserList,omitempty" xml:"targetUserList,omitempty" type:"Repeated"`
 }
 
 func (s AssignOrgHoldingToEmpHoldingBatchRequest) String() string {
@@ -91,10 +84,7 @@ func (s *AssignOrgHoldingToEmpHoldingBatchRequest) SetTargetUserList(v []*Assign
 }
 
 type AssignOrgHoldingToEmpHoldingBatchRequestTargetUserList struct {
-	// 积分交易单号，长度1-32。
-	//
-	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
-	// 操作目标对象userId
+	OutId        *string `json:"outId,omitempty" xml:"outId,omitempty"`
 	TargetUserId *string `json:"targetUserId,omitempty" xml:"targetUserId,omitempty"`
 }
 
@@ -140,7 +130,6 @@ func (s *AssignOrgHoldingToEmpHoldingBatchResponseBody) SetSuccess(v bool) *Assi
 }
 
 type AssignOrgHoldingToEmpHoldingBatchResponseBodyResult struct {
-	// 每个人发放的结果
 	OpenPointInvokeResultDTOS []*AssignOrgHoldingToEmpHoldingBatchResponseBodyResultOpenPointInvokeResultDTOS `json:"openPointInvokeResultDTOS,omitempty" xml:"openPointInvokeResultDTOS,omitempty" type:"Repeated"`
 }
 
@@ -158,17 +147,11 @@ func (s *AssignOrgHoldingToEmpHoldingBatchResponseBodyResult) SetOpenPointInvoke
 }
 
 type AssignOrgHoldingToEmpHoldingBatchResponseBodyResultOpenPointInvokeResultDTOS struct {
-	// 错误码
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 状态SUCCESS：成功。 FAIL：失败 UNKNOWN:结果未知
+	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
 	InvokeStatus *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
-	// 错误信息
-	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
-	// 积分交易单号
-	//
-	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
-	// 发放用户userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Msg          *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	OutId        *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AssignOrgHoldingToEmpHoldingBatchResponseBodyResultOpenPointInvokeResultDTOS) String() string {
@@ -205,8 +188,9 @@ func (s *AssignOrgHoldingToEmpHoldingBatchResponseBodyResultOpenPointInvokeResul
 }
 
 type AssignOrgHoldingToEmpHoldingBatchResponse struct {
-	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AssignOrgHoldingToEmpHoldingBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AssignOrgHoldingToEmpHoldingBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AssignOrgHoldingToEmpHoldingBatchResponse) String() string {
@@ -219,6 +203,11 @@ func (s AssignOrgHoldingToEmpHoldingBatchResponse) GoString() string {
 
 func (s *AssignOrgHoldingToEmpHoldingBatchResponse) SetHeaders(v map[string]*string) *AssignOrgHoldingToEmpHoldingBatchResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AssignOrgHoldingToEmpHoldingBatchResponse) SetStatusCode(v int32) *AssignOrgHoldingToEmpHoldingBatchResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -251,14 +240,10 @@ func (s *ConsumeUserPointsHeaders) SetXAcsDingtalkAccessToken(v string) *Consume
 }
 
 type ConsumeUserPointsRequest struct {
-	// 扣减积分数量，1～1000000
-	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 幂等外部ID，最大长度32个字符
-	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
-	// 备注，最长32个字符
+	Amount *int64  `json:"amount,omitempty" xml:"amount,omitempty"`
+	OutId  *string `json:"outId,omitempty" xml:"outId,omitempty"`
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 用途，可用值：OPEN_EMP_POINT_CONSUME_DEFAULT-默认扣减，OPEN_EMP_POINT_PUNISH_CONSUME-惩罚扣减；默认为: OPEN_EMP_POINT_CONSUME_DEFAULT
-	Usage *string `json:"usage,omitempty" xml:"usage,omitempty"`
+	Usage  *string `json:"usage,omitempty" xml:"usage,omitempty"`
 }
 
 func (s ConsumeUserPointsRequest) String() string {
@@ -290,10 +275,8 @@ func (s *ConsumeUserPointsRequest) SetUsage(v string) *ConsumeUserPointsRequest 
 }
 
 type ConsumeUserPointsResponseBody struct {
-	// 响应数据
-	Result *ConsumeUserPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 请求响应状态
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *ConsumeUserPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ConsumeUserPointsResponseBody) String() string {
@@ -315,7 +298,6 @@ func (s *ConsumeUserPointsResponseBody) SetSuccess(v bool) *ConsumeUserPointsRes
 }
 
 type ConsumeUserPointsResponseBodyResult struct {
-	// 扣减后剩余积分数量
 	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
 }
 
@@ -333,8 +315,9 @@ func (s *ConsumeUserPointsResponseBodyResult) SetAmount(v int64) *ConsumeUserPoi
 }
 
 type ConsumeUserPointsResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ConsumeUserPointsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ConsumeUserPointsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ConsumeUserPointsResponse) String() string {
@@ -347,6 +330,11 @@ func (s ConsumeUserPointsResponse) GoString() string {
 
 func (s *ConsumeUserPointsResponse) SetHeaders(v map[string]*string) *ConsumeUserPointsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ConsumeUserPointsResponse) SetStatusCode(v int32) *ConsumeUserPointsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -379,18 +367,12 @@ func (s *CreateOrgHonorHeaders) SetXAcsDingtalkAccessToken(v string) *CreateOrgH
 }
 
 type CreateOrgHonorRequest struct {
-	// 头像挂件   图片尺寸 240*240，不超过1M，支持PNG。图片请使用钉钉媒体资源标识符media_id，参考文档：https://open.dingtalk.com/document/isvapp-server/upload-media-files
 	AvatarFrameMediaId *string `json:"avatarFrameMediaId,omitempty" xml:"avatarFrameMediaId,omitempty"`
-	// 背景颜色，如下可选：#FFFBB4 #FFE7BC #FFDAF4 #DAF6A8 #E4D7FF #BFDFFF #B9F2D6
-	DefaultBgColor *string `json:"defaultBgColor,omitempty" xml:"defaultBgColor,omitempty"`
-	// 描述 长度30字符 不支持表情图标等
-	MedalDesc *string `json:"medalDesc,omitempty" xml:"medalDesc,omitempty"`
-	// 荣誉图片  图片尺寸 900*900，不超过1M，支持PNG 。图片请使用钉钉媒体资源标识符media_id，参考文档：https://open.dingtalk.com/document/isvapp-server/upload-media-files
-	MedalMediaId *string `json:"medalMediaId,omitempty" xml:"medalMediaId,omitempty"`
-	// 组织的勋章名称 长度10字符 不支持表情图标等
-	MedalName *string `json:"medalName,omitempty" xml:"medalName,omitempty"`
-	// 创建荣誉勋章模板人在组织内的userid，需要主/子管理员角色
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	DefaultBgColor     *string `json:"defaultBgColor,omitempty" xml:"defaultBgColor,omitempty"`
+	MedalDesc          *string `json:"medalDesc,omitempty" xml:"medalDesc,omitempty"`
+	MedalMediaId       *string `json:"medalMediaId,omitempty" xml:"medalMediaId,omitempty"`
+	MedalName          *string `json:"medalName,omitempty" xml:"medalName,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateOrgHonorRequest) String() string {
@@ -472,8 +454,9 @@ func (s *CreateOrgHonorResponseBodyResult) SetHonorId(v string) *CreateOrgHonorR
 }
 
 type CreateOrgHonorResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateOrgHonorResponse) String() string {
@@ -486,6 +469,11 @@ func (s CreateOrgHonorResponse) GoString() string {
 
 func (s *CreateOrgHonorResponse) SetHeaders(v map[string]*string) *CreateOrgHonorResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateOrgHonorResponse) SetStatusCode(v int32) *CreateOrgHonorResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -518,16 +506,11 @@ func (s *DeductionPointBatchHeaders) SetXAcsDingtalkAccessToken(v string) *Deduc
 }
 
 type DeductionPointBatchRequest struct {
-	// 扣减数量 范围：1—100000
-	DeductionAmount *int64 `json:"deductionAmount,omitempty" xml:"deductionAmount,omitempty"`
-	// 扣减积分原因
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 是否发送组织文化通知
-	SendOrgCultureInform *bool `json:"sendOrgCultureInform,omitempty" xml:"sendOrgCultureInform,omitempty"`
-	// 批量扣减积分用户
-	TargetUserList []*DeductionPointBatchRequestTargetUserList `json:"targetUserList,omitempty" xml:"targetUserList,omitempty" type:"Repeated"`
-	// 操作人userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	DeductionAmount      *int64                                      `json:"deductionAmount,omitempty" xml:"deductionAmount,omitempty"`
+	Remark               *string                                     `json:"remark,omitempty" xml:"remark,omitempty"`
+	SendOrgCultureInform *bool                                       `json:"sendOrgCultureInform,omitempty" xml:"sendOrgCultureInform,omitempty"`
+	TargetUserList       []*DeductionPointBatchRequestTargetUserList `json:"targetUserList,omitempty" xml:"targetUserList,omitempty" type:"Repeated"`
+	UserId               *string                                     `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeductionPointBatchRequest) String() string {
@@ -564,9 +547,7 @@ func (s *DeductionPointBatchRequest) SetUserId(v string) *DeductionPointBatchReq
 }
 
 type DeductionPointBatchRequestTargetUserList struct {
-	// 积分交易单号
-	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
-	// 扣减目标用户userId
+	OutId        *string `json:"outId,omitempty" xml:"outId,omitempty"`
 	TargetUserId *string `json:"targetUserId,omitempty" xml:"targetUserId,omitempty"`
 }
 
@@ -589,9 +570,8 @@ func (s *DeductionPointBatchRequestTargetUserList) SetTargetUserId(v string) *De
 }
 
 type DeductionPointBatchResponseBody struct {
-	Result *DeductionPointBatchResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 调用是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *DeductionPointBatchResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DeductionPointBatchResponseBody) String() string {
@@ -613,7 +593,6 @@ func (s *DeductionPointBatchResponseBody) SetSuccess(v bool) *DeductionPointBatc
 }
 
 type DeductionPointBatchResponseBodyResult struct {
-	// 每个人发放的结果
 	OpenPointInvokeResultDTOS []*DeductionPointBatchResponseBodyResultOpenPointInvokeResultDTOS `json:"openPointInvokeResultDTOS,omitempty" xml:"openPointInvokeResultDTOS,omitempty" type:"Repeated"`
 }
 
@@ -631,16 +610,11 @@ func (s *DeductionPointBatchResponseBodyResult) SetOpenPointInvokeResultDTOS(v [
 }
 
 type DeductionPointBatchResponseBodyResultOpenPointInvokeResultDTOS struct {
-	// 错误码
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 状态 success：成功。 Fail：失败 UNKNOWN:结果未知
+	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
 	InvokeStatus *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
-	// 错误信息
-	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
-	// 积分交易单号
-	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
-	// 扣减用户userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Msg          *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	OutId        *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeductionPointBatchResponseBodyResultOpenPointInvokeResultDTOS) String() string {
@@ -677,8 +651,9 @@ func (s *DeductionPointBatchResponseBodyResultOpenPointInvokeResultDTOS) SetUser
 }
 
 type DeductionPointBatchResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeductionPointBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeductionPointBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeductionPointBatchResponse) String() string {
@@ -691,6 +666,11 @@ func (s DeductionPointBatchResponse) GoString() string {
 
 func (s *DeductionPointBatchResponse) SetHeaders(v map[string]*string) *DeductionPointBatchResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeductionPointBatchResponse) SetStatusCode(v int32) *DeductionPointBatchResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -723,12 +703,9 @@ func (s *ExportPointOpenHeaders) SetXAcsDingtalkAccessToken(v string) *ExportPoi
 }
 
 type ExportPointOpenRequest struct {
-	// exportType为1时不需要传此参数，目前仅exportType=3时必须传入此参数,必须为七日内某一天且不能选择当日，格式yyyyMmdd。
 	ExportDate *string `json:"exportDate,omitempty" xml:"exportDate,omitempty"`
-	// 导出类型 1为七日内明细，3为七日内某一天榜单，且都不包含当日
-	ExportType *int64 `json:"exportType,omitempty" xml:"exportType,omitempty"`
-	// 操作人userId 必须为管理员
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	ExportType *int64  `json:"exportType,omitempty" xml:"exportType,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ExportPointOpenRequest) String() string {
@@ -778,8 +755,9 @@ func (s *ExportPointOpenResponseBody) SetSuccess(v bool) *ExportPointOpenRespons
 }
 
 type ExportPointOpenResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ExportPointOpenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ExportPointOpenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ExportPointOpenResponse) String() string {
@@ -792,6 +770,11 @@ func (s ExportPointOpenResponse) GoString() string {
 
 func (s *ExportPointOpenResponse) SetHeaders(v map[string]*string) *ExportPointOpenResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ExportPointOpenResponse) SetStatusCode(v int32) *ExportPointOpenResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -824,21 +807,14 @@ func (s *GrantHonorHeaders) SetXAcsDingtalkAccessToken(v string) *GrantHonorHead
 }
 
 type GrantHonorRequest struct {
-	// 有效期到期时间 时间戳. 会处理成到期那天的23:59:59秒的时间戳
-	ExpirationTime *int64 `json:"expirationTime,omitempty" xml:"expirationTime,omitempty"`
-	// 颁奖词，最多可以填50字
-	GrantReason *string `json:"grantReason,omitempty" xml:"grantReason,omitempty"`
-	// 颁奖人名字，最多15个字
-	GranterName *string `json:"granterName,omitempty" xml:"granterName,omitempty"`
-	// 是否使用官宣号发送内网动态
-	NoticeAnnouncer *bool `json:"noticeAnnouncer,omitempty" xml:"noticeAnnouncer,omitempty"`
-	// 是否触达单聊会话通知
+	ExpirationTime      *int64    `json:"expirationTime,omitempty" xml:"expirationTime,omitempty"`
+	GrantReason         *string   `json:"grantReason,omitempty" xml:"grantReason,omitempty"`
+	GranterName         *string   `json:"granterName,omitempty" xml:"granterName,omitempty"`
+	NoticeAnnouncer     *bool     `json:"noticeAnnouncer,omitempty" xml:"noticeAnnouncer,omitempty"`
 	NoticeSingle        *bool     `json:"noticeSingle,omitempty" xml:"noticeSingle,omitempty"`
 	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
-	// 接受人userId
-	ReceiverUserIds []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
-	// 发送人userId
-	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	ReceiverUserIds     []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
+	SenderUserId        *string   `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
 }
 
 func (s GrantHonorRequest) String() string {
@@ -913,9 +889,7 @@ func (s *GrantHonorResponseBody) SetSuccess(v bool) *GrantHonorResponseBody {
 }
 
 type GrantHonorResponseBodyResult struct {
-	// 失败的userId
-	FailedUserIds []*string `json:"failedUserIds,omitempty" xml:"failedUserIds,omitempty" type:"Repeated"`
-	// 成功的userId
+	FailedUserIds  []*string `json:"failedUserIds,omitempty" xml:"failedUserIds,omitempty" type:"Repeated"`
 	SuccessUserIds []*string `json:"successUserIds,omitempty" xml:"successUserIds,omitempty" type:"Repeated"`
 }
 
@@ -938,8 +912,9 @@ func (s *GrantHonorResponseBodyResult) SetSuccessUserIds(v []*string) *GrantHono
 }
 
 type GrantHonorResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GrantHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GrantHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GrantHonorResponse) String() string {
@@ -952,6 +927,11 @@ func (s GrantHonorResponse) GoString() string {
 
 func (s *GrantHonorResponse) SetHeaders(v map[string]*string) *GrantHonorResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GrantHonorResponse) SetStatusCode(v int32) *GrantHonorResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -984,7 +964,6 @@ func (s *QueryCorpPointsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCorp
 }
 
 type QueryCorpPointsRequest struct {
-	// 操作用户ID
 	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
 }
 
@@ -1002,10 +981,8 @@ func (s *QueryCorpPointsRequest) SetOptUserId(v string) *QueryCorpPointsRequest 
 }
 
 type QueryCorpPointsResponseBody struct {
-	// 响应数据
-	Result *QueryCorpPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 请求响应状态
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *QueryCorpPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryCorpPointsResponseBody) String() string {
@@ -1027,7 +1004,6 @@ func (s *QueryCorpPointsResponseBody) SetSuccess(v bool) *QueryCorpPointsRespons
 }
 
 type QueryCorpPointsResponseBodyResult struct {
-	// 企业员工可用于兑换积分总额
 	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
 }
 
@@ -1045,8 +1021,9 @@ func (s *QueryCorpPointsResponseBodyResult) SetAmount(v int64) *QueryCorpPointsR
 }
 
 type QueryCorpPointsResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryCorpPointsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryCorpPointsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryCorpPointsResponse) String() string {
@@ -1059,6 +1036,11 @@ func (s QueryCorpPointsResponse) GoString() string {
 
 func (s *QueryCorpPointsResponse) SetHeaders(v map[string]*string) *QueryCorpPointsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryCorpPointsResponse) SetStatusCode(v int32) *QueryCorpPointsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1091,12 +1073,9 @@ func (s *QueryEmpPointDetailsHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryEmpPointDetailsRequest struct {
-	// 第几页 第一页是1
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 每页大小最多50 默认值10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 查询目标对象userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryEmpPointDetailsRequest) String() string {
@@ -1123,9 +1102,8 @@ func (s *QueryEmpPointDetailsRequest) SetUserId(v string) *QueryEmpPointDetailsR
 }
 
 type QueryEmpPointDetailsResponseBody struct {
-	Result *QueryEmpPointDetailsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 调用是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *QueryEmpPointDetailsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBody) String() string {
@@ -1147,10 +1125,8 @@ func (s *QueryEmpPointDetailsResponseBody) SetSuccess(v bool) *QueryEmpPointDeta
 }
 
 type QueryEmpPointDetailsResponseBodyResult struct {
-	// 个人积分明细列表
 	Details []*QueryEmpPointDetailsResponseBodyResultDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	// 是否有下一页
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	HasMore *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResult) String() string {
@@ -1172,18 +1148,11 @@ func (s *QueryEmpPointDetailsResponseBodyResult) SetHasMore(v bool) *QueryEmpPoi
 }
 
 type QueryEmpPointDetailsResponseBodyResultDetails struct {
-	// 积分数量 发放时为负。 扣减时为正
-	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 创建时间
-	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 积分交易单号
-	//
+	Amount                         *int64                                                                       `json:"amount,omitempty" xml:"amount,omitempty"`
+	GmtCreate                      *int64                                                                       `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	OutId                          *string                                                                      `json:"outId,omitempty" xml:"outId,omitempty"`
 	PointOperateFeatureResponseDTO *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO `json:"pointOperateFeatureResponseDTO,omitempty" xml:"pointOperateFeatureResponseDTO,omitempty" type:"Struct"`
-	// 源账户积分bizCode.
-	// 个人可用积分:personal
-	// 额度:credit
-	SourceBizCode *string `json:"sourceBizCode,omitempty" xml:"sourceBizCode,omitempty"`
+	SourceBizCode                  *string                                                                      `json:"sourceBizCode,omitempty" xml:"sourceBizCode,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResultDetails) String() string {
@@ -1220,15 +1189,10 @@ func (s *QueryEmpPointDetailsResponseBodyResultDetails) SetSourceBizCode(v strin
 }
 
 type QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO struct {
-	// 来源账户
 	AccountSource *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource `json:"accountSource,omitempty" xml:"accountSource,omitempty" type:"Struct"`
-	// 目标账户
-	//
 	AccountTarget *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget `json:"accountTarget,omitempty" xml:"accountTarget,omitempty" type:"Struct"`
-	// 备注信息，在明细中展示
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 来源/用途，一般是系统固定的场景
-	Usage *string `json:"usage,omitempty" xml:"usage,omitempty"`
+	Remark        *string                                                                                   `json:"remark,omitempty" xml:"remark,omitempty"`
+	Usage         *string                                                                                   `json:"usage,omitempty" xml:"usage,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO) String() string {
@@ -1260,14 +1224,9 @@ func (s *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource struct {
-	// 积分账号的类型
-	// 企业账号：ORG, 员工账号：EMP
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	// 企业内名字
-	EmpName *string `json:"empName,omitempty" xml:"empName,omitempty"`
-	// 用户userId
-	//
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	EmpName     *string `json:"empName,omitempty" xml:"empName,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource) String() string {
@@ -1294,13 +1253,9 @@ func (s *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget struct {
-	// 积分账号的类型
-	// 企业账号：ORG, 员工账号：EMP
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	// 企业内名字
-	EmpName *string `json:"empName,omitempty" xml:"empName,omitempty"`
-	// 用户useId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	EmpName     *string `json:"empName,omitempty" xml:"empName,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget) String() string {
@@ -1327,8 +1282,9 @@ func (s *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryEmpPointDetailsResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryEmpPointDetailsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryEmpPointDetailsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryEmpPointDetailsResponse) String() string {
@@ -1341,6 +1297,11 @@ func (s QueryEmpPointDetailsResponse) GoString() string {
 
 func (s *QueryEmpPointDetailsResponse) SetHeaders(v map[string]*string) *QueryEmpPointDetailsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryEmpPointDetailsResponse) SetStatusCode(v int32) *QueryEmpPointDetailsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1373,10 +1334,8 @@ func (s *QueryOrgHonorsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgHo
 }
 
 type QueryOrgHonorsRequest struct {
-	// 分页获取数据时，数据的数量，默认为20，最大可传入100
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页获取数据的标记，第一页调用时传0，非第一页传入上次调用本接口返回值中的nextToken
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryOrgHonorsRequest) String() string {
@@ -1421,7 +1380,6 @@ func (s *QueryOrgHonorsResponseBody) SetSuccess(v bool) *QueryOrgHonorsResponseB
 }
 
 type QueryOrgHonorsResponseBodyResult struct {
-	// 下次获取数据的游标
 	NextToken  *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OpenHonors []*QueryOrgHonorsResponseBodyResultOpenHonors `json:"openHonors,omitempty" xml:"openHonors,omitempty" type:"Repeated"`
 }
@@ -1445,15 +1403,10 @@ func (s *QueryOrgHonorsResponseBodyResult) SetOpenHonors(v []*QueryOrgHonorsResp
 }
 
 type QueryOrgHonorsResponseBodyResultOpenHonors struct {
-	// 荣誉含义
-	HonorDesc *string `json:"honorDesc,omitempty" xml:"honorDesc,omitempty"`
-	// 荣誉id
-	HonorId *int64 `json:"honorId,omitempty" xml:"honorId,omitempty"`
-	// 荣誉图片url
-	HonorImgUrl *string `json:"honorImgUrl,omitempty" xml:"honorImgUrl,omitempty"`
-	// 荣誉名字
-	HonorName *string `json:"honorName,omitempty" xml:"honorName,omitempty"`
-	// 荣誉附赠的挂件图url
+	HonorDesc          *string `json:"honorDesc,omitempty" xml:"honorDesc,omitempty"`
+	HonorId            *int64  `json:"honorId,omitempty" xml:"honorId,omitempty"`
+	HonorImgUrl        *string `json:"honorImgUrl,omitempty" xml:"honorImgUrl,omitempty"`
+	HonorName          *string `json:"honorName,omitempty" xml:"honorName,omitempty"`
 	HonorPendantImgUrl *string `json:"honorPendantImgUrl,omitempty" xml:"honorPendantImgUrl,omitempty"`
 }
 
@@ -1491,8 +1444,9 @@ func (s *QueryOrgHonorsResponseBodyResultOpenHonors) SetHonorPendantImgUrl(v str
 }
 
 type QueryOrgHonorsResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryOrgHonorsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryOrgHonorsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryOrgHonorsResponse) String() string {
@@ -1505,6 +1459,11 @@ func (s QueryOrgHonorsResponse) GoString() string {
 
 func (s *QueryOrgHonorsResponse) SetHeaders(v map[string]*string) *QueryOrgHonorsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryOrgHonorsResponse) SetStatusCode(v int32) *QueryOrgHonorsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1537,14 +1496,10 @@ func (s *QueryOrgPointDetailsHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryOrgPointDetailsRequest struct {
-	// 查询企业账号明细，ORG,ORG_DEDUCTIONS两种。     ORG:企业账户明细 查询的是企业积分发放明细       ORG_DEDUCTIONS:扣除账户明细，查询的是企业扣减积分明细
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	// 查询页数 第一页是1 非空必传
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 每页大小最多50，默认10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 操作人userId 必须是管理员
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	PageNumber  *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize    *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryOrgPointDetailsRequest) String() string {
@@ -1593,12 +1548,9 @@ func (s *QueryOrgPointDetailsResponseBody) SetResult(v *QueryOrgPointDetailsResp
 }
 
 type QueryOrgPointDetailsResponseBodyResult struct {
-	// 积分明细列表
 	Details []*QueryOrgPointDetailsResponseBodyResultDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	// 分页使用，表示是否还有下一页
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 调用是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	HasMore *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Success *bool                                            `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResult) String() string {
@@ -1625,18 +1577,11 @@ func (s *QueryOrgPointDetailsResponseBodyResult) SetSuccess(v bool) *QueryOrgPoi
 }
 
 type QueryOrgPointDetailsResponseBodyResultDetails struct {
-	// 积分数量 发放时为负。 扣减时为正
-	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 创建时间
-	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 积分交易单号
-	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
-	// 账户信息
+	Amount                         *int64                                                                       `json:"amount,omitempty" xml:"amount,omitempty"`
+	GmtCreate                      *int64                                                                       `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	OutId                          *string                                                                      `json:"outId,omitempty" xml:"outId,omitempty"`
 	PointOperateFeatureResponseDTO *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO `json:"pointOperateFeatureResponseDTO,omitempty" xml:"pointOperateFeatureResponseDTO,omitempty" type:"Struct"`
-	// 源账户积分bizCode。
-	// 个人可用积分:personal
-	// 额度:credit
-	SourceBizCode *string `json:"sourceBizCode,omitempty" xml:"sourceBizCode,omitempty"`
+	SourceBizCode                  *string                                                                      `json:"sourceBizCode,omitempty" xml:"sourceBizCode,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResultDetails) String() string {
@@ -1673,18 +1618,10 @@ func (s *QueryOrgPointDetailsResponseBodyResultDetails) SetSourceBizCode(v strin
 }
 
 type QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO struct {
-	// 如果是扣减操作明细，为被扣减账户
-	// 如果是发放操作明细，为操作发放账户
-	// 如果是个人积分明细，为来源账户
 	AccountSource *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource `json:"accountSource,omitempty" xml:"accountSource,omitempty" type:"Struct"`
-	// 如果是扣减操作明细，为操作扣减账户
-	// 如果是发放操作明细，为被发放账户
-	// 如果是个人积分明细，为目标账户
 	AccountTarget *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget `json:"accountTarget,omitempty" xml:"accountTarget,omitempty" type:"Struct"`
-	// 备注信息，在明细中展示
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 来源/用途 一般是系统固定的场景
-	Usage *string `json:"usage,omitempty" xml:"usage,omitempty"`
+	Remark        *string                                                                                   `json:"remark,omitempty" xml:"remark,omitempty"`
+	Usage         *string                                                                                   `json:"usage,omitempty" xml:"usage,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO) String() string {
@@ -1716,13 +1653,9 @@ func (s *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource struct {
-	// 积分账号的类型
-	// 企业账号：ORG, 员工账号：EMP
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	// 企业内名字
-	EmpName *string `json:"empName,omitempty" xml:"empName,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	EmpName     *string `json:"empName,omitempty" xml:"empName,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource) String() string {
@@ -1749,13 +1682,9 @@ func (s *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget struct {
-	// 积分账号的类型
-	// 企业账号：ORG, 员工账号：EMP
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	// 企业内名字
-	EmpName *string `json:"empName,omitempty" xml:"empName,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	EmpName     *string `json:"empName,omitempty" xml:"empName,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget) String() string {
@@ -1782,8 +1711,9 @@ func (s *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryOrgPointDetailsResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryOrgPointDetailsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryOrgPointDetailsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryOrgPointDetailsResponse) String() string {
@@ -1796,6 +1726,11 @@ func (s QueryOrgPointDetailsResponse) GoString() string {
 
 func (s *QueryOrgPointDetailsResponse) SetHeaders(v map[string]*string) *QueryOrgPointDetailsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryOrgPointDetailsResponse) SetStatusCode(v int32) *QueryOrgPointDetailsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1851,7 +1786,6 @@ func (s *QueryPointActionAutoAssignRuleResponseBody) SetSuccess(v bool) *QueryPo
 }
 
 type QueryPointActionAutoAssignRuleResponseBodyResult struct {
-	// 行为规则列表
 	QueryPointRuleResponseDTOS []*QueryPointActionAutoAssignRuleResponseBodyResultQueryPointRuleResponseDTOS `json:"queryPointRuleResponseDTOS,omitempty" xml:"queryPointRuleResponseDTOS,omitempty" type:"Repeated"`
 }
 
@@ -1869,16 +1803,11 @@ func (s *QueryPointActionAutoAssignRuleResponseBodyResult) SetQueryPointRuleResp
 }
 
 type QueryPointActionAutoAssignRuleResponseBodyResultQueryPointRuleResponseDTOS struct {
-	// 奖励积分
-	AwardScore *int64 `json:"awardScore,omitempty" xml:"awardScore,omitempty"`
-	// 行为名称
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 单日计次上限
-	DayLimitTimes *int64 `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
-	// 行为描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 生效状态：0无效，1有效
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	AwardScore    *int64  `json:"awardScore,omitempty" xml:"awardScore,omitempty"`
+	Code          *string `json:"code,omitempty" xml:"code,omitempty"`
+	DayLimitTimes *int64  `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
+	Description   *string `json:"description,omitempty" xml:"description,omitempty"`
+	Status        *int64  `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryPointActionAutoAssignRuleResponseBodyResultQueryPointRuleResponseDTOS) String() string {
@@ -1915,8 +1844,9 @@ func (s *QueryPointActionAutoAssignRuleResponseBodyResultQueryPointRuleResponseD
 }
 
 type QueryPointActionAutoAssignRuleResponse struct {
-	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryPointActionAutoAssignRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryPointActionAutoAssignRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryPointActionAutoAssignRuleResponse) String() string {
@@ -1929,6 +1859,11 @@ func (s QueryPointActionAutoAssignRuleResponse) GoString() string {
 
 func (s *QueryPointActionAutoAssignRuleResponse) SetHeaders(v map[string]*string) *QueryPointActionAutoAssignRuleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryPointActionAutoAssignRuleResponse) SetStatusCode(v int32) *QueryPointActionAutoAssignRuleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1961,9 +1896,8 @@ func (s *QueryPointAutoIssueSettingHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryPointAutoIssueSettingResponseBody struct {
-	Result *QueryPointAutoIssueSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 调用是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *QueryPointAutoIssueSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                         `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryPointAutoIssueSettingResponseBody) String() string {
@@ -1985,12 +1919,9 @@ func (s *QueryPointAutoIssueSettingResponseBody) SetSuccess(v bool) *QueryPointA
 }
 
 type QueryPointAutoIssueSettingResponseBodyResult struct {
-	// 企业每月额度自动发放给每个人的数量
-	PointAutoNum *int64 `json:"pointAutoNum,omitempty" xml:"pointAutoNum,omitempty"`
-	// 企业积分自动发放状态
-	PointAutoState *bool `json:"pointAutoState,omitempty" xml:"pointAutoState,omitempty"`
-	// 企业积分自动发放时间 指定的是每月1号或15号
-	PointAutoTime *int64 `json:"pointAutoTime,omitempty" xml:"pointAutoTime,omitempty"`
+	PointAutoNum   *int64 `json:"pointAutoNum,omitempty" xml:"pointAutoNum,omitempty"`
+	PointAutoState *bool  `json:"pointAutoState,omitempty" xml:"pointAutoState,omitempty"`
+	PointAutoTime  *int64 `json:"pointAutoTime,omitempty" xml:"pointAutoTime,omitempty"`
 }
 
 func (s QueryPointAutoIssueSettingResponseBodyResult) String() string {
@@ -2017,8 +1948,9 @@ func (s *QueryPointAutoIssueSettingResponseBodyResult) SetPointAutoTime(v int64)
 }
 
 type QueryPointAutoIssueSettingResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryPointAutoIssueSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryPointAutoIssueSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryPointAutoIssueSettingResponse) String() string {
@@ -2031,6 +1963,11 @@ func (s QueryPointAutoIssueSettingResponse) GoString() string {
 
 func (s *QueryPointAutoIssueSettingResponse) SetHeaders(v map[string]*string) *QueryPointAutoIssueSettingResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryPointAutoIssueSettingResponse) SetStatusCode(v int32) *QueryPointAutoIssueSettingResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2063,10 +2000,8 @@ func (s *QueryUserHonorsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUser
 }
 
 type QueryUserHonorsRequest struct {
-	// 查询数据的条数，默认查询20条，最大可传100
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页查询的标记，查询第一页时传0，非第一页时传入上次调用本接口返回值中的nextToken
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryUserHonorsRequest) String() string {
@@ -2134,16 +2069,11 @@ func (s *QueryUserHonorsResponseBodyResult) SetNextToken(v string) *QueryUserHon
 }
 
 type QueryUserHonorsResponseBodyResultHonors struct {
-	// 有效期截止时间点，没有该属性则为永久生效
-	ExpirationTime *int64 `json:"expirationTime,omitempty" xml:"expirationTime,omitempty"`
-	// 授予历史记录 包含用户及授予时间
-	GrantHistory []*QueryUserHonorsResponseBodyResultHonorsGrantHistory `json:"grantHistory,omitempty" xml:"grantHistory,omitempty" type:"Repeated"`
-	// 荣誉含义
-	HonorDesc *string `json:"honorDesc,omitempty" xml:"honorDesc,omitempty"`
-	// 必须。荣誉id
-	HonorId *string `json:"honorId,omitempty" xml:"honorId,omitempty"`
-	// 必须。荣誉名字
-	HonorName *string `json:"honorName,omitempty" xml:"honorName,omitempty"`
+	ExpirationTime *int64                                                 `json:"expirationTime,omitempty" xml:"expirationTime,omitempty"`
+	GrantHistory   []*QueryUserHonorsResponseBodyResultHonorsGrantHistory `json:"grantHistory,omitempty" xml:"grantHistory,omitempty" type:"Repeated"`
+	HonorDesc      *string                                                `json:"honorDesc,omitempty" xml:"honorDesc,omitempty"`
+	HonorId        *string                                                `json:"honorId,omitempty" xml:"honorId,omitempty"`
+	HonorName      *string                                                `json:"honorName,omitempty" xml:"honorName,omitempty"`
 }
 
 func (s QueryUserHonorsResponseBodyResultHonors) String() string {
@@ -2180,9 +2110,7 @@ func (s *QueryUserHonorsResponseBodyResultHonors) SetHonorName(v string) *QueryU
 }
 
 type QueryUserHonorsResponseBodyResultHonorsGrantHistory struct {
-	// 授予时间 时间戳
-	GrantTime *int64 `json:"grantTime,omitempty" xml:"grantTime,omitempty"`
-	// 必须。荣誉发放人userid
+	GrantTime    *int64  `json:"grantTime,omitempty" xml:"grantTime,omitempty"`
 	SenderUserid *string `json:"senderUserid,omitempty" xml:"senderUserid,omitempty"`
 }
 
@@ -2205,8 +2133,9 @@ func (s *QueryUserHonorsResponseBodyResultHonorsGrantHistory) SetSenderUserid(v 
 }
 
 type QueryUserHonorsResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryUserHonorsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryUserHonorsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryUserHonorsResponse) String() string {
@@ -2219,6 +2148,11 @@ func (s QueryUserHonorsResponse) GoString() string {
 
 func (s *QueryUserHonorsResponse) SetHeaders(v map[string]*string) *QueryUserHonorsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryUserHonorsResponse) SetStatusCode(v int32) *QueryUserHonorsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2251,10 +2185,8 @@ func (s *QueryUserPointsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUser
 }
 
 type QueryUserPointsResponseBody struct {
-	// 响应数据
-	Result *QueryUserPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 请求响应状态
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *QueryUserPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryUserPointsResponseBody) String() string {
@@ -2276,7 +2208,6 @@ func (s *QueryUserPointsResponseBody) SetSuccess(v bool) *QueryUserPointsRespons
 }
 
 type QueryUserPointsResponseBodyResult struct {
-	// 员工积分数量
 	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
 }
 
@@ -2294,8 +2225,9 @@ func (s *QueryUserPointsResponseBodyResult) SetAmount(v int64) *QueryUserPointsR
 }
 
 type QueryUserPointsResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryUserPointsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryUserPointsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryUserPointsResponse) String() string {
@@ -2308,6 +2240,11 @@ func (s QueryUserPointsResponse) GoString() string {
 
 func (s *QueryUserPointsResponse) SetHeaders(v map[string]*string) *QueryUserPointsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryUserPointsResponse) SetStatusCode(v int32) *QueryUserPointsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2340,7 +2277,6 @@ func (s *RecallHonorHeaders) SetXAcsDingtalkAccessToken(v string) *RecallHonorHe
 }
 
 type RecallHonorRequest struct {
-	// 要取消荣誉的员工userid 必填
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2398,8 +2334,9 @@ func (s *RecallHonorResponseBodyResult) SetHonorId(v string) *RecallHonorRespons
 }
 
 type RecallHonorResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RecallHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RecallHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RecallHonorResponse) String() string {
@@ -2412,6 +2349,11 @@ func (s RecallHonorResponse) GoString() string {
 
 func (s *RecallHonorResponse) SetHeaders(v map[string]*string) *RecallHonorResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RecallHonorResponse) SetStatusCode(v int32) *RecallHonorResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2444,14 +2386,10 @@ func (s *UpdateAutoIssuePointHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateAutoIssuePointRequest struct {
-	// 企业积分自动发放数量1-10000
-	PointAutoNum *int64 `json:"pointAutoNum,omitempty" xml:"pointAutoNum,omitempty"`
-	// 企业积分自动发放状态
-	PointAutoState *bool `json:"pointAutoState,omitempty" xml:"pointAutoState,omitempty"`
-	// 企业积分自动发放时间 必须为每月的1号或15号，传入1时为1号，传入15时为15号。
-	PointAutoTime *int64 `json:"pointAutoTime,omitempty" xml:"pointAutoTime,omitempty"`
-	// 操作人userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	PointAutoNum   *int64  `json:"pointAutoNum,omitempty" xml:"pointAutoNum,omitempty"`
+	PointAutoState *bool   `json:"pointAutoState,omitempty" xml:"pointAutoState,omitempty"`
+	PointAutoTime  *int64  `json:"pointAutoTime,omitempty" xml:"pointAutoTime,omitempty"`
+	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateAutoIssuePointRequest) String() string {
@@ -2483,9 +2421,8 @@ func (s *UpdateAutoIssuePointRequest) SetUserId(v string) *UpdateAutoIssuePointR
 }
 
 type UpdateAutoIssuePointResponseBody struct {
-	Result *UpdateAutoIssuePointResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 调用是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *UpdateAutoIssuePointResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateAutoIssuePointResponseBody) String() string {
@@ -2507,7 +2444,6 @@ func (s *UpdateAutoIssuePointResponseBody) SetSuccess(v bool) *UpdateAutoIssuePo
 }
 
 type UpdateAutoIssuePointResponseBodyResult struct {
-	// 下次自动发放时间
 	NextAutoIssuePointTime *int64 `json:"nextAutoIssuePointTime,omitempty" xml:"nextAutoIssuePointTime,omitempty"`
 }
 
@@ -2525,8 +2461,9 @@ func (s *UpdateAutoIssuePointResponseBodyResult) SetNextAutoIssuePointTime(v int
 }
 
 type UpdateAutoIssuePointResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateAutoIssuePointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateAutoIssuePointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateAutoIssuePointResponse) String() string {
@@ -2539,6 +2476,11 @@ func (s UpdateAutoIssuePointResponse) GoString() string {
 
 func (s *UpdateAutoIssuePointResponse) SetHeaders(v map[string]*string) *UpdateAutoIssuePointResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateAutoIssuePointResponse) SetStatusCode(v int32) *UpdateAutoIssuePointResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2571,10 +2513,8 @@ func (s *UpdatePointActionAutoAssignRuleHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type UpdatePointActionAutoAssignRuleRequest struct {
-	// 行为规则列表
 	UpdatePointRuleRequestDTOList []*UpdatePointActionAutoAssignRuleRequestUpdatePointRuleRequestDTOList `json:"updatePointRuleRequestDTOList,omitempty" xml:"updatePointRuleRequestDTOList,omitempty" type:"Repeated"`
-	// 操作人userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId                        *string                                                                `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdatePointActionAutoAssignRuleRequest) String() string {
@@ -2596,14 +2536,10 @@ func (s *UpdatePointActionAutoAssignRuleRequest) SetUserId(v string) *UpdatePoin
 }
 
 type UpdatePointActionAutoAssignRuleRequestUpdatePointRuleRequestDTOList struct {
-	// 奖励积分1～100
-	AwardScore *int64 `json:"awardScore,omitempty" xml:"awardScore,omitempty"`
-	// 行为名称 不支持修改
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 单日计次上限 1～10
-	DayLimitTimes *int64 `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
-	// 生效状态：0无效，1有效
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	AwardScore    *int64  `json:"awardScore,omitempty" xml:"awardScore,omitempty"`
+	Code          *string `json:"code,omitempty" xml:"code,omitempty"`
+	DayLimitTimes *int64  `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
+	Status        *int64  `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s UpdatePointActionAutoAssignRuleRequestUpdatePointRuleRequestDTOList) String() string {
@@ -2652,8 +2588,9 @@ func (s *UpdatePointActionAutoAssignRuleResponseBody) SetSuccess(v bool) *Update
 }
 
 type UpdatePointActionAutoAssignRuleResponse struct {
-	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdatePointActionAutoAssignRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdatePointActionAutoAssignRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdatePointActionAutoAssignRuleResponse) String() string {
@@ -2666,6 +2603,11 @@ func (s UpdatePointActionAutoAssignRuleResponse) GoString() string {
 
 func (s *UpdatePointActionAutoAssignRuleResponse) SetHeaders(v map[string]*string) *UpdatePointActionAutoAssignRuleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdatePointActionAutoAssignRuleResponse) SetStatusCode(v int32) *UpdatePointActionAutoAssignRuleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2698,10 +2640,8 @@ func (s *WearOrgHonorHeaders) SetXAcsDingtalkAccessToken(v string) *WearOrgHonor
 }
 
 type WearOrgHonorRequest struct {
-	// 员工userid
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 佩戴true，卸下false
-	Wear *bool `json:"wear,omitempty" xml:"wear,omitempty"`
+	Wear   *bool   `json:"wear,omitempty" xml:"wear,omitempty"`
 }
 
 func (s WearOrgHonorRequest) String() string {
@@ -2763,8 +2703,9 @@ func (s *WearOrgHonorResponseBodyResult) SetHonorId(v string) *WearOrgHonorRespo
 }
 
 type WearOrgHonorResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *WearOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WearOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s WearOrgHonorResponse) String() string {
@@ -2777,6 +2718,11 @@ func (s WearOrgHonorResponse) GoString() string {
 
 func (s *WearOrgHonorResponse) SetHeaders(v map[string]*string) *WearOrgHonorResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *WearOrgHonorResponse) SetStatusCode(v int32) *WearOrgHonorResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2800,24 +2746,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) AssignOrgHoldingToEmpHoldingBatch(request *AssignOrgHoldingToEmpHoldingBatchRequest) (_result *AssignOrgHoldingToEmpHoldingBatchResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AssignOrgHoldingToEmpHoldingBatchHeaders{}
-	_result = &AssignOrgHoldingToEmpHoldingBatchResponse{}
-	_body, _err := client.AssignOrgHoldingToEmpHoldingBatchWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) AssignOrgHoldingToEmpHoldingBatchWithOptions(request *AssignOrgHoldingToEmpHoldingBatchRequest, headers *AssignOrgHoldingToEmpHoldingBatchHeaders, runtime *util.RuntimeOptions) (_result *AssignOrgHoldingToEmpHoldingBatchResponse, _err error) {
@@ -2863,8 +2803,19 @@ func (client *Client) AssignOrgHoldingToEmpHoldingBatchWithOptions(request *Assi
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AssignOrgHoldingToEmpHoldingBatch"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/organizations/points/assign"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AssignOrgHoldingToEmpHoldingBatchResponse{}
-	_body, _err := client.DoROARequest(tea.String("AssignOrgHoldingToEmpHoldingBatch"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/organizations/points/assign"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2872,11 +2823,11 @@ func (client *Client) AssignOrgHoldingToEmpHoldingBatchWithOptions(request *Assi
 	return _result, _err
 }
 
-func (client *Client) ConsumeUserPoints(userId *string, request *ConsumeUserPointsRequest) (_result *ConsumeUserPointsResponse, _err error) {
+func (client *Client) AssignOrgHoldingToEmpHoldingBatch(request *AssignOrgHoldingToEmpHoldingBatchRequest) (_result *AssignOrgHoldingToEmpHoldingBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ConsumeUserPointsHeaders{}
-	_result = &ConsumeUserPointsResponse{}
-	_body, _err := client.ConsumeUserPointsWithOptions(userId, request, headers, runtime)
+	headers := &AssignOrgHoldingToEmpHoldingBatchHeaders{}
+	_result = &AssignOrgHoldingToEmpHoldingBatchResponse{}
+	_body, _err := client.AssignOrgHoldingToEmpHoldingBatchWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2889,7 +2840,6 @@ func (client *Client) ConsumeUserPointsWithOptions(userId *string, request *Cons
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Amount)) {
 		body["amount"] = request.Amount
@@ -2920,8 +2870,19 @@ func (client *Client) ConsumeUserPointsWithOptions(userId *string, request *Cons
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ConsumeUserPoints"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/users/" + tea.StringValue(userId) + "/points/deduct"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ConsumeUserPointsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ConsumeUserPoints"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/"+tea.StringValue(userId)+"/points/deduct"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2929,11 +2890,11 @@ func (client *Client) ConsumeUserPointsWithOptions(userId *string, request *Cons
 	return _result, _err
 }
 
-func (client *Client) CreateOrgHonor(request *CreateOrgHonorRequest) (_result *CreateOrgHonorResponse, _err error) {
+func (client *Client) ConsumeUserPoints(userId *string, request *ConsumeUserPointsRequest) (_result *ConsumeUserPointsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateOrgHonorHeaders{}
-	_result = &CreateOrgHonorResponse{}
-	_body, _err := client.CreateOrgHonorWithOptions(request, headers, runtime)
+	headers := &ConsumeUserPointsHeaders{}
+	_result = &ConsumeUserPointsResponse{}
+	_body, _err := client.ConsumeUserPointsWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2984,8 +2945,19 @@ func (client *Client) CreateOrgHonorWithOptions(request *CreateOrgHonorRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateOrgHonor"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/honors/templates"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateOrgHonorResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateOrgHonor"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/honors/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2993,11 +2965,11 @@ func (client *Client) CreateOrgHonorWithOptions(request *CreateOrgHonorRequest, 
 	return _result, _err
 }
 
-func (client *Client) DeductionPointBatch(request *DeductionPointBatchRequest) (_result *DeductionPointBatchResponse, _err error) {
+func (client *Client) CreateOrgHonor(request *CreateOrgHonorRequest) (_result *CreateOrgHonorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeductionPointBatchHeaders{}
-	_result = &DeductionPointBatchResponse{}
-	_body, _err := client.DeductionPointBatchWithOptions(request, headers, runtime)
+	headers := &CreateOrgHonorHeaders{}
+	_result = &CreateOrgHonorResponse{}
+	_body, _err := client.CreateOrgHonorWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3044,8 +3016,19 @@ func (client *Client) DeductionPointBatchWithOptions(request *DeductionPointBatc
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeductionPointBatch"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/users/points/deduct"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeductionPointBatchResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeductionPointBatch"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/points/deduct"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3053,11 +3036,11 @@ func (client *Client) DeductionPointBatchWithOptions(request *DeductionPointBatc
 	return _result, _err
 }
 
-func (client *Client) ExportPointOpen(request *ExportPointOpenRequest) (_result *ExportPointOpenResponse, _err error) {
+func (client *Client) DeductionPointBatch(request *DeductionPointBatchRequest) (_result *DeductionPointBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ExportPointOpenHeaders{}
-	_result = &ExportPointOpenResponse{}
-	_body, _err := client.ExportPointOpenWithOptions(request, headers, runtime)
+	headers := &DeductionPointBatchHeaders{}
+	_result = &DeductionPointBatchResponse{}
+	_body, _err := client.DeductionPointBatchWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3096,8 +3079,19 @@ func (client *Client) ExportPointOpenWithOptions(request *ExportPointOpenRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ExportPointOpen"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/users/points/export"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ExportPointOpenResponse{}
-	_body, _err := client.DoROARequest(tea.String("ExportPointOpen"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/points/export"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3105,11 +3099,11 @@ func (client *Client) ExportPointOpenWithOptions(request *ExportPointOpenRequest
 	return _result, _err
 }
 
-func (client *Client) GrantHonor(honorId *string, request *GrantHonorRequest) (_result *GrantHonorResponse, _err error) {
+func (client *Client) ExportPointOpen(request *ExportPointOpenRequest) (_result *ExportPointOpenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GrantHonorHeaders{}
-	_result = &GrantHonorResponse{}
-	_body, _err := client.GrantHonorWithOptions(honorId, request, headers, runtime)
+	headers := &ExportPointOpenHeaders{}
+	_result = &ExportPointOpenResponse{}
+	_body, _err := client.ExportPointOpenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3122,7 +3116,6 @@ func (client *Client) GrantHonorWithOptions(honorId *string, request *GrantHonor
 	if _err != nil {
 		return _result, _err
 	}
-	honorId = openapiutil.GetEncodeParam(honorId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ExpirationTime)) {
 		body["expirationTime"] = request.ExpirationTime
@@ -3169,8 +3162,19 @@ func (client *Client) GrantHonorWithOptions(honorId *string, request *GrantHonor
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GrantHonor"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/honors/" + tea.StringValue(honorId) + "/grant"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GrantHonorResponse{}
-	_body, _err := client.DoROARequest(tea.String("GrantHonor"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/honors/"+tea.StringValue(honorId)+"/grant"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3178,11 +3182,11 @@ func (client *Client) GrantHonorWithOptions(honorId *string, request *GrantHonor
 	return _result, _err
 }
 
-func (client *Client) QueryCorpPoints(request *QueryCorpPointsRequest) (_result *QueryCorpPointsResponse, _err error) {
+func (client *Client) GrantHonor(honorId *string, request *GrantHonorRequest) (_result *GrantHonorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryCorpPointsHeaders{}
-	_result = &QueryCorpPointsResponse{}
-	_body, _err := client.QueryCorpPointsWithOptions(request, headers, runtime)
+	headers := &GrantHonorHeaders{}
+	_result = &GrantHonorResponse{}
+	_body, _err := client.GrantHonorWithOptions(honorId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3213,8 +3217,19 @@ func (client *Client) QueryCorpPointsWithOptions(request *QueryCorpPointsRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCorpPoints"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/organizations/points"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryCorpPointsResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCorpPoints"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/orgCulture/organizations/points"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3222,11 +3237,11 @@ func (client *Client) QueryCorpPointsWithOptions(request *QueryCorpPointsRequest
 	return _result, _err
 }
 
-func (client *Client) QueryEmpPointDetails(request *QueryEmpPointDetailsRequest) (_result *QueryEmpPointDetailsResponse, _err error) {
+func (client *Client) QueryCorpPoints(request *QueryCorpPointsRequest) (_result *QueryCorpPointsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryEmpPointDetailsHeaders{}
-	_result = &QueryEmpPointDetailsResponse{}
-	_body, _err := client.QueryEmpPointDetailsWithOptions(request, headers, runtime)
+	headers := &QueryCorpPointsHeaders{}
+	_result = &QueryCorpPointsResponse{}
+	_body, _err := client.QueryCorpPointsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3265,8 +3280,19 @@ func (client *Client) QueryEmpPointDetailsWithOptions(request *QueryEmpPointDeta
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryEmpPointDetails"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/points/empDetails"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryEmpPointDetailsResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryEmpPointDetails"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/orgCulture/points/empDetails"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3274,11 +3300,11 @@ func (client *Client) QueryEmpPointDetailsWithOptions(request *QueryEmpPointDeta
 	return _result, _err
 }
 
-func (client *Client) QueryOrgHonors(request *QueryOrgHonorsRequest) (_result *QueryOrgHonorsResponse, _err error) {
+func (client *Client) QueryEmpPointDetails(request *QueryEmpPointDetailsRequest) (_result *QueryEmpPointDetailsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryOrgHonorsHeaders{}
-	_result = &QueryOrgHonorsResponse{}
-	_body, _err := client.QueryOrgHonorsWithOptions(request, headers, runtime)
+	headers := &QueryEmpPointDetailsHeaders{}
+	_result = &QueryEmpPointDetailsResponse{}
+	_body, _err := client.QueryEmpPointDetailsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3313,8 +3339,19 @@ func (client *Client) QueryOrgHonorsWithOptions(request *QueryOrgHonorsRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryOrgHonors"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/organizations/honors"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryOrgHonorsResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryOrgHonors"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/orgCulture/organizations/honors"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3322,11 +3359,11 @@ func (client *Client) QueryOrgHonorsWithOptions(request *QueryOrgHonorsRequest, 
 	return _result, _err
 }
 
-func (client *Client) QueryOrgPointDetails(request *QueryOrgPointDetailsRequest) (_result *QueryOrgPointDetailsResponse, _err error) {
+func (client *Client) QueryOrgHonors(request *QueryOrgHonorsRequest) (_result *QueryOrgHonorsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryOrgPointDetailsHeaders{}
-	_result = &QueryOrgPointDetailsResponse{}
-	_body, _err := client.QueryOrgPointDetailsWithOptions(request, headers, runtime)
+	headers := &QueryOrgHonorsHeaders{}
+	_result = &QueryOrgHonorsResponse{}
+	_body, _err := client.QueryOrgHonorsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3369,8 +3406,19 @@ func (client *Client) QueryOrgPointDetailsWithOptions(request *QueryOrgPointDeta
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryOrgPointDetails"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/points/orgDetails"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryOrgPointDetailsResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryOrgPointDetails"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/orgCulture/points/orgDetails"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3378,11 +3426,11 @@ func (client *Client) QueryOrgPointDetailsWithOptions(request *QueryOrgPointDeta
 	return _result, _err
 }
 
-func (client *Client) QueryPointActionAutoAssignRule() (_result *QueryPointActionAutoAssignRuleResponse, _err error) {
+func (client *Client) QueryOrgPointDetails(request *QueryOrgPointDetailsRequest) (_result *QueryOrgPointDetailsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryPointActionAutoAssignRuleHeaders{}
-	_result = &QueryPointActionAutoAssignRuleResponse{}
-	_body, _err := client.QueryPointActionAutoAssignRuleWithOptions(headers, runtime)
+	headers := &QueryOrgPointDetailsHeaders{}
+	_result = &QueryOrgPointDetailsResponse{}
+	_body, _err := client.QueryOrgPointDetailsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3403,8 +3451,19 @@ func (client *Client) QueryPointActionAutoAssignRuleWithOptions(headers *QueryPo
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPointActionAutoAssignRule"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/users/points/actionRules"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryPointActionAutoAssignRuleResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryPointActionAutoAssignRule"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/points/actionRules"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3412,11 +3471,11 @@ func (client *Client) QueryPointActionAutoAssignRuleWithOptions(headers *QueryPo
 	return _result, _err
 }
 
-func (client *Client) QueryPointAutoIssueSetting() (_result *QueryPointAutoIssueSettingResponse, _err error) {
+func (client *Client) QueryPointActionAutoAssignRule() (_result *QueryPointActionAutoAssignRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryPointAutoIssueSettingHeaders{}
-	_result = &QueryPointAutoIssueSettingResponse{}
-	_body, _err := client.QueryPointAutoIssueSettingWithOptions(headers, runtime)
+	headers := &QueryPointActionAutoAssignRuleHeaders{}
+	_result = &QueryPointActionAutoAssignRuleResponse{}
+	_body, _err := client.QueryPointActionAutoAssignRuleWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3437,8 +3496,19 @@ func (client *Client) QueryPointAutoIssueSettingWithOptions(headers *QueryPointA
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPointAutoIssueSetting"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/users/points"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryPointAutoIssueSettingResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryPointAutoIssueSetting"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/points"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3446,11 +3516,11 @@ func (client *Client) QueryPointAutoIssueSettingWithOptions(headers *QueryPointA
 	return _result, _err
 }
 
-func (client *Client) QueryUserHonors(userId *string, request *QueryUserHonorsRequest) (_result *QueryUserHonorsResponse, _err error) {
+func (client *Client) QueryPointAutoIssueSetting() (_result *QueryPointAutoIssueSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryUserHonorsHeaders{}
-	_result = &QueryUserHonorsResponse{}
-	_body, _err := client.QueryUserHonorsWithOptions(userId, request, headers, runtime)
+	headers := &QueryPointAutoIssueSettingHeaders{}
+	_result = &QueryPointAutoIssueSettingResponse{}
+	_body, _err := client.QueryPointAutoIssueSettingWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3463,7 +3533,6 @@ func (client *Client) QueryUserHonorsWithOptions(userId *string, request *QueryU
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -3486,8 +3555,64 @@ func (client *Client) QueryUserHonorsWithOptions(userId *string, request *QueryU
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUserHonors"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/honors/users/" + tea.StringValue(userId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryUserHonorsResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryUserHonors"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/orgCulture/honors/users/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryUserHonors(userId *string, request *QueryUserHonorsRequest) (_result *QueryUserHonorsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserHonorsHeaders{}
+	_result = &QueryUserHonorsResponse{}
+	_body, _err := client.QueryUserHonorsWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUserPointsWithOptions(userId *string, headers *QueryUserPointsHeaders, runtime *util.RuntimeOptions) (_result *QueryUserPointsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUserPoints"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/users/" + tea.StringValue(userId) + "/points"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryUserPointsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3507,47 +3632,11 @@ func (client *Client) QueryUserPoints(userId *string) (_result *QueryUserPointsR
 	return _result, _err
 }
 
-func (client *Client) QueryUserPointsWithOptions(userId *string, headers *QueryUserPointsHeaders, runtime *util.RuntimeOptions) (_result *QueryUserPointsResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &QueryUserPointsResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryUserPoints"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/"+tea.StringValue(userId)+"/points"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) RecallHonor(honorId *string, request *RecallHonorRequest) (_result *RecallHonorResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &RecallHonorHeaders{}
-	_result = &RecallHonorResponse{}
-	_body, _err := client.RecallHonorWithOptions(honorId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) RecallHonorWithOptions(honorId *string, request *RecallHonorRequest, headers *RecallHonorHeaders, runtime *util.RuntimeOptions) (_result *RecallHonorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	honorId = openapiutil.GetEncodeParam(honorId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
@@ -3566,8 +3655,19 @@ func (client *Client) RecallHonorWithOptions(honorId *string, request *RecallHon
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RecallHonor"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/honors/" + tea.StringValue(honorId) + "/recall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RecallHonorResponse{}
-	_body, _err := client.DoROARequest(tea.String("RecallHonor"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/honors/"+tea.StringValue(honorId)+"/recall"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3575,11 +3675,11 @@ func (client *Client) RecallHonorWithOptions(honorId *string, request *RecallHon
 	return _result, _err
 }
 
-func (client *Client) UpdateAutoIssuePoint(request *UpdateAutoIssuePointRequest) (_result *UpdateAutoIssuePointResponse, _err error) {
+func (client *Client) RecallHonor(honorId *string, request *RecallHonorRequest) (_result *RecallHonorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateAutoIssuePointHeaders{}
-	_result = &UpdateAutoIssuePointResponse{}
-	_body, _err := client.UpdateAutoIssuePointWithOptions(request, headers, runtime)
+	headers := &RecallHonorHeaders{}
+	_result = &RecallHonorResponse{}
+	_body, _err := client.RecallHonorWithOptions(honorId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3622,8 +3722,19 @@ func (client *Client) UpdateAutoIssuePointWithOptions(request *UpdateAutoIssuePo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateAutoIssuePoint"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/users/points/set"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateAutoIssuePointResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateAutoIssuePoint"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/points/set"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3631,11 +3742,11 @@ func (client *Client) UpdateAutoIssuePointWithOptions(request *UpdateAutoIssuePo
 	return _result, _err
 }
 
-func (client *Client) UpdatePointActionAutoAssignRule(request *UpdatePointActionAutoAssignRuleRequest) (_result *UpdatePointActionAutoAssignRuleResponse, _err error) {
+func (client *Client) UpdateAutoIssuePoint(request *UpdateAutoIssuePointRequest) (_result *UpdateAutoIssuePointResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdatePointActionAutoAssignRuleHeaders{}
-	_result = &UpdatePointActionAutoAssignRuleResponse{}
-	_body, _err := client.UpdatePointActionAutoAssignRuleWithOptions(request, headers, runtime)
+	headers := &UpdateAutoIssuePointHeaders{}
+	_result = &UpdateAutoIssuePointResponse{}
+	_body, _err := client.UpdateAutoIssuePointWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3670,8 +3781,19 @@ func (client *Client) UpdatePointActionAutoAssignRuleWithOptions(request *Update
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdatePointActionAutoAssignRule"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/users/points/actionRules"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdatePointActionAutoAssignRuleResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdatePointActionAutoAssignRule"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/points/actionRules"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3679,11 +3801,11 @@ func (client *Client) UpdatePointActionAutoAssignRuleWithOptions(request *Update
 	return _result, _err
 }
 
-func (client *Client) WearOrgHonor(honorId *string, request *WearOrgHonorRequest) (_result *WearOrgHonorResponse, _err error) {
+func (client *Client) UpdatePointActionAutoAssignRule(request *UpdatePointActionAutoAssignRuleRequest) (_result *UpdatePointActionAutoAssignRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &WearOrgHonorHeaders{}
-	_result = &WearOrgHonorResponse{}
-	_body, _err := client.WearOrgHonorWithOptions(honorId, request, headers, runtime)
+	headers := &UpdatePointActionAutoAssignRuleHeaders{}
+	_result = &UpdatePointActionAutoAssignRuleResponse{}
+	_body, _err := client.UpdatePointActionAutoAssignRuleWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3696,7 +3818,6 @@ func (client *Client) WearOrgHonorWithOptions(honorId *string, request *WearOrgH
 	if _err != nil {
 		return _result, _err
 	}
-	honorId = openapiutil.GetEncodeParam(honorId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
@@ -3719,11 +3840,34 @@ func (client *Client) WearOrgHonorWithOptions(honorId *string, request *WearOrgH
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("WearOrgHonor"),
+		Version:     tea.String("orgCulture_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/orgCulture/honors/" + tea.StringValue(honorId) + "/wear"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &WearOrgHonorResponse{}
-	_body, _err := client.DoROARequest(tea.String("WearOrgHonor"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/honors/"+tea.StringValue(honorId)+"/wear"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) WearOrgHonor(honorId *string, request *WearOrgHonorRequest) (_result *WearOrgHonorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &WearOrgHonorHeaders{}
+	_result = &WearOrgHonorResponse{}
+	_body, _err := client.WearOrgHonorWithOptions(honorId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

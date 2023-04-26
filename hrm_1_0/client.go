@@ -5,9 +5,11 @@
 package hrm_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,13 +37,12 @@ func (s *AddHrmPreentryHeaders) SetXAcsDingtalkAccessToken(v string) *AddHrmPree
 }
 
 type AddHrmPreentryRequest struct {
-	AgentId *int64                         `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	Groups  []*AddHrmPreentryRequestGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
-	Mobile  *string                        `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	Name    *string                        `json:"name,omitempty" xml:"name,omitempty"`
-	// 是否需要发送完善入职登记表的入职IM消息给员工本人
-	NeedSendPreEntryMsg *bool  `json:"needSendPreEntryMsg,omitempty" xml:"needSendPreEntryMsg,omitempty"`
-	PreEntryTime        *int64 `json:"preEntryTime,omitempty" xml:"preEntryTime,omitempty"`
+	AgentId             *int64                         `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	Groups              []*AddHrmPreentryRequestGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
+	Mobile              *string                        `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Name                *string                        `json:"name,omitempty" xml:"name,omitempty"`
+	NeedSendPreEntryMsg *bool                          `json:"needSendPreEntryMsg,omitempty" xml:"needSendPreEntryMsg,omitempty"`
+	PreEntryTime        *int64                         `json:"preEntryTime,omitempty" xml:"preEntryTime,omitempty"`
 }
 
 func (s AddHrmPreentryRequest) String() string {
@@ -152,7 +153,6 @@ func (s *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) SetValue(v string) *
 }
 
 type AddHrmPreentryResponseBody struct {
-	// result
 	TmpUserId *string `json:"tmpUserId,omitempty" xml:"tmpUserId,omitempty"`
 }
 
@@ -170,8 +170,9 @@ func (s *AddHrmPreentryResponseBody) SetTmpUserId(v string) *AddHrmPreentryRespo
 }
 
 type AddHrmPreentryResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddHrmPreentryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddHrmPreentryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddHrmPreentryResponse) String() string {
@@ -184,6 +185,11 @@ func (s AddHrmPreentryResponse) GoString() string {
 
 func (s *AddHrmPreentryResponse) SetHeaders(v map[string]*string) *AddHrmPreentryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddHrmPreentryResponse) SetStatusCode(v int32) *AddHrmPreentryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -216,7 +222,6 @@ func (s *ECertQueryHeaders) SetXAcsDingtalkAccessToken(v string) *ECertQueryHead
 }
 
 type ECertQueryRequest struct {
-	// 用户ID
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -234,35 +239,20 @@ func (s *ECertQueryRequest) SetUserId(v string) *ECertQueryRequest {
 }
 
 type ECertQueryResponseBody struct {
-	// 身份证号码
-	CertNO *string `json:"certNO,omitempty" xml:"certNO,omitempty"`
-	// 职务ID
-	EmployJobId *string `json:"employJobId,omitempty" xml:"employJobId,omitempty"`
-	// 职务名称
-	EmployJobIdLabel *string `json:"employJobIdLabel,omitempty" xml:"employJobIdLabel,omitempty"`
-	// 职位ID
-	EmployPositionId *string `json:"employPositionId,omitempty" xml:"employPositionId,omitempty"`
-	// 职位名称
-	EmployPositionIdLabel *string `json:"employPositionIdLabel,omitempty" xml:"employPositionIdLabel,omitempty"`
-	// 职级ID
-	EmployPositionRankId *string `json:"employPositionRankId,omitempty" xml:"employPositionRankId,omitempty"`
-	// 职级名称
-	EmployPositionRankIdLabel *string `json:"employPositionRankIdLabel,omitempty" xml:"employPositionRankIdLabel,omitempty"`
-	// 入职日期
-	HiredDate *string `json:"hiredDate,omitempty" xml:"hiredDate,omitempty"`
-	// 离职日期
-	LastWorkDay *string `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
-	// 主部门ID
-	MainDeptId *int64 `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
-	// 主部门
-	MainDeptName *string `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
-	// 姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 身份证姓名
-	RealName *string `json:"realName,omitempty" xml:"realName,omitempty"`
-	// 被动离职原因
-	TerminationReasonPassive []*string `json:"terminationReasonPassive,omitempty" xml:"terminationReasonPassive,omitempty" type:"Repeated"`
-	// 主动离职原因
+	CertNO                     *string   `json:"certNO,omitempty" xml:"certNO,omitempty"`
+	EmployJobId                *string   `json:"employJobId,omitempty" xml:"employJobId,omitempty"`
+	EmployJobIdLabel           *string   `json:"employJobIdLabel,omitempty" xml:"employJobIdLabel,omitempty"`
+	EmployPositionId           *string   `json:"employPositionId,omitempty" xml:"employPositionId,omitempty"`
+	EmployPositionIdLabel      *string   `json:"employPositionIdLabel,omitempty" xml:"employPositionIdLabel,omitempty"`
+	EmployPositionRankId       *string   `json:"employPositionRankId,omitempty" xml:"employPositionRankId,omitempty"`
+	EmployPositionRankIdLabel  *string   `json:"employPositionRankIdLabel,omitempty" xml:"employPositionRankIdLabel,omitempty"`
+	HiredDate                  *string   `json:"hiredDate,omitempty" xml:"hiredDate,omitempty"`
+	LastWorkDay                *string   `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
+	MainDeptId                 *int64    `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
+	MainDeptName               *string   `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
+	Name                       *string   `json:"name,omitempty" xml:"name,omitempty"`
+	RealName                   *string   `json:"realName,omitempty" xml:"realName,omitempty"`
+	TerminationReasonPassive   []*string `json:"terminationReasonPassive,omitempty" xml:"terminationReasonPassive,omitempty" type:"Repeated"`
 	TerminationReasonVoluntary []*string `json:"terminationReasonVoluntary,omitempty" xml:"terminationReasonVoluntary,omitempty" type:"Repeated"`
 }
 
@@ -350,8 +340,9 @@ func (s *ECertQueryResponseBody) SetTerminationReasonVoluntary(v []*string) *ECe
 }
 
 type ECertQueryResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ECertQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ECertQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ECertQueryResponse) String() string {
@@ -364,6 +355,11 @@ func (s ECertQueryResponse) GoString() string {
 
 func (s *ECertQueryResponse) SetHeaders(v map[string]*string) *ECertQueryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ECertQueryResponse) SetStatusCode(v int32) *ECertQueryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -396,14 +392,10 @@ func (s *HrmProcessRegularHeaders) SetXAcsDingtalkAccessToken(v string) *HrmProc
 }
 
 type HrmProcessRegularRequest struct {
-	// 操作人用户ID
 	OperationId *string `json:"operationId,omitempty" xml:"operationId,omitempty"`
-	// 转正时间
-	RegularDate *int64 `json:"regularDate,omitempty" xml:"regularDate,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 用户ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	RegularDate *int64  `json:"regularDate,omitempty" xml:"regularDate,omitempty"`
+	Remark      *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s HrmProcessRegularRequest) String() string {
@@ -452,8 +444,9 @@ func (s *HrmProcessRegularResponseBody) SetResult(v bool) *HrmProcessRegularResp
 }
 
 type HrmProcessRegularResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *HrmProcessRegularResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *HrmProcessRegularResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s HrmProcessRegularResponse) String() string {
@@ -466,6 +459,11 @@ func (s HrmProcessRegularResponse) GoString() string {
 
 func (s *HrmProcessRegularResponse) SetHeaders(v map[string]*string) *HrmProcessRegularResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *HrmProcessRegularResponse) SetStatusCode(v int32) *HrmProcessRegularResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -498,24 +496,15 @@ func (s *HrmProcessTransferHeaders) SetXAcsDingtalkAccessToken(v string) *HrmPro
 }
 
 type HrmProcessTransferRequest struct {
-	// 员工调岗后的部门id列表
-	DeptIdsAfterTransfer []*int64 `json:"deptIdsAfterTransfer,omitempty" xml:"deptIdsAfterTransfer,omitempty" type:"Repeated"`
-	// 员工调岗后的职务id
-	JobIdAfterTransfer *string `json:"jobIdAfterTransfer,omitempty" xml:"jobIdAfterTransfer,omitempty"`
-	// 员工调岗后的人事主部门id
-	MainDeptIdAfterTransfer *int64 `json:"mainDeptIdAfterTransfer,omitempty" xml:"mainDeptIdAfterTransfer,omitempty"`
-	// 操作人
-	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
-	// 员工调岗后的职位id，参数同时有职位名称以及id，以id为准
-	PositionIdAfterTransfer *string `json:"positionIdAfterTransfer,omitempty" xml:"positionIdAfterTransfer,omitempty"`
-	// 员工调岗后的职级名称，长度不超过64，参数同时有职级名称以及id，以id为准
-	PositionLevelAfterTransfer *string `json:"positionLevelAfterTransfer,omitempty" xml:"positionLevelAfterTransfer,omitempty"`
-	// 员工调岗后的职位名称，长度不超过124，参数同时有职位名称以及id，以id为准
-	PositionNameAfterTransfer *string `json:"positionNameAfterTransfer,omitempty" xml:"positionNameAfterTransfer,omitempty"`
-	// 员工调岗后的职级id，参数同时有职级名称以及id，以id为准
-	RankIdAfterTransfer *string `json:"rankIdAfterTransfer,omitempty" xml:"rankIdAfterTransfer,omitempty"`
-	// 被调岗员工userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	DeptIdsAfterTransfer       []*int64 `json:"deptIdsAfterTransfer,omitempty" xml:"deptIdsAfterTransfer,omitempty" type:"Repeated"`
+	JobIdAfterTransfer         *string  `json:"jobIdAfterTransfer,omitempty" xml:"jobIdAfterTransfer,omitempty"`
+	MainDeptIdAfterTransfer    *int64   `json:"mainDeptIdAfterTransfer,omitempty" xml:"mainDeptIdAfterTransfer,omitempty"`
+	OperateUserId              *string  `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	PositionIdAfterTransfer    *string  `json:"positionIdAfterTransfer,omitempty" xml:"positionIdAfterTransfer,omitempty"`
+	PositionLevelAfterTransfer *string  `json:"positionLevelAfterTransfer,omitempty" xml:"positionLevelAfterTransfer,omitempty"`
+	PositionNameAfterTransfer  *string  `json:"positionNameAfterTransfer,omitempty" xml:"positionNameAfterTransfer,omitempty"`
+	RankIdAfterTransfer        *string  `json:"rankIdAfterTransfer,omitempty" xml:"rankIdAfterTransfer,omitempty"`
+	UserId                     *string  `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s HrmProcessTransferRequest) String() string {
@@ -572,7 +561,6 @@ func (s *HrmProcessTransferRequest) SetUserId(v string) *HrmProcessTransferReque
 }
 
 type HrmProcessTransferResponseBody struct {
-	// 是否转岗成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -590,8 +578,9 @@ func (s *HrmProcessTransferResponseBody) SetResult(v bool) *HrmProcessTransferRe
 }
 
 type HrmProcessTransferResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *HrmProcessTransferResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *HrmProcessTransferResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s HrmProcessTransferResponse) String() string {
@@ -604,6 +593,11 @@ func (s HrmProcessTransferResponse) GoString() string {
 
 func (s *HrmProcessTransferResponse) SetHeaders(v map[string]*string) *HrmProcessTransferResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *HrmProcessTransferResponse) SetStatusCode(v int32) *HrmProcessTransferResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -636,12 +630,9 @@ func (s *HrmProcessUpdateTerminationInfoHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type HrmProcessUpdateTerminationInfoRequest struct {
-	// 离职备注
 	DismissionMemo *string `json:"dismissionMemo,omitempty" xml:"dismissionMemo,omitempty"`
-	// 最后工作日(离职日期)
-	LastWorkDate *int64 `json:"lastWorkDate,omitempty" xml:"lastWorkDate,omitempty"`
-	// 员工id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	LastWorkDate   *int64  `json:"lastWorkDate,omitempty" xml:"lastWorkDate,omitempty"`
+	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s HrmProcessUpdateTerminationInfoRequest) String() string {
@@ -668,7 +659,6 @@ func (s *HrmProcessUpdateTerminationInfoRequest) SetUserId(v string) *HrmProcess
 }
 
 type HrmProcessUpdateTerminationInfoResponseBody struct {
-	// 是否更新成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -686,8 +676,9 @@ func (s *HrmProcessUpdateTerminationInfoResponseBody) SetResult(v bool) *HrmProc
 }
 
 type HrmProcessUpdateTerminationInfoResponse struct {
-	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *HrmProcessUpdateTerminationInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *HrmProcessUpdateTerminationInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s HrmProcessUpdateTerminationInfoResponse) String() string {
@@ -700,6 +691,11 @@ func (s HrmProcessUpdateTerminationInfoResponse) GoString() string {
 
 func (s *HrmProcessUpdateTerminationInfoResponse) SetHeaders(v map[string]*string) *HrmProcessUpdateTerminationInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *HrmProcessUpdateTerminationInfoResponse) SetStatusCode(v int32) *HrmProcessUpdateTerminationInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -732,24 +728,15 @@ func (s *MasterDataQueryHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDat
 }
 
 type MasterDataQueryRequest struct {
-	// 数据唯一键
-	BizUK *string `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
-	// 分页查询每页数据条数
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页查询的游标
-	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 当前操作人userId
-	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
-	// 其他查询条件
-	QueryParams []*MasterDataQueryRequestQueryParams `json:"queryParams,omitempty" xml:"queryParams,omitempty" type:"Repeated"`
-	// 关联id列表，一般为userId
-	RelationIds []*string `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
-	// 领域code 由钉钉分配
-	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
-	// 数据生产方的租户id，由钉钉分配
-	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
-	// 实体code
-	ViewEntityCode *string `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+	BizUK          *string                              `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
+	MaxResults     *int32                               `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *int32                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OptUserId      *string                              `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	QueryParams    []*MasterDataQueryRequestQueryParams `json:"queryParams,omitempty" xml:"queryParams,omitempty" type:"Repeated"`
+	RelationIds    []*string                            `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
+	ScopeCode      *string                              `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	TenantId       *int64                               `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	ViewEntityCode *string                              `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
 }
 
 func (s MasterDataQueryRequest) String() string {
@@ -806,12 +793,9 @@ func (s *MasterDataQueryRequest) SetViewEntityCode(v string) *MasterDataQueryReq
 }
 
 type MasterDataQueryRequestQueryParams struct {
-	// 筛选条件
 	ConditionList []*MasterDataQueryRequestQueryParamsConditionList `json:"conditionList,omitempty" xml:"conditionList,omitempty" type:"Repeated"`
-	// 需要筛选的字段
-	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	// 筛选条件连接类型
-	JoinType *string `json:"joinType,omitempty" xml:"joinType,omitempty"`
+	FieldCode     *string                                           `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	JoinType      *string                                           `json:"joinType,omitempty" xml:"joinType,omitempty"`
 }
 
 func (s MasterDataQueryRequestQueryParams) String() string {
@@ -838,10 +822,8 @@ func (s *MasterDataQueryRequestQueryParams) SetJoinType(v string) *MasterDataQue
 }
 
 type MasterDataQueryRequestQueryParamsConditionList struct {
-	// 字段关系符
 	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
-	// 操作值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	Value   *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s MasterDataQueryRequestQueryParamsConditionList) String() string {
@@ -863,16 +845,11 @@ func (s *MasterDataQueryRequestQueryParamsConditionList) SetValue(v string) *Mas
 }
 
 type MasterDataQueryResponseBody struct {
-	// 是否还有更多
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 分页游标
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 结果
-	Result []*MasterDataQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-	// 总条目数
-	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+	HasMore   *bool                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *int64                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*MasterDataQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success   *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+	Total     *int64                               `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s MasterDataQueryResponseBody) String() string {
@@ -909,15 +886,10 @@ func (s *MasterDataQueryResponseBody) SetTotal(v int64) *MasterDataQueryResponse
 }
 
 type MasterDataQueryResponseBodyResult struct {
-	// 唯一id
-	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
-	// 关联id列表，一般为userId
-	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
-	// 领域
-	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
-	// 编码
-	ViewEntityCode *string `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
-	// 字段列表
+	OuterId               *string                                                   `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	RelationId            *string                                                   `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	ScopeCode             *string                                                   `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	ViewEntityCode        *string                                                   `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
 	ViewEntityFieldVOList []*MasterDataQueryResponseBodyResultViewEntityFieldVOList `json:"viewEntityFieldVOList,omitempty" xml:"viewEntityFieldVOList,omitempty" type:"Repeated"`
 }
 
@@ -955,14 +927,10 @@ func (s *MasterDataQueryResponseBodyResult) SetViewEntityFieldVOList(v []*Master
 }
 
 type MasterDataQueryResponseBodyResultViewEntityFieldVOList struct {
-	// 字段code
-	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	// 字段值
+	FieldCode   *string                                                            `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
 	FieldDataVO *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO `json:"fieldDataVO,omitempty" xml:"fieldDataVO,omitempty" type:"Struct"`
-	// 字段名称
-	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	// 字段类型
-	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	FieldName   *string                                                            `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldType   *string                                                            `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
 }
 
 func (s MasterDataQueryResponseBodyResultViewEntityFieldVOList) String() string {
@@ -994,9 +962,7 @@ func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOList) SetFieldType(v 
 }
 
 type MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO struct {
-	// 字段值的key
-	Key *string `json:"key,omitempty" xml:"key,omitempty"`
-	// 字段值的文本
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -1019,8 +985,9 @@ func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) SetV
 }
 
 type MasterDataQueryResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *MasterDataQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *MasterDataQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s MasterDataQueryResponse) String() string {
@@ -1033,6 +1000,11 @@ func (s MasterDataQueryResponse) GoString() string {
 
 func (s *MasterDataQueryResponse) SetHeaders(v map[string]*string) *MasterDataQueryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *MasterDataQueryResponse) SetStatusCode(v int32) *MasterDataQueryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1065,10 +1037,8 @@ func (s *MasterDataSaveHeaders) SetXAcsDingtalkAccessToken(v string) *MasterData
 }
 
 type MasterDataSaveRequest struct {
-	// 主数据
-	Body []*MasterDataSaveRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	// 租户id
-	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	Body     []*MasterDataSaveRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	TenantId *int64                       `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
 }
 
 func (s MasterDataSaveRequest) String() string {
@@ -1090,18 +1060,12 @@ func (s *MasterDataSaveRequest) SetTenantId(v int64) *MasterDataSaveRequest {
 }
 
 type MasterDataSaveRequestBody struct {
-	// 数据变更时间戳，用以保证更新操作的顺序性
-	BizTime *int64 `json:"bizTime,omitempty" xml:"bizTime,omitempty"`
-	// 数据流水唯一标识，如流水号，用以唯一确认一条写入数据
-	BizUk *string `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
-	// 业务域下的细分领域实体
-	EntityCode *string `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
-	// 数据字段列表
-	FieldList []*MasterDataSaveRequestBodyFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
-	// 业务域描述，系统分配
-	Scope *MasterDataSaveRequestBodyScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
-	// 员工id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	BizTime    *int64                                `json:"bizTime,omitempty" xml:"bizTime,omitempty"`
+	BizUk      *string                               `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
+	EntityCode *string                               `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
+	FieldList  []*MasterDataSaveRequestBodyFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
+	Scope      *MasterDataSaveRequestBodyScope       `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+	UserId     *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s MasterDataSaveRequestBody) String() string {
@@ -1143,9 +1107,7 @@ func (s *MasterDataSaveRequestBody) SetUserId(v string) *MasterDataSaveRequestBo
 }
 
 type MasterDataSaveRequestBodyFieldList struct {
-	// 字段名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 字段string值
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
 	ValueStr *string `json:"valueStr,omitempty" xml:"valueStr,omitempty"`
 }
 
@@ -1168,10 +1130,8 @@ func (s *MasterDataSaveRequestBodyFieldList) SetValueStr(v string) *MasterDataSa
 }
 
 type MasterDataSaveRequestBodyScope struct {
-	// 业务域code，如PERFORMANCE，系统分配
 	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
-	// 业务域版本，接入时系统分配，默认传1
-	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
+	Version   *int32  `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s MasterDataSaveRequestBodyScope) String() string {
@@ -1193,9 +1153,7 @@ func (s *MasterDataSaveRequestBodyScope) SetVersion(v int32) *MasterDataSaveRequ
 }
 
 type MasterDataSaveResponseBody struct {
-	// 是否全部保存成功
-	AllSuccess *bool `json:"allSuccess,omitempty" xml:"allSuccess,omitempty"`
-	// 保存失败的结果，全部保存成功时为空
+	AllSuccess *bool                                   `json:"allSuccess,omitempty" xml:"allSuccess,omitempty"`
 	FailResult []*MasterDataSaveResponseBodyFailResult `json:"failResult,omitempty" xml:"failResult,omitempty" type:"Repeated"`
 }
 
@@ -1218,14 +1176,10 @@ func (s *MasterDataSaveResponseBody) SetFailResult(v []*MasterDataSaveResponseBo
 }
 
 type MasterDataSaveResponseBodyFailResult struct {
-	// 业务流水唯一标识，和入参一致
-	BizUk *string `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
-	// 错误码
+	BizUk     *string `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
 	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	// 错误信息
-	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s MasterDataSaveResponseBodyFailResult) String() string {
@@ -1257,8 +1211,9 @@ func (s *MasterDataSaveResponseBodyFailResult) SetSuccess(v bool) *MasterDataSav
 }
 
 type MasterDataSaveResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *MasterDataSaveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *MasterDataSaveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s MasterDataSaveResponse) String() string {
@@ -1271,6 +1226,11 @@ func (s MasterDataSaveResponse) GoString() string {
 
 func (s *MasterDataSaveResponse) SetHeaders(v map[string]*string) *MasterDataSaveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *MasterDataSaveResponse) SetStatusCode(v int32) *MasterDataSaveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1303,10 +1263,8 @@ func (s *MasterDataTenantQueyHeaders) SetXAcsDingtalkAccessToken(v string) *Mast
 }
 
 type MasterDataTenantQueyRequest struct {
-	// 实体 code
 	EntityCode *string `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
-	// isv的业务领域
-	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	ScopeCode  *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
 }
 
 func (s MasterDataTenantQueyRequest) String() string {
@@ -1345,18 +1303,12 @@ func (s *MasterDataTenantQueyResponseBody) SetResult(v []*MasterDataTenantQueyRe
 }
 
 type MasterDataTenantQueyResponseBodyResult struct {
-	// 该租户是否已向主数据同步数据
-	HasData *bool `json:"hasData,omitempty" xml:"hasData,omitempty"`
-	// 该租户是否有向主数据写数据的权限
-	IntegrateDataAuth *bool `json:"integrateDataAuth,omitempty" xml:"integrateDataAuth,omitempty"`
-	// 租户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 调用方是否有读该租户数据的权限
-	ReadAuth *bool `json:"readAuth,omitempty" xml:"readAuth,omitempty"`
-	// 租户 id
-	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
-	// 租户类型
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	HasData           *bool   `json:"hasData,omitempty" xml:"hasData,omitempty"`
+	IntegrateDataAuth *bool   `json:"integrateDataAuth,omitempty" xml:"integrateDataAuth,omitempty"`
+	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
+	ReadAuth          *bool   `json:"readAuth,omitempty" xml:"readAuth,omitempty"`
+	TenantId          *int64  `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	Type              *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s MasterDataTenantQueyResponseBodyResult) String() string {
@@ -1398,8 +1350,9 @@ func (s *MasterDataTenantQueyResponseBodyResult) SetType(v int32) *MasterDataTen
 }
 
 type MasterDataTenantQueyResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *MasterDataTenantQueyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *MasterDataTenantQueyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s MasterDataTenantQueyResponse) String() string {
@@ -1412,6 +1365,11 @@ func (s MasterDataTenantQueyResponse) GoString() string {
 
 func (s *MasterDataTenantQueyResponse) SetHeaders(v map[string]*string) *MasterDataTenantQueyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *MasterDataTenantQueyResponse) SetStatusCode(v int32) *MasterDataTenantQueyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1444,11 +1402,8 @@ func (s *QueryCustomEntryProcessesHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryCustomEntryProcessesRequest struct {
-	// 最大值
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 偏移量
-	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 操作人id
+	MaxResults    *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken     *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
 }
 
@@ -1476,12 +1431,9 @@ func (s *QueryCustomEntryProcessesRequest) SetOperateUserId(v string) *QueryCust
 }
 
 type QueryCustomEntryProcessesResponseBody struct {
-	// 是否有更多
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 表单信息列表
-	List []*QueryCustomEntryProcessesResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 下次获取数据的起始游标
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*QueryCustomEntryProcessesResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *int64                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryCustomEntryProcessesResponseBody) String() string {
@@ -1543,8 +1495,9 @@ func (s *QueryCustomEntryProcessesResponseBodyList) SetShortUrl(v string) *Query
 }
 
 type QueryCustomEntryProcessesResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryCustomEntryProcessesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryCustomEntryProcessesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryCustomEntryProcessesResponse) String() string {
@@ -1557,6 +1510,11 @@ func (s QueryCustomEntryProcessesResponse) GoString() string {
 
 func (s *QueryCustomEntryProcessesResponse) SetHeaders(v map[string]*string) *QueryCustomEntryProcessesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesResponse) SetStatusCode(v int32) *QueryCustomEntryProcessesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1589,10 +1547,8 @@ func (s *QueryDismissionStaffIdListHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryDismissionStaffIdListRequest struct {
-	// 单页查询最大条目数， 最大50
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页查询的游标， 首次查询时传入0， 后续查询使用上一次接口返回的nextToken
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	NextToken  *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryDismissionStaffIdListRequest) String() string {
@@ -1643,8 +1599,9 @@ func (s *QueryDismissionStaffIdListResponseBody) SetUserIdList(v []*string) *Que
 }
 
 type QueryDismissionStaffIdListResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryDismissionStaffIdListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryDismissionStaffIdListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryDismissionStaffIdListResponse) String() string {
@@ -1657,6 +1614,11 @@ func (s QueryDismissionStaffIdListResponse) GoString() string {
 
 func (s *QueryDismissionStaffIdListResponse) SetHeaders(v map[string]*string) *QueryDismissionStaffIdListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryDismissionStaffIdListResponse) SetStatusCode(v int32) *QueryDismissionStaffIdListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1689,7 +1651,6 @@ func (s *QueryHrmEmployeeDismissionInfoHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryHrmEmployeeDismissionInfoRequest struct {
-	// 员工 ids
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
@@ -1707,7 +1668,6 @@ func (s *QueryHrmEmployeeDismissionInfoRequest) SetUserIdList(v []*string) *Quer
 }
 
 type QueryHrmEmployeeDismissionInfoShrinkRequest struct {
-	// 员工 ids
 	UserIdListShrink *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
 }
 
@@ -1725,7 +1685,6 @@ func (s *QueryHrmEmployeeDismissionInfoShrinkRequest) SetUserIdListShrink(v stri
 }
 
 type QueryHrmEmployeeDismissionInfoResponseBody struct {
-	// 名称列表
 	Result []*QueryHrmEmployeeDismissionInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -1743,28 +1702,17 @@ func (s *QueryHrmEmployeeDismissionInfoResponseBody) SetResult(v []*QueryHrmEmpl
 }
 
 type QueryHrmEmployeeDismissionInfoResponseBodyResult struct {
-	// 离职部门列表
-	DeptList []*QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList `json:"deptList,omitempty" xml:"deptList,omitempty" type:"Repeated"`
-	// 离职交接人
-	HandoverUserId *string `json:"handoverUserId,omitempty" xml:"handoverUserId,omitempty"`
-	// 最后工作日
-	LastWorkDay *int64 `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
-	// 离职前主部门id
-	MainDeptId *int64 `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
-	// 离职前主部门名称
-	MainDeptName *string `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
-	// 离职原因-被动
-	PassiveReason []*string `json:"passiveReason,omitempty" xml:"passiveReason,omitempty" type:"Repeated"`
-	// 离职前工作状态：1，待入职；2，试用期；3，正式
-	PreStatus *int32 `json:"preStatus,omitempty" xml:"preStatus,omitempty"`
-	// 离职原因备注
-	ReasonMemo *string `json:"reasonMemo,omitempty" xml:"reasonMemo,omitempty"`
-	// 离职状态：1，待离职；2，已离职
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 员工id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 离职原因-主动
-	VoluntaryReason []*string `json:"voluntaryReason,omitempty" xml:"voluntaryReason,omitempty" type:"Repeated"`
+	DeptList        []*QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList `json:"deptList,omitempty" xml:"deptList,omitempty" type:"Repeated"`
+	HandoverUserId  *string                                                     `json:"handoverUserId,omitempty" xml:"handoverUserId,omitempty"`
+	LastWorkDay     *int64                                                      `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
+	MainDeptId      *int64                                                      `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
+	MainDeptName    *string                                                     `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
+	PassiveReason   []*string                                                   `json:"passiveReason,omitempty" xml:"passiveReason,omitempty" type:"Repeated"`
+	PreStatus       *int32                                                      `json:"preStatus,omitempty" xml:"preStatus,omitempty"`
+	ReasonMemo      *string                                                     `json:"reasonMemo,omitempty" xml:"reasonMemo,omitempty"`
+	Status          *int32                                                      `json:"status,omitempty" xml:"status,omitempty"`
+	UserId          *string                                                     `json:"userId,omitempty" xml:"userId,omitempty"`
+	VoluntaryReason []*string                                                   `json:"voluntaryReason,omitempty" xml:"voluntaryReason,omitempty" type:"Repeated"`
 }
 
 func (s QueryHrmEmployeeDismissionInfoResponseBodyResult) String() string {
@@ -1831,9 +1779,7 @@ func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetVoluntaryReason(v 
 }
 
 type QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList struct {
-	// 部门id
-	DeptId *int64 `json:"dept_id,omitempty" xml:"dept_id,omitempty"`
-	// 部门路径
+	DeptId   *int64  `json:"dept_id,omitempty" xml:"dept_id,omitempty"`
 	DeptPath *string `json:"dept_path,omitempty" xml:"dept_path,omitempty"`
 }
 
@@ -1856,8 +1802,9 @@ func (s *QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList) SetDeptPath(v
 }
 
 type QueryHrmEmployeeDismissionInfoResponse struct {
-	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryHrmEmployeeDismissionInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryHrmEmployeeDismissionInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryHrmEmployeeDismissionInfoResponse) String() string {
@@ -1870,6 +1817,11 @@ func (s QueryHrmEmployeeDismissionInfoResponse) GoString() string {
 
 func (s *QueryHrmEmployeeDismissionInfoResponse) SetHeaders(v map[string]*string) *QueryHrmEmployeeDismissionInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponse) SetStatusCode(v int32) *QueryHrmEmployeeDismissionInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1902,16 +1854,11 @@ func (s *QueryJobRanksHeaders) SetXAcsDingtalkAccessToken(v string) *QueryJobRan
 }
 
 type QueryJobRanksRequest struct {
-	// 本次读取的最大数据记录数量
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 标记当前开始读取的位置
-	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 职级序列
+	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	RankCategoryId *string `json:"rankCategoryId,omitempty" xml:"rankCategoryId,omitempty"`
-	// 职级编码
-	RankCode *string `json:"rankCode,omitempty" xml:"rankCode,omitempty"`
-	// 职级名称
-	RankName *string `json:"rankName,omitempty" xml:"rankName,omitempty"`
+	RankCode       *string `json:"rankCode,omitempty" xml:"rankCode,omitempty"`
+	RankName       *string `json:"rankName,omitempty" xml:"rankName,omitempty"`
 }
 
 func (s QueryJobRanksRequest) String() string {
@@ -1948,12 +1895,9 @@ func (s *QueryJobRanksRequest) SetRankName(v string) *QueryJobRanksRequest {
 }
 
 type QueryJobRanksResponseBody struct {
-	// 是否有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 职级列表
-	List []*QueryJobRanksResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 表示当前调用返回读取到的位置，空代表数据已经读取完毕
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*QueryJobRanksResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *int64                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryJobRanksResponseBody) String() string {
@@ -1980,20 +1924,13 @@ func (s *QueryJobRanksResponseBody) SetNextToken(v int64) *QueryJobRanksResponse
 }
 
 type QueryJobRanksResponseBodyList struct {
-	// 最大等级
-	MaxJobGrade *int32 `json:"maxJobGrade,omitempty" xml:"maxJobGrade,omitempty"`
-	// 最小等级
-	MinJobGrade *int32 `json:"minJobGrade,omitempty" xml:"minJobGrade,omitempty"`
-	// 职级序列ID
-	RankCategoryId *string `json:"rankCategoryId,omitempty" xml:"rankCategoryId,omitempty"`
-	// 职级编码
-	RankCode *string `json:"rankCode,omitempty" xml:"rankCode,omitempty"`
-	// 职级描述
+	MaxJobGrade     *int32  `json:"maxJobGrade,omitempty" xml:"maxJobGrade,omitempty"`
+	MinJobGrade     *int32  `json:"minJobGrade,omitempty" xml:"minJobGrade,omitempty"`
+	RankCategoryId  *string `json:"rankCategoryId,omitempty" xml:"rankCategoryId,omitempty"`
+	RankCode        *string `json:"rankCode,omitempty" xml:"rankCode,omitempty"`
 	RankDescription *string `json:"rankDescription,omitempty" xml:"rankDescription,omitempty"`
-	// 职级ID
-	RankId *string `json:"rankId,omitempty" xml:"rankId,omitempty"`
-	// 职级名称
-	RankName *string `json:"rankName,omitempty" xml:"rankName,omitempty"`
+	RankId          *string `json:"rankId,omitempty" xml:"rankId,omitempty"`
+	RankName        *string `json:"rankName,omitempty" xml:"rankName,omitempty"`
 }
 
 func (s QueryJobRanksResponseBodyList) String() string {
@@ -2040,8 +1977,9 @@ func (s *QueryJobRanksResponseBodyList) SetRankName(v string) *QueryJobRanksResp
 }
 
 type QueryJobRanksResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryJobRanksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryJobRanksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryJobRanksResponse) String() string {
@@ -2054,6 +1992,11 @@ func (s QueryJobRanksResponse) GoString() string {
 
 func (s *QueryJobRanksResponse) SetHeaders(v map[string]*string) *QueryJobRanksResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryJobRanksResponse) SetStatusCode(v int32) *QueryJobRanksResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2086,12 +2029,9 @@ func (s *QueryJobsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryJobsHeader
 }
 
 type QueryJobsRequest struct {
-	// 职务名称
-	JobName *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
-	// 最大值
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 偏移量
-	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	JobName    *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryJobsRequest) String() string {
@@ -2118,12 +2058,9 @@ func (s *QueryJobsRequest) SetNextToken(v int32) *QueryJobsRequest {
 }
 
 type QueryJobsResponseBody struct {
-	// 是否有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 职务列表
-	List []*QueryJobsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 下次获取数据的起始游标
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*QueryJobsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *int64                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryJobsResponseBody) String() string {
@@ -2150,12 +2087,9 @@ func (s *QueryJobsResponseBody) SetNextToken(v int64) *QueryJobsResponseBody {
 }
 
 type QueryJobsResponseBodyList struct {
-	// 职务描述
 	JobDescription *string `json:"jobDescription,omitempty" xml:"jobDescription,omitempty"`
-	// 职务ID
-	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
-	// 职务名称
-	JobName *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
+	JobId          *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+	JobName        *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
 }
 
 func (s QueryJobsResponseBodyList) String() string {
@@ -2182,8 +2116,9 @@ func (s *QueryJobsResponseBodyList) SetJobName(v string) *QueryJobsResponseBodyL
 }
 
 type QueryJobsResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryJobsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryJobsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryJobsResponse) String() string {
@@ -2196,6 +2131,11 @@ func (s QueryJobsResponse) GoString() string {
 
 func (s *QueryJobsResponse) SetHeaders(v map[string]*string) *QueryJobsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryJobsResponse) SetStatusCode(v int32) *QueryJobsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2228,18 +2168,12 @@ func (s *QueryPositionsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPosit
 }
 
 type QueryPositionsRequest struct {
-	// 部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 职位类别列表
+	DeptId        *int64    `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	InCategoryIds []*string `json:"inCategoryIds,omitempty" xml:"inCategoryIds,omitempty" type:"Repeated"`
-	// 职位id列表
 	InPositionIds []*string `json:"inPositionIds,omitempty" xml:"inPositionIds,omitempty" type:"Repeated"`
-	// 职位名称
-	PositionName *string `json:"positionName,omitempty" xml:"positionName,omitempty"`
-	// 一次查询获取记录数
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 偏移量
-	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	PositionName  *string   `json:"positionName,omitempty" xml:"positionName,omitempty"`
+	MaxResults    *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken     *int32    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryPositionsRequest) String() string {
@@ -2281,12 +2215,9 @@ func (s *QueryPositionsRequest) SetNextToken(v int32) *QueryPositionsRequest {
 }
 
 type QueryPositionsResponseBody struct {
-	// 是否有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 职位列表
-	List []*QueryPositionsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 表示当前调用返回读取到的位置，空代表数据已经读取完毕
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*QueryPositionsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *int64                            `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryPositionsResponseBody) String() string {
@@ -2313,20 +2244,13 @@ func (s *QueryPositionsResponseBody) SetNextToken(v int64) *QueryPositionsRespon
 }
 
 type QueryPositionsResponseBodyList struct {
-	// 所属职务ID
-	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
-	// 职位类别ID
-	PositionCategoryId *string `json:"positionCategoryId,omitempty" xml:"positionCategoryId,omitempty"`
-	// 职位描述
-	PositionDes *string `json:"positionDes,omitempty" xml:"positionDes,omitempty"`
-	// 职位ID
-	PositionId *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
-	// 职位名称
-	PositionName *string `json:"positionName,omitempty" xml:"positionName,omitempty"`
-	// 职位对应职级列表
-	RankIdList []*string `json:"rankIdList,omitempty" xml:"rankIdList,omitempty" type:"Repeated"`
-	// 职位状态-0，启用；1，停用
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	JobId              *string   `json:"jobId,omitempty" xml:"jobId,omitempty"`
+	PositionCategoryId *string   `json:"positionCategoryId,omitempty" xml:"positionCategoryId,omitempty"`
+	PositionDes        *string   `json:"positionDes,omitempty" xml:"positionDes,omitempty"`
+	PositionId         *string   `json:"positionId,omitempty" xml:"positionId,omitempty"`
+	PositionName       *string   `json:"positionName,omitempty" xml:"positionName,omitempty"`
+	RankIdList         []*string `json:"rankIdList,omitempty" xml:"rankIdList,omitempty" type:"Repeated"`
+	Status             *int32    `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryPositionsResponseBodyList) String() string {
@@ -2373,8 +2297,9 @@ func (s *QueryPositionsResponseBodyList) SetStatus(v int32) *QueryPositionsRespo
 }
 
 type QueryPositionsResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryPositionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryPositionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryPositionsResponse) String() string {
@@ -2387,6 +2312,11 @@ func (s QueryPositionsResponse) GoString() string {
 
 func (s *QueryPositionsResponse) SetHeaders(v map[string]*string) *QueryPositionsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryPositionsResponse) SetStatusCode(v int32) *QueryPositionsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2419,7 +2349,6 @@ func (s *RosterMetaAvailableFieldListHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type RosterMetaAvailableFieldListRequest struct {
-	// 应用的agentId
 	AppAgentId *int64 `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
 }
 
@@ -2454,11 +2383,8 @@ func (s *RosterMetaAvailableFieldListResponseBody) SetResult(v []*RosterMetaAvai
 }
 
 type RosterMetaAvailableFieldListResponseBodyResult struct {
-	// 字段标识
 	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	// 字段名称
 	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	// 字段类型
 	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
 }
 
@@ -2486,8 +2412,9 @@ func (s *RosterMetaAvailableFieldListResponseBodyResult) SetFieldType(v string) 
 }
 
 type RosterMetaAvailableFieldListResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RosterMetaAvailableFieldListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RosterMetaAvailableFieldListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RosterMetaAvailableFieldListResponse) String() string {
@@ -2500,6 +2427,11 @@ func (s RosterMetaAvailableFieldListResponse) GoString() string {
 
 func (s *RosterMetaAvailableFieldListResponse) SetHeaders(v map[string]*string) *RosterMetaAvailableFieldListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RosterMetaAvailableFieldListResponse) SetStatusCode(v int32) *RosterMetaAvailableFieldListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2532,15 +2464,11 @@ func (s *RosterMetaFieldOptionsUpdateHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type RosterMetaFieldOptionsUpdateRequest struct {
-	AppAgentId *int64 `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
-	// 字段fieldCode
-	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	// 花名册分组id
-	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 需要修改的选项值
-	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
-	// 修改类型，OPTIONS_ADD选项添加，OPTIONS_DELETE选项删除
-	ModifyType *string `json:"modifyType,omitempty" xml:"modifyType,omitempty"`
+	AppAgentId *int64    `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
+	FieldCode  *string   `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	GroupId    *string   `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	Labels     []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	ModifyType *string   `json:"modifyType,omitempty" xml:"modifyType,omitempty"`
 }
 
 func (s RosterMetaFieldOptionsUpdateRequest) String() string {
@@ -2594,8 +2522,9 @@ func (s *RosterMetaFieldOptionsUpdateResponseBody) SetResult(v bool) *RosterMeta
 }
 
 type RosterMetaFieldOptionsUpdateResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RosterMetaFieldOptionsUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RosterMetaFieldOptionsUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RosterMetaFieldOptionsUpdateResponse) String() string {
@@ -2608,6 +2537,11 @@ func (s RosterMetaFieldOptionsUpdateResponse) GoString() string {
 
 func (s *RosterMetaFieldOptionsUpdateResponse) SetHeaders(v map[string]*string) *RosterMetaFieldOptionsUpdateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RosterMetaFieldOptionsUpdateResponse) SetStatusCode(v int32) *RosterMetaFieldOptionsUpdateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2640,23 +2574,14 @@ func (s *SolutionTaskInitHeaders) SetXAcsDingtalkAccessToken(v string) *Solution
 }
 
 type SolutionTaskInitRequest struct {
-	// 任务业务模块，如training, performance等
-	Category *string `json:"category,omitempty" xml:"category,omitempty"`
-	// 任务要求的截止时间
-	ClaimTime *int64 `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
-	// 任务描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 任务完成时间
-	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	// 外部的任务唯一标识
-	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
-	// 任务状态，如running,finished
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 任务名称
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 任务执行人userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 解决方案类型
+	Category     *string `json:"category,omitempty" xml:"category,omitempty"`
+	ClaimTime    *int64  `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
+	Description  *string `json:"description,omitempty" xml:"description,omitempty"`
+	FinishTime   *int64  `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	OuterId      *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
 }
 
@@ -2714,7 +2639,6 @@ func (s *SolutionTaskInitRequest) SetSolutionType(v string) *SolutionTaskInitReq
 }
 
 type SolutionTaskInitResponseBody struct {
-	// 数据是否初始化成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2732,8 +2656,9 @@ func (s *SolutionTaskInitResponseBody) SetResult(v bool) *SolutionTaskInitRespon
 }
 
 type SolutionTaskInitResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SolutionTaskInitResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SolutionTaskInitResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SolutionTaskInitResponse) String() string {
@@ -2746,6 +2671,11 @@ func (s SolutionTaskInitResponse) GoString() string {
 
 func (s *SolutionTaskInitResponse) SetHeaders(v map[string]*string) *SolutionTaskInitResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SolutionTaskInitResponse) SetStatusCode(v int32) *SolutionTaskInitResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2778,27 +2708,18 @@ func (s *SolutionTaskSaveHeaders) SetXAcsDingtalkAccessToken(v string) *Solution
 }
 
 type SolutionTaskSaveRequest struct {
-	// 任务要求的截止时间
-	ClaimTime *int64 `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
-	// 任务描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 任务完成时间
-	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	// 外部的任务唯一标识
+	ClaimTime          *int64  `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
+	Description        *string `json:"description,omitempty" xml:"description,omitempty"`
+	FinishTime         *int64  `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
 	OuterId            *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
 	SolutionInstanceId *string `json:"solutionInstanceId,omitempty" xml:"solutionInstanceId,omitempty"`
 	StartTime          *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 任务状态，如running,finished
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 任务业务模块，如training, performance等
-	TaskType        *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	TemplateOuterId *string `json:"templateOuterId,omitempty" xml:"templateOuterId,omitempty"`
-	// 任务名称
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 任务执行人userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 解决方案类型
-	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
+	Status             *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskType           *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	TemplateOuterId    *string `json:"templateOuterId,omitempty" xml:"templateOuterId,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	SolutionType       *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
 }
 
 func (s SolutionTaskSaveRequest) String() string {
@@ -2870,7 +2791,6 @@ func (s *SolutionTaskSaveRequest) SetSolutionType(v string) *SolutionTaskSaveReq
 }
 
 type SolutionTaskSaveResponseBody struct {
-	// 数据是否保存成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2888,8 +2808,9 @@ func (s *SolutionTaskSaveResponseBody) SetResult(v bool) *SolutionTaskSaveRespon
 }
 
 type SolutionTaskSaveResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SolutionTaskSaveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SolutionTaskSaveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SolutionTaskSaveResponse) String() string {
@@ -2902,6 +2823,11 @@ func (s SolutionTaskSaveResponse) GoString() string {
 
 func (s *SolutionTaskSaveResponse) SetHeaders(v map[string]*string) *SolutionTaskSaveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SolutionTaskSaveResponse) SetStatusCode(v int32) *SolutionTaskSaveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2934,23 +2860,15 @@ func (s *SyncTaskTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *SyncTask
 }
 
 type SyncTaskTemplateRequest struct {
-	// 是否删除任务模版，true删除，false不删除
-	Delete *bool `json:"delete,omitempty" xml:"delete,omitempty"`
-	// 任务模板描述
-	Des *string `json:"des,omitempty" xml:"des,omitempty"`
-	// 扩展信息，json串
-	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
-	// 模版名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 任务模版创建人staffId
-	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
-	// isv对应的任务模版唯一键
-	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
-	// 圈人规则
-	TaskScopeVO *SyncTaskTemplateRequestTaskScopeVO `json:"taskScopeVO,omitempty" xml:"taskScopeVO,omitempty" type:"Struct"`
-	// 任务模版类型：TRAIN_TASK、PERFORMANCE_TASK
-	TaskType     *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
+	Delete       *bool                               `json:"delete,omitempty" xml:"delete,omitempty"`
+	Des          *string                             `json:"des,omitempty" xml:"des,omitempty"`
+	Ext          *string                             `json:"ext,omitempty" xml:"ext,omitempty"`
+	Name         *string                             `json:"name,omitempty" xml:"name,omitempty"`
+	OptUserId    *string                             `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	OuterId      *string                             `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	TaskScopeVO  *SyncTaskTemplateRequestTaskScopeVO `json:"taskScopeVO,omitempty" xml:"taskScopeVO,omitempty" type:"Struct"`
+	TaskType     *string                             `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	SolutionType *string                             `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
 }
 
 func (s SyncTaskTemplateRequest) String() string {
@@ -3007,14 +2925,10 @@ func (s *SyncTaskTemplateRequest) SetSolutionType(v string) *SyncTaskTemplateReq
 }
 
 type SyncTaskTemplateRequestTaskScopeVO struct {
-	// 按照部门圈人
-	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
-	// 按照职位圈人
+	DeptIds     []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
 	PositionIds []*string `json:"positionIds,omitempty" xml:"positionIds,omitempty" type:"Repeated"`
-	// 按照角色圈人
-	RoleIds []*string `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
-	// 按照员工userId圈人
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	RoleIds     []*string `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	UserIds     []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s SyncTaskTemplateRequestTaskScopeVO) String() string {
@@ -3063,8 +2977,9 @@ func (s *SyncTaskTemplateResponseBody) SetResult(v bool) *SyncTaskTemplateRespon
 }
 
 type SyncTaskTemplateResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SyncTaskTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SyncTaskTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SyncTaskTemplateResponse) String() string {
@@ -3077,6 +2992,11 @@ func (s SyncTaskTemplateResponse) GoString() string {
 
 func (s *SyncTaskTemplateResponse) SetHeaders(v map[string]*string) *SyncTaskTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SyncTaskTemplateResponse) SetStatusCode(v int32) *SyncTaskTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3100,24 +3020,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) AddHrmPreentry(request *AddHrmPreentryRequest) (_result *AddHrmPreentryResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddHrmPreentryHeaders{}
-	_result = &AddHrmPreentryResponse{}
-	_body, _err := client.AddHrmPreentryWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) AddHrmPreentryWithOptions(request *AddHrmPreentryRequest, headers *AddHrmPreentryHeaders, runtime *util.RuntimeOptions) (_result *AddHrmPreentryResponse, _err error) {
@@ -3163,8 +3077,19 @@ func (client *Client) AddHrmPreentryWithOptions(request *AddHrmPreentryRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddHrmPreentry"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/preentries"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddHrmPreentryResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddHrmPreentry"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/preentries"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3172,11 +3097,11 @@ func (client *Client) AddHrmPreentryWithOptions(request *AddHrmPreentryRequest, 
 	return _result, _err
 }
 
-func (client *Client) ECertQuery(request *ECertQueryRequest) (_result *ECertQueryResponse, _err error) {
+func (client *Client) AddHrmPreentry(request *AddHrmPreentryRequest) (_result *AddHrmPreentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ECertQueryHeaders{}
-	_result = &ECertQueryResponse{}
-	_body, _err := client.ECertQueryWithOptions(request, headers, runtime)
+	headers := &AddHrmPreentryHeaders{}
+	_result = &AddHrmPreentryResponse{}
+	_body, _err := client.AddHrmPreentryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3207,8 +3132,19 @@ func (client *Client) ECertQueryWithOptions(request *ECertQueryRequest, headers 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ECertQuery"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/eCerts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ECertQueryResponse{}
-	_body, _err := client.DoROARequest(tea.String("ECertQuery"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/eCerts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3216,11 +3152,11 @@ func (client *Client) ECertQueryWithOptions(request *ECertQueryRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) HrmProcessRegular(request *HrmProcessRegularRequest) (_result *HrmProcessRegularResponse, _err error) {
+func (client *Client) ECertQuery(request *ECertQueryRequest) (_result *ECertQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &HrmProcessRegularHeaders{}
-	_result = &HrmProcessRegularResponse{}
-	_body, _err := client.HrmProcessRegularWithOptions(request, headers, runtime)
+	headers := &ECertQueryHeaders{}
+	_result = &ECertQueryResponse{}
+	_body, _err := client.ECertQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3263,8 +3199,19 @@ func (client *Client) HrmProcessRegularWithOptions(request *HrmProcessRegularReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmProcessRegular"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/processes/regulars/become"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &HrmProcessRegularResponse{}
-	_body, _err := client.DoROARequest(tea.String("HrmProcessRegular"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/processes/regulars/become"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3272,11 +3219,11 @@ func (client *Client) HrmProcessRegularWithOptions(request *HrmProcessRegularReq
 	return _result, _err
 }
 
-func (client *Client) HrmProcessTransfer(request *HrmProcessTransferRequest) (_result *HrmProcessTransferResponse, _err error) {
+func (client *Client) HrmProcessRegular(request *HrmProcessRegularRequest) (_result *HrmProcessRegularResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &HrmProcessTransferHeaders{}
-	_result = &HrmProcessTransferResponse{}
-	_body, _err := client.HrmProcessTransferWithOptions(request, headers, runtime)
+	headers := &HrmProcessRegularHeaders{}
+	_result = &HrmProcessRegularResponse{}
+	_body, _err := client.HrmProcessRegularWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3339,8 +3286,19 @@ func (client *Client) HrmProcessTransferWithOptions(request *HrmProcessTransferR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmProcessTransfer"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/processes/transfer"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &HrmProcessTransferResponse{}
-	_body, _err := client.DoROARequest(tea.String("HrmProcessTransfer"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/processes/transfer"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3348,11 +3306,11 @@ func (client *Client) HrmProcessTransferWithOptions(request *HrmProcessTransferR
 	return _result, _err
 }
 
-func (client *Client) HrmProcessUpdateTerminationInfo(request *HrmProcessUpdateTerminationInfoRequest) (_result *HrmProcessUpdateTerminationInfoResponse, _err error) {
+func (client *Client) HrmProcessTransfer(request *HrmProcessTransferRequest) (_result *HrmProcessTransferResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &HrmProcessUpdateTerminationInfoHeaders{}
-	_result = &HrmProcessUpdateTerminationInfoResponse{}
-	_body, _err := client.HrmProcessUpdateTerminationInfoWithOptions(request, headers, runtime)
+	headers := &HrmProcessTransferHeaders{}
+	_result = &HrmProcessTransferResponse{}
+	_body, _err := client.HrmProcessTransferWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3391,8 +3349,19 @@ func (client *Client) HrmProcessUpdateTerminationInfoWithOptions(request *HrmPro
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmProcessUpdateTerminationInfo"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/processes/employees/terminations"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &HrmProcessUpdateTerminationInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("HrmProcessUpdateTerminationInfo"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/hrm/processes/employees/terminations"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3400,11 +3369,11 @@ func (client *Client) HrmProcessUpdateTerminationInfoWithOptions(request *HrmPro
 	return _result, _err
 }
 
-func (client *Client) MasterDataQuery(request *MasterDataQueryRequest) (_result *MasterDataQueryResponse, _err error) {
+func (client *Client) HrmProcessUpdateTerminationInfo(request *HrmProcessUpdateTerminationInfoRequest) (_result *HrmProcessUpdateTerminationInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &MasterDataQueryHeaders{}
-	_result = &MasterDataQueryResponse{}
-	_body, _err := client.MasterDataQueryWithOptions(request, headers, runtime)
+	headers := &HrmProcessUpdateTerminationInfoHeaders{}
+	_result = &HrmProcessUpdateTerminationInfoResponse{}
+	_body, _err := client.HrmProcessUpdateTerminationInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3467,8 +3436,19 @@ func (client *Client) MasterDataQueryWithOptions(request *MasterDataQueryRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("MasterDataQuery"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/datas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &MasterDataQueryResponse{}
-	_body, _err := client.DoROARequest(tea.String("MasterDataQuery"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/masters/datas/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3476,11 +3456,11 @@ func (client *Client) MasterDataQueryWithOptions(request *MasterDataQueryRequest
 	return _result, _err
 }
 
-func (client *Client) MasterDataSave(request *MasterDataSaveRequest) (_result *MasterDataSaveResponse, _err error) {
+func (client *Client) MasterDataQuery(request *MasterDataQueryRequest) (_result *MasterDataQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &MasterDataSaveHeaders{}
-	_result = &MasterDataSaveResponse{}
-	_body, _err := client.MasterDataSaveWithOptions(request, headers, runtime)
+	headers := &MasterDataQueryHeaders{}
+	_result = &MasterDataQueryResponse{}
+	_body, _err := client.MasterDataQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3512,8 +3492,19 @@ func (client *Client) MasterDataSaveWithOptions(request *MasterDataSaveRequest, 
 		Query:   openapiutil.Query(query),
 		Body:    util.ToArray(request.Body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("MasterDataSave"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/datas/save"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &MasterDataSaveResponse{}
-	_body, _err := client.DoROARequest(tea.String("MasterDataSave"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/masters/datas/save"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3521,11 +3512,11 @@ func (client *Client) MasterDataSaveWithOptions(request *MasterDataSaveRequest, 
 	return _result, _err
 }
 
-func (client *Client) MasterDataTenantQuey(request *MasterDataTenantQueyRequest) (_result *MasterDataTenantQueyResponse, _err error) {
+func (client *Client) MasterDataSave(request *MasterDataSaveRequest) (_result *MasterDataSaveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &MasterDataTenantQueyHeaders{}
-	_result = &MasterDataTenantQueyResponse{}
-	_body, _err := client.MasterDataTenantQueyWithOptions(request, headers, runtime)
+	headers := &MasterDataSaveHeaders{}
+	_result = &MasterDataSaveResponse{}
+	_body, _err := client.MasterDataSaveWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3560,8 +3551,19 @@ func (client *Client) MasterDataTenantQueyWithOptions(request *MasterDataTenantQ
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("MasterDataTenantQuey"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/tenants"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &MasterDataTenantQueyResponse{}
-	_body, _err := client.DoROARequest(tea.String("MasterDataTenantQuey"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/masters/tenants"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3569,11 +3571,11 @@ func (client *Client) MasterDataTenantQueyWithOptions(request *MasterDataTenantQ
 	return _result, _err
 }
 
-func (client *Client) QueryCustomEntryProcesses(request *QueryCustomEntryProcessesRequest) (_result *QueryCustomEntryProcessesResponse, _err error) {
+func (client *Client) MasterDataTenantQuey(request *MasterDataTenantQueyRequest) (_result *MasterDataTenantQueyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryCustomEntryProcessesHeaders{}
-	_result = &QueryCustomEntryProcessesResponse{}
-	_body, _err := client.QueryCustomEntryProcessesWithOptions(request, headers, runtime)
+	headers := &MasterDataTenantQueyHeaders{}
+	_result = &MasterDataTenantQueyResponse{}
+	_body, _err := client.MasterDataTenantQueyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3612,8 +3614,19 @@ func (client *Client) QueryCustomEntryProcessesWithOptions(request *QueryCustomE
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCustomEntryProcesses"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/customEntryProcesses"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryCustomEntryProcessesResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCustomEntryProcesses"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/customEntryProcesses"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3621,11 +3634,11 @@ func (client *Client) QueryCustomEntryProcessesWithOptions(request *QueryCustomE
 	return _result, _err
 }
 
-func (client *Client) QueryDismissionStaffIdList(request *QueryDismissionStaffIdListRequest) (_result *QueryDismissionStaffIdListResponse, _err error) {
+func (client *Client) QueryCustomEntryProcesses(request *QueryCustomEntryProcessesRequest) (_result *QueryCustomEntryProcessesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryDismissionStaffIdListHeaders{}
-	_result = &QueryDismissionStaffIdListResponse{}
-	_body, _err := client.QueryDismissionStaffIdListWithOptions(request, headers, runtime)
+	headers := &QueryCustomEntryProcessesHeaders{}
+	_result = &QueryCustomEntryProcessesResponse{}
+	_body, _err := client.QueryCustomEntryProcessesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3660,8 +3673,19 @@ func (client *Client) QueryDismissionStaffIdListWithOptions(request *QueryDismis
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDismissionStaffIdList"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/employees/dismissions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryDismissionStaffIdListResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryDismissionStaffIdList"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/employees/dismissions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3669,11 +3693,11 @@ func (client *Client) QueryDismissionStaffIdListWithOptions(request *QueryDismis
 	return _result, _err
 }
 
-func (client *Client) QueryHrmEmployeeDismissionInfo(request *QueryHrmEmployeeDismissionInfoRequest) (_result *QueryHrmEmployeeDismissionInfoResponse, _err error) {
+func (client *Client) QueryDismissionStaffIdList(request *QueryDismissionStaffIdListRequest) (_result *QueryDismissionStaffIdListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryHrmEmployeeDismissionInfoHeaders{}
-	_result = &QueryHrmEmployeeDismissionInfoResponse{}
-	_body, _err := client.QueryHrmEmployeeDismissionInfoWithOptions(request, headers, runtime)
+	headers := &QueryDismissionStaffIdListHeaders{}
+	_result = &QueryDismissionStaffIdListResponse{}
+	_body, _err := client.QueryDismissionStaffIdListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3710,8 +3734,19 @@ func (client *Client) QueryHrmEmployeeDismissionInfoWithOptions(tmpReq *QueryHrm
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryHrmEmployeeDismissionInfo"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/employees/dimissionInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryHrmEmployeeDismissionInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryHrmEmployeeDismissionInfo"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/employees/dimissionInfos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3719,11 +3754,11 @@ func (client *Client) QueryHrmEmployeeDismissionInfoWithOptions(tmpReq *QueryHrm
 	return _result, _err
 }
 
-func (client *Client) QueryJobRanks(request *QueryJobRanksRequest) (_result *QueryJobRanksResponse, _err error) {
+func (client *Client) QueryHrmEmployeeDismissionInfo(request *QueryHrmEmployeeDismissionInfoRequest) (_result *QueryHrmEmployeeDismissionInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryJobRanksHeaders{}
-	_result = &QueryJobRanksResponse{}
-	_body, _err := client.QueryJobRanksWithOptions(request, headers, runtime)
+	headers := &QueryHrmEmployeeDismissionInfoHeaders{}
+	_result = &QueryHrmEmployeeDismissionInfoResponse{}
+	_body, _err := client.QueryHrmEmployeeDismissionInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3770,8 +3805,19 @@ func (client *Client) QueryJobRanksWithOptions(request *QueryJobRanksRequest, he
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryJobRanks"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/jobRanks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryJobRanksResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryJobRanks"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/jobRanks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3779,11 +3825,11 @@ func (client *Client) QueryJobRanksWithOptions(request *QueryJobRanksRequest, he
 	return _result, _err
 }
 
-func (client *Client) QueryJobs(request *QueryJobsRequest) (_result *QueryJobsResponse, _err error) {
+func (client *Client) QueryJobRanks(request *QueryJobRanksRequest) (_result *QueryJobRanksResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryJobsHeaders{}
-	_result = &QueryJobsResponse{}
-	_body, _err := client.QueryJobsWithOptions(request, headers, runtime)
+	headers := &QueryJobRanksHeaders{}
+	_result = &QueryJobRanksResponse{}
+	_body, _err := client.QueryJobRanksWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3822,8 +3868,19 @@ func (client *Client) QueryJobsWithOptions(request *QueryJobsRequest, headers *Q
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryJobs"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/jobs"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryJobsResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryJobs"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/jobs"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3831,11 +3888,11 @@ func (client *Client) QueryJobsWithOptions(request *QueryJobsRequest, headers *Q
 	return _result, _err
 }
 
-func (client *Client) QueryPositions(request *QueryPositionsRequest) (_result *QueryPositionsResponse, _err error) {
+func (client *Client) QueryJobs(request *QueryJobsRequest) (_result *QueryJobsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryPositionsHeaders{}
-	_result = &QueryPositionsResponse{}
-	_body, _err := client.QueryPositionsWithOptions(request, headers, runtime)
+	headers := &QueryJobsHeaders{}
+	_result = &QueryJobsResponse{}
+	_body, _err := client.QueryJobsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3888,8 +3945,19 @@ func (client *Client) QueryPositionsWithOptions(request *QueryPositionsRequest, 
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPositions"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/positions/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryPositionsResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryPositions"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/positions/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3897,11 +3965,11 @@ func (client *Client) QueryPositionsWithOptions(request *QueryPositionsRequest, 
 	return _result, _err
 }
 
-func (client *Client) RosterMetaAvailableFieldList(request *RosterMetaAvailableFieldListRequest) (_result *RosterMetaAvailableFieldListResponse, _err error) {
+func (client *Client) QueryPositions(request *QueryPositionsRequest) (_result *QueryPositionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RosterMetaAvailableFieldListHeaders{}
-	_result = &RosterMetaAvailableFieldListResponse{}
-	_body, _err := client.RosterMetaAvailableFieldListWithOptions(request, headers, runtime)
+	headers := &QueryPositionsHeaders{}
+	_result = &QueryPositionsResponse{}
+	_body, _err := client.QueryPositionsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3932,8 +4000,19 @@ func (client *Client) RosterMetaAvailableFieldListWithOptions(request *RosterMet
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RosterMetaAvailableFieldList"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/rosters/meta/authorities/fields"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RosterMetaAvailableFieldListResponse{}
-	_body, _err := client.DoROARequest(tea.String("RosterMetaAvailableFieldList"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/rosters/meta/authorities/fields"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3941,11 +4020,11 @@ func (client *Client) RosterMetaAvailableFieldListWithOptions(request *RosterMet
 	return _result, _err
 }
 
-func (client *Client) RosterMetaFieldOptionsUpdate(request *RosterMetaFieldOptionsUpdateRequest) (_result *RosterMetaFieldOptionsUpdateResponse, _err error) {
+func (client *Client) RosterMetaAvailableFieldList(request *RosterMetaAvailableFieldListRequest) (_result *RosterMetaAvailableFieldListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RosterMetaFieldOptionsUpdateHeaders{}
-	_result = &RosterMetaFieldOptionsUpdateResponse{}
-	_body, _err := client.RosterMetaFieldOptionsUpdateWithOptions(request, headers, runtime)
+	headers := &RosterMetaAvailableFieldListHeaders{}
+	_result = &RosterMetaAvailableFieldListResponse{}
+	_body, _err := client.RosterMetaAvailableFieldListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3994,8 +4073,19 @@ func (client *Client) RosterMetaFieldOptionsUpdateWithOptions(request *RosterMet
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RosterMetaFieldOptionsUpdate"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/rosters/meta/fields/options"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RosterMetaFieldOptionsUpdateResponse{}
-	_body, _err := client.DoROARequest(tea.String("RosterMetaFieldOptionsUpdate"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/hrm/rosters/meta/fields/options"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4003,11 +4093,11 @@ func (client *Client) RosterMetaFieldOptionsUpdateWithOptions(request *RosterMet
 	return _result, _err
 }
 
-func (client *Client) SolutionTaskInit(request *SolutionTaskInitRequest) (_result *SolutionTaskInitResponse, _err error) {
+func (client *Client) RosterMetaFieldOptionsUpdate(request *RosterMetaFieldOptionsUpdateRequest) (_result *RosterMetaFieldOptionsUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SolutionTaskInitHeaders{}
-	_result = &SolutionTaskInitResponse{}
-	_body, _err := client.SolutionTaskInitWithOptions(request, headers, runtime)
+	headers := &RosterMetaFieldOptionsUpdateHeaders{}
+	_result = &RosterMetaFieldOptionsUpdateResponse{}
+	_body, _err := client.RosterMetaFieldOptionsUpdateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4072,8 +4162,19 @@ func (client *Client) SolutionTaskInitWithOptions(request *SolutionTaskInitReque
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SolutionTaskInit"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/solutions/tasks/init"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SolutionTaskInitResponse{}
-	_body, _err := client.DoROARequest(tea.String("SolutionTaskInit"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/init"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4081,11 +4182,11 @@ func (client *Client) SolutionTaskInitWithOptions(request *SolutionTaskInitReque
 	return _result, _err
 }
 
-func (client *Client) SolutionTaskSave(request *SolutionTaskSaveRequest) (_result *SolutionTaskSaveResponse, _err error) {
+func (client *Client) SolutionTaskInit(request *SolutionTaskInitRequest) (_result *SolutionTaskInitResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SolutionTaskSaveHeaders{}
-	_result = &SolutionTaskSaveResponse{}
-	_body, _err := client.SolutionTaskSaveWithOptions(request, headers, runtime)
+	headers := &SolutionTaskInitHeaders{}
+	_result = &SolutionTaskInitResponse{}
+	_body, _err := client.SolutionTaskInitWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4162,8 +4263,19 @@ func (client *Client) SolutionTaskSaveWithOptions(request *SolutionTaskSaveReque
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SolutionTaskSave"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/solutions/tasks/save"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SolutionTaskSaveResponse{}
-	_body, _err := client.DoROARequest(tea.String("SolutionTaskSave"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/save"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4171,11 +4283,11 @@ func (client *Client) SolutionTaskSaveWithOptions(request *SolutionTaskSaveReque
 	return _result, _err
 }
 
-func (client *Client) SyncTaskTemplate(request *SyncTaskTemplateRequest) (_result *SyncTaskTemplateResponse, _err error) {
+func (client *Client) SolutionTaskSave(request *SolutionTaskSaveRequest) (_result *SolutionTaskSaveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SyncTaskTemplateHeaders{}
-	_result = &SyncTaskTemplateResponse{}
-	_body, _err := client.SyncTaskTemplateWithOptions(request, headers, runtime)
+	headers := &SolutionTaskSaveHeaders{}
+	_result = &SolutionTaskSaveResponse{}
+	_body, _err := client.SolutionTaskSaveWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4240,11 +4352,34 @@ func (client *Client) SyncTaskTemplateWithOptions(request *SyncTaskTemplateReque
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncTaskTemplate"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/solutions/tasks/templates/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SyncTaskTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("SyncTaskTemplate"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/templates/sync"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncTaskTemplate(request *SyncTaskTemplateRequest) (_result *SyncTaskTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncTaskTemplateHeaders{}
+	_result = &SyncTaskTemplateResponse{}
+	_body, _err := client.SyncTaskTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

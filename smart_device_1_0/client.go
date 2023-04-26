@@ -5,9 +5,11 @@
 package smart_device_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -52,7 +54,8 @@ func (s *AddDeviceVideoConferenceMembersRequest) SetUserIds(v []*string) *AddDev
 }
 
 type AddDeviceVideoConferenceMembersResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s AddDeviceVideoConferenceMembersResponse) String() string {
@@ -65,6 +68,11 @@ func (s AddDeviceVideoConferenceMembersResponse) GoString() string {
 
 func (s *AddDeviceVideoConferenceMembersResponse) SetHeaders(v map[string]*string) *AddDeviceVideoConferenceMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddDeviceVideoConferenceMembersResponse) SetStatusCode(v int32) *AddDeviceVideoConferenceMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -109,9 +117,7 @@ func (s *CreateDeviceVideoConferenceRequest) SetUserIds(v []*string) *CreateDevi
 }
 
 type CreateDeviceVideoConferenceResponseBody struct {
-	// 入会口令
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 会议id
+	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 }
 
@@ -134,8 +140,9 @@ func (s *CreateDeviceVideoConferenceResponseBody) SetConferenceId(v string) *Cre
 }
 
 type CreateDeviceVideoConferenceResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateDeviceVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateDeviceVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateDeviceVideoConferenceResponse) String() string {
@@ -148,6 +155,11 @@ func (s CreateDeviceVideoConferenceResponse) GoString() string {
 
 func (s *CreateDeviceVideoConferenceResponse) SetHeaders(v map[string]*string) *CreateDeviceVideoConferenceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateDeviceVideoConferenceResponse) SetStatusCode(v int32) *CreateDeviceVideoConferenceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -220,8 +232,9 @@ func (s *ExtractFacialFeatureResponseBody) SetResult(v bool) *ExtractFacialFeatu
 }
 
 type ExtractFacialFeatureResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ExtractFacialFeatureResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ExtractFacialFeatureResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ExtractFacialFeatureResponse) String() string {
@@ -234,6 +247,11 @@ func (s ExtractFacialFeatureResponse) GoString() string {
 
 func (s *ExtractFacialFeatureResponse) SetHeaders(v map[string]*string) *ExtractFacialFeatureResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ExtractFacialFeatureResponse) SetStatusCode(v int32) *ExtractFacialFeatureResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -283,7 +301,8 @@ func (s *KickDeviceVideoConferenceMembersRequest) SetUserIds(v []*string) *KickD
 }
 
 type KickDeviceVideoConferenceMembersResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s KickDeviceVideoConferenceMembersResponse) String() string {
@@ -296,6 +315,11 @@ func (s KickDeviceVideoConferenceMembersResponse) GoString() string {
 
 func (s *KickDeviceVideoConferenceMembersResponse) SetHeaders(v map[string]*string) *KickDeviceVideoConferenceMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *KickDeviceVideoConferenceMembersResponse) SetStatusCode(v int32) *KickDeviceVideoConferenceMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -323,14 +347,10 @@ func (s *MachineManagerUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *Mach
 }
 
 type MachineManagerUpdateRequest struct {
-	// 设备管理员权限点。
 	AtmManagerRightMap *MachineManagerUpdateRequestAtmManagerRightMap `json:"atmManagerRightMap,omitempty" xml:"atmManagerRightMap,omitempty" type:"Struct"`
-	// 设备id。
-	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 权限范围：可管理的部门id列表，-1表示全公司
-	ScopeDeptIds []*int64 `json:"scopeDeptIds,omitempty" xml:"scopeDeptIds,omitempty" type:"Repeated"`
-	// 设备管理员的userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	DeviceId           *int64                                         `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	ScopeDeptIds       []*int64                                       `json:"scopeDeptIds,omitempty" xml:"scopeDeptIds,omitempty" type:"Repeated"`
+	UserId             *string                                        `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s MachineManagerUpdateRequest) String() string {
@@ -362,18 +382,12 @@ func (s *MachineManagerUpdateRequest) SetUserId(v string) *MachineManagerUpdateR
 }
 
 type MachineManagerUpdateRequestAtmManagerRightMap struct {
-	// 添加/删除考勤人员。
 	AttendancePersonManage *bool `json:"attendancePersonManage,omitempty" xml:"attendancePersonManage,omitempty"`
-	// 蓝牙打卡管理。
-	BluetoothPunchManage *bool `json:"bluetoothPunchManage,omitempty" xml:"bluetoothPunchManage,omitempty"`
-	// 设备解绑并重置。
-	DeviceReset *bool `json:"deviceReset,omitempty" xml:"deviceReset,omitempty"`
-	// 设备设置。
-	DeviceSettings *bool `json:"deviceSettings,omitempty" xml:"deviceSettings,omitempty"`
-	// 人脸打卡管理。
-	FacePunchManage *bool `json:"facePunchManage,omitempty" xml:"facePunchManage,omitempty"`
-	// 指纹打卡管理。
-	FingerPunchManage *bool `json:"fingerPunchManage,omitempty" xml:"fingerPunchManage,omitempty"`
+	BluetoothPunchManage   *bool `json:"bluetoothPunchManage,omitempty" xml:"bluetoothPunchManage,omitempty"`
+	DeviceReset            *bool `json:"deviceReset,omitempty" xml:"deviceReset,omitempty"`
+	DeviceSettings         *bool `json:"deviceSettings,omitempty" xml:"deviceSettings,omitempty"`
+	FacePunchManage        *bool `json:"facePunchManage,omitempty" xml:"facePunchManage,omitempty"`
+	FingerPunchManage      *bool `json:"fingerPunchManage,omitempty" xml:"fingerPunchManage,omitempty"`
 }
 
 func (s MachineManagerUpdateRequestAtmManagerRightMap) String() string {
@@ -415,7 +429,8 @@ func (s *MachineManagerUpdateRequestAtmManagerRightMap) SetFingerPunchManage(v b
 }
 
 type MachineManagerUpdateResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s MachineManagerUpdateResponse) String() string {
@@ -428,6 +443,11 @@ func (s MachineManagerUpdateResponse) GoString() string {
 
 func (s *MachineManagerUpdateResponse) SetHeaders(v map[string]*string) *MachineManagerUpdateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *MachineManagerUpdateResponse) SetStatusCode(v int32) *MachineManagerUpdateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -455,18 +475,12 @@ func (s *MachineUsersUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *Machin
 }
 
 type MachineUsersUpdateRequest struct {
-	// 新增的部门id列表
-	AddDeptIds []*int64 `json:"addDeptIds,omitempty" xml:"addDeptIds,omitempty" type:"Repeated"`
-	// 新增的员工id列表
+	AddDeptIds []*int64  `json:"addDeptIds,omitempty" xml:"addDeptIds,omitempty" type:"Repeated"`
 	AddUserIds []*string `json:"addUserIds,omitempty" xml:"addUserIds,omitempty" type:"Repeated"`
-	// 移除的部门id列表
-	DelDeptIds []*int64 `json:"delDeptIds,omitempty" xml:"delDeptIds,omitempty" type:"Repeated"`
-	// 移除的员工id列表
+	DelDeptIds []*int64  `json:"delDeptIds,omitempty" xml:"delDeptIds,omitempty" type:"Repeated"`
 	DelUserIds []*string `json:"delUserIds,omitempty" xml:"delUserIds,omitempty" type:"Repeated"`
-	// 设备唯一标识id列表，Long数组
-	DevIds []*int64 `json:"devIds,omitempty" xml:"devIds,omitempty" type:"Repeated"`
-	// 设备唯一标识id列表，字符串数组
-	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
+	DevIds     []*int64  `json:"devIds,omitempty" xml:"devIds,omitempty" type:"Repeated"`
+	DeviceIds  []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
 func (s MachineUsersUpdateRequest) String() string {
@@ -508,7 +522,8 @@ func (s *MachineUsersUpdateRequest) SetDeviceIds(v []*string) *MachineUsersUpdat
 }
 
 type MachineUsersUpdateResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s MachineUsersUpdateResponse) String() string {
@@ -521,6 +536,11 @@ func (s MachineUsersUpdateResponse) GoString() string {
 
 func (s *MachineUsersUpdateResponse) SetHeaders(v map[string]*string) *MachineUsersUpdateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *MachineUsersUpdateResponse) SetStatusCode(v int32) *MachineUsersUpdateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -548,9 +568,7 @@ func (s *QueryDeviceVideoConferenceBookHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryDeviceVideoConferenceBookResponseBody struct {
-	// 入会口令
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 会议id
+	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 }
 
@@ -573,8 +591,9 @@ func (s *QueryDeviceVideoConferenceBookResponseBody) SetConferenceId(v string) *
 }
 
 type QueryDeviceVideoConferenceBookResponse struct {
-	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryDeviceVideoConferenceBookResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryDeviceVideoConferenceBookResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryDeviceVideoConferenceBookResponse) String() string {
@@ -587,6 +606,11 @@ func (s QueryDeviceVideoConferenceBookResponse) GoString() string {
 
 func (s *QueryDeviceVideoConferenceBookResponse) SetHeaders(v map[string]*string) *QueryDeviceVideoConferenceBookResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryDeviceVideoConferenceBookResponse) SetStatusCode(v int32) *QueryDeviceVideoConferenceBookResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -610,12 +634,61 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
+}
+
+func (client *Client) AddDeviceVideoConferenceMembersWithOptions(deviceId *string, conferenceId *string, request *AddDeviceVideoConferenceMembersRequest, headers *AddDeviceVideoConferenceMembersHeaders, runtime *util.RuntimeOptions) (_result *AddDeviceVideoConferenceMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddDeviceVideoConferenceMembers"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/devices/" + tea.StringValue(deviceId) + "/videoConferences/" + tea.StringValue(conferenceId) + "/members"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("none"),
+	}
+	_result = &AddDeviceVideoConferenceMembersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) AddDeviceVideoConferenceMembers(deviceId *string, conferenceId *string, request *AddDeviceVideoConferenceMembersRequest) (_result *AddDeviceVideoConferenceMembersResponse, _err error) {
@@ -630,13 +703,11 @@ func (client *Client) AddDeviceVideoConferenceMembers(deviceId *string, conferen
 	return _result, _err
 }
 
-func (client *Client) AddDeviceVideoConferenceMembersWithOptions(deviceId *string, conferenceId *string, request *AddDeviceVideoConferenceMembersRequest, headers *AddDeviceVideoConferenceMembersHeaders, runtime *util.RuntimeOptions) (_result *AddDeviceVideoConferenceMembersResponse, _err error) {
+func (client *Client) CreateDeviceVideoConferenceWithOptions(deviceId *string, request *CreateDeviceVideoConferenceRequest, headers *CreateDeviceVideoConferenceHeaders, runtime *util.RuntimeOptions) (_result *CreateDeviceVideoConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	deviceId = openapiutil.GetEncodeParam(deviceId)
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
 		body["userIds"] = request.UserIds
@@ -655,8 +726,19 @@ func (client *Client) AddDeviceVideoConferenceMembersWithOptions(deviceId *strin
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &AddDeviceVideoConferenceMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddDeviceVideoConferenceMembers"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/smartDevice/devices/"+tea.StringValue(deviceId)+"/videoConferences/"+tea.StringValue(conferenceId)+"/members"), tea.String("none"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("CreateDeviceVideoConference"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/devices/" + tea.StringValue(deviceId) + "/videoConferences"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateDeviceVideoConferenceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -669,51 +751,6 @@ func (client *Client) CreateDeviceVideoConference(deviceId *string, request *Cre
 	headers := &CreateDeviceVideoConferenceHeaders{}
 	_result = &CreateDeviceVideoConferenceResponse{}
 	_body, _err := client.CreateDeviceVideoConferenceWithOptions(deviceId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) CreateDeviceVideoConferenceWithOptions(deviceId *string, request *CreateDeviceVideoConferenceRequest, headers *CreateDeviceVideoConferenceHeaders, runtime *util.RuntimeOptions) (_result *CreateDeviceVideoConferenceResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	deviceId = openapiutil.GetEncodeParam(deviceId)
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
-		body["userIds"] = request.UserIds
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &CreateDeviceVideoConferenceResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateDeviceVideoConference"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/smartDevice/devices/"+tea.StringValue(deviceId)+"/videoConferences"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) ExtractFacialFeature(request *ExtractFacialFeatureRequest) (_result *ExtractFacialFeatureResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &ExtractFacialFeatureHeaders{}
-	_result = &ExtractFacialFeatureResponse{}
-	_body, _err := client.ExtractFacialFeatureWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -748,8 +785,19 @@ func (client *Client) ExtractFacialFeatureWithOptions(request *ExtractFacialFeat
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ExtractFacialFeature"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/faceRecognitions/features/extract"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ExtractFacialFeatureResponse{}
-	_body, _err := client.DoROARequest(tea.String("ExtractFacialFeature"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/smartDevice/faceRecognitions/features/extract"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -757,11 +805,11 @@ func (client *Client) ExtractFacialFeatureWithOptions(request *ExtractFacialFeat
 	return _result, _err
 }
 
-func (client *Client) KickDeviceVideoConferenceMembers(deviceId *string, conferenceId *string, request *KickDeviceVideoConferenceMembersRequest) (_result *KickDeviceVideoConferenceMembersResponse, _err error) {
+func (client *Client) ExtractFacialFeature(request *ExtractFacialFeatureRequest) (_result *ExtractFacialFeatureResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &KickDeviceVideoConferenceMembersHeaders{}
-	_result = &KickDeviceVideoConferenceMembersResponse{}
-	_body, _err := client.KickDeviceVideoConferenceMembersWithOptions(deviceId, conferenceId, request, headers, runtime)
+	headers := &ExtractFacialFeatureHeaders{}
+	_result = &ExtractFacialFeatureResponse{}
+	_body, _err := client.ExtractFacialFeatureWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -774,8 +822,6 @@ func (client *Client) KickDeviceVideoConferenceMembersWithOptions(deviceId *stri
 	if _err != nil {
 		return _result, _err
 	}
-	deviceId = openapiutil.GetEncodeParam(deviceId)
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
 		body["userIds"] = request.UserIds
@@ -794,8 +840,19 @@ func (client *Client) KickDeviceVideoConferenceMembersWithOptions(deviceId *stri
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("KickDeviceVideoConferenceMembers"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/devices/" + tea.StringValue(deviceId) + "/videoConferences/" + tea.StringValue(conferenceId) + "/members/batchDelete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &KickDeviceVideoConferenceMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("KickDeviceVideoConferenceMembers"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/smartDevice/devices/"+tea.StringValue(deviceId)+"/videoConferences/"+tea.StringValue(conferenceId)+"/members/batchDelete"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -803,11 +860,11 @@ func (client *Client) KickDeviceVideoConferenceMembersWithOptions(deviceId *stri
 	return _result, _err
 }
 
-func (client *Client) MachineManagerUpdate(request *MachineManagerUpdateRequest) (_result *MachineManagerUpdateResponse, _err error) {
+func (client *Client) KickDeviceVideoConferenceMembers(deviceId *string, conferenceId *string, request *KickDeviceVideoConferenceMembersRequest) (_result *KickDeviceVideoConferenceMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &MachineManagerUpdateHeaders{}
-	_result = &MachineManagerUpdateResponse{}
-	_body, _err := client.MachineManagerUpdateWithOptions(request, headers, runtime)
+	headers := &KickDeviceVideoConferenceMembersHeaders{}
+	_result = &KickDeviceVideoConferenceMembersResponse{}
+	_body, _err := client.KickDeviceVideoConferenceMembersWithOptions(deviceId, conferenceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -850,8 +907,19 @@ func (client *Client) MachineManagerUpdateWithOptions(request *MachineManagerUpd
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("MachineManagerUpdate"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/atmachines/managers"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &MachineManagerUpdateResponse{}
-	_body, _err := client.DoROARequest(tea.String("MachineManagerUpdate"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/smartDevice/atmachines/managers"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -859,11 +927,11 @@ func (client *Client) MachineManagerUpdateWithOptions(request *MachineManagerUpd
 	return _result, _err
 }
 
-func (client *Client) MachineUsersUpdate(request *MachineUsersUpdateRequest) (_result *MachineUsersUpdateResponse, _err error) {
+func (client *Client) MachineManagerUpdate(request *MachineManagerUpdateRequest) (_result *MachineManagerUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &MachineUsersUpdateHeaders{}
-	_result = &MachineUsersUpdateResponse{}
-	_body, _err := client.MachineUsersUpdateWithOptions(request, headers, runtime)
+	headers := &MachineManagerUpdateHeaders{}
+	_result = &MachineManagerUpdateResponse{}
+	_body, _err := client.MachineManagerUpdateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -914,8 +982,64 @@ func (client *Client) MachineUsersUpdateWithOptions(request *MachineUsersUpdateR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("MachineUsersUpdate"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/atmachines/users"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &MachineUsersUpdateResponse{}
-	_body, _err := client.DoROARequest(tea.String("MachineUsersUpdate"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/smartDevice/atmachines/users"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MachineUsersUpdate(request *MachineUsersUpdateRequest) (_result *MachineUsersUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MachineUsersUpdateHeaders{}
+	_result = &MachineUsersUpdateResponse{}
+	_body, _err := client.MachineUsersUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceVideoConferenceBookWithOptions(deviceId *string, bookId *string, headers *QueryDeviceVideoConferenceBookHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceVideoConferenceBookResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDeviceVideoConferenceBook"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/devices/" + tea.StringValue(deviceId) + "/books/" + tea.StringValue(bookId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryDeviceVideoConferenceBookResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -932,29 +1056,5 @@ func (client *Client) QueryDeviceVideoConferenceBook(deviceId *string, bookId *s
 		return _result, _err
 	}
 	_result = _body
-	return _result, _err
-}
-
-func (client *Client) QueryDeviceVideoConferenceBookWithOptions(deviceId *string, bookId *string, headers *QueryDeviceVideoConferenceBookHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceVideoConferenceBookResponse, _err error) {
-	deviceId = openapiutil.GetEncodeParam(deviceId)
-	bookId = openapiutil.GetEncodeParam(bookId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &QueryDeviceVideoConferenceBookResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryDeviceVideoConferenceBook"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/smartDevice/devices/"+tea.StringValue(deviceId)+"/books/"+tea.StringValue(bookId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
 	return _result, _err
 }

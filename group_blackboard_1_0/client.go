@@ -5,9 +5,11 @@
 package group_blackboard_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,18 +37,12 @@ func (s *CreateGroupBlackboardHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateGroupBlackboardRequest struct {
-	// 文本内容
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 群会话的 Id
+	Content            *string `json:"content,omitempty" xml:"content,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 是否发DING
-	SendDing *bool `json:"sendDing,omitempty" xml:"sendDing,omitempty"`
-	// 是否设为置顶
-	Sticky *bool `json:"sticky,omitempty" xml:"sticky,omitempty"`
-	// 业务唯一键
-	UniqueId *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
-	// 操作用户的 userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	SendDing           *bool   `json:"sendDing,omitempty" xml:"sendDing,omitempty"`
+	Sticky             *bool   `json:"sticky,omitempty" xml:"sticky,omitempty"`
+	UniqueId           *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateGroupBlackboardRequest) String() string {
@@ -88,10 +84,8 @@ func (s *CreateGroupBlackboardRequest) SetUserId(v string) *CreateGroupBlackboar
 }
 
 type CreateGroupBlackboardResponseBody struct {
-	// 群公告Id
-	DataId *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
-	// 请求是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	DataId  *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateGroupBlackboardResponseBody) String() string {
@@ -113,8 +107,9 @@ func (s *CreateGroupBlackboardResponseBody) SetSuccess(v bool) *CreateGroupBlack
 }
 
 type CreateGroupBlackboardResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateGroupBlackboardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateGroupBlackboardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateGroupBlackboardResponse) String() string {
@@ -127,6 +122,11 @@ func (s CreateGroupBlackboardResponse) GoString() string {
 
 func (s *CreateGroupBlackboardResponse) SetHeaders(v map[string]*string) *CreateGroupBlackboardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupBlackboardResponse) SetStatusCode(v int32) *CreateGroupBlackboardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -159,12 +159,9 @@ func (s *DeleteGroupBlackboardHeaders) SetXAcsDingtalkAccessToken(v string) *Del
 }
 
 type DeleteGroupBlackboardRequest struct {
-	// 群公告 Id
-	DataId *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
-	// 群会话的 Id
+	DataId             *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 操作用户的 userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeleteGroupBlackboardRequest) String() string {
@@ -191,10 +188,8 @@ func (s *DeleteGroupBlackboardRequest) SetUserId(v string) *DeleteGroupBlackboar
 }
 
 type DeleteGroupBlackboardResponseBody struct {
-	// 是否成功删除
 	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 请求是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Success   *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DeleteGroupBlackboardResponseBody) String() string {
@@ -216,8 +211,9 @@ func (s *DeleteGroupBlackboardResponseBody) SetSuccess(v bool) *DeleteGroupBlack
 }
 
 type DeleteGroupBlackboardResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteGroupBlackboardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteGroupBlackboardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteGroupBlackboardResponse) String() string {
@@ -230,6 +226,11 @@ func (s DeleteGroupBlackboardResponse) GoString() string {
 
 func (s *DeleteGroupBlackboardResponse) SetHeaders(v map[string]*string) *DeleteGroupBlackboardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteGroupBlackboardResponse) SetStatusCode(v int32) *DeleteGroupBlackboardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -253,24 +254,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateGroupBlackboard(request *CreateGroupBlackboardRequest) (_result *CreateGroupBlackboardResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateGroupBlackboardHeaders{}
-	_result = &CreateGroupBlackboardResponse{}
-	_body, _err := client.CreateGroupBlackboardWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateGroupBlackboardWithOptions(request *CreateGroupBlackboardRequest, headers *CreateGroupBlackboardHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupBlackboardResponse, _err error) {
@@ -316,8 +311,19 @@ func (client *Client) CreateGroupBlackboardWithOptions(request *CreateGroupBlack
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateGroupBlackboard"),
+		Version:     tea.String("groupBlackboard_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/groupBlackboard/blackboards"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateGroupBlackboardResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateGroupBlackboard"), tea.String("groupBlackboard_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/groupBlackboard/blackboards"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -325,11 +331,11 @@ func (client *Client) CreateGroupBlackboardWithOptions(request *CreateGroupBlack
 	return _result, _err
 }
 
-func (client *Client) DeleteGroupBlackboard(request *DeleteGroupBlackboardRequest) (_result *DeleteGroupBlackboardResponse, _err error) {
+func (client *Client) CreateGroupBlackboard(request *CreateGroupBlackboardRequest) (_result *CreateGroupBlackboardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteGroupBlackboardHeaders{}
-	_result = &DeleteGroupBlackboardResponse{}
-	_body, _err := client.DeleteGroupBlackboardWithOptions(request, headers, runtime)
+	headers := &CreateGroupBlackboardHeaders{}
+	_result = &CreateGroupBlackboardResponse{}
+	_body, _err := client.CreateGroupBlackboardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -368,11 +374,34 @@ func (client *Client) DeleteGroupBlackboardWithOptions(request *DeleteGroupBlack
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteGroupBlackboard"),
+		Version:     tea.String("groupBlackboard_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/groupBlackboard/blackboards/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteGroupBlackboardResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteGroupBlackboard"), tea.String("groupBlackboard_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/groupBlackboard/blackboards/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteGroupBlackboard(request *DeleteGroupBlackboardRequest) (_result *DeleteGroupBlackboardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteGroupBlackboardHeaders{}
+	_result = &DeleteGroupBlackboardResponse{}
+	_body, _err := client.DeleteGroupBlackboardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

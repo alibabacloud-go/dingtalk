@@ -5,9 +5,11 @@
 package apaas_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -52,40 +54,23 @@ func (s *BatchCreateTemplateRequest) SetTemplateList(v []*BatchCreateTemplateReq
 }
 
 type BatchCreateTemplateRequestTemplateList struct {
-	// adaptEnv
-	AdaptEnv []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
-	// appDesc
-	AppDesc *string `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
-	// appIcon
-	AppIcon *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
-	// caseVideoList
-	CaseVideoList []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
-	// category
-	CategoryCode *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
-	// coverImgList
-	CoverImgList []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
-	// expUrl
-	ExpUrl *string `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
-	// industryLabelList
-	IndustryLabelList []*string `json:"industryLabelList,omitempty" xml:"industryLabelList,omitempty" type:"Repeated"`
-	// installTimes
-	InstallTimes *int64 `json:"installTimes,omitempty" xml:"installTimes,omitempty"`
-	// mobilePreviewMediaList
+	AdaptEnv               []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
+	AppDesc                *string   `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
+	AppIcon                *string   `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	CaseVideoList          []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
+	CategoryCode           *string   `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	CoverImgList           []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
+	ExpUrl                 *string   `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
+	IndustryLabelList      []*string `json:"industryLabelList,omitempty" xml:"industryLabelList,omitempty" type:"Repeated"`
+	InstallTimes           *int64    `json:"installTimes,omitempty" xml:"installTimes,omitempty"`
 	MobilePreviewMediaList []*string `json:"mobilePreviewMediaList,omitempty" xml:"mobilePreviewMediaList,omitempty" type:"Repeated"`
-	// name
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// previewMediaList
-	PreviewMediaList []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
-	// providerName
-	ProviderName *string `json:"providerName,omitempty" xml:"providerName,omitempty"`
-	// roleLabelList
-	RoleLabelList []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
-	// simpleDesc
-	SimpleDesc *string `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
-	// templateKey
-	TemplateKey *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
-	// useCasesMediaList
-	UseCasesMediaList []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
+	Name                   *string   `json:"name,omitempty" xml:"name,omitempty"`
+	PreviewMediaList       []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
+	ProviderName           *string   `json:"providerName,omitempty" xml:"providerName,omitempty"`
+	RoleLabelList          []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
+	SimpleDesc             *string   `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
+	TemplateKey            *string   `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
+	UseCasesMediaList      []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
 }
 
 func (s BatchCreateTemplateRequestTemplateList) String() string {
@@ -222,8 +207,9 @@ func (s *BatchCreateTemplateResponseBodyCreateResultList) SetValue(v string) *Ba
 }
 
 type BatchCreateTemplateResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchCreateTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchCreateTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchCreateTemplateResponse) String() string {
@@ -236,6 +222,11 @@ func (s BatchCreateTemplateResponse) GoString() string {
 
 func (s *BatchCreateTemplateResponse) SetHeaders(v map[string]*string) *BatchCreateTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchCreateTemplateResponse) SetStatusCode(v int32) *BatchCreateTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -415,8 +406,9 @@ func (s *BatchQueryByTemplateKeyResponseBodyTemplateList) SetUseCasesMediaList(v
 }
 
 type BatchQueryByTemplateKeyResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchQueryByTemplateKeyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchQueryByTemplateKeyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchQueryByTemplateKeyResponse) String() string {
@@ -429,6 +421,11 @@ func (s BatchQueryByTemplateKeyResponse) GoString() string {
 
 func (s *BatchQueryByTemplateKeyResponse) SetHeaders(v map[string]*string) *BatchQueryByTemplateKeyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryByTemplateKeyResponse) SetStatusCode(v int32) *BatchQueryByTemplateKeyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -478,38 +475,22 @@ func (s *BatchUpdateTemplateRequest) SetTemplateList(v []*BatchUpdateTemplateReq
 }
 
 type BatchUpdateTemplateRequestTemplateList struct {
-	// adaptEnv
-	AdaptEnv []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
-	// appDesc
-	AppDesc *string `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
-	// appIcon
-	AppIcon *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
-	// caseVideoList
-	CaseVideoList []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
-	// category
-	CategoryCode *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
-	// coverImgList
-	CoverImgList []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
-	// expUrl
-	ExpUrl *string `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
-	// industryLabelList
-	IndustryLabelList []*string `json:"industryLabelList,omitempty" xml:"industryLabelList,omitempty" type:"Repeated"`
-	// mobilePreviewMediaList
+	AdaptEnv               []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
+	AppDesc                *string   `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
+	AppIcon                *string   `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	CaseVideoList          []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
+	CategoryCode           *string   `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	CoverImgList           []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
+	ExpUrl                 *string   `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
+	IndustryLabelList      []*string `json:"industryLabelList,omitempty" xml:"industryLabelList,omitempty" type:"Repeated"`
 	MobilePreviewMediaList []*string `json:"mobilePreviewMediaList,omitempty" xml:"mobilePreviewMediaList,omitempty" type:"Repeated"`
-	// name
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// previewMediaList
-	PreviewMediaList []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
-	// providerName
-	ProviderName *string `json:"providerName,omitempty" xml:"providerName,omitempty"`
-	// roleLabelList
-	RoleLabelList []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
-	// simpleDesc
-	SimpleDesc *string `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
-	// templateKey
-	TemplateKey *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
-	// useCasesMediaList
-	UseCasesMediaList []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
+	Name                   *string   `json:"name,omitempty" xml:"name,omitempty"`
+	PreviewMediaList       []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
+	ProviderName           *string   `json:"providerName,omitempty" xml:"providerName,omitempty"`
+	RoleLabelList          []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
+	SimpleDesc             *string   `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
+	TemplateKey            *string   `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
+	UseCasesMediaList      []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
 }
 
 func (s BatchUpdateTemplateRequestTemplateList) String() string {
@@ -641,8 +622,9 @@ func (s *BatchUpdateTemplateResponseBodyUpdateResultList) SetValue(v string) *Ba
 }
 
 type BatchUpdateTemplateResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchUpdateTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchUpdateTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchUpdateTemplateResponse) String() string {
@@ -655,6 +637,11 @@ func (s BatchUpdateTemplateResponse) GoString() string {
 
 func (s *BatchUpdateTemplateResponse) SetHeaders(v map[string]*string) *BatchUpdateTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateTemplateResponse) SetStatusCode(v int32) *BatchUpdateTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -704,8 +691,9 @@ func (s *QueryIndustryTagListResponseBody) SetIndustryList(v []*string) *QueryIn
 }
 
 type QueryIndustryTagListResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryIndustryTagListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryIndustryTagListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryIndustryTagListResponse) String() string {
@@ -718,6 +706,11 @@ func (s QueryIndustryTagListResponse) GoString() string {
 
 func (s *QueryIndustryTagListResponse) SetHeaders(v map[string]*string) *QueryIndustryTagListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryIndustryTagListResponse) SetStatusCode(v int32) *QueryIndustryTagListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -767,8 +760,9 @@ func (s *QueryRoleTagListResponseBody) SetRoleList(v []*string) *QueryRoleTagLis
 }
 
 type QueryRoleTagListResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryRoleTagListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryRoleTagListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryRoleTagListResponse) String() string {
@@ -781,6 +775,11 @@ func (s QueryRoleTagListResponse) GoString() string {
 
 func (s *QueryRoleTagListResponse) SetHeaders(v map[string]*string) *QueryRoleTagListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryRoleTagListResponse) SetStatusCode(v int32) *QueryRoleTagListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -814,8 +813,7 @@ func (s *QueryTemplateCategorysHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 
 type QueryTemplateCategorysResponseBody struct {
 	CategoryList []*QueryTemplateCategorysResponseBodyCategoryList `json:"categoryList,omitempty" xml:"categoryList,omitempty" type:"Repeated"`
-	// 总数
-	Total *string `json:"total,omitempty" xml:"total,omitempty"`
+	Total        *string                                           `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s QueryTemplateCategorysResponseBody) String() string {
@@ -837,9 +835,7 @@ func (s *QueryTemplateCategorysResponseBody) SetTotal(v string) *QueryTemplateCa
 }
 
 type QueryTemplateCategorysResponseBodyCategoryList struct {
-	// 分类编码
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 分类名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -862,8 +858,9 @@ func (s *QueryTemplateCategorysResponseBodyCategoryList) SetName(v string) *Quer
 }
 
 type QueryTemplateCategorysResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryTemplateCategorysResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryTemplateCategorysResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryTemplateCategorysResponse) String() string {
@@ -876,6 +873,11 @@ func (s QueryTemplateCategorysResponse) GoString() string {
 
 func (s *QueryTemplateCategorysResponse) SetHeaders(v map[string]*string) *QueryTemplateCategorysResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryTemplateCategorysResponse) SetStatusCode(v int32) *QueryTemplateCategorysResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -965,8 +967,9 @@ func (s *RecallAuditTemplateResponseBodyRecallResult) SetValue(v string) *Recall
 }
 
 type RecallAuditTemplateResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RecallAuditTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RecallAuditTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RecallAuditTemplateResponse) String() string {
@@ -979,6 +982,11 @@ func (s RecallAuditTemplateResponse) GoString() string {
 
 func (s *RecallAuditTemplateResponse) SetHeaders(v map[string]*string) *RecallAuditTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RecallAuditTemplateResponse) SetStatusCode(v int32) *RecallAuditTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1002,24 +1010,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) BatchCreateTemplate(request *BatchCreateTemplateRequest) (_result *BatchCreateTemplateResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &BatchCreateTemplateHeaders{}
-	_result = &BatchCreateTemplateResponse{}
-	_body, _err := client.BatchCreateTemplateWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) BatchCreateTemplateWithOptions(request *BatchCreateTemplateRequest, headers *BatchCreateTemplateHeaders, runtime *util.RuntimeOptions) (_result *BatchCreateTemplateResponse, _err error) {
@@ -1045,8 +1047,19 @@ func (client *Client) BatchCreateTemplateWithOptions(request *BatchCreateTemplat
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchCreateTemplate"),
+		Version:     tea.String("apaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/apaas/templates"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchCreateTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchCreateTemplate"), tea.String("apaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/apaas/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1054,11 +1067,11 @@ func (client *Client) BatchCreateTemplateWithOptions(request *BatchCreateTemplat
 	return _result, _err
 }
 
-func (client *Client) BatchQueryByTemplateKey(request *BatchQueryByTemplateKeyRequest) (_result *BatchQueryByTemplateKeyResponse, _err error) {
+func (client *Client) BatchCreateTemplate(request *BatchCreateTemplateRequest) (_result *BatchCreateTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchQueryByTemplateKeyHeaders{}
-	_result = &BatchQueryByTemplateKeyResponse{}
-	_body, _err := client.BatchQueryByTemplateKeyWithOptions(request, headers, runtime)
+	headers := &BatchCreateTemplateHeaders{}
+	_result = &BatchCreateTemplateResponse{}
+	_body, _err := client.BatchCreateTemplateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1089,8 +1102,19 @@ func (client *Client) BatchQueryByTemplateKeyWithOptions(request *BatchQueryByTe
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchQueryByTemplateKey"),
+		Version:     tea.String("apaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/apaas/templates/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchQueryByTemplateKeyResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchQueryByTemplateKey"), tea.String("apaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/apaas/templates/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1098,11 +1122,11 @@ func (client *Client) BatchQueryByTemplateKeyWithOptions(request *BatchQueryByTe
 	return _result, _err
 }
 
-func (client *Client) BatchUpdateTemplate(request *BatchUpdateTemplateRequest) (_result *BatchUpdateTemplateResponse, _err error) {
+func (client *Client) BatchQueryByTemplateKey(request *BatchQueryByTemplateKeyRequest) (_result *BatchQueryByTemplateKeyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchUpdateTemplateHeaders{}
-	_result = &BatchUpdateTemplateResponse{}
-	_body, _err := client.BatchUpdateTemplateWithOptions(request, headers, runtime)
+	headers := &BatchQueryByTemplateKeyHeaders{}
+	_result = &BatchQueryByTemplateKeyResponse{}
+	_body, _err := client.BatchQueryByTemplateKeyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1133,8 +1157,19 @@ func (client *Client) BatchUpdateTemplateWithOptions(request *BatchUpdateTemplat
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchUpdateTemplate"),
+		Version:     tea.String("apaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/apaas/templates"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchUpdateTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchUpdateTemplate"), tea.String("apaas_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/apaas/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1142,11 +1177,11 @@ func (client *Client) BatchUpdateTemplateWithOptions(request *BatchUpdateTemplat
 	return _result, _err
 }
 
-func (client *Client) QueryIndustryTagList() (_result *QueryIndustryTagListResponse, _err error) {
+func (client *Client) BatchUpdateTemplate(request *BatchUpdateTemplateRequest) (_result *BatchUpdateTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryIndustryTagListHeaders{}
-	_result = &QueryIndustryTagListResponse{}
-	_body, _err := client.QueryIndustryTagListWithOptions(headers, runtime)
+	headers := &BatchUpdateTemplateHeaders{}
+	_result = &BatchUpdateTemplateResponse{}
+	_body, _err := client.BatchUpdateTemplateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1167,8 +1202,19 @@ func (client *Client) QueryIndustryTagListWithOptions(headers *QueryIndustryTagL
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryIndustryTagList"),
+		Version:     tea.String("apaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/apaas/templates/industries"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryIndustryTagListResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryIndustryTagList"), tea.String("apaas_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/apaas/templates/industries"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1176,11 +1222,11 @@ func (client *Client) QueryIndustryTagListWithOptions(headers *QueryIndustryTagL
 	return _result, _err
 }
 
-func (client *Client) QueryRoleTagList() (_result *QueryRoleTagListResponse, _err error) {
+func (client *Client) QueryIndustryTagList() (_result *QueryIndustryTagListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryRoleTagListHeaders{}
-	_result = &QueryRoleTagListResponse{}
-	_body, _err := client.QueryRoleTagListWithOptions(headers, runtime)
+	headers := &QueryIndustryTagListHeaders{}
+	_result = &QueryIndustryTagListResponse{}
+	_body, _err := client.QueryIndustryTagListWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1201,8 +1247,19 @@ func (client *Client) QueryRoleTagListWithOptions(headers *QueryRoleTagListHeade
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryRoleTagList"),
+		Version:     tea.String("apaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/apaas/templates/roles"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryRoleTagListResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryRoleTagList"), tea.String("apaas_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/apaas/templates/roles"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1210,11 +1267,11 @@ func (client *Client) QueryRoleTagListWithOptions(headers *QueryRoleTagListHeade
 	return _result, _err
 }
 
-func (client *Client) QueryTemplateCategorys() (_result *QueryTemplateCategorysResponse, _err error) {
+func (client *Client) QueryRoleTagList() (_result *QueryRoleTagListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryTemplateCategorysHeaders{}
-	_result = &QueryTemplateCategorysResponse{}
-	_body, _err := client.QueryTemplateCategorysWithOptions(headers, runtime)
+	headers := &QueryRoleTagListHeaders{}
+	_result = &QueryRoleTagListResponse{}
+	_body, _err := client.QueryRoleTagListWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1235,8 +1292,19 @@ func (client *Client) QueryTemplateCategorysWithOptions(headers *QueryTemplateCa
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryTemplateCategorys"),
+		Version:     tea.String("apaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/apaas/templates/categories"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryTemplateCategorysResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryTemplateCategorys"), tea.String("apaas_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/apaas/templates/categories"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1244,11 +1312,11 @@ func (client *Client) QueryTemplateCategorysWithOptions(headers *QueryTemplateCa
 	return _result, _err
 }
 
-func (client *Client) RecallAuditTemplate(request *RecallAuditTemplateRequest) (_result *RecallAuditTemplateResponse, _err error) {
+func (client *Client) QueryTemplateCategorys() (_result *QueryTemplateCategorysResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RecallAuditTemplateHeaders{}
-	_result = &RecallAuditTemplateResponse{}
-	_body, _err := client.RecallAuditTemplateWithOptions(request, headers, runtime)
+	headers := &QueryTemplateCategorysHeaders{}
+	_result = &QueryTemplateCategorysResponse{}
+	_body, _err := client.QueryTemplateCategorysWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1279,11 +1347,34 @@ func (client *Client) RecallAuditTemplateWithOptions(request *RecallAuditTemplat
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RecallAuditTemplate"),
+		Version:     tea.String("apaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/apaas/templates/audits/recall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RecallAuditTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("RecallAuditTemplate"), tea.String("apaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/apaas/templates/audits/recall"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RecallAuditTemplate(request *RecallAuditTemplateRequest) (_result *RecallAuditTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RecallAuditTemplateHeaders{}
+	_result = &RecallAuditTemplateResponse{}
+	_body, _err := client.RecallAuditTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

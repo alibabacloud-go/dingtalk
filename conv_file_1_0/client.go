@@ -5,9 +5,11 @@
 package conv_file_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,10 +37,8 @@ func (s *GetSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpaceHeaders 
 }
 
 type GetSpaceRequest struct {
-	// 会话id
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 用户id
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetSpaceRequest) String() string {
@@ -60,7 +60,6 @@ func (s *GetSpaceRequest) SetUnionId(v string) *GetSpaceRequest {
 }
 
 type GetSpaceResponseBody struct {
-	// IM会话存储空间信息
 	Space *GetSpaceResponseBodySpace `json:"space,omitempty" xml:"space,omitempty" type:"Struct"`
 }
 
@@ -78,14 +77,10 @@ func (s *GetSpaceResponseBody) SetSpace(v *GetSpaceResponseBodySpace) *GetSpaceR
 }
 
 type GetSpaceResponseBodySpace struct {
-	// 空间归属企业的id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 修改时间
+	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreateTime   *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 空间id
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceId      *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s GetSpaceResponseBodySpace) String() string {
@@ -117,8 +112,9 @@ func (s *GetSpaceResponseBodySpace) SetSpaceId(v string) *GetSpaceResponseBodySp
 }
 
 type GetSpaceResponse struct {
-	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSpaceResponse) String() string {
@@ -131,6 +127,11 @@ func (s GetSpaceResponse) GoString() string {
 
 func (s *GetSpaceResponse) SetHeaders(v map[string]*string) *GetSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSpaceResponse) SetStatusCode(v int32) *GetSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -163,14 +164,10 @@ func (s *SendHeaders) SetXAcsDingtalkAccessToken(v string) *SendHeaders {
 }
 
 type SendRequest struct {
-	// 文件id
-	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	// 目标会话id
+	DentryId           *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 文件所在空间id
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 用户id
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	SpaceId            *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s SendRequest) String() string {
@@ -202,7 +199,6 @@ func (s *SendRequest) SetUnionId(v string) *SendRequest {
 }
 
 type SendResponseBody struct {
-	// 发送到目标会话的文件信息
 	File *SendResponseBodyFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
 }
 
@@ -220,45 +216,22 @@ func (s *SendResponseBody) SetFile(v *SendResponseBodyFile) *SendResponseBody {
 }
 
 type SendResponseBodyFile struct {
-	// 文件所在会话id
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建者id
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 文件后缀
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 文件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 修改时间
-	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 修改者id
-	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	// 文件(夹)名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 文件所在的父目录id, 根目录id值为0
-	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	// 文件路径
-	Path *string `json:"path,omitempty" xml:"path,omitempty"`
-	// 文件大小, 单位:Byte
-	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
-	// 文件所在空间id
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 文件状态
-	// 枚举值:
-	// 	NORMAL: 正常
-	// 	DELETED: 已删除
-	// 	EXPIRED: 已过期
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 文件类型：文件、文件夹
-	// 枚举值:
-	// 	FILE: 文件
-	// 	FOLDER: 文件夹
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// uuid，如移动文件，此字段不变
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	// 文件版本
-	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorId      *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Extension      *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
+	ModifiedTime   *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	ModifierId     *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	ParentId       *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	Path           *string `json:"path,omitempty" xml:"path,omitempty"`
+	Size           *int64  `json:"size,omitempty" xml:"size,omitempty"`
+	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
+	Uuid           *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Version        *int64  `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SendResponseBodyFile) String() string {
@@ -350,8 +323,9 @@ func (s *SendResponseBodyFile) SetVersion(v int64) *SendResponseBodyFile {
 }
 
 type SendResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendResponseBody  `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendResponseBody  `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendResponse) String() string {
@@ -364,6 +338,11 @@ func (s SendResponse) GoString() string {
 
 func (s *SendResponse) SetHeaders(v map[string]*string) *SendResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendResponse) SetStatusCode(v int32) *SendResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -396,12 +375,9 @@ func (s *SendByAppHeaders) SetXAcsDingtalkAccessToken(v string) *SendByAppHeader
 }
 
 type SendByAppRequest struct {
-	// 文件id
 	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	// 文件所在空间id
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 用户id
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	UnionId  *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s SendByAppRequest) String() string {
@@ -428,7 +404,6 @@ func (s *SendByAppRequest) SetUnionId(v string) *SendByAppRequest {
 }
 
 type SendByAppResponseBody struct {
-	// 发送到目标会话的文件信息
 	File *SendByAppResponseBodyFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
 }
 
@@ -446,45 +421,22 @@ func (s *SendByAppResponseBody) SetFile(v *SendByAppResponseBodyFile) *SendByApp
 }
 
 type SendByAppResponseBodyFile struct {
-	// 文件所在会话id
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建者id
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 文件后缀
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 文件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 修改时间
-	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 修改者id
-	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	// 文件(夹)名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 文件所在的父目录id, 根目录id值为0
-	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	// 文件路径
-	Path *string `json:"path,omitempty" xml:"path,omitempty"`
-	// 文件大小, 单位:Byte
-	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
-	// 文件所在空间id
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 文件状态
-	// 枚举值:
-	// 	NORMAL: 正常
-	// 	DELETED: 已删除
-	// 	EXPIRED: 已过期
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 文件类型：文件、文件夹
-	// 枚举值:
-	// 	FILE: 文件
-	// 	FOLDER: 文件夹
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// uuid，如移动文件，此字段不变
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	// 文件版本
-	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorId      *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Extension      *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
+	ModifiedTime   *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	ModifierId     *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	ParentId       *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	Path           *string `json:"path,omitempty" xml:"path,omitempty"`
+	Size           *int64  `json:"size,omitempty" xml:"size,omitempty"`
+	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
+	Uuid           *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Version        *int64  `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SendByAppResponseBodyFile) String() string {
@@ -576,8 +528,9 @@ func (s *SendByAppResponseBodyFile) SetVersion(v int64) *SendByAppResponseBodyFi
 }
 
 type SendByAppResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendByAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendByAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendByAppResponse) String() string {
@@ -590,6 +543,11 @@ func (s SendByAppResponse) GoString() string {
 
 func (s *SendByAppResponse) SetHeaders(v map[string]*string) *SendByAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendByAppResponse) SetStatusCode(v int32) *SendByAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -622,14 +580,10 @@ func (s *SendLinkHeaders) SetXAcsDingtalkAccessToken(v string) *SendLinkHeaders 
 }
 
 type SendLinkRequest struct {
-	// 文件id
-	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	// 目标会话id
+	DentryId           *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 文件所在空间id
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 用户id
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	SpaceId            *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s SendLinkRequest) String() string {
@@ -661,7 +615,6 @@ func (s *SendLinkRequest) SetUnionId(v string) *SendLinkRequest {
 }
 
 type SendLinkResponseBody struct {
-	// 发送到目标会话的文件链接信息
 	File *SendLinkResponseBodyFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
 }
 
@@ -679,45 +632,22 @@ func (s *SendLinkResponseBody) SetFile(v *SendLinkResponseBodyFile) *SendLinkRes
 }
 
 type SendLinkResponseBodyFile struct {
-	// 文件所在会话id
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建者id
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 文件后缀
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 文件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 修改时间
-	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 修改者id
-	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	// 文件(夹)名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 文件所在的父目录id, 根目录id值为0
-	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	// 文件路径
-	Path *string `json:"path,omitempty" xml:"path,omitempty"`
-	// 文件大小, 单位:Byte
-	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
-	// 文件所在空间id
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 文件状态
-	// 枚举值:
-	// 	NORMAL: 正常
-	// 	DELETED: 已删除
-	// 	EXPIRED: 已过期
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 文件类型：文件、文件夹
-	// 枚举值:
-	// 	FILE: 文件
-	// 	FOLDER: 文件夹
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// uuid，如移动文件，此字段不变
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	// 文件版本
-	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorId      *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Extension      *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
+	ModifiedTime   *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	ModifierId     *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	ParentId       *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	Path           *string `json:"path,omitempty" xml:"path,omitempty"`
+	Size           *int64  `json:"size,omitempty" xml:"size,omitempty"`
+	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
+	Uuid           *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Version        *int64  `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SendLinkResponseBodyFile) String() string {
@@ -809,8 +739,9 @@ func (s *SendLinkResponseBodyFile) SetVersion(v int64) *SendLinkResponseBodyFile
 }
 
 type SendLinkResponse struct {
-	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendLinkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendLinkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendLinkResponse) String() string {
@@ -823,6 +754,11 @@ func (s SendLinkResponse) GoString() string {
 
 func (s *SendLinkResponse) SetHeaders(v map[string]*string) *SendLinkResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendLinkResponse) SetStatusCode(v int32) *SendLinkResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -846,24 +782,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) GetSpace(request *GetSpaceRequest) (_result *GetSpaceResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetSpaceHeaders{}
-	_result = &GetSpaceResponse{}
-	_body, _err := client.GetSpaceWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) GetSpaceWithOptions(request *GetSpaceRequest, headers *GetSpaceHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceResponse, _err error) {
@@ -895,8 +825,19 @@ func (client *Client) GetSpaceWithOptions(request *GetSpaceRequest, headers *Get
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSpace"),
+		Version:     tea.String("convFile_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/convFile/conversations/spaces/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSpace"), tea.String("convFile_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/convFile/conversations/spaces/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -904,11 +845,11 @@ func (client *Client) GetSpaceWithOptions(request *GetSpaceRequest, headers *Get
 	return _result, _err
 }
 
-func (client *Client) Send(request *SendRequest) (_result *SendResponse, _err error) {
+func (client *Client) GetSpace(request *GetSpaceRequest) (_result *GetSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendHeaders{}
-	_result = &SendResponse{}
-	_body, _err := client.SendWithOptions(request, headers, runtime)
+	headers := &GetSpaceHeaders{}
+	_result = &GetSpaceResponse{}
+	_body, _err := client.GetSpaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -953,8 +894,19 @@ func (client *Client) SendWithOptions(request *SendRequest, headers *SendHeaders
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("Send"),
+		Version:     tea.String("convFile_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/convFile/conversations/files/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendResponse{}
-	_body, _err := client.DoROARequest(tea.String("Send"), tea.String("convFile_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/convFile/conversations/files/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -962,11 +914,11 @@ func (client *Client) SendWithOptions(request *SendRequest, headers *SendHeaders
 	return _result, _err
 }
 
-func (client *Client) SendByApp(request *SendByAppRequest) (_result *SendByAppResponse, _err error) {
+func (client *Client) Send(request *SendRequest) (_result *SendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendByAppHeaders{}
-	_result = &SendByAppResponse{}
-	_body, _err := client.SendByAppWithOptions(request, headers, runtime)
+	headers := &SendHeaders{}
+	_result = &SendResponse{}
+	_body, _err := client.SendWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1007,8 +959,19 @@ func (client *Client) SendByAppWithOptions(request *SendByAppRequest, headers *S
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendByApp"),
+		Version:     tea.String("convFile_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/convFile/apps/conversations/files/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendByAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendByApp"), tea.String("convFile_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/convFile/apps/conversations/files/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1016,11 +979,11 @@ func (client *Client) SendByAppWithOptions(request *SendByAppRequest, headers *S
 	return _result, _err
 }
 
-func (client *Client) SendLink(request *SendLinkRequest) (_result *SendLinkResponse, _err error) {
+func (client *Client) SendByApp(request *SendByAppRequest) (_result *SendByAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendLinkHeaders{}
-	_result = &SendLinkResponse{}
-	_body, _err := client.SendLinkWithOptions(request, headers, runtime)
+	headers := &SendByAppHeaders{}
+	_result = &SendByAppResponse{}
+	_body, _err := client.SendByAppWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1065,11 +1028,34 @@ func (client *Client) SendLinkWithOptions(request *SendLinkRequest, headers *Sen
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendLink"),
+		Version:     tea.String("convFile_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/convFile/conversations/files/links/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendLinkResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendLink"), tea.String("convFile_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/convFile/conversations/files/links/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendLink(request *SendLinkRequest) (_result *SendLinkResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendLinkHeaders{}
+	_result = &SendLinkResponse{}
+	_body, _err := client.SendLinkWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

@@ -5,9 +5,11 @@
 package wiki_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,7 +37,6 @@ func (s *WikiWordsDetailHeaders) SetXAcsDingtalkAccessToken(v string) *WikiWords
 }
 
 type WikiWordsDetailRequest struct {
-	// 传递的词条名称
 	WordName *string `json:"wordName,omitempty" xml:"wordName,omitempty"`
 }
 
@@ -53,12 +54,9 @@ func (s *WikiWordsDetailRequest) SetWordName(v string) *WikiWordsDetailRequest {
 }
 
 type WikiWordsDetailResponseBody struct {
-	// 返回的参数
-	Data []*WikiWordsDetailResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	// 返回的错误信息
-	ErrMsg *string `json:"errMsg,omitempty" xml:"errMsg,omitempty"`
-	// 查询是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    []*WikiWordsDetailResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	ErrMsg  *string                            `json:"errMsg,omitempty" xml:"errMsg,omitempty"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WikiWordsDetailResponseBody) String() string {
@@ -85,45 +83,26 @@ func (s *WikiWordsDetailResponseBody) SetSuccess(v bool) *WikiWordsDetailRespons
 }
 
 type WikiWordsDetailResponseBodyData struct {
-	// 应用对象
-	AppLink []*WikiWordsDetailResponseBodyDataAppLink `json:"appLink,omitempty" xml:"appLink,omitempty" type:"Repeated"`
-	// 审批人
-	ApproveName *string `json:"approveName,omitempty" xml:"approveName,omitempty"`
-	// 联系人
-	Contacts []*string `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
-	// 创建人
-	CreatorName *string `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
-	// 创建时间
-	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 修改时间
-	GmtModify          *int64    `json:"gmtModify,omitempty" xml:"gmtModify,omitempty"`
-	HighLightWordAlias []*string `json:"highLightWordAlias,omitempty" xml:"highLightWordAlias,omitempty" type:"Repeated"`
-	// 内部群是否高亮
-	ImHighLight *bool `json:"imHighLight,omitempty" xml:"imHighLight,omitempty"`
-	// 组织名称
-	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	// 相关文档
-	RelatedDoc []*WikiWordsDetailResponseBodyDataRelatedDoc `json:"relatedDoc,omitempty" xml:"relatedDoc,omitempty" type:"Repeated"`
-	// 相关链接
-	RelatedLink []*WikiWordsDetailResponseBodyDataRelatedLink `json:"relatedLink,omitempty" xml:"relatedLink,omitempty" type:"Repeated"`
-	// 服务群是否高亮
-	SimHighLight *bool `json:"simHighLight,omitempty" xml:"simHighLight,omitempty"`
-	// 抹除文本格式后的释义
-	SimpleWordParaphrase *string `json:"simpleWordParaphrase,omitempty" xml:"simpleWordParaphrase,omitempty"`
-	// 标签列表
-	TagsList []*string `json:"tagsList,omitempty" xml:"tagsList,omitempty" type:"Repeated"`
-	// 更新人
-	UpdaterName *string `json:"updaterName,omitempty" xml:"updaterName,omitempty"`
-	// 唯一编号
-	Uuid *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	// 别名
-	WordAlias []*string `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
-	// 全名
-	WordFullName *string `json:"wordFullName,omitempty" xml:"wordFullName,omitempty"`
-	// 词条名称
-	WordName *string `json:"wordName,omitempty" xml:"wordName,omitempty"`
-	// 原始释义(带格式数据的释义）
-	WordParaphrase *string `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
+	AppLink              []*WikiWordsDetailResponseBodyDataAppLink     `json:"appLink,omitempty" xml:"appLink,omitempty" type:"Repeated"`
+	ApproveName          *string                                       `json:"approveName,omitempty" xml:"approveName,omitempty"`
+	Contacts             []*string                                     `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
+	CreatorName          *string                                       `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	GmtCreate            *int64                                        `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModify            *int64                                        `json:"gmtModify,omitempty" xml:"gmtModify,omitempty"`
+	HighLightWordAlias   []*string                                     `json:"highLightWordAlias,omitempty" xml:"highLightWordAlias,omitempty" type:"Repeated"`
+	ImHighLight          *bool                                         `json:"imHighLight,omitempty" xml:"imHighLight,omitempty"`
+	OrgName              *string                                       `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	RelatedDoc           []*WikiWordsDetailResponseBodyDataRelatedDoc  `json:"relatedDoc,omitempty" xml:"relatedDoc,omitempty" type:"Repeated"`
+	RelatedLink          []*WikiWordsDetailResponseBodyDataRelatedLink `json:"relatedLink,omitempty" xml:"relatedLink,omitempty" type:"Repeated"`
+	SimHighLight         *bool                                         `json:"simHighLight,omitempty" xml:"simHighLight,omitempty"`
+	SimpleWordParaphrase *string                                       `json:"simpleWordParaphrase,omitempty" xml:"simpleWordParaphrase,omitempty"`
+	TagsList             []*string                                     `json:"tagsList,omitempty" xml:"tagsList,omitempty" type:"Repeated"`
+	UpdaterName          *string                                       `json:"updaterName,omitempty" xml:"updaterName,omitempty"`
+	Uuid                 *int64                                        `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	WordAlias            []*string                                     `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
+	WordFullName         *string                                       `json:"wordFullName,omitempty" xml:"wordFullName,omitempty"`
+	WordName             *string                                       `json:"wordName,omitempty" xml:"wordName,omitempty"`
+	WordParaphrase       *string                                       `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
 }
 
 func (s WikiWordsDetailResponseBodyData) String() string {
@@ -235,15 +214,10 @@ func (s *WikiWordsDetailResponseBodyData) SetWordParaphrase(v string) *WikiWords
 }
 
 type WikiWordsDetailResponseBodyDataAppLink struct {
-	// 应用编号
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 应用名称
-	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
-	// 应用图片链接
-	IconLink *string `json:"iconLink,omitempty" xml:"iconLink,omitempty"`
-	// 应用PC端链接
-	PcLink *string `json:"pcLink,omitempty" xml:"pcLink,omitempty"`
-	// 应用手机端链接
+	AppId     *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppName   *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	IconLink  *string `json:"iconLink,omitempty" xml:"iconLink,omitempty"`
+	PcLink    *string `json:"pcLink,omitempty" xml:"pcLink,omitempty"`
 	PhoneLink *string `json:"phoneLink,omitempty" xml:"phoneLink,omitempty"`
 }
 
@@ -281,11 +255,8 @@ func (s *WikiWordsDetailResponseBodyDataAppLink) SetPhoneLink(v string) *WikiWor
 }
 
 type WikiWordsDetailResponseBodyDataRelatedDoc struct {
-	// 链接
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
-	// 名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 文档类型doc或者sheet
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -313,11 +284,8 @@ func (s *WikiWordsDetailResponseBodyDataRelatedDoc) SetType(v string) *WikiWords
 }
 
 type WikiWordsDetailResponseBodyDataRelatedLink struct {
-	// 链接
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
-	// 链接名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 链接类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -345,8 +313,9 @@ func (s *WikiWordsDetailResponseBodyDataRelatedLink) SetType(v string) *WikiWord
 }
 
 type WikiWordsDetailResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *WikiWordsDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WikiWordsDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s WikiWordsDetailResponse) String() string {
@@ -359,6 +328,11 @@ func (s WikiWordsDetailResponse) GoString() string {
 
 func (s *WikiWordsDetailResponse) SetHeaders(v map[string]*string) *WikiWordsDetailResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *WikiWordsDetailResponse) SetStatusCode(v int32) *WikiWordsDetailResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -391,7 +365,6 @@ func (s *WikiWordsParseHeaders) SetXAcsDingtalkAccessToken(v string) *WikiWordsP
 }
 
 type WikiWordsParseRequest struct {
-	// 消息体以及文章内容
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -409,10 +382,9 @@ func (s *WikiWordsParseRequest) SetContent(v string) *WikiWordsParseRequest {
 }
 
 type WikiWordsParseResponseBody struct {
-	Data   []*WikiWordsParseResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	ErrMsg *string                           `json:"errMsg,omitempty" xml:"errMsg,omitempty"`
-	// Id of the request
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    []*WikiWordsParseResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	ErrMsg  *string                           `json:"errMsg,omitempty" xml:"errMsg,omitempty"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WikiWordsParseResponseBody) String() string {
@@ -468,8 +440,9 @@ func (s *WikiWordsParseResponseBodyData) SetWordName(v string) *WikiWordsParseRe
 }
 
 type WikiWordsParseResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *WikiWordsParseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WikiWordsParseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s WikiWordsParseResponse) String() string {
@@ -482,6 +455,11 @@ func (s WikiWordsParseResponse) GoString() string {
 
 func (s *WikiWordsParseResponse) SetHeaders(v map[string]*string) *WikiWordsParseResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *WikiWordsParseResponse) SetStatusCode(v int32) *WikiWordsParseResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -505,24 +483,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) WikiWordsDetail(request *WikiWordsDetailRequest) (_result *WikiWordsDetailResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &WikiWordsDetailHeaders{}
-	_result = &WikiWordsDetailResponse{}
-	_body, _err := client.WikiWordsDetailWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) WikiWordsDetailWithOptions(request *WikiWordsDetailRequest, headers *WikiWordsDetailHeaders, runtime *util.RuntimeOptions) (_result *WikiWordsDetailResponse, _err error) {
@@ -548,8 +520,19 @@ func (client *Client) WikiWordsDetailWithOptions(request *WikiWordsDetailRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("WikiWordsDetail"),
+		Version:     tea.String("wiki_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/wiki/words/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &WikiWordsDetailResponse{}
-	_body, _err := client.DoROARequest(tea.String("WikiWordsDetail"), tea.String("wiki_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/wiki/words/details"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -557,11 +540,11 @@ func (client *Client) WikiWordsDetailWithOptions(request *WikiWordsDetailRequest
 	return _result, _err
 }
 
-func (client *Client) WikiWordsParse(request *WikiWordsParseRequest) (_result *WikiWordsParseResponse, _err error) {
+func (client *Client) WikiWordsDetail(request *WikiWordsDetailRequest) (_result *WikiWordsDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &WikiWordsParseHeaders{}
-	_result = &WikiWordsParseResponse{}
-	_body, _err := client.WikiWordsParseWithOptions(request, headers, runtime)
+	headers := &WikiWordsDetailHeaders{}
+	_result = &WikiWordsDetailResponse{}
+	_body, _err := client.WikiWordsDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -592,11 +575,34 @@ func (client *Client) WikiWordsParseWithOptions(request *WikiWordsParseRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("WikiWordsParse"),
+		Version:     tea.String("wiki_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/wiki/words/parse"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &WikiWordsParseResponse{}
-	_body, _err := client.DoROARequest(tea.String("WikiWordsParse"), tea.String("wiki_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/wiki/words/parse"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) WikiWordsParse(request *WikiWordsParseRequest) (_result *WikiWordsParseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &WikiWordsParseHeaders{}
+	_result = &WikiWordsParseResponse{}
+	_body, _err := client.WikiWordsParseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

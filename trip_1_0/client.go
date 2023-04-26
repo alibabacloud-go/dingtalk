@@ -5,9 +5,11 @@
 package trip_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,23 +37,12 @@ func (s *SyncBusinessSignInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Sync
 }
 
 type SyncBusinessSignInfoRequest struct {
-	// 签约企业所支持的订单类目，如机票、酒店、火车票、打车。
-	// 枚举值如下：
-	// ["HOTEL","FLIGHT","TAXI","TRAIN"]
-	BizTypeList []*string `json:"bizTypeList,omitempty" xml:"bizTypeList,omitempty" type:"Repeated"`
-	// 开通企业支付的时间戳，毫秒
-	//
-	GmtOrgPay *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
-	// 签约时间戳，毫秒
-	//
-	GmtSign *string `json:"gmtSign,omitempty" xml:"gmtSign,omitempty"`
-	// 开通企业支付状态
-	//
-	OrgPayStatus *string `json:"orgPayStatus,omitempty" xml:"orgPayStatus,omitempty"`
-	// 企业签约状态
-	SignStatus *string `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
-	// 签约企业corpId
-	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	BizTypeList  []*string `json:"bizTypeList,omitempty" xml:"bizTypeList,omitempty" type:"Repeated"`
+	GmtOrgPay    *string   `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
+	GmtSign      *string   `json:"gmtSign,omitempty" xml:"gmtSign,omitempty"`
+	OrgPayStatus *string   `json:"orgPayStatus,omitempty" xml:"orgPayStatus,omitempty"`
+	SignStatus   *string   `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	TargetCorpId *string   `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
 }
 
 func (s SyncBusinessSignInfoRequest) String() string {
@@ -93,7 +84,6 @@ func (s *SyncBusinessSignInfoRequest) SetTargetCorpId(v string) *SyncBusinessSig
 }
 
 type SyncBusinessSignInfoResponseBody struct {
-	// Id of the request
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -117,8 +107,9 @@ func (s *SyncBusinessSignInfoResponseBody) SetSuccess(v bool) *SyncBusinessSignI
 }
 
 type SyncBusinessSignInfoResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SyncBusinessSignInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SyncBusinessSignInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SyncBusinessSignInfoResponse) String() string {
@@ -131,6 +122,11 @@ func (s SyncBusinessSignInfoResponse) GoString() string {
 
 func (s *SyncBusinessSignInfoResponse) SetHeaders(v map[string]*string) *SyncBusinessSignInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SyncBusinessSignInfoResponse) SetStatusCode(v int32) *SyncBusinessSignInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -163,18 +159,12 @@ func (s *SyncSecretKeyHeaders) SetXAcsDingtalkAccessToken(v string) *SyncSecretK
 }
 
 type SyncSecretKeyRequest struct {
-	// 操作类型，ADD/QUERY/MODIFY/DEL
-	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 验签加密串
-	SecretString *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
-	// 钉钉侧对应的组织ID
-	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
-	// 商旅侧appkey
-	TripAppKey *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
-	// 商旅对接密钥
+	ActionType      *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	SecretString    *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
+	TargetCorpId    *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	TripAppKey      *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
 	TripAppSecurity *string `json:"tripAppSecurity,omitempty" xml:"tripAppSecurity,omitempty"`
-	// 商旅侧组织ID
-	TripCorpId *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
+	TripCorpId      *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
 }
 
 func (s SyncSecretKeyRequest) String() string {
@@ -216,10 +206,8 @@ func (s *SyncSecretKeyRequest) SetTripCorpId(v string) *SyncSecretKeyRequest {
 }
 
 type SyncSecretKeyResponseBody struct {
-	Result *SyncSecretKeyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 是否成功
-	//
-	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *SyncSecretKeyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                          `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s SyncSecretKeyResponseBody) String() string {
@@ -241,16 +229,11 @@ func (s *SyncSecretKeyResponseBody) SetSuccess(v string) *SyncSecretKeyResponseB
 }
 
 type SyncSecretKeyResponseBodyResult struct {
-	// 验签加密串
-	SecretString *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
-	// 钉钉侧对应的组织ID
-	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
-	// 商旅侧对接key
-	TripAppKey *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
-	// 商旅侧对接密钥
+	SecretString    *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
+	TargetCorpId    *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	TripAppKey      *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
 	TripAppSecurity *string `json:"tripAppSecurity,omitempty" xml:"tripAppSecurity,omitempty"`
-	// 商旅侧对应的组织ID
-	TripCorpId *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
+	TripCorpId      *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
 }
 
 func (s SyncSecretKeyResponseBodyResult) String() string {
@@ -287,8 +270,9 @@ func (s *SyncSecretKeyResponseBodyResult) SetTripCorpId(v string) *SyncSecretKey
 }
 
 type SyncSecretKeyResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SyncSecretKeyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SyncSecretKeyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SyncSecretKeyResponse) String() string {
@@ -301,6 +285,11 @@ func (s SyncSecretKeyResponse) GoString() string {
 
 func (s *SyncSecretKeyResponse) SetHeaders(v map[string]*string) *SyncSecretKeyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SyncSecretKeyResponse) SetStatusCode(v int32) *SyncSecretKeyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -333,47 +322,27 @@ func (s *SyncTripOrderHeaders) SetXAcsDingtalkAccessToken(v string) *SyncTripOrd
 }
 
 type SyncTripOrderRequest struct {
-	// 订单渠道，枚举值：BUSINESS、CUSTOMER
-	ChannelType *string `json:"channelType,omitempty" xml:"channelType,omitempty"`
-	// 币种
-	Currency *string `json:"currency,omitempty" xml:"currency,omitempty"`
-	// 钉钉用户id
-	DingUserId *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
-	// 优惠金额
-	DiscountAmount *string `json:"discountAmount,omitempty" xml:"discountAmount,omitempty"`
-	// 是否是改签单
-	EndorseFlag *bool                      `json:"endorseFlag,omitempty" xml:"endorseFlag,omitempty"`
-	Event       *SyncTripOrderRequestEvent `json:"event,omitempty" xml:"event,omitempty" type:"Struct"`
-	// 下单时间
-	GmtOrder *string `json:"gmtOrder,omitempty" xml:"gmtOrder,omitempty"`
-	// 付款时间
-	GmtPay *string `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
-	// 退款时间
-	GmtRefund *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
-	// 发票申请链接
-	InvoiceApplyUrl *string `json:"invoiceApplyUrl,omitempty" xml:"invoiceApplyUrl,omitempty"`
-	// 行程单号
-	JourneyBizNo *string `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
-	// 订单详情列表
-	OrderDetails []*SyncTripOrderRequestOrderDetails `json:"orderDetails,omitempty" xml:"orderDetails,omitempty" type:"Repeated"`
-	// 供应商订单号
-	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
-	// 订单详情链接
-	OrderUrl *string `json:"orderUrl,omitempty" xml:"orderUrl,omitempty"`
-	// 实付金额
-	RealAmount *string `json:"realAmount,omitempty" xml:"realAmount,omitempty"`
-	// 退款金额
-	RefundAmount *string `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
-	// 供应商关联订单号
-	RelativeOrderNo *string `json:"relativeOrderNo,omitempty" xml:"relativeOrderNo,omitempty"`
-	// 来源埋点
-	Source *string `json:"source,omitempty" xml:"source,omitempty"`
-	// 用户组织id
-	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
-	// 总金额
-	TotalAmount *string `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
-	// 订单类型
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	ChannelType     *string                             `json:"channelType,omitempty" xml:"channelType,omitempty"`
+	Currency        *string                             `json:"currency,omitempty" xml:"currency,omitempty"`
+	DingUserId      *string                             `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
+	DiscountAmount  *string                             `json:"discountAmount,omitempty" xml:"discountAmount,omitempty"`
+	EndorseFlag     *bool                               `json:"endorseFlag,omitempty" xml:"endorseFlag,omitempty"`
+	Event           *SyncTripOrderRequestEvent          `json:"event,omitempty" xml:"event,omitempty" type:"Struct"`
+	GmtOrder        *string                             `json:"gmtOrder,omitempty" xml:"gmtOrder,omitempty"`
+	GmtPay          *string                             `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
+	GmtRefund       *string                             `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
+	InvoiceApplyUrl *string                             `json:"invoiceApplyUrl,omitempty" xml:"invoiceApplyUrl,omitempty"`
+	JourneyBizNo    *string                             `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
+	OrderDetails    []*SyncTripOrderRequestOrderDetails `json:"orderDetails,omitempty" xml:"orderDetails,omitempty" type:"Repeated"`
+	OrderNo         *string                             `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	OrderUrl        *string                             `json:"orderUrl,omitempty" xml:"orderUrl,omitempty"`
+	RealAmount      *string                             `json:"realAmount,omitempty" xml:"realAmount,omitempty"`
+	RefundAmount    *string                             `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
+	RelativeOrderNo *string                             `json:"relativeOrderNo,omitempty" xml:"relativeOrderNo,omitempty"`
+	Source          *string                             `json:"source,omitempty" xml:"source,omitempty"`
+	TargetCorpId    *string                             `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	TotalAmount     *string                             `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	Type            *string                             `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SyncTripOrderRequest) String() string {
@@ -490,9 +459,7 @@ func (s *SyncTripOrderRequest) SetType(v string) *SyncTripOrderRequest {
 }
 
 type SyncTripOrderRequestEvent struct {
-	// 订单事件
-	Action *string `json:"action,omitempty" xml:"action,omitempty"`
-	// 事件时间
+	Action    *string `json:"action,omitempty" xml:"action,omitempty"`
 	GmtAction *string `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
 }
 
@@ -515,59 +482,33 @@ func (s *SyncTripOrderRequestEvent) SetGmtAction(v string) *SyncTripOrderRequest
 }
 
 type SyncTripOrderRequestOrderDetails struct {
-	// 到达时间
-	ArrivalTime *string `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
-	// 车辆颜色
-	CarColor *string `json:"carColor,omitempty" xml:"carColor,omitempty"`
-	// 车辆型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌号
-	CarNumber *string `json:"carNumber,omitempty" xml:"carNumber,omitempty"`
-	// 餐食描述
-	CateringType *string `json:"cateringType,omitempty" xml:"cateringType,omitempty"`
-	// 入住时间
-	CheckInTime *string `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
-	// 离店时间
-	CheckOutTime *string `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
-	// 出发时间
-	DepartTime *string `json:"departTime,omitempty" xml:"departTime,omitempty"`
-	// 目的地城市
-	DestinationCity *string `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
-	// 目的地城市码
-	DestinationCityCode *string `json:"destinationCityCode,omitempty" xml:"destinationCityCode,omitempty"`
-	// 目的站名称
-	DestinationStation *string `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
-	// 酒店地址
-	HotelAddress *string `json:"hotelAddress,omitempty" xml:"hotelAddress,omitempty"`
-	HotelCity    *string `json:"hotelCity,omitempty" xml:"hotelCity,omitempty"`
-	// 酒店定位信息
-	HotelLocation *SyncTripOrderRequestOrderDetailsHotelLocation `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
-	// 酒店名称
-	HotelName *string `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
-	// 出发地城市
-	OriginCity *string `json:"originCity,omitempty" xml:"originCity,omitempty"`
-	// 出发地城市码
-	OriginCityCode *string `json:"originCityCode,omitempty" xml:"originCityCode,omitempty"`
-	// 出发站名称
-	OriginStation *string `json:"originStation,omitempty" xml:"originStation,omitempty"`
-	// 房间数
-	RoomCount *int32 `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
-	// 舱位
-	SeatInfo *string `json:"seatInfo,omitempty" xml:"seatInfo,omitempty"`
-	// “服务类型”
-	ServiceType *string `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
-	// 下游供应商logo
-	SubSupplyLogo *string `json:"subSupplyLogo,omitempty" xml:"subSupplyLogo,omitempty"`
-	// 下游供应商名称
-	SubSupplyName *string `json:"subSupplyName,omitempty" xml:"subSupplyName,omitempty"`
-	// 专车类型
-	TaxiType *string `json:"taxiType,omitempty" xml:"taxiType,omitempty"`
-	// 联系方式
-	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
-	// 火车/航班班次
-	TransportNumber *string `json:"transportNumber,omitempty" xml:"transportNumber,omitempty"`
-	// 房型描述
-	TypeDescription *string `json:"typeDescription,omitempty" xml:"typeDescription,omitempty"`
+	ArrivalTime         *string                                        `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
+	CarColor            *string                                        `json:"carColor,omitempty" xml:"carColor,omitempty"`
+	CarModel            *string                                        `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CarNumber           *string                                        `json:"carNumber,omitempty" xml:"carNumber,omitempty"`
+	CateringType        *string                                        `json:"cateringType,omitempty" xml:"cateringType,omitempty"`
+	CheckInTime         *string                                        `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
+	CheckOutTime        *string                                        `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
+	DepartTime          *string                                        `json:"departTime,omitempty" xml:"departTime,omitempty"`
+	DestinationCity     *string                                        `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
+	DestinationCityCode *string                                        `json:"destinationCityCode,omitempty" xml:"destinationCityCode,omitempty"`
+	DestinationStation  *string                                        `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
+	HotelAddress        *string                                        `json:"hotelAddress,omitempty" xml:"hotelAddress,omitempty"`
+	HotelCity           *string                                        `json:"hotelCity,omitempty" xml:"hotelCity,omitempty"`
+	HotelLocation       *SyncTripOrderRequestOrderDetailsHotelLocation `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
+	HotelName           *string                                        `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
+	OriginCity          *string                                        `json:"originCity,omitempty" xml:"originCity,omitempty"`
+	OriginCityCode      *string                                        `json:"originCityCode,omitempty" xml:"originCityCode,omitempty"`
+	OriginStation       *string                                        `json:"originStation,omitempty" xml:"originStation,omitempty"`
+	RoomCount           *int32                                         `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
+	SeatInfo            *string                                        `json:"seatInfo,omitempty" xml:"seatInfo,omitempty"`
+	ServiceType         *string                                        `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
+	SubSupplyLogo       *string                                        `json:"subSupplyLogo,omitempty" xml:"subSupplyLogo,omitempty"`
+	SubSupplyName       *string                                        `json:"subSupplyName,omitempty" xml:"subSupplyName,omitempty"`
+	TaxiType            *string                                        `json:"taxiType,omitempty" xml:"taxiType,omitempty"`
+	Telephone           *string                                        `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	TransportNumber     *string                                        `json:"transportNumber,omitempty" xml:"transportNumber,omitempty"`
+	TypeDescription     *string                                        `json:"typeDescription,omitempty" xml:"typeDescription,omitempty"`
 }
 
 func (s SyncTripOrderRequestOrderDetails) String() string {
@@ -714,17 +655,10 @@ func (s *SyncTripOrderRequestOrderDetails) SetTypeDescription(v string) *SyncTri
 }
 
 type SyncTripOrderRequestOrderDetailsHotelLocation struct {
-	// 纬度
-	Lat *string `json:"lat,omitempty" xml:"lat,omitempty"`
-	// 经度
-	Lon *string `json:"lon,omitempty" xml:"lon,omitempty"`
-	// 坐标数据源
-	// - BD09：来自百度地图的经纬坐标
-	// - GCJ02: 来自高德地图，腾讯地图，Apple地图的坐标
-	// - WGS84: 来自GPS的坐标
+	Lat    *string `json:"lat,omitempty" xml:"lat,omitempty"`
+	Lon    *string `json:"lon,omitempty" xml:"lon,omitempty"`
 	Source *string `json:"source,omitempty" xml:"source,omitempty"`
-	// 定位url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s SyncTripOrderRequestOrderDetailsHotelLocation) String() string {
@@ -756,10 +690,8 @@ func (s *SyncTripOrderRequestOrderDetailsHotelLocation) SetUrl(v string) *SyncTr
 }
 
 type SyncTripOrderResponseBody struct {
-	// Id of the request
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s SyncTripOrderResponseBody) String() string {
@@ -781,8 +713,9 @@ func (s *SyncTripOrderResponseBody) SetSuccess(v bool) *SyncTripOrderResponseBod
 }
 
 type SyncTripOrderResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SyncTripOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SyncTripOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SyncTripOrderResponse) String() string {
@@ -795,6 +728,11 @@ func (s SyncTripOrderResponse) GoString() string {
 
 func (s *SyncTripOrderResponse) SetHeaders(v map[string]*string) *SyncTripOrderResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SyncTripOrderResponse) SetStatusCode(v int32) *SyncTripOrderResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -818,24 +756,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) SyncBusinessSignInfo(request *SyncBusinessSignInfoRequest) (_result *SyncBusinessSignInfoResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &SyncBusinessSignInfoHeaders{}
-	_result = &SyncBusinessSignInfoResponse{}
-	_body, _err := client.SyncBusinessSignInfoWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) SyncBusinessSignInfoWithOptions(request *SyncBusinessSignInfoRequest, headers *SyncBusinessSignInfoHeaders, runtime *util.RuntimeOptions) (_result *SyncBusinessSignInfoResponse, _err error) {
@@ -881,8 +813,19 @@ func (client *Client) SyncBusinessSignInfoWithOptions(request *SyncBusinessSignI
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncBusinessSignInfo"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/businessSignInfos/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SyncBusinessSignInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("SyncBusinessSignInfo"), tea.String("trip_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/trip/businessSignInfos/sync"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -890,11 +833,11 @@ func (client *Client) SyncBusinessSignInfoWithOptions(request *SyncBusinessSignI
 	return _result, _err
 }
 
-func (client *Client) SyncSecretKey(request *SyncSecretKeyRequest) (_result *SyncSecretKeyResponse, _err error) {
+func (client *Client) SyncBusinessSignInfo(request *SyncBusinessSignInfoRequest) (_result *SyncBusinessSignInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SyncSecretKeyHeaders{}
-	_result = &SyncSecretKeyResponse{}
-	_body, _err := client.SyncSecretKeyWithOptions(request, headers, runtime)
+	headers := &SyncBusinessSignInfoHeaders{}
+	_result = &SyncBusinessSignInfoResponse{}
+	_body, _err := client.SyncBusinessSignInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -945,8 +888,19 @@ func (client *Client) SyncSecretKeyWithOptions(request *SyncSecretKeyRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncSecretKey"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/secretKeys/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SyncSecretKeyResponse{}
-	_body, _err := client.DoROARequest(tea.String("SyncSecretKey"), tea.String("trip_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/trip/secretKeys/sync"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -954,11 +908,11 @@ func (client *Client) SyncSecretKeyWithOptions(request *SyncSecretKeyRequest, he
 	return _result, _err
 }
 
-func (client *Client) SyncTripOrder(request *SyncTripOrderRequest) (_result *SyncTripOrderResponse, _err error) {
+func (client *Client) SyncSecretKey(request *SyncSecretKeyRequest) (_result *SyncSecretKeyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SyncTripOrderHeaders{}
-	_result = &SyncTripOrderResponse{}
-	_body, _err := client.SyncTripOrderWithOptions(request, headers, runtime)
+	headers := &SyncSecretKeyHeaders{}
+	_result = &SyncSecretKeyResponse{}
+	_body, _err := client.SyncSecretKeyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1069,11 +1023,34 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncTripOrder"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/tripOrders/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SyncTripOrderResponse{}
-	_body, _err := client.DoROARequest(tea.String("SyncTripOrder"), tea.String("trip_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/trip/tripOrders/sync"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncTripOrder(request *SyncTripOrderRequest) (_result *SyncTripOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncTripOrderHeaders{}
+	_result = &SyncTripOrderResponse{}
+	_body, _err := client.SyncTripOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

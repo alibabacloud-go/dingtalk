@@ -5,9 +5,11 @@
 package occupationauth_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -69,8 +71,9 @@ func (s *CheckUserTaskStatusResponseBody) SetResult(v bool) *CheckUserTaskStatus
 }
 
 type CheckUserTaskStatusResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CheckUserTaskStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CheckUserTaskStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CheckUserTaskStatusResponse) String() string {
@@ -83,6 +86,11 @@ func (s CheckUserTaskStatusResponse) GoString() string {
 
 func (s *CheckUserTaskStatusResponse) SetHeaders(v map[string]*string) *CheckUserTaskStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CheckUserTaskStatusResponse) SetStatusCode(v int32) *CheckUserTaskStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -115,7 +123,6 @@ func (s *CheckUserTasksStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Chec
 }
 
 type CheckUserTasksStatusRequest struct {
-	// 省级任务对接入
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -150,8 +157,9 @@ func (s *CheckUserTasksStatusResponseBody) SetStatus(v bool) *CheckUserTasksStat
 }
 
 type CheckUserTasksStatusResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CheckUserTasksStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CheckUserTasksStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CheckUserTasksStatusResponse) String() string {
@@ -164,6 +172,11 @@ func (s CheckUserTasksStatusResponse) GoString() string {
 
 func (s *CheckUserTasksStatusResponse) SetHeaders(v map[string]*string) *CheckUserTasksStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CheckUserTasksStatusResponse) SetStatusCode(v int32) *CheckUserTasksStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -187,24 +200,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CheckUserTaskStatus(request *CheckUserTaskStatusRequest) (_result *CheckUserTaskStatusResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CheckUserTaskStatusHeaders{}
-	_result = &CheckUserTaskStatusResponse{}
-	_body, _err := client.CheckUserTaskStatusWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CheckUserTaskStatusWithOptions(request *CheckUserTaskStatusRequest, headers *CheckUserTaskStatusHeaders, runtime *util.RuntimeOptions) (_result *CheckUserTaskStatusResponse, _err error) {
@@ -230,8 +237,19 @@ func (client *Client) CheckUserTaskStatusWithOptions(request *CheckUserTaskStatu
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CheckUserTaskStatus"),
+		Version:     tea.String("occupationauth_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/occupationauth/auths/userTasks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CheckUserTaskStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("CheckUserTaskStatus"), tea.String("occupationauth_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/occupationauth/auths/userTasks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -239,11 +257,11 @@ func (client *Client) CheckUserTaskStatusWithOptions(request *CheckUserTaskStatu
 	return _result, _err
 }
 
-func (client *Client) CheckUserTasksStatus(request *CheckUserTasksStatusRequest) (_result *CheckUserTasksStatusResponse, _err error) {
+func (client *Client) CheckUserTaskStatus(request *CheckUserTaskStatusRequest) (_result *CheckUserTaskStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CheckUserTasksStatusHeaders{}
-	_result = &CheckUserTasksStatusResponse{}
-	_body, _err := client.CheckUserTasksStatusWithOptions(request, headers, runtime)
+	headers := &CheckUserTaskStatusHeaders{}
+	_result = &CheckUserTaskStatusResponse{}
+	_body, _err := client.CheckUserTaskStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -274,11 +292,34 @@ func (client *Client) CheckUserTasksStatusWithOptions(request *CheckUserTasksSta
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CheckUserTasksStatus"),
+		Version:     tea.String("occupationauth_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/occupationauth/userTasks/check"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CheckUserTasksStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("CheckUserTasksStatus"), tea.String("occupationauth_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/occupationauth/userTasks/check"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckUserTasksStatus(request *CheckUserTasksStatusRequest) (_result *CheckUserTasksStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckUserTasksStatusHeaders{}
+	_result = &CheckUserTasksStatusResponse{}
+	_body, _err := client.CheckUserTasksStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

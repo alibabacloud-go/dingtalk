@@ -5,9 +5,11 @@
 package jzcrm_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,14 +37,10 @@ func (s *EditContactHeaders) SetXAcsDingtalkAccessToken(v string) *EditContactHe
 }
 
 type EditContactRequest struct {
-	// 编辑数据
-	Data *EditContactRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写197
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditContactRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                  `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                  `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditContactRequest) String() string {
@@ -74,62 +72,34 @@ func (s *EditContactRequest) SetStamp(v int64) *EditContactRequest {
 }
 
 type EditContactRequestData struct {
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 住址
-	LxrAddress *string `json:"lxr_address,omitempty" xml:"lxr_address,omitempty"`
-	// 生日
-	LxrBirthday *string `json:"lxr_birthday,omitempty" xml:"lxr_birthday,omitempty"`
-	// 称谓
-	LxrChengwei *string `json:"lxr_chengwei,omitempty" xml:"lxr_chengwei,omitempty"`
-	// 证件号码
-	LxrCtnumber *string `json:"lxr_ctnumber,omitempty" xml:"lxr_ctnumber,omitempty"`
-	// 证件类型
-	LxrCttype *string `json:"lxr_cttype,omitempty" xml:"lxr_cttype,omitempty"`
-	// 对应客户
+	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	LxrAddress    *string `json:"lxr_address,omitempty" xml:"lxr_address,omitempty"`
+	LxrBirthday   *string `json:"lxr_birthday,omitempty" xml:"lxr_birthday,omitempty"`
+	LxrChengwei   *string `json:"lxr_chengwei,omitempty" xml:"lxr_chengwei,omitempty"`
+	LxrCtnumber   *string `json:"lxr_ctnumber,omitempty" xml:"lxr_ctnumber,omitempty"`
+	LxrCttype     *string `json:"lxr_cttype,omitempty" xml:"lxr_cttype,omitempty"`
 	LxrCustomerid *string `json:"lxr_customerid,omitempty" xml:"lxr_customerid,omitempty"`
-	// 部门
 	LxrDepartment *string `json:"lxr_department,omitempty" xml:"lxr_department,omitempty"`
-	// 钉钉号
-	LxrDingtalk *string `json:"lxr_dingtalk,omitempty" xml:"lxr_dingtalk,omitempty"`
-	// Email
-	LxrEmail *string `json:"lxr_email,omitempty" xml:"lxr_email,omitempty"`
-	// 传真
-	LxrFax *string `json:"lxr_fax,omitempty" xml:"lxr_fax,omitempty"`
-	// 分类
-	LxrGroup *string `json:"lxr_group,omitempty" xml:"lxr_group,omitempty"`
-	// 手机
-	LxrHandset *string `json:"lxr_handset,omitempty" xml:"lxr_handset,omitempty"`
-	// 职务
-	LxrHeadship *string `json:"lxr_headship,omitempty" xml:"lxr_headship,omitempty"`
-	// 爱好
-	LxrLike *string `json:"lxr_like,omitempty" xml:"lxr_like,omitempty"`
-	// 姓名
-	LxrName *string `json:"lxr_name,omitempty" xml:"lxr_name,omitempty"`
-	// 联系名片
-	LxrPhoto *string `json:"lxr_photo,omitempty" xml:"lxr_photo,omitempty"`
-	// 负责业务
-	LxrPreside *string `json:"lxr_preside,omitempty" xml:"lxr_preside,omitempty"`
-	// 邮编
-	LxrPst *string `json:"lxr_pst,omitempty" xml:"lxr_pst,omitempty"`
-	// QQ
-	LxrQq *string `json:"lxr_qq,omitempty" xml:"lxr_qq,omitempty"`
-	// 备注
-	LxrRemark *string `json:"lxr_remark,omitempty" xml:"lxr_remark,omitempty"`
-	// 性别（男，女）
-	LxrSex *string `json:"lxr_sex,omitempty" xml:"lxr_sex,omitempty"`
-	// Skype
-	LxrSkype *string `json:"lxr_skype,omitempty" xml:"lxr_skype,omitempty"`
-	// 家庭电话
-	LxrTel *string `json:"lxr_tel,omitempty" xml:"lxr_tel,omitempty"`
-	// 类型（联系人，主联系人）
-	LxrType *string `json:"lxr_type,omitempty" xml:"lxr_type,omitempty"`
-	// 旺旺
-	LxrWangwang *string `json:"lxr_wangwang,omitempty" xml:"lxr_wangwang,omitempty"`
-	// 微信号
-	LxrWeixin *string `json:"lxr_weixin,omitempty" xml:"lxr_weixin,omitempty"`
-	// 工作电话
-	LxrWorktel *string `json:"lxr_worktel,omitempty" xml:"lxr_worktel,omitempty"`
+	LxrDingtalk   *string `json:"lxr_dingtalk,omitempty" xml:"lxr_dingtalk,omitempty"`
+	LxrEmail      *string `json:"lxr_email,omitempty" xml:"lxr_email,omitempty"`
+	LxrFax        *string `json:"lxr_fax,omitempty" xml:"lxr_fax,omitempty"`
+	LxrGroup      *string `json:"lxr_group,omitempty" xml:"lxr_group,omitempty"`
+	LxrHandset    *string `json:"lxr_handset,omitempty" xml:"lxr_handset,omitempty"`
+	LxrHeadship   *string `json:"lxr_headship,omitempty" xml:"lxr_headship,omitempty"`
+	LxrLike       *string `json:"lxr_like,omitempty" xml:"lxr_like,omitempty"`
+	LxrName       *string `json:"lxr_name,omitempty" xml:"lxr_name,omitempty"`
+	LxrPhoto      *string `json:"lxr_photo,omitempty" xml:"lxr_photo,omitempty"`
+	LxrPreside    *string `json:"lxr_preside,omitempty" xml:"lxr_preside,omitempty"`
+	LxrPst        *string `json:"lxr_pst,omitempty" xml:"lxr_pst,omitempty"`
+	LxrQq         *string `json:"lxr_qq,omitempty" xml:"lxr_qq,omitempty"`
+	LxrRemark     *string `json:"lxr_remark,omitempty" xml:"lxr_remark,omitempty"`
+	LxrSex        *string `json:"lxr_sex,omitempty" xml:"lxr_sex,omitempty"`
+	LxrSkype      *string `json:"lxr_skype,omitempty" xml:"lxr_skype,omitempty"`
+	LxrTel        *string `json:"lxr_tel,omitempty" xml:"lxr_tel,omitempty"`
+	LxrType       *string `json:"lxr_type,omitempty" xml:"lxr_type,omitempty"`
+	LxrWangwang   *string `json:"lxr_wangwang,omitempty" xml:"lxr_wangwang,omitempty"`
+	LxrWeixin     *string `json:"lxr_weixin,omitempty" xml:"lxr_weixin,omitempty"`
+	LxrWorktel    *string `json:"lxr_worktel,omitempty" xml:"lxr_worktel,omitempty"`
 }
 
 func (s EditContactRequestData) String() string {
@@ -281,10 +251,8 @@ func (s *EditContactRequestData) SetLxrWorktel(v string) *EditContactRequestData
 }
 
 type EditContactResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditContactResponseBody) String() string {
@@ -306,8 +274,9 @@ func (s *EditContactResponseBody) SetTime(v string) *EditContactResponseBody {
 }
 
 type EditContactResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditContactResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditContactResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditContactResponse) String() string {
@@ -320,6 +289,11 @@ func (s EditContactResponse) GoString() string {
 
 func (s *EditContactResponse) SetHeaders(v map[string]*string) *EditContactResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditContactResponse) SetStatusCode(v int32) *EditContactResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -352,14 +326,10 @@ func (s *EditCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *EditCustomer
 }
 
 type EditCustomerRequest struct {
-	// 编辑数据
-	Data *EditCustomerRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写148
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditCustomerRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                   `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                   `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                   `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditCustomerRequest) String() string {
@@ -391,102 +361,54 @@ func (s *EditCustomerRequest) SetStamp(v int64) *EditCustomerRequest {
 }
 
 type EditCustomerRequestData struct {
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 家庭地址
-	KhAddress *string `json:"kh_address,omitempty" xml:"kh_address,omitempty"`
-	// 称谓
+	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	KhAddress     *string `json:"kh_address,omitempty" xml:"kh_address,omitempty"`
 	KhAppellation *string `json:"kh_appellation,omitempty" xml:"kh_appellation,omitempty"`
-	// 爱好
-	KhBefontof *string `json:"kh_befontof,omitempty" xml:"kh_befontof,omitempty"`
-	// 开票资料
-	KhBillinfo *string `json:"kh_billinfo,omitempty" xml:"kh_billinfo,omitempty"`
-	// 城市
-	KhCity *string `json:"kh_city,omitempty" xml:"kh_city,omitempty"`
-	// 类别（企业客户，个人客户，供应商，个人供应商）
-	KhClass *string `json:"kh_class,omitempty" xml:"kh_class,omitempty"`
-	// 单位地址
-	KhCoaddress *string `json:"kh_coaddress,omitempty" xml:"kh_coaddress,omitempty"`
-	// 联系人分类
-	KhContype *string `json:"kh_contype,omitempty" xml:"kh_contype,omitempty"`
-	// 国家地区
-	KhCountry *string `json:"kh_country,omitempty" xml:"kh_country,omitempty"`
-	// 信用等级（低，中，高）
+	KhBefontof    *string `json:"kh_befontof,omitempty" xml:"kh_befontof,omitempty"`
+	KhBillinfo    *string `json:"kh_billinfo,omitempty" xml:"kh_billinfo,omitempty"`
+	KhCity        *string `json:"kh_city,omitempty" xml:"kh_city,omitempty"`
+	KhClass       *string `json:"kh_class,omitempty" xml:"kh_class,omitempty"`
+	KhCoaddress   *string `json:"kh_coaddress,omitempty" xml:"kh_coaddress,omitempty"`
+	KhContype     *string `json:"kh_contype,omitempty" xml:"kh_contype,omitempty"`
+	KhCountry     *string `json:"kh_country,omitempty" xml:"kh_country,omitempty"`
 	KhCreditgrade *string `json:"kh_creditgrade,omitempty" xml:"kh_creditgrade,omitempty"`
-	// 证件号码
-	KhCtnumber *string `json:"kh_ctnumber,omitempty" xml:"kh_ctnumber,omitempty"`
-	// 证件类型
-	KhCttype *string `json:"kh_cttype,omitempty" xml:"kh_cttype,omitempty"`
-	// 部门
-	KhDepartment *string `json:"kh_department,omitempty" xml:"kh_department,omitempty"`
-	// 钉钉号
-	KhDingtalk *string `json:"kh_dingtalk,omitempty" xml:"kh_dingtalk,omitempty"`
-	// 邮箱
-	KhEmail *string `json:"kh_email,omitempty" xml:"kh_email,omitempty"`
-	// 人员规模
-	KhEmployees *string `json:"kh_employees,omitempty" xml:"kh_employees,omitempty"`
-	// 传真
-	KhFax *string `json:"kh_fax,omitempty" xml:"kh_fax,omitempty"`
-	// 来源
-	KhFrom *string `json:"kh_from,omitempty" xml:"kh_from,omitempty"`
-	// 手机
-	KhHandset *string `json:"kh_handset,omitempty" xml:"kh_handset,omitempty"`
-	// 职务
-	KhHeadship *string `json:"kh_headship,omitempty" xml:"kh_headship,omitempty"`
-	// 热点分类
-	KhHotfl *string `json:"kh_hotfl,omitempty" xml:"kh_hotfl,omitempty"`
-	// 热度（无，低热，中热，高热）
-	KhHotlevel *string `json:"kh_hotlevel,omitempty" xml:"kh_hotlevel,omitempty"`
-	// 热点说明
-	KhHotmemo *string `json:"kh_hotmemo,omitempty" xml:"kh_hotmemo,omitempty"`
-	// 热点客户（是，否）
-	KhHottype *string `json:"kh_hottype,omitempty" xml:"kh_hottype,omitempty"`
-	// 行业
-	KhIndustry *string `json:"kh_industry,omitempty" xml:"kh_industry,omitempty"`
-	// 公司简介
-	KhInfo *string `json:"kh_info,omitempty" xml:"kh_info,omitempty"`
-	// 客户级别
-	KhJibie *string `json:"kh_jibie,omitempty" xml:"kh_jibie,omitempty"`
-	// 客户名称
-	KhName *string `json:"kh_name,omitempty" xml:"kh_name,omitempty"`
-	// 上级客户
-	KhPkhid *string `json:"kh_pkhid,omitempty" xml:"kh_pkhid,omitempty"`
-	// 负责业务
-	KhPreside *string `json:"kh_preside,omitempty" xml:"kh_preside,omitempty"`
-	// 省份
-	KhProvince *string `json:"kh_province,omitempty" xml:"kh_province,omitempty"`
-	// 邮编
-	KhPst *string `json:"kh_pst,omitempty" xml:"kh_pst,omitempty"`
-	// QQ
-	KhQq *string `json:"kh_qq,omitempty" xml:"kh_qq,omitempty"`
-	// 关系等级
-	KhRalagrade *string `json:"kh_ralagrade,omitempty" xml:"kh_ralagrade,omitempty"`
-	// 备注
-	KhRemark *string `json:"kh_remark,omitempty" xml:"kh_remark,omitempty"`
-	// 性别（男，女）
-	KhSex *string `json:"kh_sex,omitempty" xml:"kh_sex,omitempty"`
-	// 助记简称
-	KhShortname *string `json:"kh_shortname,omitempty" xml:"kh_shortname,omitempty"`
-	// Skype
-	KhSkype *string `json:"kh_skype,omitempty" xml:"kh_skype,omitempty"`
-	// 编号
-	KhSn *string `json:"kh_sn,omitempty" xml:"kh_sn,omitempty"`
-	// 阶段
-	KhStatus *string `json:"kh_status,omitempty" xml:"kh_status,omitempty"`
-	// 家庭电话
-	KhTel *string `json:"kh_tel,omitempty" xml:"kh_tel,omitempty"`
-	// 种类
-	KhType *string `json:"kh_type,omitempty" xml:"kh_type,omitempty"`
-	// 价值评估（低，中，高）
-	KhValrating *string `json:"kh_valrating,omitempty" xml:"kh_valrating,omitempty"`
-	// 旺旺
-	KhWangwang *string `json:"kh_wangwang,omitempty" xml:"kh_wangwang,omitempty"`
-	// 网址
-	KhWeb *string `json:"kh_web,omitempty" xml:"kh_web,omitempty"`
-	// 微信号
-	KhWeixin *string `json:"kh_weixin,omitempty" xml:"kh_weixin,omitempty"`
-	// 工作电话
-	KhWorktel *string `json:"kh_worktel,omitempty" xml:"kh_worktel,omitempty"`
+	KhCtnumber    *string `json:"kh_ctnumber,omitempty" xml:"kh_ctnumber,omitempty"`
+	KhCttype      *string `json:"kh_cttype,omitempty" xml:"kh_cttype,omitempty"`
+	KhDepartment  *string `json:"kh_department,omitempty" xml:"kh_department,omitempty"`
+	KhDingtalk    *string `json:"kh_dingtalk,omitempty" xml:"kh_dingtalk,omitempty"`
+	KhEmail       *string `json:"kh_email,omitempty" xml:"kh_email,omitempty"`
+	KhEmployees   *string `json:"kh_employees,omitempty" xml:"kh_employees,omitempty"`
+	KhFax         *string `json:"kh_fax,omitempty" xml:"kh_fax,omitempty"`
+	KhFrom        *string `json:"kh_from,omitempty" xml:"kh_from,omitempty"`
+	KhHandset     *string `json:"kh_handset,omitempty" xml:"kh_handset,omitempty"`
+	KhHeadship    *string `json:"kh_headship,omitempty" xml:"kh_headship,omitempty"`
+	KhHotfl       *string `json:"kh_hotfl,omitempty" xml:"kh_hotfl,omitempty"`
+	KhHotlevel    *string `json:"kh_hotlevel,omitempty" xml:"kh_hotlevel,omitempty"`
+	KhHotmemo     *string `json:"kh_hotmemo,omitempty" xml:"kh_hotmemo,omitempty"`
+	KhHottype     *string `json:"kh_hottype,omitempty" xml:"kh_hottype,omitempty"`
+	KhIndustry    *string `json:"kh_industry,omitempty" xml:"kh_industry,omitempty"`
+	KhInfo        *string `json:"kh_info,omitempty" xml:"kh_info,omitempty"`
+	KhJibie       *string `json:"kh_jibie,omitempty" xml:"kh_jibie,omitempty"`
+	KhName        *string `json:"kh_name,omitempty" xml:"kh_name,omitempty"`
+	KhPkhid       *string `json:"kh_pkhid,omitempty" xml:"kh_pkhid,omitempty"`
+	KhPreside     *string `json:"kh_preside,omitempty" xml:"kh_preside,omitempty"`
+	KhProvince    *string `json:"kh_province,omitempty" xml:"kh_province,omitempty"`
+	KhPst         *string `json:"kh_pst,omitempty" xml:"kh_pst,omitempty"`
+	KhQq          *string `json:"kh_qq,omitempty" xml:"kh_qq,omitempty"`
+	KhRalagrade   *string `json:"kh_ralagrade,omitempty" xml:"kh_ralagrade,omitempty"`
+	KhRemark      *string `json:"kh_remark,omitempty" xml:"kh_remark,omitempty"`
+	KhSex         *string `json:"kh_sex,omitempty" xml:"kh_sex,omitempty"`
+	KhShortname   *string `json:"kh_shortname,omitempty" xml:"kh_shortname,omitempty"`
+	KhSkype       *string `json:"kh_skype,omitempty" xml:"kh_skype,omitempty"`
+	KhSn          *string `json:"kh_sn,omitempty" xml:"kh_sn,omitempty"`
+	KhStatus      *string `json:"kh_status,omitempty" xml:"kh_status,omitempty"`
+	KhTel         *string `json:"kh_tel,omitempty" xml:"kh_tel,omitempty"`
+	KhType        *string `json:"kh_type,omitempty" xml:"kh_type,omitempty"`
+	KhValrating   *string `json:"kh_valrating,omitempty" xml:"kh_valrating,omitempty"`
+	KhWangwang    *string `json:"kh_wangwang,omitempty" xml:"kh_wangwang,omitempty"`
+	KhWeb         *string `json:"kh_web,omitempty" xml:"kh_web,omitempty"`
+	KhWeixin      *string `json:"kh_weixin,omitempty" xml:"kh_weixin,omitempty"`
+	KhWorktel     *string `json:"kh_worktel,omitempty" xml:"kh_worktel,omitempty"`
 }
 
 func (s EditCustomerRequestData) String() string {
@@ -738,10 +660,8 @@ func (s *EditCustomerRequestData) SetKhWorktel(v string) *EditCustomerRequestDat
 }
 
 type EditCustomerResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditCustomerResponseBody) String() string {
@@ -763,8 +683,9 @@ func (s *EditCustomerResponseBody) SetTime(v string) *EditCustomerResponseBody {
 }
 
 type EditCustomerResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditCustomerResponse) String() string {
@@ -777,6 +698,11 @@ func (s EditCustomerResponse) GoString() string {
 
 func (s *EditCustomerResponse) SetHeaders(v map[string]*string) *EditCustomerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditCustomerResponse) SetStatusCode(v int32) *EditCustomerResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -809,14 +735,10 @@ func (s *EditCustomerPoolHeaders) SetXAcsDingtalkAccessToken(v string) *EditCust
 }
 
 type EditCustomerPoolRequest struct {
-	// 编辑数据
-	Data *EditCustomerPoolRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写238
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditCustomerPoolRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                       `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                       `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                       `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditCustomerPoolRequest) String() string {
@@ -848,104 +770,55 @@ func (s *EditCustomerPoolRequest) SetStamp(v int64) *EditCustomerPoolRequest {
 }
 
 type EditCustomerPoolRequestData struct {
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 家庭地址
-	KhAddress *string `json:"kh_address,omitempty" xml:"kh_address,omitempty"`
-	// 称谓
+	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	KhAddress     *string `json:"kh_address,omitempty" xml:"kh_address,omitempty"`
 	KhAppellation *string `json:"kh_appellation,omitempty" xml:"kh_appellation,omitempty"`
-	// 爱好
-	KhBefontof *string `json:"kh_befontof,omitempty" xml:"kh_befontof,omitempty"`
-	// 开票资料
-	KhBillinfo *string `json:"kh_billinfo,omitempty" xml:"kh_billinfo,omitempty"`
-	// 城市
-	KhCity *string `json:"kh_city,omitempty" xml:"kh_city,omitempty"`
-	// 类别（企业客户，个人客户，供应商，个人供应商）
-	KhClass *string `json:"kh_class,omitempty" xml:"kh_class,omitempty"`
-	// 单位地址
-	KhCoaddress *string `json:"kh_coaddress,omitempty" xml:"kh_coaddress,omitempty"`
-	// 联系人分类
-	KhContype *string `json:"kh_contype,omitempty" xml:"kh_contype,omitempty"`
-	// 国家地区
-	KhCountry *string `json:"kh_country,omitempty" xml:"kh_country,omitempty"`
-	// 信用等级（低，中，高）
+	KhBefontof    *string `json:"kh_befontof,omitempty" xml:"kh_befontof,omitempty"`
+	KhBillinfo    *string `json:"kh_billinfo,omitempty" xml:"kh_billinfo,omitempty"`
+	KhCity        *string `json:"kh_city,omitempty" xml:"kh_city,omitempty"`
+	KhClass       *string `json:"kh_class,omitempty" xml:"kh_class,omitempty"`
+	KhCoaddress   *string `json:"kh_coaddress,omitempty" xml:"kh_coaddress,omitempty"`
+	KhContype     *string `json:"kh_contype,omitempty" xml:"kh_contype,omitempty"`
+	KhCountry     *string `json:"kh_country,omitempty" xml:"kh_country,omitempty"`
 	KhCreditgrade *string `json:"kh_creditgrade,omitempty" xml:"kh_creditgrade,omitempty"`
-	// 证件号码
-	KhCtnumber *string `json:"kh_ctnumber,omitempty" xml:"kh_ctnumber,omitempty"`
-	// 证件类型
-	KhCttype *string `json:"kh_cttype,omitempty" xml:"kh_cttype,omitempty"`
-	// 部门
-	KhDepartment *string `json:"kh_department,omitempty" xml:"kh_department,omitempty"`
-	// 钉钉号
-	KhDingtalk *string `json:"kh_dingtalk,omitempty" xml:"kh_dingtalk,omitempty"`
-	// 邮箱
-	KhEmail *string `json:"kh_email,omitempty" xml:"kh_email,omitempty"`
-	// 人员规模
-	KhEmployees *string `json:"kh_employees,omitempty" xml:"kh_employees,omitempty"`
-	// 传真
-	KhFax *string `json:"kh_fax,omitempty" xml:"kh_fax,omitempty"`
-	// 来源
-	KhFrom *string `json:"kh_from,omitempty" xml:"kh_from,omitempty"`
-	// 最后跟踪
+	KhCtnumber    *string `json:"kh_ctnumber,omitempty" xml:"kh_ctnumber,omitempty"`
+	KhCttype      *string `json:"kh_cttype,omitempty" xml:"kh_cttype,omitempty"`
+	KhDepartment  *string `json:"kh_department,omitempty" xml:"kh_department,omitempty"`
+	KhDingtalk    *string `json:"kh_dingtalk,omitempty" xml:"kh_dingtalk,omitempty"`
+	KhEmail       *string `json:"kh_email,omitempty" xml:"kh_email,omitempty"`
+	KhEmployees   *string `json:"kh_employees,omitempty" xml:"kh_employees,omitempty"`
+	KhFax         *string `json:"kh_fax,omitempty" xml:"kh_fax,omitempty"`
+	KhFrom        *string `json:"kh_from,omitempty" xml:"kh_from,omitempty"`
 	KhGenzongtime *string `json:"kh_genzongtime,omitempty" xml:"kh_genzongtime,omitempty"`
-	// 手机
-	KhHandset *string `json:"kh_handset,omitempty" xml:"kh_handset,omitempty"`
-	// 职务
-	KhHeadship *string `json:"kh_headship,omitempty" xml:"kh_headship,omitempty"`
-	// 热点分类
-	KhHotfl *string `json:"kh_hotfl,omitempty" xml:"kh_hotfl,omitempty"`
-	// 热度（无，低热，中热，高热）
-	KhHotlevel *string `json:"kh_hotlevel,omitempty" xml:"kh_hotlevel,omitempty"`
-	// 热点说明
-	KhHotmemo *string `json:"kh_hotmemo,omitempty" xml:"kh_hotmemo,omitempty"`
-	// 热点客户（是，否）
-	KhHottype *string `json:"kh_hottype,omitempty" xml:"kh_hottype,omitempty"`
-	// 行业
-	KhIndustry *string `json:"kh_industry,omitempty" xml:"kh_industry,omitempty"`
-	// 公司简介
-	KhInfo *string `json:"kh_info,omitempty" xml:"kh_info,omitempty"`
-	// 客户级别
-	KhJibie *string `json:"kh_jibie,omitempty" xml:"kh_jibie,omitempty"`
-	// 客户名称
-	KhName *string `json:"kh_name,omitempty" xml:"kh_name,omitempty"`
-	// 上级客户
-	KhPkhid *string `json:"kh_pkhid,omitempty" xml:"kh_pkhid,omitempty"`
-	// 负责业务
-	KhPreside *string `json:"kh_preside,omitempty" xml:"kh_preside,omitempty"`
-	// 省份
-	KhProvince *string `json:"kh_province,omitempty" xml:"kh_province,omitempty"`
-	// 邮编
-	KhPst *string `json:"kh_pst,omitempty" xml:"kh_pst,omitempty"`
-	// QQ
-	KhQq *string `json:"kh_qq,omitempty" xml:"kh_qq,omitempty"`
-	// 关系等级
-	KhRalagrade *string `json:"kh_ralagrade,omitempty" xml:"kh_ralagrade,omitempty"`
-	// 备注
-	KhRemark *string `json:"kh_remark,omitempty" xml:"kh_remark,omitempty"`
-	// 性别（男，女）
-	KhSex *string `json:"kh_sex,omitempty" xml:"kh_sex,omitempty"`
-	// 助记简称
-	KhShortname *string `json:"kh_shortname,omitempty" xml:"kh_shortname,omitempty"`
-	// Skype
-	KhSkype *string `json:"kh_skype,omitempty" xml:"kh_skype,omitempty"`
-	// 编号
-	KhSn *string `json:"kh_sn,omitempty" xml:"kh_sn,omitempty"`
-	// 阶段
-	KhStatus *string `json:"kh_status,omitempty" xml:"kh_status,omitempty"`
-	// 家庭电话
-	KhTel *string `json:"kh_tel,omitempty" xml:"kh_tel,omitempty"`
-	// 种类
-	KhType *string `json:"kh_type,omitempty" xml:"kh_type,omitempty"`
-	// 价值评估（低，中，高）
-	KhValrating *string `json:"kh_valrating,omitempty" xml:"kh_valrating,omitempty"`
-	// 旺旺
-	KhWangwang *string `json:"kh_wangwang,omitempty" xml:"kh_wangwang,omitempty"`
-	// 网址
-	KhWeb *string `json:"kh_web,omitempty" xml:"kh_web,omitempty"`
-	// 微信号
-	KhWeixin *string `json:"kh_weixin,omitempty" xml:"kh_weixin,omitempty"`
-	// 工作电话
-	KhWorktel *string `json:"kh_worktel,omitempty" xml:"kh_worktel,omitempty"`
+	KhHandset     *string `json:"kh_handset,omitempty" xml:"kh_handset,omitempty"`
+	KhHeadship    *string `json:"kh_headship,omitempty" xml:"kh_headship,omitempty"`
+	KhHotfl       *string `json:"kh_hotfl,omitempty" xml:"kh_hotfl,omitempty"`
+	KhHotlevel    *string `json:"kh_hotlevel,omitempty" xml:"kh_hotlevel,omitempty"`
+	KhHotmemo     *string `json:"kh_hotmemo,omitempty" xml:"kh_hotmemo,omitempty"`
+	KhHottype     *string `json:"kh_hottype,omitempty" xml:"kh_hottype,omitempty"`
+	KhIndustry    *string `json:"kh_industry,omitempty" xml:"kh_industry,omitempty"`
+	KhInfo        *string `json:"kh_info,omitempty" xml:"kh_info,omitempty"`
+	KhJibie       *string `json:"kh_jibie,omitempty" xml:"kh_jibie,omitempty"`
+	KhName        *string `json:"kh_name,omitempty" xml:"kh_name,omitempty"`
+	KhPkhid       *string `json:"kh_pkhid,omitempty" xml:"kh_pkhid,omitempty"`
+	KhPreside     *string `json:"kh_preside,omitempty" xml:"kh_preside,omitempty"`
+	KhProvince    *string `json:"kh_province,omitempty" xml:"kh_province,omitempty"`
+	KhPst         *string `json:"kh_pst,omitempty" xml:"kh_pst,omitempty"`
+	KhQq          *string `json:"kh_qq,omitempty" xml:"kh_qq,omitempty"`
+	KhRalagrade   *string `json:"kh_ralagrade,omitempty" xml:"kh_ralagrade,omitempty"`
+	KhRemark      *string `json:"kh_remark,omitempty" xml:"kh_remark,omitempty"`
+	KhSex         *string `json:"kh_sex,omitempty" xml:"kh_sex,omitempty"`
+	KhShortname   *string `json:"kh_shortname,omitempty" xml:"kh_shortname,omitempty"`
+	KhSkype       *string `json:"kh_skype,omitempty" xml:"kh_skype,omitempty"`
+	KhSn          *string `json:"kh_sn,omitempty" xml:"kh_sn,omitempty"`
+	KhStatus      *string `json:"kh_status,omitempty" xml:"kh_status,omitempty"`
+	KhTel         *string `json:"kh_tel,omitempty" xml:"kh_tel,omitempty"`
+	KhType        *string `json:"kh_type,omitempty" xml:"kh_type,omitempty"`
+	KhValrating   *string `json:"kh_valrating,omitempty" xml:"kh_valrating,omitempty"`
+	KhWangwang    *string `json:"kh_wangwang,omitempty" xml:"kh_wangwang,omitempty"`
+	KhWeb         *string `json:"kh_web,omitempty" xml:"kh_web,omitempty"`
+	KhWeixin      *string `json:"kh_weixin,omitempty" xml:"kh_weixin,omitempty"`
+	KhWorktel     *string `json:"kh_worktel,omitempty" xml:"kh_worktel,omitempty"`
 }
 
 func (s EditCustomerPoolRequestData) String() string {
@@ -1202,10 +1075,8 @@ func (s *EditCustomerPoolRequestData) SetKhWorktel(v string) *EditCustomerPoolRe
 }
 
 type EditCustomerPoolResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditCustomerPoolResponseBody) String() string {
@@ -1227,8 +1098,9 @@ func (s *EditCustomerPoolResponseBody) SetTime(v string) *EditCustomerPoolRespon
 }
 
 type EditCustomerPoolResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditCustomerPoolResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditCustomerPoolResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditCustomerPoolResponse) String() string {
@@ -1241,6 +1113,11 @@ func (s EditCustomerPoolResponse) GoString() string {
 
 func (s *EditCustomerPoolResponse) SetHeaders(v map[string]*string) *EditCustomerPoolResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditCustomerPoolResponse) SetStatusCode(v int32) *EditCustomerPoolResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1273,14 +1150,10 @@ func (s *EditExchangeHeaders) SetXAcsDingtalkAccessToken(v string) *EditExchange
 }
 
 type EditExchangeRequest struct {
-	// 编辑数据
-	Data *EditExchangeRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写228
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditExchangeRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                   `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                   `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                   `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditExchangeRequest) String() string {
@@ -1312,38 +1185,22 @@ func (s *EditExchangeRequest) SetStamp(v int64) *EditExchangeRequest {
 }
 
 type EditExchangeRequestData struct {
-	// 产品明细，json格式
-	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 对应客户
+	ChildMx      *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	DataUserid   *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 	HhCustomerid *string `json:"hh_customerid,omitempty" xml:"hh_customerid,omitempty"`
-	// 换货日期
-	HhDate *string `json:"hh_date,omitempty" xml:"hh_date,omitempty"`
-	// 换入操作员
-	HhInempid *string `json:"hh_inempid,omitempty" xml:"hh_inempid,omitempty"`
-	// 换入仓库
-	HhInlibid *string `json:"hh_inlibid,omitempty" xml:"hh_inlibid,omitempty"`
-	// 换入时间
-	HhIntime *string `json:"hh_intime,omitempty" xml:"hh_intime,omitempty"`
-	// 换货单号
-	HhNumber *string `json:"hh_number,omitempty" xml:"hh_number,omitempty"`
-	// 合同/订单
-	HhOrderid *string `json:"hh_orderid,omitempty" xml:"hh_orderid,omitempty"`
-	// 换出操作员
-	HhOutempid *string `json:"hh_outempid,omitempty" xml:"hh_outempid,omitempty"`
-	// 换出仓库
-	HhOutlibid *string `json:"hh_outlibid,omitempty" xml:"hh_outlibid,omitempty"`
-	// 换出时间
-	HhOuttime *string `json:"hh_outtime,omitempty" xml:"hh_outtime,omitempty"`
-	// 备注
-	HhRemark *string `json:"hh_remark,omitempty" xml:"hh_remark,omitempty"`
-	// 状态（未执行，已入待出，已出待入，结束）
-	HhState *string `json:"hh_state,omitempty" xml:"hh_state,omitempty"`
-	// 主题
-	HhTitle *string `json:"hh_title,omitempty" xml:"hh_title,omitempty"`
-	// 分类
-	HhType *string `json:"hh_type,omitempty" xml:"hh_type,omitempty"`
+	HhDate       *string `json:"hh_date,omitempty" xml:"hh_date,omitempty"`
+	HhInempid    *string `json:"hh_inempid,omitempty" xml:"hh_inempid,omitempty"`
+	HhInlibid    *string `json:"hh_inlibid,omitempty" xml:"hh_inlibid,omitempty"`
+	HhIntime     *string `json:"hh_intime,omitempty" xml:"hh_intime,omitempty"`
+	HhNumber     *string `json:"hh_number,omitempty" xml:"hh_number,omitempty"`
+	HhOrderid    *string `json:"hh_orderid,omitempty" xml:"hh_orderid,omitempty"`
+	HhOutempid   *string `json:"hh_outempid,omitempty" xml:"hh_outempid,omitempty"`
+	HhOutlibid   *string `json:"hh_outlibid,omitempty" xml:"hh_outlibid,omitempty"`
+	HhOuttime    *string `json:"hh_outtime,omitempty" xml:"hh_outtime,omitempty"`
+	HhRemark     *string `json:"hh_remark,omitempty" xml:"hh_remark,omitempty"`
+	HhState      *string `json:"hh_state,omitempty" xml:"hh_state,omitempty"`
+	HhTitle      *string `json:"hh_title,omitempty" xml:"hh_title,omitempty"`
+	HhType       *string `json:"hh_type,omitempty" xml:"hh_type,omitempty"`
 }
 
 func (s EditExchangeRequestData) String() string {
@@ -1435,10 +1292,8 @@ func (s *EditExchangeRequestData) SetHhType(v string) *EditExchangeRequestData {
 }
 
 type EditExchangeResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditExchangeResponseBody) String() string {
@@ -1460,8 +1315,9 @@ func (s *EditExchangeResponseBody) SetTime(v string) *EditExchangeResponseBody {
 }
 
 type EditExchangeResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditExchangeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditExchangeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditExchangeResponse) String() string {
@@ -1474,6 +1330,11 @@ func (s EditExchangeResponse) GoString() string {
 
 func (s *EditExchangeResponse) SetHeaders(v map[string]*string) *EditExchangeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditExchangeResponse) SetStatusCode(v int32) *EditExchangeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1506,14 +1367,10 @@ func (s *EditGoodsHeaders) SetXAcsDingtalkAccessToken(v string) *EditGoodsHeader
 }
 
 type EditGoodsRequest struct {
-	// 编辑数据
-	Data *EditGoodsRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写154
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditGoodsRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditGoodsRequest) String() string {
@@ -1545,64 +1402,35 @@ func (s *EditGoodsRequest) SetStamp(v int64) *EditGoodsRequest {
 }
 
 type EditGoodsRequestData struct {
-	// 上架时间
-	Addedtime *string `json:"addedtime,omitempty" xml:"addedtime,omitempty"`
-	// 成本价格
-	Cbprice *string `json:"cbprice,omitempty" xml:"cbprice,omitempty"`
-	// 基准产品
-	CpParentid *string `json:"cp_parentid,omitempty" xml:"cp_parentid,omitempty"`
-	// 产品产地
-	Cparea *string `json:"cparea,omitempty" xml:"cparea,omitempty"`
-	// 条形码
-	Cpbarcode *string `json:"cpbarcode,omitempty" xml:"cpbarcode,omitempty"`
-	// 产品品牌
-	Cpbrand *string `json:"cpbrand,omitempty" xml:"cpbrand,omitempty"`
-	// 产品说明
-	Cpcontent *string `json:"cpcontent,omitempty" xml:"cpcontent,omitempty"`
-	// 产品规格
-	Cpguige *string `json:"cpguige,omitempty" xml:"cpguige,omitempty"`
-	// 产品图片
-	Cpimg *string `json:"cpimg,omitempty" xml:"cpimg,omitempty"`
-	// 产品名称
-	Cpname *string `json:"cpname,omitempty" xml:"cpname,omitempty"`
-	// 产品编号
-	Cpno *string `json:"cpno,omitempty" xml:"cpno,omitempty"`
-	// 产品备注
-	Cpremark *string `json:"cpremark,omitempty" xml:"cpremark,omitempty"`
-	// 产品型号
-	Cptype *string `json:"cptype,omitempty" xml:"cptype,omitempty"`
-	// 产品单位
-	Cpunit *string `json:"cpunit,omitempty" xml:"cpunit,omitempty"`
-	// 产品重量
-	Cpweight *string `json:"cpweight,omitempty" xml:"cpweight,omitempty"`
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 默认供应商
-	Gysid *string `json:"gysid,omitempty" xml:"gysid,omitempty"`
-	// 批次号管理（是，否）
+	Addedtime    *string `json:"addedtime,omitempty" xml:"addedtime,omitempty"`
+	Cbprice      *string `json:"cbprice,omitempty" xml:"cbprice,omitempty"`
+	CpParentid   *string `json:"cp_parentid,omitempty" xml:"cp_parentid,omitempty"`
+	Cparea       *string `json:"cparea,omitempty" xml:"cparea,omitempty"`
+	Cpbarcode    *string `json:"cpbarcode,omitempty" xml:"cpbarcode,omitempty"`
+	Cpbrand      *string `json:"cpbrand,omitempty" xml:"cpbrand,omitempty"`
+	Cpcontent    *string `json:"cpcontent,omitempty" xml:"cpcontent,omitempty"`
+	Cpguige      *string `json:"cpguige,omitempty" xml:"cpguige,omitempty"`
+	Cpimg        *string `json:"cpimg,omitempty" xml:"cpimg,omitempty"`
+	Cpname       *string `json:"cpname,omitempty" xml:"cpname,omitempty"`
+	Cpno         *string `json:"cpno,omitempty" xml:"cpno,omitempty"`
+	Cpremark     *string `json:"cpremark,omitempty" xml:"cpremark,omitempty"`
+	Cptype       *string `json:"cptype,omitempty" xml:"cptype,omitempty"`
+	Cpunit       *string `json:"cpunit,omitempty" xml:"cpunit,omitempty"`
+	Cpweight     *string `json:"cpweight,omitempty" xml:"cpweight,omitempty"`
+	DataUserid   *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	Gysid        *string `json:"gysid,omitempty" xml:"gysid,omitempty"`
 	Ispicimanage *string `json:"ispicimanage,omitempty" xml:"ispicimanage,omitempty"`
-	// 序列号管理（是，否）
-	Issnmanage *string `json:"issnmanage,omitempty" xml:"issnmanage,omitempty"`
-	// 是否算库存（计算，不计算，计算(按基准规格)）
-	Isstock *string `json:"isstock,omitempty" xml:"isstock,omitempty"`
-	// 产品状态（正常，停售，下架）
-	Isstop *string `json:"isstop,omitempty" xml:"isstop,omitempty"`
-	// 零售价格
-	Preprice1 *string `json:"preprice1,omitempty" xml:"preprice1,omitempty"`
-	// 预设价格1
-	Preprice2 *string `json:"preprice2,omitempty" xml:"preprice2,omitempty"`
-	// 预设价格2
-	Preprice3 *string `json:"preprice3,omitempty" xml:"preprice3,omitempty"`
-	// 预设价格3
-	Preprice4 *string `json:"preprice4,omitempty" xml:"preprice4,omitempty"`
-	// 库存下限
-	Stockdown *string `json:"stockdown,omitempty" xml:"stockdown,omitempty"`
-	// 库存上限
-	Stockup *string `json:"stockup,omitempty" xml:"stockup,omitempty"`
-	// 产品类别
-	Typeid *string `json:"typeid,omitempty" xml:"typeid,omitempty"`
-	// 单位换算
-	Unitrate *string `json:"unitrate,omitempty" xml:"unitrate,omitempty"`
+	Issnmanage   *string `json:"issnmanage,omitempty" xml:"issnmanage,omitempty"`
+	Isstock      *string `json:"isstock,omitempty" xml:"isstock,omitempty"`
+	Isstop       *string `json:"isstop,omitempty" xml:"isstop,omitempty"`
+	Preprice1    *string `json:"preprice1,omitempty" xml:"preprice1,omitempty"`
+	Preprice2    *string `json:"preprice2,omitempty" xml:"preprice2,omitempty"`
+	Preprice3    *string `json:"preprice3,omitempty" xml:"preprice3,omitempty"`
+	Preprice4    *string `json:"preprice4,omitempty" xml:"preprice4,omitempty"`
+	Stockdown    *string `json:"stockdown,omitempty" xml:"stockdown,omitempty"`
+	Stockup      *string `json:"stockup,omitempty" xml:"stockup,omitempty"`
+	Typeid       *string `json:"typeid,omitempty" xml:"typeid,omitempty"`
+	Unitrate     *string `json:"unitrate,omitempty" xml:"unitrate,omitempty"`
 }
 
 func (s EditGoodsRequestData) String() string {
@@ -1759,10 +1587,8 @@ func (s *EditGoodsRequestData) SetUnitrate(v string) *EditGoodsRequestData {
 }
 
 type EditGoodsResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditGoodsResponseBody) String() string {
@@ -1784,8 +1610,9 @@ func (s *EditGoodsResponseBody) SetTime(v string) *EditGoodsResponseBody {
 }
 
 type EditGoodsResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditGoodsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditGoodsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditGoodsResponse) String() string {
@@ -1798,6 +1625,11 @@ func (s EditGoodsResponse) GoString() string {
 
 func (s *EditGoodsResponse) SetHeaders(v map[string]*string) *EditGoodsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditGoodsResponse) SetStatusCode(v int32) *EditGoodsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1830,14 +1662,10 @@ func (s *EditIntostockHeaders) SetXAcsDingtalkAccessToken(v string) *EditIntosto
 }
 
 type EditIntostockRequest struct {
-	// 编辑数据
-	Data *EditIntostockRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写189
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditIntostockRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                    `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                    `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                    `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditIntostockRequest) String() string {
@@ -1869,33 +1697,19 @@ func (s *EditIntostockRequest) SetStamp(v int64) *EditIntostockRequest {
 }
 
 type EditIntostockRequestData struct {
-	// 入库申请人
-	Askempid *string `json:"askempid,omitempty" xml:"askempid,omitempty"`
-	// 入库备注
+	Askempid   *string `json:"askempid,omitempty" xml:"askempid,omitempty"`
 	Auditreson *string `json:"auditreson,omitempty" xml:"auditreson,omitempty"`
-	// 入库单号
-	Billno *string `json:"billno,omitempty" xml:"billno,omitempty"`
-	// 产品明细，json格式
-	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	// 供应商/客户
+	Billno     *string `json:"billno,omitempty" xml:"billno,omitempty"`
+	ChildMx    *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
 	Customerid *string `json:"customerid,omitempty" xml:"customerid,omitempty"`
-	// 创建人
 	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 入库经办人
-	Empid *string `json:"empid,omitempty" xml:"empid,omitempty"`
-	// 单据类型（入库，销售退货，生产退料，生产入库，维修退货）
-	Inorout *string `json:"inorout,omitempty" xml:"inorout,omitempty"`
-	// 入库日期
-	Libiodate *string `json:"libiodate,omitempty" xml:"libiodate,omitempty"`
-	// 入库主题
-	Libioname *string `json:"libioname,omitempty" xml:"libioname,omitempty"`
-	// 入库状态（未入库，已入库）
+	Empid      *string `json:"empid,omitempty" xml:"empid,omitempty"`
+	Inorout    *string `json:"inorout,omitempty" xml:"inorout,omitempty"`
+	Libiodate  *string `json:"libiodate,omitempty" xml:"libiodate,omitempty"`
+	Libioname  *string `json:"libioname,omitempty" xml:"libioname,omitempty"`
 	Libiostate *string `json:"libiostate,omitempty" xml:"libiostate,omitempty"`
-	// 对应单据
-	Orderid *string `json:"orderid,omitempty" xml:"orderid,omitempty"`
-	// 申请备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 入库仓库
+	Orderid    *string `json:"orderid,omitempty" xml:"orderid,omitempty"`
+	Remark     *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	Stocklibid *string `json:"stocklibid,omitempty" xml:"stocklibid,omitempty"`
 }
 
@@ -1978,10 +1792,8 @@ func (s *EditIntostockRequestData) SetStocklibid(v string) *EditIntostockRequest
 }
 
 type EditIntostockResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditIntostockResponseBody) String() string {
@@ -2003,8 +1815,9 @@ func (s *EditIntostockResponseBody) SetTime(v string) *EditIntostockResponseBody
 }
 
 type EditIntostockResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditIntostockResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditIntostockResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditIntostockResponse) String() string {
@@ -2017,6 +1830,11 @@ func (s EditIntostockResponse) GoString() string {
 
 func (s *EditIntostockResponse) SetHeaders(v map[string]*string) *EditIntostockResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditIntostockResponse) SetStatusCode(v int32) *EditIntostockResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2049,14 +1867,10 @@ func (s *EditInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *EditInvoiceHe
 }
 
 type EditInvoiceRequest struct {
-	// 编辑数据
-	Data *EditInvoiceRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写169
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditInvoiceRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                  `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                  `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditInvoiceRequest) String() string {
@@ -2088,52 +1902,29 @@ func (s *EditInvoiceRequest) SetStamp(v int64) *EditInvoiceRequest {
 }
 
 type EditInvoiceRequestData struct {
-	// 产品明细，json格式
-	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 地址
-	FhAddress *string `json:"fh_address,omitempty" xml:"fh_address,omitempty"`
-	// 对应客户
+	ChildMx      *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	DataUserid   *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	FhAddress    *string `json:"fh_address,omitempty" xml:"fh_address,omitempty"`
 	FhCustomerid *string `json:"fh_customerid,omitempty" xml:"fh_customerid,omitempty"`
-	// 发货日期
-	FhDate *string `json:"fh_date,omitempty" xml:"fh_date,omitempty"`
-	// Email
-	FhEmail *string `json:"fh_email,omitempty" xml:"fh_email,omitempty"`
-	// 手机
-	FhHandset *string `json:"fh_handset,omitempty" xml:"fh_handset,omitempty"`
-	// 对应订单
-	FhHtorder *string `json:"fh_htorder,omitempty" xml:"fh_htorder,omitempty"`
-	// 打包件数
-	FhJianshu *string `json:"fh_jianshu,omitempty" xml:"fh_jianshu,omitempty"`
-	// 重量(Kg)
-	FhKg *string `json:"fh_kg,omitempty" xml:"fh_kg,omitempty"`
-	// 收货人
-	FhLinkman *string `json:"fh_linkman,omitempty" xml:"fh_linkman,omitempty"`
-	// 联系人
-	FhLxrid *string `json:"fh_lxrid,omitempty" xml:"fh_lxrid,omitempty"`
-	// 发货方式
-	FhMode *string `json:"fh_mode,omitempty" xml:"fh_mode,omitempty"`
-	// MSN
-	FhMsn *string `json:"fh_msn,omitempty" xml:"fh_msn,omitempty"`
-	// 发货单号
-	FhNumber *string `json:"fh_number,omitempty" xml:"fh_number,omitempty"`
-	// 邮编
-	FhPost *string `json:"fh_post,omitempty" xml:"fh_post,omitempty"`
-	// 所有者
-	FhPreside *string `json:"fh_preside,omitempty" xml:"fh_preside,omitempty"`
-	// 备注
-	FhRemark *string `json:"fh_remark,omitempty" xml:"fh_remark,omitempty"`
-	// 发货人
-	FhShipper *string `json:"fh_shipper,omitempty" xml:"fh_shipper,omitempty"`
-	// 发货状态
-	FhState *string `json:"fh_state,omitempty" xml:"fh_state,omitempty"`
-	// 电话
-	FhTel *string `json:"fh_tel,omitempty" xml:"fh_tel,omitempty"`
-	// 发货主题
-	FhTitle *string `json:"fh_title,omitempty" xml:"fh_title,omitempty"`
-	// 运费
-	FhYunfei *string `json:"fh_yunfei,omitempty" xml:"fh_yunfei,omitempty"`
+	FhDate       *string `json:"fh_date,omitempty" xml:"fh_date,omitempty"`
+	FhEmail      *string `json:"fh_email,omitempty" xml:"fh_email,omitempty"`
+	FhHandset    *string `json:"fh_handset,omitempty" xml:"fh_handset,omitempty"`
+	FhHtorder    *string `json:"fh_htorder,omitempty" xml:"fh_htorder,omitempty"`
+	FhJianshu    *string `json:"fh_jianshu,omitempty" xml:"fh_jianshu,omitempty"`
+	FhKg         *string `json:"fh_kg,omitempty" xml:"fh_kg,omitempty"`
+	FhLinkman    *string `json:"fh_linkman,omitempty" xml:"fh_linkman,omitempty"`
+	FhLxrid      *string `json:"fh_lxrid,omitempty" xml:"fh_lxrid,omitempty"`
+	FhMode       *string `json:"fh_mode,omitempty" xml:"fh_mode,omitempty"`
+	FhMsn        *string `json:"fh_msn,omitempty" xml:"fh_msn,omitempty"`
+	FhNumber     *string `json:"fh_number,omitempty" xml:"fh_number,omitempty"`
+	FhPost       *string `json:"fh_post,omitempty" xml:"fh_post,omitempty"`
+	FhPreside    *string `json:"fh_preside,omitempty" xml:"fh_preside,omitempty"`
+	FhRemark     *string `json:"fh_remark,omitempty" xml:"fh_remark,omitempty"`
+	FhShipper    *string `json:"fh_shipper,omitempty" xml:"fh_shipper,omitempty"`
+	FhState      *string `json:"fh_state,omitempty" xml:"fh_state,omitempty"`
+	FhTel        *string `json:"fh_tel,omitempty" xml:"fh_tel,omitempty"`
+	FhTitle      *string `json:"fh_title,omitempty" xml:"fh_title,omitempty"`
+	FhYunfei     *string `json:"fh_yunfei,omitempty" xml:"fh_yunfei,omitempty"`
 }
 
 func (s EditInvoiceRequestData) String() string {
@@ -2260,10 +2051,8 @@ func (s *EditInvoiceRequestData) SetFhYunfei(v string) *EditInvoiceRequestData {
 }
 
 type EditInvoiceResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditInvoiceResponseBody) String() string {
@@ -2285,8 +2074,9 @@ func (s *EditInvoiceResponseBody) SetTime(v string) *EditInvoiceResponseBody {
 }
 
 type EditInvoiceResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditInvoiceResponse) String() string {
@@ -2299,6 +2089,11 @@ func (s EditInvoiceResponse) GoString() string {
 
 func (s *EditInvoiceResponse) SetHeaders(v map[string]*string) *EditInvoiceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditInvoiceResponse) SetStatusCode(v int32) *EditInvoiceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2331,14 +2126,10 @@ func (s *EditOrderHeaders) SetXAcsDingtalkAccessToken(v string) *EditOrderHeader
 }
 
 type EditOrderRequest struct {
-	// 编辑数据
-	Data *EditOrderRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写150
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditOrderRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditOrderRequest) String() string {
@@ -2370,66 +2161,36 @@ func (s *EditOrderRequest) SetStamp(v int64) *EditOrderRequest {
 }
 
 type EditOrderRequestData struct {
-	// 产品明细，json格式
-	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 收货地址
+	ChildMx        *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	DataUserid     *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 	Fahuoaddressid *string `json:"fahuoaddressid,omitempty" xml:"fahuoaddressid,omitempty"`
-	// 开始日期
-	HtBegindate *string `json:"ht_begindate,omitempty" xml:"ht_begindate,omitempty"`
-	// 合同正文
-	HtContract *string `json:"ht_contract,omitempty" xml:"ht_contract,omitempty"`
-	// 对应客户
-	HtCustomerid *string `json:"ht_customerid,omitempty" xml:"ht_customerid,omitempty"`
-	// 客户签约人
-	HtCusub *string `json:"ht_cusub,omitempty" xml:"ht_cusub,omitempty"`
-	// 签单日期
-	HtDate *string `json:"ht_date,omitempty" xml:"ht_date,omitempty"`
-	// 交付地点
-	HtDeliplace *string `json:"ht_deliplace,omitempty" xml:"ht_deliplace,omitempty"`
-	// 最晚发货日
-	HtEnddate *string `json:"ht_enddate,omitempty" xml:"ht_enddate,omitempty"`
-	// 附加费用金额
-	HtFjmoney *string `json:"ht_fjmoney,omitempty" xml:"ht_fjmoney,omitempty"`
-	// 附加费用分类
-	HtFjmoneylx *string `json:"ht_fjmoneylx,omitempty" xml:"ht_fjmoneylx,omitempty"`
-	// 优惠抹零金额
-	HtKjmoney *string `json:"ht_kjmoney,omitempty" xml:"ht_kjmoney,omitempty"`
-	// 对应联系人
-	HtLxrid *string `json:"ht_lxrid,omitempty" xml:"ht_lxrid,omitempty"`
-	// 联系方式
-	HtLxrinfo *string `json:"ht_lxrinfo,omitempty" xml:"ht_lxrinfo,omitempty"`
-	// 优惠折扣率
-	HtMoneyzhekou *string `json:"ht_moneyzhekou,omitempty" xml:"ht_moneyzhekou,omitempty"`
-	// 合同单号
-	HtNumber *string `json:"ht_number,omitempty" xml:"ht_number,omitempty"`
-	// 单据类型（合同，合同订单，店面单）
-	HtOrder *string `json:"ht_order,omitempty" xml:"ht_order,omitempty"`
-	// 付款方式
-	HtPaymode *string `json:"ht_paymode,omitempty" xml:"ht_paymode,omitempty"`
-	// 所有者
-	HtPreside *string `json:"ht_preside,omitempty" xml:"ht_preside,omitempty"`
-	// 备注
-	HtRemark *string `json:"ht_remark,omitempty" xml:"ht_remark,omitempty"`
-	// 状态
-	HtState *string `json:"ht_state,omitempty" xml:"ht_state,omitempty"`
-	// 外币备注
-	HtSummemo *string `json:"ht_summemo,omitempty" xml:"ht_summemo,omitempty"`
-	// 总金额
-	HtSummoney *string `json:"ht_summoney,omitempty" xml:"ht_summoney,omitempty"`
-	// 主题
-	HtTitle *string `json:"ht_title,omitempty" xml:"ht_title,omitempty"`
-	// 分类
-	HtType *string `json:"ht_type,omitempty" xml:"ht_type,omitempty"`
-	// 我方签约人
-	HtWesub *string `json:"ht_wesub,omitempty" xml:"ht_wesub,omitempty"`
-	// 发货方式
-	HtWuliutype *string `json:"ht_wuliutype,omitempty" xml:"ht_wuliutype,omitempty"`
-	// 对应机会
-	HtXshid *string `json:"ht_xshid,omitempty" xml:"ht_xshid,omitempty"`
-	// 预计运费
-	HtYunfeimoney *string `json:"ht_yunfeimoney,omitempty" xml:"ht_yunfeimoney,omitempty"`
+	HtBegindate    *string `json:"ht_begindate,omitempty" xml:"ht_begindate,omitempty"`
+	HtContract     *string `json:"ht_contract,omitempty" xml:"ht_contract,omitempty"`
+	HtCustomerid   *string `json:"ht_customerid,omitempty" xml:"ht_customerid,omitempty"`
+	HtCusub        *string `json:"ht_cusub,omitempty" xml:"ht_cusub,omitempty"`
+	HtDate         *string `json:"ht_date,omitempty" xml:"ht_date,omitempty"`
+	HtDeliplace    *string `json:"ht_deliplace,omitempty" xml:"ht_deliplace,omitempty"`
+	HtEnddate      *string `json:"ht_enddate,omitempty" xml:"ht_enddate,omitempty"`
+	HtFjmoney      *string `json:"ht_fjmoney,omitempty" xml:"ht_fjmoney,omitempty"`
+	HtFjmoneylx    *string `json:"ht_fjmoneylx,omitempty" xml:"ht_fjmoneylx,omitempty"`
+	HtKjmoney      *string `json:"ht_kjmoney,omitempty" xml:"ht_kjmoney,omitempty"`
+	HtLxrid        *string `json:"ht_lxrid,omitempty" xml:"ht_lxrid,omitempty"`
+	HtLxrinfo      *string `json:"ht_lxrinfo,omitempty" xml:"ht_lxrinfo,omitempty"`
+	HtMoneyzhekou  *string `json:"ht_moneyzhekou,omitempty" xml:"ht_moneyzhekou,omitempty"`
+	HtNumber       *string `json:"ht_number,omitempty" xml:"ht_number,omitempty"`
+	HtOrder        *string `json:"ht_order,omitempty" xml:"ht_order,omitempty"`
+	HtPaymode      *string `json:"ht_paymode,omitempty" xml:"ht_paymode,omitempty"`
+	HtPreside      *string `json:"ht_preside,omitempty" xml:"ht_preside,omitempty"`
+	HtRemark       *string `json:"ht_remark,omitempty" xml:"ht_remark,omitempty"`
+	HtState        *string `json:"ht_state,omitempty" xml:"ht_state,omitempty"`
+	HtSummemo      *string `json:"ht_summemo,omitempty" xml:"ht_summemo,omitempty"`
+	HtSummoney     *string `json:"ht_summoney,omitempty" xml:"ht_summoney,omitempty"`
+	HtTitle        *string `json:"ht_title,omitempty" xml:"ht_title,omitempty"`
+	HtType         *string `json:"ht_type,omitempty" xml:"ht_type,omitempty"`
+	HtWesub        *string `json:"ht_wesub,omitempty" xml:"ht_wesub,omitempty"`
+	HtWuliutype    *string `json:"ht_wuliutype,omitempty" xml:"ht_wuliutype,omitempty"`
+	HtXshid        *string `json:"ht_xshid,omitempty" xml:"ht_xshid,omitempty"`
+	HtYunfeimoney  *string `json:"ht_yunfeimoney,omitempty" xml:"ht_yunfeimoney,omitempty"`
 }
 
 func (s EditOrderRequestData) String() string {
@@ -2591,10 +2352,8 @@ func (s *EditOrderRequestData) SetHtYunfeimoney(v string) *EditOrderRequestData 
 }
 
 type EditOrderResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditOrderResponseBody) String() string {
@@ -2616,8 +2375,9 @@ func (s *EditOrderResponseBody) SetTime(v string) *EditOrderResponseBody {
 }
 
 type EditOrderResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditOrderResponse) String() string {
@@ -2630,6 +2390,11 @@ func (s EditOrderResponse) GoString() string {
 
 func (s *EditOrderResponse) SetHeaders(v map[string]*string) *EditOrderResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditOrderResponse) SetStatusCode(v int32) *EditOrderResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2662,14 +2427,10 @@ func (s *EditOutstockHeaders) SetXAcsDingtalkAccessToken(v string) *EditOutstock
 }
 
 type EditOutstockRequest struct {
-	// 编辑数据
-	Data *EditOutstockRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写191
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditOutstockRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                   `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                   `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                   `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditOutstockRequest) String() string {
@@ -2701,33 +2462,19 @@ func (s *EditOutstockRequest) SetStamp(v int64) *EditOutstockRequest {
 }
 
 type EditOutstockRequestData struct {
-	// 申请人
-	Askempid *string `json:"askempid,omitempty" xml:"askempid,omitempty"`
-	// 出库备注
+	Askempid   *string `json:"askempid,omitempty" xml:"askempid,omitempty"`
 	Auditreson *string `json:"auditreson,omitempty" xml:"auditreson,omitempty"`
-	// 出库单号
-	Billno *string `json:"billno,omitempty" xml:"billno,omitempty"`
-	// 产品明细，json格式
-	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	// 对应客户
+	Billno     *string `json:"billno,omitempty" xml:"billno,omitempty"`
+	ChildMx    *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
 	Customerid *string `json:"customerid,omitempty" xml:"customerid,omitempty"`
-	// 创建人
 	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 经办人
-	Empid *string `json:"empid,omitempty" xml:"empid,omitempty"`
-	// 单据类型
-	Inorout *string `json:"inorout,omitempty" xml:"inorout,omitempty"`
-	// 出库日期
-	Libiodate *string `json:"libiodate,omitempty" xml:"libiodate,omitempty"`
-	// 出库主题
-	Libioname *string `json:"libioname,omitempty" xml:"libioname,omitempty"`
-	// 出库状态
+	Empid      *string `json:"empid,omitempty" xml:"empid,omitempty"`
+	Inorout    *string `json:"inorout,omitempty" xml:"inorout,omitempty"`
+	Libiodate  *string `json:"libiodate,omitempty" xml:"libiodate,omitempty"`
+	Libioname  *string `json:"libioname,omitempty" xml:"libioname,omitempty"`
 	Libiostate *string `json:"libiostate,omitempty" xml:"libiostate,omitempty"`
-	// 对应订单
-	Orderid *string `json:"orderid,omitempty" xml:"orderid,omitempty"`
-	// 申请备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 出库仓库
+	Orderid    *string `json:"orderid,omitempty" xml:"orderid,omitempty"`
+	Remark     *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	Stocklibid *string `json:"stocklibid,omitempty" xml:"stocklibid,omitempty"`
 }
 
@@ -2810,10 +2557,8 @@ func (s *EditOutstockRequestData) SetStocklibid(v string) *EditOutstockRequestDa
 }
 
 type EditOutstockResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditOutstockResponseBody) String() string {
@@ -2835,8 +2580,9 @@ func (s *EditOutstockResponseBody) SetTime(v string) *EditOutstockResponseBody {
 }
 
 type EditOutstockResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditOutstockResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditOutstockResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditOutstockResponse) String() string {
@@ -2849,6 +2595,11 @@ func (s EditOutstockResponse) GoString() string {
 
 func (s *EditOutstockResponse) SetHeaders(v map[string]*string) *EditOutstockResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditOutstockResponse) SetStatusCode(v int32) *EditOutstockResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2881,14 +2632,10 @@ func (s *EditProductionHeaders) SetXAcsDingtalkAccessToken(v string) *EditProduc
 }
 
 type EditProductionRequest struct {
-	// 编辑数据
-	Data *EditProductionRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写156
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditProductionRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                     `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                     `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                     `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditProductionRequest) String() string {
@@ -2920,32 +2667,19 @@ func (s *EditProductionRequest) SetStamp(v int64) *EditProductionRequest {
 }
 
 type EditProductionRequestData struct {
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 对应客户
-	SchCustomerid *string `json:"sch_customerid,omitempty" xml:"sch_customerid,omitempty"`
-	// 完成日期
-	SchEndtime *string `json:"sch_endtime,omitempty" xml:"sch_endtime,omitempty"`
-	// 状态（未生产，生产中，生产中止，生产完成）
-	SchFinished *string `json:"sch_finished,omitempty" xml:"sch_finished,omitempty"`
-	// 订单
-	SchHtid *string `json:"sch_htid,omitempty" xml:"sch_htid,omitempty"`
-	// 生产人员
-	SchMakeemp *string `json:"sch_makeemp,omitempty" xml:"sch_makeemp,omitempty"`
-	// 单号
-	SchNumber *string `json:"sch_number,omitempty" xml:"sch_number,omitempty"`
-	// 计划完成
+	DataUserid     *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	SchCustomerid  *string `json:"sch_customerid,omitempty" xml:"sch_customerid,omitempty"`
+	SchEndtime     *string `json:"sch_endtime,omitempty" xml:"sch_endtime,omitempty"`
+	SchFinished    *string `json:"sch_finished,omitempty" xml:"sch_finished,omitempty"`
+	SchHtid        *string `json:"sch_htid,omitempty" xml:"sch_htid,omitempty"`
+	SchMakeemp     *string `json:"sch_makeemp,omitempty" xml:"sch_makeemp,omitempty"`
+	SchNumber      *string `json:"sch_number,omitempty" xml:"sch_number,omitempty"`
 	SchPlanendtime *string `json:"sch_planendtime,omitempty" xml:"sch_planendtime,omitempty"`
-	// 负责人
-	SchPrincipal *string `json:"sch_principal,omitempty" xml:"sch_principal,omitempty"`
-	// 备注
-	SchRemark *string `json:"sch_remark,omitempty" xml:"sch_remark,omitempty"`
-	// 开始日期
-	SchStarttime *string `json:"sch_starttime,omitempty" xml:"sch_starttime,omitempty"`
-	// 阶段（计划，审核，领料，生产，验收，入库/退料，结单，取消）
-	SchStatesstr *string `json:"sch_statesstr,omitempty" xml:"sch_statesstr,omitempty"`
-	// 主题
-	SchTitle *string `json:"sch_title,omitempty" xml:"sch_title,omitempty"`
+	SchPrincipal   *string `json:"sch_principal,omitempty" xml:"sch_principal,omitempty"`
+	SchRemark      *string `json:"sch_remark,omitempty" xml:"sch_remark,omitempty"`
+	SchStarttime   *string `json:"sch_starttime,omitempty" xml:"sch_starttime,omitempty"`
+	SchStatesstr   *string `json:"sch_statesstr,omitempty" xml:"sch_statesstr,omitempty"`
+	SchTitle       *string `json:"sch_title,omitempty" xml:"sch_title,omitempty"`
 }
 
 func (s EditProductionRequestData) String() string {
@@ -3022,10 +2756,8 @@ func (s *EditProductionRequestData) SetSchTitle(v string) *EditProductionRequest
 }
 
 type EditProductionResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditProductionResponseBody) String() string {
@@ -3047,8 +2779,9 @@ func (s *EditProductionResponseBody) SetTime(v string) *EditProductionResponseBo
 }
 
 type EditProductionResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditProductionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditProductionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditProductionResponse) String() string {
@@ -3061,6 +2794,11 @@ func (s EditProductionResponse) GoString() string {
 
 func (s *EditProductionResponse) SetHeaders(v map[string]*string) *EditProductionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditProductionResponse) SetStatusCode(v int32) *EditProductionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3093,14 +2831,10 @@ func (s *EditPurchaseHeaders) SetXAcsDingtalkAccessToken(v string) *EditPurchase
 }
 
 type EditPurchaseRequest struct {
-	// 编辑数据
-	Data *EditPurchaseRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写153
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditPurchaseRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                   `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                   `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                   `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditPurchaseRequest) String() string {
@@ -3132,46 +2866,26 @@ func (s *EditPurchaseRequest) SetStamp(v int64) *EditPurchaseRequest {
 }
 
 type EditPurchaseRequestData struct {
-	// 附加费用金额
-	CgFjmoney *string `json:"cg_fjmoney,omitempty" xml:"cg_fjmoney,omitempty"`
-	// 附加费用分类
-	CgFjmoneylx *string `json:"cg_fjmoneylx,omitempty" xml:"cg_fjmoneylx,omitempty"`
-	// 优惠抹零金额
-	CgKjmoney *string `json:"cg_kjmoney,omitempty" xml:"cg_kjmoney,omitempty"`
-	// 优惠折扣率
+	CgFjmoney     *string `json:"cg_fjmoney,omitempty" xml:"cg_fjmoney,omitempty"`
+	CgFjmoneylx   *string `json:"cg_fjmoneylx,omitempty" xml:"cg_fjmoneylx,omitempty"`
+	CgKjmoney     *string `json:"cg_kjmoney,omitempty" xml:"cg_kjmoney,omitempty"`
 	CgMoneyzhekou *string `json:"cg_moneyzhekou,omitempty" xml:"cg_moneyzhekou,omitempty"`
-	// 执行状态
-	CgZxstate *string `json:"cg_zxstate,omitempty" xml:"cg_zxstate,omitempty"`
-	// 采购日期
-	Cgdate *string `json:"cgdate,omitempty" xml:"cgdate,omitempty"`
-	// 采购主题
-	Cgname *string `json:"cgname,omitempty" xml:"cgname,omitempty"`
-	// 采购单号
-	Cgno *string `json:"cgno,omitempty" xml:"cgno,omitempty"`
-	// 采购摘要
-	Cgremark *string `json:"cgremark,omitempty" xml:"cgremark,omitempty"`
-	// 采购分类
-	Cgtype *string `json:"cgtype,omitempty" xml:"cgtype,omitempty"`
-	// 产品明细，json格式
-	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 我方代表
-	Empid *string `json:"empid,omitempty" xml:"empid,omitempty"`
-	// 供应商联系人
-	GysLxrid *string `json:"gys_lxrid,omitempty" xml:"gys_lxrid,omitempty"`
-	// 联系方式
-	GysLxrinfo *string `json:"gys_lxrinfo,omitempty" xml:"gys_lxrinfo,omitempty"`
-	// 供应商
-	Gysid *string `json:"gysid,omitempty" xml:"gysid,omitempty"`
-	// 供应商代表
-	Gysjingban *string `json:"gysjingban,omitempty" xml:"gysjingban,omitempty"`
-	// 关联订单
-	OrderHtid *string `json:"order_htid,omitempty" xml:"order_htid,omitempty"`
-	// 关联订单客户
-	OrderKhid *string `json:"order_khid,omitempty" xml:"order_khid,omitempty"`
-	// 采购金额
-	Summoney *string `json:"summoney,omitempty" xml:"summoney,omitempty"`
+	CgZxstate     *string `json:"cg_zxstate,omitempty" xml:"cg_zxstate,omitempty"`
+	Cgdate        *string `json:"cgdate,omitempty" xml:"cgdate,omitempty"`
+	Cgname        *string `json:"cgname,omitempty" xml:"cgname,omitempty"`
+	Cgno          *string `json:"cgno,omitempty" xml:"cgno,omitempty"`
+	Cgremark      *string `json:"cgremark,omitempty" xml:"cgremark,omitempty"`
+	Cgtype        *string `json:"cgtype,omitempty" xml:"cgtype,omitempty"`
+	ChildMx       *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	Empid         *string `json:"empid,omitempty" xml:"empid,omitempty"`
+	GysLxrid      *string `json:"gys_lxrid,omitempty" xml:"gys_lxrid,omitempty"`
+	GysLxrinfo    *string `json:"gys_lxrinfo,omitempty" xml:"gys_lxrinfo,omitempty"`
+	Gysid         *string `json:"gysid,omitempty" xml:"gysid,omitempty"`
+	Gysjingban    *string `json:"gysjingban,omitempty" xml:"gysjingban,omitempty"`
+	OrderHtid     *string `json:"order_htid,omitempty" xml:"order_htid,omitempty"`
+	OrderKhid     *string `json:"order_khid,omitempty" xml:"order_khid,omitempty"`
+	Summoney      *string `json:"summoney,omitempty" xml:"summoney,omitempty"`
 }
 
 func (s EditPurchaseRequestData) String() string {
@@ -3283,10 +2997,8 @@ func (s *EditPurchaseRequestData) SetSummoney(v string) *EditPurchaseRequestData
 }
 
 type EditPurchaseResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditPurchaseResponseBody) String() string {
@@ -3308,8 +3020,9 @@ func (s *EditPurchaseResponseBody) SetTime(v string) *EditPurchaseResponseBody {
 }
 
 type EditPurchaseResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditPurchaseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditPurchaseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditPurchaseResponse) String() string {
@@ -3322,6 +3035,11 @@ func (s EditPurchaseResponse) GoString() string {
 
 func (s *EditPurchaseResponse) SetHeaders(v map[string]*string) *EditPurchaseResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditPurchaseResponse) SetStatusCode(v int32) *EditPurchaseResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3354,14 +3072,10 @@ func (s *EditQuotationRecordHeaders) SetXAcsDingtalkAccessToken(v string) *EditQ
 }
 
 type EditQuotationRecordRequest struct {
-	// 编辑数据
-	Data *EditQuotationRecordRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写161
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditQuotationRecordRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                          `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                          `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                          `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditQuotationRecordRequest) String() string {
@@ -3393,46 +3107,26 @@ func (s *EditQuotationRecordRequest) SetStamp(v int64) *EditQuotationRecordReque
 }
 
 type EditQuotationRecordRequestData struct {
-	// 报价人
-	BjBjren *string `json:"bj_bjren,omitempty" xml:"bj_bjren,omitempty"`
-	// 包装运输
-	BjBzremark *string `json:"bj_bzremark,omitempty" xml:"bj_bzremark,omitempty"`
-	// 对应客户
-	BjCustomerid *string `json:"bj_customerid,omitempty" xml:"bj_customerid,omitempty"`
-	// 报价日期
-	BjDate *string `json:"bj_date,omitempty" xml:"bj_date,omitempty"`
-	// 附加费用金额
-	BjFjmoney *string `json:"bj_fjmoney,omitempty" xml:"bj_fjmoney,omitempty"`
-	// 附加费用分类
-	BjFjmoneylx *string `json:"bj_fjmoneylx,omitempty" xml:"bj_fjmoneylx,omitempty"`
-	// 付款说明
-	BjFkremark *string `json:"bj_fkremark,omitempty" xml:"bj_fkremark,omitempty"`
-	// 交付说明
-	BjJfremark *string `json:"bj_jfremark,omitempty" xml:"bj_jfremark,omitempty"`
-	// 接收人
-	BjJshren *string `json:"bj_jshren,omitempty" xml:"bj_jshren,omitempty"`
-	// 优惠抹零金额
-	BjKjmoney *string `json:"bj_kjmoney,omitempty" xml:"bj_kjmoney,omitempty"`
-	// 联系方式
-	BjLianxi *string `json:"bj_lianxi,omitempty" xml:"bj_lianxi,omitempty"`
-	// 优惠折扣率
+	BjBjren       *string `json:"bj_bjren,omitempty" xml:"bj_bjren,omitempty"`
+	BjBzremark    *string `json:"bj_bzremark,omitempty" xml:"bj_bzremark,omitempty"`
+	BjCustomerid  *string `json:"bj_customerid,omitempty" xml:"bj_customerid,omitempty"`
+	BjDate        *string `json:"bj_date,omitempty" xml:"bj_date,omitempty"`
+	BjFjmoney     *string `json:"bj_fjmoney,omitempty" xml:"bj_fjmoney,omitempty"`
+	BjFjmoneylx   *string `json:"bj_fjmoneylx,omitempty" xml:"bj_fjmoneylx,omitempty"`
+	BjFkremark    *string `json:"bj_fkremark,omitempty" xml:"bj_fkremark,omitempty"`
+	BjJfremark    *string `json:"bj_jfremark,omitempty" xml:"bj_jfremark,omitempty"`
+	BjJshren      *string `json:"bj_jshren,omitempty" xml:"bj_jshren,omitempty"`
+	BjKjmoney     *string `json:"bj_kjmoney,omitempty" xml:"bj_kjmoney,omitempty"`
+	BjLianxi      *string `json:"bj_lianxi,omitempty" xml:"bj_lianxi,omitempty"`
 	BjMoneyzhekou *string `json:"bj_moneyzhekou,omitempty" xml:"bj_moneyzhekou,omitempty"`
-	// 报价单号
-	BjNumber *string `json:"bj_number,omitempty" xml:"bj_number,omitempty"`
-	// 报价(总)
-	BjPrice *string `json:"bj_price,omitempty" xml:"bj_price,omitempty"`
-	// 备注
-	BjRemark *string `json:"bj_remark,omitempty" xml:"bj_remark,omitempty"`
-	// 转成订单
-	BjState *string `json:"bj_state,omitempty" xml:"bj_state,omitempty"`
-	// 主题
-	BjTitle *string `json:"bj_title,omitempty" xml:"bj_title,omitempty"`
-	// 对应机会
-	BjXshid *string `json:"bj_xshid,omitempty" xml:"bj_xshid,omitempty"`
-	// 产品明细，json格式
-	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	BjNumber      *string `json:"bj_number,omitempty" xml:"bj_number,omitempty"`
+	BjPrice       *string `json:"bj_price,omitempty" xml:"bj_price,omitempty"`
+	BjRemark      *string `json:"bj_remark,omitempty" xml:"bj_remark,omitempty"`
+	BjState       *string `json:"bj_state,omitempty" xml:"bj_state,omitempty"`
+	BjTitle       *string `json:"bj_title,omitempty" xml:"bj_title,omitempty"`
+	BjXshid       *string `json:"bj_xshid,omitempty" xml:"bj_xshid,omitempty"`
+	ChildMx       *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 }
 
 func (s EditQuotationRecordRequestData) String() string {
@@ -3544,10 +3238,8 @@ func (s *EditQuotationRecordRequestData) SetDataUserid(v string) *EditQuotationR
 }
 
 type EditQuotationRecordResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditQuotationRecordResponseBody) String() string {
@@ -3569,8 +3261,9 @@ func (s *EditQuotationRecordResponseBody) SetTime(v string) *EditQuotationRecord
 }
 
 type EditQuotationRecordResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditQuotationRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditQuotationRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditQuotationRecordResponse) String() string {
@@ -3583,6 +3276,11 @@ func (s EditQuotationRecordResponse) GoString() string {
 
 func (s *EditQuotationRecordResponse) SetHeaders(v map[string]*string) *EditQuotationRecordResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditQuotationRecordResponse) SetStatusCode(v int32) *EditQuotationRecordResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3615,14 +3313,10 @@ func (s *EditSalesHeaders) SetXAcsDingtalkAccessToken(v string) *EditSalesHeader
 }
 
 type EditSalesRequest struct {
-	// 编辑数据
-	Data *EditSalesRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 数据类型，固定填写158
-	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id，不填或者填0为新增数据
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 时间戳
-	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data     *EditSalesRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Datatype *int64                `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	Msgid    *int64                `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Stamp    *int64                `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditSalesRequest) String() string {
@@ -3654,44 +3348,25 @@ func (s *EditSalesRequest) SetStamp(v int64) *EditSalesRequest {
 }
 
 type EditSalesRequestData struct {
-	// 创建人
-	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	// 对应客户
+	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 	XshCustomerid *string `json:"xsh_customerid,omitempty" xml:"xsh_customerid,omitempty"`
-	// 发现时间
-	XshDate *string `json:"xsh_date,omitempty" xml:"xsh_date,omitempty"`
-	// 预计签单日
-	XshExpdate *string `json:"xsh_expdate,omitempty" xml:"xsh_expdate,omitempty"`
-	// 预期金额
-	XshExpmoney *string `json:"xsh_expmoney,omitempty" xml:"xsh_expmoney,omitempty"`
-	// 来源
-	XshFrom *string `json:"xsh_from,omitempty" xml:"xsh_from,omitempty"`
-	// 可能性
-	XshKnx *string `json:"xsh_knx,omitempty" xml:"xsh_knx,omitempty"`
-	// 联系方式
-	XshLianxi *string `json:"xsh_lianxi,omitempty" xml:"xsh_lianxi,omitempty"`
-	// 联系人
-	XshLxrid *string `json:"xsh_lxrid,omitempty" xml:"xsh_lxrid,omitempty"`
-	// 外币备注
-	XshMoneynote *string `json:"xsh_moneynote,omitempty" xml:"xsh_moneynote,omitempty"`
-	// 机会编号
-	XshNumber *string `json:"xsh_number,omitempty" xml:"xsh_number,omitempty"`
-	// 阶段
-	XshPhase *string `json:"xsh_phase,omitempty" xml:"xsh_phase,omitempty"`
-	// 阶段备注
-	XshPhasenote *string `json:"xsh_phasenote,omitempty" xml:"xsh_phasenote,omitempty"`
-	// 所有者
-	XshPreside *string `json:"xsh_preside,omitempty" xml:"xsh_preside,omitempty"`
-	// 提供人
-	XshProvider *string `json:"xsh_provider,omitempty" xml:"xsh_provider,omitempty"`
-	// 客户需求
-	XshRequire *string `json:"xsh_require,omitempty" xml:"xsh_require,omitempty"`
-	// 状态
-	XshState *string `json:"xsh_state,omitempty" xml:"xsh_state,omitempty"`
-	// 主题
-	XshTitle *string `json:"xsh_title,omitempty" xml:"xsh_title,omitempty"`
-	// 类型
-	XshType *string `json:"xsh_type,omitempty" xml:"xsh_type,omitempty"`
+	XshDate       *string `json:"xsh_date,omitempty" xml:"xsh_date,omitempty"`
+	XshExpdate    *string `json:"xsh_expdate,omitempty" xml:"xsh_expdate,omitempty"`
+	XshExpmoney   *string `json:"xsh_expmoney,omitempty" xml:"xsh_expmoney,omitempty"`
+	XshFrom       *string `json:"xsh_from,omitempty" xml:"xsh_from,omitempty"`
+	XshKnx        *string `json:"xsh_knx,omitempty" xml:"xsh_knx,omitempty"`
+	XshLianxi     *string `json:"xsh_lianxi,omitempty" xml:"xsh_lianxi,omitempty"`
+	XshLxrid      *string `json:"xsh_lxrid,omitempty" xml:"xsh_lxrid,omitempty"`
+	XshMoneynote  *string `json:"xsh_moneynote,omitempty" xml:"xsh_moneynote,omitempty"`
+	XshNumber     *string `json:"xsh_number,omitempty" xml:"xsh_number,omitempty"`
+	XshPhase      *string `json:"xsh_phase,omitempty" xml:"xsh_phase,omitempty"`
+	XshPhasenote  *string `json:"xsh_phasenote,omitempty" xml:"xsh_phasenote,omitempty"`
+	XshPreside    *string `json:"xsh_preside,omitempty" xml:"xsh_preside,omitempty"`
+	XshProvider   *string `json:"xsh_provider,omitempty" xml:"xsh_provider,omitempty"`
+	XshRequire    *string `json:"xsh_require,omitempty" xml:"xsh_require,omitempty"`
+	XshState      *string `json:"xsh_state,omitempty" xml:"xsh_state,omitempty"`
+	XshTitle      *string `json:"xsh_title,omitempty" xml:"xsh_title,omitempty"`
+	XshType       *string `json:"xsh_type,omitempty" xml:"xsh_type,omitempty"`
 }
 
 func (s EditSalesRequestData) String() string {
@@ -3798,10 +3473,8 @@ func (s *EditSalesRequestData) SetXshType(v string) *EditSalesRequestData {
 }
 
 type EditSalesResponseBody struct {
-	// 编辑数据的id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditSalesResponseBody) String() string {
@@ -3823,8 +3496,9 @@ func (s *EditSalesResponseBody) SetTime(v string) *EditSalesResponseBody {
 }
 
 type EditSalesResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *EditSalesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EditSalesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s EditSalesResponse) String() string {
@@ -3837,6 +3511,11 @@ func (s EditSalesResponse) GoString() string {
 
 func (s *EditSalesResponse) SetHeaders(v map[string]*string) *EditSalesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *EditSalesResponse) SetStatusCode(v int32) *EditSalesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3869,12 +3548,9 @@ func (s *GetDataListHeaders) SetXAcsDingtalkAccessToken(v string) *GetDataListHe
 }
 
 type GetDataListRequest struct {
-	// 数据类型，参考数据类型ID对照表
 	Datatype *string `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 页码
-	Page *int64 `json:"page,omitempty" xml:"page,omitempty"`
-	// 分页条数
-	Pagesize *int64 `json:"pagesize,omitempty" xml:"pagesize,omitempty"`
+	Page     *int64  `json:"page,omitempty" xml:"page,omitempty"`
+	Pagesize *int64  `json:"pagesize,omitempty" xml:"pagesize,omitempty"`
 }
 
 func (s GetDataListRequest) String() string {
@@ -3901,18 +3577,12 @@ func (s *GetDataListRequest) SetPagesize(v int64) *GetDataListRequest {
 }
 
 type GetDataListResponseBody struct {
-	// 数据列表
-	Data []*GetDataListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	// 字段明细
-	Dataname map[string]*string `json:"dataname,omitempty" xml:"dataname,omitempty"`
-	// 当前页码
-	Page *int64 `json:"page,omitempty" xml:"page,omitempty"`
-	// 分页条数
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
-	// 总条数
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data       []*GetDataListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	Dataname   map[string]*string             `json:"dataname,omitempty" xml:"dataname,omitempty"`
+	Page       *int64                         `json:"page,omitempty" xml:"page,omitempty"`
+	PageSize   *int64                         `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Time       *string                        `json:"time,omitempty" xml:"time,omitempty"`
+	TotalCount *int64                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetDataListResponseBody) String() string {
@@ -3971,8 +3641,9 @@ func (s *GetDataListResponseBodyData) SetDetail(v map[string]*string) *GetDataLi
 }
 
 type GetDataListResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetDataListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetDataListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetDataListResponse) String() string {
@@ -3985,6 +3656,11 @@ func (s GetDataListResponse) GoString() string {
 
 func (s *GetDataListResponse) SetHeaders(v map[string]*string) *GetDataListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetDataListResponse) SetStatusCode(v int32) *GetDataListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4017,10 +3693,8 @@ func (s *GetDataViewHeaders) SetXAcsDingtalkAccessToken(v string) *GetDataViewHe
 }
 
 type GetDataViewRequest struct {
-	// 数据类型，参考数据类型ID对照表
 	Datatype *string `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	// 数据id
-	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	Msgid    *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
 }
 
 func (s GetDataViewRequest) String() string {
@@ -4042,11 +3716,9 @@ func (s *GetDataViewRequest) SetMsgid(v int64) *GetDataViewRequest {
 }
 
 type GetDataViewResponseBody struct {
-	Data *GetDataViewResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 字段明细
+	Data     *GetDataViewResponseBodyData      `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
 	Dataname map[string]map[string]interface{} `json:"dataname,omitempty" xml:"dataname,omitempty"`
-	// 响应时间
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Time     *string                           `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s GetDataViewResponseBody) String() string {
@@ -4073,7 +3745,6 @@ func (s *GetDataViewResponseBody) SetTime(v string) *GetDataViewResponseBody {
 }
 
 type GetDataViewResponseBodyData struct {
-	// 数据详情
 	Detail map[string]*string `json:"detail,omitempty" xml:"detail,omitempty"`
 }
 
@@ -4091,8 +3762,9 @@ func (s *GetDataViewResponseBodyData) SetDetail(v map[string]*string) *GetDataVi
 }
 
 type GetDataViewResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetDataViewResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetDataViewResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetDataViewResponse) String() string {
@@ -4105,6 +3777,11 @@ func (s GetDataViewResponse) GoString() string {
 
 func (s *GetDataViewResponse) SetHeaders(v map[string]*string) *GetDataViewResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetDataViewResponse) SetStatusCode(v int32) *GetDataViewResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4128,24 +3805,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) EditContact(request *EditContactRequest) (_result *EditContactResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &EditContactHeaders{}
-	_result = &EditContactResponse{}
-	_body, _err := client.EditContactWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) EditContactWithOptions(request *EditContactRequest, headers *EditContactHeaders, runtime *util.RuntimeOptions) (_result *EditContactResponse, _err error) {
@@ -4183,8 +3854,19 @@ func (client *Client) EditContactWithOptions(request *EditContactRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditContact"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/contacts"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditContactResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditContact"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/contacts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4192,11 +3874,11 @@ func (client *Client) EditContactWithOptions(request *EditContactRequest, header
 	return _result, _err
 }
 
-func (client *Client) EditCustomer(request *EditCustomerRequest) (_result *EditCustomerResponse, _err error) {
+func (client *Client) EditContact(request *EditContactRequest) (_result *EditContactResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditCustomerHeaders{}
-	_result = &EditCustomerResponse{}
-	_body, _err := client.EditCustomerWithOptions(request, headers, runtime)
+	headers := &EditContactHeaders{}
+	_result = &EditContactResponse{}
+	_body, _err := client.EditContactWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4239,8 +3921,19 @@ func (client *Client) EditCustomerWithOptions(request *EditCustomerRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditCustomer"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/customers"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditCustomerResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditCustomer"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/customers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4248,11 +3941,11 @@ func (client *Client) EditCustomerWithOptions(request *EditCustomerRequest, head
 	return _result, _err
 }
 
-func (client *Client) EditCustomerPool(request *EditCustomerPoolRequest) (_result *EditCustomerPoolResponse, _err error) {
+func (client *Client) EditCustomer(request *EditCustomerRequest) (_result *EditCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditCustomerPoolHeaders{}
-	_result = &EditCustomerPoolResponse{}
-	_body, _err := client.EditCustomerPoolWithOptions(request, headers, runtime)
+	headers := &EditCustomerHeaders{}
+	_result = &EditCustomerResponse{}
+	_body, _err := client.EditCustomerWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4295,8 +3988,19 @@ func (client *Client) EditCustomerPoolWithOptions(request *EditCustomerPoolReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditCustomerPool"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/customerPools"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditCustomerPoolResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditCustomerPool"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/customerPools"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4304,11 +4008,11 @@ func (client *Client) EditCustomerPoolWithOptions(request *EditCustomerPoolReque
 	return _result, _err
 }
 
-func (client *Client) EditExchange(request *EditExchangeRequest) (_result *EditExchangeResponse, _err error) {
+func (client *Client) EditCustomerPool(request *EditCustomerPoolRequest) (_result *EditCustomerPoolResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditExchangeHeaders{}
-	_result = &EditExchangeResponse{}
-	_body, _err := client.EditExchangeWithOptions(request, headers, runtime)
+	headers := &EditCustomerPoolHeaders{}
+	_result = &EditCustomerPoolResponse{}
+	_body, _err := client.EditCustomerPoolWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4351,8 +4055,19 @@ func (client *Client) EditExchangeWithOptions(request *EditExchangeRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditExchange"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/exchanges"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditExchangeResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditExchange"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/exchanges"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4360,11 +4075,11 @@ func (client *Client) EditExchangeWithOptions(request *EditExchangeRequest, head
 	return _result, _err
 }
 
-func (client *Client) EditGoods(request *EditGoodsRequest) (_result *EditGoodsResponse, _err error) {
+func (client *Client) EditExchange(request *EditExchangeRequest) (_result *EditExchangeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditGoodsHeaders{}
-	_result = &EditGoodsResponse{}
-	_body, _err := client.EditGoodsWithOptions(request, headers, runtime)
+	headers := &EditExchangeHeaders{}
+	_result = &EditExchangeResponse{}
+	_body, _err := client.EditExchangeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4407,8 +4122,19 @@ func (client *Client) EditGoodsWithOptions(request *EditGoodsRequest, headers *E
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditGoods"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/goods"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditGoodsResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditGoods"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/goods"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4416,11 +4142,11 @@ func (client *Client) EditGoodsWithOptions(request *EditGoodsRequest, headers *E
 	return _result, _err
 }
 
-func (client *Client) EditIntostock(request *EditIntostockRequest) (_result *EditIntostockResponse, _err error) {
+func (client *Client) EditGoods(request *EditGoodsRequest) (_result *EditGoodsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditIntostockHeaders{}
-	_result = &EditIntostockResponse{}
-	_body, _err := client.EditIntostockWithOptions(request, headers, runtime)
+	headers := &EditGoodsHeaders{}
+	_result = &EditGoodsResponse{}
+	_body, _err := client.EditGoodsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4463,8 +4189,19 @@ func (client *Client) EditIntostockWithOptions(request *EditIntostockRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditIntostock"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/intostocks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditIntostockResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditIntostock"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/intostocks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4472,11 +4209,11 @@ func (client *Client) EditIntostockWithOptions(request *EditIntostockRequest, he
 	return _result, _err
 }
 
-func (client *Client) EditInvoice(request *EditInvoiceRequest) (_result *EditInvoiceResponse, _err error) {
+func (client *Client) EditIntostock(request *EditIntostockRequest) (_result *EditIntostockResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditInvoiceHeaders{}
-	_result = &EditInvoiceResponse{}
-	_body, _err := client.EditInvoiceWithOptions(request, headers, runtime)
+	headers := &EditIntostockHeaders{}
+	_result = &EditIntostockResponse{}
+	_body, _err := client.EditIntostockWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4519,8 +4256,19 @@ func (client *Client) EditInvoiceWithOptions(request *EditInvoiceRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditInvoice"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/invoices"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditInvoiceResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditInvoice"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/invoices"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4528,11 +4276,11 @@ func (client *Client) EditInvoiceWithOptions(request *EditInvoiceRequest, header
 	return _result, _err
 }
 
-func (client *Client) EditOrder(request *EditOrderRequest) (_result *EditOrderResponse, _err error) {
+func (client *Client) EditInvoice(request *EditInvoiceRequest) (_result *EditInvoiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditOrderHeaders{}
-	_result = &EditOrderResponse{}
-	_body, _err := client.EditOrderWithOptions(request, headers, runtime)
+	headers := &EditInvoiceHeaders{}
+	_result = &EditInvoiceResponse{}
+	_body, _err := client.EditInvoiceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4575,8 +4323,19 @@ func (client *Client) EditOrderWithOptions(request *EditOrderRequest, headers *E
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditOrder"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/orders"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditOrderResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditOrder"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/orders"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4584,11 +4343,11 @@ func (client *Client) EditOrderWithOptions(request *EditOrderRequest, headers *E
 	return _result, _err
 }
 
-func (client *Client) EditOutstock(request *EditOutstockRequest) (_result *EditOutstockResponse, _err error) {
+func (client *Client) EditOrder(request *EditOrderRequest) (_result *EditOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditOutstockHeaders{}
-	_result = &EditOutstockResponse{}
-	_body, _err := client.EditOutstockWithOptions(request, headers, runtime)
+	headers := &EditOrderHeaders{}
+	_result = &EditOrderResponse{}
+	_body, _err := client.EditOrderWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4631,8 +4390,19 @@ func (client *Client) EditOutstockWithOptions(request *EditOutstockRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditOutstock"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/outstocks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditOutstockResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditOutstock"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/outstocks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4640,11 +4410,11 @@ func (client *Client) EditOutstockWithOptions(request *EditOutstockRequest, head
 	return _result, _err
 }
 
-func (client *Client) EditProduction(request *EditProductionRequest) (_result *EditProductionResponse, _err error) {
+func (client *Client) EditOutstock(request *EditOutstockRequest) (_result *EditOutstockResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditProductionHeaders{}
-	_result = &EditProductionResponse{}
-	_body, _err := client.EditProductionWithOptions(request, headers, runtime)
+	headers := &EditOutstockHeaders{}
+	_result = &EditOutstockResponse{}
+	_body, _err := client.EditOutstockWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4687,8 +4457,19 @@ func (client *Client) EditProductionWithOptions(request *EditProductionRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditProduction"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/productions"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditProductionResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditProduction"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/productions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4696,11 +4477,11 @@ func (client *Client) EditProductionWithOptions(request *EditProductionRequest, 
 	return _result, _err
 }
 
-func (client *Client) EditPurchase(request *EditPurchaseRequest) (_result *EditPurchaseResponse, _err error) {
+func (client *Client) EditProduction(request *EditProductionRequest) (_result *EditProductionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditPurchaseHeaders{}
-	_result = &EditPurchaseResponse{}
-	_body, _err := client.EditPurchaseWithOptions(request, headers, runtime)
+	headers := &EditProductionHeaders{}
+	_result = &EditProductionResponse{}
+	_body, _err := client.EditProductionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4743,8 +4524,19 @@ func (client *Client) EditPurchaseWithOptions(request *EditPurchaseRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditPurchase"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/purchases"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditPurchaseResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditPurchase"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/purchases"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4752,11 +4544,11 @@ func (client *Client) EditPurchaseWithOptions(request *EditPurchaseRequest, head
 	return _result, _err
 }
 
-func (client *Client) EditQuotationRecord(request *EditQuotationRecordRequest) (_result *EditQuotationRecordResponse, _err error) {
+func (client *Client) EditPurchase(request *EditPurchaseRequest) (_result *EditPurchaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditQuotationRecordHeaders{}
-	_result = &EditQuotationRecordResponse{}
-	_body, _err := client.EditQuotationRecordWithOptions(request, headers, runtime)
+	headers := &EditPurchaseHeaders{}
+	_result = &EditPurchaseResponse{}
+	_body, _err := client.EditPurchaseWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4799,8 +4591,19 @@ func (client *Client) EditQuotationRecordWithOptions(request *EditQuotationRecor
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditQuotationRecord"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/quotationRecords"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditQuotationRecordResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditQuotationRecord"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/quotationRecords"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4808,11 +4611,11 @@ func (client *Client) EditQuotationRecordWithOptions(request *EditQuotationRecor
 	return _result, _err
 }
 
-func (client *Client) EditSales(request *EditSalesRequest) (_result *EditSalesResponse, _err error) {
+func (client *Client) EditQuotationRecord(request *EditQuotationRecordRequest) (_result *EditQuotationRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &EditSalesHeaders{}
-	_result = &EditSalesResponse{}
-	_body, _err := client.EditSalesWithOptions(request, headers, runtime)
+	headers := &EditQuotationRecordHeaders{}
+	_result = &EditQuotationRecordResponse{}
+	_body, _err := client.EditQuotationRecordWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4855,8 +4658,19 @@ func (client *Client) EditSalesWithOptions(request *EditSalesRequest, headers *E
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("EditSales"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/sales"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &EditSalesResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditSales"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/jzcrm/sales"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4864,11 +4678,11 @@ func (client *Client) EditSalesWithOptions(request *EditSalesRequest, headers *E
 	return _result, _err
 }
 
-func (client *Client) GetDataList(request *GetDataListRequest) (_result *GetDataListResponse, _err error) {
+func (client *Client) EditSales(request *EditSalesRequest) (_result *EditSalesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetDataListHeaders{}
-	_result = &GetDataListResponse{}
-	_body, _err := client.GetDataListWithOptions(request, headers, runtime)
+	headers := &EditSalesHeaders{}
+	_result = &EditSalesResponse{}
+	_body, _err := client.EditSalesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4907,8 +4721,19 @@ func (client *Client) GetDataListWithOptions(request *GetDataListRequest, header
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDataList"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/data"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetDataListResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetDataList"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/jzcrm/data"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4916,11 +4741,11 @@ func (client *Client) GetDataListWithOptions(request *GetDataListRequest, header
 	return _result, _err
 }
 
-func (client *Client) GetDataView(request *GetDataViewRequest) (_result *GetDataViewResponse, _err error) {
+func (client *Client) GetDataList(request *GetDataListRequest) (_result *GetDataListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetDataViewHeaders{}
-	_result = &GetDataViewResponse{}
-	_body, _err := client.GetDataViewWithOptions(request, headers, runtime)
+	headers := &GetDataListHeaders{}
+	_result = &GetDataListResponse{}
+	_body, _err := client.GetDataListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4955,11 +4780,34 @@ func (client *Client) GetDataViewWithOptions(request *GetDataViewRequest, header
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDataView"),
+		Version:     tea.String("jzcrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/jzcrm/dataView"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetDataViewResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetDataView"), tea.String("jzcrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/jzcrm/dataView"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDataView(request *GetDataViewRequest) (_result *GetDataViewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDataViewHeaders{}
+	_result = &GetDataViewResponse{}
+	_body, _err := client.GetDataViewWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

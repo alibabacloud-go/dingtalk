@@ -5,9 +5,11 @@
 package miniapp_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -82,7 +84,6 @@ func (s *CreateMiniAppRequest) SetName(v string) *CreateMiniAppRequest {
 }
 
 type CreateMiniAppResponseBody struct {
-	// result
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 }
 
@@ -100,8 +101,9 @@ func (s *CreateMiniAppResponseBody) SetMiniAppId(v string) *CreateMiniAppRespons
 }
 
 type CreateMiniAppResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateMiniAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateMiniAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateMiniAppResponse) String() string {
@@ -114,6 +116,11 @@ func (s CreateMiniAppResponse) GoString() string {
 
 func (s *CreateMiniAppResponse) SetHeaders(v map[string]*string) *CreateMiniAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateMiniAppResponse) SetStatusCode(v int32) *CreateMiniAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -193,7 +200,6 @@ func (s *CreateMiniAppPluginRequest) SetName(v string) *CreateMiniAppPluginReque
 }
 
 type CreateMiniAppPluginResponseBody struct {
-	// result
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 }
 
@@ -211,8 +217,9 @@ func (s *CreateMiniAppPluginResponseBody) SetMiniAppId(v string) *CreateMiniAppP
 }
 
 type CreateMiniAppPluginResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateMiniAppPluginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateMiniAppPluginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateMiniAppPluginResponse) String() string {
@@ -225,6 +232,11 @@ func (s CreateMiniAppPluginResponse) GoString() string {
 
 func (s *CreateMiniAppPluginResponse) SetHeaders(v map[string]*string) *CreateMiniAppPluginResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateMiniAppPluginResponse) SetStatusCode(v int32) *CreateMiniAppPluginResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -257,15 +269,11 @@ func (s *CreateVersionAcrossBundleHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type CreateVersionAcrossBundleRequest struct {
-	// bundleId
-	BundleId  *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
-	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	// sourceBundleId
+	BundleId       *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	MiniAppId      *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 	SourceBundleId *string `json:"sourceBundleId,omitempty" xml:"sourceBundleId,omitempty"`
-	// sourceVersion
-	SourceVersion *string `json:"sourceVersion,omitempty" xml:"sourceVersion,omitempty"`
-	// version
-	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+	SourceVersion  *string `json:"sourceVersion,omitempty" xml:"sourceVersion,omitempty"`
+	Version        *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s CreateVersionAcrossBundleRequest) String() string {
@@ -302,7 +310,6 @@ func (s *CreateVersionAcrossBundleRequest) SetVersion(v string) *CreateVersionAc
 }
 
 type CreateVersionAcrossBundleResponseBody struct {
-	// result
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -320,8 +327,9 @@ func (s *CreateVersionAcrossBundleResponseBody) SetResult(v string) *CreateVersi
 }
 
 type CreateVersionAcrossBundleResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateVersionAcrossBundleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateVersionAcrossBundleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateVersionAcrossBundleResponse) String() string {
@@ -334,6 +342,11 @@ func (s CreateVersionAcrossBundleResponse) GoString() string {
 
 func (s *CreateVersionAcrossBundleResponse) SetHeaders(v map[string]*string) *CreateVersionAcrossBundleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateVersionAcrossBundleResponse) SetStatusCode(v int32) *CreateVersionAcrossBundleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -366,12 +379,9 @@ func (s *GetMaxVersionHeaders) SetXAcsDingtalkAccessToken(v string) *GetMaxVersi
 }
 
 type GetMaxVersionRequest struct {
-	// bundleId
-	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
-	// miniAppId
+	BundleId  *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	// version
-	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s GetMaxVersionRequest) String() string {
@@ -398,7 +408,6 @@ func (s *GetMaxVersionRequest) SetVersion(v string) *GetMaxVersionRequest {
 }
 
 type GetMaxVersionResponseBody struct {
-	// result
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -416,8 +425,9 @@ func (s *GetMaxVersionResponseBody) SetResult(v string) *GetMaxVersionResponseBo
 }
 
 type GetMaxVersionResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetMaxVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMaxVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetMaxVersionResponse) String() string {
@@ -430,6 +440,11 @@ func (s GetMaxVersionResponse) GoString() string {
 
 func (s *GetMaxVersionResponse) SetHeaders(v map[string]*string) *GetMaxVersionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetMaxVersionResponse) SetStatusCode(v int32) *GetMaxVersionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -497,14 +512,10 @@ func (s *GetMiniAppMetaDataRequest) SetMiniAppIdTableGmtModified(v map[string]in
 }
 
 type GetMiniAppMetaDataResponseBody struct {
-	// receiveTime
-	DingOpenErrcode *int64 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
-	// errorMsg
-	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	// result
-	Result *GetMiniAppMetaDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// requestId
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	DingOpenErrcode *int64                                `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string                               `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *GetMiniAppMetaDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success         *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetMiniAppMetaDataResponseBody) String() string {
@@ -536,7 +547,6 @@ func (s *GetMiniAppMetaDataResponseBody) SetSuccess(v bool) *GetMiniAppMetaDataR
 }
 
 type GetMiniAppMetaDataResponseBodyResult struct {
-	// data
 	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
 }
 
@@ -554,8 +564,9 @@ func (s *GetMiniAppMetaDataResponseBodyResult) SetData(v map[string]interface{})
 }
 
 type GetMiniAppMetaDataResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetMiniAppMetaDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMiniAppMetaDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetMiniAppMetaDataResponse) String() string {
@@ -568,6 +579,11 @@ func (s GetMiniAppMetaDataResponse) GoString() string {
 
 func (s *GetMiniAppMetaDataResponse) SetHeaders(v map[string]*string) *GetMiniAppMetaDataResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetMiniAppMetaDataResponse) SetStatusCode(v int32) *GetMiniAppMetaDataResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -617,8 +633,9 @@ func (s *GetSettingByMiniAppIdResponseBody) SetResult(v string) *GetSettingByMin
 }
 
 type GetSettingByMiniAppIdResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSettingByMiniAppIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSettingByMiniAppIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSettingByMiniAppIdResponse) String() string {
@@ -631,6 +648,11 @@ func (s GetSettingByMiniAppIdResponse) GoString() string {
 
 func (s *GetSettingByMiniAppIdResponse) SetHeaders(v map[string]*string) *GetSettingByMiniAppIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSettingByMiniAppIdResponse) SetStatusCode(v int32) *GetSettingByMiniAppIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -709,8 +731,9 @@ func (s *InvokeHtmlBundleBuildResponseBody) SetResult(v string) *InvokeHtmlBundl
 }
 
 type InvokeHtmlBundleBuildResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *InvokeHtmlBundleBuildResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *InvokeHtmlBundleBuildResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s InvokeHtmlBundleBuildResponse) String() string {
@@ -723,6 +746,11 @@ func (s InvokeHtmlBundleBuildResponse) GoString() string {
 
 func (s *InvokeHtmlBundleBuildResponse) SetHeaders(v map[string]*string) *InvokeHtmlBundleBuildResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *InvokeHtmlBundleBuildResponse) SetStatusCode(v int32) *InvokeHtmlBundleBuildResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -796,7 +824,6 @@ func (s *ListAvaiableVersionRequest) SetVersionTypeSet(v []*int32) *ListAvaiable
 }
 
 type ListAvaiableVersionResponseBody struct {
-	// result
 	Versions []*ListAvaiableVersionResponseBodyVersions `json:"versions,omitempty" xml:"versions,omitempty" type:"Repeated"`
 }
 
@@ -855,8 +882,9 @@ func (s *ListAvaiableVersionResponseBodyVersions) SetVersion(v string) *ListAvai
 }
 
 type ListAvaiableVersionResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListAvaiableVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListAvaiableVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListAvaiableVersionResponse) String() string {
@@ -869,6 +897,11 @@ func (s ListAvaiableVersionResponse) GoString() string {
 
 func (s *ListAvaiableVersionResponse) SetHeaders(v map[string]*string) *ListAvaiableVersionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListAvaiableVersionResponse) SetStatusCode(v int32) *ListAvaiableVersionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -901,12 +934,9 @@ func (s *QueryHtmlBundleBuildHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryHtmlBundleBuildRequest struct {
-	// bundleId
-	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
-	// miniAppId
+	BundleId  *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	// version
-	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s QueryHtmlBundleBuildRequest) String() string {
@@ -950,8 +980,9 @@ func (s *QueryHtmlBundleBuildResponseBody) SetResult(v string) *QueryHtmlBundleB
 }
 
 type QueryHtmlBundleBuildResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryHtmlBundleBuildResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryHtmlBundleBuildResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryHtmlBundleBuildResponse) String() string {
@@ -964,6 +995,11 @@ func (s QueryHtmlBundleBuildResponse) GoString() string {
 
 func (s *QueryHtmlBundleBuildResponse) SetHeaders(v map[string]*string) *QueryHtmlBundleBuildResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryHtmlBundleBuildResponse) SetStatusCode(v int32) *QueryHtmlBundleBuildResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1008,7 +1044,6 @@ func (s *RollBackVersionRequest) SetTargetVersion(v string) *RollBackVersionRequ
 }
 
 type RollBackVersionResponseBody struct {
-	// Id of the request
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1026,8 +1061,9 @@ func (s *RollBackVersionResponseBody) SetResult(v string) *RollBackVersionRespon
 }
 
 type RollBackVersionResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RollBackVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RollBackVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RollBackVersionResponse) String() string {
@@ -1040,6 +1076,11 @@ func (s RollBackVersionResponse) GoString() string {
 
 func (s *RollBackVersionResponse) SetHeaders(v map[string]*string) *RollBackVersionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RollBackVersionResponse) SetStatusCode(v int32) *RollBackVersionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1112,8 +1153,9 @@ func (s *SetExtendSettingResponseBody) SetResult(v string) *SetExtendSettingResp
 }
 
 type SetExtendSettingResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SetExtendSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SetExtendSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SetExtendSettingResponse) String() string {
@@ -1126,6 +1168,11 @@ func (s SetExtendSettingResponse) GoString() string {
 
 func (s *SetExtendSettingResponse) SetHeaders(v map[string]*string) *SetExtendSettingResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SetExtendSettingResponse) SetStatusCode(v int32) *SetExtendSettingResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1210,8 +1257,9 @@ func (s *UpdateVersionStatusResponseBody) SetResult(v string) *UpdateVersionStat
 }
 
 type UpdateVersionStatusResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateVersionStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateVersionStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateVersionStatusResponse) String() string {
@@ -1224,6 +1272,11 @@ func (s UpdateVersionStatusResponse) GoString() string {
 
 func (s *UpdateVersionStatusResponse) SetHeaders(v map[string]*string) *UpdateVersionStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateVersionStatusResponse) SetStatusCode(v int32) *UpdateVersionStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1247,24 +1300,19 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateMiniApp(request *CreateMiniAppRequest) (_result *CreateMiniAppResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateMiniAppHeaders{}
-	_result = &CreateMiniAppResponse{}
-	_body, _err := client.CreateMiniAppWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateMiniAppWithOptions(request *CreateMiniAppRequest, headers *CreateMiniAppHeaders, runtime *util.RuntimeOptions) (_result *CreateMiniAppResponse, _err error) {
@@ -1310,8 +1358,19 @@ func (client *Client) CreateMiniAppWithOptions(request *CreateMiniAppRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateMiniApp"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/apps"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateMiniAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateMiniApp"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/apps"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1319,11 +1378,11 @@ func (client *Client) CreateMiniAppWithOptions(request *CreateMiniAppRequest, he
 	return _result, _err
 }
 
-func (client *Client) CreateMiniAppPlugin(request *CreateMiniAppPluginRequest) (_result *CreateMiniAppPluginResponse, _err error) {
+func (client *Client) CreateMiniApp(request *CreateMiniAppRequest) (_result *CreateMiniAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateMiniAppPluginHeaders{}
-	_result = &CreateMiniAppPluginResponse{}
-	_body, _err := client.CreateMiniAppPluginWithOptions(request, headers, runtime)
+	headers := &CreateMiniAppHeaders{}
+	_result = &CreateMiniAppResponse{}
+	_body, _err := client.CreateMiniAppWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1374,8 +1433,19 @@ func (client *Client) CreateMiniAppPluginWithOptions(request *CreateMiniAppPlugi
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateMiniAppPlugin"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/plugins"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateMiniAppPluginResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateMiniAppPlugin"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/plugins"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1383,11 +1453,11 @@ func (client *Client) CreateMiniAppPluginWithOptions(request *CreateMiniAppPlugi
 	return _result, _err
 }
 
-func (client *Client) CreateVersionAcrossBundle(request *CreateVersionAcrossBundleRequest) (_result *CreateVersionAcrossBundleResponse, _err error) {
+func (client *Client) CreateMiniAppPlugin(request *CreateMiniAppPluginRequest) (_result *CreateMiniAppPluginResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateVersionAcrossBundleHeaders{}
-	_result = &CreateVersionAcrossBundleResponse{}
-	_body, _err := client.CreateVersionAcrossBundleWithOptions(request, headers, runtime)
+	headers := &CreateMiniAppPluginHeaders{}
+	_result = &CreateMiniAppPluginResponse{}
+	_body, _err := client.CreateMiniAppPluginWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1434,8 +1504,19 @@ func (client *Client) CreateVersionAcrossBundleWithOptions(request *CreateVersio
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateVersionAcrossBundle"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/versions/createAcrossBundle"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateVersionAcrossBundleResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateVersionAcrossBundle"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/versions/createAcrossBundle"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1443,11 +1524,11 @@ func (client *Client) CreateVersionAcrossBundleWithOptions(request *CreateVersio
 	return _result, _err
 }
 
-func (client *Client) GetMaxVersion(request *GetMaxVersionRequest) (_result *GetMaxVersionResponse, _err error) {
+func (client *Client) CreateVersionAcrossBundle(request *CreateVersionAcrossBundleRequest) (_result *CreateVersionAcrossBundleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetMaxVersionHeaders{}
-	_result = &GetMaxVersionResponse{}
-	_body, _err := client.GetMaxVersionWithOptions(request, headers, runtime)
+	headers := &CreateVersionAcrossBundleHeaders{}
+	_result = &CreateVersionAcrossBundleResponse{}
+	_body, _err := client.CreateVersionAcrossBundleWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1486,8 +1567,19 @@ func (client *Client) GetMaxVersionWithOptions(request *GetMaxVersionRequest, he
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMaxVersion"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/apps/maxVersions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetMaxVersionResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetMaxVersion"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/miniapp/apps/maxVersions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1495,11 +1587,11 @@ func (client *Client) GetMaxVersionWithOptions(request *GetMaxVersionRequest, he
 	return _result, _err
 }
 
-func (client *Client) GetMiniAppMetaData(request *GetMiniAppMetaDataRequest) (_result *GetMiniAppMetaDataResponse, _err error) {
+func (client *Client) GetMaxVersion(request *GetMaxVersionRequest) (_result *GetMaxVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetMiniAppMetaDataHeaders{}
-	_result = &GetMiniAppMetaDataResponse{}
-	_body, _err := client.GetMiniAppMetaDataWithOptions(request, headers, runtime)
+	headers := &GetMaxVersionHeaders{}
+	_result = &GetMaxVersionResponse{}
+	_body, _err := client.GetMaxVersionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1542,8 +1634,19 @@ func (client *Client) GetMiniAppMetaDataWithOptions(request *GetMiniAppMetaDataR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMiniAppMetaData"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/apps/metadata"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetMiniAppMetaDataResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetMiniAppMetaData"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/apps/metadata"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1551,11 +1654,11 @@ func (client *Client) GetMiniAppMetaDataWithOptions(request *GetMiniAppMetaDataR
 	return _result, _err
 }
 
-func (client *Client) GetSettingByMiniAppId(miniAppId *string) (_result *GetSettingByMiniAppIdResponse, _err error) {
+func (client *Client) GetMiniAppMetaData(request *GetMiniAppMetaDataRequest) (_result *GetMiniAppMetaDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSettingByMiniAppIdHeaders{}
-	_result = &GetSettingByMiniAppIdResponse{}
-	_body, _err := client.GetSettingByMiniAppIdWithOptions(miniAppId, headers, runtime)
+	headers := &GetMiniAppMetaDataHeaders{}
+	_result = &GetMiniAppMetaDataResponse{}
+	_body, _err := client.GetMiniAppMetaDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1564,7 +1667,6 @@ func (client *Client) GetSettingByMiniAppId(miniAppId *string) (_result *GetSett
 }
 
 func (client *Client) GetSettingByMiniAppIdWithOptions(miniAppId *string, headers *GetSettingByMiniAppIdHeaders, runtime *util.RuntimeOptions) (_result *GetSettingByMiniAppIdResponse, _err error) {
-	miniAppId = openapiutil.GetEncodeParam(miniAppId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1577,8 +1679,19 @@ func (client *Client) GetSettingByMiniAppIdWithOptions(miniAppId *string, header
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSettingByMiniAppId"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/apps/settings"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSettingByMiniAppIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSettingByMiniAppId"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/miniapp/apps/settings"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1586,11 +1699,11 @@ func (client *Client) GetSettingByMiniAppIdWithOptions(miniAppId *string, header
 	return _result, _err
 }
 
-func (client *Client) InvokeHtmlBundleBuild(request *InvokeHtmlBundleBuildRequest) (_result *InvokeHtmlBundleBuildResponse, _err error) {
+func (client *Client) GetSettingByMiniAppId(miniAppId *string) (_result *GetSettingByMiniAppIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &InvokeHtmlBundleBuildHeaders{}
-	_result = &InvokeHtmlBundleBuildResponse{}
-	_body, _err := client.InvokeHtmlBundleBuildWithOptions(request, headers, runtime)
+	headers := &GetSettingByMiniAppIdHeaders{}
+	_result = &GetSettingByMiniAppIdResponse{}
+	_body, _err := client.GetSettingByMiniAppIdWithOptions(miniAppId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1629,8 +1742,19 @@ func (client *Client) InvokeHtmlBundleBuildWithOptions(request *InvokeHtmlBundle
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("InvokeHtmlBundleBuild"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/h5Bundles/build"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &InvokeHtmlBundleBuildResponse{}
-	_body, _err := client.DoROARequest(tea.String("InvokeHtmlBundleBuild"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/h5Bundles/build"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1638,11 +1762,11 @@ func (client *Client) InvokeHtmlBundleBuildWithOptions(request *InvokeHtmlBundle
 	return _result, _err
 }
 
-func (client *Client) ListAvaiableVersion(request *ListAvaiableVersionRequest) (_result *ListAvaiableVersionResponse, _err error) {
+func (client *Client) InvokeHtmlBundleBuild(request *InvokeHtmlBundleBuildRequest) (_result *InvokeHtmlBundleBuildResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListAvaiableVersionHeaders{}
-	_result = &ListAvaiableVersionResponse{}
-	_body, _err := client.ListAvaiableVersionWithOptions(request, headers, runtime)
+	headers := &InvokeHtmlBundleBuildHeaders{}
+	_result = &InvokeHtmlBundleBuildResponse{}
+	_body, _err := client.InvokeHtmlBundleBuildWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1689,8 +1813,19 @@ func (client *Client) ListAvaiableVersionWithOptions(request *ListAvaiableVersio
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAvaiableVersion"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/apps/versions/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListAvaiableVersionResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListAvaiableVersion"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/apps/versions/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1698,11 +1833,11 @@ func (client *Client) ListAvaiableVersionWithOptions(request *ListAvaiableVersio
 	return _result, _err
 }
 
-func (client *Client) QueryHtmlBundleBuild(request *QueryHtmlBundleBuildRequest) (_result *QueryHtmlBundleBuildResponse, _err error) {
+func (client *Client) ListAvaiableVersion(request *ListAvaiableVersionRequest) (_result *ListAvaiableVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryHtmlBundleBuildHeaders{}
-	_result = &QueryHtmlBundleBuildResponse{}
-	_body, _err := client.QueryHtmlBundleBuildWithOptions(request, headers, runtime)
+	headers := &ListAvaiableVersionHeaders{}
+	_result = &ListAvaiableVersionResponse{}
+	_body, _err := client.ListAvaiableVersionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1741,8 +1876,19 @@ func (client *Client) QueryHtmlBundleBuildWithOptions(request *QueryHtmlBundleBu
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryHtmlBundleBuild"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/h5Bundles/buildResults"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryHtmlBundleBuildResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryHtmlBundleBuild"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/miniapp/h5Bundles/buildResults"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1750,11 +1896,11 @@ func (client *Client) QueryHtmlBundleBuildWithOptions(request *QueryHtmlBundleBu
 	return _result, _err
 }
 
-func (client *Client) RollBackVersion(request *RollBackVersionRequest) (_result *RollBackVersionResponse, _err error) {
+func (client *Client) QueryHtmlBundleBuild(request *QueryHtmlBundleBuildRequest) (_result *QueryHtmlBundleBuildResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
-	_result = &RollBackVersionResponse{}
-	_body, _err := client.RollBackVersionWithOptions(request, headers, runtime)
+	headers := &QueryHtmlBundleBuildHeaders{}
+	_result = &QueryHtmlBundleBuildResponse{}
+	_body, _err := client.QueryHtmlBundleBuildWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1788,8 +1934,19 @@ func (client *Client) RollBackVersionWithOptions(request *RollBackVersionRequest
 		Headers: headers,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RollBackVersion"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/versions/rollback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RollBackVersionResponse{}
-	_body, _err := client.DoROARequest(tea.String("RollBackVersion"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/versions/rollback"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1797,11 +1954,11 @@ func (client *Client) RollBackVersionWithOptions(request *RollBackVersionRequest
 	return _result, _err
 }
 
-func (client *Client) SetExtendSetting(request *SetExtendSettingRequest) (_result *SetExtendSettingResponse, _err error) {
+func (client *Client) RollBackVersion(request *RollBackVersionRequest) (_result *RollBackVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SetExtendSettingHeaders{}
-	_result = &SetExtendSettingResponse{}
-	_body, _err := client.SetExtendSettingWithOptions(request, headers, runtime)
+	headers := make(map[string]*string)
+	_result = &RollBackVersionResponse{}
+	_body, _err := client.RollBackVersionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1836,8 +1993,19 @@ func (client *Client) SetExtendSettingWithOptions(request *SetExtendSettingReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SetExtendSetting"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/apps/settings"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SetExtendSettingResponse{}
-	_body, _err := client.DoROARequest(tea.String("SetExtendSetting"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/miniapp/apps/settings"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1845,11 +2013,11 @@ func (client *Client) SetExtendSettingWithOptions(request *SetExtendSettingReque
 	return _result, _err
 }
 
-func (client *Client) UpdateVersionStatus(request *UpdateVersionStatusRequest) (_result *UpdateVersionStatusResponse, _err error) {
+func (client *Client) SetExtendSetting(request *SetExtendSettingRequest) (_result *SetExtendSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateVersionStatusHeaders{}
-	_result = &UpdateVersionStatusResponse{}
-	_body, _err := client.UpdateVersionStatusWithOptions(request, headers, runtime)
+	headers := &SetExtendSettingHeaders{}
+	_result = &SetExtendSettingResponse{}
+	_body, _err := client.SetExtendSettingWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1892,11 +2060,34 @@ func (client *Client) UpdateVersionStatusWithOptions(request *UpdateVersionStatu
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateVersionStatus"),
+		Version:     tea.String("miniapp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/miniapp/versions/status"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateVersionStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateVersionStatus"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/versions/status"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateVersionStatus(request *UpdateVersionStatusRequest) (_result *UpdateVersionStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateVersionStatusHeaders{}
+	_result = &UpdateVersionStatusResponse{}
+	_body, _err := client.UpdateVersionStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

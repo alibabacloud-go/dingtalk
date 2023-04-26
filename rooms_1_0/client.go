@@ -5,9 +5,11 @@
 package rooms_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,24 +37,15 @@ func (s *CreateMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *CreateM
 }
 
 type CreateMeetingRoomRequest struct {
-	// 会议室所属分组id
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// isv外部会议室id
-	IsvRoomId *string `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	// 会议室容量
-	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	// 会议室标签
-	RoomLabelIds []*int64 `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
-	// 会议室位置
+	GroupId      *int64                                `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	IsvRoomId    *string                               `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	RoomCapacity *int32                                `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomLabelIds []*int64                              `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
 	RoomLocation *CreateMeetingRoomRequestRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	// 会议室名称
-	RoomName *string `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	// 会议室图片
-	RoomPicture *string `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	// 会议室状态
-	RoomStatus *int32 `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
-	// 操作人unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	RoomName     *string                               `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	RoomPicture  *string                               `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	RoomStatus   *int32                                `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	UnionId      *string                               `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CreateMeetingRoomRequest) String() string {
@@ -109,9 +102,7 @@ func (s *CreateMeetingRoomRequest) SetUnionId(v string) *CreateMeetingRoomReques
 }
 
 type CreateMeetingRoomRequestRoomLocation struct {
-	// 位置详细信息
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 位置标题
+	Desc  *string `json:"desc,omitempty" xml:"desc,omitempty"`
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -134,7 +125,6 @@ func (s *CreateMeetingRoomRequestRoomLocation) SetTitle(v string) *CreateMeeting
 }
 
 type CreateMeetingRoomResponseBody struct {
-	// 创建的会议室id
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -152,8 +142,9 @@ func (s *CreateMeetingRoomResponseBody) SetResult(v string) *CreateMeetingRoomRe
 }
 
 type CreateMeetingRoomResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateMeetingRoomResponse) String() string {
@@ -166,6 +157,11 @@ func (s CreateMeetingRoomResponse) GoString() string {
 
 func (s *CreateMeetingRoomResponse) SetHeaders(v map[string]*string) *CreateMeetingRoomResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateMeetingRoomResponse) SetStatusCode(v int32) *CreateMeetingRoomResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -198,12 +194,9 @@ func (s *CreateMeetingRoomGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Cr
 }
 
 type CreateMeetingRoomGroupRequest struct {
-	// 分组名称
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 父分组id
-	ParentGroupId *int64 `json:"parentGroupId,omitempty" xml:"parentGroupId,omitempty"`
-	// 操作人unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	GroupName     *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	ParentGroupId *int64  `json:"parentGroupId,omitempty" xml:"parentGroupId,omitempty"`
+	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CreateMeetingRoomGroupRequest) String() string {
@@ -230,7 +223,6 @@ func (s *CreateMeetingRoomGroupRequest) SetUnionId(v string) *CreateMeetingRoomG
 }
 
 type CreateMeetingRoomGroupResponseBody struct {
-	// 创建的分组id
 	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -248,8 +240,9 @@ func (s *CreateMeetingRoomGroupResponseBody) SetResult(v int64) *CreateMeetingRo
 }
 
 type CreateMeetingRoomGroupResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateMeetingRoomGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateMeetingRoomGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateMeetingRoomGroupResponse) String() string {
@@ -262,6 +255,11 @@ func (s CreateMeetingRoomGroupResponse) GoString() string {
 
 func (s *CreateMeetingRoomGroupResponse) SetHeaders(v map[string]*string) *CreateMeetingRoomGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateMeetingRoomGroupResponse) SetStatusCode(v int32) *CreateMeetingRoomGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -294,7 +292,6 @@ func (s *DeleteMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteM
 }
 
 type DeleteMeetingRoomRequest struct {
-	// 操作人unionId
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -312,7 +309,6 @@ func (s *DeleteMeetingRoomRequest) SetUnionId(v string) *DeleteMeetingRoomReques
 }
 
 type DeleteMeetingRoomResponseBody struct {
-	// 是否成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -330,8 +326,9 @@ func (s *DeleteMeetingRoomResponseBody) SetResult(v bool) *DeleteMeetingRoomResp
 }
 
 type DeleteMeetingRoomResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteMeetingRoomResponse) String() string {
@@ -344,6 +341,11 @@ func (s DeleteMeetingRoomResponse) GoString() string {
 
 func (s *DeleteMeetingRoomResponse) SetHeaders(v map[string]*string) *DeleteMeetingRoomResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteMeetingRoomResponse) SetStatusCode(v int32) *DeleteMeetingRoomResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -376,7 +378,6 @@ func (s *DeleteMeetingRoomGroupHeaders) SetXAcsDingtalkAccessToken(v string) *De
 }
 
 type DeleteMeetingRoomGroupRequest struct {
-	// 操作人unionId
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -394,7 +395,6 @@ func (s *DeleteMeetingRoomGroupRequest) SetUnionId(v string) *DeleteMeetingRoomG
 }
 
 type DeleteMeetingRoomGroupResponseBody struct {
-	// 是否成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -412,8 +412,9 @@ func (s *DeleteMeetingRoomGroupResponseBody) SetResult(v bool) *DeleteMeetingRoo
 }
 
 type DeleteMeetingRoomGroupResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteMeetingRoomGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteMeetingRoomGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteMeetingRoomGroupResponse) String() string {
@@ -426,6 +427,11 @@ func (s DeleteMeetingRoomGroupResponse) GoString() string {
 
 func (s *DeleteMeetingRoomGroupResponse) SetHeaders(v map[string]*string) *DeleteMeetingRoomGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteMeetingRoomGroupResponse) SetStatusCode(v int32) *DeleteMeetingRoomGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -458,7 +464,6 @@ func (s *QueryDeviceIpByCodeHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryDeviceIpByCodeRequest struct {
-	// 设备sn号
 	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
 }
 
@@ -476,7 +481,6 @@ func (s *QueryDeviceIpByCodeRequest) SetDeviceSn(v string) *QueryDeviceIpByCodeR
 }
 
 type QueryDeviceIpByCodeResponseBody struct {
-	// 结果
 	Result  *QueryDeviceIpByCodeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -500,7 +504,6 @@ func (s *QueryDeviceIpByCodeResponseBody) SetSuccess(v bool) *QueryDeviceIpByCod
 }
 
 type QueryDeviceIpByCodeResponseBodyResult struct {
-	// 设备内网ip
 	DeviceIp *string `json:"deviceIp,omitempty" xml:"deviceIp,omitempty"`
 }
 
@@ -518,8 +521,9 @@ func (s *QueryDeviceIpByCodeResponseBodyResult) SetDeviceIp(v string) *QueryDevi
 }
 
 type QueryDeviceIpByCodeResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryDeviceIpByCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryDeviceIpByCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryDeviceIpByCodeResponse) String() string {
@@ -532,6 +536,11 @@ func (s QueryDeviceIpByCodeResponse) GoString() string {
 
 func (s *QueryDeviceIpByCodeResponse) SetHeaders(v map[string]*string) *QueryDeviceIpByCodeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryDeviceIpByCodeResponse) SetStatusCode(v int32) *QueryDeviceIpByCodeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -564,14 +573,10 @@ func (s *QueryDevicePropertiesHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryDevicePropertiesRequest struct {
-	// 设备属性名称列表
-	PropertyNames []*string `json:"propertyNames,omitempty" xml:"propertyNames,omitempty" type:"Repeated"`
-	// 查询设备id
-	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 查询设备unionId
-	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
-	// 查询人unionId
-	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	PropertyNames   []*string `json:"propertyNames,omitempty" xml:"propertyNames,omitempty" type:"Repeated"`
+	DeviceId        *string   `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	DeviceUnionId   *string   `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	OperatorUnionId *string   `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
 }
 
 func (s QueryDevicePropertiesRequest) String() string {
@@ -603,7 +608,6 @@ func (s *QueryDevicePropertiesRequest) SetOperatorUnionId(v string) *QueryDevice
 }
 
 type QueryDevicePropertiesResponseBody struct {
-	// 响应结果
 	Result []*QueryDevicePropertiesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -621,9 +625,7 @@ func (s *QueryDevicePropertiesResponseBody) SetResult(v []*QueryDeviceProperties
 }
 
 type QueryDevicePropertiesResponseBodyResult struct {
-	// 设备属性名称
-	PropertyName *string `json:"propertyName,omitempty" xml:"propertyName,omitempty"`
-	// 设备属性值
+	PropertyName  *string `json:"propertyName,omitempty" xml:"propertyName,omitempty"`
 	PropertyValue *string `json:"propertyValue,omitempty" xml:"propertyValue,omitempty"`
 }
 
@@ -646,8 +648,9 @@ func (s *QueryDevicePropertiesResponseBodyResult) SetPropertyValue(v string) *Qu
 }
 
 type QueryDevicePropertiesResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryDevicePropertiesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryDevicePropertiesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryDevicePropertiesResponse) String() string {
@@ -660,6 +663,11 @@ func (s QueryDevicePropertiesResponse) GoString() string {
 
 func (s *QueryDevicePropertiesResponse) SetHeaders(v map[string]*string) *QueryDevicePropertiesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryDevicePropertiesResponse) SetStatusCode(v int32) *QueryDevicePropertiesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -692,7 +700,6 @@ func (s *QueryMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMee
 }
 
 type QueryMeetingRoomRequest struct {
-	// 操作人unionId
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -727,27 +734,17 @@ func (s *QueryMeetingRoomResponseBody) SetResult(v *QueryMeetingRoomResponseBody
 }
 
 type QueryMeetingRoomResponseBodyResult struct {
-	// 企业corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// isv外部会议室id
-	IsvRoomId *string `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	// 会议室容量
-	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	// 会议室分组
-	RoomGroup *QueryMeetingRoomResponseBodyResultRoomGroup `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
-	// 会议室id
-	RoomId     *string                                         `json:"roomId,omitempty" xml:"roomId,omitempty"`
-	RoomLabels []*QueryMeetingRoomResponseBodyResultRoomLabels `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
-	// 会议室位置
+	CorpId       *string                                         `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	IsvRoomId    *string                                         `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	RoomCapacity *int32                                          `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomGroup    *QueryMeetingRoomResponseBodyResultRoomGroup    `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
+	RoomId       *string                                         `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	RoomLabels   []*QueryMeetingRoomResponseBodyResultRoomLabels `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
 	RoomLocation *QueryMeetingRoomResponseBodyResultRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	// 会议室名称
-	RoomName *string `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	// 会议室图片
-	RoomPicture *string `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	// 会议室staffId
-	RoomStaffId *string `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
-	// 会议室状态
-	RoomStatus *int32 `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	RoomName     *string                                         `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	RoomPicture  *string                                         `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	RoomStaffId  *string                                         `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
+	RoomStatus   *int32                                          `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
 }
 
 func (s QueryMeetingRoomResponseBodyResult) String() string {
@@ -814,12 +811,9 @@ func (s *QueryMeetingRoomResponseBodyResult) SetRoomStatus(v int32) *QueryMeetin
 }
 
 type QueryMeetingRoomResponseBodyResultRoomGroup struct {
-	// 分组id
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 分组名称
+	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 父分组id
-	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	ParentId  *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
 }
 
 func (s QueryMeetingRoomResponseBodyResultRoomGroup) String() string {
@@ -869,9 +863,7 @@ func (s *QueryMeetingRoomResponseBodyResultRoomLabels) SetLabelName(v string) *Q
 }
 
 type QueryMeetingRoomResponseBodyResultRoomLocation struct {
-	// 位置详细信息
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 位置名称
+	Desc  *string `json:"desc,omitempty" xml:"desc,omitempty"`
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -894,8 +886,9 @@ func (s *QueryMeetingRoomResponseBodyResultRoomLocation) SetTitle(v string) *Que
 }
 
 type QueryMeetingRoomResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryMeetingRoomResponse) String() string {
@@ -908,6 +901,11 @@ func (s QueryMeetingRoomResponse) GoString() string {
 
 func (s *QueryMeetingRoomResponse) SetHeaders(v map[string]*string) *QueryMeetingRoomResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryMeetingRoomResponse) SetStatusCode(v int32) *QueryMeetingRoomResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -940,11 +938,8 @@ func (s *QueryMeetingRoomDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryMeetingRoomDeviceRequest struct {
-	// 查询设备id
-	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 查询设备unionId
-	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
-	// 查询人unionId
+	DeviceId        *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	DeviceUnionId   *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
 	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
 }
 
@@ -972,7 +967,6 @@ func (s *QueryMeetingRoomDeviceRequest) SetOperatorUnionId(v string) *QueryMeeti
 }
 
 type QueryMeetingRoomDeviceResponseBody struct {
-	// 响应结果
 	Result *QueryMeetingRoomDeviceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -990,32 +984,19 @@ func (s *QueryMeetingRoomDeviceResponseBody) SetResult(v *QueryMeetingRoomDevice
 }
 
 type QueryMeetingRoomDeviceResponseBodyResult struct {
-	// 设备控制器
-	Controllers []*QueryMeetingRoomDeviceResponseBodyResultControllers `json:"controllers,omitempty" xml:"controllers,omitempty" type:"Repeated"`
-	// 企业corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 设备id
-	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 设备mac地址
-	DeviceMac *string `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
-	// 设备型号
-	DeviceModel *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
-	// 设备名称
-	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// 设备注册serviceId
-	DeviceServiceId *int32 `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
-	// 设备sn
-	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
-	// 设备状态
-	DeviceStatus *string `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	// 设备类型
-	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
-	// 设备unionId
-	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
-	// 设备绑定会议室id
-	OpenRoomId *string `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
-	// 设备投屏码
-	ShareCode *string `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
+	Controllers     []*QueryMeetingRoomDeviceResponseBodyResultControllers `json:"controllers,omitempty" xml:"controllers,omitempty" type:"Repeated"`
+	CorpId          *string                                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeviceId        *string                                                `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	DeviceMac       *string                                                `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
+	DeviceModel     *string                                                `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
+	DeviceName      *string                                                `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	DeviceServiceId *int32                                                 `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
+	DeviceSn        *string                                                `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	DeviceStatus    *string                                                `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	DeviceType      *string                                                `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	DeviceUnionId   *string                                                `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	OpenRoomId      *string                                                `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
+	ShareCode       *string                                                `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
 }
 
 func (s QueryMeetingRoomDeviceResponseBodyResult) String() string {
@@ -1092,30 +1073,18 @@ func (s *QueryMeetingRoomDeviceResponseBodyResult) SetShareCode(v string) *Query
 }
 
 type QueryMeetingRoomDeviceResponseBodyResultControllers struct {
-	// 企业corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 控制器设备id
-	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 控制器mac地址
-	DeviceMac *string `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
-	// 控制器型号
-	DeviceModel *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
-	// 控制器名称
-	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// 控制器注册serviceId
-	DeviceServiceId *int32 `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
-	// 控制器sn
-	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
-	// 控制器状态
-	DeviceStatus *string `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	// 设备类型
-	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
-	// 控制器unionId
-	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
-	// 控制器绑定会议室id
-	OpenRoomId *string `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
-	// 控制器投屏码
-	ShareCode *string `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
+	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeviceId        *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	DeviceMac       *string `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
+	DeviceModel     *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
+	DeviceName      *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	DeviceServiceId *int32  `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
+	DeviceSn        *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	DeviceStatus    *string `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	DeviceType      *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	DeviceUnionId   *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	OpenRoomId      *string `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
+	ShareCode       *string `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
 }
 
 func (s QueryMeetingRoomDeviceResponseBodyResultControllers) String() string {
@@ -1187,8 +1156,9 @@ func (s *QueryMeetingRoomDeviceResponseBodyResultControllers) SetShareCode(v str
 }
 
 type QueryMeetingRoomDeviceResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryMeetingRoomDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryMeetingRoomDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryMeetingRoomDeviceResponse) String() string {
@@ -1201,6 +1171,11 @@ func (s QueryMeetingRoomDeviceResponse) GoString() string {
 
 func (s *QueryMeetingRoomDeviceResponse) SetHeaders(v map[string]*string) *QueryMeetingRoomDeviceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponse) SetStatusCode(v int32) *QueryMeetingRoomDeviceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1233,7 +1208,6 @@ func (s *QueryMeetingRoomGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryMeetingRoomGroupRequest struct {
-	// 操作人unionId
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1251,12 +1225,9 @@ func (s *QueryMeetingRoomGroupRequest) SetUnionId(v string) *QueryMeetingRoomGro
 }
 
 type QueryMeetingRoomGroupResponseBody struct {
-	// 分组id
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 分组名称
+	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 父分组id
-	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	ParentId  *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
 }
 
 func (s QueryMeetingRoomGroupResponseBody) String() string {
@@ -1283,8 +1254,9 @@ func (s *QueryMeetingRoomGroupResponseBody) SetParentId(v int64) *QueryMeetingRo
 }
 
 type QueryMeetingRoomGroupResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryMeetingRoomGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryMeetingRoomGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryMeetingRoomGroupResponse) String() string {
@@ -1297,6 +1269,11 @@ func (s QueryMeetingRoomGroupResponse) GoString() string {
 
 func (s *QueryMeetingRoomGroupResponse) SetHeaders(v map[string]*string) *QueryMeetingRoomGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryMeetingRoomGroupResponse) SetStatusCode(v int32) *QueryMeetingRoomGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1329,7 +1306,6 @@ func (s *QueryMeetingRoomGroupListHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryMeetingRoomGroupListRequest struct {
-	// 操作人unionId
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1347,7 +1323,6 @@ func (s *QueryMeetingRoomGroupListRequest) SetUnionId(v string) *QueryMeetingRoo
 }
 
 type QueryMeetingRoomGroupListResponseBody struct {
-	// 结果列表
 	Result []*QueryMeetingRoomGroupListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -1365,12 +1340,9 @@ func (s *QueryMeetingRoomGroupListResponseBody) SetResult(v []*QueryMeetingRoomG
 }
 
 type QueryMeetingRoomGroupListResponseBodyResult struct {
-	// 分组id
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 分组名称
+	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 父分组id
-	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	ParentId  *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
 }
 
 func (s QueryMeetingRoomGroupListResponseBodyResult) String() string {
@@ -1397,8 +1369,9 @@ func (s *QueryMeetingRoomGroupListResponseBodyResult) SetParentId(v int64) *Quer
 }
 
 type QueryMeetingRoomGroupListResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryMeetingRoomGroupListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryMeetingRoomGroupListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryMeetingRoomGroupListResponse) String() string {
@@ -1411,6 +1384,11 @@ func (s QueryMeetingRoomGroupListResponse) GoString() string {
 
 func (s *QueryMeetingRoomGroupListResponse) SetHeaders(v map[string]*string) *QueryMeetingRoomGroupListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryMeetingRoomGroupListResponse) SetStatusCode(v int32) *QueryMeetingRoomGroupListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1443,12 +1421,9 @@ func (s *QueryMeetingRoomListHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryMeetingRoomListRequest struct {
-	// 请求分页大小
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 请求分页token
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 操作人unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryMeetingRoomListRequest) String() string {
@@ -1475,12 +1450,9 @@ func (s *QueryMeetingRoomListRequest) SetUnionId(v string) *QueryMeetingRoomList
 }
 
 type QueryMeetingRoomListResponseBody struct {
-	// 是否有更多
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 下次查询分页标记
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 会议室列表
-	Result []*QueryMeetingRoomListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	HasMore   *bool                                     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *int64                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*QueryMeetingRoomListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
 func (s QueryMeetingRoomListResponseBody) String() string {
@@ -1507,27 +1479,17 @@ func (s *QueryMeetingRoomListResponseBody) SetResult(v []*QueryMeetingRoomListRe
 }
 
 type QueryMeetingRoomListResponseBodyResult struct {
-	// 企业corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// isv外部会议室id
-	IsvRoomId *string `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	// 会议室容量
-	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	// 会议室分组
-	RoomGroup *QueryMeetingRoomListResponseBodyResultRoomGroup `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
-	// 会议室id
-	RoomId     *string                                             `json:"roomId,omitempty" xml:"roomId,omitempty"`
-	RoomLabels []*QueryMeetingRoomListResponseBodyResultRoomLabels `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
-	// 会议室位置
+	CorpId       *string                                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	IsvRoomId    *string                                             `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	RoomCapacity *int32                                              `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomGroup    *QueryMeetingRoomListResponseBodyResultRoomGroup    `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
+	RoomId       *string                                             `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	RoomLabels   []*QueryMeetingRoomListResponseBodyResultRoomLabels `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
 	RoomLocation *QueryMeetingRoomListResponseBodyResultRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	// 会议室名称
-	RoomName *string `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	// 会议室图片
-	RoomPicture *string `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	// 会议室staffId
-	RoomStaffId *string `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
-	// 会议室状态
-	RoomStatus *int32 `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	RoomName     *string                                             `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	RoomPicture  *string                                             `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	RoomStaffId  *string                                             `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
+	RoomStatus   *int32                                              `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
 }
 
 func (s QueryMeetingRoomListResponseBodyResult) String() string {
@@ -1594,12 +1556,9 @@ func (s *QueryMeetingRoomListResponseBodyResult) SetRoomStatus(v int32) *QueryMe
 }
 
 type QueryMeetingRoomListResponseBodyResultRoomGroup struct {
-	// 分组id
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 分组名称
+	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 父分组id
-	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	ParentId  *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
 }
 
 func (s QueryMeetingRoomListResponseBodyResultRoomGroup) String() string {
@@ -1649,9 +1608,7 @@ func (s *QueryMeetingRoomListResponseBodyResultRoomLabels) SetLabelName(v string
 }
 
 type QueryMeetingRoomListResponseBodyResultRoomLocation struct {
-	// 位置详细信息
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 位置名称
+	Desc  *string `json:"desc,omitempty" xml:"desc,omitempty"`
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -1674,8 +1631,9 @@ func (s *QueryMeetingRoomListResponseBodyResultRoomLocation) SetTitle(v string) 
 }
 
 type QueryMeetingRoomListResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryMeetingRoomListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryMeetingRoomListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryMeetingRoomListResponse) String() string {
@@ -1688,6 +1646,11 @@ func (s QueryMeetingRoomListResponse) GoString() string {
 
 func (s *QueryMeetingRoomListResponse) SetHeaders(v map[string]*string) *QueryMeetingRoomListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryMeetingRoomListResponse) SetStatusCode(v int32) *QueryMeetingRoomListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1720,26 +1683,16 @@ func (s *UpdateMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateM
 }
 
 type UpdateMeetingRoomRequest struct {
-	// 会议室所属分组id
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// isv外部会议室id
-	IsvRoomId *string `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	// 会议室容量
-	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	// 会议室id
-	RoomId *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
-	// 会议室标签
-	RoomLabelIds []*int64 `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
-	// 会议室位置
+	GroupId      *int64                                `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	IsvRoomId    *string                               `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	RoomCapacity *int32                                `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomId       *string                               `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	RoomLabelIds []*int64                              `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
 	RoomLocation *UpdateMeetingRoomRequestRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	// 会议室名称
-	RoomName *string `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	// 会议室图片
-	RoomPicture *string `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	// 会议室状态
-	RoomStatus *int32 `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
-	// 操作人unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	RoomName     *string                               `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	RoomPicture  *string                               `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	RoomStatus   *int32                                `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	UnionId      *string                               `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateMeetingRoomRequest) String() string {
@@ -1801,9 +1754,7 @@ func (s *UpdateMeetingRoomRequest) SetUnionId(v string) *UpdateMeetingRoomReques
 }
 
 type UpdateMeetingRoomRequestRoomLocation struct {
-	// 位置详细信息
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// 位置标题
+	Desc  *string `json:"desc,omitempty" xml:"desc,omitempty"`
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -1826,7 +1777,6 @@ func (s *UpdateMeetingRoomRequestRoomLocation) SetTitle(v string) *UpdateMeeting
 }
 
 type UpdateMeetingRoomResponseBody struct {
-	// 是否成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1844,8 +1794,9 @@ func (s *UpdateMeetingRoomResponseBody) SetResult(v bool) *UpdateMeetingRoomResp
 }
 
 type UpdateMeetingRoomResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateMeetingRoomResponse) String() string {
@@ -1858,6 +1809,11 @@ func (s UpdateMeetingRoomResponse) GoString() string {
 
 func (s *UpdateMeetingRoomResponse) SetHeaders(v map[string]*string) *UpdateMeetingRoomResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateMeetingRoomResponse) SetStatusCode(v int32) *UpdateMeetingRoomResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1890,12 +1846,9 @@ func (s *UpdateMeetingRoomGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Up
 }
 
 type UpdateMeetingRoomGroupRequest struct {
-	// 分组id
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 分组名称
+	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 操作人unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateMeetingRoomGroupRequest) String() string {
@@ -1922,7 +1875,6 @@ func (s *UpdateMeetingRoomGroupRequest) SetUnionId(v string) *UpdateMeetingRoomG
 }
 
 type UpdateMeetingRoomGroupResponseBody struct {
-	// 是否成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1940,8 +1892,9 @@ func (s *UpdateMeetingRoomGroupResponseBody) SetResult(v bool) *UpdateMeetingRoo
 }
 
 type UpdateMeetingRoomGroupResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateMeetingRoomGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateMeetingRoomGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateMeetingRoomGroupResponse) String() string {
@@ -1954,6 +1907,11 @@ func (s UpdateMeetingRoomGroupResponse) GoString() string {
 
 func (s *UpdateMeetingRoomGroupResponse) SetHeaders(v map[string]*string) *UpdateMeetingRoomGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateMeetingRoomGroupResponse) SetStatusCode(v int32) *UpdateMeetingRoomGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1977,24 +1935,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateMeetingRoom(request *CreateMeetingRoomRequest) (_result *CreateMeetingRoomResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateMeetingRoomHeaders{}
-	_result = &CreateMeetingRoomResponse{}
-	_body, _err := client.CreateMeetingRoomWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomRequest, headers *CreateMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *CreateMeetingRoomResponse, _err error) {
@@ -2052,8 +2004,19 @@ func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateMeetingRoom"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/meetingrooms"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateMeetingRoomResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateMeetingRoom"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/rooms/meetingrooms"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2061,11 +2024,11 @@ func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomReq
 	return _result, _err
 }
 
-func (client *Client) CreateMeetingRoomGroup(request *CreateMeetingRoomGroupRequest) (_result *CreateMeetingRoomGroupResponse, _err error) {
+func (client *Client) CreateMeetingRoom(request *CreateMeetingRoomRequest) (_result *CreateMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateMeetingRoomGroupHeaders{}
-	_result = &CreateMeetingRoomGroupResponse{}
-	_body, _err := client.CreateMeetingRoomGroupWithOptions(request, headers, runtime)
+	headers := &CreateMeetingRoomHeaders{}
+	_result = &CreateMeetingRoomResponse{}
+	_body, _err := client.CreateMeetingRoomWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2104,8 +2067,74 @@ func (client *Client) CreateMeetingRoomGroupWithOptions(request *CreateMeetingRo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateMeetingRoomGroup"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/groups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateMeetingRoomGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateMeetingRoomGroup"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/rooms/groups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateMeetingRoomGroup(request *CreateMeetingRoomGroupRequest) (_result *CreateMeetingRoomGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateMeetingRoomGroupHeaders{}
+	_result = &CreateMeetingRoomGroupResponse{}
+	_body, _err := client.CreateMeetingRoomGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteMeetingRoomWithOptions(roomId *string, request *DeleteMeetingRoomRequest, headers *DeleteMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *DeleteMeetingRoomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteMeetingRoom"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/meetingRooms/" + tea.StringValue(roomId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteMeetingRoomResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2125,12 +2154,11 @@ func (client *Client) DeleteMeetingRoom(roomId *string, request *DeleteMeetingRo
 	return _result, _err
 }
 
-func (client *Client) DeleteMeetingRoomWithOptions(roomId *string, request *DeleteMeetingRoomRequest, headers *DeleteMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *DeleteMeetingRoomResponse, _err error) {
+func (client *Client) DeleteMeetingRoomGroupWithOptions(groupId *string, request *DeleteMeetingRoomGroupRequest, headers *DeleteMeetingRoomGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteMeetingRoomGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	roomId = openapiutil.GetEncodeParam(roomId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -2149,8 +2177,19 @@ func (client *Client) DeleteMeetingRoomWithOptions(roomId *string, request *Dele
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &DeleteMeetingRoomResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteMeetingRoom"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/rooms/meetingRooms/"+tea.StringValue(roomId)), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("DeleteMeetingRoomGroup"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/groups/" + tea.StringValue(groupId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteMeetingRoomGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2170,57 +2209,11 @@ func (client *Client) DeleteMeetingRoomGroup(groupId *string, request *DeleteMee
 	return _result, _err
 }
 
-func (client *Client) DeleteMeetingRoomGroupWithOptions(groupId *string, request *DeleteMeetingRoomGroupRequest, headers *DeleteMeetingRoomGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteMeetingRoomGroupResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	groupId = openapiutil.GetEncodeParam(groupId)
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
-		query["unionId"] = request.UnionId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &DeleteMeetingRoomGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteMeetingRoomGroup"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/rooms/groups/"+tea.StringValue(groupId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) QueryDeviceIpByCode(shareCode *string, request *QueryDeviceIpByCodeRequest) (_result *QueryDeviceIpByCodeResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &QueryDeviceIpByCodeHeaders{}
-	_result = &QueryDeviceIpByCodeResponse{}
-	_body, _err := client.QueryDeviceIpByCodeWithOptions(shareCode, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) QueryDeviceIpByCodeWithOptions(shareCode *string, request *QueryDeviceIpByCodeRequest, headers *QueryDeviceIpByCodeHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceIpByCodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	shareCode = openapiutil.GetEncodeParam(shareCode)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DeviceSn)) {
 		query["deviceSn"] = request.DeviceSn
@@ -2239,8 +2232,19 @@ func (client *Client) QueryDeviceIpByCodeWithOptions(shareCode *string, request 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDeviceIpByCode"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/devices/shareCodes/" + tea.StringValue(shareCode)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryDeviceIpByCodeResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryDeviceIpByCode"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/rooms/devices/shareCodes/"+tea.StringValue(shareCode)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2248,11 +2252,11 @@ func (client *Client) QueryDeviceIpByCodeWithOptions(shareCode *string, request 
 	return _result, _err
 }
 
-func (client *Client) QueryDeviceProperties(request *QueryDevicePropertiesRequest) (_result *QueryDevicePropertiesResponse, _err error) {
+func (client *Client) QueryDeviceIpByCode(shareCode *string, request *QueryDeviceIpByCodeRequest) (_result *QueryDeviceIpByCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryDevicePropertiesHeaders{}
-	_result = &QueryDevicePropertiesResponse{}
-	_body, _err := client.QueryDevicePropertiesWithOptions(request, headers, runtime)
+	headers := &QueryDeviceIpByCodeHeaders{}
+	_result = &QueryDeviceIpByCodeResponse{}
+	_body, _err := client.QueryDeviceIpByCodeWithOptions(shareCode, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2297,8 +2301,19 @@ func (client *Client) QueryDevicePropertiesWithOptions(request *QueryDevicePrope
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDeviceProperties"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/devices/properties/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryDevicePropertiesResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryDeviceProperties"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/rooms/devices/properties/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2306,11 +2321,11 @@ func (client *Client) QueryDevicePropertiesWithOptions(request *QueryDevicePrope
 	return _result, _err
 }
 
-func (client *Client) QueryMeetingRoom(roomId *string, request *QueryMeetingRoomRequest) (_result *QueryMeetingRoomResponse, _err error) {
+func (client *Client) QueryDeviceProperties(request *QueryDevicePropertiesRequest) (_result *QueryDevicePropertiesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryMeetingRoomHeaders{}
-	_result = &QueryMeetingRoomResponse{}
-	_body, _err := client.QueryMeetingRoomWithOptions(roomId, request, headers, runtime)
+	headers := &QueryDevicePropertiesHeaders{}
+	_result = &QueryDevicePropertiesResponse{}
+	_body, _err := client.QueryDevicePropertiesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2323,7 +2338,6 @@ func (client *Client) QueryMeetingRoomWithOptions(roomId *string, request *Query
 	if _err != nil {
 		return _result, _err
 	}
-	roomId = openapiutil.GetEncodeParam(roomId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -2342,8 +2356,19 @@ func (client *Client) QueryMeetingRoomWithOptions(roomId *string, request *Query
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMeetingRoom"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/meetingRooms/" + tea.StringValue(roomId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryMeetingRoomResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryMeetingRoom"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/rooms/meetingRooms/"+tea.StringValue(roomId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2351,11 +2376,11 @@ func (client *Client) QueryMeetingRoomWithOptions(roomId *string, request *Query
 	return _result, _err
 }
 
-func (client *Client) QueryMeetingRoomDevice(request *QueryMeetingRoomDeviceRequest) (_result *QueryMeetingRoomDeviceResponse, _err error) {
+func (client *Client) QueryMeetingRoom(roomId *string, request *QueryMeetingRoomRequest) (_result *QueryMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryMeetingRoomDeviceHeaders{}
-	_result = &QueryMeetingRoomDeviceResponse{}
-	_body, _err := client.QueryMeetingRoomDeviceWithOptions(request, headers, runtime)
+	headers := &QueryMeetingRoomHeaders{}
+	_result = &QueryMeetingRoomResponse{}
+	_body, _err := client.QueryMeetingRoomWithOptions(roomId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2394,8 +2419,19 @@ func (client *Client) QueryMeetingRoomDeviceWithOptions(request *QueryMeetingRoo
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMeetingRoomDevice"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/devices"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryMeetingRoomDeviceResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryMeetingRoomDevice"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/rooms/devices"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2403,11 +2439,11 @@ func (client *Client) QueryMeetingRoomDeviceWithOptions(request *QueryMeetingRoo
 	return _result, _err
 }
 
-func (client *Client) QueryMeetingRoomGroup(groupId *string, request *QueryMeetingRoomGroupRequest) (_result *QueryMeetingRoomGroupResponse, _err error) {
+func (client *Client) QueryMeetingRoomDevice(request *QueryMeetingRoomDeviceRequest) (_result *QueryMeetingRoomDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryMeetingRoomGroupHeaders{}
-	_result = &QueryMeetingRoomGroupResponse{}
-	_body, _err := client.QueryMeetingRoomGroupWithOptions(groupId, request, headers, runtime)
+	headers := &QueryMeetingRoomDeviceHeaders{}
+	_result = &QueryMeetingRoomDeviceResponse{}
+	_body, _err := client.QueryMeetingRoomDeviceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2420,7 +2456,6 @@ func (client *Client) QueryMeetingRoomGroupWithOptions(groupId *string, request 
 	if _err != nil {
 		return _result, _err
 	}
-	groupId = openapiutil.GetEncodeParam(groupId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -2439,8 +2474,19 @@ func (client *Client) QueryMeetingRoomGroupWithOptions(groupId *string, request 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMeetingRoomGroup"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/groups/" + tea.StringValue(groupId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryMeetingRoomGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryMeetingRoomGroup"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/rooms/groups/"+tea.StringValue(groupId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2448,11 +2494,11 @@ func (client *Client) QueryMeetingRoomGroupWithOptions(groupId *string, request 
 	return _result, _err
 }
 
-func (client *Client) QueryMeetingRoomGroupList(request *QueryMeetingRoomGroupListRequest) (_result *QueryMeetingRoomGroupListResponse, _err error) {
+func (client *Client) QueryMeetingRoomGroup(groupId *string, request *QueryMeetingRoomGroupRequest) (_result *QueryMeetingRoomGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryMeetingRoomGroupListHeaders{}
-	_result = &QueryMeetingRoomGroupListResponse{}
-	_body, _err := client.QueryMeetingRoomGroupListWithOptions(request, headers, runtime)
+	headers := &QueryMeetingRoomGroupHeaders{}
+	_result = &QueryMeetingRoomGroupResponse{}
+	_body, _err := client.QueryMeetingRoomGroupWithOptions(groupId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2483,8 +2529,19 @@ func (client *Client) QueryMeetingRoomGroupListWithOptions(request *QueryMeeting
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMeetingRoomGroupList"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/groupLists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryMeetingRoomGroupListResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryMeetingRoomGroupList"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/rooms/groupLists"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2492,11 +2549,11 @@ func (client *Client) QueryMeetingRoomGroupListWithOptions(request *QueryMeeting
 	return _result, _err
 }
 
-func (client *Client) QueryMeetingRoomList(request *QueryMeetingRoomListRequest) (_result *QueryMeetingRoomListResponse, _err error) {
+func (client *Client) QueryMeetingRoomGroupList(request *QueryMeetingRoomGroupListRequest) (_result *QueryMeetingRoomGroupListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryMeetingRoomListHeaders{}
-	_result = &QueryMeetingRoomListResponse{}
-	_body, _err := client.QueryMeetingRoomListWithOptions(request, headers, runtime)
+	headers := &QueryMeetingRoomGroupListHeaders{}
+	_result = &QueryMeetingRoomGroupListResponse{}
+	_body, _err := client.QueryMeetingRoomGroupListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2535,8 +2592,19 @@ func (client *Client) QueryMeetingRoomListWithOptions(request *QueryMeetingRoomL
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMeetingRoomList"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/meetingRoomLists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryMeetingRoomListResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryMeetingRoomList"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/rooms/meetingRoomLists"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2544,11 +2612,11 @@ func (client *Client) QueryMeetingRoomListWithOptions(request *QueryMeetingRoomL
 	return _result, _err
 }
 
-func (client *Client) UpdateMeetingRoom(request *UpdateMeetingRoomRequest) (_result *UpdateMeetingRoomResponse, _err error) {
+func (client *Client) QueryMeetingRoomList(request *QueryMeetingRoomListRequest) (_result *QueryMeetingRoomListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateMeetingRoomHeaders{}
-	_result = &UpdateMeetingRoomResponse{}
-	_body, _err := client.UpdateMeetingRoomWithOptions(request, headers, runtime)
+	headers := &QueryMeetingRoomListHeaders{}
+	_result = &QueryMeetingRoomListResponse{}
+	_body, _err := client.QueryMeetingRoomListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2615,8 +2683,19 @@ func (client *Client) UpdateMeetingRoomWithOptions(request *UpdateMeetingRoomReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateMeetingRoom"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/meetingRooms"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateMeetingRoomResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateMeetingRoom"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/rooms/meetingRooms"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2624,11 +2703,11 @@ func (client *Client) UpdateMeetingRoomWithOptions(request *UpdateMeetingRoomReq
 	return _result, _err
 }
 
-func (client *Client) UpdateMeetingRoomGroup(request *UpdateMeetingRoomGroupRequest) (_result *UpdateMeetingRoomGroupResponse, _err error) {
+func (client *Client) UpdateMeetingRoom(request *UpdateMeetingRoomRequest) (_result *UpdateMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateMeetingRoomGroupHeaders{}
-	_result = &UpdateMeetingRoomGroupResponse{}
-	_body, _err := client.UpdateMeetingRoomGroupWithOptions(request, headers, runtime)
+	headers := &UpdateMeetingRoomHeaders{}
+	_result = &UpdateMeetingRoomResponse{}
+	_body, _err := client.UpdateMeetingRoomWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2667,11 +2746,34 @@ func (client *Client) UpdateMeetingRoomGroupWithOptions(request *UpdateMeetingRo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateMeetingRoomGroup"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/groups"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateMeetingRoomGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateMeetingRoomGroup"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/rooms/groups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateMeetingRoomGroup(request *UpdateMeetingRoomGroupRequest) (_result *UpdateMeetingRoomGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateMeetingRoomGroupHeaders{}
+	_result = &UpdateMeetingRoomGroupResponse{}
+	_body, _err := client.UpdateMeetingRoomGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

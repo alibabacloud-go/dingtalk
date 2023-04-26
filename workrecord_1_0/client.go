@@ -5,9 +5,11 @@
 package workrecord_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,7 +37,6 @@ func (s *CountWorkRecordHeaders) SetXAcsDingtalkAccessToken(v string) *CountWork
 }
 
 type CountWorkRecordRequest struct {
-	// userId
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -53,7 +54,6 @@ func (s *CountWorkRecordRequest) SetUserId(v string) *CountWorkRecordRequest {
 }
 
 type CountWorkRecordResponseBody struct {
-	// undoCount
 	UndoCount *int64 `json:"undoCount,omitempty" xml:"undoCount,omitempty"`
 }
 
@@ -71,8 +71,9 @@ func (s *CountWorkRecordResponseBody) SetUndoCount(v int64) *CountWorkRecordResp
 }
 
 type CountWorkRecordResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CountWorkRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CountWorkRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CountWorkRecordResponse) String() string {
@@ -85,6 +86,11 @@ func (s CountWorkRecordResponse) GoString() string {
 
 func (s *CountWorkRecordResponse) SetHeaders(v map[string]*string) *CountWorkRecordResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CountWorkRecordResponse) SetStatusCode(v int32) *CountWorkRecordResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -108,24 +114,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CountWorkRecord(request *CountWorkRecordRequest) (_result *CountWorkRecordResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CountWorkRecordHeaders{}
-	_result = &CountWorkRecordResponse{}
-	_body, _err := client.CountWorkRecordWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CountWorkRecordWithOptions(request *CountWorkRecordRequest, headers *CountWorkRecordHeaders, runtime *util.RuntimeOptions) (_result *CountWorkRecordResponse, _err error) {
@@ -151,11 +151,34 @@ func (client *Client) CountWorkRecordWithOptions(request *CountWorkRecordRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CountWorkRecord"),
+		Version:     tea.String("workrecord_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workrecord/counts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CountWorkRecordResponse{}
-	_body, _err := client.DoROARequest(tea.String("CountWorkRecord"), tea.String("workrecord_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workrecord/counts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CountWorkRecord(request *CountWorkRecordRequest) (_result *CountWorkRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CountWorkRecordHeaders{}
+	_result = &CountWorkRecordResponse{}
+	_body, _err := client.CountWorkRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

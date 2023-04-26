@@ -5,9 +5,11 @@
 package contract_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,24 +37,15 @@ func (s *SendContractCardHeaders) SetXAcsDingtalkAccessToken(v string) *SendCont
 }
 
 type SendContractCardRequest struct {
-	// 卡片类型
-	CardType *string `json:"cardType,omitempty" xml:"cardType,omitempty"`
-	// 合同信息
-	ContractInfo *SendContractCardRequestContractInfo `json:"contractInfo,omitempty" xml:"contractInfo,omitempty" type:"Struct"`
-	// 合同的企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 额外信息
-	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 审批实例id
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 接收群id
-	ReceiveGroups []*string `json:"receiveGroups,omitempty" xml:"receiveGroups,omitempty" type:"Repeated"`
-	// 接收者
-	Receivers []*SendContractCardRequestReceivers `json:"receivers,omitempty" xml:"receivers,omitempty" type:"Repeated"`
-	// 发送者
-	Sender *SendContractCardRequestSender `json:"sender,omitempty" xml:"sender,omitempty" type:"Struct"`
-	// 是否同步单聊
-	SyncSingleChat *bool `json:"syncSingleChat,omitempty" xml:"syncSingleChat,omitempty"`
+	CardType          *string                              `json:"cardType,omitempty" xml:"cardType,omitempty"`
+	ContractInfo      *SendContractCardRequestContractInfo `json:"contractInfo,omitempty" xml:"contractInfo,omitempty" type:"Struct"`
+	CorpId            *string                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Extension         map[string]*string                   `json:"extension,omitempty" xml:"extension,omitempty"`
+	ProcessInstanceId *string                              `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ReceiveGroups     []*string                            `json:"receiveGroups,omitempty" xml:"receiveGroups,omitempty" type:"Repeated"`
+	Receivers         []*SendContractCardRequestReceivers  `json:"receivers,omitempty" xml:"receivers,omitempty" type:"Repeated"`
+	Sender            *SendContractCardRequestSender       `json:"sender,omitempty" xml:"sender,omitempty" type:"Struct"`
+	SyncSingleChat    *bool                                `json:"syncSingleChat,omitempty" xml:"syncSingleChat,omitempty"`
 }
 
 func (s SendContractCardRequest) String() string {
@@ -109,13 +102,9 @@ func (s *SendContractCardRequest) SetSyncSingleChat(v bool) *SendContractCardReq
 }
 
 type SendContractCardRequestContractInfo struct {
-	// 合同编号
 	ContractCode *string `json:"contractCode,omitempty" xml:"contractCode,omitempty"`
-	// 合同名称
 	ContractName *string `json:"contractName,omitempty" xml:"contractName,omitempty"`
-	// 签署时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 签署人名称
+	CreateTime   *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	SignUserName *string `json:"signUserName,omitempty" xml:"signUserName,omitempty"`
 }
 
@@ -148,11 +137,8 @@ func (s *SendContractCardRequestContractInfo) SetSignUserName(v string) *SendCon
 }
 
 type SendContractCardRequestReceivers struct {
-	// 接收者所在组织
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 用户类型
+	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	UserType *string `json:"userType,omitempty" xml:"userType,omitempty"`
 }
 
@@ -180,11 +166,8 @@ func (s *SendContractCardRequestReceivers) SetUserType(v string) *SendContractCa
 }
 
 type SendContractCardRequestSender struct {
-	// 发起人所在组织
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 用户类型
+	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	UserType *string `json:"userType,omitempty" xml:"userType,omitempty"`
 }
 
@@ -212,7 +195,6 @@ func (s *SendContractCardRequestSender) SetUserType(v string) *SendContractCardR
 }
 
 type SendContractCardResponseBody struct {
-	// 成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -230,8 +212,9 @@ func (s *SendContractCardResponseBody) SetSuccess(v bool) *SendContractCardRespo
 }
 
 type SendContractCardResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendContractCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendContractCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendContractCardResponse) String() string {
@@ -244,6 +227,11 @@ func (s SendContractCardResponse) GoString() string {
 
 func (s *SendContractCardResponse) SetHeaders(v map[string]*string) *SendContractCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendContractCardResponse) SetStatusCode(v int32) *SendContractCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -267,24 +255,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) SendContractCard(request *SendContractCardRequest) (_result *SendContractCardResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &SendContractCardHeaders{}
-	_result = &SendContractCardResponse{}
-	_body, _err := client.SendContractCardWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) SendContractCardWithOptions(request *SendContractCardRequest, headers *SendContractCardHeaders, runtime *util.RuntimeOptions) (_result *SendContractCardResponse, _err error) {
@@ -342,11 +324,34 @@ func (client *Client) SendContractCardWithOptions(request *SendContractCardReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendContractCard"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/cards/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendContractCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendContractCard"), tea.String("contract_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contract/cards/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendContractCard(request *SendContractCardRequest) (_result *SendContractCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendContractCardHeaders{}
+	_result = &SendContractCardResponse{}
+	_body, _err := client.SendContractCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

@@ -5,17 +5,17 @@
 package watt_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type CheckInCrowdsByMobileRequest struct {
-	// 人群id
-	CrowdIds []byte `json:"crowdIds,omitempty" xml:"crowdIds,omitempty"`
-	// 要校验的用户手机号，AES256+Base64方式加密
-	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	CrowdIds []byte  `json:"crowdIds,omitempty" xml:"crowdIds,omitempty"`
+	Mobile   *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 }
 
 func (s CheckInCrowdsByMobileRequest) String() string {
@@ -66,8 +66,9 @@ func (s *CheckInCrowdsByMobileResponseBody) SetTotal(v int32) *CheckInCrowdsByMo
 }
 
 type CheckInCrowdsByMobileResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CheckInCrowdsByMobileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CheckInCrowdsByMobileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CheckInCrowdsByMobileResponse) String() string {
@@ -80,6 +81,11 @@ func (s CheckInCrowdsByMobileResponse) GoString() string {
 
 func (s *CheckInCrowdsByMobileResponse) SetHeaders(v map[string]*string) *CheckInCrowdsByMobileResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CheckInCrowdsByMobileResponse) SetStatusCode(v int32) *CheckInCrowdsByMobileResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -103,24 +109,19 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CheckInCrowdsByMobile(request *CheckInCrowdsByMobileRequest) (_result *CheckInCrowdsByMobileResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
-	_result = &CheckInCrowdsByMobileResponse{}
-	_body, _err := client.CheckInCrowdsByMobileWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CheckInCrowdsByMobileWithOptions(request *CheckInCrowdsByMobileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckInCrowdsByMobileResponse, _err error) {
@@ -141,11 +142,34 @@ func (client *Client) CheckInCrowdsByMobileWithOptions(request *CheckInCrowdsByM
 		Headers: headers,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CheckInCrowdsByMobile"),
+		Version:     tea.String("watt_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/watt/crowdIdentifications/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CheckInCrowdsByMobileResponse{}
-	_body, _err := client.DoROARequest(tea.String("CheckInCrowdsByMobile"), tea.String("watt_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/watt/crowdIdentifications/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckInCrowdsByMobile(request *CheckInCrowdsByMobileRequest) (_result *CheckInCrowdsByMobileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &CheckInCrowdsByMobileResponse{}
+	_body, _err := client.CheckInCrowdsByMobileWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

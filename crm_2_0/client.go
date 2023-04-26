@@ -5,9 +5,11 @@
 package crm_2_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,7 +37,6 @@ func (s *GetRelationUkSettingHeaders) SetXAcsDingtalkAccessToken(v string) *GetR
 }
 
 type GetRelationUkSettingRequest struct {
-	// 关系类型。
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -71,8 +72,7 @@ func (s *GetRelationUkSettingResponseBody) SetResult(v *GetRelationUkSettingResp
 
 type GetRelationUkSettingResponseBodyResult struct {
 	FormUkSettings []*GetRelationUkSettingResponseBodyResultFormUkSettings `json:"formUkSettings,omitempty" xml:"formUkSettings,omitempty" type:"Repeated"`
-	// 查重列表表头字段id列表。
-	HeaderFieldIds []*string `json:"headerFieldIds,omitempty" xml:"headerFieldIds,omitempty" type:"Repeated"`
+	HeaderFieldIds []*string                                               `json:"headerFieldIds,omitempty" xml:"headerFieldIds,omitempty" type:"Repeated"`
 }
 
 func (s GetRelationUkSettingResponseBodyResult) String() string {
@@ -111,10 +111,8 @@ func (s *GetRelationUkSettingResponseBodyResultFormUkSettings) SetFieldList(v []
 }
 
 type GetRelationUkSettingResponseBodyResultFormUkSettingsFieldList struct {
-	// 查重字段的bizAlias。
 	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 查重字段的字段id。
-	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	FieldId  *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
 }
 
 func (s GetRelationUkSettingResponseBodyResultFormUkSettingsFieldList) String() string {
@@ -136,8 +134,9 @@ func (s *GetRelationUkSettingResponseBodyResultFormUkSettingsFieldList) SetField
 }
 
 type GetRelationUkSettingResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetRelationUkSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetRelationUkSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetRelationUkSettingResponse) String() string {
@@ -150,6 +149,11 @@ func (s GetRelationUkSettingResponse) GoString() string {
 
 func (s *GetRelationUkSettingResponse) SetHeaders(v map[string]*string) *GetRelationUkSettingResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetRelationUkSettingResponse) SetStatusCode(v int32) *GetRelationUkSettingResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -173,24 +177,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) GetRelationUkSetting(request *GetRelationUkSettingRequest) (_result *GetRelationUkSettingResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetRelationUkSettingHeaders{}
-	_result = &GetRelationUkSettingResponse{}
-	_body, _err := client.GetRelationUkSettingWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) GetRelationUkSettingWithOptions(request *GetRelationUkSettingRequest, headers *GetRelationUkSettingHeaders, runtime *util.RuntimeOptions) (_result *GetRelationUkSettingResponse, _err error) {
@@ -216,11 +214,34 @@ func (client *Client) GetRelationUkSettingWithOptions(request *GetRelationUkSett
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetRelationUkSetting"),
+		Version:     tea.String("crm_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/crm/relationUkSettings"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetRelationUkSettingResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetRelationUkSetting"), tea.String("crm_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/crm/relationUkSettings"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetRelationUkSetting(request *GetRelationUkSettingRequest) (_result *GetRelationUkSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRelationUkSettingHeaders{}
+	_result = &GetRelationUkSettingResponse{}
+	_body, _err := client.GetRelationUkSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

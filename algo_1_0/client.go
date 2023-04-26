@@ -5,9 +5,11 @@
 package algo_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -145,8 +147,9 @@ func (s *NlpWordDistinguishResponseBodyWordEntities) SetWord(v string) *NlpWordD
 }
 
 type NlpWordDistinguishResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *NlpWordDistinguishResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *NlpWordDistinguishResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s NlpWordDistinguishResponse) String() string {
@@ -159,6 +162,11 @@ func (s NlpWordDistinguishResponse) GoString() string {
 
 func (s *NlpWordDistinguishResponse) SetHeaders(v map[string]*string) *NlpWordDistinguishResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *NlpWordDistinguishResponse) SetStatusCode(v int32) *NlpWordDistinguishResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -331,10 +339,8 @@ func (s *OkrOpenRecommendRequestCandidateOkrItemsOkrInfosKeyResultInfos) SetWord
 }
 
 type OkrOpenRecommendResponseBody struct {
-	// okrRecommendItems
 	OkrRecommendItems []*OkrOpenRecommendResponseBodyOkrRecommendItems `json:"okrRecommendItems,omitempty" xml:"okrRecommendItems,omitempty" type:"Repeated"`
-	// requestId
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	RequestId         *string                                          `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s OkrOpenRecommendResponseBody) String() string {
@@ -356,16 +362,11 @@ func (s *OkrOpenRecommendResponseBody) SetRequestId(v string) *OkrOpenRecommendR
 }
 
 type OkrOpenRecommendResponseBodyOkrRecommendItems struct {
-	// krResultRelatedResults
-	KrResultRelatedResults []*OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults `json:"krResultRelatedResults,omitempty" xml:"krResultRelatedResults,omitempty" type:"Repeated"`
-	// objectiveRelatedResults
+	KrResultRelatedResults  []*OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults  `json:"krResultRelatedResults,omitempty" xml:"krResultRelatedResults,omitempty" type:"Repeated"`
 	ObjectiveRelatedResults []*OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults `json:"objectiveRelatedResults,omitempty" xml:"objectiveRelatedResults,omitempty" type:"Repeated"`
-	// relatedLevel
-	RelatedLevel *int64 `json:"relatedLevel,omitempty" xml:"relatedLevel,omitempty"`
-	// semanticLevel
-	SemanticLevel *int64 `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
-	// userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	RelatedLevel            *int64                                                                  `json:"relatedLevel,omitempty" xml:"relatedLevel,omitempty"`
+	SemanticLevel           *int64                                                                  `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
+	UserId                  *string                                                                 `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s OkrOpenRecommendResponseBodyOkrRecommendItems) String() string {
@@ -402,12 +403,9 @@ func (s *OkrOpenRecommendResponseBodyOkrRecommendItems) SetUserId(v string) *Okr
 }
 
 type OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults struct {
-	// krId
-	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
-	// semanticLevel
-	SemanticLevel *int64 `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
-	// words
-	Words []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
+	KrId          *string   `json:"krId,omitempty" xml:"krId,omitempty"`
+	SemanticLevel *int64    `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
+	Words         []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
 
 func (s OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults) String() string {
@@ -434,12 +432,9 @@ func (s *OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults) Se
 }
 
 type OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults struct {
-	// objectiveId
-	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	// semanticLevel
-	SemanticLevel *int64 `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
-	// words
-	Words []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
+	ObjectiveId   *string   `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	SemanticLevel *int64    `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
+	Words         []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
 
 func (s OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults) String() string {
@@ -466,8 +461,9 @@ func (s *OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults) S
 }
 
 type OkrOpenRecommendResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *OkrOpenRecommendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *OkrOpenRecommendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s OkrOpenRecommendResponse) String() string {
@@ -480,6 +476,11 @@ func (s OkrOpenRecommendResponse) GoString() string {
 
 func (s *OkrOpenRecommendResponse) SetHeaders(v map[string]*string) *OkrOpenRecommendResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *OkrOpenRecommendResponse) SetStatusCode(v int32) *OkrOpenRecommendResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -503,24 +504,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) NlpWordDistinguish(request *NlpWordDistinguishRequest) (_result *NlpWordDistinguishResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &NlpWordDistinguishHeaders{}
-	_result = &NlpWordDistinguishResponse{}
-	_body, _err := client.NlpWordDistinguishWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) NlpWordDistinguishWithOptions(request *NlpWordDistinguishRequest, headers *NlpWordDistinguishHeaders, runtime *util.RuntimeOptions) (_result *NlpWordDistinguishResponse, _err error) {
@@ -554,8 +549,19 @@ func (client *Client) NlpWordDistinguishWithOptions(request *NlpWordDistinguishR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("NlpWordDistinguish"),
+		Version:     tea.String("algo_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/algo/okrs/keywords/extract"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &NlpWordDistinguishResponse{}
-	_body, _err := client.DoROARequest(tea.String("NlpWordDistinguish"), tea.String("algo_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/algo/okrs/keywords/extract"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -563,11 +569,11 @@ func (client *Client) NlpWordDistinguishWithOptions(request *NlpWordDistinguishR
 	return _result, _err
 }
 
-func (client *Client) OkrOpenRecommend(request *OkrOpenRecommendRequest) (_result *OkrOpenRecommendResponse, _err error) {
+func (client *Client) NlpWordDistinguish(request *NlpWordDistinguishRequest) (_result *NlpWordDistinguishResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &OkrOpenRecommendHeaders{}
-	_result = &OkrOpenRecommendResponse{}
-	_body, _err := client.OkrOpenRecommendWithOptions(request, headers, runtime)
+	headers := &NlpWordDistinguishHeaders{}
+	_result = &NlpWordDistinguishResponse{}
+	_body, _err := client.NlpWordDistinguishWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -618,11 +624,34 @@ func (client *Client) OkrOpenRecommendWithOptions(request *OkrOpenRecommendReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("OkrOpenRecommend"),
+		Version:     tea.String("algo_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/algo/okrs/recommend"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &OkrOpenRecommendResponse{}
-	_body, _err := client.DoROARequest(tea.String("OkrOpenRecommend"), tea.String("algo_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/algo/okrs/recommend"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) OkrOpenRecommend(request *OkrOpenRecommendRequest) (_result *OkrOpenRecommendResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OkrOpenRecommendHeaders{}
+	_result = &OkrOpenRecommendResponse{}
+	_body, _err := client.OkrOpenRecommendWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

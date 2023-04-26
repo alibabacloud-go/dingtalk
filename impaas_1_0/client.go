@@ -5,9 +5,11 @@
 package impaas_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -110,8 +112,9 @@ func (s *AddGroupMembersResponseBody) SetMemberUids(v []*string) *AddGroupMember
 }
 
 type AddGroupMembersResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddGroupMembersResponse) String() string {
@@ -124,6 +127,11 @@ func (s AddGroupMembersResponse) GoString() string {
 
 func (s *AddGroupMembersResponse) SetHeaders(v map[string]*string) *AddGroupMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddGroupMembersResponse) SetStatusCode(v int32) *AddGroupMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -156,14 +164,10 @@ func (s *AddProfileHeaders) SetXAcsDingtalkAccessToken(v string) *AddProfileHead
 }
 
 type AddProfileRequest struct {
-	// 外部app的账号，格式：xxx@channel格式
-	AppUid *string `json:"appUid,omitempty" xml:"appUid,omitempty"`
-	// 头像mediaId，调用Upload接口获得
+	AppUid        *string `json:"appUid,omitempty" xml:"appUid,omitempty"`
 	AvatarMediaId *string `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	// 手机号
-	MobileNumber *string `json:"mobileNumber,omitempty" xml:"mobileNumber,omitempty"`
-	// 昵称
-	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	MobileNumber  *string `json:"mobileNumber,omitempty" xml:"mobileNumber,omitempty"`
+	Nick          *string `json:"nick,omitempty" xml:"nick,omitempty"`
 }
 
 func (s AddProfileRequest) String() string {
@@ -195,7 +199,8 @@ func (s *AddProfileRequest) SetNick(v string) *AddProfileRequest {
 }
 
 type AddProfileResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s AddProfileResponse) String() string {
@@ -208,6 +213,11 @@ func (s AddProfileResponse) GoString() string {
 
 func (s *AddProfileResponse) SetHeaders(v map[string]*string) *AddProfileResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddProfileResponse) SetStatusCode(v int32) *AddProfileResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -235,14 +245,10 @@ func (s *BatchSendHeaders) SetXAcsDingtalkAccessToken(v string) *BatchSendHeader
 }
 
 type BatchSendRequest struct {
-	// 接受者列表，外部用户
-	AppUids []*string `json:"appUids,omitempty" xml:"appUids,omitempty" type:"Repeated"`
-	// 消息内容
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 接收消息的群聊列表
+	AppUids         []*string `json:"appUids,omitempty" xml:"appUids,omitempty" type:"Repeated"`
+	Content         *string   `json:"content,omitempty" xml:"content,omitempty"`
 	ConversationIds []*string `json:"conversationIds,omitempty" xml:"conversationIds,omitempty" type:"Repeated"`
-	// 发送者，企业员工账号
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId          *string   `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchSendRequest) String() string {
@@ -274,7 +280,6 @@ func (s *BatchSendRequest) SetUserId(v string) *BatchSendRequest {
 }
 
 type BatchSendResponseBody struct {
-	// 任务Id
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
@@ -292,8 +297,9 @@ func (s *BatchSendResponseBody) SetTaskId(v string) *BatchSendResponseBody {
 }
 
 type BatchSendResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchSendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchSendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchSendResponse) String() string {
@@ -306,6 +312,11 @@ func (s BatchSendResponse) GoString() string {
 
 func (s *BatchSendResponse) SetHeaders(v map[string]*string) *BatchSendResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchSendResponse) SetStatusCode(v int32) *BatchSendResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -420,8 +431,9 @@ func (s *CreateGroupResponseBody) SetCreateTime(v int64) *CreateGroupResponseBod
 }
 
 type CreateGroupResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateGroupResponse) String() string {
@@ -434,6 +446,11 @@ func (s CreateGroupResponse) GoString() string {
 
 func (s *CreateGroupResponse) SetHeaders(v map[string]*string) *CreateGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupResponse) SetStatusCode(v int32) *CreateGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -472,20 +489,13 @@ func (s *CreateTrustGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTr
 }
 
 type CreateTrustGroupRequest struct {
-	// IMPASS渠道编码
-	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
-	// 素材ID
-	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
-	// 群成员列表
-	Members []*CreateTrustGroupRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	// 群名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 其他扩展参数
-	Properties map[string]*string `json:"properties,omitempty" xml:"properties,omitempty"`
-	// 系统消息
-	SystemMsg *string `json:"systemMsg,omitempty" xml:"systemMsg,omitempty"`
-	// 外部系统映射唯一标识
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Channel     *string                           `json:"channel,omitempty" xml:"channel,omitempty"`
+	IconMediaId *string                           `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	Members     []*CreateTrustGroupRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	Name        *string                           `json:"name,omitempty" xml:"name,omitempty"`
+	Properties  map[string]*string                `json:"properties,omitempty" xml:"properties,omitempty"`
+	SystemMsg   *string                           `json:"systemMsg,omitempty" xml:"systemMsg,omitempty"`
+	Uuid        *string                           `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s CreateTrustGroupRequest) String() string {
@@ -532,10 +542,8 @@ func (s *CreateTrustGroupRequest) SetUuid(v string) *CreateTrustGroupRequest {
 }
 
 type CreateTrustGroupRequestMembers struct {
-	// 昵称
 	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	// 互通账号ID
-	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	Uid  *string `json:"uid,omitempty" xml:"uid,omitempty"`
 }
 
 func (s CreateTrustGroupRequestMembers) String() string {
@@ -586,8 +594,9 @@ func (s *CreateTrustGroupResponseBody) SetOpenConversationId(v string) *CreateTr
 }
 
 type CreateTrustGroupResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateTrustGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateTrustGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateTrustGroupResponse) String() string {
@@ -600,6 +609,11 @@ func (s CreateTrustGroupResponse) GoString() string {
 
 func (s *CreateTrustGroupResponse) SetHeaders(v map[string]*string) *CreateTrustGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateTrustGroupResponse) SetStatusCode(v int32) *CreateTrustGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -661,7 +675,8 @@ func (s *DismissGroupRequest) SetOperatorUid(v string) *DismissGroupRequest {
 }
 
 type DismissGroupResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s DismissGroupResponse) String() string {
@@ -674,6 +689,11 @@ func (s DismissGroupResponse) GoString() string {
 
 func (s *DismissGroupResponse) SetHeaders(v map[string]*string) *DismissGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DismissGroupResponse) SetStatusCode(v int32) *DismissGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -701,9 +721,7 @@ func (s *GetConversationIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetConv
 }
 
 type GetConversationIdRequest struct {
-	// 外部用户账号：outerId@channel
 	AppUid *string `json:"appUid,omitempty" xml:"appUid,omitempty"`
-	// 员工企业账号：staffId#corpId@dingding
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -743,8 +761,9 @@ func (s *GetConversationIdResponseBody) SetConversationId(v string) *GetConversa
 }
 
 type GetConversationIdResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetConversationIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetConversationIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetConversationIdResponse) String() string {
@@ -757,6 +776,11 @@ func (s GetConversationIdResponse) GoString() string {
 
 func (s *GetConversationIdResponse) SetHeaders(v map[string]*string) *GetConversationIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetConversationIdResponse) SetStatusCode(v int32) *GetConversationIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -789,10 +813,8 @@ func (s *GetMediaUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetMediaUrlHe
 }
 
 type GetMediaUrlRequest struct {
-	// 多媒体id
-	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	// 过期时间
-	UrlExpireTime *int32 `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
+	MediaId       *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	UrlExpireTime *int32  `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
 }
 
 func (s GetMediaUrlRequest) String() string {
@@ -831,8 +853,9 @@ func (s *GetMediaUrlResponseBody) SetUrl(v string) *GetMediaUrlResponseBody {
 }
 
 type GetMediaUrlResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetMediaUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMediaUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetMediaUrlResponse) String() string {
@@ -845,6 +868,11 @@ func (s GetMediaUrlResponse) GoString() string {
 
 func (s *GetMediaUrlResponse) SetHeaders(v map[string]*string) *GetMediaUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetMediaUrlResponse) SetStatusCode(v int32) *GetMediaUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -877,10 +905,8 @@ func (s *GetMediaUrlsHeaders) SetXAcsDingtalkAccessToken(v string) *GetMediaUrls
 }
 
 type GetMediaUrlsRequest struct {
-	// 多媒体id列表
-	MediaIds []*string `json:"mediaIds,omitempty" xml:"mediaIds,omitempty" type:"Repeated"`
-	// 过期时间
-	UrlExpireTime *int32 `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
+	MediaIds      []*string `json:"mediaIds,omitempty" xml:"mediaIds,omitempty" type:"Repeated"`
+	UrlExpireTime *int32    `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
 }
 
 func (s GetMediaUrlsRequest) String() string {
@@ -919,8 +945,9 @@ func (s *GetMediaUrlsResponseBody) SetUrls(v map[string]interface{}) *GetMediaUr
 }
 
 type GetMediaUrlsResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetMediaUrlsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMediaUrlsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetMediaUrlsResponse) String() string {
@@ -933,6 +960,11 @@ func (s GetMediaUrlsResponse) GoString() string {
 
 func (s *GetMediaUrlsResponse) SetHeaders(v map[string]*string) *GetMediaUrlsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetMediaUrlsResponse) SetStatusCode(v int32) *GetMediaUrlsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -965,12 +997,9 @@ func (s *GetSpaceFileUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpaceF
 }
 
 type GetSpaceFileUrlRequest struct {
-	// 钉盘文件id
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 发送人互通账号
+	FileId    *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	SenderUid *string `json:"senderUid,omitempty" xml:"senderUid,omitempty"`
-	// 钉盘spaceId
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s GetSpaceFileUrlRequest) String() string {
@@ -1026,8 +1055,9 @@ func (s *GetSpaceFileUrlResponseBody) SetResourceUrl(v string) *GetSpaceFileUrlR
 }
 
 type GetSpaceFileUrlResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSpaceFileUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSpaceFileUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSpaceFileUrlResponse) String() string {
@@ -1040,6 +1070,11 @@ func (s GetSpaceFileUrlResponse) GoString() string {
 
 func (s *GetSpaceFileUrlResponse) SetHeaders(v map[string]*string) *GetSpaceFileUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSpaceFileUrlResponse) SetStatusCode(v int32) *GetSpaceFileUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1129,8 +1164,9 @@ func (s *ListGroupStaffMembersResponseBodyMembers) SetUid(v string) *ListGroupSt
 }
 
 type ListGroupStaffMembersResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListGroupStaffMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListGroupStaffMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListGroupStaffMembersResponse) String() string {
@@ -1143,6 +1179,11 @@ func (s ListGroupStaffMembersResponse) GoString() string {
 
 func (s *ListGroupStaffMembersResponse) SetHeaders(v map[string]*string) *ListGroupStaffMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListGroupStaffMembersResponse) SetStatusCode(v int32) *ListGroupStaffMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1175,10 +1216,8 @@ func (s *QueryBatchSendResultHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryBatchSendResultRequest struct {
-	// 发送者，必须是B端用户
 	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
-	// batchSend返回的taskId
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskId       *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s QueryBatchSendResultRequest) String() string {
@@ -1201,8 +1240,7 @@ func (s *QueryBatchSendResultRequest) SetTaskId(v string) *QueryBatchSendResultR
 
 type QueryBatchSendResultResponseBody struct {
 	Results []*QueryBatchSendResultResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
-	// status
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	Status  *int32                                     `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryBatchSendResultResponseBody) String() string {
@@ -1265,8 +1303,9 @@ func (s *QueryBatchSendResultResponseBodyResults) SetMsgId(v string) *QueryBatch
 }
 
 type QueryBatchSendResultResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryBatchSendResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryBatchSendResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryBatchSendResultResponse) String() string {
@@ -1279,6 +1318,11 @@ func (s QueryBatchSendResultResponse) GoString() string {
 
 func (s *QueryBatchSendResultResponse) SetHeaders(v map[string]*string) *QueryBatchSendResultResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryBatchSendResultResponse) SetStatusCode(v int32) *QueryBatchSendResultResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1340,7 +1384,8 @@ func (s *ReadMessageRequest) SetOperatorUid(v string) *ReadMessageRequest {
 }
 
 type ReadMessageResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s ReadMessageResponse) String() string {
@@ -1353,6 +1398,11 @@ func (s ReadMessageResponse) GoString() string {
 
 func (s *ReadMessageResponse) SetHeaders(v map[string]*string) *ReadMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ReadMessageResponse) SetStatusCode(v int32) *ReadMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1415,7 +1465,8 @@ func (s *RecallMessageRequest) SetType(v int32) *RecallMessageRequest {
 }
 
 type RecallMessageResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s RecallMessageResponse) String() string {
@@ -1428,6 +1479,11 @@ func (s RecallMessageResponse) GoString() string {
 
 func (s *RecallMessageResponse) SetHeaders(v map[string]*string) *RecallMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RecallMessageResponse) SetStatusCode(v int32) *RecallMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1490,7 +1546,8 @@ func (s *RemoveGroupMembersRequest) SetOperatorUid(v string) *RemoveGroupMembers
 }
 
 type RemoveGroupMembersResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s RemoveGroupMembersResponse) String() string {
@@ -1503,6 +1560,11 @@ func (s RemoveGroupMembersResponse) GoString() string {
 
 func (s *RemoveGroupMembersResponse) SetHeaders(v map[string]*string) *RemoveGroupMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RemoveGroupMembersResponse) SetStatusCode(v int32) *RemoveGroupMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1612,8 +1674,9 @@ func (s *SendMessageResponseBody) SetMsgId(v string) *SendMessageResponseBody {
 }
 
 type SendMessageResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendMessageResponse) String() string {
@@ -1626,6 +1689,11 @@ func (s SendMessageResponse) GoString() string {
 
 func (s *SendMessageResponse) SetHeaders(v map[string]*string) *SendMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendMessageResponse) SetStatusCode(v int32) *SendMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1658,36 +1726,21 @@ func (s *SendRobotMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendRobo
 }
 
 type SendRobotMessageRequest struct {
-	// 是否@全员
-	AtAll *bool `json:"atAll,omitempty" xml:"atAll,omitempty"`
-	// @人的appuid列表
-	AtAppUids []*string `json:"atAppUids,omitempty" xml:"atAppUids,omitempty" type:"Repeated"`
-	// @人的手机号列表
-	AtMobiles []*string `json:"atMobiles,omitempty" xml:"atMobiles,omitempty" type:"Repeated"`
-	// @人的unionid列表
-	AtUnionIds []*string `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
-	// @人的userid列表
-	AtUsers []*string `json:"atUsers,omitempty" xml:"atUsers,omitempty" type:"Repeated"`
-	// 租户channel
-	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
-	// 消息模板内容替换参数，多媒体类型
-	MsgMediaIdParamMap map[string]interface{} `json:"msgMediaIdParamMap,omitempty" xml:"msgMediaIdParamMap,omitempty"`
-	// 消息模板内容替换参数，普通文本类型
-	MsgParamMap map[string]interface{} `json:"msgParamMap,omitempty" xml:"msgParamMap,omitempty"`
-	// 消息模板id
-	MsgTemplateId *string `json:"msgTemplateId,omitempty" xml:"msgTemplateId,omitempty"`
-	// 消息接收人appuid列表
-	ReceiverAppUids []*string `json:"receiverAppUids,omitempty" xml:"receiverAppUids,omitempty" type:"Repeated"`
-	// 消息接收人手机号列表
-	ReceiverMobiles []*string `json:"receiverMobiles,omitempty" xml:"receiverMobiles,omitempty" type:"Repeated"`
-	// 消息接收人unionId列表
-	ReceiverUnionIds []*string `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
-	// 消息接收人userId列表
-	ReceiverUserIds []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
-	// 用于发送卡片的机器人编码，与场景群模板中的机器人编码保持一致
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 会话id
-	TargetOpenConversationId *string `json:"targetOpenConversationId,omitempty" xml:"targetOpenConversationId,omitempty"`
+	AtAll                    *bool                  `json:"atAll,omitempty" xml:"atAll,omitempty"`
+	AtAppUids                []*string              `json:"atAppUids,omitempty" xml:"atAppUids,omitempty" type:"Repeated"`
+	AtMobiles                []*string              `json:"atMobiles,omitempty" xml:"atMobiles,omitempty" type:"Repeated"`
+	AtUnionIds               []*string              `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
+	AtUsers                  []*string              `json:"atUsers,omitempty" xml:"atUsers,omitempty" type:"Repeated"`
+	Channel                  *string                `json:"channel,omitempty" xml:"channel,omitempty"`
+	MsgMediaIdParamMap       map[string]interface{} `json:"msgMediaIdParamMap,omitempty" xml:"msgMediaIdParamMap,omitempty"`
+	MsgParamMap              map[string]interface{} `json:"msgParamMap,omitempty" xml:"msgParamMap,omitempty"`
+	MsgTemplateId            *string                `json:"msgTemplateId,omitempty" xml:"msgTemplateId,omitempty"`
+	ReceiverAppUids          []*string              `json:"receiverAppUids,omitempty" xml:"receiverAppUids,omitempty" type:"Repeated"`
+	ReceiverMobiles          []*string              `json:"receiverMobiles,omitempty" xml:"receiverMobiles,omitempty" type:"Repeated"`
+	ReceiverUnionIds         []*string              `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
+	ReceiverUserIds          []*string              `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
+	RobotCode                *string                `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	TargetOpenConversationId *string                `json:"targetOpenConversationId,omitempty" xml:"targetOpenConversationId,omitempty"`
 }
 
 func (s SendRobotMessageRequest) String() string {
@@ -1791,8 +1844,9 @@ func (s *SendRobotMessageResponseBody) SetOpenMsgId(v string) *SendRobotMessageR
 }
 
 type SendRobotMessageResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendRobotMessageResponse) String() string {
@@ -1805,6 +1859,11 @@ func (s SendRobotMessageResponse) GoString() string {
 
 func (s *SendRobotMessageResponse) SetHeaders(v map[string]*string) *SendRobotMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendRobotMessageResponse) SetStatusCode(v int32) *SendRobotMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1872,7 +1931,8 @@ func (s *UpdateGroupNameRequest) SetOperatorUid(v string) *UpdateGroupNameReques
 }
 
 type UpdateGroupNameResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s UpdateGroupNameResponse) String() string {
@@ -1885,6 +1945,11 @@ func (s UpdateGroupNameResponse) GoString() string {
 
 func (s *UpdateGroupNameResponse) SetHeaders(v map[string]*string) *UpdateGroupNameResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupNameResponse) SetStatusCode(v int32) *UpdateGroupNameResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1941,7 +2006,6 @@ func (s *UpdateGroupOwnerRequest) SetOwnerUid(v string) *UpdateGroupOwnerRequest
 }
 
 type UpdateGroupOwnerResponseBody struct {
-	// 返回结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1959,8 +2023,9 @@ func (s *UpdateGroupOwnerResponseBody) SetResult(v bool) *UpdateGroupOwnerRespon
 }
 
 type UpdateGroupOwnerResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateGroupOwnerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateGroupOwnerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateGroupOwnerResponse) String() string {
@@ -1973,6 +2038,11 @@ func (s UpdateGroupOwnerResponse) GoString() string {
 
 func (s *UpdateGroupOwnerResponse) SetHeaders(v map[string]*string) *UpdateGroupOwnerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupOwnerResponse) SetStatusCode(v int32) *UpdateGroupOwnerResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1996,24 +2066,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) AddGroupMembers(request *AddGroupMembersRequest) (_result *AddGroupMembersResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddGroupMembersHeaders{}
-	_result = &AddGroupMembersResponse{}
-	_body, _err := client.AddGroupMembersWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) AddGroupMembersWithOptions(request *AddGroupMembersRequest, headers *AddGroupMembersHeaders, runtime *util.RuntimeOptions) (_result *AddGroupMembersResponse, _err error) {
@@ -2051,8 +2115,19 @@ func (client *Client) AddGroupMembersWithOptions(request *AddGroupMembersRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddGroupMembers"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/groups/members/batchAdd"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddGroupMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddGroupMembers"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/members/batchAdd"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2060,11 +2135,11 @@ func (client *Client) AddGroupMembersWithOptions(request *AddGroupMembersRequest
 	return _result, _err
 }
 
-func (client *Client) AddProfile(request *AddProfileRequest) (_result *AddProfileResponse, _err error) {
+func (client *Client) AddGroupMembers(request *AddGroupMembersRequest) (_result *AddGroupMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddProfileHeaders{}
-	_result = &AddProfileResponse{}
-	_body, _err := client.AddProfileWithOptions(request, headers, runtime)
+	headers := &AddGroupMembersHeaders{}
+	_result = &AddGroupMembersResponse{}
+	_body, _err := client.AddGroupMembersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2107,8 +2182,19 @@ func (client *Client) AddProfileWithOptions(request *AddProfileRequest, headers 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddProfile"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/users/profiles"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &AddProfileResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddProfile"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/users/profiles"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2116,11 +2202,11 @@ func (client *Client) AddProfileWithOptions(request *AddProfileRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) BatchSend(request *BatchSendRequest) (_result *BatchSendResponse, _err error) {
+func (client *Client) AddProfile(request *AddProfileRequest) (_result *AddProfileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchSendHeaders{}
-	_result = &BatchSendResponse{}
-	_body, _err := client.BatchSendWithOptions(request, headers, runtime)
+	headers := &AddProfileHeaders{}
+	_result = &AddProfileResponse{}
+	_body, _err := client.AddProfileWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2163,8 +2249,19 @@ func (client *Client) BatchSendWithOptions(request *BatchSendRequest, headers *B
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchSend"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/messages/batchSend"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchSendResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchSend"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/messages/batchSend"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2172,11 +2269,11 @@ func (client *Client) BatchSendWithOptions(request *BatchSendRequest, headers *B
 	return _result, _err
 }
 
-func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
+func (client *Client) BatchSend(request *BatchSendRequest) (_result *BatchSendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateGroupHeaders{}
-	_result = &CreateGroupResponse{}
-	_body, _err := client.CreateGroupWithOptions(request, headers, runtime)
+	headers := &BatchSendHeaders{}
+	_result = &BatchSendResponse{}
+	_body, _err := client.BatchSendWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2231,8 +2328,19 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateGroup"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/groups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateGroup"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2240,11 +2348,11 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 	return _result, _err
 }
 
-func (client *Client) CreateTrustGroup(request *CreateTrustGroupRequest) (_result *CreateTrustGroupResponse, _err error) {
+func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateTrustGroupHeaders{}
-	_result = &CreateTrustGroupResponse{}
-	_body, _err := client.CreateTrustGroupWithOptions(request, headers, runtime)
+	headers := &CreateGroupHeaders{}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.CreateGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2303,8 +2411,19 @@ func (client *Client) CreateTrustGroupWithOptions(request *CreateTrustGroupReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateTrustGroup"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/groups/trusts"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateTrustGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateTrustGroup"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/trusts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2312,11 +2431,11 @@ func (client *Client) CreateTrustGroupWithOptions(request *CreateTrustGroupReque
 	return _result, _err
 }
 
-func (client *Client) DismissGroup(request *DismissGroupRequest) (_result *DismissGroupResponse, _err error) {
+func (client *Client) CreateTrustGroup(request *CreateTrustGroupRequest) (_result *CreateTrustGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DismissGroupHeaders{}
-	_result = &DismissGroupResponse{}
-	_body, _err := client.DismissGroupWithOptions(request, headers, runtime)
+	headers := &CreateTrustGroupHeaders{}
+	_result = &CreateTrustGroupResponse{}
+	_body, _err := client.CreateTrustGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2355,8 +2474,19 @@ func (client *Client) DismissGroupWithOptions(request *DismissGroupRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DismissGroup"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/groups/dismiss"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DismissGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("DismissGroup"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/dismiss"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2364,11 +2494,11 @@ func (client *Client) DismissGroupWithOptions(request *DismissGroupRequest, head
 	return _result, _err
 }
 
-func (client *Client) GetConversationId(request *GetConversationIdRequest) (_result *GetConversationIdResponse, _err error) {
+func (client *Client) DismissGroup(request *DismissGroupRequest) (_result *DismissGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetConversationIdHeaders{}
-	_result = &GetConversationIdResponse{}
-	_body, _err := client.GetConversationIdWithOptions(request, headers, runtime)
+	headers := &DismissGroupHeaders{}
+	_result = &DismissGroupResponse{}
+	_body, _err := client.DismissGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2403,8 +2533,19 @@ func (client *Client) GetConversationIdWithOptions(request *GetConversationIdReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetConversationId"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/conversations"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetConversationIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetConversationId"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/conversations"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2412,11 +2553,11 @@ func (client *Client) GetConversationIdWithOptions(request *GetConversationIdReq
 	return _result, _err
 }
 
-func (client *Client) GetMediaUrl(request *GetMediaUrlRequest) (_result *GetMediaUrlResponse, _err error) {
+func (client *Client) GetConversationId(request *GetConversationIdRequest) (_result *GetConversationIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetMediaUrlHeaders{}
-	_result = &GetMediaUrlResponse{}
-	_body, _err := client.GetMediaUrlWithOptions(request, headers, runtime)
+	headers := &GetConversationIdHeaders{}
+	_result = &GetConversationIdResponse{}
+	_body, _err := client.GetConversationIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2451,8 +2592,19 @@ func (client *Client) GetMediaUrlWithOptions(request *GetMediaUrlRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMediaUrl"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/medium/urls"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetMediaUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetMediaUrl"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/medium/urls"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2460,11 +2612,11 @@ func (client *Client) GetMediaUrlWithOptions(request *GetMediaUrlRequest, header
 	return _result, _err
 }
 
-func (client *Client) GetMediaUrls(request *GetMediaUrlsRequest) (_result *GetMediaUrlsResponse, _err error) {
+func (client *Client) GetMediaUrl(request *GetMediaUrlRequest) (_result *GetMediaUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetMediaUrlsHeaders{}
-	_result = &GetMediaUrlsResponse{}
-	_body, _err := client.GetMediaUrlsWithOptions(request, headers, runtime)
+	headers := &GetMediaUrlHeaders{}
+	_result = &GetMediaUrlResponse{}
+	_body, _err := client.GetMediaUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2499,8 +2651,19 @@ func (client *Client) GetMediaUrlsWithOptions(request *GetMediaUrlsRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMediaUrls"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/mediaUrls/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetMediaUrlsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetMediaUrls"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/mediaUrls/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2508,11 +2671,11 @@ func (client *Client) GetMediaUrlsWithOptions(request *GetMediaUrlsRequest, head
 	return _result, _err
 }
 
-func (client *Client) GetSpaceFileUrl(request *GetSpaceFileUrlRequest) (_result *GetSpaceFileUrlResponse, _err error) {
+func (client *Client) GetMediaUrls(request *GetMediaUrlsRequest) (_result *GetMediaUrlsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSpaceFileUrlHeaders{}
-	_result = &GetSpaceFileUrlResponse{}
-	_body, _err := client.GetSpaceFileUrlWithOptions(request, headers, runtime)
+	headers := &GetMediaUrlsHeaders{}
+	_result = &GetMediaUrlsResponse{}
+	_body, _err := client.GetMediaUrlsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2551,8 +2714,19 @@ func (client *Client) GetSpaceFileUrlWithOptions(request *GetSpaceFileUrlRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSpaceFileUrl"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/spaces/files/urls"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSpaceFileUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSpaceFileUrl"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/spaces/files/urls"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2560,11 +2734,11 @@ func (client *Client) GetSpaceFileUrlWithOptions(request *GetSpaceFileUrlRequest
 	return _result, _err
 }
 
-func (client *Client) ListGroupStaffMembers(request *ListGroupStaffMembersRequest) (_result *ListGroupStaffMembersResponse, _err error) {
+func (client *Client) GetSpaceFileUrl(request *GetSpaceFileUrlRequest) (_result *GetSpaceFileUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListGroupStaffMembersHeaders{}
-	_result = &ListGroupStaffMembersResponse{}
-	_body, _err := client.ListGroupStaffMembersWithOptions(request, headers, runtime)
+	headers := &GetSpaceFileUrlHeaders{}
+	_result = &GetSpaceFileUrlResponse{}
+	_body, _err := client.GetSpaceFileUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2595,8 +2769,19 @@ func (client *Client) ListGroupStaffMembersWithOptions(request *ListGroupStaffMe
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListGroupStaffMembers"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/groups/staffMemers/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListGroupStaffMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListGroupStaffMembers"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/staffMemers/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2604,11 +2789,11 @@ func (client *Client) ListGroupStaffMembersWithOptions(request *ListGroupStaffMe
 	return _result, _err
 }
 
-func (client *Client) QueryBatchSendResult(request *QueryBatchSendResultRequest) (_result *QueryBatchSendResultResponse, _err error) {
+func (client *Client) ListGroupStaffMembers(request *ListGroupStaffMembersRequest) (_result *ListGroupStaffMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryBatchSendResultHeaders{}
-	_result = &QueryBatchSendResultResponse{}
-	_body, _err := client.QueryBatchSendResultWithOptions(request, headers, runtime)
+	headers := &ListGroupStaffMembersHeaders{}
+	_result = &ListGroupStaffMembersResponse{}
+	_body, _err := client.ListGroupStaffMembersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2643,8 +2828,19 @@ func (client *Client) QueryBatchSendResultWithOptions(request *QueryBatchSendRes
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryBatchSendResult"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/messages/batchSendResults"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryBatchSendResultResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryBatchSendResult"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/messages/batchSendResults"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2652,11 +2848,11 @@ func (client *Client) QueryBatchSendResultWithOptions(request *QueryBatchSendRes
 	return _result, _err
 }
 
-func (client *Client) ReadMessage(request *ReadMessageRequest) (_result *ReadMessageResponse, _err error) {
+func (client *Client) QueryBatchSendResult(request *QueryBatchSendResultRequest) (_result *QueryBatchSendResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ReadMessageHeaders{}
-	_result = &ReadMessageResponse{}
-	_body, _err := client.ReadMessageWithOptions(request, headers, runtime)
+	headers := &QueryBatchSendResultHeaders{}
+	_result = &QueryBatchSendResultResponse{}
+	_body, _err := client.QueryBatchSendResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2695,8 +2891,19 @@ func (client *Client) ReadMessageWithOptions(request *ReadMessageRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ReadMessage"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/messages/read"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &ReadMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("ReadMessage"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/messages/read"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2704,11 +2911,11 @@ func (client *Client) ReadMessageWithOptions(request *ReadMessageRequest, header
 	return _result, _err
 }
 
-func (client *Client) RecallMessage(request *RecallMessageRequest) (_result *RecallMessageResponse, _err error) {
+func (client *Client) ReadMessage(request *ReadMessageRequest) (_result *ReadMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RecallMessageHeaders{}
-	_result = &RecallMessageResponse{}
-	_body, _err := client.RecallMessageWithOptions(request, headers, runtime)
+	headers := &ReadMessageHeaders{}
+	_result = &ReadMessageResponse{}
+	_body, _err := client.ReadMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2751,8 +2958,19 @@ func (client *Client) RecallMessageWithOptions(request *RecallMessageRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RecallMessage"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/messages/recall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &RecallMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("RecallMessage"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/messages/recall"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2760,11 +2978,11 @@ func (client *Client) RecallMessageWithOptions(request *RecallMessageRequest, he
 	return _result, _err
 }
 
-func (client *Client) RemoveGroupMembers(request *RemoveGroupMembersRequest) (_result *RemoveGroupMembersResponse, _err error) {
+func (client *Client) RecallMessage(request *RecallMessageRequest) (_result *RecallMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RemoveGroupMembersHeaders{}
-	_result = &RemoveGroupMembersResponse{}
-	_body, _err := client.RemoveGroupMembersWithOptions(request, headers, runtime)
+	headers := &RecallMessageHeaders{}
+	_result = &RecallMessageResponse{}
+	_body, _err := client.RecallMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2807,8 +3025,19 @@ func (client *Client) RemoveGroupMembersWithOptions(request *RemoveGroupMembersR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveGroupMembers"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/groups/members/batchRemove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RemoveGroupMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("RemoveGroupMembers"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/members/batchRemove"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2816,11 +3045,11 @@ func (client *Client) RemoveGroupMembersWithOptions(request *RemoveGroupMembersR
 	return _result, _err
 }
 
-func (client *Client) SendMessage(request *SendMessageRequest) (_result *SendMessageResponse, _err error) {
+func (client *Client) RemoveGroupMembers(request *RemoveGroupMembersRequest) (_result *RemoveGroupMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendMessageHeaders{}
-	_result = &SendMessageResponse{}
-	_body, _err := client.SendMessageWithOptions(request, headers, runtime)
+	headers := &RemoveGroupMembersHeaders{}
+	_result = &RemoveGroupMembersResponse{}
+	_body, _err := client.RemoveGroupMembersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2875,8 +3104,19 @@ func (client *Client) SendMessageWithOptions(request *SendMessageRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendMessage"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/messages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendMessage"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/messages/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2884,11 +3124,11 @@ func (client *Client) SendMessageWithOptions(request *SendMessageRequest, header
 	return _result, _err
 }
 
-func (client *Client) SendRobotMessage(request *SendRobotMessageRequest) (_result *SendRobotMessageResponse, _err error) {
+func (client *Client) SendMessage(request *SendMessageRequest) (_result *SendMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendRobotMessageHeaders{}
-	_result = &SendRobotMessageResponse{}
-	_body, _err := client.SendRobotMessageWithOptions(request, headers, runtime)
+	headers := &SendMessageHeaders{}
+	_result = &SendMessageResponse{}
+	_body, _err := client.SendMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2975,8 +3215,19 @@ func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendRobotMessage"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/robots/messages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendRobotMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendRobotMessage"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/robots/messages/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2984,11 +3235,11 @@ func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageReque
 	return _result, _err
 }
 
-func (client *Client) UpdateGroupName(request *UpdateGroupNameRequest) (_result *UpdateGroupNameResponse, _err error) {
+func (client *Client) SendRobotMessage(request *SendRobotMessageRequest) (_result *SendRobotMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateGroupNameHeaders{}
-	_result = &UpdateGroupNameResponse{}
-	_body, _err := client.UpdateGroupNameWithOptions(request, headers, runtime)
+	headers := &SendRobotMessageHeaders{}
+	_result = &SendRobotMessageResponse{}
+	_body, _err := client.SendRobotMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3031,8 +3282,19 @@ func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateGroupName"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/groups/names"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateGroupNameResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateGroupName"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/names"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3040,11 +3302,11 @@ func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest
 	return _result, _err
 }
 
-func (client *Client) UpdateGroupOwner(request *UpdateGroupOwnerRequest) (_result *UpdateGroupOwnerResponse, _err error) {
+func (client *Client) UpdateGroupName(request *UpdateGroupNameRequest) (_result *UpdateGroupNameResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateGroupOwnerHeaders{}
-	_result = &UpdateGroupOwnerResponse{}
-	_body, _err := client.UpdateGroupOwnerWithOptions(request, headers, runtime)
+	headers := &UpdateGroupNameHeaders{}
+	_result = &UpdateGroupNameResponse{}
+	_body, _err := client.UpdateGroupNameWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3083,11 +3345,34 @@ func (client *Client) UpdateGroupOwnerWithOptions(request *UpdateGroupOwnerReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateGroupOwner"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/groups/owners"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateGroupOwnerResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateGroupOwner"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/owners"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupOwner(request *UpdateGroupOwnerRequest) (_result *UpdateGroupOwnerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupOwnerHeaders{}
+	_result = &UpdateGroupOwnerResponse{}
+	_body, _err := client.UpdateGroupOwnerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

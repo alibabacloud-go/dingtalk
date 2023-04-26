@@ -5,9 +5,11 @@
 package badge_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,28 +37,17 @@ func (s *CreateBadgeCodeUserInstanceHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type CreateBadgeCodeUserInstanceRequest struct {
-	// 有效时间列表，对于连续时间段，只需传入一个对象即可，注意过期时间必须晚于最晚结束时间
-	AvailableTimes []*CreateBadgeCodeUserInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
-	// 码标识，由钉钉颁发
-	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	// 码值
-	CodeValue *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
-	// 码值类型，钉钉静态码值：DING_STATIC，访客码或会展码传入
-	CodeValueType *string `json:"codeValueType,omitempty" xml:"codeValueType,omitempty"`
-	// 企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 扩展参数
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 临时码，传入过期时间
-	GmtExpired *string `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
-	// 业务幂等ID
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 状态，传入关闭状态需要用户手动开启后才会渲染二维
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户和企业的关系类型，区分内部员工，外部联系人，无关系普通用户
-	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	// 用户身份标识，取值和用户企业关系类型相关，如果企业无关，传入手机号
-	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	AvailableTimes       []*CreateBadgeCodeUserInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
+	CodeIdentity         *string                                             `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	CodeValue            *string                                             `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	CodeValueType        *string                                             `json:"codeValueType,omitempty" xml:"codeValueType,omitempty"`
+	CorpId               *string                                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfo              map[string]interface{}                              `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	GmtExpired           *string                                             `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
+	RequestId            *string                                             `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Status               *string                                             `json:"status,omitempty" xml:"status,omitempty"`
+	UserCorpRelationType *string                                             `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	UserIdentity         *string                                             `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
 }
 
 func (s CreateBadgeCodeUserInstanceRequest) String() string {
@@ -123,9 +114,7 @@ func (s *CreateBadgeCodeUserInstanceRequest) SetUserIdentity(v string) *CreateBa
 }
 
 type CreateBadgeCodeUserInstanceRequestAvailableTimes struct {
-	// 结束时间
-	GmtEnd *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
-	// 开始时间
+	GmtEnd   *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
 	GmtStart *string `json:"gmtStart,omitempty" xml:"gmtStart,omitempty"`
 }
 
@@ -148,10 +137,8 @@ func (s *CreateBadgeCodeUserInstanceRequestAvailableTimes) SetGmtStart(v string)
 }
 
 type CreateBadgeCodeUserInstanceResponseBody struct {
-	// 码详情跳转地址
 	CodeDetailUrl *string `json:"codeDetailUrl,omitempty" xml:"codeDetailUrl,omitempty"`
-	// 码ID
-	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	CodeId        *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
 }
 
 func (s CreateBadgeCodeUserInstanceResponseBody) String() string {
@@ -173,8 +160,9 @@ func (s *CreateBadgeCodeUserInstanceResponseBody) SetCodeId(v string) *CreateBad
 }
 
 type CreateBadgeCodeUserInstanceResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateBadgeCodeUserInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateBadgeCodeUserInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateBadgeCodeUserInstanceResponse) String() string {
@@ -187,6 +175,11 @@ func (s CreateBadgeCodeUserInstanceResponse) GoString() string {
 
 func (s *CreateBadgeCodeUserInstanceResponse) SetHeaders(v map[string]*string) *CreateBadgeCodeUserInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateBadgeCodeUserInstanceResponse) SetStatusCode(v int32) *CreateBadgeCodeUserInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -219,14 +212,10 @@ func (s *CreateBadgeNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *CreateB
 }
 
 type CreateBadgeNotifyRequest struct {
-	// 通知内容
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 消息ID
-	MsgId *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
-	// 消息类型
+	MsgId   *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
 	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	// 员工ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateBadgeNotifyRequest) String() string {
@@ -258,7 +247,6 @@ func (s *CreateBadgeNotifyRequest) SetUserId(v string) *CreateBadgeNotifyRequest
 }
 
 type CreateBadgeNotifyResponseBody struct {
-	// 处理结果
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -276,8 +264,9 @@ func (s *CreateBadgeNotifyResponseBody) SetResult(v bool) *CreateBadgeNotifyResp
 }
 
 type CreateBadgeNotifyResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateBadgeNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateBadgeNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateBadgeNotifyResponse) String() string {
@@ -290,6 +279,11 @@ func (s CreateBadgeNotifyResponse) GoString() string {
 
 func (s *CreateBadgeNotifyResponse) SetHeaders(v map[string]*string) *CreateBadgeNotifyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateBadgeNotifyResponse) SetStatusCode(v int32) *CreateBadgeNotifyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -322,9 +316,7 @@ func (s *DecodeBadgeCodeHeaders) SetXAcsDingtalkAccessToken(v string) *DecodeBad
 }
 
 type DecodeBadgeCodeRequest struct {
-	// 码值
-	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	// 请求ID
+	PayCode   *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
@@ -347,24 +339,15 @@ func (s *DecodeBadgeCodeRequest) SetRequestId(v string) *DecodeBadgeCodeRequest 
 }
 
 type DecodeBadgeCodeResponseBody struct {
-	// 支付宝付款码
-	AlipayCode *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
-	// 码ID，对于访客或会展码等静态码值返回
-	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
-	// 码标识，工牌码：DT_IDENTITY，访客码：DT_VISITOR，会展码：DT_CONFERENCE
-	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	// 码类型
-	CodeType *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 扩展信息
-	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 外部业务ID，值为调用创建工牌码接口传入的requestId
-	OutBizId *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
-	// 用户和企业关系
+	AlipayCode           *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
+	CodeId               *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	CodeIdentity         *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	CodeType             *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
+	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfo              *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	OutBizId             *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
 	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	// 员工id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DecodeBadgeCodeResponseBody) String() string {
@@ -421,8 +404,9 @@ func (s *DecodeBadgeCodeResponseBody) SetUserId(v string) *DecodeBadgeCodeRespon
 }
 
 type DecodeBadgeCodeResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DecodeBadgeCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DecodeBadgeCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DecodeBadgeCodeResponse) String() string {
@@ -435,6 +419,11 @@ func (s DecodeBadgeCodeResponse) GoString() string {
 
 func (s *DecodeBadgeCodeResponse) SetHeaders(v map[string]*string) *DecodeBadgeCodeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DecodeBadgeCodeResponse) SetStatusCode(v int32) *DecodeBadgeCodeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -467,40 +456,23 @@ func (s *NotifyBadgeCodePayResultHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type NotifyBadgeCodePayResultRequest struct {
-	// 订单金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 收费金额
-	ChargeAmount *string `json:"chargeAmount,omitempty" xml:"chargeAmount,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 扩展信息
-	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 交易开始时间
-	GmtTradeCreate *string `json:"gmtTradeCreate,omitempty" xml:"gmtTradeCreate,omitempty"`
-	// 交易结束时间
-	GmtTradeFinish *string `json:"gmtTradeFinish,omitempty" xml:"gmtTradeFinish,omitempty"`
-	// merchantName
-	MerchantName *string `json:"merchantName,omitempty" xml:"merchantName,omitempty"`
-	// 支付渠道明细信息
+	Amount               *string                                                `json:"amount,omitempty" xml:"amount,omitempty"`
+	ChargeAmount         *string                                                `json:"chargeAmount,omitempty" xml:"chargeAmount,omitempty"`
+	CorpId               *string                                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfo              *string                                                `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	GmtTradeCreate       *string                                                `json:"gmtTradeCreate,omitempty" xml:"gmtTradeCreate,omitempty"`
+	GmtTradeFinish       *string                                                `json:"gmtTradeFinish,omitempty" xml:"gmtTradeFinish,omitempty"`
+	MerchantName         *string                                                `json:"merchantName,omitempty" xml:"merchantName,omitempty"`
 	PayChannelDetailList []*NotifyBadgeCodePayResultRequestPayChannelDetailList `json:"payChannelDetailList,omitempty" xml:"payChannelDetailList,omitempty" type:"Repeated"`
-	// 付款码值
-	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	// 订单优惠金额
-	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 订单标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 支付失败错误码
-	TradeErrorCode *string `json:"tradeErrorCode,omitempty" xml:"tradeErrorCode,omitempty"`
-	// 支付失败信息
-	TradeErrorMsg *string `json:"tradeErrorMsg,omitempty" xml:"tradeErrorMsg,omitempty"`
-	// 交易号
-	TradeNo *string `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
-	// 交易状态
-	TradeStatus *string `json:"tradeStatus,omitempty" xml:"tradeStatus,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	PayCode              *string                                                `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	PromotionAmount      *string                                                `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	Remark               *string                                                `json:"remark,omitempty" xml:"remark,omitempty"`
+	Title                *string                                                `json:"title,omitempty" xml:"title,omitempty"`
+	TradeErrorCode       *string                                                `json:"tradeErrorCode,omitempty" xml:"tradeErrorCode,omitempty"`
+	TradeErrorMsg        *string                                                `json:"tradeErrorMsg,omitempty" xml:"tradeErrorMsg,omitempty"`
+	TradeNo              *string                                                `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
+	TradeStatus          *string                                                `json:"tradeStatus,omitempty" xml:"tradeStatus,omitempty"`
+	UserId               *string                                                `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s NotifyBadgeCodePayResultRequest) String() string {
@@ -597,22 +569,14 @@ func (s *NotifyBadgeCodePayResultRequest) SetUserId(v string) *NotifyBadgeCodePa
 }
 
 type NotifyBadgeCodePayResultRequestPayChannelDetailList struct {
-	// 支付金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 资金工具明细
+	Amount             *string                                                                  `json:"amount,omitempty" xml:"amount,omitempty"`
 	FundToolDetailList []*NotifyBadgeCodePayResultRequestPayChannelDetailListFundToolDetailList `json:"fundToolDetailList,omitempty" xml:"fundToolDetailList,omitempty" type:"Repeated"`
-	// 开始时间
-	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 结束时间
-	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	// 支付渠道名称
-	PayChannelName *string `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
-	// 支付渠道单号
-	PayChannelOrderNo *string `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
-	// 支付渠道类型
-	PayChannelType *string `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
-	// 优惠金额
-	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	GmtCreate          *string                                                                  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtFinish          *string                                                                  `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	PayChannelName     *string                                                                  `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
+	PayChannelOrderNo  *string                                                                  `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
+	PayChannelType     *string                                                                  `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
+	PromotionAmount    *string                                                                  `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
 }
 
 func (s NotifyBadgeCodePayResultRequestPayChannelDetailList) String() string {
@@ -664,18 +628,12 @@ func (s *NotifyBadgeCodePayResultRequestPayChannelDetailList) SetPromotionAmount
 }
 
 type NotifyBadgeCodePayResultRequestPayChannelDetailListFundToolDetailList struct {
-	// 1.00
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 扩展信息
-	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 资金渠道名称
-	FundToolName *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
-	// 开始时间
-	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 结束时间
-	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	// 是否是优惠工具
-	PromotionFundTool *bool `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
+	Amount            *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	ExtInfo           *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	FundToolName      *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
+	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtFinish         *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	PromotionFundTool *bool   `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
 }
 
 func (s NotifyBadgeCodePayResultRequestPayChannelDetailListFundToolDetailList) String() string {
@@ -717,7 +675,6 @@ func (s *NotifyBadgeCodePayResultRequestPayChannelDetailListFundToolDetailList) 
 }
 
 type NotifyBadgeCodePayResultResponseBody struct {
-	// 处理结果
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -735,8 +692,9 @@ func (s *NotifyBadgeCodePayResultResponseBody) SetResult(v string) *NotifyBadgeC
 }
 
 type NotifyBadgeCodePayResultResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *NotifyBadgeCodePayResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *NotifyBadgeCodePayResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s NotifyBadgeCodePayResultResponse) String() string {
@@ -749,6 +707,11 @@ func (s NotifyBadgeCodePayResultResponse) GoString() string {
 
 func (s *NotifyBadgeCodePayResultResponse) SetHeaders(v map[string]*string) *NotifyBadgeCodePayResultResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *NotifyBadgeCodePayResultResponse) SetStatusCode(v int32) *NotifyBadgeCodePayResultResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -781,26 +744,16 @@ func (s *NotifyBadgeCodeRefundResultHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type NotifyBadgeCodeRefundResultRequest struct {
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 退款时间
-	GmtRefund *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
-	// 支付渠道信息
-	PayChannelDetailList []*NotifyBadgeCodeRefundResultRequestPayChannelDetailList `json:"payChannelDetailList,omitempty" xml:"payChannelDetailList,omitempty" type:"Repeated"`
-	// 支付时使用的付款码
-	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	// 退款金额
-	RefundAmount *string `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
-	// 本次退款订单号
-	RefundOrderNo *string `json:"refundOrderNo,omitempty" xml:"refundOrderNo,omitempty"`
-	// 退款的优惠金额
-	RefundPromotionAmount *string `json:"refundPromotionAmount,omitempty" xml:"refundPromotionAmount,omitempty"`
-	// 备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 交易订单号
-	TradeNo *string `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	CorpId                *string                                                   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	GmtRefund             *string                                                   `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
+	PayChannelDetailList  []*NotifyBadgeCodeRefundResultRequestPayChannelDetailList `json:"payChannelDetailList,omitempty" xml:"payChannelDetailList,omitempty" type:"Repeated"`
+	PayCode               *string                                                   `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	RefundAmount          *string                                                   `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
+	RefundOrderNo         *string                                                   `json:"refundOrderNo,omitempty" xml:"refundOrderNo,omitempty"`
+	RefundPromotionAmount *string                                                   `json:"refundPromotionAmount,omitempty" xml:"refundPromotionAmount,omitempty"`
+	Remark                *string                                                   `json:"remark,omitempty" xml:"remark,omitempty"`
+	TradeNo               *string                                                   `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
+	UserId                *string                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s NotifyBadgeCodeRefundResultRequest) String() string {
@@ -862,20 +815,13 @@ func (s *NotifyBadgeCodeRefundResultRequest) SetUserId(v string) *NotifyBadgeCod
 }
 
 type NotifyBadgeCodeRefundResultRequestPayChannelDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 支付资金列表
-	FundToolDetailList []*NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailList `json:"fundToolDetailList,omitempty" xml:"fundToolDetailList,omitempty" type:"Repeated"`
-	// 支付渠道名称
-	PayChannelName *string `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
-	// 支付渠道号
-	PayChannelOrderNo *string `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
-	// 支付渠道退款号
-	PayChannelRefundOrderNo *string `json:"payChannelRefundOrderNo,omitempty" xml:"payChannelRefundOrderNo,omitempty"`
-	// 支付渠道类型
-	PayChannelType *string `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
-	// 优惠金额
-	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	Amount                  *string                                                                     `json:"amount,omitempty" xml:"amount,omitempty"`
+	FundToolDetailList      []*NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailList `json:"fundToolDetailList,omitempty" xml:"fundToolDetailList,omitempty" type:"Repeated"`
+	PayChannelName          *string                                                                     `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
+	PayChannelOrderNo       *string                                                                     `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
+	PayChannelRefundOrderNo *string                                                                     `json:"payChannelRefundOrderNo,omitempty" xml:"payChannelRefundOrderNo,omitempty"`
+	PayChannelType          *string                                                                     `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
+	PromotionAmount         *string                                                                     `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
 }
 
 func (s NotifyBadgeCodeRefundResultRequestPayChannelDetailList) String() string {
@@ -922,18 +868,12 @@ func (s *NotifyBadgeCodeRefundResultRequestPayChannelDetailList) SetPromotionAmo
 }
 
 type NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 扩展信息
-	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 资金工具名称
-	FundToolName *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
-	// 创建时间
-	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 完成时间
-	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	// 是否是优惠工具
-	PromotionFundTool *bool `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
+	Amount            *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	ExtInfo           *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	FundToolName      *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
+	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtFinish         *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	PromotionFundTool *bool   `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
 }
 
 func (s NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailList) String() string {
@@ -975,7 +915,6 @@ func (s *NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailLis
 }
 
 type NotifyBadgeCodeRefundResultResponseBody struct {
-	// 处理结果
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -993,8 +932,9 @@ func (s *NotifyBadgeCodeRefundResultResponseBody) SetResult(v string) *NotifyBad
 }
 
 type NotifyBadgeCodeRefundResultResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *NotifyBadgeCodeRefundResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *NotifyBadgeCodeRefundResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s NotifyBadgeCodeRefundResultResponse) String() string {
@@ -1007,6 +947,11 @@ func (s NotifyBadgeCodeRefundResultResponse) GoString() string {
 
 func (s *NotifyBadgeCodeRefundResultResponse) SetHeaders(v map[string]*string) *NotifyBadgeCodeRefundResultResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *NotifyBadgeCodeRefundResultResponse) SetStatusCode(v int32) *NotifyBadgeCodeRefundResultResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1039,26 +984,16 @@ func (s *NotifyBadgeCodeVerifyResultHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type NotifyBadgeCodeVerifyResultRequest struct {
-	// 企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 码值
-	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	// 备注信息
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 用户和企业的关系类型，区分内部员工，外部联系人，无关系普通用户
+	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	PayCode              *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	Remark               *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	// 用户身份标识
-	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
-	// 验证事件，长度不超过8个中文
-	VerifyEvent *string `json:"verifyEvent,omitempty" xml:"verifyEvent,omitempty"`
-	// 验证地点，调用时请务必传入，以便生成工牌使用记录
-	VerifyLocation *string `json:"verifyLocation,omitempty" xml:"verifyLocation,omitempty"`
-	// 验证流水号，长度不超过32位，用户下唯一，调用时请务必传入，以便生成工牌使用记录
-	VerifyNo *string `json:"verifyNo,omitempty" xml:"verifyNo,omitempty"`
-	// 验证结果
-	VerifyResult *bool `json:"verifyResult,omitempty" xml:"verifyResult,omitempty"`
-	// 验证时间
-	VerifyTime *string `json:"verifyTime,omitempty" xml:"verifyTime,omitempty"`
+	UserIdentity         *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	VerifyEvent          *string `json:"verifyEvent,omitempty" xml:"verifyEvent,omitempty"`
+	VerifyLocation       *string `json:"verifyLocation,omitempty" xml:"verifyLocation,omitempty"`
+	VerifyNo             *string `json:"verifyNo,omitempty" xml:"verifyNo,omitempty"`
+	VerifyResult         *bool   `json:"verifyResult,omitempty" xml:"verifyResult,omitempty"`
+	VerifyTime           *string `json:"verifyTime,omitempty" xml:"verifyTime,omitempty"`
 }
 
 func (s NotifyBadgeCodeVerifyResultRequest) String() string {
@@ -1120,7 +1055,6 @@ func (s *NotifyBadgeCodeVerifyResultRequest) SetVerifyTime(v string) *NotifyBadg
 }
 
 type NotifyBadgeCodeVerifyResultResponseBody struct {
-	// 结果
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1138,8 +1072,9 @@ func (s *NotifyBadgeCodeVerifyResultResponseBody) SetResult(v string) *NotifyBad
 }
 
 type NotifyBadgeCodeVerifyResultResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *NotifyBadgeCodeVerifyResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *NotifyBadgeCodeVerifyResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s NotifyBadgeCodeVerifyResultResponse) String() string {
@@ -1152,6 +1087,11 @@ func (s NotifyBadgeCodeVerifyResultResponse) GoString() string {
 
 func (s *NotifyBadgeCodeVerifyResultResponse) SetHeaders(v map[string]*string) *NotifyBadgeCodeVerifyResultResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *NotifyBadgeCodeVerifyResultResponse) SetStatusCode(v int32) *NotifyBadgeCodeVerifyResultResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1184,14 +1124,10 @@ func (s *SaveBadgeCodeCorpInstanceHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type SaveBadgeCodeCorpInstanceRequest struct {
-	// 码标识，由钉钉颁发
-	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	// 开通的企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 扩展参数
-	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 状态，OPEN或CLOSED
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	CodeIdentity *string            `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	CorpId       *string            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfo      map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	Status       *string            `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s SaveBadgeCodeCorpInstanceRequest) String() string {
@@ -1223,14 +1159,10 @@ func (s *SaveBadgeCodeCorpInstanceRequest) SetStatus(v string) *SaveBadgeCodeCor
 }
 
 type SaveBadgeCodeCorpInstanceResponseBody struct {
-	// 码标识
-	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	// 开通的企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 扩展参数
-	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	CodeIdentity *string            `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	CorpId       *string            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfo      map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	Status       *string            `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s SaveBadgeCodeCorpInstanceResponseBody) String() string {
@@ -1262,8 +1194,9 @@ func (s *SaveBadgeCodeCorpInstanceResponseBody) SetStatus(v string) *SaveBadgeCo
 }
 
 type SaveBadgeCodeCorpInstanceResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SaveBadgeCodeCorpInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SaveBadgeCodeCorpInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SaveBadgeCodeCorpInstanceResponse) String() string {
@@ -1276,6 +1209,11 @@ func (s SaveBadgeCodeCorpInstanceResponse) GoString() string {
 
 func (s *SaveBadgeCodeCorpInstanceResponse) SetHeaders(v map[string]*string) *SaveBadgeCodeCorpInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SaveBadgeCodeCorpInstanceResponse) SetStatusCode(v int32) *SaveBadgeCodeCorpInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1308,26 +1246,16 @@ func (s *UpdateBadgeCodeUserInstanceHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type UpdateBadgeCodeUserInstanceRequest struct {
-	// 有效时间列表，对于连续时间段，只需传入一个对象即可，注意过期时间必须晚于最晚结束时间
-	AvailableTimes []*UpdateBadgeCodeUserInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
-	// 用户码ID
-	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
-	// 码标识
-	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	// 码值
-	CodeValue *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
-	// 企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 扩展参数
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 临时码，传入过期时间
-	GmtExpired *string `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
-	// 状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户和企业的关系类型，区分内部员工，外部联系人，无关系普通用户
-	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	// 用户身份标识，取值和用户企业关系类型相关，如果企业无关，传入手机号
-	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	AvailableTimes       []*UpdateBadgeCodeUserInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
+	CodeId               *string                                             `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	CodeIdentity         *string                                             `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	CodeValue            *string                                             `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	CorpId               *string                                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfo              map[string]interface{}                              `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	GmtExpired           *string                                             `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
+	Status               *string                                             `json:"status,omitempty" xml:"status,omitempty"`
+	UserCorpRelationType *string                                             `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	UserIdentity         *string                                             `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
 }
 
 func (s UpdateBadgeCodeUserInstanceRequest) String() string {
@@ -1389,9 +1317,7 @@ func (s *UpdateBadgeCodeUserInstanceRequest) SetUserIdentity(v string) *UpdateBa
 }
 
 type UpdateBadgeCodeUserInstanceRequestAvailableTimes struct {
-	// 结束时间
-	GmtEnd *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
-	// 开始时间
+	GmtEnd   *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
 	GmtStart *string `json:"gmtStart,omitempty" xml:"gmtStart,omitempty"`
 }
 
@@ -1414,7 +1340,6 @@ func (s *UpdateBadgeCodeUserInstanceRequestAvailableTimes) SetGmtStart(v string)
 }
 
 type UpdateBadgeCodeUserInstanceResponseBody struct {
-	// 码ID
 	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
 }
 
@@ -1432,8 +1357,9 @@ func (s *UpdateBadgeCodeUserInstanceResponseBody) SetCodeId(v string) *UpdateBad
 }
 
 type UpdateBadgeCodeUserInstanceResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateBadgeCodeUserInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateBadgeCodeUserInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateBadgeCodeUserInstanceResponse) String() string {
@@ -1446,6 +1372,11 @@ func (s UpdateBadgeCodeUserInstanceResponse) GoString() string {
 
 func (s *UpdateBadgeCodeUserInstanceResponse) SetHeaders(v map[string]*string) *UpdateBadgeCodeUserInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateBadgeCodeUserInstanceResponse) SetStatusCode(v int32) *UpdateBadgeCodeUserInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1469,24 +1400,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateBadgeCodeUserInstance(request *CreateBadgeCodeUserInstanceRequest) (_result *CreateBadgeCodeUserInstanceResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateBadgeCodeUserInstanceHeaders{}
-	_result = &CreateBadgeCodeUserInstanceResponse{}
-	_body, _err := client.CreateBadgeCodeUserInstanceWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateBadgeCodeUserInstanceWithOptions(request *CreateBadgeCodeUserInstanceRequest, headers *CreateBadgeCodeUserInstanceHeaders, runtime *util.RuntimeOptions) (_result *CreateBadgeCodeUserInstanceResponse, _err error) {
@@ -1552,8 +1477,19 @@ func (client *Client) CreateBadgeCodeUserInstanceWithOptions(request *CreateBadg
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateBadgeCodeUserInstance"),
+		Version:     tea.String("badge_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/badge/codes/userInstances"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateBadgeCodeUserInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateBadgeCodeUserInstance"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/badge/codes/userInstances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1561,11 +1497,11 @@ func (client *Client) CreateBadgeCodeUserInstanceWithOptions(request *CreateBadg
 	return _result, _err
 }
 
-func (client *Client) CreateBadgeNotify(request *CreateBadgeNotifyRequest) (_result *CreateBadgeNotifyResponse, _err error) {
+func (client *Client) CreateBadgeCodeUserInstance(request *CreateBadgeCodeUserInstanceRequest) (_result *CreateBadgeCodeUserInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateBadgeNotifyHeaders{}
-	_result = &CreateBadgeNotifyResponse{}
-	_body, _err := client.CreateBadgeNotifyWithOptions(request, headers, runtime)
+	headers := &CreateBadgeCodeUserInstanceHeaders{}
+	_result = &CreateBadgeCodeUserInstanceResponse{}
+	_body, _err := client.CreateBadgeCodeUserInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1608,8 +1544,19 @@ func (client *Client) CreateBadgeNotifyWithOptions(request *CreateBadgeNotifyReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateBadgeNotify"),
+		Version:     tea.String("badge_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/badge/notices"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateBadgeNotifyResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateBadgeNotify"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/badge/notices"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1617,11 +1564,11 @@ func (client *Client) CreateBadgeNotifyWithOptions(request *CreateBadgeNotifyReq
 	return _result, _err
 }
 
-func (client *Client) DecodeBadgeCode(request *DecodeBadgeCodeRequest) (_result *DecodeBadgeCodeResponse, _err error) {
+func (client *Client) CreateBadgeNotify(request *CreateBadgeNotifyRequest) (_result *CreateBadgeNotifyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DecodeBadgeCodeHeaders{}
-	_result = &DecodeBadgeCodeResponse{}
-	_body, _err := client.DecodeBadgeCodeWithOptions(request, headers, runtime)
+	headers := &CreateBadgeNotifyHeaders{}
+	_result = &CreateBadgeNotifyResponse{}
+	_body, _err := client.CreateBadgeNotifyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1656,8 +1603,19 @@ func (client *Client) DecodeBadgeCodeWithOptions(request *DecodeBadgeCodeRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DecodeBadgeCode"),
+		Version:     tea.String("badge_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/badge/codes/decode"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DecodeBadgeCodeResponse{}
-	_body, _err := client.DoROARequest(tea.String("DecodeBadgeCode"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/badge/codes/decode"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1665,11 +1623,11 @@ func (client *Client) DecodeBadgeCodeWithOptions(request *DecodeBadgeCodeRequest
 	return _result, _err
 }
 
-func (client *Client) NotifyBadgeCodePayResult(request *NotifyBadgeCodePayResultRequest) (_result *NotifyBadgeCodePayResultResponse, _err error) {
+func (client *Client) DecodeBadgeCode(request *DecodeBadgeCodeRequest) (_result *DecodeBadgeCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &NotifyBadgeCodePayResultHeaders{}
-	_result = &NotifyBadgeCodePayResultResponse{}
-	_body, _err := client.NotifyBadgeCodePayResultWithOptions(request, headers, runtime)
+	headers := &DecodeBadgeCodeHeaders{}
+	_result = &DecodeBadgeCodeResponse{}
+	_body, _err := client.DecodeBadgeCodeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1764,8 +1722,19 @@ func (client *Client) NotifyBadgeCodePayResultWithOptions(request *NotifyBadgeCo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("NotifyBadgeCodePayResult"),
+		Version:     tea.String("badge_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/badge/codes/payResults"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &NotifyBadgeCodePayResultResponse{}
-	_body, _err := client.DoROARequest(tea.String("NotifyBadgeCodePayResult"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/badge/codes/payResults"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1773,11 +1742,11 @@ func (client *Client) NotifyBadgeCodePayResultWithOptions(request *NotifyBadgeCo
 	return _result, _err
 }
 
-func (client *Client) NotifyBadgeCodeRefundResult(request *NotifyBadgeCodeRefundResultRequest) (_result *NotifyBadgeCodeRefundResultResponse, _err error) {
+func (client *Client) NotifyBadgeCodePayResult(request *NotifyBadgeCodePayResultRequest) (_result *NotifyBadgeCodePayResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &NotifyBadgeCodeRefundResultHeaders{}
-	_result = &NotifyBadgeCodeRefundResultResponse{}
-	_body, _err := client.NotifyBadgeCodeRefundResultWithOptions(request, headers, runtime)
+	headers := &NotifyBadgeCodePayResultHeaders{}
+	_result = &NotifyBadgeCodePayResultResponse{}
+	_body, _err := client.NotifyBadgeCodePayResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1844,8 +1813,19 @@ func (client *Client) NotifyBadgeCodeRefundResultWithOptions(request *NotifyBadg
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("NotifyBadgeCodeRefundResult"),
+		Version:     tea.String("badge_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/badge/codes/refundResults"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &NotifyBadgeCodeRefundResultResponse{}
-	_body, _err := client.DoROARequest(tea.String("NotifyBadgeCodeRefundResult"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/badge/codes/refundResults"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1853,11 +1833,11 @@ func (client *Client) NotifyBadgeCodeRefundResultWithOptions(request *NotifyBadg
 	return _result, _err
 }
 
-func (client *Client) NotifyBadgeCodeVerifyResult(request *NotifyBadgeCodeVerifyResultRequest) (_result *NotifyBadgeCodeVerifyResultResponse, _err error) {
+func (client *Client) NotifyBadgeCodeRefundResult(request *NotifyBadgeCodeRefundResultRequest) (_result *NotifyBadgeCodeRefundResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &NotifyBadgeCodeVerifyResultHeaders{}
-	_result = &NotifyBadgeCodeVerifyResultResponse{}
-	_body, _err := client.NotifyBadgeCodeVerifyResultWithOptions(request, headers, runtime)
+	headers := &NotifyBadgeCodeRefundResultHeaders{}
+	_result = &NotifyBadgeCodeRefundResultResponse{}
+	_body, _err := client.NotifyBadgeCodeRefundResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1924,8 +1904,19 @@ func (client *Client) NotifyBadgeCodeVerifyResultWithOptions(request *NotifyBadg
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("NotifyBadgeCodeVerifyResult"),
+		Version:     tea.String("badge_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/badge/codes/verifyResults"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &NotifyBadgeCodeVerifyResultResponse{}
-	_body, _err := client.DoROARequest(tea.String("NotifyBadgeCodeVerifyResult"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/badge/codes/verifyResults"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1933,11 +1924,11 @@ func (client *Client) NotifyBadgeCodeVerifyResultWithOptions(request *NotifyBadg
 	return _result, _err
 }
 
-func (client *Client) SaveBadgeCodeCorpInstance(request *SaveBadgeCodeCorpInstanceRequest) (_result *SaveBadgeCodeCorpInstanceResponse, _err error) {
+func (client *Client) NotifyBadgeCodeVerifyResult(request *NotifyBadgeCodeVerifyResultRequest) (_result *NotifyBadgeCodeVerifyResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SaveBadgeCodeCorpInstanceHeaders{}
-	_result = &SaveBadgeCodeCorpInstanceResponse{}
-	_body, _err := client.SaveBadgeCodeCorpInstanceWithOptions(request, headers, runtime)
+	headers := &NotifyBadgeCodeVerifyResultHeaders{}
+	_result = &NotifyBadgeCodeVerifyResultResponse{}
+	_body, _err := client.NotifyBadgeCodeVerifyResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1980,8 +1971,19 @@ func (client *Client) SaveBadgeCodeCorpInstanceWithOptions(request *SaveBadgeCod
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveBadgeCodeCorpInstance"),
+		Version:     tea.String("badge_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/badge/codes/corpInstances"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SaveBadgeCodeCorpInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("SaveBadgeCodeCorpInstance"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/badge/codes/corpInstances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1989,11 +1991,11 @@ func (client *Client) SaveBadgeCodeCorpInstanceWithOptions(request *SaveBadgeCod
 	return _result, _err
 }
 
-func (client *Client) UpdateBadgeCodeUserInstance(request *UpdateBadgeCodeUserInstanceRequest) (_result *UpdateBadgeCodeUserInstanceResponse, _err error) {
+func (client *Client) SaveBadgeCodeCorpInstance(request *SaveBadgeCodeCorpInstanceRequest) (_result *SaveBadgeCodeCorpInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateBadgeCodeUserInstanceHeaders{}
-	_result = &UpdateBadgeCodeUserInstanceResponse{}
-	_body, _err := client.UpdateBadgeCodeUserInstanceWithOptions(request, headers, runtime)
+	headers := &SaveBadgeCodeCorpInstanceHeaders{}
+	_result = &SaveBadgeCodeCorpInstanceResponse{}
+	_body, _err := client.SaveBadgeCodeCorpInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2060,11 +2062,34 @@ func (client *Client) UpdateBadgeCodeUserInstanceWithOptions(request *UpdateBadg
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateBadgeCodeUserInstance"),
+		Version:     tea.String("badge_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/badge/codes/userInstances"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateBadgeCodeUserInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateBadgeCodeUserInstance"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/badge/codes/userInstances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateBadgeCodeUserInstance(request *UpdateBadgeCodeUserInstanceRequest) (_result *UpdateBadgeCodeUserInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateBadgeCodeUserInstanceHeaders{}
+	_result = &UpdateBadgeCodeUserInstanceResponse{}
+	_body, _err := client.UpdateBadgeCodeUserInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

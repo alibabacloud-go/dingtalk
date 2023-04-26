@@ -5,9 +5,11 @@
 package workbench_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,12 +37,9 @@ func (s *GetDingPortalDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetDi
 }
 
 type GetDingPortalDetailResponseBody struct {
-	// 工作台ID
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 工作台名称
-	DingPortalName *string `json:"dingPortalName,omitempty" xml:"dingPortalName,omitempty"`
-	// 工作台页面信息
-	Pages []*GetDingPortalDetailResponseBodyPages `json:"pages,omitempty" xml:"pages,omitempty" type:"Repeated"`
+	AppUuid        *string                                 `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	DingPortalName *string                                 `json:"dingPortalName,omitempty" xml:"dingPortalName,omitempty"`
+	Pages          []*GetDingPortalDetailResponseBodyPages `json:"pages,omitempty" xml:"pages,omitempty" type:"Repeated"`
 }
 
 func (s GetDingPortalDetailResponseBody) String() string {
@@ -67,18 +66,12 @@ func (s *GetDingPortalDetailResponseBody) SetPages(v []*GetDingPortalDetailRespo
 }
 
 type GetDingPortalDetailResponseBodyPages struct {
-	// 是否全公司可见
-	AllVisible *bool `json:"allVisible,omitempty" xml:"allVisible,omitempty"`
-	// 可见部门 ID 铺
-	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
-	// 页面名称
-	PageName *string `json:"pageName,omitempty" xml:"pageName,omitempty"`
-	// 页面ID
-	PageUuid *string `json:"pageUuid,omitempty" xml:"pageUuid,omitempty"`
-	// 可见角色列表
-	RoleIds []*int64 `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
-	// 可见员工 ID 列表
-	Userids []*string `json:"userids,omitempty" xml:"userids,omitempty" type:"Repeated"`
+	AllVisible *bool     `json:"allVisible,omitempty" xml:"allVisible,omitempty"`
+	DeptIds    []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	PageName   *string   `json:"pageName,omitempty" xml:"pageName,omitempty"`
+	PageUuid   *string   `json:"pageUuid,omitempty" xml:"pageUuid,omitempty"`
+	RoleIds    []*int64  `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	Userids    []*string `json:"userids,omitempty" xml:"userids,omitempty" type:"Repeated"`
 }
 
 func (s GetDingPortalDetailResponseBodyPages) String() string {
@@ -120,8 +113,9 @@ func (s *GetDingPortalDetailResponseBodyPages) SetUserids(v []*string) *GetDingP
 }
 
 type GetDingPortalDetailResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetDingPortalDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetDingPortalDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetDingPortalDetailResponse) String() string {
@@ -134,6 +128,11 @@ func (s GetDingPortalDetailResponse) GoString() string {
 
 func (s *GetDingPortalDetailResponse) SetHeaders(v map[string]*string) *GetDingPortalDetailResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetDingPortalDetailResponse) SetStatusCode(v int32) *GetDingPortalDetailResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -166,7 +165,6 @@ func (s *GetPluginPermissionPointHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type GetPluginPermissionPointRequest struct {
-	// 插件id
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 }
 
@@ -184,7 +182,6 @@ func (s *GetPluginPermissionPointRequest) SetMiniAppId(v string) *GetPluginPermi
 }
 
 type GetPluginPermissionPointResponseBody struct {
-	// 插件权限点列表
 	PermissionPointList []*string `json:"permissionPointList,omitempty" xml:"permissionPointList,omitempty" type:"Repeated"`
 }
 
@@ -202,8 +199,9 @@ func (s *GetPluginPermissionPointResponseBody) SetPermissionPointList(v []*strin
 }
 
 type GetPluginPermissionPointResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetPluginPermissionPointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPluginPermissionPointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetPluginPermissionPointResponse) String() string {
@@ -216,6 +214,11 @@ func (s GetPluginPermissionPointResponse) GoString() string {
 
 func (s *GetPluginPermissionPointResponse) SetHeaders(v map[string]*string) *GetPluginPermissionPointResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetPluginPermissionPointResponse) SetStatusCode(v int32) *GetPluginPermissionPointResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -265,9 +268,7 @@ func (s *GetPluginRuleCheckInfoRequest) SetMiniAppId(v string) *GetPluginRuleChe
 }
 
 type GetPluginRuleCheckInfoResponseBody struct {
-	// 权限包code
-	PackCode *string `json:"packCode,omitempty" xml:"packCode,omitempty"`
-	// 校验规则
+	PackCode              *string `json:"packCode,omitempty" xml:"packCode,omitempty"`
 	PluginRuleCheckDetail *string `json:"pluginRuleCheckDetail,omitempty" xml:"pluginRuleCheckDetail,omitempty"`
 }
 
@@ -290,8 +291,9 @@ func (s *GetPluginRuleCheckInfoResponseBody) SetPluginRuleCheckDetail(v string) 
 }
 
 type GetPluginRuleCheckInfoResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetPluginRuleCheckInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPluginRuleCheckInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetPluginRuleCheckInfoResponse) String() string {
@@ -304,6 +306,11 @@ func (s GetPluginRuleCheckInfoResponse) GoString() string {
 
 func (s *GetPluginRuleCheckInfoResponse) SetHeaders(v map[string]*string) *GetPluginRuleCheckInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetPluginRuleCheckInfoResponse) SetStatusCode(v int32) *GetPluginRuleCheckInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -336,12 +343,9 @@ func (s *ListWorkBenchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *ListWo
 }
 
 type ListWorkBenchGroupRequest struct {
-	// 合作空间corpId
 	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
-	// WORK_ALL
-	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
-	// 操作人unionId
-	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	GroupType        *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	OpUnionId        *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
 func (s ListWorkBenchGroupRequest) String() string {
@@ -368,7 +372,6 @@ func (s *ListWorkBenchGroupRequest) SetOpUnionId(v string) *ListWorkBenchGroupRe
 }
 
 type ListWorkBenchGroupResponseBody struct {
-	// 应用列表
 	GroupList []*ListWorkBenchGroupResponseBodyGroupList `json:"groupList,omitempty" xml:"groupList,omitempty" type:"Repeated"`
 }
 
@@ -386,10 +389,8 @@ func (s *ListWorkBenchGroupResponseBody) SetGroupList(v []*ListWorkBenchGroupRes
 }
 
 type ListWorkBenchGroupResponseBodyGroupList struct {
-	// 分组id
 	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
-	// 分组名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s ListWorkBenchGroupResponseBodyGroupList) String() string {
@@ -411,8 +412,9 @@ func (s *ListWorkBenchGroupResponseBodyGroupList) SetName(v string) *ListWorkBen
 }
 
 type ListWorkBenchGroupResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListWorkBenchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListWorkBenchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListWorkBenchGroupResponse) String() string {
@@ -425,6 +427,11 @@ func (s ListWorkBenchGroupResponse) GoString() string {
 
 func (s *ListWorkBenchGroupResponse) SetHeaders(v map[string]*string) *ListWorkBenchGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListWorkBenchGroupResponse) SetStatusCode(v int32) *ListWorkBenchGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -457,8 +464,7 @@ func (s *QueryComponentScopesHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryComponentScopesResponseBody struct {
-	DeptVisibleScopes []*int64 `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
-	// scopes
+	DeptVisibleScopes []*int64  `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
 	UserVisibleScopes []*string `json:"userVisibleScopes,omitempty" xml:"userVisibleScopes,omitempty" type:"Repeated"`
 }
 
@@ -481,8 +487,9 @@ func (s *QueryComponentScopesResponseBody) SetUserVisibleScopes(v []*string) *Qu
 }
 
 type QueryComponentScopesResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryComponentScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryComponentScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryComponentScopesResponse) String() string {
@@ -495,6 +502,11 @@ func (s QueryComponentScopesResponse) GoString() string {
 
 func (s *QueryComponentScopesResponse) SetHeaders(v map[string]*string) *QueryComponentScopesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryComponentScopesResponse) SetStatusCode(v int32) *QueryComponentScopesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -527,8 +539,7 @@ func (s *QueryShortcutScopesHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryShortcutScopesResponseBody struct {
-	DeptVisibleScopes []*int64 `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
-	// errorMsg
+	DeptVisibleScopes []*int64  `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
 	UserVisibleScopes []*string `json:"userVisibleScopes,omitempty" xml:"userVisibleScopes,omitempty" type:"Repeated"`
 }
 
@@ -551,8 +562,9 @@ func (s *QueryShortcutScopesResponseBody) SetUserVisibleScopes(v []*string) *Que
 }
 
 type QueryShortcutScopesResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryShortcutScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryShortcutScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryShortcutScopesResponse) String() string {
@@ -565,6 +577,11 @@ func (s QueryShortcutScopesResponse) GoString() string {
 
 func (s *QueryShortcutScopesResponse) SetHeaders(v map[string]*string) *QueryShortcutScopesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryShortcutScopesResponse) SetStatusCode(v int32) *QueryShortcutScopesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -597,14 +614,10 @@ func (s *UpdateDingPortalPageScopeHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateDingPortalPageScopeRequest struct {
-	// 是否全员可见
-	AllVisible *bool `json:"allVisible,omitempty" xml:"allVisible,omitempty"`
-	// 可见部门列表
-	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
-	// 可见角色列表
-	RoleIds []*int64 `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
-	// 可见用户列表
-	Userids []*string `json:"userids,omitempty" xml:"userids,omitempty" type:"Repeated"`
+	AllVisible *bool     `json:"allVisible,omitempty" xml:"allVisible,omitempty"`
+	DeptIds    []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	RoleIds    []*int64  `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	Userids    []*string `json:"userids,omitempty" xml:"userids,omitempty" type:"Repeated"`
 }
 
 func (s UpdateDingPortalPageScopeRequest) String() string {
@@ -636,7 +649,8 @@ func (s *UpdateDingPortalPageScopeRequest) SetUserids(v []*string) *UpdateDingPo
 }
 
 type UpdateDingPortalPageScopeResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s UpdateDingPortalPageScopeResponse) String() string {
@@ -649,6 +663,11 @@ func (s UpdateDingPortalPageScopeResponse) GoString() string {
 
 func (s *UpdateDingPortalPageScopeResponse) SetHeaders(v map[string]*string) *UpdateDingPortalPageScopeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateDingPortalPageScopeResponse) SetStatusCode(v int32) *UpdateDingPortalPageScopeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -667,6 +686,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -675,20 +700,7 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) GetDingPortalDetail(appUuid *string) (_result *GetDingPortalDetailResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetDingPortalDetailHeaders{}
-	_result = &GetDingPortalDetailResponse{}
-	_body, _err := client.GetDingPortalDetailWithOptions(appUuid, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) GetDingPortalDetailWithOptions(appUuid *string, headers *GetDingPortalDetailHeaders, runtime *util.RuntimeOptions) (_result *GetDingPortalDetailResponse, _err error) {
-	appUuid = openapiutil.GetEncodeParam(appUuid)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -701,8 +713,19 @@ func (client *Client) GetDingPortalDetailWithOptions(appUuid *string, headers *G
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDingPortalDetail"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/dingPortals/" + tea.StringValue(appUuid)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetDingPortalDetailResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetDingPortalDetail"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/dingPortals/"+tea.StringValue(appUuid)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -710,11 +733,11 @@ func (client *Client) GetDingPortalDetailWithOptions(appUuid *string, headers *G
 	return _result, _err
 }
 
-func (client *Client) GetPluginPermissionPoint(request *GetPluginPermissionPointRequest) (_result *GetPluginPermissionPointResponse, _err error) {
+func (client *Client) GetDingPortalDetail(appUuid *string) (_result *GetDingPortalDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetPluginPermissionPointHeaders{}
-	_result = &GetPluginPermissionPointResponse{}
-	_body, _err := client.GetPluginPermissionPointWithOptions(request, headers, runtime)
+	headers := &GetDingPortalDetailHeaders{}
+	_result = &GetDingPortalDetailResponse{}
+	_body, _err := client.GetDingPortalDetailWithOptions(appUuid, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -745,8 +768,19 @@ func (client *Client) GetPluginPermissionPointWithOptions(request *GetPluginPerm
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPluginPermissionPoint"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/plugins/permissions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetPluginPermissionPointResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetPluginPermissionPoint"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/plugins/permissions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -754,11 +788,11 @@ func (client *Client) GetPluginPermissionPointWithOptions(request *GetPluginPerm
 	return _result, _err
 }
 
-func (client *Client) GetPluginRuleCheckInfo(request *GetPluginRuleCheckInfoRequest) (_result *GetPluginRuleCheckInfoResponse, _err error) {
+func (client *Client) GetPluginPermissionPoint(request *GetPluginPermissionPointRequest) (_result *GetPluginPermissionPointResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetPluginRuleCheckInfoHeaders{}
-	_result = &GetPluginRuleCheckInfoResponse{}
-	_body, _err := client.GetPluginRuleCheckInfoWithOptions(request, headers, runtime)
+	headers := &GetPluginPermissionPointHeaders{}
+	_result = &GetPluginPermissionPointResponse{}
+	_body, _err := client.GetPluginPermissionPointWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -789,8 +823,19 @@ func (client *Client) GetPluginRuleCheckInfoWithOptions(request *GetPluginRuleCh
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPluginRuleCheckInfo"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/plugins/validationRules"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetPluginRuleCheckInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetPluginRuleCheckInfo"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/plugins/validationRules"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -798,11 +843,11 @@ func (client *Client) GetPluginRuleCheckInfoWithOptions(request *GetPluginRuleCh
 	return _result, _err
 }
 
-func (client *Client) ListWorkBenchGroup(request *ListWorkBenchGroupRequest) (_result *ListWorkBenchGroupResponse, _err error) {
+func (client *Client) GetPluginRuleCheckInfo(request *GetPluginRuleCheckInfoRequest) (_result *GetPluginRuleCheckInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListWorkBenchGroupHeaders{}
-	_result = &ListWorkBenchGroupResponse{}
-	_body, _err := client.ListWorkBenchGroupWithOptions(request, headers, runtime)
+	headers := &GetPluginRuleCheckInfoHeaders{}
+	_result = &GetPluginRuleCheckInfoResponse{}
+	_body, _err := client.GetPluginRuleCheckInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -841,8 +886,64 @@ func (client *Client) ListWorkBenchGroupWithOptions(request *ListWorkBenchGroupR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListWorkBenchGroup"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/groups"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListWorkBenchGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListWorkBenchGroup"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/groups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListWorkBenchGroup(request *ListWorkBenchGroupRequest) (_result *ListWorkBenchGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListWorkBenchGroupHeaders{}
+	_result = &ListWorkBenchGroupResponse{}
+	_body, _err := client.ListWorkBenchGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryComponentScopesWithOptions(componentId *string, headers *QueryComponentScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryComponentScopesResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryComponentScopes"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/components/" + tea.StringValue(componentId) + "/scopes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryComponentScopesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -862,8 +963,7 @@ func (client *Client) QueryComponentScopes(componentId *string) (_result *QueryC
 	return _result, _err
 }
 
-func (client *Client) QueryComponentScopesWithOptions(componentId *string, headers *QueryComponentScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryComponentScopesResponse, _err error) {
-	componentId = openapiutil.GetEncodeParam(componentId)
+func (client *Client) QueryShortcutScopesWithOptions(shortcutKey *string, headers *QueryShortcutScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryShortcutScopesResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -876,8 +976,19 @@ func (client *Client) QueryComponentScopesWithOptions(componentId *string, heade
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &QueryComponentScopesResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryComponentScopes"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/components/"+tea.StringValue(componentId)+"/scopes"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("QueryShortcutScopes"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/shortcuts/" + tea.StringValue(shortcutKey) + "/scopes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryShortcutScopesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -897,48 +1008,11 @@ func (client *Client) QueryShortcutScopes(shortcutKey *string) (_result *QuerySh
 	return _result, _err
 }
 
-func (client *Client) QueryShortcutScopesWithOptions(shortcutKey *string, headers *QueryShortcutScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryShortcutScopesResponse, _err error) {
-	shortcutKey = openapiutil.GetEncodeParam(shortcutKey)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &QueryShortcutScopesResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryShortcutScopes"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/shortcuts/"+tea.StringValue(shortcutKey)+"/scopes"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) UpdateDingPortalPageScope(pageUuid *string, appUuid *string, request *UpdateDingPortalPageScopeRequest) (_result *UpdateDingPortalPageScopeResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &UpdateDingPortalPageScopeHeaders{}
-	_result = &UpdateDingPortalPageScopeResponse{}
-	_body, _err := client.UpdateDingPortalPageScopeWithOptions(pageUuid, appUuid, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) UpdateDingPortalPageScopeWithOptions(pageUuid *string, appUuid *string, request *UpdateDingPortalPageScopeRequest, headers *UpdateDingPortalPageScopeHeaders, runtime *util.RuntimeOptions) (_result *UpdateDingPortalPageScopeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	pageUuid = openapiutil.GetEncodeParam(pageUuid)
-	appUuid = openapiutil.GetEncodeParam(appUuid)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AllVisible)) {
 		body["allVisible"] = request.AllVisible
@@ -969,11 +1043,34 @@ func (client *Client) UpdateDingPortalPageScopeWithOptions(pageUuid *string, app
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateDingPortalPageScope"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/dingPortals/" + tea.StringValue(appUuid) + "/pageScopes/" + tea.StringValue(pageUuid)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateDingPortalPageScopeResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateDingPortalPageScope"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/workbench/dingPortals/"+tea.StringValue(appUuid)+"/pageScopes/"+tea.StringValue(pageUuid)), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateDingPortalPageScope(pageUuid *string, appUuid *string, request *UpdateDingPortalPageScopeRequest) (_result *UpdateDingPortalPageScopeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateDingPortalPageScopeHeaders{}
+	_result = &UpdateDingPortalPageScopeResponse{}
+	_body, _err := client.UpdateDingPortalPageScopeWithOptions(pageUuid, appUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

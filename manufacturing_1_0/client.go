@@ -5,53 +5,35 @@
 package manufacturing_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type IndustrializeManufactureJobBookRequest struct {
-	// 钉钉组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 扩展字段，用于增加自定义字段
-	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	// 工单编号
-	InstNo *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
-	// 是否是批量报工(取值[n,y])
-	IsBatchJob *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
-	// 生产日期时间(到时分秒)
-	ManufactureDate *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
-	// mes 系统唯一标识
-	MesAppKey *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
-	// 制程英文名称
-	ProcessEnName *string `json:"processEnName,omitempty" xml:"processEnName,omitempty"`
-	// 制程名称
-	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
-	// 产品唯一标识
-	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
-	// 产品英文名称
-	ProductEnName *string `json:"productEnName,omitempty" xml:"productEnName,omitempty"`
-	// 产品名称，例如"双头螺柱001"
-	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
-	// 产品规格
+	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Extend               *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	InstNo               *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
+	IsBatchJob           *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
+	ManufactureDate      *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
+	MesAppKey            *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
+	ProcessEnName        *string `json:"processEnName,omitempty" xml:"processEnName,omitempty"`
+	ProcessName          *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	ProductCode          *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	ProductEnName        *string `json:"productEnName,omitempty" xml:"productEnName,omitempty"`
+	ProductName          *string `json:"productName,omitempty" xml:"productName,omitempty"`
 	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
-	// 合格数量
-	QualifiedQuantity *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
-	// 可重工数量
-	ReworkableQuantity *string `json:"reworkableQuantity,omitempty" xml:"reworkableQuantity,omitempty"`
-	// 报废数量
-	ScrappedQuantity *string `json:"scrappedQuantity,omitempty" xml:"scrappedQuantity,omitempty"`
-	// 计件单价，单位：分
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
-	// 批量报工时多个工人userId以英文逗号分隔
-	UserIdList *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
-	// 员工姓名
-	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
-	// 批量报工时多个人名以英文逗号分隔
-	UserNameList *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
-	// 随机串，唯一标识(用于幂等及更新)
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	QualifiedQuantity    *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
+	ReworkableQuantity   *string `json:"reworkableQuantity,omitempty" xml:"reworkableQuantity,omitempty"`
+	ScrappedQuantity     *string `json:"scrappedQuantity,omitempty" xml:"scrappedQuantity,omitempty"`
+	UnitPrice            *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	UserIdList           *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+	UserName             *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	UserNameList         *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
+	Uuid                 *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustrializeManufactureJobBookRequest) String() string {
@@ -163,20 +145,13 @@ func (s *IndustrializeManufactureJobBookRequest) SetUuid(v string) *Industrializ
 }
 
 type IndustrializeManufactureJobBookResponseBody struct {
-	// content
-	Content *IndustrializeManufactureJobBookResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// errorCode
-	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	// errorLevel
-	ErrorLevel *int32 `json:"errorLevel,omitempty" xml:"errorLevel,omitempty"`
-	// errorMsg
-	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	// httpCode
-	HttpCode *string `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-	// 此次报工记录的唯一标识
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Content    *IndustrializeManufactureJobBookResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	ErrorCode  *string                                             `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorLevel *int32                                              `json:"errorLevel,omitempty" xml:"errorLevel,omitempty"`
+	ErrorMsg   *string                                             `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	HttpCode   *string                                             `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
+	Success    *bool                                               `json:"success,omitempty" xml:"success,omitempty"`
+	Uuid       *string                                             `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustrializeManufactureJobBookResponseBody) String() string {
@@ -223,10 +198,8 @@ func (s *IndustrializeManufactureJobBookResponseBody) SetUuid(v string) *Industr
 }
 
 type IndustrializeManufactureJobBookResponseBodyContent struct {
-	// 影响行数
 	Count *int32 `json:"count,omitempty" xml:"count,omitempty"`
-	// 新增记录的数据库id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	Id    *int64 `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s IndustrializeManufactureJobBookResponseBodyContent) String() string {
@@ -248,8 +221,9 @@ func (s *IndustrializeManufactureJobBookResponseBodyContent) SetId(v int64) *Ind
 }
 
 type IndustrializeManufactureJobBookResponse struct {
-	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *IndustrializeManufactureJobBookResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *IndustrializeManufactureJobBookResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s IndustrializeManufactureJobBookResponse) String() string {
@@ -262,6 +236,11 @@ func (s IndustrializeManufactureJobBookResponse) GoString() string {
 
 func (s *IndustrializeManufactureJobBookResponse) SetHeaders(v map[string]*string) *IndustrializeManufactureJobBookResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *IndustrializeManufactureJobBookResponse) SetStatusCode(v int32) *IndustrializeManufactureJobBookResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -294,36 +273,21 @@ func (s *IndustrializeManufactureQueryJobsHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type IndustrializeManufactureQueryJobsRequest struct {
-	// 当前页序号(从1开始)
-	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	// 工单编号
-	InstNo *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
-	// 生产日期
-	ManufactureDay *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
-	// MES系统唯一标识
-	MesAppKey *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
-	// 每页显示记录条数
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 工序名称
-	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
-	// 产品唯一标识
-	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
-	// 产品中文名称
-	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
-	// 产品规格
+	CurrentPage          *int32  `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	InstNo               *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
+	ManufactureDay       *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
+	MesAppKey            *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
+	PageSize             *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ProcessName          *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	ProductCode          *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	ProductName          *string `json:"productName,omitempty" xml:"productName,omitempty"`
 	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
-	// 报工合格数量
-	QualifiedQuantity *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
-	// 计件单价，单位：分
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
-	// 员工钉钉userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 批量报工时多个人钉钉工号以英文逗号分隔
-	UserIdList *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
-	// 员工姓名
-	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
-	// 报工记录的唯一标识
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	QualifiedQuantity    *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
+	UnitPrice            *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdList           *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+	UserName             *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	Uuid                 *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustrializeManufactureQueryJobsRequest) String() string {
@@ -410,10 +374,8 @@ func (s *IndustrializeManufactureQueryJobsRequest) SetUuid(v string) *Industrial
 }
 
 type IndustrializeManufactureQueryJobsResponseBody struct {
-	// 查询的数据结果
-	Content *IndustrializeManufactureQueryJobsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// httpCode
-	HttpCode *string `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
+	Content  *IndustrializeManufactureQueryJobsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	HttpCode *string                                               `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
 }
 
 func (s IndustrializeManufactureQueryJobsResponseBody) String() string {
@@ -435,40 +397,23 @@ func (s *IndustrializeManufactureQueryJobsResponseBody) SetHttpCode(v string) *I
 }
 
 type IndustrializeManufactureQueryJobsResponseBodyContent struct {
-	// 组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 创建时间
-	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 修改时间
-	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// 数据库id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 工单id
-	InstNo *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
-	// 是否是批量报工，即一次报工由多个工人一起分担，取值[n,y],y表示是批量，批量时多个人名以英文逗号分隔
-	IsBatchJob *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
-	// 生产日期时间(到时分秒),格式:2021-07-05 08:00:21
-	ManufactureDate *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
-	// 生产日期(到天)
-	ManufactureDay *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
-	// 分配给mes系统的appkey
-	MesAppKey *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
-	// 工序名称
-	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
-	// 合格数
+	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified       *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Id                *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	InstNo            *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
+	IsBatchJob        *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
+	ManufactureDate   *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
+	ManufactureDay    *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
+	MesAppKey         *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
+	ProcessName       *string `json:"processName,omitempty" xml:"processName,omitempty"`
 	QualifiedQuantity *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
-	// 不合格数
-	ScrappedQuantity *string `json:"scrappedQuantity,omitempty" xml:"scrappedQuantity,omitempty"`
-	// 计件单价，单位：分
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
-	// 工人工号(isBatchJob=='n'时)
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 批量报工时多个人钉钉工号以英文逗号分隔
-	UserIdList *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
-	// 批量报工时多个人名以英文逗号分隔
-	UserNameList *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
-	// 报工记录的唯一标识
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	ScrappedQuantity  *string `json:"scrappedQuantity,omitempty" xml:"scrappedQuantity,omitempty"`
+	UnitPrice         *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdList        *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+	UserNameList      *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
+	Uuid              *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustrializeManufactureQueryJobsResponseBodyContent) String() string {
@@ -565,8 +510,9 @@ func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetUuid(v string)
 }
 
 type IndustrializeManufactureQueryJobsResponse struct {
-	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *IndustrializeManufactureQueryJobsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *IndustrializeManufactureQueryJobsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s IndustrializeManufactureQueryJobsResponse) String() string {
@@ -579,6 +525,11 @@ func (s IndustrializeManufactureQueryJobsResponse) GoString() string {
 
 func (s *IndustrializeManufactureQueryJobsResponse) SetHeaders(v map[string]*string) *IndustrializeManufactureQueryJobsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponse) SetStatusCode(v int32) *IndustrializeManufactureQueryJobsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -602,6 +553,13 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -610,24 +568,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) IndustrializeManufactureJobBook(userId *string, request *IndustrializeManufactureJobBookRequest) (_result *IndustrializeManufactureJobBookResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
-	_result = &IndustrializeManufactureJobBookResponse{}
-	_body, _err := client.IndustrializeManufactureJobBookWithOptions(userId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) IndustrializeManufactureJobBookWithOptions(userId *string, request *IndustrializeManufactureJobBookRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *IndustrializeManufactureJobBookResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		body["corpId"] = request.CorpId
@@ -713,8 +658,19 @@ func (client *Client) IndustrializeManufactureJobBookWithOptions(userId *string,
 		Headers: headers,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("IndustrializeManufactureJobBook"),
+		Version:     tea.String("manufacturing_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/manufacturing/users/" + tea.StringValue(userId) + "/jobs"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &IndustrializeManufactureJobBookResponse{}
-	_body, _err := client.DoROARequest(tea.String("IndustrializeManufactureJobBook"), tea.String("manufacturing_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/manufacturing/users/"+tea.StringValue(userId)+"/jobs"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -722,11 +678,11 @@ func (client *Client) IndustrializeManufactureJobBookWithOptions(userId *string,
 	return _result, _err
 }
 
-func (client *Client) IndustrializeManufactureQueryJobs(request *IndustrializeManufactureQueryJobsRequest) (_result *IndustrializeManufactureQueryJobsResponse, _err error) {
+func (client *Client) IndustrializeManufactureJobBook(userId *string, request *IndustrializeManufactureJobBookRequest) (_result *IndustrializeManufactureJobBookResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &IndustrializeManufactureQueryJobsHeaders{}
-	_result = &IndustrializeManufactureQueryJobsResponse{}
-	_body, _err := client.IndustrializeManufactureQueryJobsWithOptions(request, headers, runtime)
+	headers := make(map[string]*string)
+	_result = &IndustrializeManufactureJobBookResponse{}
+	_body, _err := client.IndustrializeManufactureJobBookWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -813,11 +769,34 @@ func (client *Client) IndustrializeManufactureQueryJobsWithOptions(request *Indu
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("IndustrializeManufactureQueryJobs"),
+		Version:     tea.String("manufacturing_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/manufacturing/users/jobs/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &IndustrializeManufactureQueryJobsResponse{}
-	_body, _err := client.DoROARequest(tea.String("IndustrializeManufactureQueryJobs"), tea.String("manufacturing_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/manufacturing/users/jobs/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustrializeManufactureQueryJobs(request *IndustrializeManufactureQueryJobsRequest) (_result *IndustrializeManufactureQueryJobsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustrializeManufactureQueryJobsHeaders{}
+	_result = &IndustrializeManufactureQueryJobsResponse{}
+	_body, _err := client.IndustrializeManufactureQueryJobsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

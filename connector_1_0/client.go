@@ -5,9 +5,11 @@
 package connector_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -58,26 +60,17 @@ func (s *CreateActionRequest) SetIntegratorFlag(v string) *CreateActionRequest {
 }
 
 type CreateActionRequestActionInfo struct {
-	// api请求url path，结合Connector上的apiDomain使用
-	ApiPath *string `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
-	// 描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 连接平台连接器id
-	DingConnectorId    *string                                          `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	InputMappingConfig *CreateActionRequestActionInfoInputMappingConfig `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
-	// 入参schema
-	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
-	// 服务商的执行事件Id
-	IntegratorActionId *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
-	// 服务商的连接器Id
-	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 执行动作接口成功调用规则。
-	OutputDataRules     []*CreateActionRequestActionInfoOutputDataRules   `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
-	OutputMappingConfig *CreateActionRequestActionInfoOutputMappingConfig `json:"outputMappingConfig,omitempty" xml:"outputMappingConfig,omitempty" type:"Struct"`
-	// 出参schema
-	OutputSchema *string `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
+	ApiPath               *string                                           `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
+	Description           *string                                           `json:"description,omitempty" xml:"description,omitempty"`
+	DingConnectorId       *string                                           `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	InputMappingConfig    *CreateActionRequestActionInfoInputMappingConfig  `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
+	InputSchema           *string                                           `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
+	IntegratorActionId    *string                                           `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	IntegratorConnectorId *string                                           `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	Name                  *string                                           `json:"name,omitempty" xml:"name,omitempty"`
+	OutputDataRules       []*CreateActionRequestActionInfoOutputDataRules   `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
+	OutputMappingConfig   *CreateActionRequestActionInfoOutputMappingConfig `json:"outputMappingConfig,omitempty" xml:"outputMappingConfig,omitempty" type:"Struct"`
+	OutputSchema          *string                                           `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
 }
 
 func (s CreateActionRequestActionInfo) String() string {
@@ -167,11 +160,8 @@ func (s *CreateActionRequestActionInfoInputMappingConfig) SetRules(v string) *Cr
 }
 
 type CreateActionRequestActionInfoOutputDataRules struct {
-	// 规则的预期值。
-	ExpectValue *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
-	// 操作类型。
-	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
-	// 规则的属性路径。
+	ExpectValue  *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
+	Operate      *string `json:"operate,omitempty" xml:"operate,omitempty"`
 	PropertyPath *string `json:"propertyPath,omitempty" xml:"propertyPath,omitempty"`
 }
 
@@ -222,7 +212,6 @@ func (s *CreateActionRequestActionInfoOutputMappingConfig) SetRules(v string) *C
 }
 
 type CreateActionResponseBody struct {
-	// Id of the request
 	Item []*CreateActionResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -240,20 +229,13 @@ func (s *CreateActionResponseBody) SetItem(v []*CreateActionResponseBodyItem) *C
 }
 
 type CreateActionResponseBodyItem struct {
-	// 连接平台执行事件id
-	DingActionId *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
-	// 连接平台连接器id
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	// 服务商的执行事件id
-	IntegratorActionId *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
-	// 服务商的连接器Id
+	DingActionId          *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
+	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	IntegratorActionId    *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 错误码
-	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	// 错误信息
-	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	// 是否执行成功
-	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	Success               *string `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateActionResponseBodyItem) String() string {
@@ -300,8 +282,9 @@ func (s *CreateActionResponseBodyItem) SetSuccess(v string) *CreateActionRespons
 }
 
 type CreateActionResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateActionResponse) String() string {
@@ -314,6 +297,11 @@ func (s CreateActionResponse) GoString() string {
 
 func (s *CreateActionResponse) SetHeaders(v map[string]*string) *CreateActionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateActionResponse) SetStatusCode(v int32) *CreateActionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -369,15 +357,11 @@ func (s *CreateConnectorRequest) SetIntegratorFlag(v string) *CreateConnectorReq
 }
 
 type CreateConnectorRequestConnectorInfo struct {
-	// 连接器中执行动作的接口路径域名。
-	ApiDomain *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
-	// 连接器中执行动作接口的加密签名。
-	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
-	AppId     *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 将apiSecret设置为模板变量。
-	AuthValueEnv *bool   `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
-	Description  *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 将执行动作域名设为环境变量。
+	ApiDomain             *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
+	ApiSecret             *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	AppId                 *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	AuthValueEnv          *bool   `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
+	Description           *string `json:"description,omitempty" xml:"description,omitempty"`
 	DomainEnv             *bool   `json:"domainEnv,omitempty" xml:"domainEnv,omitempty"`
 	IconMediaId           *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
@@ -438,7 +422,6 @@ func (s *CreateConnectorRequestConnectorInfo) SetName(v string) *CreateConnector
 }
 
 type CreateConnectorResponseBody struct {
-	// responseUnitList
 	Item []*CreateConnectorResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -456,16 +439,11 @@ func (s *CreateConnectorResponseBody) SetItem(v []*CreateConnectorResponseBodyIt
 }
 
 type CreateConnectorResponseBodyItem struct {
-	// 连接平台connectorId
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	// 服务商连接器connectorId
+	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 错误码
-	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	// 错误信息
-	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	Success               *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateConnectorResponseBodyItem) String() string {
@@ -502,8 +480,9 @@ func (s *CreateConnectorResponseBodyItem) SetSuccess(v bool) *CreateConnectorRes
 }
 
 type CreateConnectorResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateConnectorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateConnectorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateConnectorResponse) String() string {
@@ -516,6 +495,11 @@ func (s CreateConnectorResponse) GoString() string {
 
 func (s *CreateConnectorResponse) SetHeaders(v map[string]*string) *CreateConnectorResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateConnectorResponse) SetStatusCode(v int32) *CreateConnectorResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -548,10 +532,8 @@ func (s *CreateInvocableInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CreateInvocableInstanceRequest struct {
-	// 连接资产标识
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
-	// 关联实例标识
-	InstanceKey *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
+	InstanceKey     *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
 }
 
 func (s CreateInvocableInstanceRequest) String() string {
@@ -573,10 +555,8 @@ func (s *CreateInvocableInstanceRequest) SetInstanceKey(v string) *CreateInvocab
 }
 
 type CreateInvocableInstanceResponseBody struct {
-	// 资产标识
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
-	// 连接实例版本ID
-	VersionId *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
+	VersionId       *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
 }
 
 func (s CreateInvocableInstanceResponseBody) String() string {
@@ -598,8 +578,9 @@ func (s *CreateInvocableInstanceResponseBody) SetVersionId(v string) *CreateInvo
 }
 
 type CreateInvocableInstanceResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateInvocableInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateInvocableInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateInvocableInstanceResponse) String() string {
@@ -612,6 +593,11 @@ func (s CreateInvocableInstanceResponse) GoString() string {
 
 func (s *CreateInvocableInstanceResponse) SetHeaders(v map[string]*string) *CreateInvocableInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateInvocableInstanceResponse) SetStatusCode(v int32) *CreateInvocableInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -667,18 +653,12 @@ func (s *CreateTriggerRequest) SetTriggerInfo(v []*CreateTriggerRequestTriggerIn
 }
 
 type CreateTriggerRequestTriggerInfo struct {
-	// 描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 连接平台连接器id
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	// 入参jsonSchema
-	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
-	// 服务商的连接器Id，优先使用dingConnectorId，其次使用integratorConnectorId
+	Description           *string `json:"description,omitempty" xml:"description,omitempty"`
+	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	InputSchema           *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 服务商的触发事件Id
-	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	IntegratorTriggerId   *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateTriggerRequestTriggerInfo) String() string {
@@ -720,7 +700,6 @@ func (s *CreateTriggerRequestTriggerInfo) SetName(v string) *CreateTriggerReques
 }
 
 type CreateTriggerResponseBody struct {
-	// Id of the request
 	Item []*CreateTriggerResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -738,20 +717,13 @@ func (s *CreateTriggerResponseBody) SetItem(v []*CreateTriggerResponseBodyItem) 
 }
 
 type CreateTriggerResponseBodyItem struct {
-	// 连接平台连接器id
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	// 连接平台触发事件id
-	DingTriggerId *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
-	// 服务商的连接器Id
+	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	DingTriggerId         *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 服务商的触发事件id
-	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
-	// 错误码
-	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	// 错误信息
-	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	IntegratorTriggerId   *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	Success               *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateTriggerResponseBodyItem) String() string {
@@ -798,8 +770,9 @@ func (s *CreateTriggerResponseBodyItem) SetSuccess(v bool) *CreateTriggerRespons
 }
 
 type CreateTriggerResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateTriggerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateTriggerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateTriggerResponse) String() string {
@@ -812,6 +785,11 @@ func (s CreateTriggerResponse) GoString() string {
 
 func (s *CreateTriggerResponse) SetHeaders(v map[string]*string) *CreateTriggerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateTriggerResponse) SetStatusCode(v int32) *CreateTriggerResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -844,7 +822,6 @@ func (s *GetActionDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetAction
 }
 
 type GetActionDetailRequest struct {
-	// 连接资产标识
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
 }
 
@@ -862,22 +839,14 @@ func (s *GetActionDetailRequest) SetConnectAssetUri(v string) *GetActionDetailRe
 }
 
 type GetActionDetailResponseBody struct {
-	// 连接资产标识
-	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
-	// 调用时以JsonSchema描述的入参格式
-	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
-	// 执行动作集成配置信息
+	ConnectAssetUri   *string                                       `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+	InputSchema       *string                                       `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
 	IntegrationConfig *GetActionDetailResponseBodyIntegrationConfig `json:"integrationConfig,omitempty" xml:"integrationConfig,omitempty" type:"Struct"`
-	// 执行动作的名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 调用时以JsonSchema描述的出参格式
-	OutputSchema *string `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
-	// 执行动作的ID
-	RefId *string `json:"refId,omitempty" xml:"refId,omitempty"`
-	// 执行动作提供组织
-	RefProviderCorpId *string `json:"refProviderCorpId,omitempty" xml:"refProviderCorpId,omitempty"`
-	// 连接资产类型
-	RefType *string `json:"refType,omitempty" xml:"refType,omitempty"`
+	Name              *string                                       `json:"name,omitempty" xml:"name,omitempty"`
+	OutputSchema      *string                                       `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
+	RefId             *string                                       `json:"refId,omitempty" xml:"refId,omitempty"`
+	RefProviderCorpId *string                                       `json:"refProviderCorpId,omitempty" xml:"refProviderCorpId,omitempty"`
+	RefType           *string                                       `json:"refType,omitempty" xml:"refType,omitempty"`
 }
 
 func (s GetActionDetailResponseBody) String() string {
@@ -929,12 +898,9 @@ func (s *GetActionDetailResponseBody) SetRefType(v string) *GetActionDetailRespo
 }
 
 type GetActionDetailResponseBodyIntegrationConfig struct {
-	// 类目配置
 	CategoryNames []*GetActionDetailResponseBodyIntegrationConfigCategoryNames `json:"categoryNames,omitempty" xml:"categoryNames,omitempty" type:"Repeated"`
-	// 集成对象的名称
-	EntityName *string `json:"entityName,omitempty" xml:"entityName,omitempty"`
-	// 其它额外属性
-	Props []*GetActionDetailResponseBodyIntegrationConfigProps `json:"props,omitempty" xml:"props,omitempty" type:"Repeated"`
+	EntityName    *string                                                      `json:"entityName,omitempty" xml:"entityName,omitempty"`
+	Props         []*GetActionDetailResponseBodyIntegrationConfigProps         `json:"props,omitempty" xml:"props,omitempty" type:"Repeated"`
 }
 
 func (s GetActionDetailResponseBodyIntegrationConfig) String() string {
@@ -961,7 +927,6 @@ func (s *GetActionDetailResponseBodyIntegrationConfig) SetProps(v []*GetActionDe
 }
 
 type GetActionDetailResponseBodyIntegrationConfigCategoryNames struct {
-	// 类目名称
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -979,9 +944,7 @@ func (s *GetActionDetailResponseBodyIntegrationConfigCategoryNames) SetValue(v s
 }
 
 type GetActionDetailResponseBodyIntegrationConfigProps struct {
-	// 配置的KEY值
-	Key *string `json:"key,omitempty" xml:"key,omitempty"`
-	// 配置的属性值
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -1004,8 +967,9 @@ func (s *GetActionDetailResponseBodyIntegrationConfigProps) SetValue(v string) *
 }
 
 type GetActionDetailResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetActionDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetActionDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetActionDetailResponse) String() string {
@@ -1018,6 +982,11 @@ func (s GetActionDetailResponse) GoString() string {
 
 func (s *GetActionDetailResponse) SetHeaders(v map[string]*string) *GetActionDetailResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetActionDetailResponse) SetStatusCode(v int32) *GetActionDetailResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1050,12 +1019,9 @@ func (s *InvokeInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *InvokeInst
 }
 
 type InvokeInstanceRequest struct {
-	// 连接资产标识
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
-	// 入参JSON文本
 	InputJsonString *string `json:"inputJsonString,omitempty" xml:"inputJsonString,omitempty"`
-	// 外部实例唯一标识
-	InstanceKey *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
+	InstanceKey     *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
 }
 
 func (s InvokeInstanceRequest) String() string {
@@ -1082,16 +1048,11 @@ func (s *InvokeInstanceRequest) SetInstanceKey(v string) *InvokeInstanceRequest 
 }
 
 type InvokeInstanceResponseBody struct {
-	// 本次执行耗时
-	Cost *int64 `json:"cost,omitempty" xml:"cost,omitempty"`
-	// 连接器错误码
-	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	// 连接器错误信息
+	Cost         *int64  `json:"cost,omitempty" xml:"cost,omitempty"`
+	ErrorCode    *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
 	ErrorMessage *string `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
-	// 调用记录的ID
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	// Id of the request
-	OutputJson *string `json:"outputJson,omitempty" xml:"outputJson,omitempty"`
+	InstanceId   *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	OutputJson   *string `json:"outputJson,omitempty" xml:"outputJson,omitempty"`
 }
 
 func (s InvokeInstanceResponseBody) String() string {
@@ -1128,8 +1089,9 @@ func (s *InvokeInstanceResponseBody) SetOutputJson(v string) *InvokeInstanceResp
 }
 
 type InvokeInstanceResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *InvokeInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *InvokeInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s InvokeInstanceResponse) String() string {
@@ -1142,6 +1104,11 @@ func (s InvokeInstanceResponse) GoString() string {
 
 func (s *InvokeInstanceResponse) SetHeaders(v map[string]*string) *InvokeInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *InvokeInstanceResponse) SetStatusCode(v int32) *InvokeInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1174,20 +1141,13 @@ func (s *PullDataByPageHeaders) SetXAcsDingtalkAccessToken(v string) *PullDataBy
 }
 
 type PullDataByPageRequest struct {
-	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 要拉取的主数据模型id。
-	DataModelId *string `json:"dataModelId,omitempty" xml:"dataModelId,omitempty"`
-	// 用于过滤时间范围的字段，包含数据创建时间(dataGmtCreate)和数据修改时间(dataGmtModified)，如不传则不过滤。
+	AppId               *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	DataModelId         *string `json:"dataModelId,omitempty" xml:"dataModelId,omitempty"`
 	DatetimeFilterField *string `json:"datetimeFilterField,omitempty" xml:"datetimeFilterField,omitempty"`
-	// 当配置了datetimeFilterField字段后，数据的时间终点，如果不传则按最新一条数据作为终点。
-	MaxDatetime *int64 `json:"maxDatetime,omitempty" xml:"maxDatetime,omitempty"`
-	// 单次获取的最大记录条数，最大限制100条。
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 当配置了datetimeFilterField字段后，数据的时间起点，如果不传则将最早一条数据作为起点。
-	MinDatetime *int64 `json:"minDatetime,omitempty" xml:"minDatetime,omitempty"`
-	// 用于翻页的游标，如果为空则从第一条数据开始查询。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxDatetime         *int64  `json:"maxDatetime,omitempty" xml:"maxDatetime,omitempty"`
+	MaxResults          *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MinDatetime         *int64  `json:"minDatetime,omitempty" xml:"minDatetime,omitempty"`
+	NextToken           *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s PullDataByPageRequest) String() string {
@@ -1234,12 +1194,9 @@ func (s *PullDataByPageRequest) SetNextToken(v string) *PullDataByPageRequest {
 }
 
 type PullDataByPageResponseBody struct {
-	// resultList
-	List []*PullDataByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 单次获取的最大记录条数。
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 用于查看下一页数据的游标，如果为空则说明没有更多数据了。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	List       []*PullDataByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	MaxResults *int64                            `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s PullDataByPageResponseBody) String() string {
@@ -1266,20 +1223,13 @@ func (s *PullDataByPageResponseBody) SetNextToken(v string) *PullDataByPageRespo
 }
 
 type PullDataByPageResponseBodyList struct {
-	// 创建数据的应用id。
-	DataCreateAppId *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
-	// 创建数据的应用类型，isv应用为premium_microapp。
-	DataCreateAppType *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
-	// 数据创建时间。
-	DataGmtCreate *int64 `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
-	// 数据最后修改时间。
-	DataGmtModified *int64 `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
-	// 最后修改数据的应用id。
-	DataModifiedAppId *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
-	// 最后修改数据的应用类型，取值同dataCreateAppType。
+	DataCreateAppId     *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
+	DataCreateAppType   *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
+	DataGmtCreate       *int64  `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
+	DataGmtModified     *int64  `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
+	DataModifiedAppId   *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
 	DataModifiedAppType *string `json:"dataModifiedAppType,omitempty" xml:"dataModifiedAppType,omitempty"`
-	// 数据完整内容。
-	JsonData *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
+	JsonData            *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
 }
 
 func (s PullDataByPageResponseBodyList) String() string {
@@ -1326,8 +1276,9 @@ func (s *PullDataByPageResponseBodyList) SetJsonData(v string) *PullDataByPageRe
 }
 
 type PullDataByPageResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PullDataByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PullDataByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PullDataByPageResponse) String() string {
@@ -1340,6 +1291,11 @@ func (s PullDataByPageResponse) GoString() string {
 
 func (s *PullDataByPageResponse) SetHeaders(v map[string]*string) *PullDataByPageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PullDataByPageResponse) SetStatusCode(v int32) *PullDataByPageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1372,9 +1328,7 @@ func (s *PullDataByPkHeaders) SetXAcsDingtalkAccessToken(v string) *PullDataByPk
 }
 
 type PullDataByPkRequest struct {
-	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 数据的主键字段值。
+	AppId      *string `json:"appId,omitempty" xml:"appId,omitempty"`
 	PrimaryKey *string `json:"primaryKey,omitempty" xml:"primaryKey,omitempty"`
 }
 
@@ -1397,20 +1351,13 @@ func (s *PullDataByPkRequest) SetPrimaryKey(v string) *PullDataByPkRequest {
 }
 
 type PullDataByPkResponseBody struct {
-	// 创建数据的应用id。
-	DataCreateAppId *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
-	// 创建数据的应用类型，isv应用为premium_microapp。
-	DataCreateAppType *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
-	// 数据创建时间。
-	DataGmtCreate *int64 `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
-	// 数据最后修改时间。
-	DataGmtModified *int64 `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
-	// 最后修改数据的应用id。
-	DataModifiedAppId *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
-	// 最后修改数据的应用类型，取值同dataCreateAppType。
+	DataCreateAppId     *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
+	DataCreateAppType   *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
+	DataGmtCreate       *int64  `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
+	DataGmtModified     *int64  `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
+	DataModifiedAppId   *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
 	DataModifiedAppType *string `json:"dataModifiedAppType,omitempty" xml:"dataModifiedAppType,omitempty"`
-	// 数据完整内容。
-	JsonData *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
+	JsonData            *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
 }
 
 func (s PullDataByPkResponseBody) String() string {
@@ -1457,8 +1404,9 @@ func (s *PullDataByPkResponseBody) SetJsonData(v string) *PullDataByPkResponseBo
 }
 
 type PullDataByPkResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PullDataByPkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PullDataByPkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PullDataByPkResponse) String() string {
@@ -1471,6 +1419,11 @@ func (s PullDataByPkResponse) GoString() string {
 
 func (s *PullDataByPkResponse) SetHeaders(v map[string]*string) *PullDataByPkResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PullDataByPkResponse) SetStatusCode(v int32) *PullDataByPkResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1503,16 +1456,11 @@ func (s *SearchActionsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchActio
 }
 
 type SearchActionsRequest struct {
-	// 连接器的ID
-	ConnectorId *string `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
-	// 连接器提供组织ID
-	ConnectorProviderCorpId *string `json:"connectorProviderCorpId,omitempty" xml:"connectorProviderCorpId,omitempty"`
-	// 集成类型，默认只有basic-基础类型
-	IntegrationTypes []*string `json:"integrationTypes,omitempty" xml:"integrationTypes,omitempty" type:"Repeated"`
-	// 最大返回记录数
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 查询位置，为空表示从头开始
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ConnectorId             *string   `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
+	ConnectorProviderCorpId *string   `json:"connectorProviderCorpId,omitempty" xml:"connectorProviderCorpId,omitempty"`
+	IntegrationTypes        []*string `json:"integrationTypes,omitempty" xml:"integrationTypes,omitempty" type:"Repeated"`
+	MaxResults              *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken               *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s SearchActionsRequest) String() string {
@@ -1549,14 +1497,10 @@ func (s *SearchActionsRequest) SetNextToken(v string) *SearchActionsRequest {
 }
 
 type SearchActionsResponseBody struct {
-	// 是否有更多记录
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 执行动作列表
-	List []*SearchActionsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 下一页位置
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 总记录数
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore    *bool                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*SearchActionsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken  *string                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TotalCount *int64                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchActionsResponseBody) String() string {
@@ -1588,26 +1532,16 @@ func (s *SearchActionsResponseBody) SetTotalCount(v int64) *SearchActionsRespons
 }
 
 type SearchActionsResponseBodyList struct {
-	// 授权页地址
-	AuthorityUrl *string `json:"authorityUrl,omitempty" xml:"authorityUrl,omitempty"`
-	// 是否已授权
-	Authorized *bool `json:"authorized,omitempty" xml:"authorized,omitempty"`
-	// 连接资产唯一标识
+	AuthorityUrl    *string `json:"authorityUrl,omitempty" xml:"authorityUrl,omitempty"`
+	Authorized      *bool   `json:"authorized,omitempty" xml:"authorized,omitempty"`
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
-	// 执行动作所属连接器ID
-	ConnectorId *string `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
-	// 描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 执行动作的ID
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 集成类型
+	ConnectorId     *string `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
+	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
+	Icon            *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Id              *string `json:"id,omitempty" xml:"id,omitempty"`
 	IntegrationType *string `json:"integrationType,omitempty" xml:"integrationType,omitempty"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 提供组织
-	ProviderCorpId *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
+	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
+	ProviderCorpId  *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
 }
 
 func (s SearchActionsResponseBodyList) String() string {
@@ -1669,8 +1603,9 @@ func (s *SearchActionsResponseBodyList) SetProviderCorpId(v string) *SearchActio
 }
 
 type SearchActionsResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchActionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchActionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchActionsResponse) String() string {
@@ -1683,6 +1618,11 @@ func (s SearchActionsResponse) GoString() string {
 
 func (s *SearchActionsResponse) SetHeaders(v map[string]*string) *SearchActionsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchActionsResponse) SetStatusCode(v int32) *SearchActionsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1715,12 +1655,9 @@ func (s *SearchConnectorsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchCo
 }
 
 type SearchConnectorsRequest struct {
-	// 最大返回记录数，最多50
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 查询指定位置的记录，为空则从头开始
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 查询连接器的类型
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SearchConnectorsRequest) String() string {
@@ -1747,14 +1684,10 @@ func (s *SearchConnectorsRequest) SetType(v string) *SearchConnectorsRequest {
 }
 
 type SearchConnectorsResponseBody struct {
-	// 是否有更多记录
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 连接器信息列表
-	List []*SearchConnectorsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 下一页记录的查询位置
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 总记录数
-	TotalCount *string `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore    *bool                               `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*SearchConnectorsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken  *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TotalCount *string                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchConnectorsResponseBody) String() string {
@@ -1786,15 +1719,10 @@ func (s *SearchConnectorsResponseBody) SetTotalCount(v string) *SearchConnectors
 }
 
 type SearchConnectorsResponseBodyList struct {
-	// 连接器的描述信息
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 连接器的图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 连接器的ID
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 连接器的名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 连接器的提供组织
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
 	ProviderCorpId *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
 }
 
@@ -1832,8 +1760,9 @@ func (s *SearchConnectorsResponseBodyList) SetProviderCorpId(v string) *SearchCo
 }
 
 type SearchConnectorsResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchConnectorsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchConnectorsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchConnectorsResponse) String() string {
@@ -1846,6 +1775,11 @@ func (s SearchConnectorsResponse) GoString() string {
 
 func (s *SearchConnectorsResponse) SetHeaders(v map[string]*string) *SearchConnectorsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchConnectorsResponse) SetStatusCode(v int32) *SearchConnectorsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1878,7 +1812,6 @@ func (s *SyncDataHeaders) SetXAcsDingtalkAccessToken(v string) *SyncDataHeaders 
 }
 
 type SyncDataRequest struct {
-	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
 	AppId           *string                           `json:"appId,omitempty" xml:"appId,omitempty"`
 	TriggerDataList []*SyncDataRequestTriggerDataList `json:"triggerDataList,omitempty" xml:"triggerDataList,omitempty" type:"Repeated"`
 }
@@ -1961,7 +1894,6 @@ func (s *SyncDataRequestTriggerDataList) SetTriggerId(v string) *SyncDataRequest
 }
 
 type SyncDataResponseBody struct {
-	// resultList
 	List []*SyncDataResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
@@ -2020,8 +1952,9 @@ func (s *SyncDataResponseBodyList) SetTriggerId(v string) *SyncDataResponseBodyL
 }
 
 type SyncDataResponse struct {
-	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SyncDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SyncDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SyncDataResponse) String() string {
@@ -2034,6 +1967,11 @@ func (s SyncDataResponse) GoString() string {
 
 func (s *SyncDataResponse) SetHeaders(v map[string]*string) *SyncDataResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SyncDataResponse) SetStatusCode(v int32) *SyncDataResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2089,28 +2027,18 @@ func (s *UpdateActionRequest) SetIntegratorFlag(v string) *UpdateActionRequest {
 }
 
 type UpdateActionRequestActionInfo struct {
-	// api请求url path，结合Connector上的apiDomain使用
-	ApiPath *string `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
-	// 描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 连接平台的执行动作唯一标识。
-	DingActionId *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
-	// 连接平台连接器id
-	DingConnectorId    *string                                          `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	InputMappingConfig *UpdateActionRequestActionInfoInputMappingConfig `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
-	// 入参schema
-	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
-	// 服务商的执行事件Id
-	IntegratorActionId *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
-	// 服务商的连接器Id
-	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 执行动作接口成功调用规则。
-	OutputDataRules     []*UpdateActionRequestActionInfoOutputDataRules   `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
-	OutputMappingConfig *UpdateActionRequestActionInfoOutputMappingConfig `json:"outputMappingConfig,omitempty" xml:"outputMappingConfig,omitempty" type:"Struct"`
-	// 出参schema
-	OutputSchema *string `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
+	ApiPath               *string                                           `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
+	Description           *string                                           `json:"description,omitempty" xml:"description,omitempty"`
+	DingActionId          *string                                           `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
+	DingConnectorId       *string                                           `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	InputMappingConfig    *UpdateActionRequestActionInfoInputMappingConfig  `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
+	InputSchema           *string                                           `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
+	IntegratorActionId    *string                                           `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	IntegratorConnectorId *string                                           `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	Name                  *string                                           `json:"name,omitempty" xml:"name,omitempty"`
+	OutputDataRules       []*UpdateActionRequestActionInfoOutputDataRules   `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
+	OutputMappingConfig   *UpdateActionRequestActionInfoOutputMappingConfig `json:"outputMappingConfig,omitempty" xml:"outputMappingConfig,omitempty" type:"Struct"`
+	OutputSchema          *string                                           `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
 }
 
 func (s UpdateActionRequestActionInfo) String() string {
@@ -2205,11 +2133,8 @@ func (s *UpdateActionRequestActionInfoInputMappingConfig) SetRules(v string) *Up
 }
 
 type UpdateActionRequestActionInfoOutputDataRules struct {
-	// 规则的预期值。
-	ExpectValue *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
-	// 操作类型。
-	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
-	// 规则的属性路径。
+	ExpectValue  *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
+	Operate      *string `json:"operate,omitempty" xml:"operate,omitempty"`
 	PropertyPath *string `json:"propertyPath,omitempty" xml:"propertyPath,omitempty"`
 }
 
@@ -2260,7 +2185,6 @@ func (s *UpdateActionRequestActionInfoOutputMappingConfig) SetRules(v string) *U
 }
 
 type UpdateActionResponseBody struct {
-	// Id of the request
 	Item []*UpdateActionResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -2278,20 +2202,13 @@ func (s *UpdateActionResponseBody) SetItem(v []*UpdateActionResponseBodyItem) *U
 }
 
 type UpdateActionResponseBodyItem struct {
-	// 连接平台执行事件id
-	DingActionId *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
-	// 连接平台连接器id
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	// 服务商的执行事件id
-	IntegratorActionId *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
-	// 服务商的连接器Id
+	DingActionId          *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
+	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	IntegratorActionId    *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 错误码
-	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	// 错误信息
-	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	// 是否执行成功
-	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	Success               *string `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateActionResponseBodyItem) String() string {
@@ -2338,8 +2255,9 @@ func (s *UpdateActionResponseBodyItem) SetSuccess(v string) *UpdateActionRespons
 }
 
 type UpdateActionResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateActionResponse) String() string {
@@ -2352,6 +2270,11 @@ func (s UpdateActionResponse) GoString() string {
 
 func (s *UpdateActionResponse) SetHeaders(v map[string]*string) *UpdateActionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateActionResponse) SetStatusCode(v int32) *UpdateActionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2407,25 +2330,16 @@ func (s *UpdateConnectorRequest) SetIntegratorFlag(v string) *UpdateConnectorReq
 }
 
 type UpdateConnectorRequestConnectorInfo struct {
-	// 连接器中执行动作的接口路径域名。
-	ApiDomain *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
-	// 连接器中执行动作接口的加密签名。
-	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
-	// 应用id。
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 将执行动作鉴权值设为环境变量。
-	AuthValueEnv *bool `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
-	// 连接器描述。
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 连接平台连接器唯一标识。
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	// 将执行动作域名设为环境变量。
-	DomainEnv   *bool   `json:"domainEnv,omitempty" xml:"domainEnv,omitempty"`
-	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
-	// 服务商的连接器唯一标识。
+	ApiDomain             *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
+	ApiSecret             *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	AppId                 *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	AuthValueEnv          *bool   `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
+	Description           *string `json:"description,omitempty" xml:"description,omitempty"`
+	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	DomainEnv             *bool   `json:"domainEnv,omitempty" xml:"domainEnv,omitempty"`
+	IconMediaId           *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 连接器名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s UpdateConnectorRequestConnectorInfo) String() string {
@@ -2487,7 +2401,6 @@ func (s *UpdateConnectorRequestConnectorInfo) SetName(v string) *UpdateConnector
 }
 
 type UpdateConnectorResponseBody struct {
-	// responseUnitList
 	Item []*UpdateConnectorResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -2505,16 +2418,11 @@ func (s *UpdateConnectorResponseBody) SetItem(v []*UpdateConnectorResponseBodyIt
 }
 
 type UpdateConnectorResponseBodyItem struct {
-	// 连接平台connectorId
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	// 服务商连接器connectorId
+	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 错误码
-	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	// 错误信息
-	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	Success               *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateConnectorResponseBodyItem) String() string {
@@ -2551,8 +2459,9 @@ func (s *UpdateConnectorResponseBodyItem) SetSuccess(v bool) *UpdateConnectorRes
 }
 
 type UpdateConnectorResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateConnectorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateConnectorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateConnectorResponse) String() string {
@@ -2565,6 +2474,11 @@ func (s UpdateConnectorResponse) GoString() string {
 
 func (s *UpdateConnectorResponse) SetHeaders(v map[string]*string) *UpdateConnectorResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateConnectorResponse) SetStatusCode(v int32) *UpdateConnectorResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2620,20 +2534,13 @@ func (s *UpdateTriggerRequest) SetTriggerInfo(v []*UpdateTriggerRequestTriggerIn
 }
 
 type UpdateTriggerRequestTriggerInfo struct {
-	// 触发事件描述。
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 连接平台连接器唯一标识。
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	// 连接平台触发事件唯一标识。
-	DingTriggerId *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
-	// 入参属性描述。
-	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
-	// 服务商的连接器唯一标识。
+	Description           *string `json:"description,omitempty" xml:"description,omitempty"`
+	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	DingTriggerId         *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
+	InputSchema           *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 服务商的触发事件唯一标识。
-	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
-	// 触发事件名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	IntegratorTriggerId   *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s UpdateTriggerRequestTriggerInfo) String() string {
@@ -2680,7 +2587,6 @@ func (s *UpdateTriggerRequestTriggerInfo) SetName(v string) *UpdateTriggerReques
 }
 
 type UpdateTriggerResponseBody struct {
-	// Id of the request
 	Item []*UpdateTriggerResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -2698,20 +2604,13 @@ func (s *UpdateTriggerResponseBody) SetItem(v []*UpdateTriggerResponseBodyItem) 
 }
 
 type UpdateTriggerResponseBodyItem struct {
-	// 连接平台连接器id
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	// 连接平台触发事件id
-	DingTriggerId *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
-	// 服务商的连接器Id
+	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	DingTriggerId         *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	// 服务商的触发事件id
-	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
-	// 错误码
-	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	// 错误信息
-	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	IntegratorTriggerId   *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	Success               *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateTriggerResponseBodyItem) String() string {
@@ -2758,8 +2657,9 @@ func (s *UpdateTriggerResponseBodyItem) SetSuccess(v bool) *UpdateTriggerRespons
 }
 
 type UpdateTriggerResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTriggerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTriggerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTriggerResponse) String() string {
@@ -2772,6 +2672,11 @@ func (s UpdateTriggerResponse) GoString() string {
 
 func (s *UpdateTriggerResponse) SetHeaders(v map[string]*string) *UpdateTriggerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTriggerResponse) SetStatusCode(v int32) *UpdateTriggerResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2795,24 +2700,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateAction(request *CreateActionRequest) (_result *CreateActionResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateActionHeaders{}
-	_result = &CreateActionResponse{}
-	_body, _err := client.CreateActionWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateActionWithOptions(request *CreateActionRequest, headers *CreateActionHeaders, runtime *util.RuntimeOptions) (_result *CreateActionResponse, _err error) {
@@ -2842,8 +2741,19 @@ func (client *Client) CreateActionWithOptions(request *CreateActionRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateAction"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/actions"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateActionResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateAction"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/actions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2851,11 +2761,11 @@ func (client *Client) CreateActionWithOptions(request *CreateActionRequest, head
 	return _result, _err
 }
 
-func (client *Client) CreateConnector(request *CreateConnectorRequest) (_result *CreateConnectorResponse, _err error) {
+func (client *Client) CreateAction(request *CreateActionRequest) (_result *CreateActionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateConnectorHeaders{}
-	_result = &CreateConnectorResponse{}
-	_body, _err := client.CreateConnectorWithOptions(request, headers, runtime)
+	headers := &CreateActionHeaders{}
+	_result = &CreateActionResponse{}
+	_body, _err := client.CreateActionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2890,8 +2800,19 @@ func (client *Client) CreateConnectorWithOptions(request *CreateConnectorRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateConnector"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/connectors"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateConnectorResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateConnector"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/connectors"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2899,11 +2820,11 @@ func (client *Client) CreateConnectorWithOptions(request *CreateConnectorRequest
 	return _result, _err
 }
 
-func (client *Client) CreateInvocableInstance(request *CreateInvocableInstanceRequest) (_result *CreateInvocableInstanceResponse, _err error) {
+func (client *Client) CreateConnector(request *CreateConnectorRequest) (_result *CreateConnectorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateInvocableInstanceHeaders{}
-	_result = &CreateInvocableInstanceResponse{}
-	_body, _err := client.CreateInvocableInstanceWithOptions(request, headers, runtime)
+	headers := &CreateConnectorHeaders{}
+	_result = &CreateConnectorResponse{}
+	_body, _err := client.CreateConnectorWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2938,8 +2859,19 @@ func (client *Client) CreateInvocableInstanceWithOptions(request *CreateInvocabl
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateInvocableInstance"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/instances"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateInvocableInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateInvocableInstance"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/instances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2947,11 +2879,11 @@ func (client *Client) CreateInvocableInstanceWithOptions(request *CreateInvocabl
 	return _result, _err
 }
 
-func (client *Client) CreateTrigger(request *CreateTriggerRequest) (_result *CreateTriggerResponse, _err error) {
+func (client *Client) CreateInvocableInstance(request *CreateInvocableInstanceRequest) (_result *CreateInvocableInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateTriggerHeaders{}
-	_result = &CreateTriggerResponse{}
-	_body, _err := client.CreateTriggerWithOptions(request, headers, runtime)
+	headers := &CreateInvocableInstanceHeaders{}
+	_result = &CreateInvocableInstanceResponse{}
+	_body, _err := client.CreateInvocableInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2986,8 +2918,19 @@ func (client *Client) CreateTriggerWithOptions(request *CreateTriggerRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateTrigger"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/triggers"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateTriggerResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateTrigger"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/triggers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2995,11 +2938,11 @@ func (client *Client) CreateTriggerWithOptions(request *CreateTriggerRequest, he
 	return _result, _err
 }
 
-func (client *Client) GetActionDetail(request *GetActionDetailRequest) (_result *GetActionDetailResponse, _err error) {
+func (client *Client) CreateTrigger(request *CreateTriggerRequest) (_result *CreateTriggerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetActionDetailHeaders{}
-	_result = &GetActionDetailResponse{}
-	_body, _err := client.GetActionDetailWithOptions(request, headers, runtime)
+	headers := &CreateTriggerHeaders{}
+	_result = &CreateTriggerResponse{}
+	_body, _err := client.CreateTriggerWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3030,8 +2973,19 @@ func (client *Client) GetActionDetailWithOptions(request *GetActionDetailRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetActionDetail"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/assets/actions/details/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetActionDetailResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetActionDetail"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/assets/actions/details/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3039,11 +2993,11 @@ func (client *Client) GetActionDetailWithOptions(request *GetActionDetailRequest
 	return _result, _err
 }
 
-func (client *Client) InvokeInstance(request *InvokeInstanceRequest) (_result *InvokeInstanceResponse, _err error) {
+func (client *Client) GetActionDetail(request *GetActionDetailRequest) (_result *GetActionDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &InvokeInstanceHeaders{}
-	_result = &InvokeInstanceResponse{}
-	_body, _err := client.InvokeInstanceWithOptions(request, headers, runtime)
+	headers := &GetActionDetailHeaders{}
+	_result = &GetActionDetailResponse{}
+	_body, _err := client.GetActionDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3082,8 +3036,19 @@ func (client *Client) InvokeInstanceWithOptions(request *InvokeInstanceRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("InvokeInstance"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/instances/invoke"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &InvokeInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("InvokeInstance"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/instances/invoke"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3091,11 +3056,11 @@ func (client *Client) InvokeInstanceWithOptions(request *InvokeInstanceRequest, 
 	return _result, _err
 }
 
-func (client *Client) PullDataByPage(request *PullDataByPageRequest) (_result *PullDataByPageResponse, _err error) {
+func (client *Client) InvokeInstance(request *InvokeInstanceRequest) (_result *InvokeInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PullDataByPageHeaders{}
-	_result = &PullDataByPageResponse{}
-	_body, _err := client.PullDataByPageWithOptions(request, headers, runtime)
+	headers := &InvokeInstanceHeaders{}
+	_result = &InvokeInstanceResponse{}
+	_body, _err := client.InvokeInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3150,8 +3115,19 @@ func (client *Client) PullDataByPageWithOptions(request *PullDataByPageRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PullDataByPage"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/data"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PullDataByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("PullDataByPage"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/connector/data"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3159,11 +3135,11 @@ func (client *Client) PullDataByPageWithOptions(request *PullDataByPageRequest, 
 	return _result, _err
 }
 
-func (client *Client) PullDataByPk(dataModelId *string, request *PullDataByPkRequest) (_result *PullDataByPkResponse, _err error) {
+func (client *Client) PullDataByPage(request *PullDataByPageRequest) (_result *PullDataByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PullDataByPkHeaders{}
-	_result = &PullDataByPkResponse{}
-	_body, _err := client.PullDataByPkWithOptions(dataModelId, request, headers, runtime)
+	headers := &PullDataByPageHeaders{}
+	_result = &PullDataByPageResponse{}
+	_body, _err := client.PullDataByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3176,7 +3152,6 @@ func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *Pull
 	if _err != nil {
 		return _result, _err
 	}
-	dataModelId = openapiutil.GetEncodeParam(dataModelId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppId)) {
 		query["appId"] = request.AppId
@@ -3199,8 +3174,19 @@ func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *Pull
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PullDataByPk"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/data/" + tea.StringValue(dataModelId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PullDataByPkResponse{}
-	_body, _err := client.DoROARequest(tea.String("PullDataByPk"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/connector/data/"+tea.StringValue(dataModelId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3208,11 +3194,11 @@ func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *Pull
 	return _result, _err
 }
 
-func (client *Client) SearchActions(request *SearchActionsRequest) (_result *SearchActionsResponse, _err error) {
+func (client *Client) PullDataByPk(dataModelId *string, request *PullDataByPkRequest) (_result *PullDataByPkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchActionsHeaders{}
-	_result = &SearchActionsResponse{}
-	_body, _err := client.SearchActionsWithOptions(request, headers, runtime)
+	headers := &PullDataByPkHeaders{}
+	_result = &PullDataByPkResponse{}
+	_body, _err := client.PullDataByPkWithOptions(dataModelId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3259,8 +3245,19 @@ func (client *Client) SearchActionsWithOptions(request *SearchActionsRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchActions"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/assets/actions/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchActionsResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchActions"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/assets/actions/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3268,11 +3265,11 @@ func (client *Client) SearchActionsWithOptions(request *SearchActionsRequest, he
 	return _result, _err
 }
 
-func (client *Client) SearchConnectors(request *SearchConnectorsRequest) (_result *SearchConnectorsResponse, _err error) {
+func (client *Client) SearchActions(request *SearchActionsRequest) (_result *SearchActionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchConnectorsHeaders{}
-	_result = &SearchConnectorsResponse{}
-	_body, _err := client.SearchConnectorsWithOptions(request, headers, runtime)
+	headers := &SearchActionsHeaders{}
+	_result = &SearchActionsResponse{}
+	_body, _err := client.SearchActionsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3311,8 +3308,19 @@ func (client *Client) SearchConnectorsWithOptions(request *SearchConnectorsReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchConnectors"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/assets/connectors"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchConnectorsResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchConnectors"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/connector/assets/connectors"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3320,11 +3328,11 @@ func (client *Client) SearchConnectorsWithOptions(request *SearchConnectorsReque
 	return _result, _err
 }
 
-func (client *Client) SyncData(request *SyncDataRequest) (_result *SyncDataResponse, _err error) {
+func (client *Client) SearchConnectors(request *SearchConnectorsRequest) (_result *SearchConnectorsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SyncDataHeaders{}
-	_result = &SyncDataResponse{}
-	_body, _err := client.SyncDataWithOptions(request, headers, runtime)
+	headers := &SearchConnectorsHeaders{}
+	_result = &SearchConnectorsResponse{}
+	_body, _err := client.SearchConnectorsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3359,8 +3367,19 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncData"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/triggers/data/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SyncDataResponse{}
-	_body, _err := client.DoROARequest(tea.String("SyncData"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/triggers/data/sync"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3368,11 +3387,11 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 	return _result, _err
 }
 
-func (client *Client) UpdateAction(request *UpdateActionRequest) (_result *UpdateActionResponse, _err error) {
+func (client *Client) SyncData(request *SyncDataRequest) (_result *SyncDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateActionHeaders{}
-	_result = &UpdateActionResponse{}
-	_body, _err := client.UpdateActionWithOptions(request, headers, runtime)
+	headers := &SyncDataHeaders{}
+	_result = &SyncDataResponse{}
+	_body, _err := client.SyncDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3407,8 +3426,19 @@ func (client *Client) UpdateActionWithOptions(request *UpdateActionRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateAction"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/actions"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateActionResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateAction"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/connector/actions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3416,11 +3446,11 @@ func (client *Client) UpdateActionWithOptions(request *UpdateActionRequest, head
 	return _result, _err
 }
 
-func (client *Client) UpdateConnector(request *UpdateConnectorRequest) (_result *UpdateConnectorResponse, _err error) {
+func (client *Client) UpdateAction(request *UpdateActionRequest) (_result *UpdateActionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateConnectorHeaders{}
-	_result = &UpdateConnectorResponse{}
-	_body, _err := client.UpdateConnectorWithOptions(request, headers, runtime)
+	headers := &UpdateActionHeaders{}
+	_result = &UpdateActionResponse{}
+	_body, _err := client.UpdateActionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3455,8 +3485,19 @@ func (client *Client) UpdateConnectorWithOptions(request *UpdateConnectorRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateConnector"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/connectors"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateConnectorResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateConnector"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/connector/connectors"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3464,11 +3505,11 @@ func (client *Client) UpdateConnectorWithOptions(request *UpdateConnectorRequest
 	return _result, _err
 }
 
-func (client *Client) UpdateTrigger(request *UpdateTriggerRequest) (_result *UpdateTriggerResponse, _err error) {
+func (client *Client) UpdateConnector(request *UpdateConnectorRequest) (_result *UpdateConnectorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateTriggerHeaders{}
-	_result = &UpdateTriggerResponse{}
-	_body, _err := client.UpdateTriggerWithOptions(request, headers, runtime)
+	headers := &UpdateConnectorHeaders{}
+	_result = &UpdateConnectorResponse{}
+	_body, _err := client.UpdateConnectorWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3503,11 +3544,34 @@ func (client *Client) UpdateTriggerWithOptions(request *UpdateTriggerRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTrigger"),
+		Version:     tea.String("connector_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/connector/triggers"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateTriggerResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTrigger"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/connector/triggers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTrigger(request *UpdateTriggerRequest) (_result *UpdateTriggerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTriggerHeaders{}
+	_result = &UpdateTriggerResponse{}
+	_body, _err := client.UpdateTriggerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

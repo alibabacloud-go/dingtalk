@@ -5,11 +5,36 @@
 package link_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type DetailUserIdPrivateDataMapValue struct {
+	CardParamMap        map[string]interface{} `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+	CardMediaIdParamMap map[string]interface{} `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
+}
+
+func (s DetailUserIdPrivateDataMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DetailUserIdPrivateDataMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *DetailUserIdPrivateDataMapValue) SetCardParamMap(v map[string]interface{}) *DetailUserIdPrivateDataMapValue {
+	s.CardParamMap = v
+	return s
+}
+
+func (s *DetailUserIdPrivateDataMapValue) SetCardMediaIdParamMap(v map[string]interface{}) *DetailUserIdPrivateDataMapValue {
+	s.CardMediaIdParamMap = v
+	return s
+}
 
 type ApplyFollowerAuthInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -35,16 +60,10 @@ func (s *ApplyFollowerAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *App
 }
 
 type ApplyFollowerAuthInfoRequest struct {
-	// 应用授权Key,可通过服务窗开放互联功能获取。此参数与fieldScope参数二选一。
 	AppAuthKey *string `json:"appAuthKey,omitempty" xml:"appAuthKey,omitempty"`
-	// 申请的授权数据，多个数据时使用,分隔。此参数与appAuthKey参数二选一。
-	// 暂时仅支持申请手机号码授权：Contact.User.mobile
 	FieldScope *string `json:"fieldScope,omitempty" xml:"fieldScope,omitempty"`
-	// 服务窗机器人消息sessionId。
-	// 开发者需要接入服务窗自建机器人后通过回调消息获取到的sessionId。
-	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
-	// 服务窗关注用户userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	SessionId  *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ApplyFollowerAuthInfoRequest) String() string {
@@ -76,7 +95,6 @@ func (s *ApplyFollowerAuthInfoRequest) SetUserId(v string) *ApplyFollowerAuthInf
 }
 
 type ApplyFollowerAuthInfoResponseBody struct {
-	// 推送结果
 	Result *ApplyFollowerAuthInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -94,7 +112,6 @@ func (s *ApplyFollowerAuthInfoResponseBody) SetResult(v *ApplyFollowerAuthInfoRe
 }
 
 type ApplyFollowerAuthInfoResponseBodyResult struct {
-	// 发送申请ID
 	OpenApplyId *string `json:"openApplyId,omitempty" xml:"openApplyId,omitempty"`
 }
 
@@ -112,8 +129,9 @@ func (s *ApplyFollowerAuthInfoResponseBodyResult) SetOpenApplyId(v string) *Appl
 }
 
 type ApplyFollowerAuthInfoResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ApplyFollowerAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ApplyFollowerAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ApplyFollowerAuthInfoResponse) String() string {
@@ -126,6 +144,11 @@ func (s ApplyFollowerAuthInfoResponse) GoString() string {
 
 func (s *ApplyFollowerAuthInfoResponse) SetHeaders(v map[string]*string) *ApplyFollowerAuthInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ApplyFollowerAuthInfoResponse) SetStatusCode(v int32) *ApplyFollowerAuthInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -158,16 +181,10 @@ func (s *CallbackRegiesterHeaders) SetXAcsDingtalkAccessToken(v string) *Callbac
 }
 
 type CallbackRegiesterRequest struct {
-	// 回调API签名生成密钥。
-	// 最大长度不超过32个字符。
-	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
-	// 回调key，由调用者定义，需要确保同一服务窗帐号下的唯一性。
-	// 最长不超过32个字符。
+	ApiSecret   *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
 	CallbackKey *string `json:"callbackKey,omitempty" xml:"callbackKey,omitempty"`
-	// 回调URL。暂不支持附带queryString的URL
 	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	// 回调类型，支持互动卡片、应用快捷入口、吊顶卡片等。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CallbackRegiesterRequest) String() string {
@@ -199,7 +216,6 @@ func (s *CallbackRegiesterRequest) SetType(v string) *CallbackRegiesterRequest {
 }
 
 type CallbackRegiesterResponseBody struct {
-	// 注册结果详情
 	Result *CallbackRegiesterResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -217,9 +233,7 @@ func (s *CallbackRegiesterResponseBody) SetResult(v *CallbackRegiesterResponseBo
 }
 
 type CallbackRegiesterResponseBodyResult struct {
-	// 成功注册的api secret
-	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
-	// 成功注册的url
+	ApiSecret   *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
 	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
 }
 
@@ -242,8 +256,9 @@ func (s *CallbackRegiesterResponseBodyResult) SetCallbackUrl(v string) *Callback
 }
 
 type CallbackRegiesterResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CallbackRegiesterResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CallbackRegiesterResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CallbackRegiesterResponse) String() string {
@@ -256,6 +271,11 @@ func (s CallbackRegiesterResponse) GoString() string {
 
 func (s *CallbackRegiesterResponse) SetHeaders(v map[string]*string) *CallbackRegiesterResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CallbackRegiesterResponse) SetStatusCode(v int32) *CallbackRegiesterResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -288,7 +308,6 @@ func (s *CloseTopBoxInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type CloseTopBoxInteractiveOTOMessageRequest struct {
-	// 卡片参数
 	Detail *CloseTopBoxInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -306,12 +325,9 @@ func (s *CloseTopBoxInteractiveOTOMessageRequest) SetDetail(v *CloseTopBoxIntera
 }
 
 type CloseTopBoxInteractiveOTOMessageRequestDetail struct {
-	// 唯一标识一张卡片的ID，卡片幂等ID
-	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	// 卡片模板 ID
+	CardBizId      *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
 	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	// 用户 userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CloseTopBoxInteractiveOTOMessageRequestDetail) String() string {
@@ -338,7 +354,6 @@ func (s *CloseTopBoxInteractiveOTOMessageRequestDetail) SetUserId(v string) *Clo
 }
 
 type CloseTopBoxInteractiveOTOMessageResponseBody struct {
-	// Id of the request
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
 }
@@ -362,8 +377,9 @@ func (s *CloseTopBoxInteractiveOTOMessageResponseBody) SetResult(v bool) *CloseT
 }
 
 type CloseTopBoxInteractiveOTOMessageResponse struct {
-	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CloseTopBoxInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CloseTopBoxInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CloseTopBoxInteractiveOTOMessageResponse) String() string {
@@ -376,6 +392,11 @@ func (s CloseTopBoxInteractiveOTOMessageResponse) GoString() string {
 
 func (s *CloseTopBoxInteractiveOTOMessageResponse) SetHeaders(v map[string]*string) *CloseTopBoxInteractiveOTOMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageResponse) SetStatusCode(v int32) *CloseTopBoxInteractiveOTOMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -408,10 +429,8 @@ func (s *GetFollowerAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFo
 }
 
 type GetFollowerAuthInfoRequest struct {
-	// 服务窗帐号ID，用于非服务窗自建应用场景下指定服务窗帐号。
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 关注用户的userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFollowerAuthInfoRequest) String() string {
@@ -433,7 +452,6 @@ func (s *GetFollowerAuthInfoRequest) SetUserId(v string) *GetFollowerAuthInfoReq
 }
 
 type GetFollowerAuthInfoResponseBody struct {
-	// 响应结果
 	Result *GetFollowerAuthInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -451,7 +469,6 @@ func (s *GetFollowerAuthInfoResponseBody) SetResult(v *GetFollowerAuthInfoRespon
 }
 
 type GetFollowerAuthInfoResponseBodyResult struct {
-	// 授权详情
 	AuthInfo *GetFollowerAuthInfoResponseBodyResultAuthInfo `json:"authInfo,omitempty" xml:"authInfo,omitempty" type:"Struct"`
 }
 
@@ -469,12 +486,8 @@ func (s *GetFollowerAuthInfoResponseBodyResult) SetAuthInfo(v *GetFollowerAuthIn
 }
 
 type GetFollowerAuthInfoResponseBodyResultAuthInfo struct {
-	// 用户主组织信息
-	// 需要用户授权给应用后返回此信息。
 	MainCorp *GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp `json:"mainCorp,omitempty" xml:"mainCorp,omitempty" type:"Struct"`
-	// 手机号码授权详情。
-	// 需要用户授权给应用后返回此信息。
-	Mobile *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile `json:"mobile,omitempty" xml:"mobile,omitempty" type:"Struct"`
+	Mobile   *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile   `json:"mobile,omitempty" xml:"mobile,omitempty" type:"Struct"`
 }
 
 func (s GetFollowerAuthInfoResponseBodyResultAuthInfo) String() string {
@@ -496,11 +509,8 @@ func (s *GetFollowerAuthInfoResponseBodyResultAuthInfo) SetMobile(v *GetFollower
 }
 
 type GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp struct {
-	// 是否授权主组织信息。
-	// 当且仅当此值为true时返回用户主组织信息。
-	Authorized *bool `json:"authorized,omitempty" xml:"authorized,omitempty"`
-	// 主组织名
-	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	Authorized *bool   `json:"authorized,omitempty" xml:"authorized,omitempty"`
+	CorpName   *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
 }
 
 func (s GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp) String() string {
@@ -522,13 +532,9 @@ func (s *GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp) SetCorpName(v st
 }
 
 type GetFollowerAuthInfoResponseBodyResultAuthInfoMobile struct {
-	// 用户是否授权手机号码信息。
-	// 当且仅当此值为true时返回手机号码信息。
-	Authorized *bool `json:"authorized,omitempty" xml:"authorized,omitempty"`
-	// 手机号码
-	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	// 地区码
-	StateCode *string `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
+	Authorized *bool   `json:"authorized,omitempty" xml:"authorized,omitempty"`
+	Mobile     *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	StateCode  *string `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
 }
 
 func (s GetFollowerAuthInfoResponseBodyResultAuthInfoMobile) String() string {
@@ -555,8 +561,9 @@ func (s *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile) SetStateCode(v str
 }
 
 type GetFollowerAuthInfoResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFollowerAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFollowerAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFollowerAuthInfoResponse) String() string {
@@ -569,6 +576,11 @@ func (s GetFollowerAuthInfoResponse) GoString() string {
 
 func (s *GetFollowerAuthInfoResponse) SetHeaders(v map[string]*string) *GetFollowerAuthInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFollowerAuthInfoResponse) SetStatusCode(v int32) *GetFollowerAuthInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -601,13 +613,9 @@ func (s *GetFollowerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFollow
 }
 
 type GetFollowerInfoRequest struct {
-	// 服务窗帐号ID，可选参数。
-	// 帐号ID用于开发者应用为服务窗所属组织应用场景，此ID可以通过服务窗帐号信息查询接口获取。
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 待查询的服务窗关注者unionId。
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 待查询的服务窗关注者userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFollowerInfoRequest) String() string {
@@ -634,10 +642,8 @@ func (s *GetFollowerInfoRequest) SetUserId(v string) *GetFollowerInfoRequest {
 }
 
 type GetFollowerInfoResponseBody struct {
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 响应结果
-	Result *GetFollowerInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string                            `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *GetFollowerInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s GetFollowerInfoResponseBody) String() string {
@@ -705,8 +711,9 @@ func (s *GetFollowerInfoResponseBodyResultUser) SetUserId(v string) *GetFollower
 }
 
 type GetFollowerInfoResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFollowerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFollowerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFollowerInfoResponse) String() string {
@@ -719,6 +726,11 @@ func (s GetFollowerInfoResponse) GoString() string {
 
 func (s *GetFollowerInfoResponse) SetHeaders(v map[string]*string) *GetFollowerInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFollowerInfoResponse) SetStatusCode(v int32) *GetFollowerInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -751,12 +763,8 @@ func (s *GetPictureDownloadUrlHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetPictureDownloadUrlRequest struct {
-	// 服务窗机器人图片消息图片下载码。
-	// 开发者需要接入服务窗自建机器人后根据图片回调消息内容获取到对应的downloadCode。
 	DownloadCode *string `json:"downloadCode,omitempty" xml:"downloadCode,omitempty"`
-	// 服务窗机器人消息sessionId。
-	// 开发者需要接入服务窗自建机器人后通过回调消息获取到的sessionId。
-	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	SessionId    *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
 }
 
 func (s GetPictureDownloadUrlRequest) String() string {
@@ -778,10 +786,8 @@ func (s *GetPictureDownloadUrlRequest) SetSessionId(v string) *GetPictureDownloa
 }
 
 type GetPictureDownloadUrlResponseBody struct {
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 响应结果
-	Result *GetPictureDownloadUrlResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *GetPictureDownloadUrlResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s GetPictureDownloadUrlResponseBody) String() string {
@@ -803,7 +809,6 @@ func (s *GetPictureDownloadUrlResponseBody) SetResult(v *GetPictureDownloadUrlRe
 }
 
 type GetPictureDownloadUrlResponseBodyResult struct {
-	// 关注状态
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
@@ -821,8 +826,9 @@ func (s *GetPictureDownloadUrlResponseBodyResult) SetUrl(v string) *GetPictureDo
 }
 
 type GetPictureDownloadUrlResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetPictureDownloadUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPictureDownloadUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetPictureDownloadUrlResponse) String() string {
@@ -835,6 +841,11 @@ func (s GetPictureDownloadUrlResponse) GoString() string {
 
 func (s *GetPictureDownloadUrlResponse) SetHeaders(v map[string]*string) *GetPictureDownloadUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetPictureDownloadUrlResponse) SetStatusCode(v int32) *GetPictureDownloadUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -867,13 +878,9 @@ func (s *GetUserFollowStatusHeaders) SetXAcsDingtalkAccessToken(v string) *GetUs
 }
 
 type GetUserFollowStatusRequest struct {
-	// 服务窗帐号ID，可选参数。
-	// 帐号ID用于开发者应用为服务窗所属组织应用场景，此ID可以通过服务窗帐号信息查询接口获取。
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 待查询的服务窗关注者unionId。
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 待查询的服务窗关注者userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserFollowStatusRequest) String() string {
@@ -900,7 +907,6 @@ func (s *GetUserFollowStatusRequest) SetUserId(v string) *GetUserFollowStatusReq
 }
 
 type GetUserFollowStatusResponseBody struct {
-	// 响应结果
 	Result *GetUserFollowStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -918,9 +924,6 @@ func (s *GetUserFollowStatusResponseBody) SetResult(v *GetUserFollowStatusRespon
 }
 
 type GetUserFollowStatusResponseBodyResult struct {
-	// 用户关注服务窗的状态:
-	// FOLLOWED：已关注。
-	// UNFOLLOW：未关注。
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
@@ -938,8 +941,9 @@ func (s *GetUserFollowStatusResponseBodyResult) SetStatus(v string) *GetUserFoll
 }
 
 type GetUserFollowStatusResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserFollowStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserFollowStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserFollowStatusResponse) String() string {
@@ -952,6 +956,11 @@ func (s GetUserFollowStatusResponse) GoString() string {
 
 func (s *GetUserFollowStatusResponse) SetHeaders(v map[string]*string) *GetUserFollowStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserFollowStatusResponse) SetStatusCode(v int32) *GetUserFollowStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1001,9 +1010,7 @@ func (s *ListAccountResponseBody) SetResult(v []*ListAccountResponseBodyResult) 
 }
 
 type ListAccountResponseBodyResult struct {
-	// 服务窗帐号ID
-	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 服务窗名称
+	AccountId   *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
 	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
 }
 
@@ -1026,8 +1033,9 @@ func (s *ListAccountResponseBodyResult) SetAccountName(v string) *ListAccountRes
 }
 
 type ListAccountResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListAccountResponse) String() string {
@@ -1040,6 +1048,11 @@ func (s ListAccountResponse) GoString() string {
 
 func (s *ListAccountResponse) SetHeaders(v map[string]*string) *ListAccountResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListAccountResponse) SetStatusCode(v int32) *ListAccountResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1089,9 +1102,7 @@ func (s *ListAccountInfoResponseBody) SetResult(v []*ListAccountInfoResponseBody
 }
 
 type ListAccountInfoResponseBodyResult struct {
-	// 服务窗帐号ID
-	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 服务窗名称
+	AccountId   *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
 	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
 }
 
@@ -1114,8 +1125,9 @@ func (s *ListAccountInfoResponseBodyResult) SetAccountName(v string) *ListAccoun
 }
 
 type ListAccountInfoResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListAccountInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListAccountInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListAccountInfoResponse) String() string {
@@ -1128,6 +1140,11 @@ func (s ListAccountInfoResponse) GoString() string {
 
 func (s *ListAccountInfoResponse) SetHeaders(v map[string]*string) *ListAccountInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListAccountInfoResponse) SetStatusCode(v int32) *ListAccountInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1160,13 +1177,9 @@ func (s *ListFollowerHeaders) SetXAcsDingtalkAccessToken(v string) *ListFollower
 }
 
 type ListFollowerRequest struct {
-	// 服务窗帐号ID，用于服务窗归属组织下应用AK(非服务窗自建应用)指定服务窗帐号。
-	// 帐号ID可以通过服务窗帐号查询接口获取。
-	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 分页查询页大小。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页查询下一页token,首页查询此字段可空，其它页查询时需要将此值设置炎上一次接口调用的token
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	AccountId  *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListFollowerRequest) String() string {
@@ -1193,10 +1206,8 @@ func (s *ListFollowerRequest) SetNextToken(v string) *ListFollowerRequest {
 }
 
 type ListFollowerResponseBody struct {
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 响应结果
-	Result *ListFollowerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string                         `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *ListFollowerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s ListFollowerResponseBody) String() string {
@@ -1218,12 +1229,8 @@ func (s *ListFollowerResponseBody) SetResult(v *ListFollowerResponseBodyResult) 
 }
 
 type ListFollowerResponseBodyResult struct {
-	// 下一页查询位置
-	// 当此返回值为空时，则说明全部数据查询完成。
-	// 当此返回值不为空时，可以将此值设置为下一次查询的参数。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 用户列表
-	UserList []*ListFollowerResponseBodyResultUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	NextToken *string                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UserList  []*ListFollowerResponseBodyResultUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s ListFollowerResponseBodyResult) String() string {
@@ -1245,12 +1252,9 @@ func (s *ListFollowerResponseBodyResult) SetUserList(v []*ListFollowerResponseBo
 }
 
 type ListFollowerResponseBodyResultUserList struct {
-	// 关注者昵称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 关注时间
-	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
-	// 关注者userId，可用于消息推送等场景。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	Timestamp *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListFollowerResponseBodyResultUserList) String() string {
@@ -1277,8 +1281,9 @@ func (s *ListFollowerResponseBodyResultUserList) SetUserId(v string) *ListFollow
 }
 
 type ListFollowerResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListFollowerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListFollowerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListFollowerResponse) String() string {
@@ -1291,6 +1296,11 @@ func (s ListFollowerResponse) GoString() string {
 
 func (s *ListFollowerResponse) SetHeaders(v map[string]*string) *ListFollowerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListFollowerResponse) SetStatusCode(v int32) *ListFollowerResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1323,10 +1333,8 @@ func (s *QueryUserFollowStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryUserFollowStatusRequest struct {
-	// 服务窗帐号ID，此ID可以通过服务窗帐号信息查询接口获取。
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 待查询的服务窗关注者unionId。
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryUserFollowStatusRequest) String() string {
@@ -1348,7 +1356,6 @@ func (s *QueryUserFollowStatusRequest) SetUnionId(v string) *QueryUserFollowStat
 }
 
 type QueryUserFollowStatusResponseBody struct {
-	// 响应结果
 	Result *QueryUserFollowStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1366,9 +1373,6 @@ func (s *QueryUserFollowStatusResponseBody) SetResult(v *QueryUserFollowStatusRe
 }
 
 type QueryUserFollowStatusResponseBodyResult struct {
-	// 用户关注服务窗的状态:
-	// FOLLOWED：已关注。
-	// UNFOLLOW：未关注。
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
@@ -1386,8 +1390,9 @@ func (s *QueryUserFollowStatusResponseBodyResult) SetStatus(v string) *QueryUser
 }
 
 type QueryUserFollowStatusResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryUserFollowStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryUserFollowStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryUserFollowStatusResponse) String() string {
@@ -1400,6 +1405,11 @@ func (s QueryUserFollowStatusResponse) GoString() string {
 
 func (s *QueryUserFollowStatusResponse) SetHeaders(v map[string]*string) *QueryUserFollowStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryUserFollowStatusResponse) SetStatusCode(v int32) *QueryUserFollowStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1432,7 +1442,6 @@ func (s *SendAgentOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendA
 }
 
 type SendAgentOTOMessageRequest struct {
-	// 消息详情
 	Detail *SendAgentOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -1450,15 +1459,11 @@ func (s *SendAgentOTOMessageRequest) SetDetail(v *SendAgentOTOMessageRequestDeta
 }
 
 type SendAgentOTOMessageRequestDetail struct {
-	// 消息体
 	MessageBody *SendAgentOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
-	// 消息类型
-	MsgType   *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
-	// 消息接收人id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 请求唯一 ID
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	MsgType     *string                                      `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	SessionId   *string                                      `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	UserId      *string                                      `json:"userId,omitempty" xml:"userId,omitempty"`
+	Uuid        *string                                      `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s SendAgentOTOMessageRequestDetail) String() string {
@@ -1495,17 +1500,12 @@ func (s *SendAgentOTOMessageRequestDetail) SetUuid(v string) *SendAgentOTOMessag
 }
 
 type SendAgentOTOMessageRequestDetailMessageBody struct {
-	// 卡片消息
-	ActionCard *SendAgentOTOMessageRequestDetailMessageBodyActionCard `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
-	// 图片类型的消息场景使用
+	ActionCard         *SendAgentOTOMessageRequestDetailMessageBodyActionCard         `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
 	Image              *SendAgentOTOMessageRequestDetailMessageBodyImage              `json:"image,omitempty" xml:"image,omitempty" type:"Struct"`
 	InteractiveMessage *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage `json:"interactiveMessage,omitempty" xml:"interactiveMessage,omitempty" type:"Struct"`
-	// 链接消息类型
-	Link *SendAgentOTOMessageRequestDetailMessageBodyLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
-	// markdown消息，仅对消息类型为markdown时有效
-	Markdown *SendAgentOTOMessageRequestDetailMessageBodyMarkdown `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
-	// 文本消息体  对于文本类型消息时必填
-	Text *SendAgentOTOMessageRequestDetailMessageBodyText `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
+	Link               *SendAgentOTOMessageRequestDetailMessageBodyLink               `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
+	Markdown           *SendAgentOTOMessageRequestDetailMessageBodyMarkdown           `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
+	Text               *SendAgentOTOMessageRequestDetailMessageBodyText               `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
 }
 
 func (s SendAgentOTOMessageRequestDetailMessageBody) String() string {
@@ -1547,18 +1547,12 @@ func (s *SendAgentOTOMessageRequestDetailMessageBody) SetText(v *SendAgentOTOMes
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyActionCard struct {
-	// 使用独立跳转ActionCard样式时的按钮列表；必须与buttonOrientation同时设置，且长度不超过1000字符。
-	ButtonList []*SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
-	// 按钮排列方式： 0：竖直排列 1：横向排列 必须与buttonList同时设置。
-	ButtonOrientation *string `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
-	// 消息内容，支持markdown，语法参考标准markdown语法。1000个字符以内。
-	Markdown *string `json:"markdown,omitempty" xml:"markdown,omitempty"`
-	// 使用整体跳转ActionCard样式时的标题。必须与singleUrl同时设置，最长20个字符。
-	SingleTitle *string `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
-	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接，最长500个字符。
-	SingleUrl *string `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
-	// 透出到会话列表和通知的文案
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	ButtonList        []*SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
+	ButtonOrientation *string                                                            `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
+	Markdown          *string                                                            `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	SingleTitle       *string                                                            `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
+	SingleUrl         *string                                                            `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
+	Title             *string                                                            `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendAgentOTOMessageRequestDetailMessageBodyActionCard) String() string {
@@ -1600,10 +1594,8 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyActionCard) SetTitle(v strin
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList struct {
-	// 使用独立跳转ActionCard样式时的跳转链接。
 	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
-	// 使用独立跳转ActionCard样式时的按钮的标题，最长20个字符。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList) String() string {
@@ -1625,7 +1617,6 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList) SetTit
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyImage struct {
-	// 图片mediaId信息
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
@@ -1643,13 +1634,9 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyImage) SetMediaId(v string) 
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage struct {
-	// 需要回调的互动卡片可通过此参数定义回调地址
-	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	// 卡片ID，由开发者自定义，同一卡片此ID需要保持一致。
-	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	// 互动卡片数据，必须是json object 格式
-	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
-	// 卡片模板ID，可通过互动卡片搭建后台获取。
+	CallbackUrl    *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	CardBizId      *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	CardData       *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
 	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 }
 
@@ -1682,14 +1669,10 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage) SetCardT
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyLink struct {
-	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接。
 	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
-	// 图片地址
-	PicUrl *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
-	// 消息描述，建议500字符以内。
-	Text *string `json:"text,omitempty" xml:"text,omitempty"`
-	// 消息标题，建议100字符以内。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	PicUrl     *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
+	Text       *string `json:"text,omitempty" xml:"text,omitempty"`
+	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendAgentOTOMessageRequestDetailMessageBodyLink) String() string {
@@ -1721,9 +1704,7 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyLink) SetTitle(v string) *Se
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyMarkdown struct {
-	// markdown格式的消息，建议500字符以内。
-	Text *string `json:"text,omitempty" xml:"text,omitempty"`
-	// 首屏会话透出的展示内容。
+	Text  *string `json:"text,omitempty" xml:"text,omitempty"`
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -1746,7 +1727,6 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyMarkdown) SetTitle(v string)
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyText struct {
-	// 消息内容，建议500字符以内。
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -1764,10 +1744,8 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyText) SetContent(v string) *
 }
 
 type SendAgentOTOMessageResponseBody struct {
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 推送结果
-	Result *SendAgentOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string                                `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *SendAgentOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s SendAgentOTOMessageResponseBody) String() string {
@@ -1789,7 +1767,6 @@ func (s *SendAgentOTOMessageResponseBody) SetResult(v *SendAgentOTOMessageRespon
 }
 
 type SendAgentOTOMessageResponseBodyResult struct {
-	// 推送ID
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -1807,8 +1784,9 @@ func (s *SendAgentOTOMessageResponseBodyResult) SetOpenPushId(v string) *SendAge
 }
 
 type SendAgentOTOMessageResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendAgentOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendAgentOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendAgentOTOMessageResponse) String() string {
@@ -1821,6 +1799,11 @@ func (s SendAgentOTOMessageResponse) GoString() string {
 
 func (s *SendAgentOTOMessageResponse) SetHeaders(v map[string]*string) *SendAgentOTOMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendAgentOTOMessageResponse) SetStatusCode(v int32) *SendAgentOTOMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1853,7 +1836,6 @@ func (s *SendInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type SendInteractiveOTOMessageRequest struct {
-	// 消息详情
 	Detail *SendInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -1871,22 +1853,11 @@ func (s *SendInteractiveOTOMessageRequest) SetDetail(v *SendInteractiveOTOMessag
 }
 
 type SendInteractiveOTOMessageRequestDetail struct {
-	// 卡片回调的URL地址，不传此参数则无回调。
-	// 回调URL暂不支持query参数。
-	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	// 唯一标识一张卡片的ID，卡片幂等ID，可用于后续卡片更新。
-	// > 该参数由开发者传入，确保唯一。
-	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	// 卡片模板内容参数，JsonObject结构型。
-	// 卡片数据结构需要与卡片搭建平台上定义的参数结构一致。
-	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
-	// 卡片搭建平台模板ID，详情可查阅 [创建消息模板](https://open.dingtalk.com/document/group/create-message-template) 。
-	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	// 消息接收人id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 卡片模板userId差异用户参数，json结构体。
-	// 用户对应的数据结构需要与卡片搭建平台上定义的参数结构一致。
-	//
+	CallbackUrl          *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	CardBizId            *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	CardData             *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	CardTemplateId       *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	UserIdPrivateDataMap *string `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
@@ -1929,10 +1900,8 @@ func (s *SendInteractiveOTOMessageRequestDetail) SetUserIdPrivateDataMap(v strin
 }
 
 type SendInteractiveOTOMessageResponseBody struct {
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 推送结果
-	Result *SendInteractiveOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string                                      `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *SendInteractiveOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s SendInteractiveOTOMessageResponseBody) String() string {
@@ -1954,7 +1923,6 @@ func (s *SendInteractiveOTOMessageResponseBody) SetResult(v *SendInteractiveOTOM
 }
 
 type SendInteractiveOTOMessageResponseBodyResult struct {
-	// 推送ID
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -1972,8 +1940,9 @@ func (s *SendInteractiveOTOMessageResponseBodyResult) SetOpenPushId(v string) *S
 }
 
 type SendInteractiveOTOMessageResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendInteractiveOTOMessageResponse) String() string {
@@ -1986,6 +1955,11 @@ func (s SendInteractiveOTOMessageResponse) GoString() string {
 
 func (s *SendInteractiveOTOMessageResponse) SetHeaders(v map[string]*string) *SendInteractiveOTOMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendInteractiveOTOMessageResponse) SetStatusCode(v int32) *SendInteractiveOTOMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2018,7 +1992,6 @@ func (s *SendTopBoxInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type SendTopBoxInteractiveOTOMessageRequest struct {
-	// 卡片信息
 	Detail *SendTopBoxInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -2036,20 +2009,13 @@ func (s *SendTopBoxInteractiveOTOMessageRequest) SetDetail(v *SendTopBoxInteract
 }
 
 type SendTopBoxInteractiveOTOMessageRequestDetail struct {
-	// 卡片回调 URL 地址，不填则无回调
-	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	// 唯一标识一张卡片的ID，卡片幂等ID
-	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	// 卡片数据
-	CardData *SendTopBoxInteractiveOTOMessageRequestDetailCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
-	// 卡片模板 ID
-	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	// 失效时间，时间戳（毫秒），最长时间不超过 90 天
-	ExpiredTime *int64 `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
-	// 接收人 userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 卡片用户差异化数据
-	UserIdPrivateDataMap map[string]*DetailUserIdPrivateDataMapValue `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
+	CallbackUrl          *string                                               `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	CardBizId            *string                                               `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	CardData             *SendTopBoxInteractiveOTOMessageRequestDetailCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CardTemplateId       *string                                               `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	ExpiredTime          *int64                                                `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
+	UserId               *string                                               `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdPrivateDataMap map[string]*DetailUserIdPrivateDataMapValue           `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
 func (s SendTopBoxInteractiveOTOMessageRequestDetail) String() string {
@@ -2096,10 +2062,8 @@ func (s *SendTopBoxInteractiveOTOMessageRequestDetail) SetUserIdPrivateDataMap(v
 }
 
 type SendTopBoxInteractiveOTOMessageRequestDetailCardData struct {
-	// 富媒体卡片数据
 	CardMediaIdParamMap map[string]interface{} `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
-	// 普通文本卡片数据
-	CardParamMap map[string]interface{} `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+	CardParamMap        map[string]interface{} `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
 }
 
 func (s SendTopBoxInteractiveOTOMessageRequestDetailCardData) String() string {
@@ -2121,7 +2085,6 @@ func (s *SendTopBoxInteractiveOTOMessageRequestDetailCardData) SetCardParamMap(v
 }
 
 type SendTopBoxInteractiveOTOMessageResponseBody struct {
-	// Id of the request
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
 }
@@ -2145,8 +2108,9 @@ func (s *SendTopBoxInteractiveOTOMessageResponseBody) SetResult(v bool) *SendTop
 }
 
 type SendTopBoxInteractiveOTOMessageResponse struct {
-	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendTopBoxInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendTopBoxInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendTopBoxInteractiveOTOMessageResponse) String() string {
@@ -2159,6 +2123,11 @@ func (s SendTopBoxInteractiveOTOMessageResponse) GoString() string {
 
 func (s *SendTopBoxInteractiveOTOMessageResponse) SetHeaders(v map[string]*string) *SendTopBoxInteractiveOTOMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageResponse) SetStatusCode(v int32) *SendTopBoxInteractiveOTOMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2191,7 +2160,6 @@ func (s *UpdateInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type UpdateInteractiveOTOMessageRequest struct {
-	// 消息详情
 	Detail *UpdateInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -2267,10 +2235,8 @@ func (s *UpdateInteractiveOTOMessageRequestDetailUpdateOptions) SetUpdatePrivate
 }
 
 type UpdateInteractiveOTOMessageResponseBody struct {
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 推送结果
-	Result *UpdateInteractiveOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string                                        `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *UpdateInteractiveOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s UpdateInteractiveOTOMessageResponseBody) String() string {
@@ -2292,7 +2258,6 @@ func (s *UpdateInteractiveOTOMessageResponseBody) SetResult(v *UpdateInteractive
 }
 
 type UpdateInteractiveOTOMessageResponseBodyResult struct {
-	// 推送ID
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -2310,8 +2275,9 @@ func (s *UpdateInteractiveOTOMessageResponseBodyResult) SetOpenPushId(v string) 
 }
 
 type UpdateInteractiveOTOMessageResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInteractiveOTOMessageResponse) String() string {
@@ -2324,6 +2290,11 @@ func (s UpdateInteractiveOTOMessageResponse) GoString() string {
 
 func (s *UpdateInteractiveOTOMessageResponse) SetHeaders(v map[string]*string) *UpdateInteractiveOTOMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInteractiveOTOMessageResponse) SetStatusCode(v int32) *UpdateInteractiveOTOMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2356,12 +2327,9 @@ func (s *UpdateShortcutsHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSho
 }
 
 type UpdateShortcutsRequest struct {
-	// 配置详情
-	Details []*UpdateShortcutsRequestDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	// 会话id
-	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
-	// 用户信息
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Details   []*UpdateShortcutsRequestDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+	SessionId *string                          `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	UserId    *string                          `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateShortcutsRequest) String() string {
@@ -2388,20 +2356,13 @@ func (s *UpdateShortcutsRequest) SetUserId(v string) *UpdateShortcutsRequest {
 }
 
 type UpdateShortcutsRequestDetails struct {
-	// 用户点快捷入口时的跳转链接，此参数与callbackKey二选一。
-	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
-	// 快捷入口点击回调Key,可通过回调注册接口获得。此参数与actionUrl二选一。
-	CallbackKey *string `json:"callbackKey,omitempty" xml:"callbackKey,omitempty"`
-	// windows侧边栏图标的unicode
-	IconFont *string `json:"iconFont,omitempty" xml:"iconFont,omitempty"`
-	// 移动端图标
-	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
-	// 插件唯一标识
-	ShortcutId *string `json:"shortcutId,omitempty" xml:"shortcutId,omitempty"`
-	// 适配mac端侧边栏图标的mediaId
+	ActionUrl        *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
+	CallbackKey      *string `json:"callbackKey,omitempty" xml:"callbackKey,omitempty"`
+	IconFont         *string `json:"iconFont,omitempty" xml:"iconFont,omitempty"`
+	IconMediaId      *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	ShortcutId       *string `json:"shortcutId,omitempty" xml:"shortcutId,omitempty"`
 	SlideIconMediaId *string `json:"slideIconMediaId,omitempty" xml:"slideIconMediaId,omitempty"`
-	// 插件标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Title            *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s UpdateShortcutsRequestDetails) String() string {
@@ -2465,8 +2426,9 @@ func (s *UpdateShortcutsResponseBody) SetResult(v bool) *UpdateShortcutsResponse
 }
 
 type UpdateShortcutsResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateShortcutsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateShortcutsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateShortcutsResponse) String() string {
@@ -2482,33 +2444,13 @@ func (s *UpdateShortcutsResponse) SetHeaders(v map[string]*string) *UpdateShortc
 	return s
 }
 
+func (s *UpdateShortcutsResponse) SetStatusCode(v int32) *UpdateShortcutsResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *UpdateShortcutsResponse) SetBody(v *UpdateShortcutsResponseBody) *UpdateShortcutsResponse {
 	s.Body = v
-	return s
-}
-
-type DetailUserIdPrivateDataMapValue struct {
-	// 卡片模板的文本内容参数。
-	CardParamMap map[string]interface{} `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
-	// 卡片模板的图片内容参数。
-	CardMediaIdParamMap map[string]interface{} `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
-}
-
-func (s DetailUserIdPrivateDataMapValue) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DetailUserIdPrivateDataMapValue) GoString() string {
-	return s.String()
-}
-
-func (s *DetailUserIdPrivateDataMapValue) SetCardParamMap(v map[string]interface{}) *DetailUserIdPrivateDataMapValue {
-	s.CardParamMap = v
-	return s
-}
-
-func (s *DetailUserIdPrivateDataMapValue) SetCardMediaIdParamMap(v map[string]interface{}) *DetailUserIdPrivateDataMapValue {
-	s.CardMediaIdParamMap = v
 	return s
 }
 
@@ -2527,24 +2469,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) ApplyFollowerAuthInfo(request *ApplyFollowerAuthInfoRequest) (_result *ApplyFollowerAuthInfoResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &ApplyFollowerAuthInfoHeaders{}
-	_result = &ApplyFollowerAuthInfoResponse{}
-	_body, _err := client.ApplyFollowerAuthInfoWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) ApplyFollowerAuthInfoWithOptions(request *ApplyFollowerAuthInfoRequest, headers *ApplyFollowerAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *ApplyFollowerAuthInfoResponse, _err error) {
@@ -2582,8 +2518,19 @@ func (client *Client) ApplyFollowerAuthInfoWithOptions(request *ApplyFollowerAut
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ApplyFollowerAuthInfo"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/followers/authInfos/apply"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ApplyFollowerAuthInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("ApplyFollowerAuthInfo"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/followers/authInfos/apply"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2591,11 +2538,11 @@ func (client *Client) ApplyFollowerAuthInfoWithOptions(request *ApplyFollowerAut
 	return _result, _err
 }
 
-func (client *Client) CallbackRegiester(request *CallbackRegiesterRequest) (_result *CallbackRegiesterResponse, _err error) {
+func (client *Client) ApplyFollowerAuthInfo(request *ApplyFollowerAuthInfoRequest) (_result *ApplyFollowerAuthInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CallbackRegiesterHeaders{}
-	_result = &CallbackRegiesterResponse{}
-	_body, _err := client.CallbackRegiesterWithOptions(request, headers, runtime)
+	headers := &ApplyFollowerAuthInfoHeaders{}
+	_result = &ApplyFollowerAuthInfoResponse{}
+	_body, _err := client.ApplyFollowerAuthInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2638,8 +2585,19 @@ func (client *Client) CallbackRegiesterWithOptions(request *CallbackRegiesterReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CallbackRegiester"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/callbacks/regiester"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CallbackRegiesterResponse{}
-	_body, _err := client.DoROARequest(tea.String("CallbackRegiester"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/callbacks/regiester"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2647,11 +2605,11 @@ func (client *Client) CallbackRegiesterWithOptions(request *CallbackRegiesterReq
 	return _result, _err
 }
 
-func (client *Client) CloseTopBoxInteractiveOTOMessage(request *CloseTopBoxInteractiveOTOMessageRequest) (_result *CloseTopBoxInteractiveOTOMessageResponse, _err error) {
+func (client *Client) CallbackRegiester(request *CallbackRegiesterRequest) (_result *CallbackRegiesterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CloseTopBoxInteractiveOTOMessageHeaders{}
-	_result = &CloseTopBoxInteractiveOTOMessageResponse{}
-	_body, _err := client.CloseTopBoxInteractiveOTOMessageWithOptions(request, headers, runtime)
+	headers := &CallbackRegiesterHeaders{}
+	_result = &CallbackRegiesterResponse{}
+	_body, _err := client.CallbackRegiesterWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2682,8 +2640,19 @@ func (client *Client) CloseTopBoxInteractiveOTOMessageWithOptions(request *Close
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CloseTopBoxInteractiveOTOMessage"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/oToMessages/topBoxes/close"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CloseTopBoxInteractiveOTOMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("CloseTopBoxInteractiveOTOMessage"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/topBoxes/close"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2691,11 +2660,11 @@ func (client *Client) CloseTopBoxInteractiveOTOMessageWithOptions(request *Close
 	return _result, _err
 }
 
-func (client *Client) GetFollowerAuthInfo(request *GetFollowerAuthInfoRequest) (_result *GetFollowerAuthInfoResponse, _err error) {
+func (client *Client) CloseTopBoxInteractiveOTOMessage(request *CloseTopBoxInteractiveOTOMessageRequest) (_result *CloseTopBoxInteractiveOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFollowerAuthInfoHeaders{}
-	_result = &GetFollowerAuthInfoResponse{}
-	_body, _err := client.GetFollowerAuthInfoWithOptions(request, headers, runtime)
+	headers := &CloseTopBoxInteractiveOTOMessageHeaders{}
+	_result = &CloseTopBoxInteractiveOTOMessageResponse{}
+	_body, _err := client.CloseTopBoxInteractiveOTOMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2730,8 +2699,19 @@ func (client *Client) GetFollowerAuthInfoWithOptions(request *GetFollowerAuthInf
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFollowerAuthInfo"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/followers/authInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFollowerAuthInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFollowerAuthInfo"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/followers/authInfos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2739,11 +2719,11 @@ func (client *Client) GetFollowerAuthInfoWithOptions(request *GetFollowerAuthInf
 	return _result, _err
 }
 
-func (client *Client) GetFollowerInfo(request *GetFollowerInfoRequest) (_result *GetFollowerInfoResponse, _err error) {
+func (client *Client) GetFollowerAuthInfo(request *GetFollowerAuthInfoRequest) (_result *GetFollowerAuthInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFollowerInfoHeaders{}
-	_result = &GetFollowerInfoResponse{}
-	_body, _err := client.GetFollowerInfoWithOptions(request, headers, runtime)
+	headers := &GetFollowerAuthInfoHeaders{}
+	_result = &GetFollowerAuthInfoResponse{}
+	_body, _err := client.GetFollowerAuthInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2782,8 +2762,19 @@ func (client *Client) GetFollowerInfoWithOptions(request *GetFollowerInfoRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFollowerInfo"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/followers/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFollowerInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFollowerInfo"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/followers/infos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2791,11 +2782,11 @@ func (client *Client) GetFollowerInfoWithOptions(request *GetFollowerInfoRequest
 	return _result, _err
 }
 
-func (client *Client) GetPictureDownloadUrl(request *GetPictureDownloadUrlRequest) (_result *GetPictureDownloadUrlResponse, _err error) {
+func (client *Client) GetFollowerInfo(request *GetFollowerInfoRequest) (_result *GetFollowerInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetPictureDownloadUrlHeaders{}
-	_result = &GetPictureDownloadUrlResponse{}
-	_body, _err := client.GetPictureDownloadUrlWithOptions(request, headers, runtime)
+	headers := &GetFollowerInfoHeaders{}
+	_result = &GetFollowerInfoResponse{}
+	_body, _err := client.GetFollowerInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2830,8 +2821,19 @@ func (client *Client) GetPictureDownloadUrlWithOptions(request *GetPictureDownlo
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPictureDownloadUrl"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/oToMessages/pictures/downloadUrls"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetPictureDownloadUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetPictureDownloadUrl"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/pictures/downloadUrls"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2839,11 +2841,11 @@ func (client *Client) GetPictureDownloadUrlWithOptions(request *GetPictureDownlo
 	return _result, _err
 }
 
-func (client *Client) GetUserFollowStatus(request *GetUserFollowStatusRequest) (_result *GetUserFollowStatusResponse, _err error) {
+func (client *Client) GetPictureDownloadUrl(request *GetPictureDownloadUrlRequest) (_result *GetPictureDownloadUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserFollowStatusHeaders{}
-	_result = &GetUserFollowStatusResponse{}
-	_body, _err := client.GetUserFollowStatusWithOptions(request, headers, runtime)
+	headers := &GetPictureDownloadUrlHeaders{}
+	_result = &GetPictureDownloadUrlResponse{}
+	_body, _err := client.GetPictureDownloadUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2882,8 +2884,19 @@ func (client *Client) GetUserFollowStatusWithOptions(request *GetUserFollowStatu
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserFollowStatus"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/followers/statuses"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserFollowStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserFollowStatus"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/followers/statuses"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2891,11 +2904,11 @@ func (client *Client) GetUserFollowStatusWithOptions(request *GetUserFollowStatu
 	return _result, _err
 }
 
-func (client *Client) ListAccount() (_result *ListAccountResponse, _err error) {
+func (client *Client) GetUserFollowStatus(request *GetUserFollowStatusRequest) (_result *GetUserFollowStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListAccountHeaders{}
-	_result = &ListAccountResponse{}
-	_body, _err := client.ListAccountWithOptions(headers, runtime)
+	headers := &GetUserFollowStatusHeaders{}
+	_result = &GetUserFollowStatusResponse{}
+	_body, _err := client.GetUserFollowStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2916,8 +2929,19 @@ func (client *Client) ListAccountWithOptions(headers *ListAccountHeaders, runtim
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAccount"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/accounts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListAccountResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListAccount"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/accounts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2925,11 +2949,11 @@ func (client *Client) ListAccountWithOptions(headers *ListAccountHeaders, runtim
 	return _result, _err
 }
 
-func (client *Client) ListAccountInfo() (_result *ListAccountInfoResponse, _err error) {
+func (client *Client) ListAccount() (_result *ListAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListAccountInfoHeaders{}
-	_result = &ListAccountInfoResponse{}
-	_body, _err := client.ListAccountInfoWithOptions(headers, runtime)
+	headers := &ListAccountHeaders{}
+	_result = &ListAccountResponse{}
+	_body, _err := client.ListAccountWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2950,8 +2974,19 @@ func (client *Client) ListAccountInfoWithOptions(headers *ListAccountInfoHeaders
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAccountInfo"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/isv/accounts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListAccountInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListAccountInfo"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/isv/accounts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2959,11 +2994,11 @@ func (client *Client) ListAccountInfoWithOptions(headers *ListAccountInfoHeaders
 	return _result, _err
 }
 
-func (client *Client) ListFollower(request *ListFollowerRequest) (_result *ListFollowerResponse, _err error) {
+func (client *Client) ListAccountInfo() (_result *ListAccountInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListFollowerHeaders{}
-	_result = &ListFollowerResponse{}
-	_body, _err := client.ListFollowerWithOptions(request, headers, runtime)
+	headers := &ListAccountInfoHeaders{}
+	_result = &ListAccountInfoResponse{}
+	_body, _err := client.ListAccountInfoWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3002,8 +3037,19 @@ func (client *Client) ListFollowerWithOptions(request *ListFollowerRequest, head
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListFollower"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/followers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListFollowerResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListFollower"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/followers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3011,11 +3057,11 @@ func (client *Client) ListFollowerWithOptions(request *ListFollowerRequest, head
 	return _result, _err
 }
 
-func (client *Client) QueryUserFollowStatus(request *QueryUserFollowStatusRequest) (_result *QueryUserFollowStatusResponse, _err error) {
+func (client *Client) ListFollower(request *ListFollowerRequest) (_result *ListFollowerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryUserFollowStatusHeaders{}
-	_result = &QueryUserFollowStatusResponse{}
-	_body, _err := client.QueryUserFollowStatusWithOptions(request, headers, runtime)
+	headers := &ListFollowerHeaders{}
+	_result = &ListFollowerResponse{}
+	_body, _err := client.ListFollowerWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3050,8 +3096,19 @@ func (client *Client) QueryUserFollowStatusWithOptions(request *QueryUserFollowS
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUserFollowStatus"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/isv/followers/statuses"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryUserFollowStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryUserFollowStatus"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/isv/followers/statuses"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3059,11 +3116,11 @@ func (client *Client) QueryUserFollowStatusWithOptions(request *QueryUserFollowS
 	return _result, _err
 }
 
-func (client *Client) SendAgentOTOMessage(request *SendAgentOTOMessageRequest) (_result *SendAgentOTOMessageResponse, _err error) {
+func (client *Client) QueryUserFollowStatus(request *QueryUserFollowStatusRequest) (_result *QueryUserFollowStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendAgentOTOMessageHeaders{}
-	_result = &SendAgentOTOMessageResponse{}
-	_body, _err := client.SendAgentOTOMessageWithOptions(request, headers, runtime)
+	headers := &QueryUserFollowStatusHeaders{}
+	_result = &QueryUserFollowStatusResponse{}
+	_body, _err := client.QueryUserFollowStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3094,8 +3151,19 @@ func (client *Client) SendAgentOTOMessageWithOptions(request *SendAgentOTOMessag
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendAgentOTOMessage"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/oToMessages/agentMessages"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendAgentOTOMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendAgentOTOMessage"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/agentMessages"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3103,11 +3171,11 @@ func (client *Client) SendAgentOTOMessageWithOptions(request *SendAgentOTOMessag
 	return _result, _err
 }
 
-func (client *Client) SendInteractiveOTOMessage(request *SendInteractiveOTOMessageRequest) (_result *SendInteractiveOTOMessageResponse, _err error) {
+func (client *Client) SendAgentOTOMessage(request *SendAgentOTOMessageRequest) (_result *SendAgentOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendInteractiveOTOMessageHeaders{}
-	_result = &SendInteractiveOTOMessageResponse{}
-	_body, _err := client.SendInteractiveOTOMessageWithOptions(request, headers, runtime)
+	headers := &SendAgentOTOMessageHeaders{}
+	_result = &SendAgentOTOMessageResponse{}
+	_body, _err := client.SendAgentOTOMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3138,8 +3206,19 @@ func (client *Client) SendInteractiveOTOMessageWithOptions(request *SendInteract
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendInteractiveOTOMessage"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/oToMessages/interactiveMessages"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendInteractiveOTOMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendInteractiveOTOMessage"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/interactiveMessages"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3147,11 +3226,11 @@ func (client *Client) SendInteractiveOTOMessageWithOptions(request *SendInteract
 	return _result, _err
 }
 
-func (client *Client) SendTopBoxInteractiveOTOMessage(request *SendTopBoxInteractiveOTOMessageRequest) (_result *SendTopBoxInteractiveOTOMessageResponse, _err error) {
+func (client *Client) SendInteractiveOTOMessage(request *SendInteractiveOTOMessageRequest) (_result *SendInteractiveOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendTopBoxInteractiveOTOMessageHeaders{}
-	_result = &SendTopBoxInteractiveOTOMessageResponse{}
-	_body, _err := client.SendTopBoxInteractiveOTOMessageWithOptions(request, headers, runtime)
+	headers := &SendInteractiveOTOMessageHeaders{}
+	_result = &SendInteractiveOTOMessageResponse{}
+	_body, _err := client.SendInteractiveOTOMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3182,8 +3261,19 @@ func (client *Client) SendTopBoxInteractiveOTOMessageWithOptions(request *SendTo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendTopBoxInteractiveOTOMessage"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/oToMessages/topBoxes/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendTopBoxInteractiveOTOMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendTopBoxInteractiveOTOMessage"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/topBoxes/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3191,11 +3281,11 @@ func (client *Client) SendTopBoxInteractiveOTOMessageWithOptions(request *SendTo
 	return _result, _err
 }
 
-func (client *Client) UpdateInteractiveOTOMessage(request *UpdateInteractiveOTOMessageRequest) (_result *UpdateInteractiveOTOMessageResponse, _err error) {
+func (client *Client) SendTopBoxInteractiveOTOMessage(request *SendTopBoxInteractiveOTOMessageRequest) (_result *SendTopBoxInteractiveOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInteractiveOTOMessageHeaders{}
-	_result = &UpdateInteractiveOTOMessageResponse{}
-	_body, _err := client.UpdateInteractiveOTOMessageWithOptions(request, headers, runtime)
+	headers := &SendTopBoxInteractiveOTOMessageHeaders{}
+	_result = &SendTopBoxInteractiveOTOMessageResponse{}
+	_body, _err := client.SendTopBoxInteractiveOTOMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3226,8 +3316,19 @@ func (client *Client) UpdateInteractiveOTOMessageWithOptions(request *UpdateInte
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInteractiveOTOMessage"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/oToMessages/interactiveMessages"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInteractiveOTOMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInteractiveOTOMessage"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/interactiveMessages"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3235,11 +3336,11 @@ func (client *Client) UpdateInteractiveOTOMessageWithOptions(request *UpdateInte
 	return _result, _err
 }
 
-func (client *Client) UpdateShortcuts(request *UpdateShortcutsRequest) (_result *UpdateShortcutsResponse, _err error) {
+func (client *Client) UpdateInteractiveOTOMessage(request *UpdateInteractiveOTOMessageRequest) (_result *UpdateInteractiveOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateShortcutsHeaders{}
-	_result = &UpdateShortcutsResponse{}
-	_body, _err := client.UpdateShortcutsWithOptions(request, headers, runtime)
+	headers := &UpdateInteractiveOTOMessageHeaders{}
+	_result = &UpdateInteractiveOTOMessageResponse{}
+	_body, _err := client.UpdateInteractiveOTOMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3278,11 +3379,34 @@ func (client *Client) UpdateShortcutsWithOptions(request *UpdateShortcutsRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateShortcuts"),
+		Version:     tea.String("link_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/link/shortcuts"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateShortcutsResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateShortcuts"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/shortcuts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateShortcuts(request *UpdateShortcutsRequest) (_result *UpdateShortcutsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateShortcutsHeaders{}
+	_result = &UpdateShortcutsResponse{}
+	_body, _err := client.UpdateShortcutsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

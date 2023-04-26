@@ -5,9 +5,11 @@
 package content_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,12 +37,9 @@ func (s *CreateFeedHeaders) SetXAcsDingtalkAccessToken(v string) *CreateFeedHead
 }
 
 type CreateFeedRequest struct {
-	// 课程相关信息
-	CourseInfo *CreateFeedRequestCourseInfo `json:"courseInfo,omitempty" xml:"courseInfo,omitempty" type:"Struct"`
-	// 发布者的用户Id
-	CreateUserId *string `json:"createUserId,omitempty" xml:"createUserId,omitempty"`
-	// 内容相关信息
-	FeedInfo *CreateFeedRequestFeedInfo `json:"feedInfo,omitempty" xml:"feedInfo,omitempty" type:"Struct"`
+	CourseInfo   *CreateFeedRequestCourseInfo `json:"courseInfo,omitempty" xml:"courseInfo,omitempty" type:"Struct"`
+	CreateUserId *string                      `json:"createUserId,omitempty" xml:"createUserId,omitempty"`
+	FeedInfo     *CreateFeedRequestFeedInfo   `json:"feedInfo,omitempty" xml:"feedInfo,omitempty" type:"Struct"`
 }
 
 func (s CreateFeedRequest) String() string {
@@ -67,12 +66,9 @@ func (s *CreateFeedRequest) SetFeedInfo(v *CreateFeedRequestFeedInfo) *CreateFee
 }
 
 type CreateFeedRequestCourseInfo struct {
-	// 讲师身份信息
 	LectorUserInfo *CreateFeedRequestCourseInfoLectorUserInfo `json:"lectorUserInfo,omitempty" xml:"lectorUserInfo,omitempty" type:"Struct"`
-	// 支付信息
-	PayInfo *CreateFeedRequestCourseInfoPayInfo `json:"payInfo,omitempty" xml:"payInfo,omitempty" type:"Struct"`
-	// 创建一个和该课程绑定的学习群和圈子
-	StudyGroupName *string `json:"studyGroupName,omitempty" xml:"studyGroupName,omitempty"`
+	PayInfo        *CreateFeedRequestCourseInfoPayInfo        `json:"payInfo,omitempty" xml:"payInfo,omitempty" type:"Struct"`
+	StudyGroupName *string                                    `json:"studyGroupName,omitempty" xml:"studyGroupName,omitempty"`
 }
 
 func (s CreateFeedRequestCourseInfo) String() string {
@@ -99,11 +95,8 @@ func (s *CreateFeedRequestCourseInfo) SetStudyGroupName(v string) *CreateFeedReq
 }
 
 type CreateFeedRequestCourseInfoLectorUserInfo struct {
-	// 讲师头像链接
 	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
-	// 讲师用户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 讲师用户Id
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -131,12 +124,9 @@ func (s *CreateFeedRequestCourseInfoLectorUserInfo) SetUserId(v string) *CreateF
 }
 
 type CreateFeedRequestCourseInfoPayInfo struct {
-	// 客服身份信息
-	CsUserInfo *CreateFeedRequestCourseInfoPayInfoCsUserInfo `json:"csUserInfo,omitempty" xml:"csUserInfo,omitempty" type:"Struct"`
-	// 课程打折信息
+	CsUserInfo   *CreateFeedRequestCourseInfoPayInfoCsUserInfo   `json:"csUserInfo,omitempty" xml:"csUserInfo,omitempty" type:"Struct"`
 	DiscountInfo *CreateFeedRequestCourseInfoPayInfoDiscountInfo `json:"discountInfo,omitempty" xml:"discountInfo,omitempty" type:"Struct"`
-	// 商品的默认情况下非打折时的价格，单位为分
-	Price *int64 `json:"price,omitempty" xml:"price,omitempty"`
+	Price        *int64                                          `json:"price,omitempty" xml:"price,omitempty"`
 }
 
 func (s CreateFeedRequestCourseInfoPayInfo) String() string {
@@ -163,11 +153,8 @@ func (s *CreateFeedRequestCourseInfoPayInfo) SetPrice(v int64) *CreateFeedReques
 }
 
 type CreateFeedRequestCourseInfoPayInfoCsUserInfo struct {
-	// 客服头像链接
 	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
-	// 客服用户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 客服用户Id
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -195,11 +182,8 @@ func (s *CreateFeedRequestCourseInfoPayInfoCsUserInfo) SetUserId(v string) *Crea
 }
 
 type CreateFeedRequestCourseInfoPayInfoDiscountInfo struct {
-	// 打折结束的时间，时间戳精确到毫秒，时间为东八区时间
-	EndTimeMillis *int64 `json:"endTimeMillis,omitempty" xml:"endTimeMillis,omitempty"`
-	// 打折时商品的价格，单位为分
-	Price *int64 `json:"price,omitempty" xml:"price,omitempty"`
-	// 打折开始的时间，时间戳精确到毫秒，时间为东八区时间
+	EndTimeMillis   *int64 `json:"endTimeMillis,omitempty" xml:"endTimeMillis,omitempty"`
+	Price           *int64 `json:"price,omitempty" xml:"price,omitempty"`
 	StartTimeMillis *int64 `json:"startTimeMillis,omitempty" xml:"startTimeMillis,omitempty"`
 }
 
@@ -227,34 +211,20 @@ func (s *CreateFeedRequestCourseInfoPayInfoDiscountInfo) SetStartTimeMillis(v in
 }
 
 type CreateFeedRequestFeedInfo struct {
-	// 请求的行为，是保存还是发布,1为save，2为publish，是修改还是新建取决于feedId是否为空
-	ActionType *int32 `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 版权所属:1：自有， 2.代理， 3.钉钉
-	BelongsTo *int32 `json:"belongsTo,omitempty" xml:"belongsTo,omitempty"`
-	// 内容分类，课程分类列表详情请见附录中的列表
-	FeedCategory *int64 `json:"feedCategory,omitempty" xml:"feedCategory,omitempty"`
-	// 可选参数，当feedId不为null时，表示对当前课程进行修改，否则为新建一个课程
-	FeedId *string `json:"feedId,omitempty" xml:"feedId,omitempty"`
-	// 课程的文字标签
-	FeedTag *string `json:"feedTag,omitempty" xml:"feedTag,omitempty"`
-	// 内容类别,限制只能使用4种类型：0：免费 4：平价 5：专栏 6：训练营
-	FeedType *int32 `json:"feedType,omitempty" xml:"feedType,omitempty"`
-	// 行业划分，决定了展示的页面的不同，例如学习中心下的职场、教育、商学院的划分,目前支持的行业id有：10001：职场学堂，10008：K12教育，10023：新职业，10024：钉钉培训
-	IndustryId *int64 `json:"industryId,omitempty" xml:"industryId,omitempty"`
-	// 课程的描述
-	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	// 课程简介用的图片
-	IntroductionPicUrl *string `json:"introductionPicUrl,omitempty" xml:"introductionPicUrl,omitempty"`
-	// 入驻账号Id(请联系钉钉接口同学获取)
-	McnId *string `json:"mcnId,omitempty" xml:"mcnId,omitempty"`
-	// 一个课程下可以有多个视频或音频教程
-	MediaContents []*CreateFeedRequestFeedInfoMediaContents `json:"mediaContents,omitempty" xml:"mediaContents,omitempty" type:"Repeated"`
-	// 推荐内容集合
-	Recommends []*CreateFeedRequestFeedInfoRecommends `json:"recommends,omitempty" xml:"recommends,omitempty" type:"Repeated"`
-	// 课程的封面Url
-	ThumbUrl *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
-	// 内容的标题（标题不能重复）
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	ActionType         *int32                                    `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	BelongsTo          *int32                                    `json:"belongsTo,omitempty" xml:"belongsTo,omitempty"`
+	FeedCategory       *int64                                    `json:"feedCategory,omitempty" xml:"feedCategory,omitempty"`
+	FeedId             *string                                   `json:"feedId,omitempty" xml:"feedId,omitempty"`
+	FeedTag            *string                                   `json:"feedTag,omitempty" xml:"feedTag,omitempty"`
+	FeedType           *int32                                    `json:"feedType,omitempty" xml:"feedType,omitempty"`
+	IndustryId         *int64                                    `json:"industryId,omitempty" xml:"industryId,omitempty"`
+	Introduction       *string                                   `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	IntroductionPicUrl *string                                   `json:"introductionPicUrl,omitempty" xml:"introductionPicUrl,omitempty"`
+	McnId              *string                                   `json:"mcnId,omitempty" xml:"mcnId,omitempty"`
+	MediaContents      []*CreateFeedRequestFeedInfoMediaContents `json:"mediaContents,omitempty" xml:"mediaContents,omitempty" type:"Repeated"`
+	Recommends         []*CreateFeedRequestFeedInfoRecommends    `json:"recommends,omitempty" xml:"recommends,omitempty" type:"Repeated"`
+	ThumbUrl           *string                                   `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
+	Title              *string                                   `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateFeedRequestFeedInfo) String() string {
@@ -336,12 +306,9 @@ func (s *CreateFeedRequestFeedInfo) SetTitle(v string) *CreateFeedRequestFeedInf
 }
 
 type CreateFeedRequestFeedInfoMediaContents struct {
-	// 媒体的mediaId，唯一对应oss中的一个视频或者音频
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	// 媒体的标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 媒体的类型，当前该接口只支持video和audio,2:视频,3:音频
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Title   *string `json:"title,omitempty" xml:"title,omitempty"`
+	Type    *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CreateFeedRequestFeedInfoMediaContents) String() string {
@@ -368,10 +335,8 @@ func (s *CreateFeedRequestFeedInfoMediaContents) SetType(v int32) *CreateFeedReq
 }
 
 type CreateFeedRequestFeedInfoRecommends struct {
-	// 推荐物品的id，可以时feedId或者是微应用Id
 	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
-	// 推荐物品的类别,0:课程,1:微应用
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Type     *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CreateFeedRequestFeedInfoRecommends) String() string {
@@ -393,7 +358,6 @@ func (s *CreateFeedRequestFeedInfoRecommends) SetType(v int32) *CreateFeedReques
 }
 
 type CreateFeedResponseBody struct {
-	// 创建内容的内容Id
 	FeedId *string `json:"feedId,omitempty" xml:"feedId,omitempty"`
 }
 
@@ -411,8 +375,9 @@ func (s *CreateFeedResponseBody) SetFeedId(v string) *CreateFeedResponseBody {
 }
 
 type CreateFeedResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateFeedResponse) String() string {
@@ -425,6 +390,11 @@ func (s CreateFeedResponse) GoString() string {
 
 func (s *CreateFeedResponse) SetHeaders(v map[string]*string) *CreateFeedResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateFeedResponse) SetStatusCode(v int32) *CreateFeedResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -457,7 +427,6 @@ func (s *GetFeedHeaders) SetXAcsDingtalkAccessToken(v string) *GetFeedHeaders {
 }
 
 type GetFeedRequest struct {
-	// 入驻账号Id(请联系钉钉接口同学获取)
 	McnId *string `json:"mcnId,omitempty" xml:"mcnId,omitempty"`
 }
 
@@ -475,9 +444,7 @@ func (s *GetFeedRequest) SetMcnId(v string) *GetFeedRequest {
 }
 
 type GetFeedResponseBody struct {
-	// 内容Id
-	FeedId *string `json:"feedId,omitempty" xml:"feedId,omitempty"`
-	// 子内容
+	FeedId   *string                        `json:"feedId,omitempty" xml:"feedId,omitempty"`
 	FeedItem []*GetFeedResponseBodyFeedItem `json:"feedItem,omitempty" xml:"feedItem,omitempty" type:"Repeated"`
 }
 
@@ -500,16 +467,11 @@ func (s *GetFeedResponseBody) SetFeedItem(v []*GetFeedResponseBodyFeedItem) *Get
 }
 
 type GetFeedResponseBodyFeedItem struct {
-	// 子内容的持续时长，单位为毫秒
-	DurationMillis *int64 `json:"durationMillis,omitempty" xml:"durationMillis,omitempty"`
-	// 内容类型，0表示直播，1表示图文，2表示视频，3表示音频
-	FeedContentType *int32 `json:"feedContentType,omitempty" xml:"feedContentType,omitempty"`
-	// 子内容Id
-	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
-	// 子内容标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 子内容的跳转链接
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	DurationMillis  *int64  `json:"durationMillis,omitempty" xml:"durationMillis,omitempty"`
+	FeedContentType *int32  `json:"feedContentType,omitempty" xml:"feedContentType,omitempty"`
+	ItemId          *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	Title           *string `json:"title,omitempty" xml:"title,omitempty"`
+	Url             *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s GetFeedResponseBodyFeedItem) String() string {
@@ -546,8 +508,9 @@ func (s *GetFeedResponseBodyFeedItem) SetUrl(v string) *GetFeedResponseBodyFeedI
 }
 
 type GetFeedResponse struct {
-	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFeedResponse) String() string {
@@ -560,6 +523,11 @@ func (s GetFeedResponse) GoString() string {
 
 func (s *GetFeedResponse) SetHeaders(v map[string]*string) *GetFeedResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFeedResponse) SetStatusCode(v int32) *GetFeedResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -592,20 +560,13 @@ func (s *GetMediaCerficateHeaders) SetXAcsDingtalkAccessToken(v string) *GetMedi
 }
 
 type GetMediaCerficateRequest struct {
-	// 视频的文件名称,必须带扩展名,支持的扩展名参考:https://help.aliyun.com/document_detail/55396.htm?spm=a2c4g.11186623.2.11.2d385d4aG2IkCZ#title-j7o-gr4-c7a
-	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 入驻账号Id(请联系钉钉接口同学获取)
-	McnId *string `json:"mcnId,omitempty" xml:"mcnId,omitempty"`
-	// 如果传入该值，表示续订该mediaId对应的上传凭证 ;否则将视为新建一个视频上传连接和凭证
-	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	// 视频介绍
+	FileName          *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	McnId             *string `json:"mcnId,omitempty" xml:"mcnId,omitempty"`
+	MediaId           *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 	MediaIntroduction *string `json:"mediaIntroduction,omitempty" xml:"mediaIntroduction,omitempty"`
-	// 视频的标题
-	MediaTitle *string `json:"mediaTitle,omitempty" xml:"mediaTitle,omitempty"`
-	// 自定义视频封面的URL地址
-	ThumbUrl *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
-	// 操作人的用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	MediaTitle        *string `json:"mediaTitle,omitempty" xml:"mediaTitle,omitempty"`
+	ThumbUrl          *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
+	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetMediaCerficateRequest) String() string {
@@ -652,22 +613,14 @@ func (s *GetMediaCerficateRequest) SetUserId(v string) *GetMediaCerficateRequest
 }
 
 type GetMediaCerficateResponseBody struct {
-	// 媒体文件ID
-	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	// 上传授权密钥ID
-	OssAccessKeyId *string `json:"ossAccessKeyId,omitempty" xml:"ossAccessKeyId,omitempty"`
-	// 上传授权密钥
+	MediaId            *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	OssAccessKeyId     *string `json:"ossAccessKeyId,omitempty" xml:"ossAccessKeyId,omitempty"`
 	OssAccessKeySecret *string `json:"ossAccessKeySecret,omitempty" xml:"ossAccessKeySecret,omitempty"`
-	// OSS Bucket名称
-	OssBucketName *string `json:"ossBucketName,omitempty" xml:"ossBucketName,omitempty"`
-	// OSS区域地址
-	OssEndpoint *string `json:"ossEndpoint,omitempty" xml:"ossEndpoint,omitempty"`
-	// 凭证有效时间(单位秒)，当上传凭证过期时，需要重新使用本次返回的videoId重新调用接口进行凭证刷新
-	OssExpiration *string `json:"ossExpiration,omitempty" xml:"ossExpiration,omitempty"`
-	// 分配的媒体文件名
-	OssFileName *string `json:"ossFileName,omitempty" xml:"ossFileName,omitempty"`
-	// 上传授权安全令牌
-	OssSecurityToken *string `json:"ossSecurityToken,omitempty" xml:"ossSecurityToken,omitempty"`
+	OssBucketName      *string `json:"ossBucketName,omitempty" xml:"ossBucketName,omitempty"`
+	OssEndpoint        *string `json:"ossEndpoint,omitempty" xml:"ossEndpoint,omitempty"`
+	OssExpiration      *string `json:"ossExpiration,omitempty" xml:"ossExpiration,omitempty"`
+	OssFileName        *string `json:"ossFileName,omitempty" xml:"ossFileName,omitempty"`
+	OssSecurityToken   *string `json:"ossSecurityToken,omitempty" xml:"ossSecurityToken,omitempty"`
 }
 
 func (s GetMediaCerficateResponseBody) String() string {
@@ -719,8 +672,9 @@ func (s *GetMediaCerficateResponseBody) SetOssSecurityToken(v string) *GetMediaC
 }
 
 type GetMediaCerficateResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetMediaCerficateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMediaCerficateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetMediaCerficateResponse) String() string {
@@ -733,6 +687,11 @@ func (s GetMediaCerficateResponse) GoString() string {
 
 func (s *GetMediaCerficateResponse) SetHeaders(v map[string]*string) *GetMediaCerficateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetMediaCerficateResponse) SetStatusCode(v int32) *GetMediaCerficateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -765,7 +724,6 @@ func (s *ListItemUserDataHeaders) SetXAcsDingtalkAccessToken(v string) *ListItem
 }
 
 type ListItemUserDataRequest struct {
-	// 希望查询的用户的id列表
 	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
 }
 
@@ -783,7 +741,6 @@ func (s *ListItemUserDataRequest) SetBody(v []*string) *ListItemUserDataRequest 
 }
 
 type ListItemUserDataResponseBody struct {
-	// 学习的时长记录
 	StudyInfos []*ListItemUserDataResponseBodyStudyInfos `json:"studyInfos,omitempty" xml:"studyInfos,omitempty" type:"Repeated"`
 }
 
@@ -801,10 +758,8 @@ func (s *ListItemUserDataResponseBody) SetStudyInfos(v []*ListItemUserDataRespon
 }
 
 type ListItemUserDataResponseBodyStudyInfos struct {
-	// 时间持续长度，单位为毫秒
-	DurationMillis *int64 `json:"durationMillis,omitempty" xml:"durationMillis,omitempty"`
-	// 用户id
-	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	DurationMillis *int64  `json:"durationMillis,omitempty" xml:"durationMillis,omitempty"`
+	Uid            *string `json:"uid,omitempty" xml:"uid,omitempty"`
 }
 
 func (s ListItemUserDataResponseBodyStudyInfos) String() string {
@@ -826,8 +781,9 @@ func (s *ListItemUserDataResponseBodyStudyInfos) SetUid(v string) *ListItemUserD
 }
 
 type ListItemUserDataResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListItemUserDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListItemUserDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListItemUserDataResponse) String() string {
@@ -840,6 +796,11 @@ func (s ListItemUserDataResponse) GoString() string {
 
 func (s *ListItemUserDataResponse) SetHeaders(v map[string]*string) *ListItemUserDataResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListItemUserDataResponse) SetStatusCode(v int32) *ListItemUserDataResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -872,14 +833,10 @@ func (s *PageFeedHeaders) SetXAcsDingtalkAccessToken(v string) *PageFeedHeaders 
 }
 
 type PageFeedRequest struct {
-	// 内容Id，如果传入该参数，表示仅筛选内容Id出现在本列表中的内容
-	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	// 分页参数：页面展示数量
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 入驻账号Id(请联系钉钉接口同学获取)
-	McnId *string `json:"mcnId,omitempty" xml:"mcnId,omitempty"`
-	// 分页参数：起始位置，初始值应为0，后续传入返回值中的nextCursor字段中的值
-	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Body       []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	MaxResults *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	McnId      *string   `json:"mcnId,omitempty" xml:"mcnId,omitempty"`
+	NextToken  *int32    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s PageFeedRequest) String() string {
@@ -911,12 +868,9 @@ func (s *PageFeedRequest) SetNextToken(v int32) *PageFeedRequest {
 }
 
 type PageFeedResponseBody struct {
-	// 课程列表
-	FeedList []*PageFeedResponseBodyFeedList `json:"feedList,omitempty" xml:"feedList,omitempty" type:"Repeated"`
-	// 分页参数：是否还有下一页，false表示没有下一页
-	HasNext *bool `json:"hasNext,omitempty" xml:"hasNext,omitempty"`
-	// 分页参数：下一页的起始位置
-	NextCursor *int32 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	FeedList   []*PageFeedResponseBodyFeedList `json:"feedList,omitempty" xml:"feedList,omitempty" type:"Repeated"`
+	HasNext    *bool                           `json:"hasNext,omitempty" xml:"hasNext,omitempty"`
+	NextCursor *int32                          `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
 }
 
 func (s PageFeedResponseBody) String() string {
@@ -943,18 +897,12 @@ func (s *PageFeedResponseBody) SetNextCursor(v int32) *PageFeedResponseBody {
 }
 
 type PageFeedResponseBodyFeedList struct {
-	// 内容分类，请见https://developers.dingtalk.com/document/app/appendix-content
 	FeedCategory *string `json:"feedCategory,omitempty" xml:"feedCategory,omitempty"`
-	// 内容Id
-	FeedId *string `json:"feedId,omitempty" xml:"feedId,omitempty"`
-	// 内容类型，0：免费内容 4：平价内容 5：专栏内容 6：训练营内容
-	FeedType *int32 `json:"feedType,omitempty" xml:"feedType,omitempty"`
-	// 内容名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 封面URL
-	ThumbUrl *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
-	// 跳转Url，跳转到职场学堂后台页面
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	FeedId       *string `json:"feedId,omitempty" xml:"feedId,omitempty"`
+	FeedType     *int32  `json:"feedType,omitempty" xml:"feedType,omitempty"`
+	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	ThumbUrl     *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
+	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s PageFeedResponseBodyFeedList) String() string {
@@ -996,8 +944,9 @@ func (s *PageFeedResponseBodyFeedList) SetUrl(v string) *PageFeedResponseBodyFee
 }
 
 type PageFeedResponse struct {
-	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PageFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PageFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PageFeedResponse) String() string {
@@ -1010,6 +959,11 @@ func (s PageFeedResponse) GoString() string {
 
 func (s *PageFeedResponse) SetHeaders(v map[string]*string) *PageFeedResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PageFeedResponse) SetStatusCode(v int32) *PageFeedResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1033,24 +987,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateFeed(request *CreateFeedRequest) (_result *CreateFeedResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateFeedHeaders{}
-	_result = &CreateFeedResponse{}
-	_body, _err := client.CreateFeedWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateFeedWithOptions(request *CreateFeedRequest, headers *CreateFeedHeaders, runtime *util.RuntimeOptions) (_result *CreateFeedResponse, _err error) {
@@ -1084,8 +1032,19 @@ func (client *Client) CreateFeedWithOptions(request *CreateFeedRequest, headers 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateFeed"),
+		Version:     tea.String("content_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/content/feeds"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateFeedResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateFeed"), tea.String("content_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/content/feeds"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1093,11 +1052,11 @@ func (client *Client) CreateFeedWithOptions(request *CreateFeedRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) GetFeed(feedId *string, request *GetFeedRequest) (_result *GetFeedResponse, _err error) {
+func (client *Client) CreateFeed(request *CreateFeedRequest) (_result *CreateFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFeedHeaders{}
-	_result = &GetFeedResponse{}
-	_body, _err := client.GetFeedWithOptions(feedId, request, headers, runtime)
+	headers := &CreateFeedHeaders{}
+	_result = &CreateFeedResponse{}
+	_body, _err := client.CreateFeedWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1110,7 +1069,6 @@ func (client *Client) GetFeedWithOptions(feedId *string, request *GetFeedRequest
 	if _err != nil {
 		return _result, _err
 	}
-	feedId = openapiutil.GetEncodeParam(feedId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.McnId)) {
 		query["mcnId"] = request.McnId
@@ -1129,8 +1087,19 @@ func (client *Client) GetFeedWithOptions(feedId *string, request *GetFeedRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFeed"),
+		Version:     tea.String("content_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/content/feeds/" + tea.StringValue(feedId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFeedResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFeed"), tea.String("content_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/content/feeds/"+tea.StringValue(feedId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1138,11 +1107,11 @@ func (client *Client) GetFeedWithOptions(feedId *string, request *GetFeedRequest
 	return _result, _err
 }
 
-func (client *Client) GetMediaCerficate(request *GetMediaCerficateRequest) (_result *GetMediaCerficateResponse, _err error) {
+func (client *Client) GetFeed(feedId *string, request *GetFeedRequest) (_result *GetFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetMediaCerficateHeaders{}
-	_result = &GetMediaCerficateResponse{}
-	_body, _err := client.GetMediaCerficateWithOptions(request, headers, runtime)
+	headers := &GetFeedHeaders{}
+	_result = &GetFeedResponse{}
+	_body, _err := client.GetFeedWithOptions(feedId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1197,8 +1166,19 @@ func (client *Client) GetMediaCerficateWithOptions(request *GetMediaCerficateReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMediaCerficate"),
+		Version:     tea.String("content_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/content/media/cerficates"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetMediaCerficateResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetMediaCerficate"), tea.String("content_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/content/media/cerficates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1206,11 +1186,11 @@ func (client *Client) GetMediaCerficateWithOptions(request *GetMediaCerficateReq
 	return _result, _err
 }
 
-func (client *Client) ListItemUserData(itemId *string, request *ListItemUserDataRequest) (_result *ListItemUserDataResponse, _err error) {
+func (client *Client) GetMediaCerficate(request *GetMediaCerficateRequest) (_result *GetMediaCerficateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListItemUserDataHeaders{}
-	_result = &ListItemUserDataResponse{}
-	_body, _err := client.ListItemUserDataWithOptions(itemId, request, headers, runtime)
+	headers := &GetMediaCerficateHeaders{}
+	_result = &GetMediaCerficateResponse{}
+	_body, _err := client.GetMediaCerficateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1223,7 +1203,6 @@ func (client *Client) ListItemUserDataWithOptions(itemId *string, request *ListI
 	if _err != nil {
 		return _result, _err
 	}
-	itemId = openapiutil.GetEncodeParam(itemId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1237,8 +1216,19 @@ func (client *Client) ListItemUserDataWithOptions(itemId *string, request *ListI
 		Headers: realHeaders,
 		Body:    request.Body,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListItemUserData"),
+		Version:     tea.String("content_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/content/feeds/items/" + tea.StringValue(itemId) + "/userStatistics/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListItemUserDataResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListItemUserData"), tea.String("content_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/content/feeds/items/"+tea.StringValue(itemId)+"/userStatistics/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1246,11 +1236,11 @@ func (client *Client) ListItemUserDataWithOptions(itemId *string, request *ListI
 	return _result, _err
 }
 
-func (client *Client) PageFeed(request *PageFeedRequest) (_result *PageFeedResponse, _err error) {
+func (client *Client) ListItemUserData(itemId *string, request *ListItemUserDataRequest) (_result *ListItemUserDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PageFeedHeaders{}
-	_result = &PageFeedResponse{}
-	_body, _err := client.PageFeedWithOptions(request, headers, runtime)
+	headers := &ListItemUserDataHeaders{}
+	_result = &ListItemUserDataResponse{}
+	_body, _err := client.ListItemUserDataWithOptions(itemId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1290,11 +1280,34 @@ func (client *Client) PageFeedWithOptions(request *PageFeedRequest, headers *Pag
 		Query:   openapiutil.Query(query),
 		Body:    request.Body,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PageFeed"),
+		Version:     tea.String("content_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/content/feeds/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PageFeedResponse{}
-	_body, _err := client.DoROARequest(tea.String("PageFeed"), tea.String("content_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/content/feeds/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PageFeed(request *PageFeedRequest) (_result *PageFeedResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageFeedHeaders{}
+	_result = &PageFeedResponse{}
+	_body, _err := client.PageFeedWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

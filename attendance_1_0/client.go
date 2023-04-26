@@ -5,11 +5,148 @@
 package attendance_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type ResultDurationSettingsValue struct {
+	CalcType                     *int32                                            `json:"calcType,omitempty" xml:"calcType,omitempty"`
+	DurationType                 *int32                                            `json:"durationType,omitempty" xml:"durationType,omitempty"`
+	OvertimeRedress              *bool                                             `json:"overtimeRedress,omitempty" xml:"overtimeRedress,omitempty"`
+	Settings                     map[string]interface{}                            `json:"settings,omitempty" xml:"settings,omitempty"`
+	OvertimeRedressBy            *string                                           `json:"overtimeRedressBy,omitempty" xml:"overtimeRedressBy,omitempty"`
+	VacationRate                 *float32                                          `json:"vacationRate,omitempty" xml:"vacationRate,omitempty"`
+	SkipTime                     *string                                           `json:"skipTime,omitempty" xml:"skipTime,omitempty"`
+	SkipTimeByFrames             []*ResultDurationSettingsValueSkipTimeByFrames    `json:"skipTimeByFrames,omitempty" xml:"skipTimeByFrames,omitempty" type:"Repeated"`
+	SkipTimeByDurations          []*ResultDurationSettingsValueSkipTimeByDurations `json:"skipTimeByDurations,omitempty" xml:"skipTimeByDurations,omitempty" type:"Repeated"`
+	HolidayPlanOvertimeRedress   *bool                                             `json:"holidayPlanOvertimeRedress,omitempty" xml:"holidayPlanOvertimeRedress,omitempty"`
+	HolidayPlanOvertimeRedressBy *string                                           `json:"holidayPlanOvertimeRedressBy,omitempty" xml:"holidayPlanOvertimeRedressBy,omitempty"`
+	HolidayPlanVacationRate      *float32                                          `json:"holidayPlanVacationRate,omitempty" xml:"holidayPlanVacationRate,omitempty"`
+}
+
+func (s ResultDurationSettingsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultDurationSettingsValue) GoString() string {
+	return s.String()
+}
+
+func (s *ResultDurationSettingsValue) SetCalcType(v int32) *ResultDurationSettingsValue {
+	s.CalcType = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetDurationType(v int32) *ResultDurationSettingsValue {
+	s.DurationType = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetOvertimeRedress(v bool) *ResultDurationSettingsValue {
+	s.OvertimeRedress = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetSettings(v map[string]interface{}) *ResultDurationSettingsValue {
+	s.Settings = v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetOvertimeRedressBy(v string) *ResultDurationSettingsValue {
+	s.OvertimeRedressBy = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetVacationRate(v float32) *ResultDurationSettingsValue {
+	s.VacationRate = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetSkipTime(v string) *ResultDurationSettingsValue {
+	s.SkipTime = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetSkipTimeByFrames(v []*ResultDurationSettingsValueSkipTimeByFrames) *ResultDurationSettingsValue {
+	s.SkipTimeByFrames = v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetSkipTimeByDurations(v []*ResultDurationSettingsValueSkipTimeByDurations) *ResultDurationSettingsValue {
+	s.SkipTimeByDurations = v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetHolidayPlanOvertimeRedress(v bool) *ResultDurationSettingsValue {
+	s.HolidayPlanOvertimeRedress = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetHolidayPlanOvertimeRedressBy(v string) *ResultDurationSettingsValue {
+	s.HolidayPlanOvertimeRedressBy = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetHolidayPlanVacationRate(v float32) *ResultDurationSettingsValue {
+	s.HolidayPlanVacationRate = &v
+	return s
+}
+
+type ResultDurationSettingsValueSkipTimeByFrames struct {
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	EndTime   *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Valid     *bool   `json:"valid,omitempty" xml:"valid,omitempty"`
+}
+
+func (s ResultDurationSettingsValueSkipTimeByFrames) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultDurationSettingsValueSkipTimeByFrames) GoString() string {
+	return s.String()
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByFrames) SetStartTime(v string) *ResultDurationSettingsValueSkipTimeByFrames {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByFrames) SetEndTime(v string) *ResultDurationSettingsValueSkipTimeByFrames {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByFrames) SetValid(v bool) *ResultDurationSettingsValueSkipTimeByFrames {
+	s.Valid = &v
+	return s
+}
+
+type ResultDurationSettingsValueSkipTimeByDurations struct {
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	Minus    *int64 `json:"minus,omitempty" xml:"minus,omitempty"`
+}
+
+func (s ResultDurationSettingsValueSkipTimeByDurations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultDurationSettingsValueSkipTimeByDurations) GoString() string {
+	return s.String()
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByDurations) SetDuration(v int64) *ResultDurationSettingsValueSkipTimeByDurations {
+	s.Duration = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByDurations) SetMinus(v int64) *ResultDurationSettingsValueSkipTimeByDurations {
+	s.Minus = &v
+	return s
+}
 
 type AddLeaveTypeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -35,26 +172,16 @@ func (s *AddLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *AddLeaveType
 }
 
 type AddLeaveTypeRequest struct {
-	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 调休假有效期规则(validity_type:有效类型 absolute_time(绝对时间)、relative_time(相对时间)其中一种 validity_value:延长日期(当validity_type为absolute_time该值该值不为空且满足yy-mm格式 validity_type为relative_time该值为大于1的整数))
-	Extras *string `json:"extras,omitempty" xml:"extras,omitempty"`
-	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
-	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	// 请假证明
-	LeaveCertificate *AddLeaveTypeRequestLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	// 假期名称
-	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
-	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
-	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	// 限时提交规则
-	SubmitTimeRule *AddLeaveTypeRequestSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
-	VisibilityRules []*AddLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
-	// 操作者ID
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	BizType          *string                               `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Extras           *string                               `json:"extras,omitempty" xml:"extras,omitempty"`
+	HoursInPerDay    *int64                                `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *AddLeaveTypeRequestLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	LeaveName        *string                               `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	LeaveViewUnit    *string                               `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	NaturalDayLeave  *bool                                 `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	SubmitTimeRule   *AddLeaveTypeRequestSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules  []*AddLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	OpUserId         *string                               `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s AddLeaveTypeRequest) String() string {
@@ -116,14 +243,10 @@ func (s *AddLeaveTypeRequest) SetOpUserId(v string) *AddLeaveTypeRequest {
 }
 
 type AddLeaveTypeRequestLeaveCertificate struct {
-	// 超过多长时间需提供请假证明
-	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	// 是否开启请假证明
-	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
-	// 请假提示文案
-	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	// 请假证明单位hour，day
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
+	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s AddLeaveTypeRequestLeaveCertificate) String() string {
@@ -155,14 +278,10 @@ func (s *AddLeaveTypeRequestLeaveCertificate) SetUnit(v string) *AddLeaveTypeReq
 }
 
 type AddLeaveTypeRequestSubmitTimeRule struct {
-	// 是否开启限时提交功能：仅且为true时开启
-	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	// 限制类型：before-提前；after-补交
-	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	// 时间单位：day-天；hour-小时
-	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
-	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s AddLeaveTypeRequestSubmitTimeRule) String() string {
@@ -194,9 +313,7 @@ func (s *AddLeaveTypeRequestSubmitTimeRule) SetTimeValue(v int64) *AddLeaveTypeR
 }
 
 type AddLeaveTypeRequestVisibilityRules struct {
-	// 规则类型：dept-部门；staff-员工；label-角色
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
 
@@ -219,7 +336,6 @@ func (s *AddLeaveTypeRequestVisibilityRules) SetVisible(v []*string) *AddLeaveTy
 }
 
 type AddLeaveTypeResponseBody struct {
-	// 返回参数
 	Result *AddLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -237,24 +353,15 @@ func (s *AddLeaveTypeResponseBody) SetResult(v *AddLeaveTypeResponseBodyResult) 
 }
 
 type AddLeaveTypeResponseBodyResult struct {
-	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
-	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	// 请假证明
-	LeaveCertificate *AddLeaveTypeResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	// 假期类型唯一标识
-	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	// 假期名称
-	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
-	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
-	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	// 限时提交规则
-	SubmitTimeRule *AddLeaveTypeResponseBodyResultSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
-	VisibilityRules []*AddLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	BizType          *string                                          `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	HoursInPerDay    *int64                                           `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *AddLeaveTypeResponseBodyResultLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	LeaveCode        *string                                          `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	LeaveName        *string                                          `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	LeaveViewUnit    *string                                          `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	NaturalDayLeave  *bool                                            `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	SubmitTimeRule   *AddLeaveTypeResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules  []*AddLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 }
 
 func (s AddLeaveTypeResponseBodyResult) String() string {
@@ -311,14 +418,10 @@ func (s *AddLeaveTypeResponseBodyResult) SetVisibilityRules(v []*AddLeaveTypeRes
 }
 
 type AddLeaveTypeResponseBodyResultLeaveCertificate struct {
-	// 超过多长时间需提供请假证明
-	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	// 是否开启请假证明
-	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
-	// 请假提示文案
-	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	// 请假证明单位hour，day
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
+	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s AddLeaveTypeResponseBodyResultLeaveCertificate) String() string {
@@ -350,14 +453,10 @@ func (s *AddLeaveTypeResponseBodyResultLeaveCertificate) SetUnit(v string) *AddL
 }
 
 type AddLeaveTypeResponseBodyResultSubmitTimeRule struct {
-	// 是否开启限时提交功能：仅且为true时开启
-	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	// 限制类型：before-提前；after-补交
-	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	// 时间单位：day-天；hour-小时
-	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
-	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s AddLeaveTypeResponseBodyResultSubmitTimeRule) String() string {
@@ -389,9 +488,7 @@ func (s *AddLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *Ad
 }
 
 type AddLeaveTypeResponseBodyResultVisibilityRules struct {
-	// 规则类型：dept-部门；staff-员工；label-角色
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
 
@@ -414,8 +511,9 @@ func (s *AddLeaveTypeResponseBodyResultVisibilityRules) SetVisible(v []*string) 
 }
 
 type AddLeaveTypeResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddLeaveTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddLeaveTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddLeaveTypeResponse) String() string {
@@ -428,6 +526,11 @@ func (s AddLeaveTypeResponse) GoString() string {
 
 func (s *AddLeaveTypeResponse) SetHeaders(v map[string]*string) *AddLeaveTypeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddLeaveTypeResponse) SetStatusCode(v int32) *AddLeaveTypeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -460,12 +563,9 @@ func (s *AttendanceBleDevicesAddHeaders) SetXAcsDingtalkAccessToken(v string) *A
 }
 
 type AttendanceBleDevicesAddRequest struct {
-	// 蓝牙设备Id列表
 	DeviceIdList []*int64 `json:"deviceIdList,omitempty" xml:"deviceIdList,omitempty" type:"Repeated"`
-	// 考勤组Id
-	GroupKey *string `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
-	// 操作人Id
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	GroupKey     *string  `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
+	OpUserId     *string  `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s AttendanceBleDevicesAddRequest) String() string {
@@ -492,9 +592,7 @@ func (s *AttendanceBleDevicesAddRequest) SetOpUserId(v string) *AttendanceBleDev
 }
 
 type AttendanceBleDevicesAddResponseBody struct {
-	// 添加错误列表
-	ErrorList []*AttendanceBleDevicesAddResponseBodyErrorList `json:"errorList,omitempty" xml:"errorList,omitempty" type:"Repeated"`
-	// 添加成功蓝牙设备列表
+	ErrorList   []*AttendanceBleDevicesAddResponseBodyErrorList   `json:"errorList,omitempty" xml:"errorList,omitempty" type:"Repeated"`
 	SuccessList []*AttendanceBleDevicesAddResponseBodySuccessList `json:"successList,omitempty" xml:"successList,omitempty" type:"Repeated"`
 }
 
@@ -517,12 +615,9 @@ func (s *AttendanceBleDevicesAddResponseBody) SetSuccessList(v []*AttendanceBleD
 }
 
 type AttendanceBleDevicesAddResponseBodyErrorList struct {
-	// 错误code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 失败蓝牙设备列表
+	Code        *string                                                    `json:"code,omitempty" xml:"code,omitempty"`
 	FailureList []*AttendanceBleDevicesAddResponseBodyErrorListFailureList `json:"failureList,omitempty" xml:"failureList,omitempty" type:"Repeated"`
-	// errorMsg
-	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	Msg         *string                                                    `json:"msg,omitempty" xml:"msg,omitempty"`
 }
 
 func (s AttendanceBleDevicesAddResponseBodyErrorList) String() string {
@@ -549,12 +644,9 @@ func (s *AttendanceBleDevicesAddResponseBodyErrorList) SetMsg(v string) *Attenda
 }
 
 type AttendanceBleDevicesAddResponseBodyErrorListFailureList struct {
-	// 蓝牙设备Id
-	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 蓝牙设备名称
+	DeviceId   *int64  `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
 	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// sn
-	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	Sn         *string `json:"sn,omitempty" xml:"sn,omitempty"`
 }
 
 func (s AttendanceBleDevicesAddResponseBodyErrorListFailureList) String() string {
@@ -581,12 +673,9 @@ func (s *AttendanceBleDevicesAddResponseBodyErrorListFailureList) SetSn(v string
 }
 
 type AttendanceBleDevicesAddResponseBodySuccessList struct {
-	// 蓝牙设备Id
-	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 蓝牙设备名称
+	DeviceId   *int64  `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
 	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// sn
-	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	Sn         *string `json:"sn,omitempty" xml:"sn,omitempty"`
 }
 
 func (s AttendanceBleDevicesAddResponseBodySuccessList) String() string {
@@ -613,8 +702,9 @@ func (s *AttendanceBleDevicesAddResponseBodySuccessList) SetSn(v string) *Attend
 }
 
 type AttendanceBleDevicesAddResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AttendanceBleDevicesAddResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AttendanceBleDevicesAddResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AttendanceBleDevicesAddResponse) String() string {
@@ -627,6 +717,11 @@ func (s AttendanceBleDevicesAddResponse) GoString() string {
 
 func (s *AttendanceBleDevicesAddResponse) SetHeaders(v map[string]*string) *AttendanceBleDevicesAddResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddResponse) SetStatusCode(v int32) *AttendanceBleDevicesAddResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -659,9 +754,7 @@ func (s *AttendanceBleDevicesQueryHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type AttendanceBleDevicesQueryRequest struct {
-	// 考勤组Id
 	GroupKey *string `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
-	// 操作人Id
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
@@ -684,7 +777,6 @@ func (s *AttendanceBleDevicesQueryRequest) SetOpUserId(v string) *AttendanceBleD
 }
 
 type AttendanceBleDevicesQueryResponseBody struct {
-	// 蓝牙列表
 	Result []*AttendanceBleDevicesQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -702,12 +794,9 @@ func (s *AttendanceBleDevicesQueryResponseBody) SetResult(v []*AttendanceBleDevi
 }
 
 type AttendanceBleDevicesQueryResponseBodyResult struct {
-	// 蓝牙设备Id
-	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 蓝牙设备名称
+	DeviceId   *int64  `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
 	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// sn
-	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	Sn         *string `json:"sn,omitempty" xml:"sn,omitempty"`
 }
 
 func (s AttendanceBleDevicesQueryResponseBodyResult) String() string {
@@ -734,8 +823,9 @@ func (s *AttendanceBleDevicesQueryResponseBodyResult) SetSn(v string) *Attendanc
 }
 
 type AttendanceBleDevicesQueryResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AttendanceBleDevicesQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AttendanceBleDevicesQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AttendanceBleDevicesQueryResponse) String() string {
@@ -748,6 +838,11 @@ func (s AttendanceBleDevicesQueryResponse) GoString() string {
 
 func (s *AttendanceBleDevicesQueryResponse) SetHeaders(v map[string]*string) *AttendanceBleDevicesQueryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AttendanceBleDevicesQueryResponse) SetStatusCode(v int32) *AttendanceBleDevicesQueryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -780,12 +875,9 @@ func (s *AttendanceBleDevicesRemoveHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type AttendanceBleDevicesRemoveRequest struct {
-	// 蓝牙设备Id列表
 	DeviceIdList []*int64 `json:"deviceIdList,omitempty" xml:"deviceIdList,omitempty" type:"Repeated"`
-	// 考勤组Id
-	GroupKey *string `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
-	// 操作人id
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	GroupKey     *string  `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
+	OpUserId     *string  `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s AttendanceBleDevicesRemoveRequest) String() string {
@@ -812,10 +904,8 @@ func (s *AttendanceBleDevicesRemoveRequest) SetOpUserId(v string) *AttendanceBle
 }
 
 type AttendanceBleDevicesRemoveResponseBody struct {
-	// 移出错误列表
-	ErrorList []*AttendanceBleDevicesRemoveResponseBodyErrorList `json:"errorList,omitempty" xml:"errorList,omitempty" type:"Repeated"`
-	// 移除成功蓝牙设备Id列表
-	SuccessList []*int64 `json:"successList,omitempty" xml:"successList,omitempty" type:"Repeated"`
+	ErrorList   []*AttendanceBleDevicesRemoveResponseBodyErrorList `json:"errorList,omitempty" xml:"errorList,omitempty" type:"Repeated"`
+	SuccessList []*int64                                           `json:"successList,omitempty" xml:"successList,omitempty" type:"Repeated"`
 }
 
 func (s AttendanceBleDevicesRemoveResponseBody) String() string {
@@ -837,12 +927,9 @@ func (s *AttendanceBleDevicesRemoveResponseBody) SetSuccessList(v []*int64) *Att
 }
 
 type AttendanceBleDevicesRemoveResponseBodyErrorList struct {
-	// 错误code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 移除失败蓝牙设备Id列表
+	Code        *string  `json:"code,omitempty" xml:"code,omitempty"`
 	FailureList []*int64 `json:"failureList,omitempty" xml:"failureList,omitempty" type:"Repeated"`
-	// 错误信息
-	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	Msg         *string  `json:"msg,omitempty" xml:"msg,omitempty"`
 }
 
 func (s AttendanceBleDevicesRemoveResponseBodyErrorList) String() string {
@@ -869,8 +956,9 @@ func (s *AttendanceBleDevicesRemoveResponseBodyErrorList) SetMsg(v string) *Atte
 }
 
 type AttendanceBleDevicesRemoveResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AttendanceBleDevicesRemoveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AttendanceBleDevicesRemoveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AttendanceBleDevicesRemoveResponse) String() string {
@@ -883,6 +971,11 @@ func (s AttendanceBleDevicesRemoveResponse) GoString() string {
 
 func (s *AttendanceBleDevicesRemoveResponse) SetHeaders(v map[string]*string) *AttendanceBleDevicesRemoveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AttendanceBleDevicesRemoveResponse) SetStatusCode(v int32) *AttendanceBleDevicesRemoveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -915,11 +1008,8 @@ func (s *CheckClosingAccountHeaders) SetXAcsDingtalkAccessToken(v string) *Check
 }
 
 type CheckClosingAccountRequest struct {
-	// 情景
-	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	// 员工列表
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
-	// 时间段
+	BizCode       *string                                    `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	UserIds       []*string                                  `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 	UserTimeRange []*CheckClosingAccountRequestUserTimeRange `json:"userTimeRange,omitempty" xml:"userTimeRange,omitempty" type:"Repeated"`
 }
 
@@ -999,8 +1089,9 @@ func (s *CheckClosingAccountResponseBody) SetPass(v bool) *CheckClosingAccountRe
 }
 
 type CheckClosingAccountResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CheckClosingAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CheckClosingAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CheckClosingAccountResponse) String() string {
@@ -1013,6 +1104,11 @@ func (s CheckClosingAccountResponse) GoString() string {
 
 func (s *CheckClosingAccountResponse) SetHeaders(v map[string]*string) *CheckClosingAccountResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CheckClosingAccountResponse) SetStatusCode(v int32) *CheckClosingAccountResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1045,14 +1141,10 @@ func (s *CheckWritePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *Chec
 }
 
 type CheckWritePermissionRequest struct {
-	// category
-	Category *string `json:"category,omitempty" xml:"category,omitempty"`
-	// entityIds
-	EntityIds []*int64 `json:"entityIds,omitempty" xml:"entityIds,omitempty" type:"Repeated"`
-	// opUserId
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// resourceKey
-	ResourceKey *string `json:"resourceKey,omitempty" xml:"resourceKey,omitempty"`
+	Category    *string  `json:"category,omitempty" xml:"category,omitempty"`
+	EntityIds   []*int64 `json:"entityIds,omitempty" xml:"entityIds,omitempty" type:"Repeated"`
+	OpUserId    *string  `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	ResourceKey *string  `json:"resourceKey,omitempty" xml:"resourceKey,omitempty"`
 }
 
 func (s CheckWritePermissionRequest) String() string {
@@ -1084,7 +1176,6 @@ func (s *CheckWritePermissionRequest) SetResourceKey(v string) *CheckWritePermis
 }
 
 type CheckWritePermissionResponseBody struct {
-	// entityPermissionMap
 	EntityPermissionMap map[string]*bool `json:"entityPermissionMap,omitempty" xml:"entityPermissionMap,omitempty"`
 }
 
@@ -1102,8 +1193,9 @@ func (s *CheckWritePermissionResponseBody) SetEntityPermissionMap(v map[string]*
 }
 
 type CheckWritePermissionResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CheckWritePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CheckWritePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CheckWritePermissionResponse) String() string {
@@ -1116,6 +1208,11 @@ func (s CheckWritePermissionResponse) GoString() string {
 
 func (s *CheckWritePermissionResponse) SetHeaders(v map[string]*string) *CheckWritePermissionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CheckWritePermissionResponse) SetStatusCode(v int32) *CheckWritePermissionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1148,18 +1245,12 @@ func (s *CreateApproveHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAppro
 }
 
 type CreateApproveRequest struct {
-	// 三方审批单id，全局唯一
-	ApproveId *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
-	// 审批人员工id
-	OpUserid *string `json:"opUserid,omitempty" xml:"opUserid,omitempty"`
-	// 审批单关联的打卡信息
+	ApproveId  *string                         `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	OpUserid   *string                         `json:"opUserid,omitempty" xml:"opUserid,omitempty"`
 	PunchParam *CreateApproveRequestPunchParam `json:"punchParam,omitempty" xml:"punchParam,omitempty" type:"Struct"`
-	// 子类型名称，最大长度20个字符
-	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
-	// 审批单类型名称，最大长度20个字符
-	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
-	// 员工id
-	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
+	SubType    *string                         `json:"subType,omitempty" xml:"subType,omitempty"`
+	TagName    *string                         `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	Userid     *string                         `json:"userid,omitempty" xml:"userid,omitempty"`
 }
 
 func (s CreateApproveRequest) String() string {
@@ -1201,14 +1292,10 @@ func (s *CreateApproveRequest) SetUserid(v string) *CreateApproveRequest {
 }
 
 type CreateApproveRequestPunchParam struct {
-	// 地理位置标识：wifi:ssid_macAddress ble: deviceId gps:longitude_latitude
-	PositionId *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
-	// 地理位置名称
+	PositionId   *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
 	PositionName *string `json:"positionName,omitempty" xml:"positionName,omitempty"`
-	// 地理位置类型：wifi/ble/gps
 	PositionType *string `json:"positionType,omitempty" xml:"positionType,omitempty"`
-	// 打卡时间，单位毫秒
-	PunchTime *int64 `json:"punchTime,omitempty" xml:"punchTime,omitempty"`
+	PunchTime    *int64  `json:"punchTime,omitempty" xml:"punchTime,omitempty"`
 }
 
 func (s CreateApproveRequestPunchParam) String() string {
@@ -1240,7 +1327,6 @@ func (s *CreateApproveRequestPunchParam) SetPunchTime(v int64) *CreateApproveReq
 }
 
 type CreateApproveResponseBody struct {
-	// 返回结果
 	DingtalkApproveId *string `json:"dingtalkApproveId,omitempty" xml:"dingtalkApproveId,omitempty"`
 }
 
@@ -1258,8 +1344,9 @@ func (s *CreateApproveResponseBody) SetDingtalkApproveId(v string) *CreateApprov
 }
 
 type CreateApproveResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateApproveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateApproveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateApproveResponse) String() string {
@@ -1272,6 +1359,11 @@ func (s CreateApproveResponse) GoString() string {
 
 func (s *CreateApproveResponse) SetHeaders(v map[string]*string) *CreateApproveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateApproveResponse) SetStatusCode(v int32) *CreateApproveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1304,20 +1396,11 @@ func (s *DeleteWaterMarkTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *D
 }
 
 type DeleteWaterMarkTemplateRequest struct {
-	// 模板的表单Code。
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 模板的内容。
-	FormContent *string `json:"formContent,omitempty" xml:"formContent,omitempty"`
-	// 群会话ID。
+	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	FormContent        *string `json:"formContent,omitempty" xml:"formContent,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 是否是系统模板。
-	// - true：是
-	// - false：否
-	//
-	//
-	SystemTemplate *bool `json:"systemTemplate,omitempty" xml:"systemTemplate,omitempty"`
-	// 用户的userid。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	SystemTemplate     *bool   `json:"systemTemplate,omitempty" xml:"systemTemplate,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeleteWaterMarkTemplateRequest) String() string {
@@ -1354,7 +1437,6 @@ func (s *DeleteWaterMarkTemplateRequest) SetUserId(v string) *DeleteWaterMarkTem
 }
 
 type DeleteWaterMarkTemplateResponseBody struct {
-	// 模板的表单Code。
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1372,8 +1454,9 @@ func (s *DeleteWaterMarkTemplateResponseBody) SetResult(v string) *DeleteWaterMa
 }
 
 type DeleteWaterMarkTemplateResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteWaterMarkTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteWaterMarkTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteWaterMarkTemplateResponse) String() string {
@@ -1386,6 +1469,11 @@ func (s DeleteWaterMarkTemplateResponse) GoString() string {
 
 func (s *DeleteWaterMarkTemplateResponse) SetHeaders(v map[string]*string) *DeleteWaterMarkTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteWaterMarkTemplateResponse) SetStatusCode(v int32) *DeleteWaterMarkTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1418,16 +1506,11 @@ func (s *DingTalkSecurityCheckHeaders) SetXAcsDingtalkAccessToken(v string) *Din
 }
 
 type DingTalkSecurityCheckRequest struct {
-	// 客户端版本号
-	ClientVer *string `json:"clientVer,omitempty" xml:"clientVer,omitempty"`
-	// 客户端平台类型(iOS,Android)
-	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
-	// 客户端平台平台版本
+	ClientVer   *string `json:"clientVer,omitempty" xml:"clientVer,omitempty"`
+	Platform    *string `json:"platform,omitempty" xml:"platform,omitempty"`
 	PlatformVer *string `json:"platformVer,omitempty" xml:"platformVer,omitempty"`
-	// 加密字符
-	Sec *string `json:"sec,omitempty" xml:"sec,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Sec         *string `json:"sec,omitempty" xml:"sec,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DingTalkSecurityCheckRequest) String() string {
@@ -1464,7 +1547,6 @@ func (s *DingTalkSecurityCheckRequest) SetUserId(v string) *DingTalkSecurityChec
 }
 
 type DingTalkSecurityCheckResponseBody struct {
-	// 返回参数
 	Result *DingTalkSecurityCheckResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1482,9 +1564,7 @@ func (s *DingTalkSecurityCheckResponseBody) SetResult(v *DingTalkSecurityCheckRe
 }
 
 type DingTalkSecurityCheckResponseBodyResult struct {
-	// 是否有风险
-	HasRisk *bool `json:"hasRisk,omitempty" xml:"hasRisk,omitempty"`
-	// 风险信息
+	HasRisk  *bool              `json:"hasRisk,omitempty" xml:"hasRisk,omitempty"`
 	RiskInfo map[string]*string `json:"riskInfo,omitempty" xml:"riskInfo,omitempty"`
 }
 
@@ -1507,8 +1587,9 @@ func (s *DingTalkSecurityCheckResponseBodyResult) SetRiskInfo(v map[string]*stri
 }
 
 type DingTalkSecurityCheckResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DingTalkSecurityCheckResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DingTalkSecurityCheckResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DingTalkSecurityCheckResponse) String() string {
@@ -1521,6 +1602,11 @@ func (s DingTalkSecurityCheckResponse) GoString() string {
 
 func (s *DingTalkSecurityCheckResponse) SetHeaders(v map[string]*string) *DingTalkSecurityCheckResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DingTalkSecurityCheckResponse) SetStatusCode(v int32) *DingTalkSecurityCheckResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1553,12 +1639,9 @@ func (s *GetATManageScopeHeaders) SetXAcsDingtalkAccessToken(v string) *GetATMan
 }
 
 type GetATManageScopeRequest struct {
-	// 单次查询条数，最大200。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 查询用户userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetATManageScopeRequest) String() string {
@@ -1585,7 +1668,6 @@ func (s *GetATManageScopeRequest) SetUserId(v string) *GetATManageScopeRequest {
 }
 
 type GetATManageScopeResponseBody struct {
-	// 管理范围。
 	Result []*GetATManageScopeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -1603,12 +1685,9 @@ func (s *GetATManageScopeResponseBody) SetResult(v []*GetATManageScopeResponseBo
 }
 
 type GetATManageScopeResponseBodyResult struct {
-	// 是否有更多数据。  true：有  false：没有
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 可见范围。boss/主管理员/管理范围包含根部门的管理员：all ，管理员/考勤组负责人：partial，无权限：none
-	ManageScope *string `json:"manageScope,omitempty" xml:"manageScope,omitempty"`
-	// 员工userid。只有manageScope为partial返回数据。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	HasMore     *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	ManageScope *string   `json:"manageScope,omitempty" xml:"manageScope,omitempty"`
+	UserIds     []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetATManageScopeResponseBodyResult) String() string {
@@ -1635,8 +1714,9 @@ func (s *GetATManageScopeResponseBodyResult) SetUserIds(v []*string) *GetATManag
 }
 
 type GetATManageScopeResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetATManageScopeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetATManageScopeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetATManageScopeResponse) String() string {
@@ -1649,6 +1729,11 @@ func (s GetATManageScopeResponse) GoString() string {
 
 func (s *GetATManageScopeResponse) SetHeaders(v map[string]*string) *GetATManageScopeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetATManageScopeResponse) SetStatusCode(v int32) *GetATManageScopeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1704,7 +1789,6 @@ func (s *GetAdjustmentsRequest) SetPageSize(v int64) *GetAdjustmentsRequest {
 }
 
 type GetAdjustmentsResponseBody struct {
-	// Id of the request
 	Result []*GetAdjustmentsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -1722,12 +1806,9 @@ func (s *GetAdjustmentsResponseBody) SetResult(v []*GetAdjustmentsResponseBodyRe
 }
 
 type GetAdjustmentsResponseBodyResult struct {
-	// 补卡规则集合
-	Items []*GetAdjustmentsResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	// 当前页码
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 总页数
-	TotalPage *int64 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+	Items      []*GetAdjustmentsResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	PageNumber *int64                                   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	TotalPage  *int64                                   `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
 }
 
 func (s GetAdjustmentsResponseBodyResult) String() string {
@@ -1754,9 +1835,7 @@ func (s *GetAdjustmentsResponseBodyResult) SetTotalPage(v int64) *GetAdjustments
 }
 
 type GetAdjustmentsResponseBodyResultItems struct {
-	// 补卡规则id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 补卡规则名称
+	Id        *int64  `json:"id,omitempty" xml:"id,omitempty"`
 	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
 	SettingId *int64  `json:"settingId,omitempty" xml:"settingId,omitempty"`
 }
@@ -1785,8 +1864,9 @@ func (s *GetAdjustmentsResponseBodyResultItems) SetSettingId(v int64) *GetAdjust
 }
 
 type GetAdjustmentsResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAdjustmentsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAdjustmentsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAdjustmentsResponse) String() string {
@@ -1799,6 +1879,11 @@ func (s GetAdjustmentsResponse) GoString() string {
 
 func (s *GetAdjustmentsResponse) SetHeaders(v map[string]*string) *GetAdjustmentsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetAdjustmentsResponse) SetStatusCode(v int32) *GetAdjustmentsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1831,20 +1916,10 @@ func (s *GetCheckInSchemaTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type GetCheckInSchemaTemplateRequest struct {
-	// 业务码：
-	// - water_mark_checkin 水印签到
-	//
-	//
-	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	// 群会话ID。
+	BizCode            *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 场景码：
-	// - water_mark_checkin_h3yun 开放场景码
-	//
-	//
-	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
-	// 用户的userid。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	SceneCode          *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetCheckInSchemaTemplateRequest) String() string {
@@ -1876,7 +1951,6 @@ func (s *GetCheckInSchemaTemplateRequest) SetUserId(v string) *GetCheckInSchemaT
 }
 
 type GetCheckInSchemaTemplateResponseBody struct {
-	// 返回对象。
 	Result *GetCheckInSchemaTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1894,21 +1968,13 @@ func (s *GetCheckInSchemaTemplateResponseBody) SetResult(v *GetCheckInSchemaTemp
 }
 
 type GetCheckInSchemaTemplateResponseBodyResult struct {
-	// 业务码。
-	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	// 是否可以操作模板。
-	CanModifyAndAddTemplate *bool `json:"canModifyAndAddTemplate,omitempty" xml:"canModifyAndAddTemplate,omitempty"`
-	// 是否群管理员。
-	ConversationAdmin *bool `json:"conversationAdmin,omitempty" xml:"conversationAdmin,omitempty"`
-	// 自定义模板的最大数量。
-	CustomTemplateMaxSize *int32 `json:"customTemplateMaxSize,omitempty" xml:"customTemplateMaxSize,omitempty"`
-	// 群会话ID。
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 是否展示统计入口。
-	ShowStat *bool `json:"showStat,omitempty" xml:"showStat,omitempty"`
-	// 是否开启水印模板降级。
-	TemplateDegrade *bool `json:"templateDegrade,omitempty" xml:"templateDegrade,omitempty"`
-	// 模板列表。
+	BizCode                 *string                                                              `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	CanModifyAndAddTemplate *bool                                                                `json:"canModifyAndAddTemplate,omitempty" xml:"canModifyAndAddTemplate,omitempty"`
+	ConversationAdmin       *bool                                                                `json:"conversationAdmin,omitempty" xml:"conversationAdmin,omitempty"`
+	CustomTemplateMaxSize   *int32                                                               `json:"customTemplateMaxSize,omitempty" xml:"customTemplateMaxSize,omitempty"`
+	OpenConversationId      *string                                                              `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	ShowStat                *bool                                                                `json:"showStat,omitempty" xml:"showStat,omitempty"`
+	TemplateDegrade         *bool                                                                `json:"templateDegrade,omitempty" xml:"templateDegrade,omitempty"`
 	WaterMarkTemplateModels []*GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels `json:"waterMarkTemplateModels,omitempty" xml:"waterMarkTemplateModels,omitempty" type:"Repeated"`
 }
 
@@ -1961,26 +2027,16 @@ func (s *GetCheckInSchemaTemplateResponseBodyResult) SetWaterMarkTemplateModels(
 }
 
 type GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels struct {
-	// 是否可以修改。
-	CanModify *bool `json:"canModify,omitempty" xml:"canModify,omitempty"`
-	// 模板的表单Code。
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 模板的预览图片。
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 模板的布局信息。
-	LayoutDesign *string `json:"layoutDesign,omitempty" xml:"layoutDesign,omitempty"`
-	// 模板的场景码。
-	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
-	// 模板的内容。
-	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
-	// suiteKey。
-	SuiteKey *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
-	// 是否系统模板。
-	SystemTemplate *bool `json:"systemTemplate,omitempty" xml:"systemTemplate,omitempty"`
-	// 模板的标题。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 模板的水印ID。
-	WaterMarkId *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
+	CanModify      *bool   `json:"canModify,omitempty" xml:"canModify,omitempty"`
+	FormCode       *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	LayoutDesign   *string `json:"layoutDesign,omitempty" xml:"layoutDesign,omitempty"`
+	SceneCode      *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	SchemaContent  *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	SuiteKey       *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	SystemTemplate *bool   `json:"systemTemplate,omitempty" xml:"systemTemplate,omitempty"`
+	Title          *string `json:"title,omitempty" xml:"title,omitempty"`
+	WaterMarkId    *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
 }
 
 func (s GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) String() string {
@@ -2042,8 +2098,9 @@ func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetW
 }
 
 type GetCheckInSchemaTemplateResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCheckInSchemaTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCheckInSchemaTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCheckInSchemaTemplateResponse) String() string {
@@ -2056,6 +2113,11 @@ func (s GetCheckInSchemaTemplateResponse) GoString() string {
 
 func (s *GetCheckInSchemaTemplateResponse) SetHeaders(v map[string]*string) *GetCheckInSchemaTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponse) SetStatusCode(v int32) *GetCheckInSchemaTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2088,7 +2150,6 @@ func (s *GetClosingAccountsHeaders) SetXAcsDingtalkAccessToken(v string) *GetClo
 }
 
 type GetClosingAccountsRequest struct {
-	// 人员列表
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -2106,7 +2167,6 @@ func (s *GetClosingAccountsRequest) SetUserIds(v []*string) *GetClosingAccountsR
 }
 
 type GetClosingAccountsResponseBody struct {
-	// 规则列表
 	Result []*GetClosingAccountsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2124,14 +2184,10 @@ func (s *GetClosingAccountsResponseBody) SetResult(v []*GetClosingAccountsRespon
 }
 
 type GetClosingAccountsResponseBodyResult struct {
-	// 封账规则
-	ClosingAccountModel *GetClosingAccountsResponseBodyResultClosingAccountModel `json:"closingAccountModel,omitempty" xml:"closingAccountModel,omitempty" type:"Struct"`
-	// 开关
-	SwitchOn *bool `json:"switchOn,omitempty" xml:"switchOn,omitempty"`
-	// 解封规则
+	ClosingAccountModel       *GetClosingAccountsResponseBodyResultClosingAccountModel       `json:"closingAccountModel,omitempty" xml:"closingAccountModel,omitempty" type:"Struct"`
+	SwitchOn                  *bool                                                          `json:"switchOn,omitempty" xml:"switchOn,omitempty"`
 	UnsealClosingAccountModel *GetClosingAccountsResponseBodyResultUnsealClosingAccountModel `json:"unsealClosingAccountModel,omitempty" xml:"unsealClosingAccountModel,omitempty" type:"Struct"`
-	// 人员ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId                    *string                                                        `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetClosingAccountsResponseBodyResult) String() string {
@@ -2163,18 +2219,12 @@ func (s *GetClosingAccountsResponseBodyResult) SetUserId(v string) *GetClosingAc
 }
 
 type GetClosingAccountsResponseBodyResultClosingAccountModel struct {
-	// 封账时间-日
-	ClosingDay *int32 `json:"closingDay,omitempty" xml:"closingDay,omitempty"`
-	// 封账时间-时分
+	ClosingDay         *int32 `json:"closingDay,omitempty" xml:"closingDay,omitempty"`
 	ClosingHourMinutes *int64 `json:"closingHourMinutes,omitempty" xml:"closingHourMinutes,omitempty"`
-	// 封账范围-结束日
-	EndDay *int32 `json:"endDay,omitempty" xml:"endDay,omitempty"`
-	// 封账范围-结束月
-	EndMonth *int32 `json:"endMonth,omitempty" xml:"endMonth,omitempty"`
-	// 封账范围-开始日
-	StartDay *int32 `json:"startDay,omitempty" xml:"startDay,omitempty"`
-	// 封账范围-开始月
-	StartMonth *int32 `json:"startMonth,omitempty" xml:"startMonth,omitempty"`
+	EndDay             *int32 `json:"endDay,omitempty" xml:"endDay,omitempty"`
+	EndMonth           *int32 `json:"endMonth,omitempty" xml:"endMonth,omitempty"`
+	StartDay           *int32 `json:"startDay,omitempty" xml:"startDay,omitempty"`
+	StartMonth         *int32 `json:"startMonth,omitempty" xml:"startMonth,omitempty"`
 }
 
 func (s GetClosingAccountsResponseBodyResultClosingAccountModel) String() string {
@@ -2216,7 +2266,6 @@ func (s *GetClosingAccountsResponseBodyResultClosingAccountModel) SetStartMonth(
 }
 
 type GetClosingAccountsResponseBodyResultUnsealClosingAccountModel struct {
-	// 解封时间点
 	InvalidTimeStamp *int64 `json:"invalidTimeStamp,omitempty" xml:"invalidTimeStamp,omitempty"`
 }
 
@@ -2234,8 +2283,9 @@ func (s *GetClosingAccountsResponseBodyResultUnsealClosingAccountModel) SetInval
 }
 
 type GetClosingAccountsResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetClosingAccountsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetClosingAccountsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetClosingAccountsResponse) String() string {
@@ -2248,6 +2298,11 @@ func (s GetClosingAccountsResponse) GoString() string {
 
 func (s *GetClosingAccountsResponse) SetHeaders(v map[string]*string) *GetClosingAccountsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetClosingAccountsResponse) SetStatusCode(v int32) *GetClosingAccountsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2280,16 +2335,11 @@ func (s *GetLeaveRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *GetLeaveR
 }
 
 type GetLeaveRecordsRequest struct {
-	// 假期类型唯一标识。
-	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	// 操作人userId。
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 分页页码。
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小。
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 查询员工userId列表。一次最多支持50个。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	LeaveCode  *string   `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	OpUserId   *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	PageNumber *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	UserIds    []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetLeaveRecordsRequest) String() string {
@@ -2326,11 +2376,8 @@ func (s *GetLeaveRecordsRequest) SetUserIds(v []*string) *GetLeaveRecordsRequest
 }
 
 type GetLeaveRecordsResponseBody struct {
-	// 返回结果。
-	//
-	Result *GetLeaveRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 是否正确访问。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *GetLeaveRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetLeaveRecordsResponseBody) String() string {
@@ -2352,9 +2399,7 @@ func (s *GetLeaveRecordsResponseBody) SetSuccess(v bool) *GetLeaveRecordsRespons
 }
 
 type GetLeaveRecordsResponseBodyResult struct {
-	// 是否有更多结果。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 假期消费记录列表。
+	HasMore      *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 	LeaveRecords []*GetLeaveRecordsResponseBodyResultLeaveRecords `json:"leaveRecords,omitempty" xml:"leaveRecords,omitempty" type:"Repeated"`
 }
 
@@ -2377,38 +2422,22 @@ func (s *GetLeaveRecordsResponseBodyResult) SetLeaveRecords(v []*GetLeaveRecords
 }
 
 type GetLeaveRecordsResponseBodyResultLeaveRecords struct {
-	// 计算类型。
-	CalType *string `json:"calType,omitempty" xml:"calType,omitempty"`
-	// 额度有效期结束时间或请假结束时间，毫秒级时间戳。
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 记录创建时间。
-	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 记录修改时间。
-	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// 假期类型唯一标识。
-	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	// 原因。
-	LeaveReason *string `json:"leaveReason,omitempty" xml:"leaveReason,omitempty"`
-	// 假期记录类型。
-	LeaveRecordType *string `json:"leaveRecordType,omitempty" xml:"leaveRecordType,omitempty"`
-	// 请假状态。
-	LeaveStatus *string `json:"leaveStatus,omitempty" xml:"leaveStatus,omitempty"`
-	// 显示单位。
-	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	// 操作人userId。
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 额度唯一标识。
-	QuotaId *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
-	// 假期记录唯一标识。
-	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
-	// 以天计算的消费额度。
-	RecordNumPerDay *int64 `json:"recordNumPerDay,omitempty" xml:"recordNumPerDay,omitempty"`
-	// 以小时计算的消费额度。
-	RecordNumPerHour *int64 `json:"recordNumPerHour,omitempty" xml:"recordNumPerHour,omitempty"`
-	// 额度有效期开始时间或请假开始时间，毫秒级时间戳。
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 员工userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	CalType          *string `json:"calType,omitempty" xml:"calType,omitempty"`
+	EndTime          *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	GmtCreate        *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified      *int64  `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	LeaveCode        *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	LeaveReason      *string `json:"leaveReason,omitempty" xml:"leaveReason,omitempty"`
+	LeaveRecordType  *string `json:"leaveRecordType,omitempty" xml:"leaveRecordType,omitempty"`
+	LeaveStatus      *string `json:"leaveStatus,omitempty" xml:"leaveStatus,omitempty"`
+	LeaveViewUnit    *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	OpUserId         *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	QuotaId          *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
+	RecordId         *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	RecordNumPerDay  *int64  `json:"recordNumPerDay,omitempty" xml:"recordNumPerDay,omitempty"`
+	RecordNumPerHour *int64  `json:"recordNumPerHour,omitempty" xml:"recordNumPerHour,omitempty"`
+	StartTime        *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetLeaveRecordsResponseBodyResultLeaveRecords) String() string {
@@ -2500,8 +2529,9 @@ func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetUserId(v string) *Get
 }
 
 type GetLeaveRecordsResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetLeaveRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetLeaveRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetLeaveRecordsResponse) String() string {
@@ -2514,6 +2544,11 @@ func (s GetLeaveRecordsResponse) GoString() string {
 
 func (s *GetLeaveRecordsResponse) SetHeaders(v map[string]*string) *GetLeaveRecordsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetLeaveRecordsResponse) SetStatusCode(v int32) *GetLeaveRecordsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2546,9 +2581,7 @@ func (s *GetLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *GetLeaveType
 }
 
 type GetLeaveTypeRequest struct {
-	// 操作者ID
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 空:开放接口定义假期类型;all:所有假期类型
+	OpUserId       *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 	VacationSource *string `json:"vacationSource,omitempty" xml:"vacationSource,omitempty"`
 }
 
@@ -2571,7 +2604,6 @@ func (s *GetLeaveTypeRequest) SetVacationSource(v string) *GetLeaveTypeRequest {
 }
 
 type GetLeaveTypeResponseBody struct {
-	// 返回参数
 	Result []*GetLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2589,30 +2621,18 @@ func (s *GetLeaveTypeResponseBody) SetResult(v []*GetLeaveTypeResponseBodyResult
 }
 
 type GetLeaveTypeResponseBodyResult struct {
-	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
-	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	// 请假证明
-	LeaveCertificate *GetLeaveTypeResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	// 假期类型唯一标识
-	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	// 假期名称
-	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
-	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
-	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	// 开放接口自定义的:external oa后台新建的：inner
-	Source *string `json:"source,omitempty" xml:"source,omitempty"`
-	// 限时提交规则
-	SubmitTimeRule *GetLeaveTypeResponseBodyResultSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	// 有效类型 absolute_time(绝对时间)、relative_time(相对时间)其中一种
-	ValidityType *string `json:"validityType,omitempty" xml:"validityType,omitempty"`
-	// 延长日期(当validity_type为absolute_time该值该值不为空且满足yy-mm格式 validity_type为relative_time该值为大于1的整数)
-	ValidityValue *string `json:"validityValue,omitempty" xml:"validityValue,omitempty"`
-	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
-	VisibilityRules []*GetLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	BizType          *string                                          `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	HoursInPerDay    *int64                                           `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *GetLeaveTypeResponseBodyResultLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	LeaveCode        *string                                          `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	LeaveName        *string                                          `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	LeaveViewUnit    *string                                          `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	NaturalDayLeave  *bool                                            `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	Source           *string                                          `json:"source,omitempty" xml:"source,omitempty"`
+	SubmitTimeRule   *GetLeaveTypeResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	ValidityType     *string                                          `json:"validityType,omitempty" xml:"validityType,omitempty"`
+	ValidityValue    *string                                          `json:"validityValue,omitempty" xml:"validityValue,omitempty"`
+	VisibilityRules  []*GetLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 }
 
 func (s GetLeaveTypeResponseBodyResult) String() string {
@@ -2684,14 +2704,10 @@ func (s *GetLeaveTypeResponseBodyResult) SetVisibilityRules(v []*GetLeaveTypeRes
 }
 
 type GetLeaveTypeResponseBodyResultLeaveCertificate struct {
-	// 超过多长时间需提供请假证明
-	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	// 是否开启请假证明
-	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
-	// 请假提示文案
-	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	// 请假证明单位hour，day
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
+	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s GetLeaveTypeResponseBodyResultLeaveCertificate) String() string {
@@ -2723,14 +2739,10 @@ func (s *GetLeaveTypeResponseBodyResultLeaveCertificate) SetUnit(v string) *GetL
 }
 
 type GetLeaveTypeResponseBodyResultSubmitTimeRule struct {
-	// 是否开启限时提交功能：仅且为true时开启
-	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	// 限制类型：before-提前；after-补交
-	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	// 时间单位：day-天；hour-小时
-	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
-	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s GetLeaveTypeResponseBodyResultSubmitTimeRule) String() string {
@@ -2762,9 +2774,7 @@ func (s *GetLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *Ge
 }
 
 type GetLeaveTypeResponseBodyResultVisibilityRules struct {
-	// 规则类型：dept-部门；staff-员工；label-角色
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
 
@@ -2787,8 +2797,9 @@ func (s *GetLeaveTypeResponseBodyResultVisibilityRules) SetVisible(v []*string) 
 }
 
 type GetLeaveTypeResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetLeaveTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetLeaveTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetLeaveTypeResponse) String() string {
@@ -2801,6 +2812,11 @@ func (s GetLeaveTypeResponse) GoString() string {
 
 func (s *GetLeaveTypeResponse) SetHeaders(v map[string]*string) *GetLeaveTypeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetLeaveTypeResponse) SetStatusCode(v int32) *GetLeaveTypeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2833,7 +2849,6 @@ func (s *GetMachineHeaders) SetXAcsDingtalkAccessToken(v string) *GetMachineHead
 }
 
 type GetMachineResponseBody struct {
-	// 查询结果
 	Result *GetMachineResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -2851,28 +2866,17 @@ func (s *GetMachineResponseBody) SetResult(v *GetMachineResponseBodyResult) *Get
 }
 
 type GetMachineResponseBodyResult struct {
-	// 设备管理员列表
-	AtmManagerList []*string `json:"atmManagerList,omitempty" xml:"atmManagerList,omitempty" type:"Repeated"`
-	// 设备id (deviceId)
-	DevId *int64 `json:"devId,omitempty" xml:"devId,omitempty"`
-	// 设备id (deviceUid加密之后)
-	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 设备名称
-	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// 设备sn号
-	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
-	// 考勤机蓝牙相关设置信息
+	AtmManagerList     []*string                                       `json:"atmManagerList,omitempty" xml:"atmManagerList,omitempty" type:"Repeated"`
+	DevId              *int64                                          `json:"devId,omitempty" xml:"devId,omitempty"`
+	DeviceId           *string                                         `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	DeviceName         *string                                         `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	DeviceSn           *string                                         `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
 	MachineBluetoothVO *GetMachineResponseBodyResultMachineBluetoothVO `json:"machineBluetoothVO,omitempty" xml:"machineBluetoothVO,omitempty" type:"Struct"`
-	// 人脸容量
-	MaxFace *int32 `json:"maxFace,omitempty" xml:"maxFace,omitempty"`
-	// 网络状态
-	NetStatus *string `json:"netStatus,omitempty" xml:"netStatus,omitempty"`
-	// 设备类型名称
-	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
-	// 固件版本
-	ProductVersion *string `json:"productVersion,omitempty" xml:"productVersion,omitempty"`
-	// 音量模式
-	VoiceMode *int32 `json:"voiceMode,omitempty" xml:"voiceMode,omitempty"`
+	MaxFace            *int32                                          `json:"maxFace,omitempty" xml:"maxFace,omitempty"`
+	NetStatus          *string                                         `json:"netStatus,omitempty" xml:"netStatus,omitempty"`
+	ProductName        *string                                         `json:"productName,omitempty" xml:"productName,omitempty"`
+	ProductVersion     *string                                         `json:"productVersion,omitempty" xml:"productVersion,omitempty"`
+	VoiceMode          *int32                                          `json:"voiceMode,omitempty" xml:"voiceMode,omitempty"`
 }
 
 func (s GetMachineResponseBodyResult) String() string {
@@ -2939,26 +2943,16 @@ func (s *GetMachineResponseBodyResult) SetVoiceMode(v int32) *GetMachineResponse
 }
 
 type GetMachineResponseBodyResultMachineBluetoothVO struct {
-	// 地址位置描述
-	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 蓝牙打卡人脸识别开关值
-	BluetoothCheckWithFace *bool `json:"bluetoothCheckWithFace,omitempty" xml:"bluetoothCheckWithFace,omitempty"`
-	// 蓝牙打卡范围
-	BluetoothDistanceMode *string `json:"bluetoothDistanceMode,omitempty" xml:"bluetoothDistanceMode,omitempty"`
-	// 蓝牙打卡范围描述
-	BluetoothDistanceModeDesc *string `json:"bluetoothDistanceModeDesc,omitempty" xml:"bluetoothDistanceModeDesc,omitempty"`
-	// 蓝牙打卡开关
-	BluetoothValue *bool `json:"bluetoothValue,omitempty" xml:"bluetoothValue,omitempty"`
-	// 纬度
-	Latitude *float64 `json:"latitude,omitempty" xml:"latitude,omitempty"`
-	// 是否限制员工常用手机
-	LimitUserDeviceCount *bool `json:"limitUserDeviceCount,omitempty" xml:"limitUserDeviceCount,omitempty"`
-	// 经度
-	Longitude *float64 `json:"longitude,omitempty" xml:"longitude,omitempty"`
-	// 是否打开位置异常监控
-	MonitorLocationAbnormal *bool `json:"monitorLocationAbnormal,omitempty" xml:"monitorLocationAbnormal,omitempty"`
-	// 员工常用手机数量
-	UserDeviceCount *int32 `json:"userDeviceCount,omitempty" xml:"userDeviceCount,omitempty"`
+	Address                   *string  `json:"address,omitempty" xml:"address,omitempty"`
+	BluetoothCheckWithFace    *bool    `json:"bluetoothCheckWithFace,omitempty" xml:"bluetoothCheckWithFace,omitempty"`
+	BluetoothDistanceMode     *string  `json:"bluetoothDistanceMode,omitempty" xml:"bluetoothDistanceMode,omitempty"`
+	BluetoothDistanceModeDesc *string  `json:"bluetoothDistanceModeDesc,omitempty" xml:"bluetoothDistanceModeDesc,omitempty"`
+	BluetoothValue            *bool    `json:"bluetoothValue,omitempty" xml:"bluetoothValue,omitempty"`
+	Latitude                  *float64 `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	LimitUserDeviceCount      *bool    `json:"limitUserDeviceCount,omitempty" xml:"limitUserDeviceCount,omitempty"`
+	Longitude                 *float64 `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	MonitorLocationAbnormal   *bool    `json:"monitorLocationAbnormal,omitempty" xml:"monitorLocationAbnormal,omitempty"`
+	UserDeviceCount           *int32   `json:"userDeviceCount,omitempty" xml:"userDeviceCount,omitempty"`
 }
 
 func (s GetMachineResponseBodyResultMachineBluetoothVO) String() string {
@@ -3020,8 +3014,9 @@ func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetUserDeviceCount(v in
 }
 
 type GetMachineResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetMachineResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMachineResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetMachineResponse) String() string {
@@ -3034,6 +3029,11 @@ func (s GetMachineResponse) GoString() string {
 
 func (s *GetMachineResponse) SetHeaders(v map[string]*string) *GetMachineResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetMachineResponse) SetStatusCode(v int32) *GetMachineResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3164,8 +3164,9 @@ func (s *GetMachineUserResponseBodyResultUserList) SetUserId(v string) *GetMachi
 }
 
 type GetMachineUserResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetMachineUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMachineUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetMachineUserResponse) String() string {
@@ -3178,6 +3179,11 @@ func (s GetMachineUserResponse) GoString() string {
 
 func (s *GetMachineUserResponse) SetHeaders(v map[string]*string) *GetMachineUserResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetMachineUserResponse) SetStatusCode(v int32) *GetMachineUserResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3244,24 +3250,16 @@ func (s *GetOvertimeSettingResponseBody) SetResult(v []*GetOvertimeSettingRespon
 }
 
 type GetOvertimeSettingResponseBodyResult struct {
-	// 是否默认
-	Default          *bool                                   `json:"default,omitempty" xml:"default,omitempty"`
-	DurationSettings map[string]*ResultDurationSettingsValue `json:"durationSettings,omitempty" xml:"durationSettings,omitempty"`
-	// 历史加班规则设置id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 规则名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 时间分割规则
+	Default           *bool                                                    `json:"default,omitempty" xml:"default,omitempty"`
+	DurationSettings  map[string]*ResultDurationSettingsValue                  `json:"durationSettings,omitempty" xml:"durationSettings,omitempty"`
+	Id                *int64                                                   `json:"id,omitempty" xml:"id,omitempty"`
+	Name              *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
 	OvertimeDivisions []*GetOvertimeSettingResponseBodyResultOvertimeDivisions `json:"overtimeDivisions,omitempty" xml:"overtimeDivisions,omitempty" type:"Repeated"`
-	// 设置id
-	SettingId *int64 `json:"settingId,omitempty" xml:"settingId,omitempty"`
-	// 加班时长单位
-	StepType *int32 `json:"stepType,omitempty" xml:"stepType,omitempty"`
-	// 加班时长是否取整 单位 小时
-	StepValue       *float32                                               `json:"stepValue,omitempty" xml:"stepValue,omitempty"`
-	WarningSettings []*GetOvertimeSettingResponseBodyResultWarningSettings `json:"warningSettings,omitempty" xml:"warningSettings,omitempty" type:"Repeated"`
-	// 日折算时长 单位：分钟
-	WorkMinutesPerDay *int32 `json:"workMinutesPerDay,omitempty" xml:"workMinutesPerDay,omitempty"`
+	SettingId         *int64                                                   `json:"settingId,omitempty" xml:"settingId,omitempty"`
+	StepType          *int32                                                   `json:"stepType,omitempty" xml:"stepType,omitempty"`
+	StepValue         *float32                                                 `json:"stepValue,omitempty" xml:"stepValue,omitempty"`
+	WarningSettings   []*GetOvertimeSettingResponseBodyResultWarningSettings   `json:"warningSettings,omitempty" xml:"warningSettings,omitempty" type:"Repeated"`
+	WorkMinutesPerDay *int32                                                   `json:"workMinutesPerDay,omitempty" xml:"workMinutesPerDay,omitempty"`
 }
 
 func (s GetOvertimeSettingResponseBodyResult) String() string {
@@ -3323,12 +3321,9 @@ func (s *GetOvertimeSettingResponseBodyResult) SetWorkMinutesPerDay(v int32) *Ge
 }
 
 type GetOvertimeSettingResponseBodyResultOvertimeDivisions struct {
-	// 后一日类型
-	NextDayType *string `json:"nextDayType,omitempty" xml:"nextDayType,omitempty"`
-	// 前一日类型
+	NextDayType     *string `json:"nextDayType,omitempty" xml:"nextDayType,omitempty"`
 	PreviousDayType *string `json:"previousDayType,omitempty" xml:"previousDayType,omitempty"`
-	// 分割时间点
-	TimeSplitPoint *string `json:"timeSplitPoint,omitempty" xml:"timeSplitPoint,omitempty"`
+	TimeSplitPoint  *string `json:"timeSplitPoint,omitempty" xml:"timeSplitPoint,omitempty"`
 }
 
 func (s GetOvertimeSettingResponseBodyResultOvertimeDivisions) String() string {
@@ -3355,12 +3350,9 @@ func (s *GetOvertimeSettingResponseBodyResultOvertimeDivisions) SetTimeSplitPoin
 }
 
 type GetOvertimeSettingResponseBodyResultWarningSettings struct {
-	// 风险预警 或 最大加班时间
-	Action *string `json:"action,omitempty" xml:"action,omitempty"`
-	// 提醒阈值
-	Threshold *int64 `json:"threshold,omitempty" xml:"threshold,omitempty"`
-	// 预警类型
-	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	Action    *string `json:"action,omitempty" xml:"action,omitempty"`
+	Threshold *int64  `json:"threshold,omitempty" xml:"threshold,omitempty"`
+	Time      *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s GetOvertimeSettingResponseBodyResultWarningSettings) String() string {
@@ -3387,8 +3379,9 @@ func (s *GetOvertimeSettingResponseBodyResultWarningSettings) SetTime(v string) 
 }
 
 type GetOvertimeSettingResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetOvertimeSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetOvertimeSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetOvertimeSettingResponse) String() string {
@@ -3401,6 +3394,11 @@ func (s GetOvertimeSettingResponse) GoString() string {
 
 func (s *GetOvertimeSettingResponse) SetHeaders(v map[string]*string) *GetOvertimeSettingResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetOvertimeSettingResponse) SetStatusCode(v int32) *GetOvertimeSettingResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3456,7 +3454,6 @@ func (s *GetSimpleOvertimeSettingRequest) SetPageSize(v int64) *GetSimpleOvertim
 }
 
 type GetSimpleOvertimeSettingResponseBody struct {
-	// Id of the request
 	Result []*GetSimpleOvertimeSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3474,12 +3471,9 @@ func (s *GetSimpleOvertimeSettingResponseBody) SetResult(v []*GetSimpleOvertimeS
 }
 
 type GetSimpleOvertimeSettingResponseBodyResult struct {
-	// 加班规则集合
-	Items []*GetSimpleOvertimeSettingResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	// 当前页码
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 总页数
-	TotalPage *int64 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+	Items      []*GetSimpleOvertimeSettingResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	PageNumber *int64                                             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	TotalPage  *int64                                             `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
 }
 
 func (s GetSimpleOvertimeSettingResponseBodyResult) String() string {
@@ -3506,9 +3500,7 @@ func (s *GetSimpleOvertimeSettingResponseBodyResult) SetTotalPage(v int64) *GetS
 }
 
 type GetSimpleOvertimeSettingResponseBodyResultItems struct {
-	// 加班规则id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 加班规则名称
+	Id        *int64  `json:"id,omitempty" xml:"id,omitempty"`
 	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
 	SettingId *int64  `json:"settingId,omitempty" xml:"settingId,omitempty"`
 }
@@ -3537,8 +3529,9 @@ func (s *GetSimpleOvertimeSettingResponseBodyResultItems) SetSettingId(v int64) 
 }
 
 type GetSimpleOvertimeSettingResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSimpleOvertimeSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSimpleOvertimeSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSimpleOvertimeSettingResponse) String() string {
@@ -3551,6 +3544,11 @@ func (s GetSimpleOvertimeSettingResponse) GoString() string {
 
 func (s *GetSimpleOvertimeSettingResponse) SetHeaders(v map[string]*string) *GetSimpleOvertimeSettingResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSimpleOvertimeSettingResponse) SetStatusCode(v int32) *GetSimpleOvertimeSettingResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3583,12 +3581,9 @@ func (s *GetUserHolidaysHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserHo
 }
 
 type GetUserHolidaysRequest struct {
-	// 员工列表
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
-	// 开始日期
-	WorkDateFrom *int64 `json:"workDateFrom,omitempty" xml:"workDateFrom,omitempty"`
-	// 结束日期
-	WorkDateTo *int64 `json:"workDateTo,omitempty" xml:"workDateTo,omitempty"`
+	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	WorkDateFrom *int64    `json:"workDateFrom,omitempty" xml:"workDateFrom,omitempty"`
+	WorkDateTo   *int64    `json:"workDateTo,omitempty" xml:"workDateTo,omitempty"`
 }
 
 func (s GetUserHolidaysRequest) String() string {
@@ -3615,7 +3610,6 @@ func (s *GetUserHolidaysRequest) SetWorkDateTo(v int64) *GetUserHolidaysRequest 
 }
 
 type GetUserHolidaysResponseBody struct {
-	// 员工假期列表
 	Result []*GetUserHolidaysResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3633,10 +3627,8 @@ func (s *GetUserHolidaysResponseBody) SetResult(v []*GetUserHolidaysResponseBody
 }
 
 type GetUserHolidaysResponseBodyResult struct {
-	// 假期列表
 	Holidays []*GetUserHolidaysResponseBodyResultHolidays `json:"holidays,omitempty" xml:"holidays,omitempty" type:"Repeated"`
-	// 员工id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId   *string                                      `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserHolidaysResponseBodyResult) String() string {
@@ -3658,14 +3650,10 @@ func (s *GetUserHolidaysResponseBodyResult) SetUserId(v string) *GetUserHolidays
 }
 
 type GetUserHolidaysResponseBodyResultHolidays struct {
-	// 假期名称
-	HolidayName *string `json:"holidayName,omitempty" xml:"holidayName,omitempty"`
-	// 假期类型，festival：法定节假日；rest：调休日；overtime：加班日；
-	HolidayType *string `json:"holidayType,omitempty" xml:"holidayType,omitempty"`
-	// 补休日，只有假期类型为加班日时才有值
-	RealWorkDate *int64 `json:"realWorkDate,omitempty" xml:"realWorkDate,omitempty"`
-	// 日期
-	WorkDate *int64 `json:"workDate,omitempty" xml:"workDate,omitempty"`
+	HolidayName  *string `json:"holidayName,omitempty" xml:"holidayName,omitempty"`
+	HolidayType  *string `json:"holidayType,omitempty" xml:"holidayType,omitempty"`
+	RealWorkDate *int64  `json:"realWorkDate,omitempty" xml:"realWorkDate,omitempty"`
+	WorkDate     *int64  `json:"workDate,omitempty" xml:"workDate,omitempty"`
 }
 
 func (s GetUserHolidaysResponseBodyResultHolidays) String() string {
@@ -3697,8 +3685,9 @@ func (s *GetUserHolidaysResponseBodyResultHolidays) SetWorkDate(v int64) *GetUse
 }
 
 type GetUserHolidaysResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserHolidaysResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserHolidaysResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserHolidaysResponse) String() string {
@@ -3711,6 +3700,11 @@ func (s GetUserHolidaysResponse) GoString() string {
 
 func (s *GetUserHolidaysResponse) SetHeaders(v map[string]*string) *GetUserHolidaysResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserHolidaysResponse) SetStatusCode(v int32) *GetUserHolidaysResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3743,139 +3737,49 @@ func (s *GroupAddHeaders) SetXAcsDingtalkAccessToken(v string) *GroupAddHeaders 
 }
 
 type GroupAddRequest struct {
-	// 补卡规则settingId。
-	AdjustmentSettingId *int64 `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
-	// 蓝牙打卡相关配置信息。
-	BleDeviceList []*GroupAddRequestBleDeviceList `json:"bleDeviceList,omitempty" xml:"bleDeviceList,omitempty" type:"Repeated"`
-	// 打卡是否需要健康码：
-	//
-	// true：开启
-	//
-	// false：关闭（默认值）
-	CheckNeedHealthyCode *bool `json:"checkNeedHealthyCode,omitempty" xml:"checkNeedHealthyCode,omitempty"`
-	// 默认班次ID。
-	//
-	// 说明 固定班制必填，可通过获取班次摘要信息接口获取
-	DefaultClassId *int64 `json:"defaultClassId,omitempty" xml:"defaultClassId,omitempty"`
-	// 休息日打卡是否需审批：
-	//
-	// true：需要
-	//
-	// false：不需要
-	DisableCheckWhenRest *bool `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
-	// 未排班时是否禁止员工打卡。
-	DisableCheckWithoutSchedule *bool `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
-	// 是否开启拍照打卡。
-	//
-	// true：开启
-	//
-	// false：关闭（默认值）
-	EnableCameraCheck *bool `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
-	// 未排班时是否允许员工选择班次打卡。
-	EnableEmpSelectClass *bool `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
-	// 是否开启人脸检测。
-	//
-	// true：开启
-	//
-	// false：关闭（默认值）
-	EnableFaceCheck *bool `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
-	// 是否开启真人验证。
-	EnableFaceStrictMode *bool `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
-	// 是否第二天生效。
-	// true：是
-	// false：否
-	EnableNextDay *bool `json:"enableNextDay,omitempty" xml:"enableNextDay,omitempty"`
-	// 是否允许外勤卡更新内勤卡。
-	EnableOutSideUpdateNormalCheck *bool `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
-	// 外勤打卡是否需要审批。
-	EnableOutsideApply *bool `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
-	// 是否开启外勤打卡必须拍照。
-	//
-	// true：开启
-	//
-	// false：关闭（默认值）
-	EnableOutsideCameraCheck *bool `json:"enableOutsideCameraCheck,omitempty" xml:"enableOutsideCameraCheck,omitempty"`
-	// 是否可以外勤打卡。
-	//
-	// true：允许（默认值）
-	//
-	// false：不允许
-	EnableOutsideCheck *bool `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
-	// 外勤打卡是否需要拍照备注。
-	EnableOutsideRemark *bool `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
-	// 是否启用蓝牙定位。
-	EnablePositionBle *bool `json:"enablePositionBle,omitempty" xml:"enablePositionBle,omitempty"`
-	// 是否允许地点微调距离。
-	EnableTrimDistance *bool `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
-	// 是否禁止员工隐藏详细地址。
-	ForbidHideOutSideAddress *bool `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
-	// 休息日打卡规则。
-	FreeCheckSetting *GroupAddRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
-	// 休息日打卡方式。
-	// 0严格打卡模式
-	// 1标准打卡模式
-	FreeCheckTypeId *int32 `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
-	// 自由工时考勤组考勤开始时间与当天0点偏移分钟数。
-	//
-	// 例如：540表示9:00
-	FreecheckDayStartMinOffset *int32 `json:"freecheckDayStartMinOffset,omitempty" xml:"freecheckDayStartMinOffset,omitempty"`
-	// 自由工时考勤组工作日。
-	// 说明
-	// 0表示休息。
-	// 数组内的值，从左到右依次代表周日到周六，每日的排班情况。
-	FreecheckWorkDays []*int64 `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
-	// 考勤组ID。
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 考勤组名。
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 考勤组子管理员userid列表。
-	ManagerList []*string `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
-	// 考勤组成员相关设置信息。
-	Members []*GroupAddRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	// 是否有修改考勤组成员相关信息。
-	ModifyMember *bool `json:"modifyMember,omitempty" xml:"modifyMember,omitempty"`
-	// 考勤范围。
-	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
-	// 是否开启人脸打卡。
-	OpenFaceCheck *bool `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
-	// 外勤打卡审批模式-1无需审批，0先审批后打卡是1先打卡后审批
-	OutsideCheckApproveModeId *int32 `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
-	// 加班规则settingId。
-	OvertimeSettingId *int64 `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
-	// 考勤组负责人。
-	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
-	// 考勤地点相关设置信息。
-	Positions             []*GroupAddRequestPositions `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
-	ResourcePermissionMap map[string]interface{}      `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
-	// 班次相关配置信息。
-	ShiftVOList []*GroupAddRequestShiftVOList `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
-	// 是否跳过节假日。
-	//
-	// true：跳过（默认值）
-	//
-	// false：不跳过
-	SkipHolidays *bool `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
-	// 特殊日期配置。
-	SpecialDays *string `json:"specialDays,omitempty" xml:"specialDays,omitempty"`
-	// 地点微调范围（单位米）。
-	TrimDistance *int32 `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
-	// 考勤组类型：
-	//
-	// FIXED：固定班制考勤组
-	//
-	// TURN：排班制考勤组
-	//
-	// NONE：自由工时考勤组
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 考勤wifi打卡相关配置信息。
-	Wifis []*GroupAddRequestWifis `json:"wifis,omitempty" xml:"wifis,omitempty" type:"Repeated"`
-	// 周班次列表。
-	// 说明
-	// 固定班制必填，0表示休息。
-	// 数组内的值，从左到右依次代表周日到周六，每日的排班情况。
-	WorkdayClassList []*int64 `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
-	// 操作人的userid。
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	AdjustmentSettingId            *int64                           `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
+	BleDeviceList                  []*GroupAddRequestBleDeviceList  `json:"bleDeviceList,omitempty" xml:"bleDeviceList,omitempty" type:"Repeated"`
+	CheckNeedHealthyCode           *bool                            `json:"checkNeedHealthyCode,omitempty" xml:"checkNeedHealthyCode,omitempty"`
+	DefaultClassId                 *int64                           `json:"defaultClassId,omitempty" xml:"defaultClassId,omitempty"`
+	DisableCheckWhenRest           *bool                            `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
+	DisableCheckWithoutSchedule    *bool                            `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
+	EnableCameraCheck              *bool                            `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
+	EnableEmpSelectClass           *bool                            `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
+	EnableFaceCheck                *bool                            `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
+	EnableFaceStrictMode           *bool                            `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
+	EnableNextDay                  *bool                            `json:"enableNextDay,omitempty" xml:"enableNextDay,omitempty"`
+	EnableOutSideUpdateNormalCheck *bool                            `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
+	EnableOutsideApply             *bool                            `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
+	EnableOutsideCameraCheck       *bool                            `json:"enableOutsideCameraCheck,omitempty" xml:"enableOutsideCameraCheck,omitempty"`
+	EnableOutsideCheck             *bool                            `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
+	EnableOutsideRemark            *bool                            `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
+	EnablePositionBle              *bool                            `json:"enablePositionBle,omitempty" xml:"enablePositionBle,omitempty"`
+	EnableTrimDistance             *bool                            `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
+	ForbidHideOutSideAddress       *bool                            `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
+	FreeCheckSetting               *GroupAddRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
+	FreeCheckTypeId                *int32                           `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
+	FreecheckDayStartMinOffset     *int32                           `json:"freecheckDayStartMinOffset,omitempty" xml:"freecheckDayStartMinOffset,omitempty"`
+	FreecheckWorkDays              []*int64                         `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
+	GroupId                        *int64                           `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	GroupName                      *string                          `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	ManagerList                    []*string                        `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
+	Members                        []*GroupAddRequestMembers        `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	ModifyMember                   *bool                            `json:"modifyMember,omitempty" xml:"modifyMember,omitempty"`
+	Offset                         *int32                           `json:"offset,omitempty" xml:"offset,omitempty"`
+	OpenFaceCheck                  *bool                            `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
+	OutsideCheckApproveModeId      *int32                           `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
+	OvertimeSettingId              *int64                           `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
+	Owner                          *string                          `json:"owner,omitempty" xml:"owner,omitempty"`
+	Positions                      []*GroupAddRequestPositions      `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
+	ResourcePermissionMap          map[string]interface{}           `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
+	ShiftVOList                    []*GroupAddRequestShiftVOList    `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
+	SkipHolidays                   *bool                            `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
+	SpecialDays                    *string                          `json:"specialDays,omitempty" xml:"specialDays,omitempty"`
+	TrimDistance                   *int32                           `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
+	Type                           *string                          `json:"type,omitempty" xml:"type,omitempty"`
+	Wifis                          []*GroupAddRequestWifis          `json:"wifis,omitempty" xml:"wifis,omitempty" type:"Repeated"`
+	WorkdayClassList               []*int64                         `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
+	OpUserId                       *string                          `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s GroupAddRequest) String() string {
@@ -4102,7 +4006,6 @@ func (s *GroupAddRequest) SetOpUserId(v string) *GroupAddRequest {
 }
 
 type GroupAddRequestBleDeviceList struct {
-	// 设备ID，调用查询员工智能考勤机列表获取。
 	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
 }
 
@@ -4120,12 +4023,8 @@ func (s *GroupAddRequestBleDeviceList) SetDeviceId(v int64) *GroupAddRequestBleD
 }
 
 type GroupAddRequestFreeCheckSetting struct {
-	// 自由工时考勤组考勤开始时间与当天0点偏移分钟数。
-	//
-	// 例如：540表示9:00
-	DelimitOffsetMinutesBetweenDays *int32 `json:"delimitOffsetMinutesBetweenDays,omitempty" xml:"delimitOffsetMinutesBetweenDays,omitempty"`
-	// 休息日打卡间隔设置。
-	FreeCheckGap *GroupAddRequestFreeCheckSettingFreeCheckGap `json:"freeCheckGap,omitempty" xml:"freeCheckGap,omitempty" type:"Struct"`
+	DelimitOffsetMinutesBetweenDays *int32                                       `json:"delimitOffsetMinutesBetweenDays,omitempty" xml:"delimitOffsetMinutesBetweenDays,omitempty"`
+	FreeCheckGap                    *GroupAddRequestFreeCheckSettingFreeCheckGap `json:"freeCheckGap,omitempty" xml:"freeCheckGap,omitempty" type:"Struct"`
 }
 
 func (s GroupAddRequestFreeCheckSetting) String() string {
@@ -4147,9 +4046,7 @@ func (s *GroupAddRequestFreeCheckSetting) SetFreeCheckGap(v *GroupAddRequestFree
 }
 
 type GroupAddRequestFreeCheckSettingFreeCheckGap struct {
-	// 下班打卡最小打卡间隔（单位分钟）。
 	OffOnCheckGapMinutes *int32 `json:"offOnCheckGapMinutes,omitempty" xml:"offOnCheckGapMinutes,omitempty"`
-	// 上班打卡最小打卡间隔（单位分钟）。
 	OnOffCheckGapMinutes *int32 `json:"onOffCheckGapMinutes,omitempty" xml:"onOffCheckGapMinutes,omitempty"`
 }
 
@@ -4172,11 +4069,8 @@ func (s *GroupAddRequestFreeCheckSettingFreeCheckGap) SetOnOffCheckGapMinutes(v 
 }
 
 type GroupAddRequestMembers struct {
-	// 角色，固定值Attendance。
-	Role *string `json:"role,omitempty" xml:"role,omitempty"`
-	// 类型，固定值StaffMember。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 用户userid。
+	Role   *string `json:"role,omitempty" xml:"role,omitempty"`
+	Type   *string `json:"type,omitempty" xml:"type,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -4204,16 +4098,11 @@ func (s *GroupAddRequestMembers) SetUserId(v string) *GroupAddRequestMembers {
 }
 
 type GroupAddRequestPositions struct {
-	// 考勤地址。
-	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 纬度。
-	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
-	// 经度。
+	Address   *string `json:"address,omitempty" xml:"address,omitempty"`
+	Latitude  *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
 	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
-	// 考勤范围。
-	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
-	// 考勤标题。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Offset    *int32  `json:"offset,omitempty" xml:"offset,omitempty"`
+	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GroupAddRequestPositions) String() string {
@@ -4250,7 +4139,6 @@ func (s *GroupAddRequestPositions) SetTitle(v string) *GroupAddRequestPositions 
 }
 
 type GroupAddRequestShiftVOList struct {
-	// 班次ID，可通过获取班次摘要信息接口获取。
 	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
 }
 
@@ -4268,10 +4156,8 @@ func (s *GroupAddRequestShiftVOList) SetShiftId(v int64) *GroupAddRequestShiftVO
 }
 
 type GroupAddRequestWifis struct {
-	// mac地址。
 	MacAddr *string `json:"macAddr,omitempty" xml:"macAddr,omitempty"`
-	// wifi的ssid。
-	Ssid *string `json:"ssid,omitempty" xml:"ssid,omitempty"`
+	Ssid    *string `json:"ssid,omitempty" xml:"ssid,omitempty"`
 }
 
 func (s GroupAddRequestWifis) String() string {
@@ -4339,8 +4225,9 @@ func (s *GroupAddResponseBodyResult) SetName(v string) *GroupAddResponseBodyResu
 }
 
 type GroupAddResponse struct {
-	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GroupAddResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GroupAddResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GroupAddResponse) String() string {
@@ -4353,6 +4240,11 @@ func (s GroupAddResponse) GoString() string {
 
 func (s *GroupAddResponse) SetHeaders(v map[string]*string) *GroupAddResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GroupAddResponse) SetStatusCode(v int32) *GroupAddResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4385,65 +4277,36 @@ func (s *GroupUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *GroupUpdateHe
 }
 
 type GroupUpdateRequest struct {
-	// 补卡规则settingId。
-	AdjustmentSettingId *int64 `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
-	// 休息日打卡是否需审批：true：需要false：不需要
-	DisableCheckWhenRest *bool `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
-	// 未排班时是否禁止员工打卡。
-	DisableCheckWithoutSchedule *bool `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
-	// 是否开启拍照打卡。true：开启false：关闭（默认值）
-	EnableCameraCheck *bool `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
-	// 未排班时是否允许员工选择班次打卡。
-	EnableEmpSelectClass *bool `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
-	// 是否开启人脸检测。true：开启false：关闭（默认值）
-	EnableFaceCheck *bool `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
-	// 是否开启真人验证。
-	EnableFaceStrictMode *bool `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
-	// 是否允许外勤卡更新内勤卡。
-	EnableOutSideUpdateNormalCheck *bool `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
-	// 外勤打卡是否需要审批。
-	EnableOutsideApply *bool `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
-	// 是否可以外勤打卡。true：允许（默认值）false：不允许
-	EnableOutsideCheck *bool `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
-	// 外勤打卡是否需要拍照备注。
-	EnableOutsideRemark *bool `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
-	// 是否允许地点微调距离。
-	EnableTrimDistance *bool `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
-	// 是否禁止员工隐藏详细地址。
-	ForbidHideOutSideAddress *bool `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
-	// 休息日打卡规则。
-	FreeCheckSetting *GroupUpdateRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
-	// 休息日打卡方式。0严格打卡模式 1标准打卡模式
-	FreeCheckTypeId *int32 `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
-	// 考勤组ID。
-	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 考勤组名。
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 考勤组子管理员userid列表。
-	ManagerList []*string `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
-	// 考勤范围。
-	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
-	// 是否开启人脸打卡。
-	OpenFaceCheck *bool `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
-	// 外勤打卡审批模式-1无需审批，0先审批后打卡是1先打卡后审批
-	OutsideCheckApproveModeId *int32 `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
-	// 加班规则settingId。
-	OvertimeSettingId *int64 `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
-	// 考勤组负责人。
-	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
-	// 考勤地点相关设置信息。
-	Positions             []*GroupUpdateRequestPositions `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
-	ResourcePermissionMap map[string]interface{}         `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
-	// 班次相关配置信息。
-	ShiftVOList []*GroupUpdateRequestShiftVOList `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
-	// 是否跳过节假日。true：跳过（默认值）false：不跳过
-	SkipHolidays *bool `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
-	// 地点微调范围（单位米）。
-	TrimDistance *int32 `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
-	// 周班次列表。说明固定班制必填，0表示休息。数组内的值，从左到右依次代表周日到周六，每日的排班情况。
-	WorkdayClassList []*int64 `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
-	// 操作人的userid。
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	AdjustmentSettingId            *int64                              `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
+	DisableCheckWhenRest           *bool                               `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
+	DisableCheckWithoutSchedule    *bool                               `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
+	EnableCameraCheck              *bool                               `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
+	EnableEmpSelectClass           *bool                               `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
+	EnableFaceCheck                *bool                               `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
+	EnableFaceStrictMode           *bool                               `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
+	EnableOutSideUpdateNormalCheck *bool                               `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
+	EnableOutsideApply             *bool                               `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
+	EnableOutsideCheck             *bool                               `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
+	EnableOutsideRemark            *bool                               `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
+	EnableTrimDistance             *bool                               `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
+	ForbidHideOutSideAddress       *bool                               `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
+	FreeCheckSetting               *GroupUpdateRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
+	FreeCheckTypeId                *int32                              `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
+	GroupId                        *int64                              `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	GroupName                      *string                             `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	ManagerList                    []*string                           `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
+	Offset                         *int32                              `json:"offset,omitempty" xml:"offset,omitempty"`
+	OpenFaceCheck                  *bool                               `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
+	OutsideCheckApproveModeId      *int32                              `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
+	OvertimeSettingId              *int64                              `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
+	Owner                          *string                             `json:"owner,omitempty" xml:"owner,omitempty"`
+	Positions                      []*GroupUpdateRequestPositions      `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
+	ResourcePermissionMap          map[string]interface{}              `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
+	ShiftVOList                    []*GroupUpdateRequestShiftVOList    `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
+	SkipHolidays                   *bool                               `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
+	TrimDistance                   *int32                              `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
+	WorkdayClassList               []*int64                            `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
+	OpUserId                       *string                             `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s GroupUpdateRequest) String() string {
@@ -4605,12 +4468,8 @@ func (s *GroupUpdateRequest) SetOpUserId(v string) *GroupUpdateRequest {
 }
 
 type GroupUpdateRequestFreeCheckSetting struct {
-	// 自由工时考勤组考勤开始时间与当天0点偏移分钟数。
-	//
-	// 例如：540表示9:00
-	DelimitOffsetMinutesBetweenDays *int32 `json:"delimitOffsetMinutesBetweenDays,omitempty" xml:"delimitOffsetMinutesBetweenDays,omitempty"`
-	// 休息日打卡间隔设置。
-	FreeCheckGap *GroupUpdateRequestFreeCheckSettingFreeCheckGap `json:"freeCheckGap,omitempty" xml:"freeCheckGap,omitempty" type:"Struct"`
+	DelimitOffsetMinutesBetweenDays *int32                                          `json:"delimitOffsetMinutesBetweenDays,omitempty" xml:"delimitOffsetMinutesBetweenDays,omitempty"`
+	FreeCheckGap                    *GroupUpdateRequestFreeCheckSettingFreeCheckGap `json:"freeCheckGap,omitempty" xml:"freeCheckGap,omitempty" type:"Struct"`
 }
 
 func (s GroupUpdateRequestFreeCheckSetting) String() string {
@@ -4632,9 +4491,7 @@ func (s *GroupUpdateRequestFreeCheckSetting) SetFreeCheckGap(v *GroupUpdateReque
 }
 
 type GroupUpdateRequestFreeCheckSettingFreeCheckGap struct {
-	// 下班打卡最小打卡间隔（单位分钟）。
 	OffOnCheckGapMinutes *int32 `json:"offOnCheckGapMinutes,omitempty" xml:"offOnCheckGapMinutes,omitempty"`
-	// 上班打卡最小打卡间隔（单位分钟）。
 	OnOffCheckGapMinutes *int32 `json:"onOffCheckGapMinutes,omitempty" xml:"onOffCheckGapMinutes,omitempty"`
 }
 
@@ -4657,16 +4514,11 @@ func (s *GroupUpdateRequestFreeCheckSettingFreeCheckGap) SetOnOffCheckGapMinutes
 }
 
 type GroupUpdateRequestPositions struct {
-	// 考勤地址。
-	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 纬度。
-	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
-	// 经度。
+	Address   *string `json:"address,omitempty" xml:"address,omitempty"`
+	Latitude  *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
 	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
-	// 考勤范围。
-	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
-	// 考勤标题。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Offset    *int32  `json:"offset,omitempty" xml:"offset,omitempty"`
+	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GroupUpdateRequestPositions) String() string {
@@ -4703,7 +4555,6 @@ func (s *GroupUpdateRequestPositions) SetTitle(v string) *GroupUpdateRequestPosi
 }
 
 type GroupUpdateRequestShiftVOList struct {
-	// 班次ID，可通过获取班次摘要信息接口获取。
 	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
 }
 
@@ -4767,8 +4618,9 @@ func (s *GroupUpdateResponseBodyResult) SetName(v string) *GroupUpdateResponseBo
 }
 
 type GroupUpdateResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GroupUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GroupUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GroupUpdateResponse) String() string {
@@ -4781,6 +4633,11 @@ func (s GroupUpdateResponse) GoString() string {
 
 func (s *GroupUpdateResponse) SetHeaders(v map[string]*string) *GroupUpdateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GroupUpdateResponse) SetStatusCode(v int32) *GroupUpdateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4813,12 +4670,9 @@ func (s *InitAndGetLeaveALlocationQuotasHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type InitAndGetLeaveALlocationQuotasRequest struct {
-	// 假期类型的标识。
 	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	// 操作者的userId。
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 用户id。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	OpUserId  *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s InitAndGetLeaveALlocationQuotasRequest) String() string {
@@ -4845,7 +4699,6 @@ func (s *InitAndGetLeaveALlocationQuotasRequest) SetUserId(v string) *InitAndGet
 }
 
 type InitAndGetLeaveALlocationQuotasResponseBody struct {
-	// 返回结果。
 	Result []*InitAndGetLeaveALlocationQuotasResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -4863,26 +4716,16 @@ func (s *InitAndGetLeaveALlocationQuotasResponseBody) SetResult(v []*InitAndGetL
 }
 
 type InitAndGetLeaveALlocationQuotasResponseBodyResult struct {
-	// 额度有效期结束时间。
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 假期类型标识。
-	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	// 年度。
-	QuotaCycle *string `json:"quotaCycle,omitempty" xml:"quotaCycle,omitempty"`
-	// 余额标识。
-	QuotaId *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
-	// 以天计算额度总数。
-	QuotaNumPerDay *int64 `json:"quotaNumPerDay,omitempty" xml:"quotaNumPerDay,omitempty"`
-	// 以小时计算额度总数。
-	QuotaNumPerHour *int64 `json:"quotaNumPerHour,omitempty" xml:"quotaNumPerHour,omitempty"`
-	// 额度有效期开始时间。
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 用过的配额天数。
-	UsedNumPerDay *int64 `json:"usedNumPerDay,omitempty" xml:"usedNumPerDay,omitempty"`
-	// 用过的配额小时数。
-	UsedNumPerHour *int64 `json:"usedNumPerHour,omitempty" xml:"usedNumPerHour,omitempty"`
-	// 用户id。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	LeaveCode       *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	QuotaCycle      *string `json:"quotaCycle,omitempty" xml:"quotaCycle,omitempty"`
+	QuotaId         *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
+	QuotaNumPerDay  *int64  `json:"quotaNumPerDay,omitempty" xml:"quotaNumPerDay,omitempty"`
+	QuotaNumPerHour *int64  `json:"quotaNumPerHour,omitempty" xml:"quotaNumPerHour,omitempty"`
+	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	UsedNumPerDay   *int64  `json:"usedNumPerDay,omitempty" xml:"usedNumPerDay,omitempty"`
+	UsedNumPerHour  *int64  `json:"usedNumPerHour,omitempty" xml:"usedNumPerHour,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s InitAndGetLeaveALlocationQuotasResponseBodyResult) String() string {
@@ -4944,8 +4787,9 @@ func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetUserId(v string) 
 }
 
 type InitAndGetLeaveALlocationQuotasResponse struct {
-	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *InitAndGetLeaveALlocationQuotasResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *InitAndGetLeaveALlocationQuotasResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s InitAndGetLeaveALlocationQuotasResponse) String() string {
@@ -4958,6 +4802,11 @@ func (s InitAndGetLeaveALlocationQuotasResponse) GoString() string {
 
 func (s *InitAndGetLeaveALlocationQuotasResponse) SetHeaders(v map[string]*string) *InitAndGetLeaveALlocationQuotasResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponse) SetStatusCode(v int32) *InitAndGetLeaveALlocationQuotasResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4990,19 +4839,10 @@ func (s *ListApproveByUsersHeaders) SetXAcsDingtalkAccessToken(v string) *ListAp
 }
 
 type ListApproveByUsersRequest struct {
-	// 传入需要查询的审批单类型：
-	// ● 1：加班
-	// ● 2：出差、外出
-	// ● 3：请假
-	// ● 4:  补卡
-	// ● 5：外勤审批
-	BizTypes []*int32 `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
-	// 起始日期，Unix时间戳，单位毫秒。（不支持180天前）
-	FromDateTime *int64 `json:"fromDateTime,omitempty" xml:"fromDateTime,omitempty"`
-	// 结束日期，Unix时间戳，单位毫秒。（不支持180天前，开始和结束不能超过30天）
-	ToDateTime *int64 `json:"toDateTime,omitempty" xml:"toDateTime,omitempty"`
-	// 要查询的人员userId列表，多个userId用逗号分隔，一次最多可传50个
-	UserIds *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
+	BizTypes     []*int32 `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
+	FromDateTime *int64   `json:"fromDateTime,omitempty" xml:"fromDateTime,omitempty"`
+	ToDateTime   *int64   `json:"toDateTime,omitempty" xml:"toDateTime,omitempty"`
+	UserIds      *string  `json:"userIds,omitempty" xml:"userIds,omitempty"`
 }
 
 func (s ListApproveByUsersRequest) String() string {
@@ -5051,38 +4891,15 @@ func (s *ListApproveByUsersResponseBody) SetResult(v []*ListApproveByUsersRespon
 }
 
 type ListApproveByUsersResponseBodyResult struct {
-	// 审批单自定义id
-	ApproveId *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
-	// 审批单开始时间原始格式
-	BeginTime *string `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	// 审批单类型：
-	// ● 1：加班
-	// ● 2：出差、外出
-	// ● 3：请假
-	// ● 4:  补卡
-	// ● 5：外勤审批
-	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 计算方法：
-	// ● 0：按自然日计算
-	// ● 1：按工作日计算
-	CalculateModel *int32 `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
-	// 时长单位，支持格式如下：
-	// ● day
-	// ● halfDay
-	// ● hour
-	// 时间格式必须与时长单位对应：
-	// ● 2019-08-15对应day
-	// ● 2019-08-15 AM对应halfDay
-	// ● 2019-08-15 12:43对应hour
-	DurationUnit *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
-	// 审批单结束时间原始格式
-	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 子类型名称，最大长度20个字符
-	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
-	// 审批单类型名称，最大长度20个字符
-	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
-	// 用户userid
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	ApproveId      *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	BeginTime      *string `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	BizType        *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CalculateModel *int32  `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
+	DurationUnit   *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
+	EndTime        *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	SubType        *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	TagName        *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListApproveByUsersResponseBodyResult) String() string {
@@ -5139,8 +4956,9 @@ func (s *ListApproveByUsersResponseBodyResult) SetUserId(v string) *ListApproveB
 }
 
 type ListApproveByUsersResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListApproveByUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListApproveByUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListApproveByUsersResponse) String() string {
@@ -5153,6 +4971,11 @@ func (s ListApproveByUsersResponse) GoString() string {
 
 func (s *ListApproveByUsersResponse) SetHeaders(v map[string]*string) *ListApproveByUsersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListApproveByUsersResponse) SetStatusCode(v int32) *ListApproveByUsersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5185,22 +5008,14 @@ func (s *ModifyWaterMarkTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *M
 }
 
 type ModifyWaterMarkTemplateRequest struct {
-	// 模板的表单Code。
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 模板的预览图片。
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 模板的布局ID。
-	LayoutDesignId *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
-	// 模板的内容。
-	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
-	// 模板的标题。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 模板的水印ID。
-	WaterMarkId *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
-	// 群会话ID。
+	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	Icon               *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	LayoutDesignId     *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
+	SchemaContent      *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	WaterMarkId        *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 用户的userid。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ModifyWaterMarkTemplateRequest) String() string {
@@ -5252,7 +5067,6 @@ func (s *ModifyWaterMarkTemplateRequest) SetUserId(v string) *ModifyWaterMarkTem
 }
 
 type ModifyWaterMarkTemplateResponseBody struct {
-	// Id of the request
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -5270,8 +5084,9 @@ func (s *ModifyWaterMarkTemplateResponseBody) SetResult(v string) *ModifyWaterMa
 }
 
 type ModifyWaterMarkTemplateResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ModifyWaterMarkTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ModifyWaterMarkTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ModifyWaterMarkTemplateResponse) String() string {
@@ -5284,6 +5099,11 @@ func (s ModifyWaterMarkTemplateResponse) GoString() string {
 
 func (s *ModifyWaterMarkTemplateResponse) SetHeaders(v map[string]*string) *ModifyWaterMarkTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateResponse) SetStatusCode(v int32) *ModifyWaterMarkTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5316,18 +5136,12 @@ func (s *ProcessApproveCreateHeaders) SetXAcsDingtalkAccessToken(v string) *Proc
 }
 
 type ProcessApproveCreateRequest struct {
-	// 三方审批单id，全局唯一
-	ApproveId *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
-	// 审批人员工userId
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 审批单关联的打卡信息
+	ApproveId  *string                                `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	OpUserId   *string                                `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 	PunchParam *ProcessApproveCreateRequestPunchParam `json:"punchParam,omitempty" xml:"punchParam,omitempty" type:"Struct"`
-	// 审批单子类型名称：调店:shiftGroup
-	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
-	// 审批单类型名称
-	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
-	// 员工的userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	SubType    *string                                `json:"subType,omitempty" xml:"subType,omitempty"`
+	TagName    *string                                `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	UserId     *string                                `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ProcessApproveCreateRequest) String() string {
@@ -5369,14 +5183,10 @@ func (s *ProcessApproveCreateRequest) SetUserId(v string) *ProcessApproveCreateR
 }
 
 type ProcessApproveCreateRequestPunchParam struct {
-	// 地理位置标识：wifi:ssid_macAddress ble: deviceId gps:longitude_latitude
-	PositionId *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
-	// 地理位置名称
+	PositionId   *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
 	PositionName *string `json:"positionName,omitempty" xml:"positionName,omitempty"`
-	// 地理位置类型：wifi/ble/gps
 	PositionType *string `json:"positionType,omitempty" xml:"positionType,omitempty"`
-	// 审批单关联的打卡时间，单位毫秒
-	PunchTime *int64 `json:"punchTime,omitempty" xml:"punchTime,omitempty"`
+	PunchTime    *int64  `json:"punchTime,omitempty" xml:"punchTime,omitempty"`
 }
 
 func (s ProcessApproveCreateRequestPunchParam) String() string {
@@ -5408,7 +5218,6 @@ func (s *ProcessApproveCreateRequestPunchParam) SetPunchTime(v int64) *ProcessAp
 }
 
 type ProcessApproveCreateResponseBody struct {
-	// 审批单返回对象
 	Result *ProcessApproveCreateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -5426,7 +5235,6 @@ func (s *ProcessApproveCreateResponseBody) SetResult(v *ProcessApproveCreateResp
 }
 
 type ProcessApproveCreateResponseBodyResult struct {
-	// 钉钉侧生成的审批单id
 	DingtalkApproveId *string `json:"dingtalkApproveId,omitempty" xml:"dingtalkApproveId,omitempty"`
 }
 
@@ -5444,8 +5252,9 @@ func (s *ProcessApproveCreateResponseBodyResult) SetDingtalkApproveId(v string) 
 }
 
 type ProcessApproveCreateResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ProcessApproveCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ProcessApproveCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ProcessApproveCreateResponse) String() string {
@@ -5458,6 +5267,11 @@ func (s ProcessApproveCreateResponse) GoString() string {
 
 func (s *ProcessApproveCreateResponse) SetHeaders(v map[string]*string) *ProcessApproveCreateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ProcessApproveCreateResponse) SetStatusCode(v int32) *ProcessApproveCreateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5490,28 +5304,14 @@ func (s *SaveCustomWaterMarkTemplateHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type SaveCustomWaterMarkTemplateRequest struct {
-	// 模板的业务码：
-	// - water_mark_checkin
-	//
-	//
-	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	// 模板的预览图片。
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 模板的布局ID。
-	LayoutDesignId *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
-	// 模板的场景码：
-	// - water_mark_checkin_h3yun 开放场景码
-	//
-	//
-	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
-	// 模板的内容。
-	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
-	// 模板的标题。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 群会话ID。
+	BizCode            *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	Icon               *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	LayoutDesignId     *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
+	SceneCode          *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	SchemaContent      *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 用户的userid。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SaveCustomWaterMarkTemplateRequest) String() string {
@@ -5563,7 +5363,6 @@ func (s *SaveCustomWaterMarkTemplateRequest) SetUserId(v string) *SaveCustomWate
 }
 
 type SaveCustomWaterMarkTemplateResponseBody struct {
-	// 返回对象。
 	Result *SaveCustomWaterMarkTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -5581,9 +5380,7 @@ func (s *SaveCustomWaterMarkTemplateResponseBody) SetResult(v *SaveCustomWaterMa
 }
 
 type SaveCustomWaterMarkTemplateResponseBodyResult struct {
-	// 模板的表单Code。
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 模板的水印ID。
+	FormCode    *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
 	WaterMarkId *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
 }
 
@@ -5606,8 +5403,9 @@ func (s *SaveCustomWaterMarkTemplateResponseBodyResult) SetWaterMarkId(v string)
 }
 
 type SaveCustomWaterMarkTemplateResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SaveCustomWaterMarkTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SaveCustomWaterMarkTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SaveCustomWaterMarkTemplateResponse) String() string {
@@ -5620,6 +5418,11 @@ func (s SaveCustomWaterMarkTemplateResponse) GoString() string {
 
 func (s *SaveCustomWaterMarkTemplateResponse) SetHeaders(v map[string]*string) *SaveCustomWaterMarkTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateResponse) SetStatusCode(v int32) *SaveCustomWaterMarkTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5710,7 +5513,8 @@ func (s *SyncScheduleInfoRequestScheduleInfos) SetWifiKeys(v []*string) *SyncSch
 }
 
 type SyncScheduleInfoResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s SyncScheduleInfoResponse) String() string {
@@ -5723,6 +5527,11 @@ func (s SyncScheduleInfoResponse) GoString() string {
 
 func (s *SyncScheduleInfoResponse) SetHeaders(v map[string]*string) *SyncScheduleInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SyncScheduleInfoResponse) SetStatusCode(v int32) *SyncScheduleInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5750,28 +5559,17 @@ func (s *UpdateLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateLea
 }
 
 type UpdateLeaveTypeRequest struct {
-	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 调休假有效期规则(validity_type:有效类型 absolute_time(绝对时间)、relative_time(相对时间)其中一种 validity_value:延长日期(当validity_type为absolute_time该值该值不为空且满足yy-mm格式 validity_type为relative_time该值为大于1的整数))
-	Extras *string `json:"extras,omitempty" xml:"extras,omitempty"`
-	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
-	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	// 请假证明
-	LeaveCertificate *UpdateLeaveTypeRequestLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	// 假期类型唯一标识
-	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	// 假期名称
-	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
-	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
-	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	// 限时提交规则
-	SubmitTimeRule *UpdateLeaveTypeRequestSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
-	VisibilityRules []*UpdateLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
-	// 操作者ID
-	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	BizType          *string                                  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Extras           *string                                  `json:"extras,omitempty" xml:"extras,omitempty"`
+	HoursInPerDay    *int64                                   `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *UpdateLeaveTypeRequestLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	LeaveCode        *string                                  `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	LeaveName        *string                                  `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	LeaveViewUnit    *string                                  `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	NaturalDayLeave  *bool                                    `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	SubmitTimeRule   *UpdateLeaveTypeRequestSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules  []*UpdateLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	OpUserId         *string                                  `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s UpdateLeaveTypeRequest) String() string {
@@ -5838,14 +5636,10 @@ func (s *UpdateLeaveTypeRequest) SetOpUserId(v string) *UpdateLeaveTypeRequest {
 }
 
 type UpdateLeaveTypeRequestLeaveCertificate struct {
-	// 超过多长时间需提供请假证明
-	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	// 是否开启请假证明
-	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
-	// 请假提示文案
-	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	// 请假证明单位hour，day
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
+	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s UpdateLeaveTypeRequestLeaveCertificate) String() string {
@@ -5877,14 +5671,10 @@ func (s *UpdateLeaveTypeRequestLeaveCertificate) SetUnit(v string) *UpdateLeaveT
 }
 
 type UpdateLeaveTypeRequestSubmitTimeRule struct {
-	// 是否开启限时提交功能：仅且为true时开启
-	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	// 限制类型：before-提前；after-补交
-	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	// 时间单位：day-天；hour-小时
-	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
-	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s UpdateLeaveTypeRequestSubmitTimeRule) String() string {
@@ -5916,9 +5706,7 @@ func (s *UpdateLeaveTypeRequestSubmitTimeRule) SetTimeValue(v int64) *UpdateLeav
 }
 
 type UpdateLeaveTypeRequestVisibilityRules struct {
-	// 规则类型：dept-部门；staff-员工；label-角色
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
 
@@ -5941,7 +5729,6 @@ func (s *UpdateLeaveTypeRequestVisibilityRules) SetVisible(v []*string) *UpdateL
 }
 
 type UpdateLeaveTypeResponseBody struct {
-	// 返回参数
 	Result *UpdateLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -5959,24 +5746,15 @@ func (s *UpdateLeaveTypeResponseBody) SetResult(v *UpdateLeaveTypeResponseBodyRe
 }
 
 type UpdateLeaveTypeResponseBodyResult struct {
-	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
-	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	// 请假证明
-	LeaveCertificate *UpdateLeaveTypeResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	// 假期类型唯一标识
-	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	// 假期名称
-	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
-	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
-	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	// 限时提交规则
-	SubmitTimeRule *UpdateLeaveTypeResponseBodyResultSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
-	VisibilityRules []*UpdateLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	BizType          *string                                             `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	HoursInPerDay    *int64                                              `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *UpdateLeaveTypeResponseBodyResultLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	LeaveCode        *string                                             `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	LeaveName        *string                                             `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	LeaveViewUnit    *string                                             `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	NaturalDayLeave  *bool                                               `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	SubmitTimeRule   *UpdateLeaveTypeResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules  []*UpdateLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 }
 
 func (s UpdateLeaveTypeResponseBodyResult) String() string {
@@ -6033,14 +5811,10 @@ func (s *UpdateLeaveTypeResponseBodyResult) SetVisibilityRules(v []*UpdateLeaveT
 }
 
 type UpdateLeaveTypeResponseBodyResultLeaveCertificate struct {
-	// 超过多长时间需提供请假证明
-	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	// 是否开启请假证明
-	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
-	// 请假提示文案
-	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	// 请假证明单位hour，day
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
+	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s UpdateLeaveTypeResponseBodyResultLeaveCertificate) String() string {
@@ -6072,14 +5846,10 @@ func (s *UpdateLeaveTypeResponseBodyResultLeaveCertificate) SetUnit(v string) *U
 }
 
 type UpdateLeaveTypeResponseBodyResultSubmitTimeRule struct {
-	// 是否开启限时提交功能：仅且为true时开启
-	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	// 限制类型：before-提前；after-补交
-	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	// 时间单位：day-天；hour-小时
-	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
-	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s UpdateLeaveTypeResponseBodyResultSubmitTimeRule) String() string {
@@ -6111,9 +5881,7 @@ func (s *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) 
 }
 
 type UpdateLeaveTypeResponseBodyResultVisibilityRules struct {
-	// 规则类型：dept-部门；staff-员工；label-角色
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
 
@@ -6136,8 +5904,9 @@ func (s *UpdateLeaveTypeResponseBodyResultVisibilityRules) SetVisible(v []*strin
 }
 
 type UpdateLeaveTypeResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateLeaveTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateLeaveTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateLeaveTypeResponse) String() string {
@@ -6153,158 +5922,13 @@ func (s *UpdateLeaveTypeResponse) SetHeaders(v map[string]*string) *UpdateLeaveT
 	return s
 }
 
+func (s *UpdateLeaveTypeResponse) SetStatusCode(v int32) *UpdateLeaveTypeResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *UpdateLeaveTypeResponse) SetBody(v *UpdateLeaveTypeResponseBody) *UpdateLeaveTypeResponse {
 	s.Body = v
-	return s
-}
-
-type ResultDurationSettingsValue struct {
-	CalcType     *int32 `json:"calcType,omitempty" xml:"calcType,omitempty"`
-	DurationType *int32 `json:"durationType,omitempty" xml:"durationType,omitempty"`
-	// 加班时长计为调休或加班费开关
-	OvertimeRedress *bool `json:"overtimeRedress,omitempty" xml:"overtimeRedress,omitempty"`
-	// 加班开始时间 或 最小加班时间
-	Settings map[string]interface{} `json:"settings,omitempty" xml:"settings,omitempty"`
-	// 加班时长计为方式
-	OvertimeRedressBy *string `json:"overtimeRedressBy,omitempty" xml:"overtimeRedressBy,omitempty"`
-	// 调休时长计算
-	VacationRate *float32 `json:"vacationRate,omitempty" xml:"vacationRate,omitempty"`
-	// 扣除休息时间
-	SkipTime *string `json:"skipTime,omitempty" xml:"skipTime,omitempty"`
-	// 休息时段
-	SkipTimeByFrames []*ResultDurationSettingsValueSkipTimeByFrames `json:"skipTimeByFrames,omitempty" xml:"skipTimeByFrames,omitempty" type:"Repeated"`
-	// 加班时长
-	SkipTimeByDurations []*ResultDurationSettingsValueSkipTimeByDurations `json:"skipTimeByDurations,omitempty" xml:"skipTimeByDurations,omitempty" type:"Repeated"`
-	// 休息日或节假日排班加班时长计为调休或加班费开关
-	HolidayPlanOvertimeRedress *bool `json:"holidayPlanOvertimeRedress,omitempty" xml:"holidayPlanOvertimeRedress,omitempty"`
-	// 休息日或节假日排班加班时长计为方式
-	HolidayPlanOvertimeRedressBy *string `json:"holidayPlanOvertimeRedressBy,omitempty" xml:"holidayPlanOvertimeRedressBy,omitempty"`
-	// 休息日或节假日排班调休时长计算
-	HolidayPlanVacationRate *float32 `json:"holidayPlanVacationRate,omitempty" xml:"holidayPlanVacationRate,omitempty"`
-}
-
-func (s ResultDurationSettingsValue) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ResultDurationSettingsValue) GoString() string {
-	return s.String()
-}
-
-func (s *ResultDurationSettingsValue) SetCalcType(v int32) *ResultDurationSettingsValue {
-	s.CalcType = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetDurationType(v int32) *ResultDurationSettingsValue {
-	s.DurationType = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetOvertimeRedress(v bool) *ResultDurationSettingsValue {
-	s.OvertimeRedress = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetSettings(v map[string]interface{}) *ResultDurationSettingsValue {
-	s.Settings = v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetOvertimeRedressBy(v string) *ResultDurationSettingsValue {
-	s.OvertimeRedressBy = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetVacationRate(v float32) *ResultDurationSettingsValue {
-	s.VacationRate = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetSkipTime(v string) *ResultDurationSettingsValue {
-	s.SkipTime = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetSkipTimeByFrames(v []*ResultDurationSettingsValueSkipTimeByFrames) *ResultDurationSettingsValue {
-	s.SkipTimeByFrames = v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetSkipTimeByDurations(v []*ResultDurationSettingsValueSkipTimeByDurations) *ResultDurationSettingsValue {
-	s.SkipTimeByDurations = v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetHolidayPlanOvertimeRedress(v bool) *ResultDurationSettingsValue {
-	s.HolidayPlanOvertimeRedress = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetHolidayPlanOvertimeRedressBy(v string) *ResultDurationSettingsValue {
-	s.HolidayPlanOvertimeRedressBy = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValue) SetHolidayPlanVacationRate(v float32) *ResultDurationSettingsValue {
-	s.HolidayPlanVacationRate = &v
-	return s
-}
-
-type ResultDurationSettingsValueSkipTimeByFrames struct {
-	// 开始时间，格式为"HH:mm"
-	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 结束时间，格式为"HH:mm"
-	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 是否生效
-	Valid *bool `json:"valid,omitempty" xml:"valid,omitempty"`
-}
-
-func (s ResultDurationSettingsValueSkipTimeByFrames) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ResultDurationSettingsValueSkipTimeByFrames) GoString() string {
-	return s.String()
-}
-
-func (s *ResultDurationSettingsValueSkipTimeByFrames) SetStartTime(v string) *ResultDurationSettingsValueSkipTimeByFrames {
-	s.StartTime = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValueSkipTimeByFrames) SetEndTime(v string) *ResultDurationSettingsValueSkipTimeByFrames {
-	s.EndTime = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValueSkipTimeByFrames) SetValid(v bool) *ResultDurationSettingsValueSkipTimeByFrames {
-	s.Valid = &v
-	return s
-}
-
-type ResultDurationSettingsValueSkipTimeByDurations struct {
-	// 每天加班满 x小时，单位 秒
-	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	// 扣除 x小时，单位 秒
-	Minus *int64 `json:"minus,omitempty" xml:"minus,omitempty"`
-}
-
-func (s ResultDurationSettingsValueSkipTimeByDurations) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ResultDurationSettingsValueSkipTimeByDurations) GoString() string {
-	return s.String()
-}
-
-func (s *ResultDurationSettingsValueSkipTimeByDurations) SetDuration(v int64) *ResultDurationSettingsValueSkipTimeByDurations {
-	s.Duration = &v
-	return s
-}
-
-func (s *ResultDurationSettingsValueSkipTimeByDurations) SetMinus(v int64) *ResultDurationSettingsValueSkipTimeByDurations {
-	s.Minus = &v
 	return s
 }
 
@@ -6323,24 +5947,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) AddLeaveType(request *AddLeaveTypeRequest) (_result *AddLeaveTypeResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddLeaveTypeHeaders{}
-	_result = &AddLeaveTypeResponse{}
-	_body, _err := client.AddLeaveTypeWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, headers *AddLeaveTypeHeaders, runtime *util.RuntimeOptions) (_result *AddLeaveTypeResponse, _err error) {
@@ -6404,8 +6022,19 @@ func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, head
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddLeaveType"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/leaves/types"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddLeaveTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddLeaveType"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/leaves/types"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6413,11 +6042,11 @@ func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, head
 	return _result, _err
 }
 
-func (client *Client) AttendanceBleDevicesAdd(request *AttendanceBleDevicesAddRequest) (_result *AttendanceBleDevicesAddResponse, _err error) {
+func (client *Client) AddLeaveType(request *AddLeaveTypeRequest) (_result *AddLeaveTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AttendanceBleDevicesAddHeaders{}
-	_result = &AttendanceBleDevicesAddResponse{}
-	_body, _err := client.AttendanceBleDevicesAddWithOptions(request, headers, runtime)
+	headers := &AddLeaveTypeHeaders{}
+	_result = &AddLeaveTypeResponse{}
+	_body, _err := client.AddLeaveTypeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6456,8 +6085,19 @@ func (client *Client) AttendanceBleDevicesAddWithOptions(request *AttendanceBleD
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AttendanceBleDevicesAdd"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/group/bledevices"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AttendanceBleDevicesAddResponse{}
-	_body, _err := client.DoROARequest(tea.String("AttendanceBleDevicesAdd"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/group/bledevices"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6465,11 +6105,11 @@ func (client *Client) AttendanceBleDevicesAddWithOptions(request *AttendanceBleD
 	return _result, _err
 }
 
-func (client *Client) AttendanceBleDevicesQuery(request *AttendanceBleDevicesQueryRequest) (_result *AttendanceBleDevicesQueryResponse, _err error) {
+func (client *Client) AttendanceBleDevicesAdd(request *AttendanceBleDevicesAddRequest) (_result *AttendanceBleDevicesAddResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AttendanceBleDevicesQueryHeaders{}
-	_result = &AttendanceBleDevicesQueryResponse{}
-	_body, _err := client.AttendanceBleDevicesQueryWithOptions(request, headers, runtime)
+	headers := &AttendanceBleDevicesAddHeaders{}
+	_result = &AttendanceBleDevicesAddResponse{}
+	_body, _err := client.AttendanceBleDevicesAddWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6504,8 +6144,19 @@ func (client *Client) AttendanceBleDevicesQueryWithOptions(request *AttendanceBl
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AttendanceBleDevicesQuery"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/group/bledevices/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AttendanceBleDevicesQueryResponse{}
-	_body, _err := client.DoROARequestWithForm(tea.String("AttendanceBleDevicesQuery"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/group/bledevices/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6513,11 +6164,11 @@ func (client *Client) AttendanceBleDevicesQueryWithOptions(request *AttendanceBl
 	return _result, _err
 }
 
-func (client *Client) AttendanceBleDevicesRemove(request *AttendanceBleDevicesRemoveRequest) (_result *AttendanceBleDevicesRemoveResponse, _err error) {
+func (client *Client) AttendanceBleDevicesQuery(request *AttendanceBleDevicesQueryRequest) (_result *AttendanceBleDevicesQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AttendanceBleDevicesRemoveHeaders{}
-	_result = &AttendanceBleDevicesRemoveResponse{}
-	_body, _err := client.AttendanceBleDevicesRemoveWithOptions(request, headers, runtime)
+	headers := &AttendanceBleDevicesQueryHeaders{}
+	_result = &AttendanceBleDevicesQueryResponse{}
+	_body, _err := client.AttendanceBleDevicesQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6556,8 +6207,19 @@ func (client *Client) AttendanceBleDevicesRemoveWithOptions(request *AttendanceB
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AttendanceBleDevicesRemove"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/group/bledevices/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AttendanceBleDevicesRemoveResponse{}
-	_body, _err := client.DoROARequest(tea.String("AttendanceBleDevicesRemove"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/group/bledevices/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6565,11 +6227,11 @@ func (client *Client) AttendanceBleDevicesRemoveWithOptions(request *AttendanceB
 	return _result, _err
 }
 
-func (client *Client) CheckClosingAccount(request *CheckClosingAccountRequest) (_result *CheckClosingAccountResponse, _err error) {
+func (client *Client) AttendanceBleDevicesRemove(request *AttendanceBleDevicesRemoveRequest) (_result *AttendanceBleDevicesRemoveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CheckClosingAccountHeaders{}
-	_result = &CheckClosingAccountResponse{}
-	_body, _err := client.CheckClosingAccountWithOptions(request, headers, runtime)
+	headers := &AttendanceBleDevicesRemoveHeaders{}
+	_result = &AttendanceBleDevicesRemoveResponse{}
+	_body, _err := client.AttendanceBleDevicesRemoveWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6608,8 +6270,19 @@ func (client *Client) CheckClosingAccountWithOptions(request *CheckClosingAccoun
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CheckClosingAccount"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/closingAccounts/status/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CheckClosingAccountResponse{}
-	_body, _err := client.DoROARequest(tea.String("CheckClosingAccount"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/closingAccounts/status/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6617,11 +6290,11 @@ func (client *Client) CheckClosingAccountWithOptions(request *CheckClosingAccoun
 	return _result, _err
 }
 
-func (client *Client) CheckWritePermission(request *CheckWritePermissionRequest) (_result *CheckWritePermissionResponse, _err error) {
+func (client *Client) CheckClosingAccount(request *CheckClosingAccountRequest) (_result *CheckClosingAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CheckWritePermissionHeaders{}
-	_result = &CheckWritePermissionResponse{}
-	_body, _err := client.CheckWritePermissionWithOptions(request, headers, runtime)
+	headers := &CheckClosingAccountHeaders{}
+	_result = &CheckClosingAccountResponse{}
+	_body, _err := client.CheckClosingAccountWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6664,8 +6337,19 @@ func (client *Client) CheckWritePermissionWithOptions(request *CheckWritePermiss
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CheckWritePermission"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/writePermissions/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CheckWritePermissionResponse{}
-	_body, _err := client.DoROARequest(tea.String("CheckWritePermission"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/writePermissions/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6673,11 +6357,11 @@ func (client *Client) CheckWritePermissionWithOptions(request *CheckWritePermiss
 	return _result, _err
 }
 
-func (client *Client) CreateApprove(request *CreateApproveRequest) (_result *CreateApproveResponse, _err error) {
+func (client *Client) CheckWritePermission(request *CheckWritePermissionRequest) (_result *CheckWritePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateApproveHeaders{}
-	_result = &CreateApproveResponse{}
-	_body, _err := client.CreateApproveWithOptions(request, headers, runtime)
+	headers := &CheckWritePermissionHeaders{}
+	_result = &CheckWritePermissionResponse{}
+	_body, _err := client.CheckWritePermissionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6728,8 +6412,19 @@ func (client *Client) CreateApproveWithOptions(request *CreateApproveRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateApprove"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/approves"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateApproveResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateApprove"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/approves"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6737,11 +6432,11 @@ func (client *Client) CreateApproveWithOptions(request *CreateApproveRequest, he
 	return _result, _err
 }
 
-func (client *Client) DeleteWaterMarkTemplate(request *DeleteWaterMarkTemplateRequest) (_result *DeleteWaterMarkTemplateResponse, _err error) {
+func (client *Client) CreateApprove(request *CreateApproveRequest) (_result *CreateApproveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteWaterMarkTemplateHeaders{}
-	_result = &DeleteWaterMarkTemplateResponse{}
-	_body, _err := client.DeleteWaterMarkTemplateWithOptions(request, headers, runtime)
+	headers := &CreateApproveHeaders{}
+	_result = &CreateApproveResponse{}
+	_body, _err := client.CreateApproveWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6788,8 +6483,19 @@ func (client *Client) DeleteWaterMarkTemplateWithOptions(request *DeleteWaterMar
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteWaterMarkTemplate"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/watermarks/templates"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteWaterMarkTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteWaterMarkTemplate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/attendance/watermarks/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6797,11 +6503,11 @@ func (client *Client) DeleteWaterMarkTemplateWithOptions(request *DeleteWaterMar
 	return _result, _err
 }
 
-func (client *Client) DingTalkSecurityCheck(request *DingTalkSecurityCheckRequest) (_result *DingTalkSecurityCheckResponse, _err error) {
+func (client *Client) DeleteWaterMarkTemplate(request *DeleteWaterMarkTemplateRequest) (_result *DeleteWaterMarkTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DingTalkSecurityCheckHeaders{}
-	_result = &DingTalkSecurityCheckResponse{}
-	_body, _err := client.DingTalkSecurityCheckWithOptions(request, headers, runtime)
+	headers := &DeleteWaterMarkTemplateHeaders{}
+	_result = &DeleteWaterMarkTemplateResponse{}
+	_body, _err := client.DeleteWaterMarkTemplateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6848,8 +6554,19 @@ func (client *Client) DingTalkSecurityCheckWithOptions(request *DingTalkSecurity
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DingTalkSecurityCheck"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/securities/check"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DingTalkSecurityCheckResponse{}
-	_body, _err := client.DoROARequest(tea.String("DingTalkSecurityCheck"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/securities/check"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6857,11 +6574,11 @@ func (client *Client) DingTalkSecurityCheckWithOptions(request *DingTalkSecurity
 	return _result, _err
 }
 
-func (client *Client) GetATManageScope(request *GetATManageScopeRequest) (_result *GetATManageScopeResponse, _err error) {
+func (client *Client) DingTalkSecurityCheck(request *DingTalkSecurityCheckRequest) (_result *DingTalkSecurityCheckResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetATManageScopeHeaders{}
-	_result = &GetATManageScopeResponse{}
-	_body, _err := client.GetATManageScopeWithOptions(request, headers, runtime)
+	headers := &DingTalkSecurityCheckHeaders{}
+	_result = &DingTalkSecurityCheckResponse{}
+	_body, _err := client.DingTalkSecurityCheckWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6900,8 +6617,19 @@ func (client *Client) GetATManageScopeWithOptions(request *GetATManageScopeReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetATManageScope"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/manageScopes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetATManageScopeResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetATManageScope"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/manageScopes"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6909,11 +6637,11 @@ func (client *Client) GetATManageScopeWithOptions(request *GetATManageScopeReque
 	return _result, _err
 }
 
-func (client *Client) GetAdjustments(request *GetAdjustmentsRequest) (_result *GetAdjustmentsResponse, _err error) {
+func (client *Client) GetATManageScope(request *GetATManageScopeRequest) (_result *GetATManageScopeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetAdjustmentsHeaders{}
-	_result = &GetAdjustmentsResponse{}
-	_body, _err := client.GetAdjustmentsWithOptions(request, headers, runtime)
+	headers := &GetATManageScopeHeaders{}
+	_result = &GetATManageScopeResponse{}
+	_body, _err := client.GetATManageScopeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6948,8 +6676,19 @@ func (client *Client) GetAdjustmentsWithOptions(request *GetAdjustmentsRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAdjustments"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/adjustments"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetAdjustmentsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAdjustments"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/adjustments"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6957,11 +6696,11 @@ func (client *Client) GetAdjustmentsWithOptions(request *GetAdjustmentsRequest, 
 	return _result, _err
 }
 
-func (client *Client) GetCheckInSchemaTemplate(request *GetCheckInSchemaTemplateRequest) (_result *GetCheckInSchemaTemplateResponse, _err error) {
+func (client *Client) GetAdjustments(request *GetAdjustmentsRequest) (_result *GetAdjustmentsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetCheckInSchemaTemplateHeaders{}
-	_result = &GetCheckInSchemaTemplateResponse{}
-	_body, _err := client.GetCheckInSchemaTemplateWithOptions(request, headers, runtime)
+	headers := &GetAdjustmentsHeaders{}
+	_result = &GetAdjustmentsResponse{}
+	_body, _err := client.GetAdjustmentsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7004,8 +6743,19 @@ func (client *Client) GetCheckInSchemaTemplateWithOptions(request *GetCheckInSch
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCheckInSchemaTemplate"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/watermarks/templates"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCheckInSchemaTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCheckInSchemaTemplate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/watermarks/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7013,11 +6763,11 @@ func (client *Client) GetCheckInSchemaTemplateWithOptions(request *GetCheckInSch
 	return _result, _err
 }
 
-func (client *Client) GetClosingAccounts(request *GetClosingAccountsRequest) (_result *GetClosingAccountsResponse, _err error) {
+func (client *Client) GetCheckInSchemaTemplate(request *GetCheckInSchemaTemplateRequest) (_result *GetCheckInSchemaTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetClosingAccountsHeaders{}
-	_result = &GetClosingAccountsResponse{}
-	_body, _err := client.GetClosingAccountsWithOptions(request, headers, runtime)
+	headers := &GetCheckInSchemaTemplateHeaders{}
+	_result = &GetCheckInSchemaTemplateResponse{}
+	_body, _err := client.GetCheckInSchemaTemplateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7048,8 +6798,19 @@ func (client *Client) GetClosingAccountsWithOptions(request *GetClosingAccountsR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetClosingAccounts"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/closingAccounts/rules/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetClosingAccountsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetClosingAccounts"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/closingAccounts/rules/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7057,11 +6818,11 @@ func (client *Client) GetClosingAccountsWithOptions(request *GetClosingAccountsR
 	return _result, _err
 }
 
-func (client *Client) GetLeaveRecords(request *GetLeaveRecordsRequest) (_result *GetLeaveRecordsResponse, _err error) {
+func (client *Client) GetClosingAccounts(request *GetClosingAccountsRequest) (_result *GetClosingAccountsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetLeaveRecordsHeaders{}
-	_result = &GetLeaveRecordsResponse{}
-	_body, _err := client.GetLeaveRecordsWithOptions(request, headers, runtime)
+	headers := &GetClosingAccountsHeaders{}
+	_result = &GetClosingAccountsResponse{}
+	_body, _err := client.GetClosingAccountsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7108,8 +6869,19 @@ func (client *Client) GetLeaveRecordsWithOptions(request *GetLeaveRecordsRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetLeaveRecords"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/vacations/records/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetLeaveRecordsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetLeaveRecords"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/vacations/records/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7117,11 +6889,11 @@ func (client *Client) GetLeaveRecordsWithOptions(request *GetLeaveRecordsRequest
 	return _result, _err
 }
 
-func (client *Client) GetLeaveType(request *GetLeaveTypeRequest) (_result *GetLeaveTypeResponse, _err error) {
+func (client *Client) GetLeaveRecords(request *GetLeaveRecordsRequest) (_result *GetLeaveRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetLeaveTypeHeaders{}
-	_result = &GetLeaveTypeResponse{}
-	_body, _err := client.GetLeaveTypeWithOptions(request, headers, runtime)
+	headers := &GetLeaveRecordsHeaders{}
+	_result = &GetLeaveRecordsResponse{}
+	_body, _err := client.GetLeaveRecordsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7156,8 +6928,64 @@ func (client *Client) GetLeaveTypeWithOptions(request *GetLeaveTypeRequest, head
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetLeaveType"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/leaves/types"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetLeaveTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetLeaveType"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/leaves/types"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetLeaveType(request *GetLeaveTypeRequest) (_result *GetLeaveTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetLeaveTypeHeaders{}
+	_result = &GetLeaveTypeResponse{}
+	_body, _err := client.GetLeaveTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMachineWithOptions(devId *string, headers *GetMachineHeaders, runtime *util.RuntimeOptions) (_result *GetMachineResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMachine"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/machines/" + tea.StringValue(devId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetMachineResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7177,47 +7005,11 @@ func (client *Client) GetMachine(devId *string) (_result *GetMachineResponse, _e
 	return _result, _err
 }
 
-func (client *Client) GetMachineWithOptions(devId *string, headers *GetMachineHeaders, runtime *util.RuntimeOptions) (_result *GetMachineResponse, _err error) {
-	devId = openapiutil.GetEncodeParam(devId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &GetMachineResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetMachine"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/machines/"+tea.StringValue(devId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetMachineUser(devId *string, request *GetMachineUserRequest) (_result *GetMachineUserResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetMachineUserHeaders{}
-	_result = &GetMachineUserResponse{}
-	_body, _err := client.GetMachineUserWithOptions(devId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) GetMachineUserWithOptions(devId *string, request *GetMachineUserRequest, headers *GetMachineUserHeaders, runtime *util.RuntimeOptions) (_result *GetMachineUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	devId = openapiutil.GetEncodeParam(devId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -7240,8 +7032,19 @@ func (client *Client) GetMachineUserWithOptions(devId *string, request *GetMachi
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMachineUser"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/machines/getUser/" + tea.StringValue(devId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetMachineUserResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetMachineUser"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/machines/getUser/"+tea.StringValue(devId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7249,11 +7052,11 @@ func (client *Client) GetMachineUserWithOptions(devId *string, request *GetMachi
 	return _result, _err
 }
 
-func (client *Client) GetOvertimeSetting(request *GetOvertimeSettingRequest) (_result *GetOvertimeSettingResponse, _err error) {
+func (client *Client) GetMachineUser(devId *string, request *GetMachineUserRequest) (_result *GetMachineUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetOvertimeSettingHeaders{}
-	_result = &GetOvertimeSettingResponse{}
-	_body, _err := client.GetOvertimeSettingWithOptions(request, headers, runtime)
+	headers := &GetMachineUserHeaders{}
+	_result = &GetMachineUserResponse{}
+	_body, _err := client.GetMachineUserWithOptions(devId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7284,8 +7087,19 @@ func (client *Client) GetOvertimeSettingWithOptions(request *GetOvertimeSettingR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetOvertimeSetting"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/overtimeSettings/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetOvertimeSettingResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetOvertimeSetting"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/overtimeSettings/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7293,11 +7107,11 @@ func (client *Client) GetOvertimeSettingWithOptions(request *GetOvertimeSettingR
 	return _result, _err
 }
 
-func (client *Client) GetSimpleOvertimeSetting(request *GetSimpleOvertimeSettingRequest) (_result *GetSimpleOvertimeSettingResponse, _err error) {
+func (client *Client) GetOvertimeSetting(request *GetOvertimeSettingRequest) (_result *GetOvertimeSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSimpleOvertimeSettingHeaders{}
-	_result = &GetSimpleOvertimeSettingResponse{}
-	_body, _err := client.GetSimpleOvertimeSettingWithOptions(request, headers, runtime)
+	headers := &GetOvertimeSettingHeaders{}
+	_result = &GetOvertimeSettingResponse{}
+	_body, _err := client.GetOvertimeSettingWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7332,8 +7146,19 @@ func (client *Client) GetSimpleOvertimeSettingWithOptions(request *GetSimpleOver
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSimpleOvertimeSetting"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/overtimeSettings"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSimpleOvertimeSettingResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSimpleOvertimeSetting"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/overtimeSettings"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7341,11 +7166,11 @@ func (client *Client) GetSimpleOvertimeSettingWithOptions(request *GetSimpleOver
 	return _result, _err
 }
 
-func (client *Client) GetUserHolidays(request *GetUserHolidaysRequest) (_result *GetUserHolidaysResponse, _err error) {
+func (client *Client) GetSimpleOvertimeSetting(request *GetSimpleOvertimeSettingRequest) (_result *GetSimpleOvertimeSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserHolidaysHeaders{}
-	_result = &GetUserHolidaysResponse{}
-	_body, _err := client.GetUserHolidaysWithOptions(request, headers, runtime)
+	headers := &GetSimpleOvertimeSettingHeaders{}
+	_result = &GetSimpleOvertimeSettingResponse{}
+	_body, _err := client.GetSimpleOvertimeSettingWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7384,8 +7209,19 @@ func (client *Client) GetUserHolidaysWithOptions(request *GetUserHolidaysRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserHolidays"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/holidays"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserHolidaysResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserHolidays"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/holidays"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7393,11 +7229,11 @@ func (client *Client) GetUserHolidaysWithOptions(request *GetUserHolidaysRequest
 	return _result, _err
 }
 
-func (client *Client) GroupAdd(request *GroupAddRequest) (_result *GroupAddResponse, _err error) {
+func (client *Client) GetUserHolidays(request *GetUserHolidaysRequest) (_result *GetUserHolidaysResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GroupAddHeaders{}
-	_result = &GroupAddResponse{}
-	_body, _err := client.GroupAddWithOptions(request, headers, runtime)
+	headers := &GetUserHolidaysHeaders{}
+	_result = &GetUserHolidaysResponse{}
+	_body, _err := client.GetUserHolidaysWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7598,8 +7434,19 @@ func (client *Client) GroupAddWithOptions(request *GroupAddRequest, headers *Gro
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GroupAdd"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/groups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GroupAddResponse{}
-	_body, _err := client.DoROARequest(tea.String("GroupAdd"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/groups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7607,11 +7454,11 @@ func (client *Client) GroupAddWithOptions(request *GroupAddRequest, headers *Gro
 	return _result, _err
 }
 
-func (client *Client) GroupUpdate(request *GroupUpdateRequest) (_result *GroupUpdateResponse, _err error) {
+func (client *Client) GroupAdd(request *GroupAddRequest) (_result *GroupAddResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GroupUpdateHeaders{}
-	_result = &GroupUpdateResponse{}
-	_body, _err := client.GroupUpdateWithOptions(request, headers, runtime)
+	headers := &GroupAddHeaders{}
+	_result = &GroupAddResponse{}
+	_body, _err := client.GroupAddWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7760,8 +7607,19 @@ func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, header
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GroupUpdate"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/groups"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GroupUpdateResponse{}
-	_body, _err := client.DoROARequest(tea.String("GroupUpdate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/attendance/groups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7769,11 +7627,11 @@ func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, header
 	return _result, _err
 }
 
-func (client *Client) InitAndGetLeaveALlocationQuotas(request *InitAndGetLeaveALlocationQuotasRequest) (_result *InitAndGetLeaveALlocationQuotasResponse, _err error) {
+func (client *Client) GroupUpdate(request *GroupUpdateRequest) (_result *GroupUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &InitAndGetLeaveALlocationQuotasHeaders{}
-	_result = &InitAndGetLeaveALlocationQuotasResponse{}
-	_body, _err := client.InitAndGetLeaveALlocationQuotasWithOptions(request, headers, runtime)
+	headers := &GroupUpdateHeaders{}
+	_result = &GroupUpdateResponse{}
+	_body, _err := client.GroupUpdateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7812,8 +7670,19 @@ func (client *Client) InitAndGetLeaveALlocationQuotasWithOptions(request *InitAn
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("InitAndGetLeaveALlocationQuotas"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/leaves/initializations/balances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &InitAndGetLeaveALlocationQuotasResponse{}
-	_body, _err := client.DoROARequest(tea.String("InitAndGetLeaveALlocationQuotas"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/leaves/initializations/balances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7821,11 +7690,11 @@ func (client *Client) InitAndGetLeaveALlocationQuotasWithOptions(request *InitAn
 	return _result, _err
 }
 
-func (client *Client) ListApproveByUsers(request *ListApproveByUsersRequest) (_result *ListApproveByUsersResponse, _err error) {
+func (client *Client) InitAndGetLeaveALlocationQuotas(request *InitAndGetLeaveALlocationQuotasRequest) (_result *InitAndGetLeaveALlocationQuotasResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListApproveByUsersHeaders{}
-	_result = &ListApproveByUsersResponse{}
-	_body, _err := client.ListApproveByUsersWithOptions(request, headers, runtime)
+	headers := &InitAndGetLeaveALlocationQuotasHeaders{}
+	_result = &InitAndGetLeaveALlocationQuotasResponse{}
+	_body, _err := client.InitAndGetLeaveALlocationQuotasWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7868,8 +7737,19 @@ func (client *Client) ListApproveByUsersWithOptions(request *ListApproveByUsersR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListApproveByUsers"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/approvals/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListApproveByUsersResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListApproveByUsers"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/approvals/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7877,11 +7757,11 @@ func (client *Client) ListApproveByUsersWithOptions(request *ListApproveByUsersR
 	return _result, _err
 }
 
-func (client *Client) ModifyWaterMarkTemplate(request *ModifyWaterMarkTemplateRequest) (_result *ModifyWaterMarkTemplateResponse, _err error) {
+func (client *Client) ListApproveByUsers(request *ListApproveByUsersRequest) (_result *ListApproveByUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ModifyWaterMarkTemplateHeaders{}
-	_result = &ModifyWaterMarkTemplateResponse{}
-	_body, _err := client.ModifyWaterMarkTemplateWithOptions(request, headers, runtime)
+	headers := &ListApproveByUsersHeaders{}
+	_result = &ListApproveByUsersResponse{}
+	_body, _err := client.ListApproveByUsersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7942,8 +7822,19 @@ func (client *Client) ModifyWaterMarkTemplateWithOptions(request *ModifyWaterMar
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ModifyWaterMarkTemplate"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/watermarks/templates"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ModifyWaterMarkTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("ModifyWaterMarkTemplate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/attendance/watermarks/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7951,11 +7842,11 @@ func (client *Client) ModifyWaterMarkTemplateWithOptions(request *ModifyWaterMar
 	return _result, _err
 }
 
-func (client *Client) ProcessApproveCreate(request *ProcessApproveCreateRequest) (_result *ProcessApproveCreateResponse, _err error) {
+func (client *Client) ModifyWaterMarkTemplate(request *ModifyWaterMarkTemplateRequest) (_result *ModifyWaterMarkTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ProcessApproveCreateHeaders{}
-	_result = &ProcessApproveCreateResponse{}
-	_body, _err := client.ProcessApproveCreateWithOptions(request, headers, runtime)
+	headers := &ModifyWaterMarkTemplateHeaders{}
+	_result = &ModifyWaterMarkTemplateResponse{}
+	_body, _err := client.ModifyWaterMarkTemplateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8006,8 +7897,19 @@ func (client *Client) ProcessApproveCreateWithOptions(request *ProcessApproveCre
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ProcessApproveCreate"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/workflows/checkInForms"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ProcessApproveCreateResponse{}
-	_body, _err := client.DoROARequest(tea.String("ProcessApproveCreate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/workflows/checkInForms"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8015,11 +7917,11 @@ func (client *Client) ProcessApproveCreateWithOptions(request *ProcessApproveCre
 	return _result, _err
 }
 
-func (client *Client) SaveCustomWaterMarkTemplate(request *SaveCustomWaterMarkTemplateRequest) (_result *SaveCustomWaterMarkTemplateResponse, _err error) {
+func (client *Client) ProcessApproveCreate(request *ProcessApproveCreateRequest) (_result *ProcessApproveCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SaveCustomWaterMarkTemplateHeaders{}
-	_result = &SaveCustomWaterMarkTemplateResponse{}
-	_body, _err := client.SaveCustomWaterMarkTemplateWithOptions(request, headers, runtime)
+	headers := &ProcessApproveCreateHeaders{}
+	_result = &ProcessApproveCreateResponse{}
+	_body, _err := client.ProcessApproveCreateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8080,8 +7982,19 @@ func (client *Client) SaveCustomWaterMarkTemplateWithOptions(request *SaveCustom
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveCustomWaterMarkTemplate"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/watermarks/templates"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SaveCustomWaterMarkTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("SaveCustomWaterMarkTemplate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/watermarks/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8089,11 +8002,11 @@ func (client *Client) SaveCustomWaterMarkTemplateWithOptions(request *SaveCustom
 	return _result, _err
 }
 
-func (client *Client) SyncScheduleInfo(request *SyncScheduleInfoRequest) (_result *SyncScheduleInfoResponse, _err error) {
+func (client *Client) SaveCustomWaterMarkTemplate(request *SaveCustomWaterMarkTemplateRequest) (_result *SaveCustomWaterMarkTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SyncScheduleInfoHeaders{}
-	_result = &SyncScheduleInfoResponse{}
-	_body, _err := client.SyncScheduleInfoWithOptions(request, headers, runtime)
+	headers := &SaveCustomWaterMarkTemplateHeaders{}
+	_result = &SaveCustomWaterMarkTemplateResponse{}
+	_body, _err := client.SaveCustomWaterMarkTemplateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8128,8 +8041,19 @@ func (client *Client) SyncScheduleInfoWithOptions(request *SyncScheduleInfoReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncScheduleInfo"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/schedules/additionalInfo"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &SyncScheduleInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("SyncScheduleInfo"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/attendance/schedules/additionalInfo"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8137,11 +8061,11 @@ func (client *Client) SyncScheduleInfoWithOptions(request *SyncScheduleInfoReque
 	return _result, _err
 }
 
-func (client *Client) UpdateLeaveType(request *UpdateLeaveTypeRequest) (_result *UpdateLeaveTypeResponse, _err error) {
+func (client *Client) SyncScheduleInfo(request *SyncScheduleInfoRequest) (_result *SyncScheduleInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateLeaveTypeHeaders{}
-	_result = &UpdateLeaveTypeResponse{}
-	_body, _err := client.UpdateLeaveTypeWithOptions(request, headers, runtime)
+	headers := &SyncScheduleInfoHeaders{}
+	_result = &SyncScheduleInfoResponse{}
+	_body, _err := client.SyncScheduleInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8214,11 +8138,34 @@ func (client *Client) UpdateLeaveTypeWithOptions(request *UpdateLeaveTypeRequest
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateLeaveType"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/leaves/types"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateLeaveTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateLeaveType"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/attendance/leaves/types"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateLeaveType(request *UpdateLeaveTypeRequest) (_result *UpdateLeaveTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateLeaveTypeHeaders{}
+	_result = &UpdateLeaveTypeResponse{}
+	_body, _err := client.UpdateLeaveTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

@@ -5,9 +5,10 @@
 package project_integration_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,8 +36,9 @@ func (s *AddAttendeeToEventGroupHeaders) SetXAcsDingtalkAccessToken(v string) *A
 }
 
 type AddAttendeeToEventGroupResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddAttendeeToEventGroupResponse) String() string {
@@ -49,6 +51,11 @@ func (s AddAttendeeToEventGroupResponse) GoString() string {
 
 func (s *AddAttendeeToEventGroupResponse) SetHeaders(v map[string]*string) *AddAttendeeToEventGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddAttendeeToEventGroupResponse) SetStatusCode(v int32) *AddAttendeeToEventGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -81,8 +88,9 @@ func (s *CreateEventGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEv
 }
 
 type CreateEventGroupResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateEventGroupResponse) String() string {
@@ -95,6 +103,11 @@ func (s CreateEventGroupResponse) GoString() string {
 
 func (s *CreateEventGroupResponse) SetHeaders(v map[string]*string) *CreateEventGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateEventGroupResponse) SetStatusCode(v int32) *CreateEventGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -127,8 +140,9 @@ func (s *SendInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *SendI
 }
 
 type SendInteractiveCardResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendInteractiveCardResponse) String() string {
@@ -141,6 +155,11 @@ func (s SendInteractiveCardResponse) GoString() string {
 
 func (s *SendInteractiveCardResponse) SetHeaders(v map[string]*string) *SendInteractiveCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendInteractiveCardResponse) SetStatusCode(v int32) *SendInteractiveCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -173,8 +192,9 @@ func (s *SendSingleInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type SendSingleInteractiveCardResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendSingleInteractiveCardResponse) String() string {
@@ -187,6 +207,11 @@ func (s SendSingleInteractiveCardResponse) GoString() string {
 
 func (s *SendSingleInteractiveCardResponse) SetHeaders(v map[string]*string) *SendSingleInteractiveCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendSingleInteractiveCardResponse) SetStatusCode(v int32) *SendSingleInteractiveCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -219,8 +244,9 @@ func (s *UpdateInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateInteractiveCardResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInteractiveCardResponse) String() string {
@@ -233,6 +259,11 @@ func (s UpdateInteractiveCardResponse) GoString() string {
 
 func (s *UpdateInteractiveCardResponse) SetHeaders(v map[string]*string) *UpdateInteractiveCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInteractiveCardResponse) SetStatusCode(v int32) *UpdateInteractiveCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -256,12 +287,51 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
+}
+
+func (client *Client) AddAttendeeToEventGroupWithOptions(userId *string, groupId *string, headers *AddAttendeeToEventGroupHeaders, runtime *util.RuntimeOptions) (_result *AddAttendeeToEventGroupResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddAttendeeToEventGroup"),
+		Version:     tea.String("projectIntegration_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/projectIntegration/users/" + tea.StringValue(userId) + "/eventGroups/" + tea.StringValue(groupId) + "/members"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddAttendeeToEventGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) AddAttendeeToEventGroup(userId *string, groupId *string) (_result *AddAttendeeToEventGroupResponse, _err error) {
@@ -276,9 +346,7 @@ func (client *Client) AddAttendeeToEventGroup(userId *string, groupId *string) (
 	return _result, _err
 }
 
-func (client *Client) AddAttendeeToEventGroupWithOptions(userId *string, groupId *string, headers *AddAttendeeToEventGroupHeaders, runtime *util.RuntimeOptions) (_result *AddAttendeeToEventGroupResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	groupId = openapiutil.GetEncodeParam(groupId)
+func (client *Client) CreateEventGroupWithOptions(userId *string, headers *CreateEventGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateEventGroupResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -291,8 +359,19 @@ func (client *Client) AddAttendeeToEventGroupWithOptions(userId *string, groupId
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &AddAttendeeToEventGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddAttendeeToEventGroup"), tea.String("projectIntegration_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/projectIntegration/users/"+tea.StringValue(userId)+"/eventGroups/"+tea.StringValue(groupId)+"/members"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("CreateEventGroup"),
+		Version:     tea.String("projectIntegration_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/projectIntegration/users/" + tea.StringValue(userId) + "/eventGroups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateEventGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -312,8 +391,7 @@ func (client *Client) CreateEventGroup(userId *string) (_result *CreateEventGrou
 	return _result, _err
 }
 
-func (client *Client) CreateEventGroupWithOptions(userId *string, headers *CreateEventGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateEventGroupResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
+func (client *Client) SendInteractiveCardWithOptions(userId *string, headers *SendInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendInteractiveCardResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -326,8 +404,19 @@ func (client *Client) CreateEventGroupWithOptions(userId *string, headers *Creat
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &CreateEventGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateEventGroup"), tea.String("projectIntegration_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/projectIntegration/users/"+tea.StringValue(userId)+"/eventGroups"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("SendInteractiveCard"),
+		Version:     tea.String("projectIntegration_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/projectIntegration/users/" + tea.StringValue(userId) + "/groupChatCardMessages"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendInteractiveCardResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -347,8 +436,7 @@ func (client *Client) SendInteractiveCard(userId *string) (_result *SendInteract
 	return _result, _err
 }
 
-func (client *Client) SendInteractiveCardWithOptions(userId *string, headers *SendInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendInteractiveCardResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
+func (client *Client) SendSingleInteractiveCardWithOptions(userId *string, headers *SendSingleInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendSingleInteractiveCardResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -361,8 +449,19 @@ func (client *Client) SendInteractiveCardWithOptions(userId *string, headers *Se
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &SendInteractiveCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendInteractiveCard"), tea.String("projectIntegration_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/projectIntegration/users/"+tea.StringValue(userId)+"/groupChatCardMessages"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("SendSingleInteractiveCard"),
+		Version:     tea.String("projectIntegration_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/projectIntegration/users/" + tea.StringValue(userId) + "/singleChatCardMessages"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendSingleInteractiveCardResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -382,8 +481,7 @@ func (client *Client) SendSingleInteractiveCard(userId *string) (_result *SendSi
 	return _result, _err
 }
 
-func (client *Client) SendSingleInteractiveCardWithOptions(userId *string, headers *SendSingleInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendSingleInteractiveCardResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
+func (client *Client) UpdateInteractiveCardWithOptions(userId *string, headers *UpdateInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *UpdateInteractiveCardResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -396,8 +494,19 @@ func (client *Client) SendSingleInteractiveCardWithOptions(userId *string, heade
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &SendSingleInteractiveCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendSingleInteractiveCard"), tea.String("projectIntegration_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/projectIntegration/users/"+tea.StringValue(userId)+"/singleChatCardMessages"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInteractiveCard"),
+		Version:     tea.String("projectIntegration_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/projectIntegration/users/" + tea.StringValue(userId) + "/cardMessages"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateInteractiveCardResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -414,28 +523,5 @@ func (client *Client) UpdateInteractiveCard(userId *string) (_result *UpdateInte
 		return _result, _err
 	}
 	_result = _body
-	return _result, _err
-}
-
-func (client *Client) UpdateInteractiveCardWithOptions(userId *string, headers *UpdateInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *UpdateInteractiveCardResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &UpdateInteractiveCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInteractiveCard"), tea.String("projectIntegration_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/projectIntegration/users/"+tea.StringValue(userId)+"/cardMessages"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
 	return _result, _err
 }

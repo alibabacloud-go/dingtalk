@@ -5,9 +5,11 @@
 package esign_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -110,8 +112,9 @@ func (s *AuthUrlResponseBodyData) SetTaskId(v string) *AuthUrlResponseBodyData {
 }
 
 type AuthUrlResponse struct {
-	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AuthUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AuthUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AuthUrlResponse) String() string {
@@ -124,6 +127,11 @@ func (s AuthUrlResponse) GoString() string {
 
 func (s *AuthUrlResponse) SetHeaders(v map[string]*string) *AuthUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AuthUrlResponse) SetStatusCode(v int32) *AuthUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -202,8 +210,9 @@ func (s *CancelCorpAuthResponseBodyData) SetResult(v bool) *CancelCorpAuthRespon
 }
 
 type CancelCorpAuthResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CancelCorpAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CancelCorpAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CancelCorpAuthResponse) String() string {
@@ -216,6 +225,11 @@ func (s CancelCorpAuthResponse) GoString() string {
 
 func (s *CancelCorpAuthResponse) SetHeaders(v map[string]*string) *CancelCorpAuthResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CancelCorpAuthResponse) SetStatusCode(v int32) *CancelCorpAuthResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -341,8 +355,9 @@ func (s *ChannelOrderResponseBodyData) SetEsignOrderId(v string) *ChannelOrderRe
 }
 
 type ChannelOrderResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ChannelOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChannelOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ChannelOrderResponse) String() string {
@@ -355,6 +370,11 @@ func (s ChannelOrderResponse) GoString() string {
 
 func (s *ChannelOrderResponse) SetHeaders(v map[string]*string) *ChannelOrderResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ChannelOrderResponse) SetStatusCode(v int32) *ChannelOrderResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -433,8 +453,9 @@ func (s *ContractMarginResponseBodyData) SetMargin(v int64) *ContractMarginRespo
 }
 
 type ContractMarginResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ContractMarginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ContractMarginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ContractMarginResponse) String() string {
@@ -447,6 +468,11 @@ func (s ContractMarginResponse) GoString() string {
 
 func (s *ContractMarginResponse) SetHeaders(v map[string]*string) *ContractMarginResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ContractMarginResponse) SetStatusCode(v int32) *ContractMarginResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -525,8 +551,9 @@ func (s *CorpConsoleResponseBodyData) SetOrgConsoleUrl(v int64) *CorpConsoleResp
 }
 
 type CorpConsoleResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CorpConsoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CorpConsoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CorpConsoleResponse) String() string {
@@ -539,6 +566,11 @@ func (s CorpConsoleResponse) GoString() string {
 
 func (s *CorpConsoleResponse) SetHeaders(v map[string]*string) *CorpConsoleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CorpConsoleResponse) SetStatusCode(v int32) *CorpConsoleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -623,8 +655,9 @@ func (s *CorpInfoResponseBodyData) SetRealName(v bool) *CorpInfoResponseBodyData
 }
 
 type CorpInfoResponse struct {
-	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CorpInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CorpInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CorpInfoResponse) String() string {
@@ -637,6 +670,11 @@ func (s CorpInfoResponse) GoString() string {
 
 func (s *CorpInfoResponse) SetHeaders(v map[string]*string) *CorpInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CorpInfoResponse) SetStatusCode(v int32) *CorpInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -715,8 +753,9 @@ func (s *CreateDeveloperResponseBody) SetMessage(v string) *CreateDeveloperRespo
 }
 
 type CreateDeveloperResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateDeveloperResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateDeveloperResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateDeveloperResponse) String() string {
@@ -729,6 +768,11 @@ func (s CreateDeveloperResponse) GoString() string {
 
 func (s *CreateDeveloperResponse) SetHeaders(v map[string]*string) *CreateDeveloperResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateDeveloperResponse) SetStatusCode(v int32) *CreateDeveloperResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -836,8 +880,9 @@ func (s *GetCorpRealnameUrlResponseBodyData) SetTaskId(v string) *GetCorpRealnam
 }
 
 type GetCorpRealnameUrlResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCorpRealnameUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCorpRealnameUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCorpRealnameUrlResponse) String() string {
@@ -850,6 +895,11 @@ func (s GetCorpRealnameUrlResponse) GoString() string {
 
 func (s *GetCorpRealnameUrlResponse) SetHeaders(v map[string]*string) *GetCorpRealnameUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCorpRealnameUrlResponse) SetStatusCode(v int32) *GetCorpRealnameUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -934,8 +984,9 @@ func (s *GetCropStatusResponseBodyData) SetInstallStatus(v string) *GetCropStatu
 }
 
 type GetCropStatusResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCropStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCropStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCropStatusResponse) String() string {
@@ -948,6 +999,11 @@ func (s GetCropStatusResponse) GoString() string {
 
 func (s *GetCropStatusResponse) SetHeaders(v map[string]*string) *GetCropStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCropStatusResponse) SetStatusCode(v int32) *GetCropStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1056,8 +1112,9 @@ func (s *GetFileResponseBodyData) SetStatus(v int32) *GetFileResponseBodyData {
 }
 
 type GetFileResponse struct {
-	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFileResponse) String() string {
@@ -1070,6 +1127,11 @@ func (s GetFileResponse) GoString() string {
 
 func (s *GetFileResponse) SetHeaders(v map[string]*string) *GetFileResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFileResponse) SetStatusCode(v int32) *GetFileResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1224,8 +1286,9 @@ func (s *GetFlowDetailResponseBodyDataLogs) SetOperatorAccountName(v string) *Ge
 }
 
 type GetFlowDetailResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFlowDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFlowDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFlowDetailResponse) String() string {
@@ -1238,6 +1301,11 @@ func (s GetFlowDetailResponse) GoString() string {
 
 func (s *GetFlowDetailResponse) SetHeaders(v map[string]*string) *GetFlowDetailResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFlowDetailResponse) SetStatusCode(v int32) *GetFlowDetailResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1368,8 +1436,9 @@ func (s *GetFlowSignDetailResponseBodyDataSigners) SetSignerName(v string) *GetF
 }
 
 type GetFlowSignDetailResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFlowSignDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFlowSignDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFlowSignDetailResponse) String() string {
@@ -1382,6 +1451,11 @@ func (s GetFlowSignDetailResponse) GoString() string {
 
 func (s *GetFlowSignDetailResponse) SetHeaders(v map[string]*string) *GetFlowSignDetailResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFlowSignDetailResponse) SetStatusCode(v int32) *GetFlowSignDetailResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1665,8 +1739,9 @@ func (s *GetProcessStartUrlResponseBodyData) SetTaskId(v string) *GetProcessStar
 }
 
 type GetProcessStartUrlResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetProcessStartUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetProcessStartUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetProcessStartUrlResponse) String() string {
@@ -1679,6 +1754,11 @@ func (s GetProcessStartUrlResponse) GoString() string {
 
 func (s *GetProcessStartUrlResponse) SetHeaders(v map[string]*string) *GetProcessStartUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetProcessStartUrlResponse) SetStatusCode(v int32) *GetProcessStartUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1728,12 +1808,9 @@ func (s *GetSignNoticeUrlRequest) SetTaskId(v string) *GetSignNoticeUrlRequest {
 }
 
 type GetSignNoticeUrlResponseBody struct {
-	// 返回错误码
-	Code *int32 `json:"code,omitempty" xml:"code,omitempty"`
-	// 返回数据
-	Data *GetSignNoticeUrlResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 返回结果信息
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	Code    *int32                            `json:"code,omitempty" xml:"code,omitempty"`
+	Data    *GetSignNoticeUrlResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Message *string                           `json:"message,omitempty" xml:"message,omitempty"`
 }
 
 func (s GetSignNoticeUrlResponseBody) String() string {
@@ -1760,10 +1837,8 @@ func (s *GetSignNoticeUrlResponseBody) SetMessage(v string) *GetSignNoticeUrlRes
 }
 
 type GetSignNoticeUrlResponseBodyData struct {
-	// 移动端URL
 	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	// PC端URL
-	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	PcUrl     *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
 }
 
 func (s GetSignNoticeUrlResponseBodyData) String() string {
@@ -1785,8 +1860,9 @@ func (s *GetSignNoticeUrlResponseBodyData) SetPcUrl(v string) *GetSignNoticeUrlR
 }
 
 type GetSignNoticeUrlResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSignNoticeUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSignNoticeUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSignNoticeUrlResponse) String() string {
@@ -1799,6 +1875,11 @@ func (s GetSignNoticeUrlResponse) GoString() string {
 
 func (s *GetSignNoticeUrlResponse) SetHeaders(v map[string]*string) *GetSignNoticeUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSignNoticeUrlResponse) SetStatusCode(v int32) *GetSignNoticeUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1924,8 +2005,9 @@ func (s *GetUploadUrlResponseBodyData) SetUploadUrl(v string) *GetUploadUrlRespo
 }
 
 type GetUploadUrlResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUploadUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUploadUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUploadUrlResponse) String() string {
@@ -1938,6 +2020,11 @@ func (s GetUploadUrlResponse) GoString() string {
 
 func (s *GetUploadUrlResponse) SetHeaders(v map[string]*string) *GetUploadUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUploadUrlResponse) SetStatusCode(v int32) *GetUploadUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2022,8 +2109,9 @@ func (s *GetUserInfoResponseBodyData) SetUserRealName(v string) *GetUserInfoResp
 }
 
 type GetUserInfoResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserInfoResponse) String() string {
@@ -2036,6 +2124,11 @@ func (s GetUserInfoResponse) GoString() string {
 
 func (s *GetUserInfoResponse) SetHeaders(v map[string]*string) *GetUserInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserInfoResponse) SetStatusCode(v int32) *GetUserInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2149,8 +2242,9 @@ func (s *GetUserRealnameUrlResponseBodyData) SetTaskId(v string) *GetUserRealnam
 }
 
 type GetUserRealnameUrlResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserRealnameUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserRealnameUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserRealnameUrlResponse) String() string {
@@ -2163,6 +2257,11 @@ func (s GetUserRealnameUrlResponse) GoString() string {
 
 func (s *GetUserRealnameUrlResponse) SetHeaders(v map[string]*string) *GetUserRealnameUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserRealnameUrlResponse) SetStatusCode(v int32) *GetUserRealnameUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2270,8 +2369,9 @@ func (s *ListFlowDocsResponseBodyData) SetFileUrl(v string) *ListFlowDocsRespons
 }
 
 type ListFlowDocsResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListFlowDocsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListFlowDocsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListFlowDocsResponse) String() string {
@@ -2284,6 +2384,11 @@ func (s ListFlowDocsResponse) GoString() string {
 
 func (s *ListFlowDocsResponse) SetHeaders(v map[string]*string) *ListFlowDocsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListFlowDocsResponse) SetStatusCode(v int32) *ListFlowDocsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2456,8 +2561,9 @@ func (s *ListSealApprovalResponseBodyDataApprovalNodes) SetStatus(v string) *Lis
 }
 
 type ListSealApprovalResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListSealApprovalResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListSealApprovalResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListSealApprovalResponse) String() string {
@@ -2470,6 +2576,11 @@ func (s ListSealApprovalResponse) GoString() string {
 
 func (s *ListSealApprovalResponse) SetHeaders(v map[string]*string) *ListSealApprovalResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListSealApprovalResponse) SetStatusCode(v int32) *ListSealApprovalResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2589,8 +2700,9 @@ func (s *OrderResaleResponseBodyData) SetEsignOrderId(v string) *OrderResaleResp
 }
 
 type OrderResaleResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *OrderResaleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *OrderResaleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s OrderResaleResponse) String() string {
@@ -2603,6 +2715,11 @@ func (s OrderResaleResponse) GoString() string {
 
 func (s *OrderResaleResponse) SetHeaders(v map[string]*string) *OrderResaleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *OrderResaleResponse) SetStatusCode(v int32) *OrderResaleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2626,24 +2743,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) AuthUrl(request *AuthUrlRequest) (_result *AuthUrlResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AuthUrlHeaders{}
-	_result = &AuthUrlResponse{}
-	_body, _err := client.AuthUrlWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) AuthUrlWithOptions(request *AuthUrlRequest, headers *AuthUrlHeaders, runtime *util.RuntimeOptions) (_result *AuthUrlResponse, _err error) {
@@ -2669,8 +2780,19 @@ func (client *Client) AuthUrlWithOptions(request *AuthUrlRequest, headers *AuthU
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AuthUrl"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/auths/url"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AuthUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("AuthUrl"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/esign/auths/url"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2678,11 +2800,11 @@ func (client *Client) AuthUrlWithOptions(request *AuthUrlRequest, headers *AuthU
 	return _result, _err
 }
 
-func (client *Client) CancelCorpAuth() (_result *CancelCorpAuthResponse, _err error) {
+func (client *Client) AuthUrl(request *AuthUrlRequest) (_result *AuthUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CancelCorpAuthHeaders{}
-	_result = &CancelCorpAuthResponse{}
-	_body, _err := client.CancelCorpAuthWithOptions(headers, runtime)
+	headers := &AuthUrlHeaders{}
+	_result = &AuthUrlResponse{}
+	_body, _err := client.AuthUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2703,8 +2825,19 @@ func (client *Client) CancelCorpAuthWithOptions(headers *CancelCorpAuthHeaders, 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CancelCorpAuth"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/corps/auth/cancel"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CancelCorpAuthResponse{}
-	_body, _err := client.DoROARequest(tea.String("CancelCorpAuth"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/corps/auth/cancel"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2712,11 +2845,11 @@ func (client *Client) CancelCorpAuthWithOptions(headers *CancelCorpAuthHeaders, 
 	return _result, _err
 }
 
-func (client *Client) ChannelOrder(request *ChannelOrderRequest) (_result *ChannelOrderResponse, _err error) {
+func (client *Client) CancelCorpAuth() (_result *CancelCorpAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ChannelOrderHeaders{}
-	_result = &ChannelOrderResponse{}
-	_body, _err := client.ChannelOrderWithOptions(request, headers, runtime)
+	headers := &CancelCorpAuthHeaders{}
+	_result = &CancelCorpAuthResponse{}
+	_body, _err := client.CancelCorpAuthWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2767,8 +2900,19 @@ func (client *Client) ChannelOrderWithOptions(request *ChannelOrderRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ChannelOrder"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/orders/channel"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ChannelOrderResponse{}
-	_body, _err := client.DoROARequest(tea.String("ChannelOrder"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/esign/orders/channel"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2776,11 +2920,11 @@ func (client *Client) ChannelOrderWithOptions(request *ChannelOrderRequest, head
 	return _result, _err
 }
 
-func (client *Client) ContractMargin() (_result *ContractMarginResponse, _err error) {
+func (client *Client) ChannelOrder(request *ChannelOrderRequest) (_result *ChannelOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ContractMarginHeaders{}
-	_result = &ContractMarginResponse{}
-	_body, _err := client.ContractMarginWithOptions(headers, runtime)
+	headers := &ChannelOrderHeaders{}
+	_result = &ChannelOrderResponse{}
+	_body, _err := client.ChannelOrderWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2801,8 +2945,19 @@ func (client *Client) ContractMarginWithOptions(headers *ContractMarginHeaders, 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ContractMargin"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/contracts/margin"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ContractMarginResponse{}
-	_body, _err := client.DoROARequest(tea.String("ContractMargin"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/contracts/margin"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2810,11 +2965,11 @@ func (client *Client) ContractMarginWithOptions(headers *ContractMarginHeaders, 
 	return _result, _err
 }
 
-func (client *Client) CorpConsole() (_result *CorpConsoleResponse, _err error) {
+func (client *Client) ContractMargin() (_result *ContractMarginResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CorpConsoleHeaders{}
-	_result = &CorpConsoleResponse{}
-	_body, _err := client.CorpConsoleWithOptions(headers, runtime)
+	headers := &ContractMarginHeaders{}
+	_result = &ContractMarginResponse{}
+	_body, _err := client.ContractMarginWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2835,8 +2990,19 @@ func (client *Client) CorpConsoleWithOptions(headers *CorpConsoleHeaders, runtim
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CorpConsole"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/corps/console"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CorpConsoleResponse{}
-	_body, _err := client.DoROARequest(tea.String("CorpConsole"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/corps/console"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2844,11 +3010,11 @@ func (client *Client) CorpConsoleWithOptions(headers *CorpConsoleHeaders, runtim
 	return _result, _err
 }
 
-func (client *Client) CorpInfo() (_result *CorpInfoResponse, _err error) {
+func (client *Client) CorpConsole() (_result *CorpConsoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CorpInfoHeaders{}
-	_result = &CorpInfoResponse{}
-	_body, _err := client.CorpInfoWithOptions(headers, runtime)
+	headers := &CorpConsoleHeaders{}
+	_result = &CorpConsoleResponse{}
+	_body, _err := client.CorpConsoleWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2869,8 +3035,19 @@ func (client *Client) CorpInfoWithOptions(headers *CorpInfoHeaders, runtime *uti
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CorpInfo"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/corps/info"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CorpInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("CorpInfo"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/corps/info"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2878,11 +3055,11 @@ func (client *Client) CorpInfoWithOptions(headers *CorpInfoHeaders, runtime *uti
 	return _result, _err
 }
 
-func (client *Client) CreateDeveloper(request *CreateDeveloperRequest) (_result *CreateDeveloperResponse, _err error) {
+func (client *Client) CorpInfo() (_result *CorpInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateDeveloperHeaders{}
-	_result = &CreateDeveloperResponse{}
-	_body, _err := client.CreateDeveloperWithOptions(request, headers, runtime)
+	headers := &CorpInfoHeaders{}
+	_result = &CorpInfoResponse{}
+	_body, _err := client.CorpInfoWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2913,8 +3090,19 @@ func (client *Client) CreateDeveloperWithOptions(request *CreateDeveloperRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateDeveloper"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/developers/create"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateDeveloperResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateDeveloper"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/developers/create"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2922,11 +3110,11 @@ func (client *Client) CreateDeveloperWithOptions(request *CreateDeveloperRequest
 	return _result, _err
 }
 
-func (client *Client) GetCorpRealnameUrl(request *GetCorpRealnameUrlRequest) (_result *GetCorpRealnameUrlResponse, _err error) {
+func (client *Client) CreateDeveloper(request *CreateDeveloperRequest) (_result *CreateDeveloperResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetCorpRealnameUrlHeaders{}
-	_result = &GetCorpRealnameUrlResponse{}
-	_body, _err := client.GetCorpRealnameUrlWithOptions(request, headers, runtime)
+	headers := &CreateDeveloperHeaders{}
+	_result = &CreateDeveloperResponse{}
+	_body, _err := client.CreateDeveloperWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2957,8 +3145,19 @@ func (client *Client) GetCorpRealnameUrlWithOptions(request *GetCorpRealnameUrlR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCorpRealnameUrl"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/corps/realname"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCorpRealnameUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCorpRealnameUrl"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/esign/corps/realname"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2966,11 +3165,11 @@ func (client *Client) GetCorpRealnameUrlWithOptions(request *GetCorpRealnameUrlR
 	return _result, _err
 }
 
-func (client *Client) GetCropStatus() (_result *GetCropStatusResponse, _err error) {
+func (client *Client) GetCorpRealnameUrl(request *GetCorpRealnameUrlRequest) (_result *GetCorpRealnameUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetCropStatusHeaders{}
-	_result = &GetCropStatusResponse{}
-	_body, _err := client.GetCropStatusWithOptions(headers, runtime)
+	headers := &GetCorpRealnameUrlHeaders{}
+	_result = &GetCorpRealnameUrlResponse{}
+	_body, _err := client.GetCorpRealnameUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2991,8 +3190,19 @@ func (client *Client) GetCropStatusWithOptions(headers *GetCropStatusHeaders, ru
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCropStatus"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/corps/statuses"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCropStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCropStatus"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/corps/statuses"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3000,11 +3210,11 @@ func (client *Client) GetCropStatusWithOptions(headers *GetCropStatusHeaders, ru
 	return _result, _err
 }
 
-func (client *Client) GetFile(fileId *string) (_result *GetFileResponse, _err error) {
+func (client *Client) GetCropStatus() (_result *GetCropStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFileHeaders{}
-	_result = &GetFileResponse{}
-	_body, _err := client.GetFileWithOptions(fileId, headers, runtime)
+	headers := &GetCropStatusHeaders{}
+	_result = &GetCropStatusResponse{}
+	_body, _err := client.GetCropStatusWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3013,7 +3223,6 @@ func (client *Client) GetFile(fileId *string) (_result *GetFileResponse, _err er
 }
 
 func (client *Client) GetFileWithOptions(fileId *string, headers *GetFileHeaders, runtime *util.RuntimeOptions) (_result *GetFileResponse, _err error) {
-	fileId = openapiutil.GetEncodeParam(fileId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3026,8 +3235,19 @@ func (client *Client) GetFileWithOptions(fileId *string, headers *GetFileHeaders
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFile"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/files/" + tea.StringValue(fileId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFileResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFile"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/files/"+tea.StringValue(fileId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3035,11 +3255,11 @@ func (client *Client) GetFileWithOptions(fileId *string, headers *GetFileHeaders
 	return _result, _err
 }
 
-func (client *Client) GetFlowDetail(request *GetFlowDetailRequest) (_result *GetFlowDetailResponse, _err error) {
+func (client *Client) GetFile(fileId *string) (_result *GetFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFlowDetailHeaders{}
-	_result = &GetFlowDetailResponse{}
-	_body, _err := client.GetFlowDetailWithOptions(request, headers, runtime)
+	headers := &GetFileHeaders{}
+	_result = &GetFileResponse{}
+	_body, _err := client.GetFileWithOptions(fileId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3070,8 +3290,19 @@ func (client *Client) GetFlowDetailWithOptions(request *GetFlowDetailRequest, he
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFlowDetail"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/flows/detail"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFlowDetailResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFlowDetail"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/flows/detail"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3079,11 +3310,11 @@ func (client *Client) GetFlowDetailWithOptions(request *GetFlowDetailRequest, he
 	return _result, _err
 }
 
-func (client *Client) GetFlowSignDetail(request *GetFlowSignDetailRequest) (_result *GetFlowSignDetailResponse, _err error) {
+func (client *Client) GetFlowDetail(request *GetFlowDetailRequest) (_result *GetFlowDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFlowSignDetailHeaders{}
-	_result = &GetFlowSignDetailResponse{}
-	_body, _err := client.GetFlowSignDetailWithOptions(request, headers, runtime)
+	headers := &GetFlowDetailHeaders{}
+	_result = &GetFlowDetailResponse{}
+	_body, _err := client.GetFlowDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3114,8 +3345,19 @@ func (client *Client) GetFlowSignDetailWithOptions(request *GetFlowSignDetailReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFlowSignDetail"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/flows/sign/detail"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFlowSignDetailResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFlowSignDetail"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/flows/sign/detail"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3123,11 +3365,11 @@ func (client *Client) GetFlowSignDetailWithOptions(request *GetFlowSignDetailReq
 	return _result, _err
 }
 
-func (client *Client) GetProcessStartUrl(request *GetProcessStartUrlRequest) (_result *GetProcessStartUrlResponse, _err error) {
+func (client *Client) GetFlowSignDetail(request *GetFlowSignDetailRequest) (_result *GetFlowSignDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetProcessStartUrlHeaders{}
-	_result = &GetProcessStartUrlResponse{}
-	_body, _err := client.GetProcessStartUrlWithOptions(request, headers, runtime)
+	headers := &GetFlowSignDetailHeaders{}
+	_result = &GetFlowSignDetailResponse{}
+	_body, _err := client.GetFlowSignDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3182,8 +3424,19 @@ func (client *Client) GetProcessStartUrlWithOptions(request *GetProcessStartUrlR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProcessStartUrl"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/process/start"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetProcessStartUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProcessStartUrl"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/esign/process/start"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3191,11 +3444,11 @@ func (client *Client) GetProcessStartUrlWithOptions(request *GetProcessStartUrlR
 	return _result, _err
 }
 
-func (client *Client) GetSignNoticeUrl(request *GetSignNoticeUrlRequest) (_result *GetSignNoticeUrlResponse, _err error) {
+func (client *Client) GetProcessStartUrl(request *GetProcessStartUrlRequest) (_result *GetProcessStartUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSignNoticeUrlHeaders{}
-	_result = &GetSignNoticeUrlResponse{}
-	_body, _err := client.GetSignNoticeUrlWithOptions(request, headers, runtime)
+	headers := &GetProcessStartUrlHeaders{}
+	_result = &GetProcessStartUrlResponse{}
+	_body, _err := client.GetProcessStartUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3226,8 +3479,19 @@ func (client *Client) GetSignNoticeUrlWithOptions(request *GetSignNoticeUrlReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSignNoticeUrl"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/signs/notice/url"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSignNoticeUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSignNoticeUrl"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/esign/signs/notice/url"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3235,11 +3499,11 @@ func (client *Client) GetSignNoticeUrlWithOptions(request *GetSignNoticeUrlReque
 	return _result, _err
 }
 
-func (client *Client) GetUploadUrl(request *GetUploadUrlRequest) (_result *GetUploadUrlResponse, _err error) {
+func (client *Client) GetSignNoticeUrl(request *GetSignNoticeUrlRequest) (_result *GetSignNoticeUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUploadUrlHeaders{}
-	_result = &GetUploadUrlResponse{}
-	_body, _err := client.GetUploadUrlWithOptions(request, headers, runtime)
+	headers := &GetSignNoticeUrlHeaders{}
+	_result = &GetSignNoticeUrlResponse{}
+	_body, _err := client.GetSignNoticeUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3286,8 +3550,19 @@ func (client *Client) GetUploadUrlWithOptions(request *GetUploadUrlRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUploadUrl"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/files/getUploadUrl"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUploadUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUploadUrl"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/esign/files/getUploadUrl"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3295,11 +3570,11 @@ func (client *Client) GetUploadUrlWithOptions(request *GetUploadUrlRequest, head
 	return _result, _err
 }
 
-func (client *Client) GetUserInfo(userId *string) (_result *GetUserInfoResponse, _err error) {
+func (client *Client) GetUploadUrl(request *GetUploadUrlRequest) (_result *GetUploadUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserInfoHeaders{}
-	_result = &GetUserInfoResponse{}
-	_body, _err := client.GetUserInfoWithOptions(userId, headers, runtime)
+	headers := &GetUploadUrlHeaders{}
+	_result = &GetUploadUrlResponse{}
+	_body, _err := client.GetUploadUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3308,7 +3583,6 @@ func (client *Client) GetUserInfo(userId *string) (_result *GetUserInfoResponse,
 }
 
 func (client *Client) GetUserInfoWithOptions(userId *string, headers *GetUserInfoHeaders, runtime *util.RuntimeOptions) (_result *GetUserInfoResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3321,8 +3595,19 @@ func (client *Client) GetUserInfoWithOptions(userId *string, headers *GetUserInf
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserInfo"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/users/" + tea.StringValue(userId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserInfo"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/users/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3330,11 +3615,11 @@ func (client *Client) GetUserInfoWithOptions(userId *string, headers *GetUserInf
 	return _result, _err
 }
 
-func (client *Client) GetUserRealnameUrl(request *GetUserRealnameUrlRequest) (_result *GetUserRealnameUrlResponse, _err error) {
+func (client *Client) GetUserInfo(userId *string) (_result *GetUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserRealnameUrlHeaders{}
-	_result = &GetUserRealnameUrlResponse{}
-	_body, _err := client.GetUserRealnameUrlWithOptions(request, headers, runtime)
+	headers := &GetUserInfoHeaders{}
+	_result = &GetUserInfoResponse{}
+	_body, _err := client.GetUserInfoWithOptions(userId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3369,8 +3654,19 @@ func (client *Client) GetUserRealnameUrlWithOptions(request *GetUserRealnameUrlR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserRealnameUrl"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/users/realname"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserRealnameUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserRealnameUrl"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/esign/users/realname"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3378,11 +3674,11 @@ func (client *Client) GetUserRealnameUrlWithOptions(request *GetUserRealnameUrlR
 	return _result, _err
 }
 
-func (client *Client) ListFlowDocs(request *ListFlowDocsRequest) (_result *ListFlowDocsResponse, _err error) {
+func (client *Client) GetUserRealnameUrl(request *GetUserRealnameUrlRequest) (_result *GetUserRealnameUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListFlowDocsHeaders{}
-	_result = &ListFlowDocsResponse{}
-	_body, _err := client.ListFlowDocsWithOptions(request, headers, runtime)
+	headers := &GetUserRealnameUrlHeaders{}
+	_result = &GetUserRealnameUrlResponse{}
+	_body, _err := client.GetUserRealnameUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3413,8 +3709,19 @@ func (client *Client) ListFlowDocsWithOptions(request *ListFlowDocsRequest, head
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListFlowDocs"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/flows/docs"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListFlowDocsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListFlowDocs"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/flows/docs"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3422,11 +3729,11 @@ func (client *Client) ListFlowDocsWithOptions(request *ListFlowDocsRequest, head
 	return _result, _err
 }
 
-func (client *Client) ListSealApproval(request *ListSealApprovalRequest) (_result *ListSealApprovalResponse, _err error) {
+func (client *Client) ListFlowDocs(request *ListFlowDocsRequest) (_result *ListFlowDocsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListSealApprovalHeaders{}
-	_result = &ListSealApprovalResponse{}
-	_body, _err := client.ListSealApprovalWithOptions(request, headers, runtime)
+	headers := &ListFlowDocsHeaders{}
+	_result = &ListFlowDocsResponse{}
+	_body, _err := client.ListFlowDocsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3457,8 +3764,19 @@ func (client *Client) ListSealApprovalWithOptions(request *ListSealApprovalReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListSealApproval"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/seals/approval/list"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListSealApprovalResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListSealApproval"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/esign/seals/approval/list"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3466,11 +3784,11 @@ func (client *Client) ListSealApprovalWithOptions(request *ListSealApprovalReque
 	return _result, _err
 }
 
-func (client *Client) OrderResale(request *OrderResaleRequest) (_result *OrderResaleResponse, _err error) {
+func (client *Client) ListSealApproval(request *ListSealApprovalRequest) (_result *ListSealApprovalResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &OrderResaleHeaders{}
-	_result = &OrderResaleResponse{}
-	_body, _err := client.OrderResaleWithOptions(request, headers, runtime)
+	headers := &ListSealApprovalHeaders{}
+	_result = &ListSealApprovalResponse{}
+	_body, _err := client.ListSealApprovalWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3517,11 +3835,34 @@ func (client *Client) OrderResaleWithOptions(request *OrderResaleRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("OrderResale"),
+		Version:     tea.String("esign_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/esign/orders/resale"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &OrderResaleResponse{}
-	_body, _err := client.DoROARequest(tea.String("OrderResale"), tea.String("esign_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/esign/orders/resale"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) OrderResale(request *OrderResaleRequest) (_result *OrderResaleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OrderResaleHeaders{}
+	_result = &OrderResaleResponse{}
+	_body, _err := client.OrderResaleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

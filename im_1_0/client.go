@@ -5,11 +5,36 @@
 package im_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type PrivateDataValue struct {
+	CardParamMap        map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+	CardMediaIdParamMap map[string]*string `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
+}
+
+func (s PrivateDataValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrivateDataValue) GoString() string {
+	return s.String()
+}
+
+func (s *PrivateDataValue) SetCardParamMap(v map[string]*string) *PrivateDataValue {
+	s.CardParamMap = v
+	return s
+}
+
+func (s *PrivateDataValue) SetCardMediaIdParamMap(v map[string]*string) *PrivateDataValue {
+	s.CardMediaIdParamMap = v
+	return s
+}
 
 type AddOrgTextEmotionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -35,22 +60,10 @@ func (s *AddOrgTextEmotionHeaders) SetXAcsDingtalkAccessToken(v string) *AddOrgT
 }
 
 type AddOrgTextEmotionRequest struct {
-	// 展示在消息气泡上的表情的mediaId，mediaId可以通过使用文件上传接口上传表情图片得到，图片上限为500KB。
-	//
-	// 请严格按照表情设计规范设计表情，服务端会检查图片的大小、宽度、高度是否符合规范。
-	BackgroundMediaId *string `json:"backgroundMediaId,omitempty" xml:"backgroundMediaId,omitempty"`
-	// 展示在消息长按菜单的表情的mediaId，mediaId可以通过使用文件上传接口上传表情图片得到，图片上限为500KB。
-	//
-	// 请严格按照表情设计规范设计表情，服务端会检查图片的大小、宽度、高度是否符合规范。
+	BackgroundMediaId         *string `json:"backgroundMediaId,omitempty" xml:"backgroundMediaId,omitempty"`
 	BackgroundMediaIdForPanel *string `json:"backgroundMediaIdForPanel,omitempty" xml:"backgroundMediaIdForPanel,omitempty"`
-	// 部门Id，设置规则：
-	//
-	// -1：当添加企业层面的文字表情时使用-1，此时表情对企业内所有员工可见
-	//
-	// 一级部门Id：当添加一级部门层面的文字表情时使用一级部门Id，此时表情对该一级部门及该一级部门下的所有子部门的员工可见
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 表情名称，对用户不可见
-	EmotionName *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
+	DeptId                    *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	EmotionName               *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
 }
 
 func (s AddOrgTextEmotionRequest) String() string {
@@ -82,10 +95,8 @@ func (s *AddOrgTextEmotionRequest) SetEmotionName(v string) *AddOrgTextEmotionRe
 }
 
 type AddOrgTextEmotionResponseBody struct {
-	// 添加企业文字表情结果
-	Result *AddOrgTextEmotionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 返回结果
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *AddOrgTextEmotionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddOrgTextEmotionResponseBody) String() string {
@@ -107,7 +118,6 @@ func (s *AddOrgTextEmotionResponseBody) SetSuccess(v bool) *AddOrgTextEmotionRes
 }
 
 type AddOrgTextEmotionResponseBodyResult struct {
-	// 表情Id，用于唯一标识每个企业文字表情
 	EmotionId *string `json:"emotionId,omitempty" xml:"emotionId,omitempty"`
 }
 
@@ -125,8 +135,9 @@ func (s *AddOrgTextEmotionResponseBodyResult) SetEmotionId(v string) *AddOrgText
 }
 
 type AddOrgTextEmotionResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddOrgTextEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddOrgTextEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddOrgTextEmotionResponse) String() string {
@@ -139,6 +150,11 @@ func (s AddOrgTextEmotionResponse) GoString() string {
 
 func (s *AddOrgTextEmotionResponse) SetHeaders(v map[string]*string) *AddOrgTextEmotionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddOrgTextEmotionResponse) SetStatusCode(v int32) *AddOrgTextEmotionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -171,14 +187,10 @@ func (s *AddRobotToConversationHeaders) SetXAcsDingtalkAccessToken(v string) *Ad
 }
 
 type AddRobotToConversationRequest struct {
-	// 机器人meidaId
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 机器人名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 会话id
+	Icon               *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name               *string `json:"name,omitempty" xml:"name,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 机器人编码
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode          *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s AddRobotToConversationRequest) String() string {
@@ -210,7 +222,6 @@ func (s *AddRobotToConversationRequest) SetRobotCode(v string) *AddRobotToConver
 }
 
 type AddRobotToConversationResponseBody struct {
-	// Id of the request
 	ChatBotUserId *string `json:"chatBotUserId,omitempty" xml:"chatBotUserId,omitempty"`
 }
 
@@ -228,8 +239,9 @@ func (s *AddRobotToConversationResponseBody) SetChatBotUserId(v string) *AddRobo
 }
 
 type AddRobotToConversationResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddRobotToConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddRobotToConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddRobotToConversationResponse) String() string {
@@ -242,6 +254,11 @@ func (s AddRobotToConversationResponse) GoString() string {
 
 func (s *AddRobotToConversationResponse) SetHeaders(v map[string]*string) *AddRobotToConversationResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddRobotToConversationResponse) SetStatusCode(v int32) *AddRobotToConversationResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -291,8 +308,9 @@ func (s *AutoOpenDingTalkConnectResponseBody) SetMessage(v string) *AutoOpenDing
 }
 
 type AutoOpenDingTalkConnectResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AutoOpenDingTalkConnectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AutoOpenDingTalkConnectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AutoOpenDingTalkConnectResponse) String() string {
@@ -305,6 +323,11 @@ func (s AutoOpenDingTalkConnectResponse) GoString() string {
 
 func (s *AutoOpenDingTalkConnectResponse) SetHeaders(v map[string]*string) *AutoOpenDingTalkConnectResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AutoOpenDingTalkConnectResponse) SetStatusCode(v int32) *AutoOpenDingTalkConnectResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -337,11 +360,9 @@ func (s *BatchQueryFamilySchoolMessageHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type BatchQueryFamilySchoolMessageRequest struct {
-	// 接收卡片的群的openConversationId
 	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	OpenMessageIds     []*string `json:"openMessageIds,omitempty" xml:"openMessageIds,omitempty" type:"Repeated"`
-	// 用户唯一标识
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UnionId            *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s BatchQueryFamilySchoolMessageRequest) String() string {
@@ -368,7 +389,6 @@ func (s *BatchQueryFamilySchoolMessageRequest) SetUnionId(v string) *BatchQueryF
 }
 
 type BatchQueryFamilySchoolMessageResponseBody struct {
-	// 消息数据
 	Messages []*BatchQueryFamilySchoolMessageResponseBodyMessages `json:"messages,omitempty" xml:"messages,omitempty" type:"Repeated"`
 }
 
@@ -386,14 +406,10 @@ func (s *BatchQueryFamilySchoolMessageResponseBody) SetMessages(v []*BatchQueryF
 }
 
 type BatchQueryFamilySchoolMessageResponseBodyMessages struct {
-	// 消息类型，2-图片、202视频、3100富文本消息
-	ContentType *int32 `json:"contentType,omitempty" xml:"contentType,omitempty"`
-	// 消息的创建时间
-	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
-	// media文件对象列表
+	ContentType *int32                                                          `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	CreateAt    *int64                                                          `json:"createAt,omitempty" xml:"createAt,omitempty"`
 	MediaModels []*BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels `json:"mediaModels,omitempty" xml:"mediaModels,omitempty" type:"Repeated"`
-	// 消息的唯一标识
-	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+	OpenMsgId   *string                                                         `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
 }
 
 func (s BatchQueryFamilySchoolMessageResponseBodyMessages) String() string {
@@ -425,17 +441,11 @@ func (s *BatchQueryFamilySchoolMessageResponseBodyMessages) SetOpenMsgId(v strin
 }
 
 type BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels struct {
-	// 消息mediaId文件名称
-	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 消息mediaId文件类型
-	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	// 消息mediaId
-	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	// 消息mediaId文件大小
-	Size *string `json:"size,omitempty" xml:"size,omitempty"`
-	// 消息mediaId对应的下载地址
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 视频文件缩略图mediaId
+	FileName        *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileType        *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	MediaId         *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	Size            *string `json:"size,omitempty" xml:"size,omitempty"`
+	Url             *string `json:"url,omitempty" xml:"url,omitempty"`
 	VideoPicMediaId *string `json:"videoPicMediaId,omitempty" xml:"videoPicMediaId,omitempty"`
 }
 
@@ -478,8 +488,9 @@ func (s *BatchQueryFamilySchoolMessageResponseBodyMessagesMediaModels) SetVideoP
 }
 
 type BatchQueryFamilySchoolMessageResponse struct {
-	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchQueryFamilySchoolMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchQueryFamilySchoolMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchQueryFamilySchoolMessageResponse) String() string {
@@ -492,6 +503,11 @@ func (s BatchQueryFamilySchoolMessageResponse) GoString() string {
 
 func (s *BatchQueryFamilySchoolMessageResponse) SetHeaders(v map[string]*string) *BatchQueryFamilySchoolMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryFamilySchoolMessageResponse) SetStatusCode(v int32) *BatchQueryFamilySchoolMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -524,13 +540,9 @@ func (s *BatchQueryGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Bat
 }
 
 type BatchQueryGroupMemberRequest struct {
-	// 酷应用编码
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 本次读取的最大数据记录数量（该入参传入值小于钉钉阈值时返回全部）
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 标记当前开始读取的位置，置空表示从头开始
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 开放群ID
+	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	MaxResults         *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -563,14 +575,10 @@ func (s *BatchQueryGroupMemberRequest) SetOpenConversationId(v string) *BatchQue
 }
 
 type BatchQueryGroupMemberResponseBody struct {
-	// 是否还有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 群成员员工号
+	HasMore       *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 	MemberUserIds []*string `json:"memberUserIds,omitempty" xml:"memberUserIds,omitempty" type:"Repeated"`
-	// 下一次请求的游标
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// result
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	NextToken     *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Success       *bool     `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchQueryGroupMemberResponseBody) String() string {
@@ -602,8 +610,9 @@ func (s *BatchQueryGroupMemberResponseBody) SetSuccess(v bool) *BatchQueryGroupM
 }
 
 type BatchQueryGroupMemberResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchQueryGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchQueryGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchQueryGroupMemberResponse) String() string {
@@ -616,6 +625,11 @@ func (s BatchQueryGroupMemberResponse) GoString() string {
 
 func (s *BatchQueryGroupMemberResponse) SetHeaders(v map[string]*string) *BatchQueryGroupMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponse) SetStatusCode(v int32) *BatchQueryGroupMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -648,9 +662,7 @@ func (s *CardTemplateBuildActionHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CardTemplateBuildActionRequest struct {
-	// 模板构建的action：含create、save、deploy
-	Action *string `json:"action,omitempty" xml:"action,omitempty"`
-	// 模板构建的dto对象
+	Action           *string `json:"action,omitempty" xml:"action,omitempty"`
 	CardTemplateJson *string `json:"cardTemplateJson,omitempty" xml:"cardTemplateJson,omitempty"`
 }
 
@@ -673,7 +685,6 @@ func (s *CardTemplateBuildActionRequest) SetCardTemplateJson(v string) *CardTemp
 }
 
 type CardTemplateBuildActionResponseBody struct {
-	// 模板构建的dto对象
 	CardTemplateJson *string `json:"cardTemplateJson,omitempty" xml:"cardTemplateJson,omitempty"`
 }
 
@@ -691,8 +702,9 @@ func (s *CardTemplateBuildActionResponseBody) SetCardTemplateJson(v string) *Car
 }
 
 type CardTemplateBuildActionResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CardTemplateBuildActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CardTemplateBuildActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CardTemplateBuildActionResponse) String() string {
@@ -705,6 +717,11 @@ func (s CardTemplateBuildActionResponse) GoString() string {
 
 func (s *CardTemplateBuildActionResponse) SetHeaders(v map[string]*string) *CardTemplateBuildActionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CardTemplateBuildActionResponse) SetStatusCode(v int32) *CardTemplateBuildActionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -737,11 +754,8 @@ func (s *ChangeGroupOwnerHeaders) SetXAcsDingtalkAccessToken(v string) *ChangeGr
 }
 
 type ChangeGroupOwnerRequest struct {
-	// 群主在业务系统内的唯一标识
-	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
-	// 群主类型<2.钉内用户类型 3.钉外用户类型>
-	GroupOwnerType *int32 `json:"groupOwnerType,omitempty" xml:"groupOwnerType,omitempty"`
-	// 群会话Id。
+	GroupOwnerId       *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
+	GroupOwnerType     *int32  `json:"groupOwnerType,omitempty" xml:"groupOwnerType,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -769,10 +783,8 @@ func (s *ChangeGroupOwnerRequest) SetOpenConversationId(v string) *ChangeGroupOw
 }
 
 type ChangeGroupOwnerResponseBody struct {
-	// 群主在业务系统内的唯一标识
-	NewGroupOwnerId *string `json:"newGroupOwnerId,omitempty" xml:"newGroupOwnerId,omitempty"`
-	// 群主类型<2.钉内用户类型 3.钉外用户类型>
-	NewGroupOwnerType *int32 `json:"newGroupOwnerType,omitempty" xml:"newGroupOwnerType,omitempty"`
+	NewGroupOwnerId   *string `json:"newGroupOwnerId,omitempty" xml:"newGroupOwnerId,omitempty"`
+	NewGroupOwnerType *int32  `json:"newGroupOwnerType,omitempty" xml:"newGroupOwnerType,omitempty"`
 }
 
 func (s ChangeGroupOwnerResponseBody) String() string {
@@ -794,8 +806,9 @@ func (s *ChangeGroupOwnerResponseBody) SetNewGroupOwnerType(v int32) *ChangeGrou
 }
 
 type ChangeGroupOwnerResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ChangeGroupOwnerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChangeGroupOwnerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ChangeGroupOwnerResponse) String() string {
@@ -808,6 +821,11 @@ func (s ChangeGroupOwnerResponse) GoString() string {
 
 func (s *ChangeGroupOwnerResponse) SetHeaders(v map[string]*string) *ChangeGroupOwnerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ChangeGroupOwnerResponse) SetStatusCode(v int32) *ChangeGroupOwnerResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -840,7 +858,6 @@ func (s *ChatIdToOpenConversationIdHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type ChatIdToOpenConversationIdResponseBody struct {
-	// openConversationId
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -858,8 +875,9 @@ func (s *ChatIdToOpenConversationIdResponseBody) SetOpenConversationId(v string)
 }
 
 type ChatIdToOpenConversationIdResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ChatIdToOpenConversationIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatIdToOpenConversationIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ChatIdToOpenConversationIdResponse) String() string {
@@ -872,6 +890,11 @@ func (s ChatIdToOpenConversationIdResponse) GoString() string {
 
 func (s *ChatIdToOpenConversationIdResponse) SetHeaders(v map[string]*string) *ChatIdToOpenConversationIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ChatIdToOpenConversationIdResponse) SetStatusCode(v int32) *ChatIdToOpenConversationIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -904,12 +927,9 @@ func (s *ChatSubAdminUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *ChatSu
 }
 
 type ChatSubAdminUpdateRequest struct {
-	// 开放群ID
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 设置2添加为管理员，设置3删除该管理员
-	Role *int32 `json:"role,omitempty" xml:"role,omitempty"`
-	// 企业员工工号列表
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Role               *int32    `json:"role,omitempty" xml:"role,omitempty"`
+	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s ChatSubAdminUpdateRequest) String() string {
@@ -936,7 +956,6 @@ func (s *ChatSubAdminUpdateRequest) SetUserIds(v []*string) *ChatSubAdminUpdateR
 }
 
 type ChatSubAdminUpdateResponseBody struct {
-	// result
 	Success *string `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -954,8 +973,9 @@ func (s *ChatSubAdminUpdateResponseBody) SetSuccess(v string) *ChatSubAdminUpdat
 }
 
 type ChatSubAdminUpdateResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ChatSubAdminUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatSubAdminUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ChatSubAdminUpdateResponse) String() string {
@@ -968,6 +988,11 @@ func (s ChatSubAdminUpdateResponse) GoString() string {
 
 func (s *ChatSubAdminUpdateResponse) SetHeaders(v map[string]*string) *ChatSubAdminUpdateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ChatSubAdminUpdateResponse) SetStatusCode(v int32) *ChatSubAdminUpdateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1000,10 +1025,8 @@ func (s *CheckUserIsGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Ch
 }
 
 type CheckUserIsGroupMemberRequest struct {
-	// 会话id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 用户userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CheckUserIsGroupMemberRequest) String() string {
@@ -1025,7 +1048,6 @@ func (s *CheckUserIsGroupMemberRequest) SetUserId(v string) *CheckUserIsGroupMem
 }
 
 type CheckUserIsGroupMemberResponseBody struct {
-	// 用户是否为群成员。
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1043,8 +1065,9 @@ func (s *CheckUserIsGroupMemberResponseBody) SetResult(v bool) *CheckUserIsGroup
 }
 
 type CheckUserIsGroupMemberResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CheckUserIsGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CheckUserIsGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CheckUserIsGroupMemberResponse) String() string {
@@ -1057,6 +1080,11 @@ func (s CheckUserIsGroupMemberResponse) GoString() string {
 
 func (s *CheckUserIsGroupMemberResponse) SetHeaders(v map[string]*string) *CheckUserIsGroupMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CheckUserIsGroupMemberResponse) SetStatusCode(v int32) *CheckUserIsGroupMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1089,18 +1117,12 @@ func (s *CreateCoupleGroupConversationHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type CreateCoupleGroupConversationRequest struct {
-	// 钉外账号在业务系统内的唯一标识。
-	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 群头像地址。
-	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
-	// 群名称。
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 群主在业务系统内的唯一标识
-	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
-	// 群模板Id。
+	AppUserId       *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	GroupAvatar     *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
+	GroupName       *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	GroupOwnerId    *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
 	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	// 操作者在业务系统内的唯一标识。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	OperatorId      *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s CreateCoupleGroupConversationRequest) String() string {
@@ -1142,9 +1164,7 @@ func (s *CreateCoupleGroupConversationRequest) SetOperatorId(v string) *CreateCo
 }
 
 type CreateCoupleGroupConversationResponseBody struct {
-	// 钉钉群会话id。
-	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	// 群会话Id。
+	ConversationId     *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -1167,8 +1187,9 @@ func (s *CreateCoupleGroupConversationResponseBody) SetOpenConversationId(v stri
 }
 
 type CreateCoupleGroupConversationResponse struct {
-	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateCoupleGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateCoupleGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateCoupleGroupConversationResponse) String() string {
@@ -1181,6 +1202,11 @@ func (s CreateCoupleGroupConversationResponse) GoString() string {
 
 func (s *CreateCoupleGroupConversationResponse) SetHeaders(v map[string]*string) *CreateCoupleGroupConversationResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateCoupleGroupConversationResponse) SetStatusCode(v int32) *CreateCoupleGroupConversationResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1213,22 +1239,14 @@ func (s *CreateGroupConversationHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CreateGroupConversationRequest struct {
-	// 钉外成员列表。
-	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 群头像地址。
-	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
-	// 群名称。
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 群主在业务系统内的唯一标识
-	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
-	// 群主类型<2.钉内用户类型 3.钉外用户类型>，如果不指定的话，默认是钉钉用户类型
-	GroupOwnerType *int32 `json:"groupOwnerType,omitempty" xml:"groupOwnerType,omitempty"`
-	// 群模板Id。
-	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	// 操作者在业务系统内的唯一标识。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 钉内成员列表。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	AppUserIds      []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	GroupAvatar     *string   `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
+	GroupName       *string   `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	GroupOwnerId    *string   `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
+	GroupOwnerType  *int32    `json:"groupOwnerType,omitempty" xml:"groupOwnerType,omitempty"`
+	GroupTemplateId *string   `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	OperatorId      *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	UserIds         []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s CreateGroupConversationRequest) String() string {
@@ -1280,14 +1298,10 @@ func (s *CreateGroupConversationRequest) SetUserIds(v []*string) *CreateGroupCon
 }
 
 type CreateGroupConversationResponseBody struct {
-	// 添加成功的钉外成员列表。
-	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 钉钉群会话Id。
-	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	// 群会话Id。
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 添加成功的钉内成员列表。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	AppUserIds         []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	ConversationId     *string   `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s CreateGroupConversationResponseBody) String() string {
@@ -1319,8 +1333,9 @@ func (s *CreateGroupConversationResponseBody) SetUserIds(v []*string) *CreateGro
 }
 
 type CreateGroupConversationResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateGroupConversationResponse) String() string {
@@ -1333,6 +1348,11 @@ func (s CreateGroupConversationResponse) GoString() string {
 
 func (s *CreateGroupConversationResponse) SetHeaders(v map[string]*string) *CreateGroupConversationResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupConversationResponse) SetStatusCode(v int32) *CreateGroupConversationResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1365,7 +1385,6 @@ func (s *CreateInterconnectionHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateInterconnectionRequest struct {
-	// 要创建的钉外账号列表。
 	Interconnections []*CreateInterconnectionRequestInterconnections `json:"interconnections,omitempty" xml:"interconnections,omitempty" type:"Repeated"`
 }
 
@@ -1383,23 +1402,14 @@ func (s *CreateInterconnectionRequest) SetInterconnections(v []*CreateInterconne
 }
 
 type CreateInterconnectionRequestInterconnections struct {
-	// 钉外账号头像链接。
-	AppUserAvatar *string `json:"appUserAvatar,omitempty" xml:"appUserAvatar,omitempty"`
-	// 钉外账号头像类型，取值：
-	// 1（http类型）
-	AppUserAvatarMediaType *int32 `json:"appUserAvatarMediaType,omitempty" xml:"appUserAvatarMediaType,omitempty"`
-	// 钉外账号用户动态，例如：认真工作，快乐生活。
-	AppUserDynamics *string `json:"appUserDynamics,omitempty" xml:"appUserDynamics,omitempty"`
-	// 钉外账号在业务系统内的唯一标识。
-	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 钉外账号手机号，例如：188****8655。
-	AppUserMobile *string `json:"appUserMobile,omitempty" xml:"appUserMobile,omitempty"`
-	// 钉外账号名称。
-	AppUserName *string `json:"appUserName,omitempty" xml:"appUserName,omitempty"`
-	// 渠道code。
-	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
-	// 钉内账号userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	AppUserAvatar          *string `json:"appUserAvatar,omitempty" xml:"appUserAvatar,omitempty"`
+	AppUserAvatarMediaType *int32  `json:"appUserAvatarMediaType,omitempty" xml:"appUserAvatarMediaType,omitempty"`
+	AppUserDynamics        *string `json:"appUserDynamics,omitempty" xml:"appUserDynamics,omitempty"`
+	AppUserId              *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	AppUserMobile          *string `json:"appUserMobile,omitempty" xml:"appUserMobile,omitempty"`
+	AppUserName            *string `json:"appUserName,omitempty" xml:"appUserName,omitempty"`
+	ChannelCode            *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
+	UserId                 *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateInterconnectionRequestInterconnections) String() string {
@@ -1451,7 +1461,6 @@ func (s *CreateInterconnectionRequestInterconnections) SetUserId(v string) *Crea
 }
 
 type CreateInterconnectionResponseBody struct {
-	// 创建失败的钉外账号列表。
 	Results []*CreateInterconnectionResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -1469,12 +1478,9 @@ func (s *CreateInterconnectionResponseBody) SetResults(v []*CreateInterconnectio
 }
 
 type CreateInterconnectionResponseBodyResults struct {
-	// 钉外账号在业务系统内的唯一标识。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 失败原因。
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	// 该钉外账号被哪个钉内账号负责。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Message   *string `json:"message,omitempty" xml:"message,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateInterconnectionResponseBodyResults) String() string {
@@ -1501,8 +1507,9 @@ func (s *CreateInterconnectionResponseBodyResults) SetUserId(v string) *CreateIn
 }
 
 type CreateInterconnectionResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateInterconnectionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateInterconnectionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateInterconnectionResponse) String() string {
@@ -1515,6 +1522,11 @@ func (s CreateInterconnectionResponse) GoString() string {
 
 func (s *CreateInterconnectionResponse) SetHeaders(v map[string]*string) *CreateInterconnectionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateInterconnectionResponse) SetStatusCode(v int32) *CreateInterconnectionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1547,20 +1559,14 @@ func (s *CreateSceneGroupConversationHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type CreateSceneGroupConversationRequest struct {
-	// 功能增强
-	Features map[string]*string `json:"features,omitempty" xml:"features,omitempty"`
-	// 群名称。
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 群主(钉外用户)userId。
-	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
-	// 群头像。
+	Features          map[string]*string                                    `json:"features,omitempty" xml:"features,omitempty"`
+	GroupName         *string                                               `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	GroupOwnerId      *string                                               `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
 	Icon              *string                                               `json:"icon,omitempty" xml:"icon,omitempty"`
 	ManagementOptions *CreateSceneGroupConversationRequestManagementOptions `json:"managementOptions,omitempty" xml:"managementOptions,omitempty" type:"Struct"`
-	// 群模板Id。
-	TemplateId *string   `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
-	// 建群去重的业务ID。
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	TemplateId        *string                                               `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	UserIdList        []*string                                             `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	Uuid              *string                                               `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s CreateSceneGroupConversationRequest) String() string {
@@ -1612,18 +1618,12 @@ func (s *CreateSceneGroupConversationRequest) SetUuid(v string) *CreateSceneGrou
 }
 
 type CreateSceneGroupConversationRequestManagementOptions struct {
-	// 群禁言，0-默认，不禁言，1-全员禁言
-	ChatBannedType *int32 `json:"chatBannedType,omitempty" xml:"chatBannedType,omitempty"`
-	// 管理类型，0-默认，所有人可管理，1-仅群主可管理
-	ManagementType *int32 `json:"managementType,omitempty" xml:"managementType,omitempty"`
-	// @ all 权限，0-默认，所有人，1-仅群主可@all
+	ChatBannedType      *int32 `json:"chatBannedType,omitempty" xml:"chatBannedType,omitempty"`
+	ManagementType      *int32 `json:"managementType,omitempty" xml:"managementType,omitempty"`
 	MentionAllAuthority *int32 `json:"mentionAllAuthority,omitempty" xml:"mentionAllAuthority,omitempty"`
-	// 群可搜索，0-默认，不可搜索，1-可搜索
-	Searchable *int32 `json:"searchable,omitempty" xml:"searchable,omitempty"`
-	// 新成员是否可查看聊天历史消息，0-默认，否，1-是
-	ShowHistoryType *int32 `json:"showHistoryType,omitempty" xml:"showHistoryType,omitempty"`
-	// 入群验证，0：不入群验证（默认） 1：入群验证
-	ValidationType *int32 `json:"validationType,omitempty" xml:"validationType,omitempty"`
+	Searchable          *int32 `json:"searchable,omitempty" xml:"searchable,omitempty"`
+	ShowHistoryType     *int32 `json:"showHistoryType,omitempty" xml:"showHistoryType,omitempty"`
+	ValidationType      *int32 `json:"validationType,omitempty" xml:"validationType,omitempty"`
 }
 
 func (s CreateSceneGroupConversationRequestManagementOptions) String() string {
@@ -1665,7 +1665,6 @@ func (s *CreateSceneGroupConversationRequestManagementOptions) SetValidationType
 }
 
 type CreateSceneGroupConversationResponseBody struct {
-	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -1683,8 +1682,9 @@ func (s *CreateSceneGroupConversationResponseBody) SetOpenConversationId(v strin
 }
 
 type CreateSceneGroupConversationResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateSceneGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateSceneGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateSceneGroupConversationResponse) String() string {
@@ -1697,6 +1697,11 @@ func (s CreateSceneGroupConversationResponse) GoString() string {
 
 func (s *CreateSceneGroupConversationResponse) SetHeaders(v map[string]*string) *CreateSceneGroupConversationResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateSceneGroupConversationResponse) SetStatusCode(v int32) *CreateSceneGroupConversationResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1729,20 +1734,13 @@ func (s *CreateStoreGroupConversationHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type CreateStoreGroupConversationRequest struct {
-	// 钉外账号在业务系统内的唯一标识。
-	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 外部业务唯一标识（店铺唯一标识）。
-	BusinessUniqueKey *string `json:"businessUniqueKey,omitempty" xml:"businessUniqueKey,omitempty"`
-	// 群头像地址。
-	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
-	// 群名称。
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 群模板Id。
-	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	// 操作者在业务系统内的唯一标识。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 钉内成员列表。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	AppUserId         *string   `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	BusinessUniqueKey *string   `json:"businessUniqueKey,omitempty" xml:"businessUniqueKey,omitempty"`
+	GroupAvatar       *string   `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
+	GroupName         *string   `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	GroupTemplateId   *string   `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	OperatorId        *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s CreateStoreGroupConversationRequest) String() string {
@@ -1789,9 +1787,7 @@ func (s *CreateStoreGroupConversationRequest) SetUserIds(v []*string) *CreateSto
 }
 
 type CreateStoreGroupConversationResponseBody struct {
-	// 钉钉群会话id
-	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	// 群会话Id。
+	ConversationId     *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -1814,8 +1810,9 @@ func (s *CreateStoreGroupConversationResponseBody) SetOpenConversationId(v strin
 }
 
 type CreateStoreGroupConversationResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateStoreGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateStoreGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateStoreGroupConversationResponse) String() string {
@@ -1828,6 +1825,11 @@ func (s CreateStoreGroupConversationResponse) GoString() string {
 
 func (s *CreateStoreGroupConversationResponse) SetHeaders(v map[string]*string) *CreateStoreGroupConversationResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateStoreGroupConversationResponse) SetStatusCode(v int32) *CreateStoreGroupConversationResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1860,11 +1862,7 @@ func (s *DeleteOrgTextEmotionHeaders) SetXAcsDingtalkAccessToken(v string) *Dele
 }
 
 type DeleteOrgTextEmotionRequest struct {
-	// 表情所属部门Id：
-	// -1：当文字表情属于企业层面时使用-1
-	// 一级部门Id：当文字表情属于一级部门层面时使用一级部门Id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 要删除的表情Id列表。请注意，该列表中的所有表情Id一定要同属于deptId
+	DeptId     *int64    `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	EmotionIds []*string `json:"emotionIds,omitempty" xml:"emotionIds,omitempty" type:"Repeated"`
 }
 
@@ -1887,7 +1885,6 @@ func (s *DeleteOrgTextEmotionRequest) SetEmotionIds(v []*string) *DeleteOrgTextE
 }
 
 type DeleteOrgTextEmotionResponseBody struct {
-	// 返回结果
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1905,8 +1902,9 @@ func (s *DeleteOrgTextEmotionResponseBody) SetSuccess(v bool) *DeleteOrgTextEmot
 }
 
 type DeleteOrgTextEmotionResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteOrgTextEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteOrgTextEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteOrgTextEmotionResponse) String() string {
@@ -1919,6 +1917,11 @@ func (s DeleteOrgTextEmotionResponse) GoString() string {
 
 func (s *DeleteOrgTextEmotionResponse) SetHeaders(v map[string]*string) *DeleteOrgTextEmotionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteOrgTextEmotionResponse) SetStatusCode(v int32) *DeleteOrgTextEmotionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1951,7 +1954,6 @@ func (s *DismissGroupConversationHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type DismissGroupConversationRequest struct {
-	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -1969,7 +1971,6 @@ func (s *DismissGroupConversationRequest) SetOpenConversationId(v string) *Dismi
 }
 
 type DismissGroupConversationResponseBody struct {
-	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -1987,8 +1988,9 @@ func (s *DismissGroupConversationResponseBody) SetOpenConversationId(v string) *
 }
 
 type DismissGroupConversationResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DismissGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DismissGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DismissGroupConversationResponse) String() string {
@@ -2001,6 +2003,11 @@ func (s DismissGroupConversationResponse) GoString() string {
 
 func (s *DismissGroupConversationResponse) SetHeaders(v map[string]*string) *DismissGroupConversationResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DismissGroupConversationResponse) SetStatusCode(v int32) *DismissGroupConversationResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2033,14 +2040,10 @@ func (s *GetConversationUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetCon
 }
 
 type GetConversationUrlRequest struct {
-	// 钉外账号在业务系统内的唯一标志。
-	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 渠道code。
-	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
-	// 群会话Id。
+	AppUserId          *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	ChannelCode        *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 钉内账号userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetConversationUrlRequest) String() string {
@@ -2072,7 +2075,6 @@ func (s *GetConversationUrlRequest) SetUserId(v string) *GetConversationUrlReque
 }
 
 type GetConversationUrlResponseBody struct {
-	// ToB会话地址
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
@@ -2090,8 +2092,9 @@ func (s *GetConversationUrlResponseBody) SetUrl(v string) *GetConversationUrlRes
 }
 
 type GetConversationUrlResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetConversationUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetConversationUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetConversationUrlResponse) String() string {
@@ -2104,6 +2107,11 @@ func (s GetConversationUrlResponse) GoString() string {
 
 func (s *GetConversationUrlResponse) SetHeaders(v map[string]*string) *GetConversationUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetConversationUrlResponse) SetStatusCode(v int32) *GetConversationUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2136,16 +2144,11 @@ func (s *GetFamilySchoolConversationMsgHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type GetFamilySchoolConversationMsgRequest struct {
-	// 查询最大消息数
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 要查询的消息类型
-	MsgTypes []*int32 `json:"msgTypes,omitempty" xml:"msgTypes,omitempty" type:"Repeated"`
-	// 下一次查询的游标，毫秒值
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 接收卡片的群的openConversationId
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 用户唯一标识
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	MaxResults         *int32   `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MsgTypes           []*int32 `json:"msgTypes,omitempty" xml:"msgTypes,omitempty" type:"Repeated"`
+	NextToken          *int64   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OpenConversationId *string  `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	UnionId            *string  `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetFamilySchoolConversationMsgRequest) String() string {
@@ -2182,16 +2185,11 @@ func (s *GetFamilySchoolConversationMsgRequest) SetUnionId(v string) *GetFamilyS
 }
 
 type GetFamilySchoolConversationMsgResponseBody struct {
-	// 企业名称，corp123
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 是否有更多数据
-	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 消息数据
-	Messages []*GetFamilySchoolConversationMsgResponseBodyMessages `json:"messages,omitempty" xml:"messages,omitempty" type:"Repeated"`
-	// 查询下次消息的游标,时间毫秒值
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 开放群Id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	CorpId             *string                                               `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	HasMore            *string                                               `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Messages           []*GetFamilySchoolConversationMsgResponseBodyMessages `json:"messages,omitempty" xml:"messages,omitempty" type:"Repeated"`
+	NextToken          *string                                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OpenConversationId *string                                               `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
 func (s GetFamilySchoolConversationMsgResponseBody) String() string {
@@ -2228,14 +2226,10 @@ func (s *GetFamilySchoolConversationMsgResponseBody) SetOpenConversationId(v str
 }
 
 type GetFamilySchoolConversationMsgResponseBodyMessages struct {
-	// 消息类型，2-图片、202视频、3100富文本消息
-	ContentType *int32 `json:"contentType,omitempty" xml:"contentType,omitempty"`
-	// 消息的创建时间
-	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
-	// media文件对象列表
+	ContentType *int32                                                           `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	CreateAt    *int64                                                           `json:"createAt,omitempty" xml:"createAt,omitempty"`
 	MediaModels []*GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels `json:"mediaModels,omitempty" xml:"mediaModels,omitempty" type:"Repeated"`
-	// 消息的唯一标识
-	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+	OpenMsgId   *string                                                          `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
 }
 
 func (s GetFamilySchoolConversationMsgResponseBodyMessages) String() string {
@@ -2267,17 +2261,11 @@ func (s *GetFamilySchoolConversationMsgResponseBodyMessages) SetOpenMsgId(v stri
 }
 
 type GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels struct {
-	// 消息mediaId文件名称
-	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 消息mediaId文件类型
-	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	// 消息mediaId
-	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	// 消息mediaId文件大小
-	Size *string `json:"size,omitempty" xml:"size,omitempty"`
-	// 消息mediaId对应的下载地址
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 视频文件缩略图mediaId
+	FileName        *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileType        *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	MediaId         *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	Size            *string `json:"size,omitempty" xml:"size,omitempty"`
+	Url             *string `json:"url,omitempty" xml:"url,omitempty"`
 	VideoPicMediaId *string `json:"videoPicMediaId,omitempty" xml:"videoPicMediaId,omitempty"`
 }
 
@@ -2320,8 +2308,9 @@ func (s *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) SetVideo
 }
 
 type GetFamilySchoolConversationMsgResponse struct {
-	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFamilySchoolConversationMsgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFamilySchoolConversationMsgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFamilySchoolConversationMsgResponse) String() string {
@@ -2334,6 +2323,11 @@ func (s GetFamilySchoolConversationMsgResponse) GoString() string {
 
 func (s *GetFamilySchoolConversationMsgResponse) SetHeaders(v map[string]*string) *GetFamilySchoolConversationMsgResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponse) SetStatusCode(v int32) *GetFamilySchoolConversationMsgResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2366,12 +2360,9 @@ func (s *GetFamilySchoolConversationsHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type GetFamilySchoolConversationsRequest struct {
-	// 获取家校群数量
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 时间的毫秒值，分页游标
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 用户身份ID
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetFamilySchoolConversationsRequest) String() string {
@@ -2399,10 +2390,8 @@ func (s *GetFamilySchoolConversationsRequest) SetUnionId(v string) *GetFamilySch
 
 type GetFamilySchoolConversationsResponseBody struct {
 	GroupInfoList []*GetFamilySchoolConversationsResponseBodyGroupInfoList `json:"groupInfoList,omitempty" xml:"groupInfoList,omitempty" type:"Repeated"`
-	// 是否还有数据
-	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 返回下一页游标
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore       *string                                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken     *string                                                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetFamilySchoolConversationsResponseBody) String() string {
@@ -2429,18 +2418,12 @@ func (s *GetFamilySchoolConversationsResponseBody) SetNextToken(v string) *GetFa
 }
 
 type GetFamilySchoolConversationsResponseBodyGroupInfoList struct {
-	// 企业名称
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 部门名称链
-	DeptNameChain []*string `json:"deptNameChain,omitempty" xml:"deptNameChain,omitempty" type:"Repeated"`
-	// 群名称
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 群类型
-	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
-	// 进群时间
-	JoinGroupTime *int64 `json:"joinGroupTime,omitempty" xml:"joinGroupTime,omitempty"`
-	// 群开放ID
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	CorpId             *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeptNameChain      []*string `json:"deptNameChain,omitempty" xml:"deptNameChain,omitempty" type:"Repeated"`
+	GroupName          *string   `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	GroupType          *string   `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	JoinGroupTime      *int64    `json:"joinGroupTime,omitempty" xml:"joinGroupTime,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
 func (s GetFamilySchoolConversationsResponseBodyGroupInfoList) String() string {
@@ -2482,8 +2465,9 @@ func (s *GetFamilySchoolConversationsResponseBodyGroupInfoList) SetOpenConversat
 }
 
 type GetFamilySchoolConversationsResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFamilySchoolConversationsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFamilySchoolConversationsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetFamilySchoolConversationsResponse) String() string {
@@ -2496,6 +2480,11 @@ func (s GetFamilySchoolConversationsResponse) GoString() string {
 
 func (s *GetFamilySchoolConversationsResponse) SetHeaders(v map[string]*string) *GetFamilySchoolConversationsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsResponse) SetStatusCode(v int32) *GetFamilySchoolConversationsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2528,14 +2517,10 @@ func (s *GetInnerGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *GetI
 }
 
 type GetInnerGroupMembersRequest struct {
-	// 分页大小。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 会话id。
+	MaxResults         *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 用户userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetInnerGroupMembersRequest) String() string {
@@ -2567,12 +2552,9 @@ func (s *GetInnerGroupMembersRequest) SetUserId(v string) *GetInnerGroupMembersR
 }
 
 type GetInnerGroupMembersResponseBody struct {
-	// 是否还有更多数据。
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 下一次请求的游标，若没有更多数据，则此参数为空。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 群成员userId列表。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	HasMore   *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UserIds   []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetInnerGroupMembersResponseBody) String() string {
@@ -2599,8 +2581,9 @@ func (s *GetInnerGroupMembersResponseBody) SetUserIds(v []*string) *GetInnerGrou
 }
 
 type GetInnerGroupMembersResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetInnerGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetInnerGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetInnerGroupMembersResponse) String() string {
@@ -2613,6 +2596,11 @@ func (s GetInnerGroupMembersResponse) GoString() string {
 
 func (s *GetInnerGroupMembersResponse) SetHeaders(v map[string]*string) *GetInnerGroupMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetInnerGroupMembersResponse) SetStatusCode(v int32) *GetInnerGroupMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2645,28 +2633,17 @@ func (s *GetInterconnectionUrlHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetInterconnectionUrlRequest struct {
-	// appUserAvatar
-	AppUserAvatar *string `json:"appUserAvatar,omitempty" xml:"appUserAvatar,omitempty"`
-	// appUserAvatarType
-	AppUserAvatarType *int32 `json:"appUserAvatarType,omitempty" xml:"appUserAvatarType,omitempty"`
-	// appUserId
-	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// appUserMobileNumber
+	AppUserAvatar       *string `json:"appUserAvatar,omitempty" xml:"appUserAvatar,omitempty"`
+	AppUserAvatarType   *int32  `json:"appUserAvatarType,omitempty" xml:"appUserAvatarType,omitempty"`
+	AppUserId           *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
 	AppUserMobileNumber *string `json:"appUserMobileNumber,omitempty" xml:"appUserMobileNumber,omitempty"`
-	// appUserName
-	AppUserName *string `json:"appUserName,omitempty" xml:"appUserName,omitempty"`
-	// msgPageType
-	MsgPageType *int32 `json:"msgPageType,omitempty" xml:"msgPageType,omitempty"`
-	// qrCode
-	QrCode *string `json:"qrCode,omitempty" xml:"qrCode,omitempty"`
-	// signature
-	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
-	// sourceCode
-	SourceCode *string `json:"sourceCode,omitempty" xml:"sourceCode,omitempty"`
-	// sourceType
-	SourceType *int32 `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
-	// userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	AppUserName         *string `json:"appUserName,omitempty" xml:"appUserName,omitempty"`
+	MsgPageType         *int32  `json:"msgPageType,omitempty" xml:"msgPageType,omitempty"`
+	QrCode              *string `json:"qrCode,omitempty" xml:"qrCode,omitempty"`
+	Signature           *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	SourceCode          *string `json:"sourceCode,omitempty" xml:"sourceCode,omitempty"`
+	SourceType          *int32  `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
+	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetInterconnectionUrlRequest) String() string {
@@ -2733,7 +2710,6 @@ func (s *GetInterconnectionUrlRequest) SetUserId(v string) *GetInterconnectionUr
 }
 
 type GetInterconnectionUrlResponseBody struct {
-	// 会话url
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
@@ -2751,8 +2727,9 @@ func (s *GetInterconnectionUrlResponseBody) SetUrl(v string) *GetInterconnection
 }
 
 type GetInterconnectionUrlResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetInterconnectionUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetInterconnectionUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetInterconnectionUrlResponse) String() string {
@@ -2765,6 +2742,11 @@ func (s GetInterconnectionUrlResponse) GoString() string {
 
 func (s *GetInterconnectionUrlResponse) SetHeaders(v map[string]*string) *GetInterconnectionUrlResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetInterconnectionUrlResponse) SetStatusCode(v int32) *GetInterconnectionUrlResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2797,7 +2779,6 @@ func (s *GetNewestInnerGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *GetN
 }
 
 type GetNewestInnerGroupsRequest struct {
-	// 用户userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2815,7 +2796,6 @@ func (s *GetNewestInnerGroupsRequest) SetUserId(v string) *GetNewestInnerGroupsR
 }
 
 type GetNewestInnerGroupsResponseBody struct {
-	// 群列表
 	GroupInfos []*GetNewestInnerGroupsResponseBodyGroupInfos `json:"groupInfos,omitempty" xml:"groupInfos,omitempty" type:"Repeated"`
 }
 
@@ -2833,14 +2813,10 @@ func (s *GetNewestInnerGroupsResponseBody) SetGroupInfos(v []*GetNewestInnerGrou
 }
 
 type GetNewestInnerGroupsResponseBodyGroupInfos struct {
-	// 群头像。
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 群成员人数。
-	MemberAmount *string `json:"memberAmount,omitempty" xml:"memberAmount,omitempty"`
-	// 群聊会话id。
+	Icon               *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	MemberAmount       *string `json:"memberAmount,omitempty" xml:"memberAmount,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群名称。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetNewestInnerGroupsResponseBodyGroupInfos) String() string {
@@ -2872,8 +2848,9 @@ func (s *GetNewestInnerGroupsResponseBodyGroupInfos) SetTitle(v string) *GetNewe
 }
 
 type GetNewestInnerGroupsResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetNewestInnerGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetNewestInnerGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetNewestInnerGroupsResponse) String() string {
@@ -2886,6 +2863,11 @@ func (s GetNewestInnerGroupsResponse) GoString() string {
 
 func (s *GetNewestInnerGroupsResponse) SetHeaders(v map[string]*string) *GetNewestInnerGroupsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetNewestInnerGroupsResponse) SetStatusCode(v int32) *GetNewestInnerGroupsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2918,9 +2900,7 @@ func (s *GetSceneGroupInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetScen
 }
 
 type GetSceneGroupInfoRequest struct {
-	// 酷应用编码
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 开放群ID
+	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -2943,24 +2923,14 @@ func (s *GetSceneGroupInfoRequest) SetOpenConversationId(v string) *GetSceneGrou
 }
 
 type GetSceneGroupInfoResponseBody struct {
-	// 群url
-	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
-	// 群头像mediaId
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 开放群id
+	GroupUrl           *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	Icon               *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群主员工id
-	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	// 群状态。
-	//  1：正常
-	//  2：已解散
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// result
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-	// 场景群模板ID
-	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	// 群名称
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	OwnerUserId        *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	Status             *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	Success            *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	TemplateId         *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetSceneGroupInfoResponseBody) String() string {
@@ -3012,8 +2982,9 @@ func (s *GetSceneGroupInfoResponseBody) SetTitle(v string) *GetSceneGroupInfoRes
 }
 
 type GetSceneGroupInfoResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSceneGroupInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSceneGroupInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSceneGroupInfoResponse) String() string {
@@ -3026,6 +2997,11 @@ func (s GetSceneGroupInfoResponse) GoString() string {
 
 func (s *GetSceneGroupInfoResponse) SetHeaders(v map[string]*string) *GetSceneGroupInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSceneGroupInfoResponse) SetStatusCode(v int32) *GetSceneGroupInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3058,14 +3034,10 @@ func (s *GetSceneGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *GetS
 }
 
 type GetSceneGroupMembersRequest struct {
-	// 酷应用编码
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 分页游标，首页传0
-	Cursor *string `json:"cursor,omitempty" xml:"cursor,omitempty"`
-	// 开放群ID
+	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	Cursor             *string `json:"cursor,omitempty" xml:"cursor,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 本次查询返回数量上限（该入参传入值小于钉钉阈值时不启用）
-	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	Size               *int64  `json:"size,omitempty" xml:"size,omitempty"`
 }
 
 func (s GetSceneGroupMembersRequest) String() string {
@@ -3097,14 +3069,10 @@ func (s *GetSceneGroupMembersRequest) SetSize(v int64) *GetSceneGroupMembersRequ
 }
 
 type GetSceneGroupMembersResponseBody struct {
-	// 是否还有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 群成员员工号
+	HasMore       *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 	MemberUserIds []*string `json:"memberUserIds,omitempty" xml:"memberUserIds,omitempty" type:"Repeated"`
-	// 下一次请求的游标
-	NextCursor *string `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	// result
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	NextCursor    *string   `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	Success       *bool     `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetSceneGroupMembersResponseBody) String() string {
@@ -3136,8 +3104,9 @@ func (s *GetSceneGroupMembersResponseBody) SetSuccess(v bool) *GetSceneGroupMemb
 }
 
 type GetSceneGroupMembersResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSceneGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSceneGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSceneGroupMembersResponse) String() string {
@@ -3150,6 +3119,11 @@ func (s GetSceneGroupMembersResponse) GoString() string {
 
 func (s *GetSceneGroupMembersResponse) SetHeaders(v map[string]*string) *GetSceneGroupMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSceneGroupMembersResponse) SetStatusCode(v int32) *GetSceneGroupMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3182,12 +3156,9 @@ func (s *GroupBanWordsHeaders) SetXAcsDingtalkAccessToken(v string) *GroupBanWor
 }
 
 type GroupBanWordsRequest struct {
-	// 禁言模式
-	BanWordsMode *int32 `json:"banWordsMode,omitempty" xml:"banWordsMode,omitempty"`
-	// 开放群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 扩展参数
-	Options map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
+	BanWordsMode       *int32                 `json:"banWordsMode,omitempty" xml:"banWordsMode,omitempty"`
+	OpenConversationId *string                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Options            map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
 }
 
 func (s GroupBanWordsRequest) String() string {
@@ -3214,7 +3185,8 @@ func (s *GroupBanWordsRequest) SetOptions(v map[string]interface{}) *GroupBanWor
 }
 
 type GroupBanWordsResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s GroupBanWordsResponse) String() string {
@@ -3227,6 +3199,11 @@ func (s GroupBanWordsResponse) GoString() string {
 
 func (s *GroupBanWordsResponse) SetHeaders(v map[string]*string) *GroupBanWordsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GroupBanWordsResponse) SetStatusCode(v int32) *GroupBanWordsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3254,16 +3231,11 @@ func (s *GroupCapacityInquiryHeaders) SetXAcsDingtalkAccessToken(v string) *Grou
 }
 
 type GroupCapacityInquiryRequest struct {
-	// 有效生命周期
-	EffectiveDuration *string `json:"effectiveDuration,omitempty" xml:"effectiveDuration,omitempty"`
-	// 开放的群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 当前操作人工号
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 扩展参数
-	Options map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
-	// 目标容量
-	TargetCapacity *int32 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
+	EffectiveDuration  *string                `json:"effectiveDuration,omitempty" xml:"effectiveDuration,omitempty"`
+	OpenConversationId *string                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Operator           *string                `json:"operator,omitempty" xml:"operator,omitempty"`
+	Options            map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
+	TargetCapacity     *int32                 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
 }
 
 func (s GroupCapacityInquiryRequest) String() string {
@@ -3300,36 +3272,21 @@ func (s *GroupCapacityInquiryRequest) SetTargetCapacity(v int32) *GroupCapacityI
 }
 
 type GroupCapacityInquiryResponseBody struct {
-	// 实际价格
-	ActualPrice *int64 `json:"actualPrice,omitempty" xml:"actualPrice,omitempty"`
-	// 群创建时间
-	CreatedAt *int64 `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
-	// 当前容量
-	CurrentCapacity *int32 `json:"currentCapacity,omitempty" xml:"currentCapacity,omitempty"`
-	// 当前容量生效至何时
-	CurrentEffectUntil *int64 `json:"currentEffectUntil,omitempty" xml:"currentEffectUntil,omitempty"`
-	// 折扣
-	Discount *int32 `json:"discount,omitempty" xml:"discount,omitempty"`
-	// 扩展信息
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 群主userId
-	GroupOwner *string `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
-	// 群标题
-	GroupTitle *string `json:"groupTitle,omitempty" xml:"groupTitle,omitempty"`
-	// 标价
-	MarkedPrice *int64 `json:"markedPrice,omitempty" xml:"markedPrice,omitempty"`
-	// 群人数
-	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
-	// 开放的群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 当前操作人工号
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 目标容量
-	TargetCapacity *int32 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
-	// 目标容量生效至何时
-	TargetEffectUntil *int64 `json:"targetEffectUntil,omitempty" xml:"targetEffectUntil,omitempty"`
-	// 校验令牌
-	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	ActualPrice        *int64                 `json:"actualPrice,omitempty" xml:"actualPrice,omitempty"`
+	CreatedAt          *int64                 `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
+	CurrentCapacity    *int32                 `json:"currentCapacity,omitempty" xml:"currentCapacity,omitempty"`
+	CurrentEffectUntil *int64                 `json:"currentEffectUntil,omitempty" xml:"currentEffectUntil,omitempty"`
+	Discount           *int32                 `json:"discount,omitempty" xml:"discount,omitempty"`
+	ExtInfo            map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	GroupOwner         *string                `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	GroupTitle         *string                `json:"groupTitle,omitempty" xml:"groupTitle,omitempty"`
+	MarkedPrice        *int64                 `json:"markedPrice,omitempty" xml:"markedPrice,omitempty"`
+	MemberCount        *int32                 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	OpenConversationId *string                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Operator           *string                `json:"operator,omitempty" xml:"operator,omitempty"`
+	TargetCapacity     *int32                 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
+	TargetEffectUntil  *int64                 `json:"targetEffectUntil,omitempty" xml:"targetEffectUntil,omitempty"`
+	Token              *string                `json:"token,omitempty" xml:"token,omitempty"`
 }
 
 func (s GroupCapacityInquiryResponseBody) String() string {
@@ -3416,8 +3373,9 @@ func (s *GroupCapacityInquiryResponseBody) SetToken(v string) *GroupCapacityInqu
 }
 
 type GroupCapacityInquiryResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GroupCapacityInquiryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GroupCapacityInquiryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GroupCapacityInquiryResponse) String() string {
@@ -3430,6 +3388,11 @@ func (s GroupCapacityInquiryResponse) GoString() string {
 
 func (s *GroupCapacityInquiryResponse) SetHeaders(v map[string]*string) *GroupCapacityInquiryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponse) SetStatusCode(v int32) *GroupCapacityInquiryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3462,10 +3425,8 @@ func (s *GroupCapacityOrderConfirmHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GroupCapacityOrderConfirmRequest struct {
-	// 操作人工号
 	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 订单号
-	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	OrderId  *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
 }
 
 func (s GroupCapacityOrderConfirmRequest) String() string {
@@ -3487,7 +3448,6 @@ func (s *GroupCapacityOrderConfirmRequest) SetOrderId(v string) *GroupCapacityOr
 }
 
 type GroupCapacityOrderConfirmResponseBody struct {
-	// 本次操作是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3505,8 +3465,9 @@ func (s *GroupCapacityOrderConfirmResponseBody) SetSuccess(v bool) *GroupCapacit
 }
 
 type GroupCapacityOrderConfirmResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GroupCapacityOrderConfirmResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GroupCapacityOrderConfirmResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GroupCapacityOrderConfirmResponse) String() string {
@@ -3519,6 +3480,11 @@ func (s GroupCapacityOrderConfirmResponse) GoString() string {
 
 func (s *GroupCapacityOrderConfirmResponse) SetHeaders(v map[string]*string) *GroupCapacityOrderConfirmResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GroupCapacityOrderConfirmResponse) SetStatusCode(v int32) *GroupCapacityOrderConfirmResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3551,28 +3517,17 @@ func (s *GroupCapacityOrderPlaceHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GroupCapacityOrderPlaceRequest struct {
-	// 实际价格
-	ActualPrice *int64 `json:"actualPrice,omitempty" xml:"actualPrice,omitempty"`
-	// 当前容量
-	CurrentCapacity *int32 `json:"currentCapacity,omitempty" xml:"currentCapacity,omitempty"`
-	// 当前操当前容量生效至何时
-	CurrentEffectUntil *int64 `json:"currentEffectUntil,omitempty" xml:"currentEffectUntil,omitempty"`
-	// 折扣
-	Discount *int32 `json:"discount,omitempty" xml:"discount,omitempty"`
-	// 扩展信息
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 标价
-	MarkedPrice *int64 `json:"markedPrice,omitempty" xml:"markedPrice,omitempty"`
-	// 开放的群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 当前操作人工号
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 目标容量
-	TargetCapacity *int32 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
-	// 目标容量生效至何时
-	TargetEffectUntil *int64 `json:"targetEffectUntil,omitempty" xml:"targetEffectUntil,omitempty"`
-	// 校验令牌
-	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	ActualPrice        *int64                 `json:"actualPrice,omitempty" xml:"actualPrice,omitempty"`
+	CurrentCapacity    *int32                 `json:"currentCapacity,omitempty" xml:"currentCapacity,omitempty"`
+	CurrentEffectUntil *int64                 `json:"currentEffectUntil,omitempty" xml:"currentEffectUntil,omitempty"`
+	Discount           *int32                 `json:"discount,omitempty" xml:"discount,omitempty"`
+	ExtInfo            map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	MarkedPrice        *int64                 `json:"markedPrice,omitempty" xml:"markedPrice,omitempty"`
+	OpenConversationId *string                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Operator           *string                `json:"operator,omitempty" xml:"operator,omitempty"`
+	TargetCapacity     *int32                 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
+	TargetEffectUntil  *int64                 `json:"targetEffectUntil,omitempty" xml:"targetEffectUntil,omitempty"`
+	Token              *string                `json:"token,omitempty" xml:"token,omitempty"`
 }
 
 func (s GroupCapacityOrderPlaceRequest) String() string {
@@ -3639,30 +3594,18 @@ func (s *GroupCapacityOrderPlaceRequest) SetToken(v string) *GroupCapacityOrderP
 }
 
 type GroupCapacityOrderPlaceResponseBody struct {
-	// 实际价格
-	ActualPrice *int64 `json:"actualPrice,omitempty" xml:"actualPrice,omitempty"`
-	// 当前容量
-	CurrentCapacity *int32 `json:"currentCapacity,omitempty" xml:"currentCapacity,omitempty"`
-	// 当前容量生效至何时
-	CurrentEffectUntil *int64 `json:"currentEffectUntil,omitempty" xml:"currentEffectUntil,omitempty"`
-	// 折扣
-	Discount *int32 `json:"discount,omitempty" xml:"discount,omitempty"`
-	// 扩展信息
-	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 标价
-	MarkedPrice *int64 `json:"markedPrice,omitempty" xml:"markedPrice,omitempty"`
-	// 群标识
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 当前操作人工号
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// 订单号
-	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	// 目标容量
-	TargetCapacity *int32 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
-	// 目标容量生效至何时
-	TargetEffectUntil *int64 `json:"targetEffectUntil,omitempty" xml:"targetEffectUntil,omitempty"`
-	// 校验令牌
-	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	ActualPrice        *int64             `json:"actualPrice,omitempty" xml:"actualPrice,omitempty"`
+	CurrentCapacity    *int32             `json:"currentCapacity,omitempty" xml:"currentCapacity,omitempty"`
+	CurrentEffectUntil *int64             `json:"currentEffectUntil,omitempty" xml:"currentEffectUntil,omitempty"`
+	Discount           *int32             `json:"discount,omitempty" xml:"discount,omitempty"`
+	ExtInfo            map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	MarkedPrice        *int64             `json:"markedPrice,omitempty" xml:"markedPrice,omitempty"`
+	OpenConversationId *string            `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Operator           *string            `json:"operator,omitempty" xml:"operator,omitempty"`
+	OrderId            *string            `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	TargetCapacity     *int32             `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
+	TargetEffectUntil  *int64             `json:"targetEffectUntil,omitempty" xml:"targetEffectUntil,omitempty"`
+	Token              *string            `json:"token,omitempty" xml:"token,omitempty"`
 }
 
 func (s GroupCapacityOrderPlaceResponseBody) String() string {
@@ -3734,8 +3677,9 @@ func (s *GroupCapacityOrderPlaceResponseBody) SetToken(v string) *GroupCapacityO
 }
 
 type GroupCapacityOrderPlaceResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GroupCapacityOrderPlaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GroupCapacityOrderPlaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GroupCapacityOrderPlaceResponse) String() string {
@@ -3748,6 +3692,11 @@ func (s GroupCapacityOrderPlaceResponse) GoString() string {
 
 func (s *GroupCapacityOrderPlaceResponse) SetHeaders(v map[string]*string) *GroupCapacityOrderPlaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponse) SetStatusCode(v int32) *GroupCapacityOrderPlaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3780,26 +3729,16 @@ func (s *GroupManageQueryHeaders) SetXAcsDingtalkAccessToken(v string) *GroupMan
 }
 
 type GroupManageQueryRequest struct {
-	// 建群时间不早于（辅助性条件，结合非排他条件使用）
-	CreatedAfter *int64 `json:"createdAfter,omitempty" xml:"createdAfter,omitempty"`
-	// 群号
-	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	// 群成员样例工号列表
+	CreatedAfter       *int64    `json:"createdAfter,omitempty" xml:"createdAfter,omitempty"`
+	GroupId            *string   `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	GroupMemberSamples []*string `json:"groupMemberSamples,omitempty" xml:"groupMemberSamples,omitempty" type:"Repeated"`
-	// 群主工号
-	GroupOwner *string `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
-	// 群标题关键词列表
+	GroupOwner         *string   `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
 	GroupTitleKeywords []*string `json:"groupTitleKeywords,omitempty" xml:"groupTitleKeywords,omitempty" type:"Repeated"`
-	// 群链接
-	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
-	// 分页拉取的页大小, 最大不可超过1000
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 群成员数下限（辅助性条件，结合非排他条件使用）
-	MembersOver *int32 `json:"membersOver,omitempty" xml:"membersOver,omitempty"`
-	// 分页拉取游标, 若不指定，则从头开始拉
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 开放群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	GroupUrl           *string   `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	MaxResults         *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MembersOver        *int32    `json:"membersOver,omitempty" xml:"membersOver,omitempty"`
+	NextToken          *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
 func (s GroupManageQueryRequest) String() string {
@@ -3861,12 +3800,9 @@ func (s *GroupManageQueryRequest) SetOpenConversationId(v string) *GroupManageQu
 }
 
 type GroupManageQueryResponseBody struct {
-	// 群信息列表
 	GroupInfoList []*GroupManageQueryResponseBodyGroupInfoList `json:"groupInfoList,omitempty" xml:"groupInfoList,omitempty" type:"Repeated"`
-	// 分页拉取时, 是否还有更多
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 分页拉取游标, 请求下一页时回传
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore       *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken     *string                                      `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GroupManageQueryResponseBody) String() string {
@@ -3893,25 +3829,16 @@ func (s *GroupManageQueryResponseBody) SetNextToken(v string) *GroupManageQueryR
 }
 
 type GroupManageQueryResponseBodyGroupInfoList struct {
-	// 禁言模式
-	BanWordsMode *int32 `json:"banWordsMode,omitempty" xml:"banWordsMode,omitempty"`
-	// 群容量
-	Capacity *int32 `json:"capacity,omitempty" xml:"capacity,omitempty"`
-	// 群创建时间
-	CreatedAt *int64 `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
-	// 扩展信息
-	ExtInfo        map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	GroupAdminList []*string              `json:"groupAdminList,omitempty" xml:"groupAdminList,omitempty" type:"Repeated"`
-	// 群主userid
-	GroupOwner *string `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
-	// 群标题
-	GroupTitle *string `json:"groupTitle,omitempty" xml:"groupTitle,omitempty"`
-	// 当前群人数
-	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
-	// 开放的群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群类型
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	BanWordsMode       *int32                 `json:"banWordsMode,omitempty" xml:"banWordsMode,omitempty"`
+	Capacity           *int32                 `json:"capacity,omitempty" xml:"capacity,omitempty"`
+	CreatedAt          *int64                 `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
+	ExtInfo            map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	GroupAdminList     []*string              `json:"groupAdminList,omitempty" xml:"groupAdminList,omitempty" type:"Repeated"`
+	GroupOwner         *string                `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	GroupTitle         *string                `json:"groupTitle,omitempty" xml:"groupTitle,omitempty"`
+	MemberCount        *int32                 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	OpenConversationId *string                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Type               *string                `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GroupManageQueryResponseBodyGroupInfoList) String() string {
@@ -3973,8 +3900,9 @@ func (s *GroupManageQueryResponseBodyGroupInfoList) SetType(v string) *GroupMana
 }
 
 type GroupManageQueryResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GroupManageQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GroupManageQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GroupManageQueryResponse) String() string {
@@ -3987,6 +3915,11 @@ func (s GroupManageQueryResponse) GoString() string {
 
 func (s *GroupManageQueryResponse) SetHeaders(v map[string]*string) *GroupManageQueryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GroupManageQueryResponse) SetStatusCode(v int32) *GroupManageQueryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4019,12 +3952,9 @@ func (s *GroupManageReduceHeaders) SetXAcsDingtalkAccessToken(v string) *GroupMa
 }
 
 type GroupManageReduceRequest struct {
-	// 群容量限定值
-	CapacityLimit *int32 `json:"capacityLimit,omitempty" xml:"capacityLimit,omitempty"`
-	// 开放群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 扩展参数
-	Options map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
+	CapacityLimit      *int32                 `json:"capacityLimit,omitempty" xml:"capacityLimit,omitempty"`
+	OpenConversationId *string                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Options            map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
 }
 
 func (s GroupManageReduceRequest) String() string {
@@ -4051,7 +3981,8 @@ func (s *GroupManageReduceRequest) SetOptions(v map[string]interface{}) *GroupMa
 }
 
 type GroupManageReduceResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s GroupManageReduceResponse) String() string {
@@ -4064,6 +3995,11 @@ func (s GroupManageReduceResponse) GoString() string {
 
 func (s *GroupManageReduceResponse) SetHeaders(v map[string]*string) *GroupManageReduceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GroupManageReduceResponse) SetStatusCode(v int32) *GroupManageReduceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4091,22 +4027,14 @@ func (s *InstallRobotToOrgHeaders) SetXAcsDingtalkAccessToken(v string) *Install
 }
 
 type InstallRobotToOrgRequest struct {
-	// 简介
-	Brief *string `json:"brief,omitempty" xml:"brief,omitempty"`
-	// 描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 机器人meidaId
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 机器人名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 消息回调验证token
-	OutgoingToken *string `json:"outgoingToken,omitempty" xml:"outgoingToken,omitempty"`
-	// 消息回调地址
-	OutgoingUrl *string `json:"outgoingUrl,omitempty" xml:"outgoingUrl,omitempty"`
-	// 预览图mediaId
+	Brief          *string `json:"brief,omitempty" xml:"brief,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	OutgoingToken  *string `json:"outgoingToken,omitempty" xml:"outgoingToken,omitempty"`
+	OutgoingUrl    *string `json:"outgoingUrl,omitempty" xml:"outgoingUrl,omitempty"`
 	PreviewMediaId *string `json:"previewMediaId,omitempty" xml:"previewMediaId,omitempty"`
-	// 机器人编码
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode      *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s InstallRobotToOrgRequest) String() string {
@@ -4158,7 +4086,6 @@ func (s *InstallRobotToOrgRequest) SetRobotCode(v string) *InstallRobotToOrgRequ
 }
 
 type InstallRobotToOrgResponseBody struct {
-	// Id of the request
 	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
@@ -4176,8 +4103,9 @@ func (s *InstallRobotToOrgResponseBody) SetRobotCode(v string) *InstallRobotToOr
 }
 
 type InstallRobotToOrgResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *InstallRobotToOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *InstallRobotToOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s InstallRobotToOrgResponse) String() string {
@@ -4190,6 +4118,11 @@ func (s InstallRobotToOrgResponse) GoString() string {
 
 func (s *InstallRobotToOrgResponse) SetHeaders(v map[string]*string) *InstallRobotToOrgResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *InstallRobotToOrgResponse) SetStatusCode(v int32) *InstallRobotToOrgResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4222,29 +4155,18 @@ func (s *InteractiveCardCreateInstanceHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type InteractiveCardCreateInstanceRequest struct {
-	// 可控制卡片回调时的路由Key，用于指定特定的callbackUrl【可空：不填写默认用企业的回调地址】
-	CallbackRouteKey *string                                       `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	CardData         *InteractiveCardCreateInstanceRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
-	// 卡片模板ID
-	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	// 【robotCode & chatBotId二选一必填】机器人ID（企业机器人）
-	ChatBotId *string `json:"chatBotId,omitempty" xml:"chatBotId,omitempty"`
-	// 发送的会话类型：单聊-0, 群聊-1（单聊时：openConversationId不用填写；receiverUserIdList填写有且一个员工号）
-	ConversationType *int32 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
-	// 接收卡片的群的openConversationId
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
-	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	// 指定用户可见的按钮列表（key：用户userId；value：用户数据）
-	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	// 是否开启卡片纯拉模式
-	PullStrategy *bool `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
-	// 接收人userId列表
-	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
-	// 【robotCode & chatBotId二选一必填】机器人编码（群模板机器人）
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 用户ID类型：1：staffId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
-	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	CallbackRouteKey   *string                                       `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CardData           *InteractiveCardCreateInstanceRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CardTemplateId     *string                                       `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	ChatBotId          *string                                       `json:"chatBotId,omitempty" xml:"chatBotId,omitempty"`
+	ConversationType   *int32                                        `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	OpenConversationId *string                                       `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OutTrackId         *string                                       `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData        map[string]*PrivateDataValue                  `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	PullStrategy       *bool                                         `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
+	ReceiverUserIdList []*string                                     `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	RobotCode          *string                                       `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	UserIdType         *int32                                        `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s InteractiveCardCreateInstanceRequest) String() string {
@@ -4316,10 +4238,8 @@ func (s *InteractiveCardCreateInstanceRequest) SetUserIdType(v int32) *Interacti
 }
 
 type InteractiveCardCreateInstanceRequestCardData struct {
-	// 卡片模板内容替换参数-多媒体类型
 	CardMediaIdParamMap map[string]*string `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
-	// 卡片模板内容替换参数-普通文本类型
-	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+	CardParamMap        map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
 }
 
 func (s InteractiveCardCreateInstanceRequestCardData) String() string {
@@ -4341,7 +4261,6 @@ func (s *InteractiveCardCreateInstanceRequestCardData) SetCardParamMap(v map[str
 }
 
 type InteractiveCardCreateInstanceResponseBody struct {
-	// 用于业务方后续查看已读列表的查询key
 	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
 }
 
@@ -4359,8 +4278,9 @@ func (s *InteractiveCardCreateInstanceResponseBody) SetProcessQueryKey(v string)
 }
 
 type InteractiveCardCreateInstanceResponse struct {
-	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *InteractiveCardCreateInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *InteractiveCardCreateInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s InteractiveCardCreateInstanceResponse) String() string {
@@ -4373,6 +4293,11 @@ func (s InteractiveCardCreateInstanceResponse) GoString() string {
 
 func (s *InteractiveCardCreateInstanceResponse) SetHeaders(v map[string]*string) *InteractiveCardCreateInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *InteractiveCardCreateInstanceResponse) SetStatusCode(v int32) *InteractiveCardCreateInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4405,10 +4330,8 @@ func (s *ListOrgTextEmotionHeaders) SetXAcsDingtalkAccessToken(v string) *ListOr
 }
 
 type ListOrgTextEmotionResponseBody struct {
-	// 拉取企业文字表情结果
-	Result *ListOrgTextEmotionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 返回结果
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *ListOrgTextEmotionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ListOrgTextEmotionResponseBody) String() string {
@@ -4430,7 +4353,6 @@ func (s *ListOrgTextEmotionResponseBody) SetSuccess(v bool) *ListOrgTextEmotionR
 }
 
 type ListOrgTextEmotionResponseBodyResult struct {
-	// 企业文字表情列表
 	Emotions []*ListOrgTextEmotionResponseBodyResultEmotions `json:"emotions,omitempty" xml:"emotions,omitempty" type:"Repeated"`
 }
 
@@ -4448,23 +4370,12 @@ func (s *ListOrgTextEmotionResponseBodyResult) SetEmotions(v []*ListOrgTextEmoti
 }
 
 type ListOrgTextEmotionResponseBodyResultEmotions struct {
-	// 展示在消息气泡中的文字表情的mediaId
-	BackgroundMediaId *string `json:"backgroundMediaId,omitempty" xml:"backgroundMediaId,omitempty"`
-	// 展示在消息长按菜单中的文字表情的mediaId
+	BackgroundMediaId         *string `json:"backgroundMediaId,omitempty" xml:"backgroundMediaId,omitempty"`
 	BackgroundMediaIdForPanel *string `json:"backgroundMediaIdForPanel,omitempty" xml:"backgroundMediaIdForPanel,omitempty"`
-	// 表情所属部门Id：
-	// -1：该表情为企业层面的文字表情
-	// 一级部门Id：该表情为一级部门层面的文字表情
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 表情Id
-	EmotionId *string `json:"emotionId,omitempty" xml:"emotionId,omitempty"`
-	// 表情名称，对用户不可见
-	EmotionName *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
-	// 表情状态
-	// 0：已删除
-	// 1：可用
-	// 2：安全审核不通过
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	DeptId                    *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	EmotionId                 *string `json:"emotionId,omitempty" xml:"emotionId,omitempty"`
+	EmotionName               *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
+	Status                    *int32  `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s ListOrgTextEmotionResponseBodyResultEmotions) String() string {
@@ -4506,8 +4417,9 @@ func (s *ListOrgTextEmotionResponseBodyResultEmotions) SetStatus(v int32) *ListO
 }
 
 type ListOrgTextEmotionResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListOrgTextEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListOrgTextEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListOrgTextEmotionResponse) String() string {
@@ -4520,6 +4432,11 @@ func (s ListOrgTextEmotionResponse) GoString() string {
 
 func (s *ListOrgTextEmotionResponse) SetHeaders(v map[string]*string) *ListOrgTextEmotionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListOrgTextEmotionResponse) SetStatusCode(v int32) *ListOrgTextEmotionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4552,9 +4469,7 @@ func (s *QueryGroupInfoByMemberAuthHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryGroupInfoByMemberAuthRequest struct {
-	// 酷应用编码
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 群的openConversationId
+	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -4577,7 +4492,6 @@ func (s *QueryGroupInfoByMemberAuthRequest) SetOpenConversationId(v string) *Que
 }
 
 type QueryGroupInfoByMemberAuthResponseBody struct {
-	// 群内总人数
 	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
 }
 
@@ -4595,8 +4509,9 @@ func (s *QueryGroupInfoByMemberAuthResponseBody) SetMemberCount(v int32) *QueryG
 }
 
 type QueryGroupInfoByMemberAuthResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryGroupInfoByMemberAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryGroupInfoByMemberAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryGroupInfoByMemberAuthResponse) String() string {
@@ -4609,6 +4524,11 @@ func (s QueryGroupInfoByMemberAuthResponse) GoString() string {
 
 func (s *QueryGroupInfoByMemberAuthResponse) SetHeaders(v map[string]*string) *QueryGroupInfoByMemberAuthResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupInfoByMemberAuthResponse) SetStatusCode(v int32) *QueryGroupInfoByMemberAuthResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4641,7 +4561,6 @@ func (s *QueryGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGro
 }
 
 type QueryGroupMemberRequest struct {
-	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -4659,10 +4578,8 @@ func (s *QueryGroupMemberRequest) SetOpenConversationId(v string) *QueryGroupMem
 }
 
 type QueryGroupMemberResponseBody struct {
-	// 群成员列表。
-	GroupMembers []*QueryGroupMemberResponseBodyGroupMembers `json:"groupMembers,omitempty" xml:"groupMembers,omitempty" type:"Repeated"`
-	// 群会话Id。
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	GroupMembers       []*QueryGroupMemberResponseBodyGroupMembers `json:"groupMembers,omitempty" xml:"groupMembers,omitempty" type:"Repeated"`
+	OpenConversationId *string                                     `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
 func (s QueryGroupMemberResponseBody) String() string {
@@ -4684,16 +4601,11 @@ func (s *QueryGroupMemberResponseBody) SetOpenConversationId(v string) *QueryGro
 }
 
 type QueryGroupMemberResponseBodyGroupMembers struct {
-	// 群成员头像地址。
-	GroupMemberAvatar *string `json:"groupMemberAvatar,omitempty" xml:"groupMemberAvatar,omitempty"`
-	// 群成员动态信息。
+	GroupMemberAvatar   *string `json:"groupMemberAvatar,omitempty" xml:"groupMemberAvatar,omitempty"`
 	GroupMemberDynamics *string `json:"groupMemberDynamics,omitempty" xml:"groupMemberDynamics,omitempty"`
-	// 群成员Id。
-	GroupMemberId *string `json:"groupMemberId,omitempty" xml:"groupMemberId,omitempty"`
-	// 群成员名称。
-	GroupMemberName *string `json:"groupMemberName,omitempty" xml:"groupMemberName,omitempty"`
-	// 群成员类型。
-	GroupMemberType *int32 `json:"groupMemberType,omitempty" xml:"groupMemberType,omitempty"`
+	GroupMemberId       *string `json:"groupMemberId,omitempty" xml:"groupMemberId,omitempty"`
+	GroupMemberName     *string `json:"groupMemberName,omitempty" xml:"groupMemberName,omitempty"`
+	GroupMemberType     *int32  `json:"groupMemberType,omitempty" xml:"groupMemberType,omitempty"`
 }
 
 func (s QueryGroupMemberResponseBodyGroupMembers) String() string {
@@ -4730,8 +4642,9 @@ func (s *QueryGroupMemberResponseBodyGroupMembers) SetGroupMemberType(v int32) *
 }
 
 type QueryGroupMemberResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryGroupMemberResponse) String() string {
@@ -4744,6 +4657,11 @@ func (s QueryGroupMemberResponse) GoString() string {
 
 func (s *QueryGroupMemberResponse) SetHeaders(v map[string]*string) *QueryGroupMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupMemberResponse) SetStatusCode(v int32) *QueryGroupMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4776,9 +4694,7 @@ func (s *QueryGroupMemberByMemberAuthHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type QueryGroupMemberByMemberAuthRequest struct {
-	// 酷应用编码
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 群的openConversationId
+	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -4801,7 +4717,6 @@ func (s *QueryGroupMemberByMemberAuthRequest) SetOpenConversationId(v string) *Q
 }
 
 type QueryGroupMemberByMemberAuthResponseBody struct {
-	// 群成员列表
 	GroupMemberList []*QueryGroupMemberByMemberAuthResponseBodyGroupMemberList `json:"groupMemberList,omitempty" xml:"groupMemberList,omitempty" type:"Repeated"`
 }
 
@@ -4819,15 +4734,10 @@ func (s *QueryGroupMemberByMemberAuthResponseBody) SetGroupMemberList(v []*Query
 }
 
 type QueryGroupMemberByMemberAuthResponseBodyGroupMemberList struct {
-	// 群内昵称
-	//
-	GroupNickName *string `json:"groupNickName,omitempty" xml:"groupNickName,omitempty"`
-	// 企业内成员姓名
-	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	// 头像url
+	GroupNickName   *string `json:"groupNickName,omitempty" xml:"groupNickName,omitempty"`
+	OrgName         *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
 	ProfilePhotoUrl *string `json:"profilePhotoUrl,omitempty" xml:"profilePhotoUrl,omitempty"`
-	// 员工id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryGroupMemberByMemberAuthResponseBodyGroupMemberList) String() string {
@@ -4859,8 +4769,9 @@ func (s *QueryGroupMemberByMemberAuthResponseBodyGroupMemberList) SetUserId(v st
 }
 
 type QueryGroupMemberByMemberAuthResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryGroupMemberByMemberAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryGroupMemberByMemberAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryGroupMemberByMemberAuthResponse) String() string {
@@ -4873,6 +4784,11 @@ func (s QueryGroupMemberByMemberAuthResponse) GoString() string {
 
 func (s *QueryGroupMemberByMemberAuthResponse) SetHeaders(v map[string]*string) *QueryGroupMemberByMemberAuthResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupMemberByMemberAuthResponse) SetStatusCode(v int32) *QueryGroupMemberByMemberAuthResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4905,10 +4821,8 @@ func (s *QueryGroupMuteStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryGroupMuteStatusRequest struct {
-	// 开放的会话ID
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群成员的员工工号
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryGroupMuteStatusRequest) String() string {
@@ -4930,7 +4844,6 @@ func (s *QueryGroupMuteStatusRequest) SetUserId(v string) *QueryGroupMuteStatusR
 }
 
 type QueryGroupMuteStatusResponseBody struct {
-	// 群禁言状态
 	GroupMuteMode  *bool                                           `json:"groupMuteMode,omitempty" xml:"groupMuteMode,omitempty"`
 	UserMuteResult *QueryGroupMuteStatusResponseBodyUserMuteResult `json:"userMuteResult,omitempty" xml:"userMuteResult,omitempty" type:"Struct"`
 }
@@ -4954,12 +4867,9 @@ func (s *QueryGroupMuteStatusResponseBody) SetUserMuteResult(v *QueryGroupMuteSt
 }
 
 type QueryGroupMuteStatusResponseBodyUserMuteResult struct {
-	// 禁言结束时间
-	MuteEndTime *int64 `json:"muteEndTime,omitempty" xml:"muteEndTime,omitempty"`
-	// 禁言开始时间
+	MuteEndTime   *int64 `json:"muteEndTime,omitempty" xml:"muteEndTime,omitempty"`
 	MuteStartTime *int64 `json:"muteStartTime,omitempty" xml:"muteStartTime,omitempty"`
-	// 成员禁言状态
-	UserMuteMode *bool `json:"userMuteMode,omitempty" xml:"userMuteMode,omitempty"`
+	UserMuteMode  *bool  `json:"userMuteMode,omitempty" xml:"userMuteMode,omitempty"`
 }
 
 func (s QueryGroupMuteStatusResponseBodyUserMuteResult) String() string {
@@ -4986,8 +4896,9 @@ func (s *QueryGroupMuteStatusResponseBodyUserMuteResult) SetUserMuteMode(v bool)
 }
 
 type QueryGroupMuteStatusResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryGroupMuteStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryGroupMuteStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryGroupMuteStatusResponse) String() string {
@@ -5000,6 +4911,11 @@ func (s QueryGroupMuteStatusResponse) GoString() string {
 
 func (s *QueryGroupMuteStatusResponse) SetHeaders(v map[string]*string) *QueryGroupMuteStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupMuteStatusResponse) SetStatusCode(v int32) *QueryGroupMuteStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5032,12 +4948,9 @@ func (s *QueryMembersOfGroupRoleHeaders) SetXAcsDingtalkAccessToken(v string) *Q
 }
 
 type QueryMembersOfGroupRoleRequest struct {
-	// 开放群ID
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 开放群角色id
-	OpenRoleId *string `json:"openRoleId,omitempty" xml:"openRoleId,omitempty"`
-	// 时间戳
-	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	OpenRoleId         *string `json:"openRoleId,omitempty" xml:"openRoleId,omitempty"`
+	Timestamp          *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
 }
 
 func (s QueryMembersOfGroupRoleRequest) String() string {
@@ -5064,7 +4977,6 @@ func (s *QueryMembersOfGroupRoleRequest) SetTimestamp(v int64) *QueryMembersOfGr
 }
 
 type QueryMembersOfGroupRoleResponseBody struct {
-	// userIds
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -5082,8 +4994,9 @@ func (s *QueryMembersOfGroupRoleResponseBody) SetUserIds(v []*string) *QueryMemb
 }
 
 type QueryMembersOfGroupRoleResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryMembersOfGroupRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryMembersOfGroupRoleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryMembersOfGroupRoleResponse) String() string {
@@ -5096,6 +5009,11 @@ func (s QueryMembersOfGroupRoleResponse) GoString() string {
 
 func (s *QueryMembersOfGroupRoleResponse) SetHeaders(v map[string]*string) *QueryMembersOfGroupRoleResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryMembersOfGroupRoleResponse) SetStatusCode(v int32) *QueryMembersOfGroupRoleResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5197,8 +5115,9 @@ func (s *QuerySceneGroupTemplateRobotResponseBodyResult) SetUserId(v string) *Qu
 }
 
 type QuerySceneGroupTemplateRobotResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QuerySceneGroupTemplateRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QuerySceneGroupTemplateRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QuerySceneGroupTemplateRobotResponse) String() string {
@@ -5211,6 +5130,11 @@ func (s QuerySceneGroupTemplateRobotResponse) GoString() string {
 
 func (s *QuerySceneGroupTemplateRobotResponse) SetHeaders(v map[string]*string) *QuerySceneGroupTemplateRobotResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QuerySceneGroupTemplateRobotResponse) SetStatusCode(v int32) *QuerySceneGroupTemplateRobotResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5243,10 +5167,8 @@ func (s *QuerySingleGroupHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySin
 }
 
 type QuerySingleGroupRequest struct {
-	// 群成员列表。
-	GroupMembers []*QuerySingleGroupRequestGroupMembers `json:"groupMembers,omitempty" xml:"groupMembers,omitempty" type:"Repeated"`
-	// 群模版Id。
-	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	GroupMembers    []*QuerySingleGroupRequestGroupMembers `json:"groupMembers,omitempty" xml:"groupMembers,omitempty" type:"Repeated"`
+	GroupTemplateId *string                                `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
 }
 
 func (s QuerySingleGroupRequest) String() string {
@@ -5268,10 +5190,8 @@ func (s *QuerySingleGroupRequest) SetGroupTemplateId(v string) *QuerySingleGroup
 }
 
 type QuerySingleGroupRequestGroupMembers struct {
-	// 钉外账号在业务系统内的唯一标识。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 钉内账号userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QuerySingleGroupRequestGroupMembers) String() string {
@@ -5293,7 +5213,6 @@ func (s *QuerySingleGroupRequestGroupMembers) SetUserId(v string) *QuerySingleGr
 }
 
 type QuerySingleGroupResponseBody struct {
-	// 群会话列表。
 	OpenConversations []*QuerySingleGroupResponseBodyOpenConversations `json:"openConversations,omitempty" xml:"openConversations,omitempty" type:"Repeated"`
 }
 
@@ -5311,12 +5230,9 @@ func (s *QuerySingleGroupResponseBody) SetOpenConversations(v []*QuerySingleGrou
 }
 
 type QuerySingleGroupResponseBodyOpenConversations struct {
-	// 钉外账号在业务系统内的唯一标识。
-	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 群会话Id。
+	AppUserId          *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 钉内账号userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QuerySingleGroupResponseBodyOpenConversations) String() string {
@@ -5343,8 +5259,9 @@ func (s *QuerySingleGroupResponseBodyOpenConversations) SetUserId(v string) *Que
 }
 
 type QuerySingleGroupResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QuerySingleGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QuerySingleGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QuerySingleGroupResponse) String() string {
@@ -5357,6 +5274,11 @@ func (s QuerySingleGroupResponse) GoString() string {
 
 func (s *QuerySingleGroupResponse) SetHeaders(v map[string]*string) *QuerySingleGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QuerySingleGroupResponse) SetStatusCode(v int32) *QuerySingleGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5389,9 +5311,7 @@ func (s *QueryUnReadMessageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryU
 }
 
 type QueryUnReadMessageRequest struct {
-	// 钉外账号在业务系统内的唯一标志。
-	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 群会话Id列表。
+	AppUserId           *string   `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
 	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
 }
 
@@ -5414,9 +5334,7 @@ func (s *QueryUnReadMessageRequest) SetOpenConversationIds(v []*string) *QueryUn
 }
 
 type QueryUnReadMessageResponseBody struct {
-	// 未读消息数。
-	UnReadCount *int64 `json:"unReadCount,omitempty" xml:"unReadCount,omitempty"`
-	// 未读消息列表。
+	UnReadCount *int64                                       `json:"unReadCount,omitempty" xml:"unReadCount,omitempty"`
 	UnReadItems []*QueryUnReadMessageResponseBodyUnReadItems `json:"unReadItems,omitempty" xml:"unReadItems,omitempty" type:"Repeated"`
 }
 
@@ -5439,10 +5357,8 @@ func (s *QueryUnReadMessageResponseBody) SetUnReadItems(v []*QueryUnReadMessageR
 }
 
 type QueryUnReadMessageResponseBodyUnReadItems struct {
-	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 未读消息数。
-	UnReadCount *int64 `json:"unReadCount,omitempty" xml:"unReadCount,omitempty"`
+	UnReadCount        *int64  `json:"unReadCount,omitempty" xml:"unReadCount,omitempty"`
 }
 
 func (s QueryUnReadMessageResponseBodyUnReadItems) String() string {
@@ -5464,8 +5380,9 @@ func (s *QueryUnReadMessageResponseBodyUnReadItems) SetUnReadCount(v int64) *Que
 }
 
 type QueryUnReadMessageResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryUnReadMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryUnReadMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryUnReadMessageResponse) String() string {
@@ -5478,6 +5395,11 @@ func (s QueryUnReadMessageResponse) GoString() string {
 
 func (s *QueryUnReadMessageResponse) SetHeaders(v map[string]*string) *QueryUnReadMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryUnReadMessageResponse) SetStatusCode(v int32) *QueryUnReadMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5510,9 +5432,7 @@ func (s *RemoveRobotFromConversationHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type RemoveRobotFromConversationRequest struct {
-	// 机器人在会话里的id
-	ChatBotUserId *string `json:"chatBotUserId,omitempty" xml:"chatBotUserId,omitempty"`
-	// 会话id
+	ChatBotUserId      *string `json:"chatBotUserId,omitempty" xml:"chatBotUserId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -5535,7 +5455,6 @@ func (s *RemoveRobotFromConversationRequest) SetOpenConversationId(v string) *Re
 }
 
 type RemoveRobotFromConversationResponseBody struct {
-	// Id of the request
 	ChatBotUserId *string `json:"chatBotUserId,omitempty" xml:"chatBotUserId,omitempty"`
 }
 
@@ -5553,8 +5472,9 @@ func (s *RemoveRobotFromConversationResponseBody) SetChatBotUserId(v string) *Re
 }
 
 type RemoveRobotFromConversationResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RemoveRobotFromConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RemoveRobotFromConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RemoveRobotFromConversationResponse) String() string {
@@ -5567,6 +5487,11 @@ func (s RemoveRobotFromConversationResponse) GoString() string {
 
 func (s *RemoveRobotFromConversationResponse) SetHeaders(v map[string]*string) *RemoveRobotFromConversationResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RemoveRobotFromConversationResponse) SetStatusCode(v int32) *RemoveRobotFromConversationResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5599,12 +5524,9 @@ func (s *SearchInnerGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchI
 }
 
 type SearchInnerGroupsRequest struct {
-	// 查询最大数量。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 关键词。
-	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
-	// 用户userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchInnerGroupsRequest) String() string {
@@ -5631,7 +5553,6 @@ func (s *SearchInnerGroupsRequest) SetUserId(v string) *SearchInnerGroupsRequest
 }
 
 type SearchInnerGroupsResponseBody struct {
-	// 群列表。
 	GroupInfos []*SearchInnerGroupsResponseBodyGroupInfos `json:"groupInfos,omitempty" xml:"groupInfos,omitempty" type:"Repeated"`
 }
 
@@ -5649,14 +5570,10 @@ func (s *SearchInnerGroupsResponseBody) SetGroupInfos(v []*SearchInnerGroupsResp
 }
 
 type SearchInnerGroupsResponseBodyGroupInfos struct {
-	// 群头像。
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 群成员人数。
-	MemberAmount *string `json:"memberAmount,omitempty" xml:"memberAmount,omitempty"`
-	// 会话id。
+	Icon               *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	MemberAmount       *string `json:"memberAmount,omitempty" xml:"memberAmount,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群名称。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SearchInnerGroupsResponseBodyGroupInfos) String() string {
@@ -5688,8 +5605,9 @@ func (s *SearchInnerGroupsResponseBodyGroupInfos) SetTitle(v string) *SearchInne
 }
 
 type SearchInnerGroupsResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchInnerGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchInnerGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchInnerGroupsResponse) String() string {
@@ -5702,6 +5620,11 @@ func (s SearchInnerGroupsResponse) GoString() string {
 
 func (s *SearchInnerGroupsResponse) SetHeaders(v map[string]*string) *SearchInnerGroupsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchInnerGroupsResponse) SetStatusCode(v int32) *SearchInnerGroupsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5734,34 +5657,20 @@ func (s *SendInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *SendI
 }
 
 type SendInteractiveCardRequest struct {
-	// 消息@人，{123456:"钉三多"}，key：根据userIdType来设置，【特殊设置：如果key、value都为"@ALL"则判断at所有人】
-	AtOpenIds map[string]*string `json:"atOpenIds,omitempty" xml:"atOpenIds,omitempty"`
-	// 可控制卡片回调时的路由Key，用于指定特定的callbackUrl【可空：不填写默认用企业的回调地址】
-	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	// 卡片公共主体部分数据
-	CardData *SendInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
-	// 卡片属性
-	CardOptions *SendInteractiveCardRequestCardOptions `json:"cardOptions,omitempty" xml:"cardOptions,omitempty" type:"Struct"`
-	// 卡片模板ID
-	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	// 【robotCode & chatBotId二选一必填】机器人ID（企业机器人）
-	ChatBotId *string `json:"chatBotId,omitempty" xml:"chatBotId,omitempty"`
-	// 发送的会话类型：单聊-0, 群聊-1（单聊时：openConversationId不用填写；receiverUserIdList填写有且一个员工号）
-	ConversationType *int32 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
-	// 接收卡片的群的openConversationId
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
-	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	// 卡片用户私有差异部分数据（如卡片不同人显示不同按钮；key：用户userId；value：用户数据变量）
-	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	// 是否开启卡片纯拉模式
-	PullStrategy *bool `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
-	// 互动卡片消息需要群会话部分人可见时的接收人列表，不填写默认群会话所有人可见
-	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
-	// 【robotCode & chatBotId二选一必填】机器人编码（群模板机器人）
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 用户ID类型：1：userId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
-	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	AtOpenIds          map[string]*string                     `json:"atOpenIds,omitempty" xml:"atOpenIds,omitempty"`
+	CallbackRouteKey   *string                                `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CardData           *SendInteractiveCardRequestCardData    `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CardOptions        *SendInteractiveCardRequestCardOptions `json:"cardOptions,omitempty" xml:"cardOptions,omitempty" type:"Struct"`
+	CardTemplateId     *string                                `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	ChatBotId          *string                                `json:"chatBotId,omitempty" xml:"chatBotId,omitempty"`
+	ConversationType   *int32                                 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	OpenConversationId *string                                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OutTrackId         *string                                `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData        map[string]*PrivateDataValue           `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	PullStrategy       *bool                                  `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
+	ReceiverUserIdList []*string                              `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	RobotCode          *string                                `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	UserIdType         *int32                                 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s SendInteractiveCardRequest) String() string {
@@ -5843,10 +5752,8 @@ func (s *SendInteractiveCardRequest) SetUserIdType(v int32) *SendInteractiveCard
 }
 
 type SendInteractiveCardRequestCardData struct {
-	// 卡片模板内容替换参数-多媒体类型
 	CardMediaIdParamMap map[string]*string `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
-	// 卡片模板内容替换参数-普通文本类型
-	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+	CardParamMap        map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
 }
 
 func (s SendInteractiveCardRequestCardData) String() string {
@@ -5868,7 +5775,6 @@ func (s *SendInteractiveCardRequestCardData) SetCardParamMap(v map[string]*strin
 }
 
 type SendInteractiveCardRequestCardOptions struct {
-	// 是否支持转发
 	SupportForward *bool `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
 }
 
@@ -5886,10 +5792,8 @@ func (s *SendInteractiveCardRequestCardOptions) SetSupportForward(v bool) *SendI
 }
 
 type SendInteractiveCardResponseBody struct {
-	// 创建卡片结果
-	Result *SendInteractiveCardResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *SendInteractiveCardResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s SendInteractiveCardResponseBody) String() string {
@@ -5911,7 +5815,6 @@ func (s *SendInteractiveCardResponseBody) SetSuccess(v bool) *SendInteractiveCar
 }
 
 type SendInteractiveCardResponseBodyResult struct {
-	// 用于业务方后续查看已读列表的查询key
 	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
 }
 
@@ -5929,8 +5832,9 @@ func (s *SendInteractiveCardResponseBodyResult) SetProcessQueryKey(v string) *Se
 }
 
 type SendInteractiveCardResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendInteractiveCardResponse) String() string {
@@ -5943,6 +5847,11 @@ func (s SendInteractiveCardResponse) GoString() string {
 
 func (s *SendInteractiveCardResponse) SetHeaders(v map[string]*string) *SendInteractiveCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendInteractiveCardResponse) SetStatusCode(v int32) *SendInteractiveCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5975,30 +5884,18 @@ func (s *SendOTOInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *Se
 }
 
 type SendOTOInteractiveCardRequest struct {
-	// 消息@人，{123456:"钉三多"}，key：根据userIdType来设置，【特殊设置：如果key、value都为"@ALL"则判断at所有人】
-	AtOpenIds map[string]*string `json:"atOpenIds,omitempty" xml:"atOpenIds,omitempty"`
-	// 可控制卡片回调时的路由Key，用于指定特定的callbackUrl【可空：不填写默认用企业的回调地址】
-	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	// 卡片公共主体部分数据
-	CardData *SendOTOInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
-	// 卡片属性
-	CardOptions *SendOTOInteractiveCardRequestCardOptions `json:"cardOptions,omitempty" xml:"cardOptions,omitempty" type:"Struct"`
-	// 卡片模板ID
-	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	// 接收卡片的群的openConversationId
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
-	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	// 卡片用户私有差异部分数据（如卡片不同人显示不同按钮；key：用户userId；value：用户数据变量）
-	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	// 是否开启卡片纯拉模式
-	PullStrategy *bool `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
-	// 互动卡片消息需要群会话部分人可见时的接收人列表，不填写默认群会话所有人可见
-	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
-	// 【robotCode & chatBotId二选一必填】机器人编码（群模板机器人）
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 用户ID类型：1：userId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
-	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	AtOpenIds          map[string]*string                        `json:"atOpenIds,omitempty" xml:"atOpenIds,omitempty"`
+	CallbackRouteKey   *string                                   `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CardData           *SendOTOInteractiveCardRequestCardData    `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CardOptions        *SendOTOInteractiveCardRequestCardOptions `json:"cardOptions,omitempty" xml:"cardOptions,omitempty" type:"Struct"`
+	CardTemplateId     *string                                   `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	OpenConversationId *string                                   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OutTrackId         *string                                   `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData        map[string]*PrivateDataValue              `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	PullStrategy       *bool                                     `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
+	ReceiverUserIdList []*string                                 `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	RobotCode          *string                                   `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	UserIdType         *int32                                    `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s SendOTOInteractiveCardRequest) String() string {
@@ -6070,7 +5967,6 @@ func (s *SendOTOInteractiveCardRequest) SetUserIdType(v int32) *SendOTOInteracti
 }
 
 type SendOTOInteractiveCardRequestCardData struct {
-	// 卡片模板内容替换参数-普通文本类型
 	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
 }
 
@@ -6088,7 +5984,6 @@ func (s *SendOTOInteractiveCardRequestCardData) SetCardParamMap(v map[string]*st
 }
 
 type SendOTOInteractiveCardRequestCardOptions struct {
-	// 是否支持转发
 	SupportForward *bool `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
 }
 
@@ -6106,10 +6001,8 @@ func (s *SendOTOInteractiveCardRequestCardOptions) SetSupportForward(v bool) *Se
 }
 
 type SendOTOInteractiveCardResponseBody struct {
-	// 创建卡片结果
-	Result *SendOTOInteractiveCardResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *SendOTOInteractiveCardResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s SendOTOInteractiveCardResponseBody) String() string {
@@ -6131,7 +6024,6 @@ func (s *SendOTOInteractiveCardResponseBody) SetSuccess(v bool) *SendOTOInteract
 }
 
 type SendOTOInteractiveCardResponseBodyResult struct {
-	// 用于业务方后续查看已读列表的查询key
 	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
 }
 
@@ -6149,8 +6041,9 @@ func (s *SendOTOInteractiveCardResponseBodyResult) SetProcessQueryKey(v string) 
 }
 
 type SendOTOInteractiveCardResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendOTOInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendOTOInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendOTOInteractiveCardResponse) String() string {
@@ -6163,6 +6056,11 @@ func (s SendOTOInteractiveCardResponse) GoString() string {
 
 func (s *SendOTOInteractiveCardResponse) SetHeaders(v map[string]*string) *SendOTOInteractiveCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendOTOInteractiveCardResponse) SetStatusCode(v int32) *SendOTOInteractiveCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6195,28 +6093,17 @@ func (s *SendRobotInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type SendRobotInteractiveCardRequest struct {
-	// 可交互卡片回调的url【可空：不填写无需回调】
-	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）【备注：同一个outTrackId重复创建，卡片数据不覆盖更新】
-	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	// 卡片模板-文本内容参数（卡片json结构体）
-	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
-	// 卡片搭建平台模板ID
-	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	// 【openConversationId & singleChatReceiver 二选一必填】接收卡片的加密群ID，特指多人群会话（非单聊）
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 是否开启卡片纯拉模式
-	PullStrategy *bool `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
-	// 机器人代码，群模板机器人网页有机器人ID；企业内部机器人为机器人appKey，企业三方机器人有robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 互动卡片发送选项
-	SendOptions *SendRobotInteractiveCardRequestSendOptions `json:"sendOptions,omitempty" xml:"sendOptions,omitempty" type:"Struct"`
-	// 【openConversationId & singleChatReceiver 二选一必填】单聊会话接受者json串
-	SingleChatReceiver *string `json:"singleChatReceiver,omitempty" xml:"singleChatReceiver,omitempty"`
-	// 卡片模板-userId差异用户参数（json结构体）
-	UnionIdPrivateDataMap *string `json:"unionIdPrivateDataMap,omitempty" xml:"unionIdPrivateDataMap,omitempty"`
-	// 卡片模板-userId差异用户参数（json结构体）
-	UserIdPrivateDataMap *string `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
+	CallbackUrl           *string                                     `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	CardBizId             *string                                     `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	CardData              *string                                     `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	CardTemplateId        *string                                     `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	OpenConversationId    *string                                     `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	PullStrategy          *bool                                       `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
+	RobotCode             *string                                     `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	SendOptions           *SendRobotInteractiveCardRequestSendOptions `json:"sendOptions,omitempty" xml:"sendOptions,omitempty" type:"Struct"`
+	SingleChatReceiver    *string                                     `json:"singleChatReceiver,omitempty" xml:"singleChatReceiver,omitempty"`
+	UnionIdPrivateDataMap *string                                     `json:"unionIdPrivateDataMap,omitempty" xml:"unionIdPrivateDataMap,omitempty"`
+	UserIdPrivateDataMap  *string                                     `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
 func (s SendRobotInteractiveCardRequest) String() string {
@@ -6283,13 +6170,9 @@ func (s *SendRobotInteractiveCardRequest) SetUserIdPrivateDataMap(v string) *Sen
 }
 
 type SendRobotInteractiveCardRequestSendOptions struct {
-	// 是否@所有人
-	AtAll *bool `json:"atAll,omitempty" xml:"atAll,omitempty"`
-	// 消息@人，JSON格式：[{"nickName":"张三","userId":"userId0001"},{"nickName":"李四","unionId":"unionId001"}]
-	AtUserListJson *string `json:"atUserListJson,omitempty" xml:"atUserListJson,omitempty"`
-	// 卡片特殊属性json串
+	AtAll            *bool   `json:"atAll,omitempty" xml:"atAll,omitempty"`
+	AtUserListJson   *string `json:"atUserListJson,omitempty" xml:"atUserListJson,omitempty"`
 	CardPropertyJson *string `json:"cardPropertyJson,omitempty" xml:"cardPropertyJson,omitempty"`
-	// 消息仅部分人可见的接收人列表【可空：为空则群所有人可见】，JSON格式：[{"userId":"userId0001"},{"unionId":"unionId001"}]
 	ReceiverListJson *string `json:"receiverListJson,omitempty" xml:"receiverListJson,omitempty"`
 }
 
@@ -6322,7 +6205,6 @@ func (s *SendRobotInteractiveCardRequestSendOptions) SetReceiverListJson(v strin
 }
 
 type SendRobotInteractiveCardResponseBody struct {
-	// 用于业务方后续查看已读列表的查询key
 	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
 }
 
@@ -6340,8 +6222,9 @@ func (s *SendRobotInteractiveCardResponseBody) SetProcessQueryKey(v string) *Sen
 }
 
 type SendRobotInteractiveCardResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendRobotInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendRobotInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendRobotInteractiveCardResponse) String() string {
@@ -6354,6 +6237,11 @@ func (s SendRobotInteractiveCardResponse) GoString() string {
 
 func (s *SendRobotInteractiveCardResponse) SetHeaders(v map[string]*string) *SendRobotInteractiveCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendRobotInteractiveCardResponse) SetStatusCode(v int32) *SendRobotInteractiveCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6386,20 +6274,13 @@ func (s *SendRobotMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendRobo
 }
 
 type SendRobotMessageRequest struct {
-	// @群所有人为true， 默认false。
-	AtAll *bool `json:"atAll,omitempty" xml:"atAll,omitempty"`
-	// @钉外账号在业务系统内的唯一标志。
-	AtAppUserId *string `json:"atAppUserId,omitempty" xml:"atAppUserId,omitempty"`
-	// @钉内账号userId。
-	AtDingUserId *string `json:"atDingUserId,omitempty" xml:"atDingUserId,omitempty"`
-	// 消息体内容，按照下面参考示例格式上传。
-	MsgContent *string `json:"msgContent,omitempty" xml:"msgContent,omitempty"`
-	// 消息类型 文本：text，图片：photo，markdown：markdown，actionCard：actionCard。
-	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	// 群会话Id列表。
+	AtAll               *bool     `json:"atAll,omitempty" xml:"atAll,omitempty"`
+	AtAppUserId         *string   `json:"atAppUserId,omitempty" xml:"atAppUserId,omitempty"`
+	AtDingUserId        *string   `json:"atDingUserId,omitempty" xml:"atDingUserId,omitempty"`
+	MsgContent          *string   `json:"msgContent,omitempty" xml:"msgContent,omitempty"`
+	MsgType             *string   `json:"msgType,omitempty" xml:"msgType,omitempty"`
 	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
-	// 机器人robotId（robotCode），指定哪个机器人发送消息
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode           *string   `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s SendRobotMessageRequest) String() string {
@@ -6446,7 +6327,6 @@ func (s *SendRobotMessageRequest) SetRobotCode(v string) *SendRobotMessageReques
 }
 
 type SendRobotMessageResponseBody struct {
-	// 本次操作是否成功。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -6464,8 +6344,9 @@ func (s *SendRobotMessageResponseBody) SetSuccess(v bool) *SendRobotMessageRespo
 }
 
 type SendRobotMessageResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendRobotMessageResponse) String() string {
@@ -6478,6 +6359,11 @@ func (s SendRobotMessageResponse) GoString() string {
 
 func (s *SendRobotMessageResponse) SetHeaders(v map[string]*string) *SendRobotMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendRobotMessageResponse) SetStatusCode(v int32) *SendRobotMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6510,22 +6396,14 @@ func (s *SendTemplateInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type SendTemplateInteractiveCardRequest struct {
-	// 可控制卡片回调的url【可空：不填写无需回调】
-	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	// 卡片模板-文本内容参数（卡片json结构体）
-	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
-	// 卡片内容模板ID，响应模板目前有：TuWenCard01、TuWenCard02、TuWenCard03、TuWenCard04 4种
-	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	// 【openConversationId & singleChatReceiver 二选一必填】接收卡片的加密群ID，特指多人群会话（非单聊）
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）【备注：同一个outTrackId重复创建，卡片数据不覆盖更新】
-	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	// 机器人代码，群模板机器人网页有机器人ID；企业内部机器人为机器人appKey，企业三方机器人有robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 互动卡片发送选项
-	SendOptions *SendTemplateInteractiveCardRequestSendOptions `json:"sendOptions,omitempty" xml:"sendOptions,omitempty" type:"Struct"`
-	// 【openConversationId & singleChatReceiver 二选一必填】单聊会话接受者json串
-	SingleChatReceiver *string `json:"singleChatReceiver,omitempty" xml:"singleChatReceiver,omitempty"`
+	CallbackUrl        *string                                        `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	CardData           *string                                        `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	CardTemplateId     *string                                        `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	OpenConversationId *string                                        `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OutTrackId         *string                                        `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	RobotCode          *string                                        `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	SendOptions        *SendTemplateInteractiveCardRequestSendOptions `json:"sendOptions,omitempty" xml:"sendOptions,omitempty" type:"Struct"`
+	SingleChatReceiver *string                                        `json:"singleChatReceiver,omitempty" xml:"singleChatReceiver,omitempty"`
 }
 
 func (s SendTemplateInteractiveCardRequest) String() string {
@@ -6577,13 +6455,9 @@ func (s *SendTemplateInteractiveCardRequest) SetSingleChatReceiver(v string) *Se
 }
 
 type SendTemplateInteractiveCardRequestSendOptions struct {
-	// 是否@所有人
-	AtAll *bool `json:"atAll,omitempty" xml:"atAll,omitempty"`
-	// 消息@人，JSON格式：[{"nickName":"张三","userId":"userId0001"},{"nickName":"李四","unionId":"unionId001"}]
-	AtUserListJson *string `json:"atUserListJson,omitempty" xml:"atUserListJson,omitempty"`
-	// 卡片特殊属性json串
+	AtAll            *bool   `json:"atAll,omitempty" xml:"atAll,omitempty"`
+	AtUserListJson   *string `json:"atUserListJson,omitempty" xml:"atUserListJson,omitempty"`
 	CardPropertyJson *string `json:"cardPropertyJson,omitempty" xml:"cardPropertyJson,omitempty"`
-	// 消息仅部分人可见的接收人列表【可空：为空则群所有人可见】，JSON格式：[{"userId":"userId0001"},{"unionId":"unionId001"}]
 	ReceiverListJson *string `json:"receiverListJson,omitempty" xml:"receiverListJson,omitempty"`
 }
 
@@ -6616,7 +6490,6 @@ func (s *SendTemplateInteractiveCardRequestSendOptions) SetReceiverListJson(v st
 }
 
 type SendTemplateInteractiveCardResponseBody struct {
-	// 用于业务方后续查看已读列表的查询key
 	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
 }
 
@@ -6634,8 +6507,9 @@ func (s *SendTemplateInteractiveCardResponseBody) SetProcessQueryKey(v string) *
 }
 
 type SendTemplateInteractiveCardResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendTemplateInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendTemplateInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendTemplateInteractiveCardResponse) String() string {
@@ -6648,6 +6522,11 @@ func (s SendTemplateInteractiveCardResponse) GoString() string {
 
 func (s *SendTemplateInteractiveCardResponse) SetHeaders(v map[string]*string) *SendTemplateInteractiveCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendTemplateInteractiveCardResponse) SetStatusCode(v int32) *SendTemplateInteractiveCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6680,18 +6559,12 @@ func (s *SetRightPanelHeaders) SetXAcsDingtalkAccessToken(v string) *SetRightPan
 }
 
 type SetRightPanelRequest struct {
-	// 场景群的openConversationId
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 是否允许群成员关闭侧边栏 true-允许 false-不允许
-	RightPanelClosePermitted *bool `json:"rightPanelClosePermitted,omitempty" xml:"rightPanelClosePermitted,omitempty"`
-	// 侧边栏打开状态 1-开启 0-关闭
-	RightPanelOpenStatus *int32 `json:"rightPanelOpenStatus,omitempty" xml:"rightPanelOpenStatus,omitempty"`
-	// 标题栏文案
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 网页侧边栏属性配置
-	WebWndParams *SetRightPanelRequestWebWndParams `json:"webWndParams,omitempty" xml:"webWndParams,omitempty" type:"Struct"`
-	// 侧边栏
-	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+	OpenConversationId       *string                           `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	RightPanelClosePermitted *bool                             `json:"rightPanelClosePermitted,omitempty" xml:"rightPanelClosePermitted,omitempty"`
+	RightPanelOpenStatus     *int32                            `json:"rightPanelOpenStatus,omitempty" xml:"rightPanelOpenStatus,omitempty"`
+	Title                    *string                           `json:"title,omitempty" xml:"title,omitempty"`
+	WebWndParams             *SetRightPanelRequestWebWndParams `json:"webWndParams,omitempty" xml:"webWndParams,omitempty" type:"Struct"`
+	Width                    *int32                            `json:"width,omitempty" xml:"width,omitempty"`
 }
 
 func (s SetRightPanelRequest) String() string {
@@ -6733,7 +6606,6 @@ func (s *SetRightPanelRequest) SetWidth(v int32) *SetRightPanelRequest {
 }
 
 type SetRightPanelRequestWebWndParams struct {
-	// 侧边栏URL
 	TargetURL *string `json:"targetURL,omitempty" xml:"targetURL,omitempty"`
 }
 
@@ -6768,8 +6640,9 @@ func (s *SetRightPanelResponseBody) SetSuccess(v bool) *SetRightPanelResponseBod
 }
 
 type SetRightPanelResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SetRightPanelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SetRightPanelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SetRightPanelResponse) String() string {
@@ -6782,6 +6655,11 @@ func (s SetRightPanelResponse) GoString() string {
 
 func (s *SetRightPanelResponse) SetHeaders(v map[string]*string) *SetRightPanelResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SetRightPanelResponse) SetStatusCode(v int32) *SetRightPanelResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6814,18 +6692,12 @@ func (s *TopboxCloseHeaders) SetXAcsDingtalkAccessToken(v string) *TopboxCloseHe
 }
 
 type TopboxCloseRequest struct {
-	// 发送的会话类型：单聊-0, 群聊-1
-	ConversationType *int32 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
-	// 酷应用编码
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 接收卡片的群的openConversationId
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
-	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	// 接收人的员工号列表
+	ConversationType   *int32    `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	CoolAppCode        *string   `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OutTrackId         *string   `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
-	// 机器人编码
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode          *string   `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s TopboxCloseRequest) String() string {
@@ -6867,7 +6739,8 @@ func (s *TopboxCloseRequest) SetRobotCode(v string) *TopboxCloseRequest {
 }
 
 type TopboxCloseResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s TopboxCloseResponse) String() string {
@@ -6880,6 +6753,11 @@ func (s TopboxCloseResponse) GoString() string {
 
 func (s *TopboxCloseResponse) SetHeaders(v map[string]*string) *TopboxCloseResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *TopboxCloseResponse) SetStatusCode(v int32) *TopboxCloseResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6907,22 +6785,14 @@ func (s *TopboxOpenHeaders) SetXAcsDingtalkAccessToken(v string) *TopboxOpenHead
 }
 
 type TopboxOpenRequest struct {
-	// 发送的会话类型：单聊-0, 群聊-1
-	ConversationType *int32 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
-	// 酷应用编码
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 吊顶的过期时间（绝对时间）
-	ExpiredTime *int64 `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
-	// 接收卡片的群的openConversationId
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
-	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	// 期望吊顶的端（多个"|"隔开，如："ios|win|"）
-	Platforms *string `json:"platforms,omitempty" xml:"platforms,omitempty"`
-	// 接收人的员工号列表
+	ConversationType   *int32    `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	CoolAppCode        *string   `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	ExpiredTime        *int64    `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OutTrackId         *string   `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	Platforms          *string   `json:"platforms,omitempty" xml:"platforms,omitempty"`
 	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
-	// 机器人编码
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode          *string   `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s TopboxOpenRequest) String() string {
@@ -6974,7 +6844,8 @@ func (s *TopboxOpenRequest) SetRobotCode(v string) *TopboxOpenRequest {
 }
 
 type TopboxOpenResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s TopboxOpenResponse) String() string {
@@ -6987,6 +6858,11 @@ func (s TopboxOpenResponse) GoString() string {
 
 func (s *TopboxOpenResponse) SetHeaders(v map[string]*string) *TopboxOpenResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *TopboxOpenResponse) SetStatusCode(v int32) *TopboxOpenResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7014,9 +6890,7 @@ func (s *UpdateGroupAvatarHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateG
 }
 
 type UpdateGroupAvatarRequest struct {
-	// 群头像地址。
-	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
-	// 群会话id。
+	GroupAvatar        *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -7039,7 +6913,6 @@ func (s *UpdateGroupAvatarRequest) SetOpenConversationId(v string) *UpdateGroupA
 }
 
 type UpdateGroupAvatarResponseBody struct {
-	// 新头像地址。
 	NewGroupAvatar *string `json:"newGroupAvatar,omitempty" xml:"newGroupAvatar,omitempty"`
 }
 
@@ -7057,8 +6930,9 @@ func (s *UpdateGroupAvatarResponseBody) SetNewGroupAvatar(v string) *UpdateGroup
 }
 
 type UpdateGroupAvatarResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateGroupAvatarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateGroupAvatarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateGroupAvatarResponse) String() string {
@@ -7071,6 +6945,11 @@ func (s UpdateGroupAvatarResponse) GoString() string {
 
 func (s *UpdateGroupAvatarResponse) SetHeaders(v map[string]*string) *UpdateGroupAvatarResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupAvatarResponse) SetStatusCode(v int32) *UpdateGroupAvatarResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7103,9 +6982,7 @@ func (s *UpdateGroupNameHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGro
 }
 
 type UpdateGroupNameRequest struct {
-	// 群名称。
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 群会话id。
+	GroupName          *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -7128,7 +7005,6 @@ func (s *UpdateGroupNameRequest) SetOpenConversationId(v string) *UpdateGroupNam
 }
 
 type UpdateGroupNameResponseBody struct {
-	// 新群名称
 	NewGroupName *string `json:"newGroupName,omitempty" xml:"newGroupName,omitempty"`
 }
 
@@ -7146,8 +7022,9 @@ func (s *UpdateGroupNameResponseBody) SetNewGroupName(v string) *UpdateGroupName
 }
 
 type UpdateGroupNameResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateGroupNameResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateGroupNameResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateGroupNameResponse) String() string {
@@ -7160,6 +7037,11 @@ func (s UpdateGroupNameResponse) GoString() string {
 
 func (s *UpdateGroupNameResponse) SetHeaders(v map[string]*string) *UpdateGroupNameResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupNameResponse) SetStatusCode(v int32) *UpdateGroupNameResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7192,12 +7074,9 @@ func (s *UpdateGroupPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateGroupPermissionRequest struct {
-	// 开放群ID
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群权限项
-	PermissionGroup *string `json:"permissionGroup,omitempty" xml:"permissionGroup,omitempty"`
-	// 状态,0-关闭，1-开启
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	PermissionGroup    *string `json:"permissionGroup,omitempty" xml:"permissionGroup,omitempty"`
+	Status             *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s UpdateGroupPermissionRequest) String() string {
@@ -7224,7 +7103,6 @@ func (s *UpdateGroupPermissionRequest) SetStatus(v string) *UpdateGroupPermissio
 }
 
 type UpdateGroupPermissionResponseBody struct {
-	// result
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7242,8 +7120,9 @@ func (s *UpdateGroupPermissionResponseBody) SetSuccess(v bool) *UpdateGroupPermi
 }
 
 type UpdateGroupPermissionResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateGroupPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateGroupPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateGroupPermissionResponse) String() string {
@@ -7256,6 +7135,11 @@ func (s UpdateGroupPermissionResponse) GoString() string {
 
 func (s *UpdateGroupPermissionResponse) SetHeaders(v map[string]*string) *UpdateGroupPermissionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupPermissionResponse) SetStatusCode(v int32) *UpdateGroupPermissionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7288,12 +7172,9 @@ func (s *UpdateGroupSubAdminHeaders) SetXAcsDingtalkAccessToken(v string) *Updat
 }
 
 type UpdateGroupSubAdminRequest struct {
-	// 开放群ID
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 2-群管理员 3-普通群成员
-	Role *int64 `json:"role,omitempty" xml:"role,omitempty"`
-	// 用户ID清单
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Role               *int64    `json:"role,omitempty" xml:"role,omitempty"`
+	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s UpdateGroupSubAdminRequest) String() string {
@@ -7320,7 +7201,6 @@ func (s *UpdateGroupSubAdminRequest) SetUserIds(v []*string) *UpdateGroupSubAdmi
 }
 
 type UpdateGroupSubAdminResponseBody struct {
-	// success
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7338,8 +7218,9 @@ func (s *UpdateGroupSubAdminResponseBody) SetSuccess(v bool) *UpdateGroupSubAdmi
 }
 
 type UpdateGroupSubAdminResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateGroupSubAdminResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateGroupSubAdminResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateGroupSubAdminResponse) String() string {
@@ -7352,6 +7233,11 @@ func (s UpdateGroupSubAdminResponse) GoString() string {
 
 func (s *UpdateGroupSubAdminResponse) SetHeaders(v map[string]*string) *UpdateGroupSubAdminResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupSubAdminResponse) SetStatusCode(v int32) *UpdateGroupSubAdminResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7384,16 +7270,11 @@ func (s *UpdateInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateInteractiveCardRequest struct {
-	// 卡片公共主体部分数据
-	CardData *UpdateInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
-	// 发送可交互卡片的一些功能选项
+	CardData    *UpdateInteractiveCardRequestCardData    `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
 	CardOptions *UpdateInteractiveCardRequestCardOptions `json:"cardOptions,omitempty" xml:"cardOptions,omitempty" type:"Struct"`
-	// 唯一标识一张卡片的外部ID
-	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	// 卡片用户私有差异部分数据（如卡片不同人显示不同按钮；key：用户userId；value：用户数据变量）
-	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	// 用户ID类型：1：userId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
-	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	OutTrackId  *string                                  `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData map[string]*PrivateDataValue             `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	UserIdType  *int32                                   `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s UpdateInteractiveCardRequest) String() string {
@@ -7430,10 +7311,8 @@ func (s *UpdateInteractiveCardRequest) SetUserIdType(v int32) *UpdateInteractive
 }
 
 type UpdateInteractiveCardRequestCardData struct {
-	// 卡片模板内容替换参数-多媒体类型
 	CardMediaIdParamMap map[string]*string `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
-	// 卡片模板内容替换参数-普通文本类型
-	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+	CardParamMap        map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
 }
 
 func (s UpdateInteractiveCardRequestCardData) String() string {
@@ -7455,9 +7334,7 @@ func (s *UpdateInteractiveCardRequestCardData) SetCardParamMap(v map[string]*str
 }
 
 type UpdateInteractiveCardRequestCardOptions struct {
-	// 按key更新cardData数据(不填默认覆盖更新)
-	UpdateCardDataByKey *bool `json:"updateCardDataByKey,omitempty" xml:"updateCardDataByKey,omitempty"`
-	// 按key更新privateData用户数据(不填默认覆盖更新)
+	UpdateCardDataByKey    *bool `json:"updateCardDataByKey,omitempty" xml:"updateCardDataByKey,omitempty"`
 	UpdatePrivateDataByKey *bool `json:"updatePrivateDataByKey,omitempty" xml:"updatePrivateDataByKey,omitempty"`
 }
 
@@ -7480,7 +7357,6 @@ func (s *UpdateInteractiveCardRequestCardOptions) SetUpdatePrivateDataByKey(v bo
 }
 
 type UpdateInteractiveCardResponseBody struct {
-	// result
 	Success *string `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7498,8 +7374,9 @@ func (s *UpdateInteractiveCardResponseBody) SetSuccess(v string) *UpdateInteract
 }
 
 type UpdateInteractiveCardResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInteractiveCardResponse) String() string {
@@ -7512,6 +7389,11 @@ func (s UpdateInteractiveCardResponse) GoString() string {
 
 func (s *UpdateInteractiveCardResponse) SetHeaders(v map[string]*string) *UpdateInteractiveCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInteractiveCardResponse) SetStatusCode(v int32) *UpdateInteractiveCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7544,14 +7426,10 @@ func (s *UpdateMemberBanWordsHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateMemberBanWordsRequest struct {
-	// 禁言持续时长（单位：毫秒）
-	MuteDuration *int64 `json:"muteDuration,omitempty" xml:"muteDuration,omitempty"`
-	// 禁言状态(0表示取消禁言，1表示禁言)
-	MuteStatus *int32 `json:"muteStatus,omitempty" xml:"muteStatus,omitempty"`
-	// 开放群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 需要禁言或取消禁言的群成员列表
-	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	MuteDuration       *int64    `json:"muteDuration,omitempty" xml:"muteDuration,omitempty"`
+	MuteStatus         *int32    `json:"muteStatus,omitempty" xml:"muteStatus,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	UserIdList         []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s UpdateMemberBanWordsRequest) String() string {
@@ -7583,7 +7461,8 @@ func (s *UpdateMemberBanWordsRequest) SetUserIdList(v []*string) *UpdateMemberBa
 }
 
 type UpdateMemberBanWordsResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s UpdateMemberBanWordsResponse) String() string {
@@ -7596,6 +7475,11 @@ func (s UpdateMemberBanWordsResponse) GoString() string {
 
 func (s *UpdateMemberBanWordsResponse) SetHeaders(v map[string]*string) *UpdateMemberBanWordsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateMemberBanWordsResponse) SetStatusCode(v int32) *UpdateMemberBanWordsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7623,12 +7507,9 @@ func (s *UpdateMemberGroupNickHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateMemberGroupNickRequest struct {
-	// 群昵称
-	GroupNick *string `json:"groupNick,omitempty" xml:"groupNick,omitempty"`
-	// 开放群ID
+	GroupNick          *string `json:"groupNick,omitempty" xml:"groupNick,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 用户ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateMemberGroupNickRequest) String() string {
@@ -7655,7 +7536,6 @@ func (s *UpdateMemberGroupNickRequest) SetUserId(v string) *UpdateMemberGroupNic
 }
 
 type UpdateMemberGroupNickResponseBody struct {
-	// result
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7673,8 +7553,9 @@ func (s *UpdateMemberGroupNickResponseBody) SetSuccess(v bool) *UpdateMemberGrou
 }
 
 type UpdateMemberGroupNickResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateMemberGroupNickResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateMemberGroupNickResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateMemberGroupNickResponse) String() string {
@@ -7687,6 +7568,11 @@ func (s UpdateMemberGroupNickResponse) GoString() string {
 
 func (s *UpdateMemberGroupNickResponse) SetHeaders(v map[string]*string) *UpdateMemberGroupNickResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateMemberGroupNickResponse) SetStatusCode(v int32) *UpdateMemberGroupNickResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7719,22 +7605,14 @@ func (s *UpdateRobotInOrgHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRo
 }
 
 type UpdateRobotInOrgRequest struct {
-	// 简介
-	Brief *string `json:"brief,omitempty" xml:"brief,omitempty"`
-	// 描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 机器人meidaId
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 机器人名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 消息回调验证token
-	OutgoingToken *string `json:"outgoingToken,omitempty" xml:"outgoingToken,omitempty"`
-	// 消息回调地址
-	OutgoingUrl *string `json:"outgoingUrl,omitempty" xml:"outgoingUrl,omitempty"`
-	// 预览图mediaId
+	Brief          *string `json:"brief,omitempty" xml:"brief,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	OutgoingToken  *string `json:"outgoingToken,omitempty" xml:"outgoingToken,omitempty"`
+	OutgoingUrl    *string `json:"outgoingUrl,omitempty" xml:"outgoingUrl,omitempty"`
 	PreviewMediaId *string `json:"previewMediaId,omitempty" xml:"previewMediaId,omitempty"`
-	// 机器人编码
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode      *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s UpdateRobotInOrgRequest) String() string {
@@ -7786,7 +7664,6 @@ func (s *UpdateRobotInOrgRequest) SetRobotCode(v string) *UpdateRobotInOrgReques
 }
 
 type UpdateRobotInOrgResponseBody struct {
-	// Id of the request
 	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
@@ -7804,8 +7681,9 @@ func (s *UpdateRobotInOrgResponseBody) SetRobotCode(v string) *UpdateRobotInOrgR
 }
 
 type UpdateRobotInOrgResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateRobotInOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateRobotInOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateRobotInOrgResponse) String() string {
@@ -7818,6 +7696,11 @@ func (s UpdateRobotInOrgResponse) GoString() string {
 
 func (s *UpdateRobotInOrgResponse) SetHeaders(v map[string]*string) *UpdateRobotInOrgResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateRobotInOrgResponse) SetStatusCode(v int32) *UpdateRobotInOrgResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7850,16 +7733,11 @@ func (s *UpdateRobotInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateRobotInteractiveCardRequest struct {
-	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）【备注：同一个outTrackId重复创建，卡片数据不覆盖更新】
-	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	// 卡片模板-文本内容参数（卡片json结构体）
-	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
-	// 卡片模板-userId差异用户参数（json结构体）
-	UnionIdPrivateDataMap *string `json:"unionIdPrivateDataMap,omitempty" xml:"unionIdPrivateDataMap,omitempty"`
-	// 互动卡片更新选项
-	UpdateOptions *UpdateRobotInteractiveCardRequestUpdateOptions `json:"updateOptions,omitempty" xml:"updateOptions,omitempty" type:"Struct"`
-	// 卡片模板-userId差异用户参数（json结构体）
-	UserIdPrivateDataMap *string `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
+	CardBizId             *string                                         `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	CardData              *string                                         `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	UnionIdPrivateDataMap *string                                         `json:"unionIdPrivateDataMap,omitempty" xml:"unionIdPrivateDataMap,omitempty"`
+	UpdateOptions         *UpdateRobotInteractiveCardRequestUpdateOptions `json:"updateOptions,omitempty" xml:"updateOptions,omitempty" type:"Struct"`
+	UserIdPrivateDataMap  *string                                         `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
 func (s UpdateRobotInteractiveCardRequest) String() string {
@@ -7896,9 +7774,7 @@ func (s *UpdateRobotInteractiveCardRequest) SetUserIdPrivateDataMap(v string) *U
 }
 
 type UpdateRobotInteractiveCardRequestUpdateOptions struct {
-	// 按key更新数据(默认全量更新)
-	UpdateCardDataByKey *bool `json:"updateCardDataByKey,omitempty" xml:"updateCardDataByKey,omitempty"`
-	// 按key更新用户数据(默认全量更新)
+	UpdateCardDataByKey    *bool `json:"updateCardDataByKey,omitempty" xml:"updateCardDataByKey,omitempty"`
 	UpdatePrivateDataByKey *bool `json:"updatePrivateDataByKey,omitempty" xml:"updatePrivateDataByKey,omitempty"`
 }
 
@@ -7921,7 +7797,6 @@ func (s *UpdateRobotInteractiveCardRequestUpdateOptions) SetUpdatePrivateDataByK
 }
 
 type UpdateRobotInteractiveCardResponseBody struct {
-	// 用于业务方后续查看已读列表的查询key
 	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
 }
 
@@ -7939,8 +7814,9 @@ func (s *UpdateRobotInteractiveCardResponseBody) SetProcessQueryKey(v string) *U
 }
 
 type UpdateRobotInteractiveCardResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateRobotInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateRobotInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateRobotInteractiveCardResponse) String() string {
@@ -7953,6 +7829,11 @@ func (s UpdateRobotInteractiveCardResponse) GoString() string {
 
 func (s *UpdateRobotInteractiveCardResponse) SetHeaders(v map[string]*string) *UpdateRobotInteractiveCardResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateRobotInteractiveCardResponse) SetStatusCode(v int32) *UpdateRobotInteractiveCardResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7985,12 +7866,9 @@ func (s *UpdateTheGroupRolesOfGroupMemberHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type UpdateTheGroupRolesOfGroupMemberRequest struct {
-	// 开放群ID
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群角色列表
-	OpenRoleIds []*string `json:"openRoleIds,omitempty" xml:"openRoleIds,omitempty" type:"Repeated"`
-	// 用户ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OpenRoleIds        []*string `json:"openRoleIds,omitempty" xml:"openRoleIds,omitempty" type:"Repeated"`
+	UserId             *string   `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateTheGroupRolesOfGroupMemberRequest) String() string {
@@ -8017,7 +7895,6 @@ func (s *UpdateTheGroupRolesOfGroupMemberRequest) SetUserId(v string) *UpdateThe
 }
 
 type UpdateTheGroupRolesOfGroupMemberResponseBody struct {
-	// result
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -8035,8 +7912,9 @@ func (s *UpdateTheGroupRolesOfGroupMemberResponseBody) SetSuccess(v bool) *Updat
 }
 
 type UpdateTheGroupRolesOfGroupMemberResponse struct {
-	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTheGroupRolesOfGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTheGroupRolesOfGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTheGroupRolesOfGroupMemberResponse) String() string {
@@ -8049,6 +7927,11 @@ func (s UpdateTheGroupRolesOfGroupMemberResponse) GoString() string {
 
 func (s *UpdateTheGroupRolesOfGroupMemberResponse) SetHeaders(v map[string]*string) *UpdateTheGroupRolesOfGroupMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTheGroupRolesOfGroupMemberResponse) SetStatusCode(v int32) *UpdateTheGroupRolesOfGroupMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8081,14 +7964,10 @@ func (s *AddGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddGroupMe
 }
 
 type AddGroupMemberRequest struct {
-	// 钉外成员列表。
-	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 群会话Id。
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 操作者在业务系统内的唯一标识。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 钉内成员列表。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	AppUserIds         []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OperatorId         *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s AddGroupMemberRequest) String() string {
@@ -8120,10 +7999,8 @@ func (s *AddGroupMemberRequest) SetUserIds(v []*string) *AddGroupMemberRequest {
 }
 
 type AddGroupMemberResponseBody struct {
-	// 添加成功的钉外账号列表。
 	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 添加成功的钉内账号列表。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	UserIds    []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s AddGroupMemberResponseBody) String() string {
@@ -8145,8 +8022,9 @@ func (s *AddGroupMemberResponseBody) SetUserIds(v []*string) *AddGroupMemberResp
 }
 
 type AddGroupMemberResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddGroupMemberResponse) String() string {
@@ -8159,6 +8037,11 @@ func (s AddGroupMemberResponse) GoString() string {
 
 func (s *AddGroupMemberResponse) SetHeaders(v map[string]*string) *AddGroupMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddGroupMemberResponse) SetStatusCode(v int32) *AddGroupMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8191,14 +8074,10 @@ func (s *RemoveGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveG
 }
 
 type RemoveGroupMemberRequest struct {
-	// 钉外成员列表。
-	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 群会话Id。
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 操作者在业务系统内的唯一标识。
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 钉内成员列表。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	AppUserIds         []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OperatorId         *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s RemoveGroupMemberRequest) String() string {
@@ -8230,7 +8109,6 @@ func (s *RemoveGroupMemberRequest) SetUserIds(v []*string) *RemoveGroupMemberReq
 }
 
 type RemoveGroupMemberResponseBody struct {
-	// 操作结果
 	Message *string `json:"message,omitempty" xml:"message,omitempty"`
 }
 
@@ -8248,8 +8126,9 @@ func (s *RemoveGroupMemberResponseBody) SetMessage(v string) *RemoveGroupMemberR
 }
 
 type RemoveGroupMemberResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RemoveGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RemoveGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RemoveGroupMemberResponse) String() string {
@@ -8262,6 +8141,11 @@ func (s RemoveGroupMemberResponse) GoString() string {
 
 func (s *RemoveGroupMemberResponse) SetHeaders(v map[string]*string) *RemoveGroupMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RemoveGroupMemberResponse) SetStatusCode(v int32) *RemoveGroupMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8294,18 +8178,12 @@ func (s *SendDingMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendDingM
 }
 
 type SendDingMessageRequest struct {
-	// 钉内用户oauth2.0授权码。
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 消息内容。
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	// 消息类型
-	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	// 群会话Id。
+	Code               *string `json:"code,omitempty" xml:"code,omitempty"`
+	Message            *string `json:"message,omitempty" xml:"message,omitempty"`
+	MessageType        *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 钉外账号在业务系统内的唯一标志。
-	ReceiverId *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
-	// 钉内账号userId。
-	SenderId *string `json:"senderId,omitempty" xml:"senderId,omitempty"`
+	ReceiverId         *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
+	SenderId           *string `json:"senderId,omitempty" xml:"senderId,omitempty"`
 }
 
 func (s SendDingMessageRequest) String() string {
@@ -8347,7 +8225,6 @@ func (s *SendDingMessageRequest) SetSenderId(v string) *SendDingMessageRequest {
 }
 
 type SendDingMessageResponseBody struct {
-	// 发送消息请求Id。
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
@@ -8365,8 +8242,9 @@ func (s *SendDingMessageResponseBody) SetRequestId(v string) *SendDingMessageRes
 }
 
 type SendDingMessageResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendDingMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendDingMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendDingMessageResponse) String() string {
@@ -8379,6 +8257,11 @@ func (s SendDingMessageResponse) GoString() string {
 
 func (s *SendDingMessageResponse) SetHeaders(v map[string]*string) *SendDingMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendDingMessageResponse) SetStatusCode(v int32) *SendDingMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8411,18 +8294,12 @@ func (s *SendMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendMessageHe
 }
 
 type SendMessageRequest struct {
-	// 消息内容。
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	// 消息类型。
-	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	// 群会话Id。
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 钉内账号userId。
-	ReceiverId *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
-	// 钉外账号在业务系统内的唯一标志。
-	SenderId *string `json:"senderId,omitempty" xml:"senderId,omitempty"`
-	// 渠道按钮跳转信息。
-	SourceInfos map[string]interface{} `json:"sourceInfos,omitempty" xml:"sourceInfos,omitempty"`
+	Message            *string                `json:"message,omitempty" xml:"message,omitempty"`
+	MessageType        *string                `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	OpenConversationId *string                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	ReceiverId         *string                `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
+	SenderId           *string                `json:"senderId,omitempty" xml:"senderId,omitempty"`
+	SourceInfos        map[string]interface{} `json:"sourceInfos,omitempty" xml:"sourceInfos,omitempty"`
 }
 
 func (s SendMessageRequest) String() string {
@@ -8464,7 +8341,6 @@ func (s *SendMessageRequest) SetSourceInfos(v map[string]interface{}) *SendMessa
 }
 
 type SendMessageResponseBody struct {
-	// 发送消息请求Id。
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
@@ -8482,8 +8358,9 @@ func (s *SendMessageResponseBody) SetRequestId(v string) *SendMessageResponseBod
 }
 
 type SendMessageResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendMessageResponse) String() string {
@@ -8499,33 +8376,13 @@ func (s *SendMessageResponse) SetHeaders(v map[string]*string) *SendMessageRespo
 	return s
 }
 
+func (s *SendMessageResponse) SetStatusCode(v int32) *SendMessageResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *SendMessageResponse) SetBody(v *SendMessageResponseBody) *SendMessageResponse {
 	s.Body = v
-	return s
-}
-
-type PrivateDataValue struct {
-	// 卡片模板内容替换参数-普通文本类型
-	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
-	// 卡片模板内容替换参数-多媒体类型
-	CardMediaIdParamMap map[string]*string `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
-}
-
-func (s PrivateDataValue) String() string {
-	return tea.Prettify(s)
-}
-
-func (s PrivateDataValue) GoString() string {
-	return s.String()
-}
-
-func (s *PrivateDataValue) SetCardParamMap(v map[string]*string) *PrivateDataValue {
-	s.CardParamMap = v
-	return s
-}
-
-func (s *PrivateDataValue) SetCardMediaIdParamMap(v map[string]*string) *PrivateDataValue {
-	s.CardMediaIdParamMap = v
 	return s
 }
 
@@ -8544,24 +8401,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) AddOrgTextEmotion(request *AddOrgTextEmotionRequest) (_result *AddOrgTextEmotionResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddOrgTextEmotionHeaders{}
-	_result = &AddOrgTextEmotionResponse{}
-	_body, _err := client.AddOrgTextEmotionWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) AddOrgTextEmotionWithOptions(request *AddOrgTextEmotionRequest, headers *AddOrgTextEmotionHeaders, runtime *util.RuntimeOptions) (_result *AddOrgTextEmotionResponse, _err error) {
@@ -8599,8 +8450,19 @@ func (client *Client) AddOrgTextEmotionWithOptions(request *AddOrgTextEmotionReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddOrgTextEmotion"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/organizations/textEmotions"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddOrgTextEmotionResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddOrgTextEmotion"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/textEmotions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8608,11 +8470,11 @@ func (client *Client) AddOrgTextEmotionWithOptions(request *AddOrgTextEmotionReq
 	return _result, _err
 }
 
-func (client *Client) AddRobotToConversation(request *AddRobotToConversationRequest) (_result *AddRobotToConversationResponse, _err error) {
+func (client *Client) AddOrgTextEmotion(request *AddOrgTextEmotionRequest) (_result *AddOrgTextEmotionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddRobotToConversationHeaders{}
-	_result = &AddRobotToConversationResponse{}
-	_body, _err := client.AddRobotToConversationWithOptions(request, headers, runtime)
+	headers := &AddOrgTextEmotionHeaders{}
+	_result = &AddOrgTextEmotionResponse{}
+	_body, _err := client.AddOrgTextEmotionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8655,8 +8517,19 @@ func (client *Client) AddRobotToConversationWithOptions(request *AddRobotToConve
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddRobotToConversation"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/conversations/robots"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddRobotToConversationResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddRobotToConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/robots"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8664,11 +8537,11 @@ func (client *Client) AddRobotToConversationWithOptions(request *AddRobotToConve
 	return _result, _err
 }
 
-func (client *Client) AutoOpenDingTalkConnect() (_result *AutoOpenDingTalkConnectResponse, _err error) {
+func (client *Client) AddRobotToConversation(request *AddRobotToConversationRequest) (_result *AddRobotToConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AutoOpenDingTalkConnectHeaders{}
-	_result = &AutoOpenDingTalkConnectResponse{}
-	_body, _err := client.AutoOpenDingTalkConnectWithOptions(headers, runtime)
+	headers := &AddRobotToConversationHeaders{}
+	_result = &AddRobotToConversationResponse{}
+	_body, _err := client.AddRobotToConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8689,8 +8562,19 @@ func (client *Client) AutoOpenDingTalkConnectWithOptions(headers *AutoOpenDingTa
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AutoOpenDingTalkConnect"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/apps/open"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AutoOpenDingTalkConnectResponse{}
-	_body, _err := client.DoROARequest(tea.String("AutoOpenDingTalkConnect"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/apps/open"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8698,11 +8582,11 @@ func (client *Client) AutoOpenDingTalkConnectWithOptions(headers *AutoOpenDingTa
 	return _result, _err
 }
 
-func (client *Client) BatchQueryFamilySchoolMessage(request *BatchQueryFamilySchoolMessageRequest) (_result *BatchQueryFamilySchoolMessageResponse, _err error) {
+func (client *Client) AutoOpenDingTalkConnect() (_result *AutoOpenDingTalkConnectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchQueryFamilySchoolMessageHeaders{}
-	_result = &BatchQueryFamilySchoolMessageResponse{}
-	_body, _err := client.BatchQueryFamilySchoolMessageWithOptions(request, headers, runtime)
+	headers := &AutoOpenDingTalkConnectHeaders{}
+	_result = &AutoOpenDingTalkConnectResponse{}
+	_body, _err := client.AutoOpenDingTalkConnectWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8741,8 +8625,19 @@ func (client *Client) BatchQueryFamilySchoolMessageWithOptions(request *BatchQue
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchQueryFamilySchoolMessage"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/conversations/familySchools/messages/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchQueryFamilySchoolMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchQueryFamilySchoolMessage"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/familySchools/messages/batchQuery"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8750,11 +8645,11 @@ func (client *Client) BatchQueryFamilySchoolMessageWithOptions(request *BatchQue
 	return _result, _err
 }
 
-func (client *Client) BatchQueryGroupMember(request *BatchQueryGroupMemberRequest) (_result *BatchQueryGroupMemberResponse, _err error) {
+func (client *Client) BatchQueryFamilySchoolMessage(request *BatchQueryFamilySchoolMessageRequest) (_result *BatchQueryFamilySchoolMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchQueryGroupMemberHeaders{}
-	_result = &BatchQueryGroupMemberResponse{}
-	_body, _err := client.BatchQueryGroupMemberWithOptions(request, headers, runtime)
+	headers := &BatchQueryFamilySchoolMessageHeaders{}
+	_result = &BatchQueryFamilySchoolMessageResponse{}
+	_body, _err := client.BatchQueryFamilySchoolMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8797,8 +8692,19 @@ func (client *Client) BatchQueryGroupMemberWithOptions(request *BatchQueryGroupM
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchQueryGroupMember"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/members/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchQueryGroupMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchQueryGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/batchQuery"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8806,11 +8712,11 @@ func (client *Client) BatchQueryGroupMemberWithOptions(request *BatchQueryGroupM
 	return _result, _err
 }
 
-func (client *Client) CardTemplateBuildAction(request *CardTemplateBuildActionRequest) (_result *CardTemplateBuildActionResponse, _err error) {
+func (client *Client) BatchQueryGroupMember(request *BatchQueryGroupMemberRequest) (_result *BatchQueryGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CardTemplateBuildActionHeaders{}
-	_result = &CardTemplateBuildActionResponse{}
-	_body, _err := client.CardTemplateBuildActionWithOptions(request, headers, runtime)
+	headers := &BatchQueryGroupMemberHeaders{}
+	_result = &BatchQueryGroupMemberResponse{}
+	_body, _err := client.BatchQueryGroupMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8845,8 +8751,19 @@ func (client *Client) CardTemplateBuildActionWithOptions(request *CardTemplateBu
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CardTemplateBuildAction"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interactiveCards/templates/buildAction"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CardTemplateBuildActionResponse{}
-	_body, _err := client.DoROARequest(tea.String("CardTemplateBuildAction"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interactiveCards/templates/buildAction"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8854,11 +8771,11 @@ func (client *Client) CardTemplateBuildActionWithOptions(request *CardTemplateBu
 	return _result, _err
 }
 
-func (client *Client) ChangeGroupOwner(request *ChangeGroupOwnerRequest) (_result *ChangeGroupOwnerResponse, _err error) {
+func (client *Client) CardTemplateBuildAction(request *CardTemplateBuildActionRequest) (_result *CardTemplateBuildActionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ChangeGroupOwnerHeaders{}
-	_result = &ChangeGroupOwnerResponse{}
-	_body, _err := client.ChangeGroupOwnerWithOptions(request, headers, runtime)
+	headers := &CardTemplateBuildActionHeaders{}
+	_result = &CardTemplateBuildActionResponse{}
+	_body, _err := client.CardTemplateBuildActionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8897,8 +8814,19 @@ func (client *Client) ChangeGroupOwnerWithOptions(request *ChangeGroupOwnerReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ChangeGroupOwner"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/groups/owners"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ChangeGroupOwnerResponse{}
-	_body, _err := client.DoROARequest(tea.String("ChangeGroupOwner"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/owners"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8906,11 +8834,11 @@ func (client *Client) ChangeGroupOwnerWithOptions(request *ChangeGroupOwnerReque
 	return _result, _err
 }
 
-func (client *Client) ChatIdToOpenConversationId(chatId *string) (_result *ChatIdToOpenConversationIdResponse, _err error) {
+func (client *Client) ChangeGroupOwner(request *ChangeGroupOwnerRequest) (_result *ChangeGroupOwnerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ChatIdToOpenConversationIdHeaders{}
-	_result = &ChatIdToOpenConversationIdResponse{}
-	_body, _err := client.ChatIdToOpenConversationIdWithOptions(chatId, headers, runtime)
+	headers := &ChangeGroupOwnerHeaders{}
+	_result = &ChangeGroupOwnerResponse{}
+	_body, _err := client.ChangeGroupOwnerWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8919,7 +8847,6 @@ func (client *Client) ChatIdToOpenConversationId(chatId *string) (_result *ChatI
 }
 
 func (client *Client) ChatIdToOpenConversationIdWithOptions(chatId *string, headers *ChatIdToOpenConversationIdHeaders, runtime *util.RuntimeOptions) (_result *ChatIdToOpenConversationIdResponse, _err error) {
-	chatId = openapiutil.GetEncodeParam(chatId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -8932,8 +8859,19 @@ func (client *Client) ChatIdToOpenConversationIdWithOptions(chatId *string, head
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatIdToOpenConversationId"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/chat/" + tea.StringValue(chatId) + "/convertToOpenConversationId"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ChatIdToOpenConversationIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("ChatIdToOpenConversationId"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/chat/"+tea.StringValue(chatId)+"/convertToOpenConversationId"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8941,11 +8879,11 @@ func (client *Client) ChatIdToOpenConversationIdWithOptions(chatId *string, head
 	return _result, _err
 }
 
-func (client *Client) ChatSubAdminUpdate(request *ChatSubAdminUpdateRequest) (_result *ChatSubAdminUpdateResponse, _err error) {
+func (client *Client) ChatIdToOpenConversationId(chatId *string) (_result *ChatIdToOpenConversationIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ChatSubAdminUpdateHeaders{}
-	_result = &ChatSubAdminUpdateResponse{}
-	_body, _err := client.ChatSubAdminUpdateWithOptions(request, headers, runtime)
+	headers := &ChatIdToOpenConversationIdHeaders{}
+	_result = &ChatIdToOpenConversationIdResponse{}
+	_body, _err := client.ChatIdToOpenConversationIdWithOptions(chatId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8984,8 +8922,19 @@ func (client *Client) ChatSubAdminUpdateWithOptions(request *ChatSubAdminUpdateR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatSubAdminUpdate"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/subAdministrators"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ChatSubAdminUpdateResponse{}
-	_body, _err := client.DoROARequest(tea.String("ChatSubAdminUpdate"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/subAdministrators"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8993,11 +8942,11 @@ func (client *Client) ChatSubAdminUpdateWithOptions(request *ChatSubAdminUpdateR
 	return _result, _err
 }
 
-func (client *Client) CheckUserIsGroupMember(request *CheckUserIsGroupMemberRequest) (_result *CheckUserIsGroupMemberResponse, _err error) {
+func (client *Client) ChatSubAdminUpdate(request *ChatSubAdminUpdateRequest) (_result *ChatSubAdminUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CheckUserIsGroupMemberHeaders{}
-	_result = &CheckUserIsGroupMemberResponse{}
-	_body, _err := client.CheckUserIsGroupMemberWithOptions(request, headers, runtime)
+	headers := &ChatSubAdminUpdateHeaders{}
+	_result = &ChatSubAdminUpdateResponse{}
+	_body, _err := client.ChatSubAdminUpdateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9032,8 +8981,19 @@ func (client *Client) CheckUserIsGroupMemberWithOptions(request *CheckUserIsGrou
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CheckUserIsGroupMember"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/innerGroups/members/check"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CheckUserIsGroupMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("CheckUserIsGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/innerGroups/members/check"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9041,11 +9001,11 @@ func (client *Client) CheckUserIsGroupMemberWithOptions(request *CheckUserIsGrou
 	return _result, _err
 }
 
-func (client *Client) CreateCoupleGroupConversation(request *CreateCoupleGroupConversationRequest) (_result *CreateCoupleGroupConversationResponse, _err error) {
+func (client *Client) CheckUserIsGroupMember(request *CheckUserIsGroupMemberRequest) (_result *CheckUserIsGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateCoupleGroupConversationHeaders{}
-	_result = &CreateCoupleGroupConversationResponse{}
-	_body, _err := client.CreateCoupleGroupConversationWithOptions(request, headers, runtime)
+	headers := &CheckUserIsGroupMemberHeaders{}
+	_result = &CheckUserIsGroupMemberResponse{}
+	_body, _err := client.CheckUserIsGroupMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9096,8 +9056,19 @@ func (client *Client) CreateCoupleGroupConversationWithOptions(request *CreateCo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateCoupleGroupConversation"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/coupleGroups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateCoupleGroupConversationResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateCoupleGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/coupleGroups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9105,11 +9076,11 @@ func (client *Client) CreateCoupleGroupConversationWithOptions(request *CreateCo
 	return _result, _err
 }
 
-func (client *Client) CreateGroupConversation(request *CreateGroupConversationRequest) (_result *CreateGroupConversationResponse, _err error) {
+func (client *Client) CreateCoupleGroupConversation(request *CreateCoupleGroupConversationRequest) (_result *CreateCoupleGroupConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateGroupConversationHeaders{}
-	_result = &CreateGroupConversationResponse{}
-	_body, _err := client.CreateGroupConversationWithOptions(request, headers, runtime)
+	headers := &CreateCoupleGroupConversationHeaders{}
+	_result = &CreateCoupleGroupConversationResponse{}
+	_body, _err := client.CreateCoupleGroupConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9168,8 +9139,19 @@ func (client *Client) CreateGroupConversationWithOptions(request *CreateGroupCon
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateGroupConversation"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/groups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateGroupConversationResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9177,11 +9159,11 @@ func (client *Client) CreateGroupConversationWithOptions(request *CreateGroupCon
 	return _result, _err
 }
 
-func (client *Client) CreateInterconnection(request *CreateInterconnectionRequest) (_result *CreateInterconnectionResponse, _err error) {
+func (client *Client) CreateGroupConversation(request *CreateGroupConversationRequest) (_result *CreateGroupConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateInterconnectionHeaders{}
-	_result = &CreateInterconnectionResponse{}
-	_body, _err := client.CreateInterconnectionWithOptions(request, headers, runtime)
+	headers := &CreateGroupConversationHeaders{}
+	_result = &CreateGroupConversationResponse{}
+	_body, _err := client.CreateGroupConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9212,8 +9194,19 @@ func (client *Client) CreateInterconnectionWithOptions(request *CreateInterconne
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateInterconnection"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateInterconnectionResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateInterconnection"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9221,11 +9214,11 @@ func (client *Client) CreateInterconnectionWithOptions(request *CreateInterconne
 	return _result, _err
 }
 
-func (client *Client) CreateSceneGroupConversation(request *CreateSceneGroupConversationRequest) (_result *CreateSceneGroupConversationResponse, _err error) {
+func (client *Client) CreateInterconnection(request *CreateInterconnectionRequest) (_result *CreateInterconnectionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateSceneGroupConversationHeaders{}
-	_result = &CreateSceneGroupConversationResponse{}
-	_body, _err := client.CreateSceneGroupConversationWithOptions(request, headers, runtime)
+	headers := &CreateInterconnectionHeaders{}
+	_result = &CreateInterconnectionResponse{}
+	_body, _err := client.CreateInterconnectionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9284,8 +9277,19 @@ func (client *Client) CreateSceneGroupConversationWithOptions(request *CreateSce
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateSceneGroupConversation"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateSceneGroupConversationResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateSceneGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9293,11 +9297,11 @@ func (client *Client) CreateSceneGroupConversationWithOptions(request *CreateSce
 	return _result, _err
 }
 
-func (client *Client) CreateStoreGroupConversation(request *CreateStoreGroupConversationRequest) (_result *CreateStoreGroupConversationResponse, _err error) {
+func (client *Client) CreateSceneGroupConversation(request *CreateSceneGroupConversationRequest) (_result *CreateSceneGroupConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateStoreGroupConversationHeaders{}
-	_result = &CreateStoreGroupConversationResponse{}
-	_body, _err := client.CreateStoreGroupConversationWithOptions(request, headers, runtime)
+	headers := &CreateSceneGroupConversationHeaders{}
+	_result = &CreateSceneGroupConversationResponse{}
+	_body, _err := client.CreateSceneGroupConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9352,8 +9356,19 @@ func (client *Client) CreateStoreGroupConversationWithOptions(request *CreateSto
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateStoreGroupConversation"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/storeGroups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateStoreGroupConversationResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateStoreGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/storeGroups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9361,11 +9376,11 @@ func (client *Client) CreateStoreGroupConversationWithOptions(request *CreateSto
 	return _result, _err
 }
 
-func (client *Client) DeleteOrgTextEmotion(request *DeleteOrgTextEmotionRequest) (_result *DeleteOrgTextEmotionResponse, _err error) {
+func (client *Client) CreateStoreGroupConversation(request *CreateStoreGroupConversationRequest) (_result *CreateStoreGroupConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteOrgTextEmotionHeaders{}
-	_result = &DeleteOrgTextEmotionResponse{}
-	_body, _err := client.DeleteOrgTextEmotionWithOptions(request, headers, runtime)
+	headers := &CreateStoreGroupConversationHeaders{}
+	_result = &CreateStoreGroupConversationResponse{}
+	_body, _err := client.CreateStoreGroupConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9400,8 +9415,19 @@ func (client *Client) DeleteOrgTextEmotionWithOptions(request *DeleteOrgTextEmot
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteOrgTextEmotion"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/organizations/textEmotions/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteOrgTextEmotionResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteOrgTextEmotion"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/textEmotions/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9409,11 +9435,11 @@ func (client *Client) DeleteOrgTextEmotionWithOptions(request *DeleteOrgTextEmot
 	return _result, _err
 }
 
-func (client *Client) DismissGroupConversation(request *DismissGroupConversationRequest) (_result *DismissGroupConversationResponse, _err error) {
+func (client *Client) DeleteOrgTextEmotion(request *DeleteOrgTextEmotionRequest) (_result *DeleteOrgTextEmotionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DismissGroupConversationHeaders{}
-	_result = &DismissGroupConversationResponse{}
-	_body, _err := client.DismissGroupConversationWithOptions(request, headers, runtime)
+	headers := &DeleteOrgTextEmotionHeaders{}
+	_result = &DeleteOrgTextEmotionResponse{}
+	_body, _err := client.DeleteOrgTextEmotionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9444,8 +9470,19 @@ func (client *Client) DismissGroupConversationWithOptions(request *DismissGroupC
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DismissGroupConversation"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/groups/dismiss"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DismissGroupConversationResponse{}
-	_body, _err := client.DoROARequest(tea.String("DismissGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/dismiss"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9453,11 +9490,11 @@ func (client *Client) DismissGroupConversationWithOptions(request *DismissGroupC
 	return _result, _err
 }
 
-func (client *Client) GetConversationUrl(request *GetConversationUrlRequest) (_result *GetConversationUrlResponse, _err error) {
+func (client *Client) DismissGroupConversation(request *DismissGroupConversationRequest) (_result *DismissGroupConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetConversationUrlHeaders{}
-	_result = &GetConversationUrlResponse{}
-	_body, _err := client.GetConversationUrlWithOptions(request, headers, runtime)
+	headers := &DismissGroupConversationHeaders{}
+	_result = &DismissGroupConversationResponse{}
+	_body, _err := client.DismissGroupConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9500,8 +9537,19 @@ func (client *Client) GetConversationUrlWithOptions(request *GetConversationUrlR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetConversationUrl"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/conversations/urls"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetConversationUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetConversationUrl"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/urls"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9509,11 +9557,11 @@ func (client *Client) GetConversationUrlWithOptions(request *GetConversationUrlR
 	return _result, _err
 }
 
-func (client *Client) GetFamilySchoolConversationMsg(request *GetFamilySchoolConversationMsgRequest) (_result *GetFamilySchoolConversationMsgResponse, _err error) {
+func (client *Client) GetConversationUrl(request *GetConversationUrlRequest) (_result *GetConversationUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFamilySchoolConversationMsgHeaders{}
-	_result = &GetFamilySchoolConversationMsgResponse{}
-	_body, _err := client.GetFamilySchoolConversationMsgWithOptions(request, headers, runtime)
+	headers := &GetConversationUrlHeaders{}
+	_result = &GetConversationUrlResponse{}
+	_body, _err := client.GetConversationUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9560,8 +9608,19 @@ func (client *Client) GetFamilySchoolConversationMsgWithOptions(request *GetFami
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFamilySchoolConversationMsg"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/conversations/familySchools/messages/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFamilySchoolConversationMsgResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFamilySchoolConversationMsg"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/familySchools/messages/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9569,11 +9628,11 @@ func (client *Client) GetFamilySchoolConversationMsgWithOptions(request *GetFami
 	return _result, _err
 }
 
-func (client *Client) GetFamilySchoolConversations(request *GetFamilySchoolConversationsRequest) (_result *GetFamilySchoolConversationsResponse, _err error) {
+func (client *Client) GetFamilySchoolConversationMsg(request *GetFamilySchoolConversationMsgRequest) (_result *GetFamilySchoolConversationMsgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFamilySchoolConversationsHeaders{}
-	_result = &GetFamilySchoolConversationsResponse{}
-	_body, _err := client.GetFamilySchoolConversationsWithOptions(request, headers, runtime)
+	headers := &GetFamilySchoolConversationMsgHeaders{}
+	_result = &GetFamilySchoolConversationMsgResponse{}
+	_body, _err := client.GetFamilySchoolConversationMsgWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9612,8 +9671,19 @@ func (client *Client) GetFamilySchoolConversationsWithOptions(request *GetFamily
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFamilySchoolConversations"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/conversations/familySchools/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetFamilySchoolConversationsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFamilySchoolConversations"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/familySchools/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9621,11 +9691,11 @@ func (client *Client) GetFamilySchoolConversationsWithOptions(request *GetFamily
 	return _result, _err
 }
 
-func (client *Client) GetInnerGroupMembers(request *GetInnerGroupMembersRequest) (_result *GetInnerGroupMembersResponse, _err error) {
+func (client *Client) GetFamilySchoolConversations(request *GetFamilySchoolConversationsRequest) (_result *GetFamilySchoolConversationsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetInnerGroupMembersHeaders{}
-	_result = &GetInnerGroupMembersResponse{}
-	_body, _err := client.GetInnerGroupMembersWithOptions(request, headers, runtime)
+	headers := &GetFamilySchoolConversationsHeaders{}
+	_result = &GetFamilySchoolConversationsResponse{}
+	_body, _err := client.GetFamilySchoolConversationsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9668,8 +9738,19 @@ func (client *Client) GetInnerGroupMembersWithOptions(request *GetInnerGroupMemb
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetInnerGroupMembers"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/innerGroups/members/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetInnerGroupMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetInnerGroupMembers"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/innerGroups/members/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9677,11 +9758,11 @@ func (client *Client) GetInnerGroupMembersWithOptions(request *GetInnerGroupMemb
 	return _result, _err
 }
 
-func (client *Client) GetInterconnectionUrl(request *GetInterconnectionUrlRequest) (_result *GetInterconnectionUrlResponse, _err error) {
+func (client *Client) GetInnerGroupMembers(request *GetInnerGroupMembersRequest) (_result *GetInnerGroupMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetInterconnectionUrlHeaders{}
-	_result = &GetInterconnectionUrlResponse{}
-	_body, _err := client.GetInterconnectionUrlWithOptions(request, headers, runtime)
+	headers := &GetInnerGroupMembersHeaders{}
+	_result = &GetInnerGroupMembersResponse{}
+	_body, _err := client.GetInnerGroupMembersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9752,8 +9833,19 @@ func (client *Client) GetInterconnectionUrlWithOptions(request *GetInterconnecti
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetInterconnectionUrl"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/sessions/urls"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetInterconnectionUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetInterconnectionUrl"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/sessions/urls"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9761,11 +9853,11 @@ func (client *Client) GetInterconnectionUrlWithOptions(request *GetInterconnecti
 	return _result, _err
 }
 
-func (client *Client) GetNewestInnerGroups(request *GetNewestInnerGroupsRequest) (_result *GetNewestInnerGroupsResponse, _err error) {
+func (client *Client) GetInterconnectionUrl(request *GetInterconnectionUrlRequest) (_result *GetInterconnectionUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetNewestInnerGroupsHeaders{}
-	_result = &GetNewestInnerGroupsResponse{}
-	_body, _err := client.GetNewestInnerGroupsWithOptions(request, headers, runtime)
+	headers := &GetInterconnectionUrlHeaders{}
+	_result = &GetInterconnectionUrlResponse{}
+	_body, _err := client.GetInterconnectionUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9796,8 +9888,19 @@ func (client *Client) GetNewestInnerGroupsWithOptions(request *GetNewestInnerGro
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetNewestInnerGroups"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/activities/innerGroups"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetNewestInnerGroupsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetNewestInnerGroups"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/activities/innerGroups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9805,11 +9908,11 @@ func (client *Client) GetNewestInnerGroupsWithOptions(request *GetNewestInnerGro
 	return _result, _err
 }
 
-func (client *Client) GetSceneGroupInfo(request *GetSceneGroupInfoRequest) (_result *GetSceneGroupInfoResponse, _err error) {
+func (client *Client) GetNewestInnerGroups(request *GetNewestInnerGroupsRequest) (_result *GetNewestInnerGroupsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSceneGroupInfoHeaders{}
-	_result = &GetSceneGroupInfoResponse{}
-	_body, _err := client.GetSceneGroupInfoWithOptions(request, headers, runtime)
+	headers := &GetNewestInnerGroupsHeaders{}
+	_result = &GetNewestInnerGroupsResponse{}
+	_body, _err := client.GetNewestInnerGroupsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9844,8 +9947,19 @@ func (client *Client) GetSceneGroupInfoWithOptions(request *GetSceneGroupInfoReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSceneGroupInfo"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSceneGroupInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSceneGroupInfo"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9853,11 +9967,11 @@ func (client *Client) GetSceneGroupInfoWithOptions(request *GetSceneGroupInfoReq
 	return _result, _err
 }
 
-func (client *Client) GetSceneGroupMembers(request *GetSceneGroupMembersRequest) (_result *GetSceneGroupMembersResponse, _err error) {
+func (client *Client) GetSceneGroupInfo(request *GetSceneGroupInfoRequest) (_result *GetSceneGroupInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSceneGroupMembersHeaders{}
-	_result = &GetSceneGroupMembersResponse{}
-	_body, _err := client.GetSceneGroupMembersWithOptions(request, headers, runtime)
+	headers := &GetSceneGroupInfoHeaders{}
+	_result = &GetSceneGroupInfoResponse{}
+	_body, _err := client.GetSceneGroupInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9900,8 +10014,19 @@ func (client *Client) GetSceneGroupMembersWithOptions(request *GetSceneGroupMemb
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSceneGroupMembers"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/members/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSceneGroupMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSceneGroupMembers"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9909,11 +10034,11 @@ func (client *Client) GetSceneGroupMembersWithOptions(request *GetSceneGroupMemb
 	return _result, _err
 }
 
-func (client *Client) GroupBanWords(request *GroupBanWordsRequest) (_result *GroupBanWordsResponse, _err error) {
+func (client *Client) GetSceneGroupMembers(request *GetSceneGroupMembersRequest) (_result *GetSceneGroupMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GroupBanWordsHeaders{}
-	_result = &GroupBanWordsResponse{}
-	_body, _err := client.GroupBanWordsWithOptions(request, headers, runtime)
+	headers := &GetSceneGroupMembersHeaders{}
+	_result = &GetSceneGroupMembersResponse{}
+	_body, _err := client.GetSceneGroupMembersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9952,8 +10077,19 @@ func (client *Client) GroupBanWordsWithOptions(request *GroupBanWordsRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GroupBanWords"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/groups/words/ban"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &GroupBanWordsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GroupBanWords"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/words/ban"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9961,11 +10097,11 @@ func (client *Client) GroupBanWordsWithOptions(request *GroupBanWordsRequest, he
 	return _result, _err
 }
 
-func (client *Client) GroupCapacityInquiry(request *GroupCapacityInquiryRequest) (_result *GroupCapacityInquiryResponse, _err error) {
+func (client *Client) GroupBanWords(request *GroupBanWordsRequest) (_result *GroupBanWordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GroupCapacityInquiryHeaders{}
-	_result = &GroupCapacityInquiryResponse{}
-	_body, _err := client.GroupCapacityInquiryWithOptions(request, headers, runtime)
+	headers := &GroupBanWordsHeaders{}
+	_result = &GroupBanWordsResponse{}
+	_body, _err := client.GroupBanWordsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10012,8 +10148,19 @@ func (client *Client) GroupCapacityInquiryWithOptions(request *GroupCapacityInqu
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GroupCapacityInquiry"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/groups/capacities/inquiries/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GroupCapacityInquiryResponse{}
-	_body, _err := client.DoROARequest(tea.String("GroupCapacityInquiry"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/inquiries/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10021,11 +10168,11 @@ func (client *Client) GroupCapacityInquiryWithOptions(request *GroupCapacityInqu
 	return _result, _err
 }
 
-func (client *Client) GroupCapacityOrderConfirm(request *GroupCapacityOrderConfirmRequest) (_result *GroupCapacityOrderConfirmResponse, _err error) {
+func (client *Client) GroupCapacityInquiry(request *GroupCapacityInquiryRequest) (_result *GroupCapacityInquiryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GroupCapacityOrderConfirmHeaders{}
-	_result = &GroupCapacityOrderConfirmResponse{}
-	_body, _err := client.GroupCapacityOrderConfirmWithOptions(request, headers, runtime)
+	headers := &GroupCapacityInquiryHeaders{}
+	_result = &GroupCapacityInquiryResponse{}
+	_body, _err := client.GroupCapacityInquiryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10060,8 +10207,19 @@ func (client *Client) GroupCapacityOrderConfirmWithOptions(request *GroupCapacit
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GroupCapacityOrderConfirm"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/groups/capacities/orders/confirm"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GroupCapacityOrderConfirmResponse{}
-	_body, _err := client.DoROARequest(tea.String("GroupCapacityOrderConfirm"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/orders/confirm"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10069,11 +10227,11 @@ func (client *Client) GroupCapacityOrderConfirmWithOptions(request *GroupCapacit
 	return _result, _err
 }
 
-func (client *Client) GroupCapacityOrderPlace(request *GroupCapacityOrderPlaceRequest) (_result *GroupCapacityOrderPlaceResponse, _err error) {
+func (client *Client) GroupCapacityOrderConfirm(request *GroupCapacityOrderConfirmRequest) (_result *GroupCapacityOrderConfirmResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GroupCapacityOrderPlaceHeaders{}
-	_result = &GroupCapacityOrderPlaceResponse{}
-	_body, _err := client.GroupCapacityOrderPlaceWithOptions(request, headers, runtime)
+	headers := &GroupCapacityOrderConfirmHeaders{}
+	_result = &GroupCapacityOrderConfirmResponse{}
+	_body, _err := client.GroupCapacityOrderConfirmWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10144,8 +10302,19 @@ func (client *Client) GroupCapacityOrderPlaceWithOptions(request *GroupCapacityO
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GroupCapacityOrderPlace"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/groups/capacities/orders/place"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GroupCapacityOrderPlaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("GroupCapacityOrderPlace"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/orders/place"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10153,11 +10322,11 @@ func (client *Client) GroupCapacityOrderPlaceWithOptions(request *GroupCapacityO
 	return _result, _err
 }
 
-func (client *Client) GroupManageQuery(request *GroupManageQueryRequest) (_result *GroupManageQueryResponse, _err error) {
+func (client *Client) GroupCapacityOrderPlace(request *GroupCapacityOrderPlaceRequest) (_result *GroupCapacityOrderPlaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GroupManageQueryHeaders{}
-	_result = &GroupManageQueryResponse{}
-	_body, _err := client.GroupManageQueryWithOptions(request, headers, runtime)
+	headers := &GroupCapacityOrderPlaceHeaders{}
+	_result = &GroupCapacityOrderPlaceResponse{}
+	_body, _err := client.GroupCapacityOrderPlaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10224,8 +10393,19 @@ func (client *Client) GroupManageQueryWithOptions(request *GroupManageQueryReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GroupManageQuery"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/groups/managements/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GroupManageQueryResponse{}
-	_body, _err := client.DoROARequest(tea.String("GroupManageQuery"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/managements/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10233,11 +10413,11 @@ func (client *Client) GroupManageQueryWithOptions(request *GroupManageQueryReque
 	return _result, _err
 }
 
-func (client *Client) GroupManageReduce(request *GroupManageReduceRequest) (_result *GroupManageReduceResponse, _err error) {
+func (client *Client) GroupManageQuery(request *GroupManageQueryRequest) (_result *GroupManageQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GroupManageReduceHeaders{}
-	_result = &GroupManageReduceResponse{}
-	_body, _err := client.GroupManageReduceWithOptions(request, headers, runtime)
+	headers := &GroupManageQueryHeaders{}
+	_result = &GroupManageQueryResponse{}
+	_body, _err := client.GroupManageQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10276,8 +10456,19 @@ func (client *Client) GroupManageReduceWithOptions(request *GroupManageReduceReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GroupManageReduce"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/groups/capacities/reduce"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &GroupManageReduceResponse{}
-	_body, _err := client.DoROARequest(tea.String("GroupManageReduce"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/reduce"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10285,11 +10476,11 @@ func (client *Client) GroupManageReduceWithOptions(request *GroupManageReduceReq
 	return _result, _err
 }
 
-func (client *Client) InstallRobotToOrg(request *InstallRobotToOrgRequest) (_result *InstallRobotToOrgResponse, _err error) {
+func (client *Client) GroupManageReduce(request *GroupManageReduceRequest) (_result *GroupManageReduceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &InstallRobotToOrgHeaders{}
-	_result = &InstallRobotToOrgResponse{}
-	_body, _err := client.InstallRobotToOrgWithOptions(request, headers, runtime)
+	headers := &GroupManageReduceHeaders{}
+	_result = &GroupManageReduceResponse{}
+	_body, _err := client.GroupManageReduceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10348,8 +10539,19 @@ func (client *Client) InstallRobotToOrgWithOptions(request *InstallRobotToOrgReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("InstallRobotToOrg"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/organizations/robots/install"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &InstallRobotToOrgResponse{}
-	_body, _err := client.DoROARequest(tea.String("InstallRobotToOrg"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/robots/install"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10357,11 +10559,11 @@ func (client *Client) InstallRobotToOrgWithOptions(request *InstallRobotToOrgReq
 	return _result, _err
 }
 
-func (client *Client) InteractiveCardCreateInstance(request *InteractiveCardCreateInstanceRequest) (_result *InteractiveCardCreateInstanceResponse, _err error) {
+func (client *Client) InstallRobotToOrg(request *InstallRobotToOrgRequest) (_result *InstallRobotToOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &InteractiveCardCreateInstanceHeaders{}
-	_result = &InteractiveCardCreateInstanceResponse{}
-	_body, _err := client.InteractiveCardCreateInstanceWithOptions(request, headers, runtime)
+	headers := &InstallRobotToOrgHeaders{}
+	_result = &InstallRobotToOrgResponse{}
+	_body, _err := client.InstallRobotToOrgWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10436,8 +10638,19 @@ func (client *Client) InteractiveCardCreateInstanceWithOptions(request *Interact
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("InteractiveCardCreateInstance"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interactiveCards/instances"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &InteractiveCardCreateInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("InteractiveCardCreateInstance"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interactiveCards/instances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10445,11 +10658,11 @@ func (client *Client) InteractiveCardCreateInstanceWithOptions(request *Interact
 	return _result, _err
 }
 
-func (client *Client) ListOrgTextEmotion() (_result *ListOrgTextEmotionResponse, _err error) {
+func (client *Client) InteractiveCardCreateInstance(request *InteractiveCardCreateInstanceRequest) (_result *InteractiveCardCreateInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListOrgTextEmotionHeaders{}
-	_result = &ListOrgTextEmotionResponse{}
-	_body, _err := client.ListOrgTextEmotionWithOptions(headers, runtime)
+	headers := &InteractiveCardCreateInstanceHeaders{}
+	_result = &InteractiveCardCreateInstanceResponse{}
+	_body, _err := client.InteractiveCardCreateInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10470,8 +10683,19 @@ func (client *Client) ListOrgTextEmotionWithOptions(headers *ListOrgTextEmotionH
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListOrgTextEmotion"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/organizations/textEmotions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListOrgTextEmotionResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListOrgTextEmotion"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/organizations/textEmotions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10479,11 +10703,11 @@ func (client *Client) ListOrgTextEmotionWithOptions(headers *ListOrgTextEmotionH
 	return _result, _err
 }
 
-func (client *Client) QueryGroupInfoByMemberAuth(request *QueryGroupInfoByMemberAuthRequest) (_result *QueryGroupInfoByMemberAuthResponse, _err error) {
+func (client *Client) ListOrgTextEmotion() (_result *ListOrgTextEmotionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryGroupInfoByMemberAuthHeaders{}
-	_result = &QueryGroupInfoByMemberAuthResponse{}
-	_body, _err := client.QueryGroupInfoByMemberAuthWithOptions(request, headers, runtime)
+	headers := &ListOrgTextEmotionHeaders{}
+	_result = &ListOrgTextEmotionResponse{}
+	_body, _err := client.ListOrgTextEmotionWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10518,8 +10742,19 @@ func (client *Client) QueryGroupInfoByMemberAuthWithOptions(request *QueryGroupI
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryGroupInfoByMemberAuth"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/memberAuthorizations/groups/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryGroupInfoByMemberAuthResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryGroupInfoByMemberAuth"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/memberAuthorizations/groups/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10527,11 +10762,11 @@ func (client *Client) QueryGroupInfoByMemberAuthWithOptions(request *QueryGroupI
 	return _result, _err
 }
 
-func (client *Client) QueryGroupMember(request *QueryGroupMemberRequest) (_result *QueryGroupMemberResponse, _err error) {
+func (client *Client) QueryGroupInfoByMemberAuth(request *QueryGroupInfoByMemberAuthRequest) (_result *QueryGroupInfoByMemberAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryGroupMemberHeaders{}
-	_result = &QueryGroupMemberResponse{}
-	_body, _err := client.QueryGroupMemberWithOptions(request, headers, runtime)
+	headers := &QueryGroupInfoByMemberAuthHeaders{}
+	_result = &QueryGroupInfoByMemberAuthResponse{}
+	_body, _err := client.QueryGroupInfoByMemberAuthWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10562,8 +10797,19 @@ func (client *Client) QueryGroupMemberWithOptions(request *QueryGroupMemberReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryGroupMember"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/conversations/members"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryGroupMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/interconnections/conversations/members"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10571,11 +10817,11 @@ func (client *Client) QueryGroupMemberWithOptions(request *QueryGroupMemberReque
 	return _result, _err
 }
 
-func (client *Client) QueryGroupMemberByMemberAuth(request *QueryGroupMemberByMemberAuthRequest) (_result *QueryGroupMemberByMemberAuthResponse, _err error) {
+func (client *Client) QueryGroupMember(request *QueryGroupMemberRequest) (_result *QueryGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryGroupMemberByMemberAuthHeaders{}
-	_result = &QueryGroupMemberByMemberAuthResponse{}
-	_body, _err := client.QueryGroupMemberByMemberAuthWithOptions(request, headers, runtime)
+	headers := &QueryGroupMemberHeaders{}
+	_result = &QueryGroupMemberResponse{}
+	_body, _err := client.QueryGroupMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10610,8 +10856,19 @@ func (client *Client) QueryGroupMemberByMemberAuthWithOptions(request *QueryGrou
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryGroupMemberByMemberAuth"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/memberAuthorizations/groups/members/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryGroupMemberByMemberAuthResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryGroupMemberByMemberAuth"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/memberAuthorizations/groups/members/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10619,11 +10876,11 @@ func (client *Client) QueryGroupMemberByMemberAuthWithOptions(request *QueryGrou
 	return _result, _err
 }
 
-func (client *Client) QueryGroupMuteStatus(request *QueryGroupMuteStatusRequest) (_result *QueryGroupMuteStatusResponse, _err error) {
+func (client *Client) QueryGroupMemberByMemberAuth(request *QueryGroupMemberByMemberAuthRequest) (_result *QueryGroupMemberByMemberAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryGroupMuteStatusHeaders{}
-	_result = &QueryGroupMuteStatusResponse{}
-	_body, _err := client.QueryGroupMuteStatusWithOptions(request, headers, runtime)
+	headers := &QueryGroupMemberByMemberAuthHeaders{}
+	_result = &QueryGroupMemberByMemberAuthResponse{}
+	_body, _err := client.QueryGroupMemberByMemberAuthWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10658,8 +10915,19 @@ func (client *Client) QueryGroupMuteStatusWithOptions(request *QueryGroupMuteSta
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryGroupMuteStatus"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/muteSettings"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryGroupMuteStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryGroupMuteStatus"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/muteSettings"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10667,11 +10935,11 @@ func (client *Client) QueryGroupMuteStatusWithOptions(request *QueryGroupMuteSta
 	return _result, _err
 }
 
-func (client *Client) QueryMembersOfGroupRole(request *QueryMembersOfGroupRoleRequest) (_result *QueryMembersOfGroupRoleResponse, _err error) {
+func (client *Client) QueryGroupMuteStatus(request *QueryGroupMuteStatusRequest) (_result *QueryGroupMuteStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryMembersOfGroupRoleHeaders{}
-	_result = &QueryMembersOfGroupRoleResponse{}
-	_body, _err := client.QueryMembersOfGroupRoleWithOptions(request, headers, runtime)
+	headers := &QueryGroupMuteStatusHeaders{}
+	_result = &QueryGroupMuteStatusResponse{}
+	_body, _err := client.QueryGroupMuteStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10710,8 +10978,19 @@ func (client *Client) QueryMembersOfGroupRoleWithOptions(request *QueryMembersOf
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMembersOfGroupRole"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/roles/members/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryMembersOfGroupRoleResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryMembersOfGroupRole"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/roles/members/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10719,11 +10998,11 @@ func (client *Client) QueryMembersOfGroupRoleWithOptions(request *QueryMembersOf
 	return _result, _err
 }
 
-func (client *Client) QuerySceneGroupTemplateRobot(request *QuerySceneGroupTemplateRobotRequest) (_result *QuerySceneGroupTemplateRobotResponse, _err error) {
+func (client *Client) QueryMembersOfGroupRole(request *QueryMembersOfGroupRoleRequest) (_result *QueryMembersOfGroupRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QuerySceneGroupTemplateRobotHeaders{}
-	_result = &QuerySceneGroupTemplateRobotResponse{}
-	_body, _err := client.QuerySceneGroupTemplateRobotWithOptions(request, headers, runtime)
+	headers := &QueryMembersOfGroupRoleHeaders{}
+	_result = &QueryMembersOfGroupRoleResponse{}
+	_body, _err := client.QueryMembersOfGroupRoleWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10758,8 +11037,19 @@ func (client *Client) QuerySceneGroupTemplateRobotWithOptions(request *QueryScen
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySceneGroupTemplateRobot"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/templates/robots"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QuerySceneGroupTemplateRobotResponse{}
-	_body, _err := client.DoROARequest(tea.String("QuerySceneGroupTemplateRobot"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/templates/robots"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10767,11 +11057,11 @@ func (client *Client) QuerySceneGroupTemplateRobotWithOptions(request *QueryScen
 	return _result, _err
 }
 
-func (client *Client) QuerySingleGroup(request *QuerySingleGroupRequest) (_result *QuerySingleGroupResponse, _err error) {
+func (client *Client) QuerySceneGroupTemplateRobot(request *QuerySceneGroupTemplateRobotRequest) (_result *QuerySceneGroupTemplateRobotResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QuerySingleGroupHeaders{}
-	_result = &QuerySingleGroupResponse{}
-	_body, _err := client.QuerySingleGroupWithOptions(request, headers, runtime)
+	headers := &QuerySceneGroupTemplateRobotHeaders{}
+	_result = &QuerySceneGroupTemplateRobotResponse{}
+	_body, _err := client.QuerySceneGroupTemplateRobotWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10806,8 +11096,19 @@ func (client *Client) QuerySingleGroupWithOptions(request *QuerySingleGroupReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySingleGroup"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/doubleGroups/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QuerySingleGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("QuerySingleGroup"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/doubleGroups/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10815,11 +11116,11 @@ func (client *Client) QuerySingleGroupWithOptions(request *QuerySingleGroupReque
 	return _result, _err
 }
 
-func (client *Client) QueryUnReadMessage(request *QueryUnReadMessageRequest) (_result *QueryUnReadMessageResponse, _err error) {
+func (client *Client) QuerySingleGroup(request *QuerySingleGroupRequest) (_result *QuerySingleGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryUnReadMessageHeaders{}
-	_result = &QueryUnReadMessageResponse{}
-	_body, _err := client.QueryUnReadMessageWithOptions(request, headers, runtime)
+	headers := &QuerySingleGroupHeaders{}
+	_result = &QuerySingleGroupResponse{}
+	_body, _err := client.QuerySingleGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10854,8 +11155,19 @@ func (client *Client) QueryUnReadMessageWithOptions(request *QueryUnReadMessageR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUnReadMessage"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/unReadMsgs/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryUnReadMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryUnReadMessage"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/unReadMsgs/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10863,11 +11175,11 @@ func (client *Client) QueryUnReadMessageWithOptions(request *QueryUnReadMessageR
 	return _result, _err
 }
 
-func (client *Client) RemoveRobotFromConversation(request *RemoveRobotFromConversationRequest) (_result *RemoveRobotFromConversationResponse, _err error) {
+func (client *Client) QueryUnReadMessage(request *QueryUnReadMessageRequest) (_result *QueryUnReadMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RemoveRobotFromConversationHeaders{}
-	_result = &RemoveRobotFromConversationResponse{}
-	_body, _err := client.RemoveRobotFromConversationWithOptions(request, headers, runtime)
+	headers := &QueryUnReadMessageHeaders{}
+	_result = &QueryUnReadMessageResponse{}
+	_body, _err := client.QueryUnReadMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10902,8 +11214,19 @@ func (client *Client) RemoveRobotFromConversationWithOptions(request *RemoveRobo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveRobotFromConversation"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/conversations/robots/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RemoveRobotFromConversationResponse{}
-	_body, _err := client.DoROARequest(tea.String("RemoveRobotFromConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/robots/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10911,11 +11234,11 @@ func (client *Client) RemoveRobotFromConversationWithOptions(request *RemoveRobo
 	return _result, _err
 }
 
-func (client *Client) SearchInnerGroups(request *SearchInnerGroupsRequest) (_result *SearchInnerGroupsResponse, _err error) {
+func (client *Client) RemoveRobotFromConversation(request *RemoveRobotFromConversationRequest) (_result *RemoveRobotFromConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchInnerGroupsHeaders{}
-	_result = &SearchInnerGroupsResponse{}
-	_body, _err := client.SearchInnerGroupsWithOptions(request, headers, runtime)
+	headers := &RemoveRobotFromConversationHeaders{}
+	_result = &RemoveRobotFromConversationResponse{}
+	_body, _err := client.RemoveRobotFromConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10954,8 +11277,19 @@ func (client *Client) SearchInnerGroupsWithOptions(request *SearchInnerGroupsReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchInnerGroups"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/innerGroups/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchInnerGroupsResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchInnerGroups"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/innerGroups/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10963,11 +11297,11 @@ func (client *Client) SearchInnerGroupsWithOptions(request *SearchInnerGroupsReq
 	return _result, _err
 }
 
-func (client *Client) SendInteractiveCard(request *SendInteractiveCardRequest) (_result *SendInteractiveCardResponse, _err error) {
+func (client *Client) SearchInnerGroups(request *SearchInnerGroupsRequest) (_result *SearchInnerGroupsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendInteractiveCardHeaders{}
-	_result = &SendInteractiveCardResponse{}
-	_body, _err := client.SendInteractiveCardWithOptions(request, headers, runtime)
+	headers := &SearchInnerGroupsHeaders{}
+	_result = &SearchInnerGroupsResponse{}
+	_body, _err := client.SearchInnerGroupsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11050,8 +11384,19 @@ func (client *Client) SendInteractiveCardWithOptions(request *SendInteractiveCar
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendInteractiveCard"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interactiveCards/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendInteractiveCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interactiveCards/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11059,11 +11404,11 @@ func (client *Client) SendInteractiveCardWithOptions(request *SendInteractiveCar
 	return _result, _err
 }
 
-func (client *Client) SendOTOInteractiveCard(request *SendOTOInteractiveCardRequest) (_result *SendOTOInteractiveCardResponse, _err error) {
+func (client *Client) SendInteractiveCard(request *SendInteractiveCardRequest) (_result *SendInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendOTOInteractiveCardHeaders{}
-	_result = &SendOTOInteractiveCardResponse{}
-	_body, _err := client.SendOTOInteractiveCardWithOptions(request, headers, runtime)
+	headers := &SendInteractiveCardHeaders{}
+	_result = &SendInteractiveCardResponse{}
+	_body, _err := client.SendInteractiveCardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11138,8 +11483,19 @@ func (client *Client) SendOTOInteractiveCardWithOptions(request *SendOTOInteract
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendOTOInteractiveCard"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/privateChat/interactiveCards/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendOTOInteractiveCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendOTOInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/privateChat/interactiveCards/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11147,11 +11503,11 @@ func (client *Client) SendOTOInteractiveCardWithOptions(request *SendOTOInteract
 	return _result, _err
 }
 
-func (client *Client) SendRobotInteractiveCard(request *SendRobotInteractiveCardRequest) (_result *SendRobotInteractiveCardResponse, _err error) {
+func (client *Client) SendOTOInteractiveCard(request *SendOTOInteractiveCardRequest) (_result *SendOTOInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendRobotInteractiveCardHeaders{}
-	_result = &SendRobotInteractiveCardResponse{}
-	_body, _err := client.SendRobotInteractiveCardWithOptions(request, headers, runtime)
+	headers := &SendOTOInteractiveCardHeaders{}
+	_result = &SendOTOInteractiveCardResponse{}
+	_body, _err := client.SendOTOInteractiveCardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11222,8 +11578,19 @@ func (client *Client) SendRobotInteractiveCardWithOptions(request *SendRobotInte
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendRobotInteractiveCard"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/v1.0/robot/interactiveCards/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendRobotInteractiveCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendRobotInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/v1.0/robot/interactiveCards/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11231,11 +11598,11 @@ func (client *Client) SendRobotInteractiveCardWithOptions(request *SendRobotInte
 	return _result, _err
 }
 
-func (client *Client) SendRobotMessage(request *SendRobotMessageRequest) (_result *SendRobotMessageResponse, _err error) {
+func (client *Client) SendRobotInteractiveCard(request *SendRobotInteractiveCardRequest) (_result *SendRobotInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendRobotMessageHeaders{}
-	_result = &SendRobotMessageResponse{}
-	_body, _err := client.SendRobotMessageWithOptions(request, headers, runtime)
+	headers := &SendRobotInteractiveCardHeaders{}
+	_result = &SendRobotInteractiveCardResponse{}
+	_body, _err := client.SendRobotInteractiveCardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11290,8 +11657,19 @@ func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendRobotMessage"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/robotMessages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendRobotMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendRobotMessage"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/robotMessages/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11299,11 +11677,11 @@ func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageReque
 	return _result, _err
 }
 
-func (client *Client) SendTemplateInteractiveCard(request *SendTemplateInteractiveCardRequest) (_result *SendTemplateInteractiveCardResponse, _err error) {
+func (client *Client) SendRobotMessage(request *SendRobotMessageRequest) (_result *SendRobotMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendTemplateInteractiveCardHeaders{}
-	_result = &SendTemplateInteractiveCardResponse{}
-	_body, _err := client.SendTemplateInteractiveCardWithOptions(request, headers, runtime)
+	headers := &SendRobotMessageHeaders{}
+	_result = &SendRobotMessageResponse{}
+	_body, _err := client.SendRobotMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11362,8 +11740,19 @@ func (client *Client) SendTemplateInteractiveCardWithOptions(request *SendTempla
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendTemplateInteractiveCard"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interactiveCards/templates/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendTemplateInteractiveCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendTemplateInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interactiveCards/templates/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11371,11 +11760,11 @@ func (client *Client) SendTemplateInteractiveCardWithOptions(request *SendTempla
 	return _result, _err
 }
 
-func (client *Client) SetRightPanel(request *SetRightPanelRequest) (_result *SetRightPanelResponse, _err error) {
+func (client *Client) SendTemplateInteractiveCard(request *SendTemplateInteractiveCardRequest) (_result *SendTemplateInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SetRightPanelHeaders{}
-	_result = &SetRightPanelResponse{}
-	_body, _err := client.SetRightPanelWithOptions(request, headers, runtime)
+	headers := &SendTemplateInteractiveCardHeaders{}
+	_result = &SendTemplateInteractiveCardResponse{}
+	_body, _err := client.SendTemplateInteractiveCardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11426,8 +11815,19 @@ func (client *Client) SetRightPanelWithOptions(request *SetRightPanelRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SetRightPanel"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/rightPanels/set"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SetRightPanelResponse{}
-	_body, _err := client.DoROARequest(tea.String("SetRightPanel"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/rightPanels/set"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11435,11 +11835,11 @@ func (client *Client) SetRightPanelWithOptions(request *SetRightPanelRequest, he
 	return _result, _err
 }
 
-func (client *Client) TopboxClose(request *TopboxCloseRequest) (_result *TopboxCloseResponse, _err error) {
+func (client *Client) SetRightPanel(request *SetRightPanelRequest) (_result *SetRightPanelResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &TopboxCloseHeaders{}
-	_result = &TopboxCloseResponse{}
-	_body, _err := client.TopboxCloseWithOptions(request, headers, runtime)
+	headers := &SetRightPanelHeaders{}
+	_result = &SetRightPanelResponse{}
+	_body, _err := client.SetRightPanelWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11490,8 +11890,19 @@ func (client *Client) TopboxCloseWithOptions(request *TopboxCloseRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("TopboxClose"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/topBoxes/close"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &TopboxCloseResponse{}
-	_body, _err := client.DoROARequest(tea.String("TopboxClose"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/topBoxes/close"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11499,11 +11910,11 @@ func (client *Client) TopboxCloseWithOptions(request *TopboxCloseRequest, header
 	return _result, _err
 }
 
-func (client *Client) TopboxOpen(request *TopboxOpenRequest) (_result *TopboxOpenResponse, _err error) {
+func (client *Client) TopboxClose(request *TopboxCloseRequest) (_result *TopboxCloseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &TopboxOpenHeaders{}
-	_result = &TopboxOpenResponse{}
-	_body, _err := client.TopboxOpenWithOptions(request, headers, runtime)
+	headers := &TopboxCloseHeaders{}
+	_result = &TopboxCloseResponse{}
+	_body, _err := client.TopboxCloseWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11562,8 +11973,19 @@ func (client *Client) TopboxOpenWithOptions(request *TopboxOpenRequest, headers 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("TopboxOpen"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/topBoxes/open"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &TopboxOpenResponse{}
-	_body, _err := client.DoROARequest(tea.String("TopboxOpen"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/topBoxes/open"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11571,11 +11993,11 @@ func (client *Client) TopboxOpenWithOptions(request *TopboxOpenRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) UpdateGroupAvatar(request *UpdateGroupAvatarRequest) (_result *UpdateGroupAvatarResponse, _err error) {
+func (client *Client) TopboxOpen(request *TopboxOpenRequest) (_result *TopboxOpenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateGroupAvatarHeaders{}
-	_result = &UpdateGroupAvatarResponse{}
-	_body, _err := client.UpdateGroupAvatarWithOptions(request, headers, runtime)
+	headers := &TopboxOpenHeaders{}
+	_result = &TopboxOpenResponse{}
+	_body, _err := client.TopboxOpenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11610,8 +12032,19 @@ func (client *Client) UpdateGroupAvatarWithOptions(request *UpdateGroupAvatarReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateGroupAvatar"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/groups/avatars"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateGroupAvatarResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateGroupAvatar"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/avatars"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11619,11 +12052,11 @@ func (client *Client) UpdateGroupAvatarWithOptions(request *UpdateGroupAvatarReq
 	return _result, _err
 }
 
-func (client *Client) UpdateGroupName(request *UpdateGroupNameRequest) (_result *UpdateGroupNameResponse, _err error) {
+func (client *Client) UpdateGroupAvatar(request *UpdateGroupAvatarRequest) (_result *UpdateGroupAvatarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateGroupNameHeaders{}
-	_result = &UpdateGroupNameResponse{}
-	_body, _err := client.UpdateGroupNameWithOptions(request, headers, runtime)
+	headers := &UpdateGroupAvatarHeaders{}
+	_result = &UpdateGroupAvatarResponse{}
+	_body, _err := client.UpdateGroupAvatarWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11658,8 +12091,19 @@ func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateGroupName"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/groups/names"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateGroupNameResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateGroupName"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/names"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11667,11 +12111,11 @@ func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest
 	return _result, _err
 }
 
-func (client *Client) UpdateGroupPermission(request *UpdateGroupPermissionRequest) (_result *UpdateGroupPermissionResponse, _err error) {
+func (client *Client) UpdateGroupName(request *UpdateGroupNameRequest) (_result *UpdateGroupNameResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateGroupPermissionHeaders{}
-	_result = &UpdateGroupPermissionResponse{}
-	_body, _err := client.UpdateGroupPermissionWithOptions(request, headers, runtime)
+	headers := &UpdateGroupNameHeaders{}
+	_result = &UpdateGroupNameResponse{}
+	_body, _err := client.UpdateGroupNameWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11710,8 +12154,19 @@ func (client *Client) UpdateGroupPermissionWithOptions(request *UpdateGroupPermi
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateGroupPermission"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/permissions"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateGroupPermissionResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateGroupPermission"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/permissions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11719,11 +12174,11 @@ func (client *Client) UpdateGroupPermissionWithOptions(request *UpdateGroupPermi
 	return _result, _err
 }
 
-func (client *Client) UpdateGroupSubAdmin(request *UpdateGroupSubAdminRequest) (_result *UpdateGroupSubAdminResponse, _err error) {
+func (client *Client) UpdateGroupPermission(request *UpdateGroupPermissionRequest) (_result *UpdateGroupPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateGroupSubAdminHeaders{}
-	_result = &UpdateGroupSubAdminResponse{}
-	_body, _err := client.UpdateGroupSubAdminWithOptions(request, headers, runtime)
+	headers := &UpdateGroupPermissionHeaders{}
+	_result = &UpdateGroupPermissionResponse{}
+	_body, _err := client.UpdateGroupPermissionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11762,8 +12217,19 @@ func (client *Client) UpdateGroupSubAdminWithOptions(request *UpdateGroupSubAdmi
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateGroupSubAdmin"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/subAdmins"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateGroupSubAdminResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateGroupSubAdmin"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/subAdmins"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11771,11 +12237,11 @@ func (client *Client) UpdateGroupSubAdminWithOptions(request *UpdateGroupSubAdmi
 	return _result, _err
 }
 
-func (client *Client) UpdateInteractiveCard(request *UpdateInteractiveCardRequest) (_result *UpdateInteractiveCardResponse, _err error) {
+func (client *Client) UpdateGroupSubAdmin(request *UpdateGroupSubAdminRequest) (_result *UpdateGroupSubAdminResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInteractiveCardHeaders{}
-	_result = &UpdateInteractiveCardResponse{}
-	_body, _err := client.UpdateInteractiveCardWithOptions(request, headers, runtime)
+	headers := &UpdateGroupSubAdminHeaders{}
+	_result = &UpdateGroupSubAdminResponse{}
+	_body, _err := client.UpdateGroupSubAdminWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11822,8 +12288,19 @@ func (client *Client) UpdateInteractiveCardWithOptions(request *UpdateInteractiv
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInteractiveCard"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interactiveCards"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInteractiveCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/interactiveCards"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11831,11 +12308,11 @@ func (client *Client) UpdateInteractiveCardWithOptions(request *UpdateInteractiv
 	return _result, _err
 }
 
-func (client *Client) UpdateMemberBanWords(request *UpdateMemberBanWordsRequest) (_result *UpdateMemberBanWordsResponse, _err error) {
+func (client *Client) UpdateInteractiveCard(request *UpdateInteractiveCardRequest) (_result *UpdateInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateMemberBanWordsHeaders{}
-	_result = &UpdateMemberBanWordsResponse{}
-	_body, _err := client.UpdateMemberBanWordsWithOptions(request, headers, runtime)
+	headers := &UpdateInteractiveCardHeaders{}
+	_result = &UpdateInteractiveCardResponse{}
+	_body, _err := client.UpdateInteractiveCardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11878,8 +12355,19 @@ func (client *Client) UpdateMemberBanWordsWithOptions(request *UpdateMemberBanWo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateMemberBanWords"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/muteMembers/set"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &UpdateMemberBanWordsResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateMemberBanWords"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/muteMembers/set"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11887,11 +12375,11 @@ func (client *Client) UpdateMemberBanWordsWithOptions(request *UpdateMemberBanWo
 	return _result, _err
 }
 
-func (client *Client) UpdateMemberGroupNick(request *UpdateMemberGroupNickRequest) (_result *UpdateMemberGroupNickResponse, _err error) {
+func (client *Client) UpdateMemberBanWords(request *UpdateMemberBanWordsRequest) (_result *UpdateMemberBanWordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateMemberGroupNickHeaders{}
-	_result = &UpdateMemberGroupNickResponse{}
-	_body, _err := client.UpdateMemberGroupNickWithOptions(request, headers, runtime)
+	headers := &UpdateMemberBanWordsHeaders{}
+	_result = &UpdateMemberBanWordsResponse{}
+	_body, _err := client.UpdateMemberBanWordsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11930,8 +12418,19 @@ func (client *Client) UpdateMemberGroupNickWithOptions(request *UpdateMemberGrou
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateMemberGroupNick"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/members/groupNicks"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateMemberGroupNickResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateMemberGroupNick"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/groupNicks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11939,11 +12438,11 @@ func (client *Client) UpdateMemberGroupNickWithOptions(request *UpdateMemberGrou
 	return _result, _err
 }
 
-func (client *Client) UpdateRobotInOrg(request *UpdateRobotInOrgRequest) (_result *UpdateRobotInOrgResponse, _err error) {
+func (client *Client) UpdateMemberGroupNick(request *UpdateMemberGroupNickRequest) (_result *UpdateMemberGroupNickResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateRobotInOrgHeaders{}
-	_result = &UpdateRobotInOrgResponse{}
-	_body, _err := client.UpdateRobotInOrgWithOptions(request, headers, runtime)
+	headers := &UpdateMemberGroupNickHeaders{}
+	_result = &UpdateMemberGroupNickResponse{}
+	_body, _err := client.UpdateMemberGroupNickWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12002,8 +12501,19 @@ func (client *Client) UpdateRobotInOrgWithOptions(request *UpdateRobotInOrgReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateRobotInOrg"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/organizations/robots"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateRobotInOrgResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateRobotInOrg"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/robots"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12011,11 +12521,11 @@ func (client *Client) UpdateRobotInOrgWithOptions(request *UpdateRobotInOrgReque
 	return _result, _err
 }
 
-func (client *Client) UpdateRobotInteractiveCard(request *UpdateRobotInteractiveCardRequest) (_result *UpdateRobotInteractiveCardResponse, _err error) {
+func (client *Client) UpdateRobotInOrg(request *UpdateRobotInOrgRequest) (_result *UpdateRobotInOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateRobotInteractiveCardHeaders{}
-	_result = &UpdateRobotInteractiveCardResponse{}
-	_body, _err := client.UpdateRobotInteractiveCardWithOptions(request, headers, runtime)
+	headers := &UpdateRobotInOrgHeaders{}
+	_result = &UpdateRobotInOrgResponse{}
+	_body, _err := client.UpdateRobotInOrgWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12062,8 +12572,19 @@ func (client *Client) UpdateRobotInteractiveCardWithOptions(request *UpdateRobot
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateRobotInteractiveCard"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/robots/interactiveCards"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateRobotInteractiveCardResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateRobotInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/robots/interactiveCards"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12071,11 +12592,11 @@ func (client *Client) UpdateRobotInteractiveCardWithOptions(request *UpdateRobot
 	return _result, _err
 }
 
-func (client *Client) UpdateTheGroupRolesOfGroupMember(request *UpdateTheGroupRolesOfGroupMemberRequest) (_result *UpdateTheGroupRolesOfGroupMemberResponse, _err error) {
+func (client *Client) UpdateRobotInteractiveCard(request *UpdateRobotInteractiveCardRequest) (_result *UpdateRobotInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateTheGroupRolesOfGroupMemberHeaders{}
-	_result = &UpdateTheGroupRolesOfGroupMemberResponse{}
-	_body, _err := client.UpdateTheGroupRolesOfGroupMemberWithOptions(request, headers, runtime)
+	headers := &UpdateRobotInteractiveCardHeaders{}
+	_result = &UpdateRobotInteractiveCardResponse{}
+	_body, _err := client.UpdateRobotInteractiveCardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12114,8 +12635,19 @@ func (client *Client) UpdateTheGroupRolesOfGroupMemberWithOptions(request *Updat
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTheGroupRolesOfGroupMember"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/members/groupRoles"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateTheGroupRolesOfGroupMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTheGroupRolesOfGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/groupRoles"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12123,11 +12655,11 @@ func (client *Client) UpdateTheGroupRolesOfGroupMemberWithOptions(request *Updat
 	return _result, _err
 }
 
-func (client *Client) AddGroupMember(request *AddGroupMemberRequest) (_result *AddGroupMemberResponse, _err error) {
+func (client *Client) UpdateTheGroupRolesOfGroupMember(request *UpdateTheGroupRolesOfGroupMemberRequest) (_result *UpdateTheGroupRolesOfGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddGroupMemberHeaders{}
-	_result = &AddGroupMemberResponse{}
-	_body, _err := client.AddGroupMemberWithOptions(request, headers, runtime)
+	headers := &UpdateTheGroupRolesOfGroupMemberHeaders{}
+	_result = &UpdateTheGroupRolesOfGroupMemberResponse{}
+	_body, _err := client.UpdateTheGroupRolesOfGroupMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12170,8 +12702,19 @@ func (client *Client) AddGroupMemberWithOptions(request *AddGroupMemberRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("addGroupMember"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/groups/members"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddGroupMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("addGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/members"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12179,11 +12722,11 @@ func (client *Client) AddGroupMemberWithOptions(request *AddGroupMemberRequest, 
 	return _result, _err
 }
 
-func (client *Client) RemoveGroupMember(request *RemoveGroupMemberRequest) (_result *RemoveGroupMemberResponse, _err error) {
+func (client *Client) AddGroupMember(request *AddGroupMemberRequest) (_result *AddGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RemoveGroupMemberHeaders{}
-	_result = &RemoveGroupMemberResponse{}
-	_body, _err := client.RemoveGroupMemberWithOptions(request, headers, runtime)
+	headers := &AddGroupMemberHeaders{}
+	_result = &AddGroupMemberResponse{}
+	_body, _err := client.AddGroupMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12226,8 +12769,19 @@ func (client *Client) RemoveGroupMemberWithOptions(request *RemoveGroupMemberReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("removeGroupMember"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/groups/members/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RemoveGroupMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("removeGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/members/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12235,11 +12789,11 @@ func (client *Client) RemoveGroupMemberWithOptions(request *RemoveGroupMemberReq
 	return _result, _err
 }
 
-func (client *Client) SendDingMessage(request *SendDingMessageRequest) (_result *SendDingMessageResponse, _err error) {
+func (client *Client) RemoveGroupMember(request *RemoveGroupMemberRequest) (_result *RemoveGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendDingMessageHeaders{}
-	_result = &SendDingMessageResponse{}
-	_body, _err := client.SendDingMessageWithOptions(request, headers, runtime)
+	headers := &RemoveGroupMemberHeaders{}
+	_result = &RemoveGroupMemberResponse{}
+	_body, _err := client.RemoveGroupMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12290,8 +12844,19 @@ func (client *Client) SendDingMessageWithOptions(request *SendDingMessageRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("sendDingMessage"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/dingMessages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendDingMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("sendDingMessage"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/dingMessages/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12299,11 +12864,11 @@ func (client *Client) SendDingMessageWithOptions(request *SendDingMessageRequest
 	return _result, _err
 }
 
-func (client *Client) SendMessage(request *SendMessageRequest) (_result *SendMessageResponse, _err error) {
+func (client *Client) SendDingMessage(request *SendDingMessageRequest) (_result *SendDingMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendMessageHeaders{}
-	_result = &SendMessageResponse{}
-	_body, _err := client.SendMessageWithOptions(request, headers, runtime)
+	headers := &SendDingMessageHeaders{}
+	_result = &SendDingMessageResponse{}
+	_body, _err := client.SendDingMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12354,11 +12919,34 @@ func (client *Client) SendMessageWithOptions(request *SendMessageRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("sendMessage"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/messages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("sendMessage"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/messages/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendMessage(request *SendMessageRequest) (_result *SendMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendMessageHeaders{}
+	_result = &SendMessageResponse{}
+	_body, _err := client.SendMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

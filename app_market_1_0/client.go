@@ -5,9 +5,11 @@
 package app_market_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -58,10 +60,8 @@ func (s *CreateAppGoodsServiceConversationRequest) SetOrderId(v int64) *CreateAp
 }
 
 type CreateAppGoodsServiceConversationResponseBody struct {
-	// 群名称
 	ConversationName *string `json:"conversationName,omitempty" xml:"conversationName,omitempty"`
-	// 是否新群
-	NewConversation *bool `json:"newConversation,omitempty" xml:"newConversation,omitempty"`
+	NewConversation  *bool   `json:"newConversation,omitempty" xml:"newConversation,omitempty"`
 }
 
 func (s CreateAppGoodsServiceConversationResponseBody) String() string {
@@ -83,8 +83,9 @@ func (s *CreateAppGoodsServiceConversationResponseBody) SetNewConversation(v boo
 }
 
 type CreateAppGoodsServiceConversationResponse struct {
-	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateAppGoodsServiceConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateAppGoodsServiceConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateAppGoodsServiceConversationResponse) String() string {
@@ -97,6 +98,11 @@ func (s CreateAppGoodsServiceConversationResponse) GoString() string {
 
 func (s *CreateAppGoodsServiceConversationResponse) SetHeaders(v map[string]*string) *CreateAppGoodsServiceConversationResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateAppGoodsServiceConversationResponse) SetStatusCode(v int32) *CreateAppGoodsServiceConversationResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -129,11 +135,8 @@ func (s *GetCoolAppAccessStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetCoolAppAccessStatusRequest struct {
-	// 免登授权码
-	AuthCode *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
-	// 酷应用的code
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 加密的场域业务code
+	AuthCode        *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+	CoolAppCode     *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
 	EncFieldBizCode *string `json:"encFieldBizCode,omitempty" xml:"encFieldBizCode,omitempty"`
 }
 
@@ -178,8 +181,9 @@ func (s *GetCoolAppAccessStatusResponseBody) SetStatus(v string) *GetCoolAppAcce
 }
 
 type GetCoolAppAccessStatusResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCoolAppAccessStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCoolAppAccessStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCoolAppAccessStatusResponse) String() string {
@@ -192,6 +196,11 @@ func (s GetCoolAppAccessStatusResponse) GoString() string {
 
 func (s *GetCoolAppAccessStatusResponse) SetHeaders(v map[string]*string) *GetCoolAppAccessStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCoolAppAccessStatusResponse) SetStatusCode(v int32) *GetCoolAppAccessStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -224,7 +233,6 @@ func (s *GetPersonalExperienceInfoHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetPersonalExperienceInfoRequest struct {
-	// A short description of struct
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -242,7 +250,6 @@ func (s *GetPersonalExperienceInfoRequest) SetUserId(v string) *GetPersonalExper
 }
 
 type GetPersonalExperienceInfoResponseBody struct {
-	// 数据对象
 	Result *GetPersonalExperienceInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -260,7 +267,6 @@ func (s *GetPersonalExperienceInfoResponseBody) SetResult(v *GetPersonalExperien
 }
 
 type GetPersonalExperienceInfoResponseBodyResult struct {
-	// 主组织corpId
 	MainCorpId *string `json:"mainCorpId,omitempty" xml:"mainCorpId,omitempty"`
 }
 
@@ -278,8 +284,9 @@ func (s *GetPersonalExperienceInfoResponseBodyResult) SetMainCorpId(v string) *G
 }
 
 type GetPersonalExperienceInfoResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetPersonalExperienceInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPersonalExperienceInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetPersonalExperienceInfoResponse) String() string {
@@ -292,6 +299,11 @@ func (s GetPersonalExperienceInfoResponse) GoString() string {
 
 func (s *GetPersonalExperienceInfoResponse) SetHeaders(v map[string]*string) *GetPersonalExperienceInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetPersonalExperienceInfoResponse) SetStatusCode(v int32) *GetPersonalExperienceInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -324,34 +336,20 @@ func (s *QueryMarketOrderHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMar
 }
 
 type QueryMarketOrderResponseBody struct {
-	// 订单ID
-	BizOrderId *int64 `json:"bizOrderId,omitempty" xml:"bizOrderId,omitempty"`
-	// 组织ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 创建时间戳
-	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	// 生效结束时间
-	EndTimestamp *int64 `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
-	// 商品Code
-	GoodsCode *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 是否内购订单
-	InAppOrder *bool `json:"inAppOrder,omitempty" xml:"inAppOrder,omitempty"`
-	// 规格编码
-	ItemCode *string `json:"itemCode,omitempty" xml:"itemCode,omitempty"`
-	// 规格名称
-	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
-	// 支付时间戳
-	PaidTimestamp *int64 `json:"paidTimestamp,omitempty" xml:"paidTimestamp,omitempty"`
-	// 购买数量
-	Quantity *int64 `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 开始生效时间
-	StartTimestamp *int64 `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
-	// 订单状态(0:订单关闭； 3：订单支付；4：订单创建)
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 订单实付金额(单位分)
-	TotalActualPayFee *int64 `json:"totalActualPayFee,omitempty" xml:"totalActualPayFee,omitempty"`
+	BizOrderId        *int64  `json:"bizOrderId,omitempty" xml:"bizOrderId,omitempty"`
+	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreateTimestamp   *int64  `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	EndTimestamp      *int64  `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	GoodsCode         *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	GoodsName         *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	InAppOrder        *bool   `json:"inAppOrder,omitempty" xml:"inAppOrder,omitempty"`
+	ItemCode          *string `json:"itemCode,omitempty" xml:"itemCode,omitempty"`
+	ItemName          *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	PaidTimestamp     *int64  `json:"paidTimestamp,omitempty" xml:"paidTimestamp,omitempty"`
+	Quantity          *int64  `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	StartTimestamp    *int64  `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+	Status            *int64  `json:"status,omitempty" xml:"status,omitempty"`
+	TotalActualPayFee *int64  `json:"totalActualPayFee,omitempty" xml:"totalActualPayFee,omitempty"`
 }
 
 func (s QueryMarketOrderResponseBody) String() string {
@@ -433,8 +431,9 @@ func (s *QueryMarketOrderResponseBody) SetTotalActualPayFee(v int64) *QueryMarke
 }
 
 type QueryMarketOrderResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryMarketOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryMarketOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryMarketOrderResponse) String() string {
@@ -447,6 +446,11 @@ func (s QueryMarketOrderResponse) GoString() string {
 
 func (s *QueryMarketOrderResponse) SetHeaders(v map[string]*string) *QueryMarketOrderResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryMarketOrderResponse) SetStatusCode(v int32) *QueryMarketOrderResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -479,14 +483,10 @@ func (s *UserTaskReportHeaders) SetXAcsDingtalkAccessToken(v string) *UserTaskRe
 }
 
 type UserTaskReportRequest struct {
-	// 业务的幂等ID
-	BizNo *string `json:"bizNo,omitempty" xml:"bizNo,omitempty"`
-	// operateDate
+	BizNo       *string `json:"bizNo,omitempty" xml:"bizNo,omitempty"`
 	OperateDate *string `json:"operateDate,omitempty" xml:"operateDate,omitempty"`
-	// taskTag
-	TaskTag *string `json:"taskTag,omitempty" xml:"taskTag,omitempty"`
-	// staffId
-	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
+	TaskTag     *string `json:"taskTag,omitempty" xml:"taskTag,omitempty"`
+	Userid      *string `json:"userid,omitempty" xml:"userid,omitempty"`
 }
 
 func (s UserTaskReportRequest) String() string {
@@ -518,8 +518,9 @@ func (s *UserTaskReportRequest) SetUserid(v string) *UserTaskReportRequest {
 }
 
 type UserTaskReportResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *bool              `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *bool              `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UserTaskReportResponse) String() string {
@@ -532,6 +533,11 @@ func (s UserTaskReportResponse) GoString() string {
 
 func (s *UserTaskReportResponse) SetHeaders(v map[string]*string) *UserTaskReportResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UserTaskReportResponse) SetStatusCode(v int32) *UserTaskReportResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -555,24 +561,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateAppGoodsServiceConversation(request *CreateAppGoodsServiceConversationRequest) (_result *CreateAppGoodsServiceConversationResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateAppGoodsServiceConversationHeaders{}
-	_result = &CreateAppGoodsServiceConversationResponse{}
-	_body, _err := client.CreateAppGoodsServiceConversationWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateAppGoodsServiceConversationWithOptions(request *CreateAppGoodsServiceConversationRequest, headers *CreateAppGoodsServiceConversationHeaders, runtime *util.RuntimeOptions) (_result *CreateAppGoodsServiceConversationResponse, _err error) {
@@ -602,8 +602,19 @@ func (client *Client) CreateAppGoodsServiceConversationWithOptions(request *Crea
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateAppGoodsServiceConversation"),
+		Version:     tea.String("appMarket_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/appMarket/orders/serviceGroups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateAppGoodsServiceConversationResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateAppGoodsServiceConversation"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/appMarket/orders/serviceGroups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -611,11 +622,11 @@ func (client *Client) CreateAppGoodsServiceConversationWithOptions(request *Crea
 	return _result, _err
 }
 
-func (client *Client) GetCoolAppAccessStatus(request *GetCoolAppAccessStatusRequest) (_result *GetCoolAppAccessStatusResponse, _err error) {
+func (client *Client) CreateAppGoodsServiceConversation(request *CreateAppGoodsServiceConversationRequest) (_result *CreateAppGoodsServiceConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetCoolAppAccessStatusHeaders{}
-	_result = &GetCoolAppAccessStatusResponse{}
-	_body, _err := client.GetCoolAppAccessStatusWithOptions(request, headers, runtime)
+	headers := &CreateAppGoodsServiceConversationHeaders{}
+	_result = &CreateAppGoodsServiceConversationResponse{}
+	_body, _err := client.CreateAppGoodsServiceConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -654,8 +665,19 @@ func (client *Client) GetCoolAppAccessStatusWithOptions(request *GetCoolAppAcces
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCoolAppAccessStatus"),
+		Version:     tea.String("appMarket_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/appMarket/coolApps/accessions/statuses/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCoolAppAccessStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCoolAppAccessStatus"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/appMarket/coolApps/accessions/statuses/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -663,11 +685,11 @@ func (client *Client) GetCoolAppAccessStatusWithOptions(request *GetCoolAppAcces
 	return _result, _err
 }
 
-func (client *Client) GetPersonalExperienceInfo(request *GetPersonalExperienceInfoRequest) (_result *GetPersonalExperienceInfoResponse, _err error) {
+func (client *Client) GetCoolAppAccessStatus(request *GetCoolAppAccessStatusRequest) (_result *GetCoolAppAccessStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetPersonalExperienceInfoHeaders{}
-	_result = &GetPersonalExperienceInfoResponse{}
-	_body, _err := client.GetPersonalExperienceInfoWithOptions(request, headers, runtime)
+	headers := &GetCoolAppAccessStatusHeaders{}
+	_result = &GetCoolAppAccessStatusResponse{}
+	_body, _err := client.GetCoolAppAccessStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -698,8 +720,19 @@ func (client *Client) GetPersonalExperienceInfoWithOptions(request *GetPersonalE
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPersonalExperienceInfo"),
+		Version:     tea.String("appMarket_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/appMarket/personalExperiences"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetPersonalExperienceInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetPersonalExperienceInfo"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/appMarket/personalExperiences"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -707,11 +740,11 @@ func (client *Client) GetPersonalExperienceInfoWithOptions(request *GetPersonalE
 	return _result, _err
 }
 
-func (client *Client) QueryMarketOrder(orderId *string) (_result *QueryMarketOrderResponse, _err error) {
+func (client *Client) GetPersonalExperienceInfo(request *GetPersonalExperienceInfoRequest) (_result *GetPersonalExperienceInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryMarketOrderHeaders{}
-	_result = &QueryMarketOrderResponse{}
-	_body, _err := client.QueryMarketOrderWithOptions(orderId, headers, runtime)
+	headers := &GetPersonalExperienceInfoHeaders{}
+	_result = &GetPersonalExperienceInfoResponse{}
+	_body, _err := client.GetPersonalExperienceInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -720,7 +753,6 @@ func (client *Client) QueryMarketOrder(orderId *string) (_result *QueryMarketOrd
 }
 
 func (client *Client) QueryMarketOrderWithOptions(orderId *string, headers *QueryMarketOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryMarketOrderResponse, _err error) {
-	orderId = openapiutil.GetEncodeParam(orderId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -733,8 +765,19 @@ func (client *Client) QueryMarketOrderWithOptions(orderId *string, headers *Quer
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMarketOrder"),
+		Version:     tea.String("appMarket_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/appMarket/orders/" + tea.StringValue(orderId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryMarketOrderResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryMarketOrder"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/appMarket/orders/"+tea.StringValue(orderId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -742,11 +785,11 @@ func (client *Client) QueryMarketOrderWithOptions(orderId *string, headers *Quer
 	return _result, _err
 }
 
-func (client *Client) UserTaskReport(request *UserTaskReportRequest) (_result *UserTaskReportResponse, _err error) {
+func (client *Client) QueryMarketOrder(orderId *string) (_result *QueryMarketOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UserTaskReportHeaders{}
-	_result = &UserTaskReportResponse{}
-	_body, _err := client.UserTaskReportWithOptions(request, headers, runtime)
+	headers := &QueryMarketOrderHeaders{}
+	_result = &QueryMarketOrderResponse{}
+	_body, _err := client.QueryMarketOrderWithOptions(orderId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -789,11 +832,34 @@ func (client *Client) UserTaskReportWithOptions(request *UserTaskReportRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UserTaskReport"),
+		Version:     tea.String("appMarket_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/appMarket/tasks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("boolean"),
+	}
 	_result = &UserTaskReportResponse{}
-	_body, _err := client.DoROARequest(tea.String("UserTaskReport"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/appMarket/tasks"), tea.String("boolean"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UserTaskReport(request *UserTaskReportRequest) (_result *UserTaskReportResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UserTaskReportHeaders{}
+	_result = &UserTaskReportResponse{}
+	_body, _err := client.UserTaskReportWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

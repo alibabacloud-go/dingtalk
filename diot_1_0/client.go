@@ -5,9 +5,11 @@
 package diot_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,9 +37,7 @@ func (s *BatchDeleteDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *BatchDe
 }
 
 type BatchDeleteDeviceRequest struct {
-	// 钉钉物联组织ID, 第三方平台必填，企业内部系统忽略。
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 设备ID列表，最多500条。
+	CorpId    *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
@@ -60,7 +60,6 @@ func (s *BatchDeleteDeviceRequest) SetDeviceIds(v []*string) *BatchDeleteDeviceR
 }
 
 type BatchDeleteDeviceResponseBody struct {
-	// 成功删除设备ID列表。
 	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
@@ -78,8 +77,9 @@ func (s *BatchDeleteDeviceResponseBody) SetDeviceIds(v []*string) *BatchDeleteDe
 }
 
 type BatchDeleteDeviceResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchDeleteDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchDeleteDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchDeleteDeviceResponse) String() string {
@@ -92,6 +92,11 @@ func (s BatchDeleteDeviceResponse) GoString() string {
 
 func (s *BatchDeleteDeviceResponse) SetHeaders(v map[string]*string) *BatchDeleteDeviceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchDeleteDeviceResponse) SetStatusCode(v int32) *BatchDeleteDeviceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -124,9 +129,7 @@ func (s *BatchRegisterDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchRegisterDeviceRequest struct {
-	// 钉钉物联组织ID, 第三方平台必填，企业内部系统忽略。
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 设备列表。
+	CorpId  *string                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	Devices []*BatchRegisterDeviceRequestDevices `json:"devices,omitempty" xml:"devices,omitempty" type:"Repeated"`
 }
 
@@ -149,26 +152,16 @@ func (s *BatchRegisterDeviceRequest) SetDevices(v []*BatchRegisterDeviceRequestD
 }
 
 type BatchRegisterDeviceRequestDevices struct {
-	// 设备ID。
-	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 设备名称。
-	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// 设备状态  0:在线  1:离线
-	DeviceStatus *int32 `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	// 设备类型，自定义传入，最多128个字节。
-	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
-	// 设备类型名称，自定义传入，最多128个字节，与deviceType一一对应。
-	DeviceTypeName *string `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
-	// 第三方平台定制参数，企业内部系统忽略。
-	ExtraData map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
-	// 视频流地址直播流地址，支持rtmp、flv、hls等格式，需要https协议。
-	LiveUrls *BatchRegisterDeviceRequestDevicesLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
-	// 设备地址。
-	Location *string `json:"location,omitempty" xml:"location,omitempty"`
-	// 父设备ID。
-	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	// 产品类型 CAMERA：摄像头，可看直播 OTHERS：非摄像头
-	ProductType *string `json:"productType,omitempty" xml:"productType,omitempty"`
+	DeviceId       *string                                    `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	DeviceName     *string                                    `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	DeviceStatus   *int32                                     `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	DeviceType     *string                                    `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	DeviceTypeName *string                                    `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
+	ExtraData      map[string]interface{}                     `json:"extraData,omitempty" xml:"extraData,omitempty"`
+	LiveUrls       *BatchRegisterDeviceRequestDevicesLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
+	Location       *string                                    `json:"location,omitempty" xml:"location,omitempty"`
+	ParentId       *string                                    `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	ProductType    *string                                    `json:"productType,omitempty" xml:"productType,omitempty"`
 }
 
 func (s BatchRegisterDeviceRequestDevices) String() string {
@@ -230,11 +223,8 @@ func (s *BatchRegisterDeviceRequestDevices) SetProductType(v string) *BatchRegis
 }
 
 type BatchRegisterDeviceRequestDevicesLiveUrls struct {
-	// flv格式视频流地址
-	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
-	// hls格式视频流地址
-	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
-	// rtmp格式视频流地址
+	Flv  *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	Hls  *string `json:"hls,omitempty" xml:"hls,omitempty"`
 	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
 }
 
@@ -262,7 +252,6 @@ func (s *BatchRegisterDeviceRequestDevicesLiveUrls) SetRtmp(v string) *BatchRegi
 }
 
 type BatchRegisterDeviceResponseBody struct {
-	// 注册成功的设备ID列表。
 	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
@@ -280,8 +269,9 @@ func (s *BatchRegisterDeviceResponseBody) SetDeviceIds(v []*string) *BatchRegist
 }
 
 type BatchRegisterDeviceResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchRegisterDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchRegisterDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchRegisterDeviceResponse) String() string {
@@ -294,6 +284,11 @@ func (s BatchRegisterDeviceResponse) GoString() string {
 
 func (s *BatchRegisterDeviceResponse) SetHeaders(v map[string]*string) *BatchRegisterDeviceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchRegisterDeviceResponse) SetStatusCode(v int32) *BatchRegisterDeviceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -326,9 +321,7 @@ func (s *BatchRegisterEventTypeHeaders) SetXAcsDingtalkAccessToken(v string) *Ba
 }
 
 type BatchRegisterEventTypeRequest struct {
-	// 钉钉物联组织ID, 第三方平台必填，企业内部系统忽略。
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 事件类型列表，最多支持添加500个。
+	CorpId     *string                                    `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	EventTypes []*BatchRegisterEventTypeRequestEventTypes `json:"eventTypes,omitempty" xml:"eventTypes,omitempty" type:"Repeated"`
 }
 
@@ -351,9 +344,7 @@ func (s *BatchRegisterEventTypeRequest) SetEventTypes(v []*BatchRegisterEventTyp
 }
 
 type BatchRegisterEventTypeRequestEventTypes struct {
-	// 事件类型(唯一)，最长20个字符。
-	EventType *string `json:"eventType,omitempty" xml:"eventType,omitempty"`
-	// 事件类型名称，长度4-20个字符，一个中文汉字算2个字符。
+	EventType     *string `json:"eventType,omitempty" xml:"eventType,omitempty"`
 	EventTypeName *string `json:"eventTypeName,omitempty" xml:"eventTypeName,omitempty"`
 }
 
@@ -376,7 +367,6 @@ func (s *BatchRegisterEventTypeRequestEventTypes) SetEventTypeName(v string) *Ba
 }
 
 type BatchRegisterEventTypeResponseBody struct {
-	// 注册成功的事件类型列表。
 	EventTypes []*string `json:"eventTypes,omitempty" xml:"eventTypes,omitempty" type:"Repeated"`
 }
 
@@ -394,8 +384,9 @@ func (s *BatchRegisterEventTypeResponseBody) SetEventTypes(v []*string) *BatchRe
 }
 
 type BatchRegisterEventTypeResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchRegisterEventTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchRegisterEventTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchRegisterEventTypeResponse) String() string {
@@ -408,6 +399,11 @@ func (s BatchRegisterEventTypeResponse) GoString() string {
 
 func (s *BatchRegisterEventTypeResponse) SetHeaders(v map[string]*string) *BatchRegisterEventTypeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchRegisterEventTypeResponse) SetStatusCode(v int32) *BatchRegisterEventTypeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -440,9 +436,7 @@ func (s *BatchUpdateDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *BatchUp
 }
 
 type BatchUpdateDeviceRequest struct {
-	// 钉钉物联组织ID, 第三方平台必填，企业内部系统忽略。
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 设备列表。
+	CorpId  *string                            `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	Devices []*BatchUpdateDeviceRequestDevices `json:"devices,omitempty" xml:"devices,omitempty" type:"Repeated"`
 }
 
@@ -465,18 +459,12 @@ func (s *BatchUpdateDeviceRequest) SetDevices(v []*BatchUpdateDeviceRequestDevic
 }
 
 type BatchUpdateDeviceRequestDevices struct {
-	// 设备ID。
-	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 设备名称。
-	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// 设备状态 0:在线 1:离线
-	DeviceStatus *int32 `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	// 第三方平台定制参数，企业内部系统忽略。
-	ExtraData map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
-	// 视频流地址直播流地址，支持rtmp、flv、hls等格式，需要https协议。
-	LiveUrls *BatchUpdateDeviceRequestDevicesLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
-	// 设备地址。
-	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	DeviceId     *string                                  `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	DeviceName   *string                                  `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	DeviceStatus *int32                                   `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	ExtraData    map[string]interface{}                   `json:"extraData,omitempty" xml:"extraData,omitempty"`
+	LiveUrls     *BatchUpdateDeviceRequestDevicesLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
+	Location     *string                                  `json:"location,omitempty" xml:"location,omitempty"`
 }
 
 func (s BatchUpdateDeviceRequestDevices) String() string {
@@ -518,11 +506,8 @@ func (s *BatchUpdateDeviceRequestDevices) SetLocation(v string) *BatchUpdateDevi
 }
 
 type BatchUpdateDeviceRequestDevicesLiveUrls struct {
-	// flv格式视频流地址
-	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
-	// hls格式视频流地址
-	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
-	// rtmp格式视频流地址
+	Flv  *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	Hls  *string `json:"hls,omitempty" xml:"hls,omitempty"`
 	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
 }
 
@@ -550,7 +535,6 @@ func (s *BatchUpdateDeviceRequestDevicesLiveUrls) SetRtmp(v string) *BatchUpdate
 }
 
 type BatchUpdateDeviceResponseBody struct {
-	// 修改成功的设备ID列表。
 	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
@@ -568,8 +552,9 @@ func (s *BatchUpdateDeviceResponseBody) SetDeviceIds(v []*string) *BatchUpdateDe
 }
 
 type BatchUpdateDeviceResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchUpdateDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchUpdateDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchUpdateDeviceResponse) String() string {
@@ -582,6 +567,11 @@ func (s BatchUpdateDeviceResponse) GoString() string {
 
 func (s *BatchUpdateDeviceResponse) SetHeaders(v map[string]*string) *BatchUpdateDeviceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateDeviceResponse) SetStatusCode(v int32) *BatchUpdateDeviceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -614,16 +604,11 @@ func (s *BindSystemHeaders) SetXAcsDingtalkAccessToken(v string) *BindSystemHead
 }
 
 type BindSystemRequest struct {
-	// 与三方平台绑定验证的临时授权码。
-	AuthCode *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
-	// 三方平台的用户ID。
-	ClientId *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
-	// 三方平台的用户名。
-	ClientName *string `json:"clientName,omitempty" xml:"clientName,omitempty"`
-	// 三方平台的用户的钉钉物联组织ID。
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 三方平台协定的其它参数。
-	ExtraData map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
+	AuthCode   *string                `json:"authCode,omitempty" xml:"authCode,omitempty"`
+	ClientId   *string                `json:"clientId,omitempty" xml:"clientId,omitempty"`
+	ClientName *string                `json:"clientName,omitempty" xml:"clientName,omitempty"`
+	CorpId     *string                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtraData  map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
 }
 
 func (s BindSystemRequest) String() string {
@@ -660,10 +645,8 @@ func (s *BindSystemRequest) SetExtraData(v map[string]interface{}) *BindSystemRe
 }
 
 type BindSystemResponseBody struct {
-	// 三方平台的用户ID。
 	ClientId *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
-	// 钉钉物联组织ID。
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s BindSystemResponseBody) String() string {
@@ -685,8 +668,9 @@ func (s *BindSystemResponseBody) SetCorpId(v string) *BindSystemResponseBody {
 }
 
 type BindSystemResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BindSystemResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BindSystemResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BindSystemResponse) String() string {
@@ -699,6 +683,11 @@ func (s BindSystemResponse) GoString() string {
 
 func (s *BindSystemResponse) SetHeaders(v map[string]*string) *BindSystemResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BindSystemResponse) SetStatusCode(v int32) *BindSystemResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -731,14 +720,10 @@ func (s *DeviceConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *DeviceCo
 }
 
 type DeviceConferenceRequest struct {
-	// 会议主题，最多不能超20个中文。
-	ConfTitle *string `json:"confTitle,omitempty" xml:"confTitle,omitempty"`
-	// 钉钉会议ID，加入已存在的会议必填。
-	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	// 钉钉会议密码，加入已存在的会议必填。
-	ConferencePassword *string `json:"conferencePassword,omitempty" xml:"conferencePassword,omitempty"`
-	// 需要邀请的设备ID，最多5个。
-	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
+	ConfTitle          *string   `json:"confTitle,omitempty" xml:"confTitle,omitempty"`
+	ConferenceId       *string   `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	ConferencePassword *string   `json:"conferencePassword,omitempty" xml:"conferencePassword,omitempty"`
+	DeviceIds          []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
 func (s DeviceConferenceRequest) String() string {
@@ -770,7 +755,6 @@ func (s *DeviceConferenceRequest) SetDeviceIds(v []*string) *DeviceConferenceReq
 }
 
 type DeviceConferenceResponseBody struct {
-	// 会议ID
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 }
 
@@ -788,8 +772,9 @@ func (s *DeviceConferenceResponseBody) SetConferenceId(v string) *DeviceConferen
 }
 
 type DeviceConferenceResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeviceConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeviceConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeviceConferenceResponse) String() string {
@@ -802,6 +787,11 @@ func (s DeviceConferenceResponse) GoString() string {
 
 func (s *DeviceConferenceResponse) SetHeaders(v map[string]*string) *DeviceConferenceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeviceConferenceResponse) SetStatusCode(v int32) *DeviceConferenceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -834,26 +824,16 @@ func (s *PushEventHeaders) SetXAcsDingtalkAccessToken(v string) *PushEventHeader
 }
 
 type PushEventRequest struct {
-	// 钉钉物联组织ID, 第三方平台必填，企业内部系统忽略。
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 触发事件设备ID。
-	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 事件ID。
-	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
-	// 事件名称，长度4-20个字符，一个中文汉字算2个字符。
-	EventName *string `json:"eventName,omitempty" xml:"eventName,omitempty"`
-	// 事件类型，最长20个字符。
-	EventType *string `json:"eventType,omitempty" xml:"eventType,omitempty"`
-	// 第三方平台定制参数，企业内部系统忽略。
-	ExtraData map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
-	// 事件发生地点。
-	Location *string `json:"location,omitempty" xml:"location,omitempty"`
-	// 事件文字信息。
-	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
-	// 事件发生事件，Unix时间戳，单位毫秒。
-	OccurrenceTime *int64 `json:"occurrenceTime,omitempty" xml:"occurrenceTime,omitempty"`
-	// 事件图片地址列表。
-	PicUrls []*string `json:"picUrls,omitempty" xml:"picUrls,omitempty" type:"Repeated"`
+	CorpId         *string                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeviceId       *string                `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	EventId        *string                `json:"eventId,omitempty" xml:"eventId,omitempty"`
+	EventName      *string                `json:"eventName,omitempty" xml:"eventName,omitempty"`
+	EventType      *string                `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	ExtraData      map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
+	Location       *string                `json:"location,omitempty" xml:"location,omitempty"`
+	Msg            *string                `json:"msg,omitempty" xml:"msg,omitempty"`
+	OccurrenceTime *int64                 `json:"occurrenceTime,omitempty" xml:"occurrenceTime,omitempty"`
+	PicUrls        []*string              `json:"picUrls,omitempty" xml:"picUrls,omitempty" type:"Repeated"`
 }
 
 func (s PushEventRequest) String() string {
@@ -915,7 +895,6 @@ func (s *PushEventRequest) SetPicUrls(v []*string) *PushEventRequest {
 }
 
 type PushEventResponseBody struct {
-	// 事件ID。
 	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
 }
 
@@ -933,8 +912,9 @@ func (s *PushEventResponseBody) SetEventId(v string) *PushEventResponseBody {
 }
 
 type PushEventResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PushEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PushEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PushEventResponse) String() string {
@@ -947,6 +927,11 @@ func (s PushEventResponse) GoString() string {
 
 func (s *PushEventResponse) SetHeaders(v map[string]*string) *PushEventResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PushEventResponse) SetStatusCode(v int32) *PushEventResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -979,12 +964,9 @@ func (s *QueryDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDeviceHe
 }
 
 type QueryDeviceRequest struct {
-	// 钉钉组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 指定显示返回结果中的第几页的内容。默认值是 1
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 指定返回结果中每页显示的记录数量，最大值是50。默认值是10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryDeviceRequest) String() string {
@@ -1011,14 +993,10 @@ func (s *QueryDeviceRequest) SetPageSize(v int64) *QueryDeviceRequest {
 }
 
 type QueryDeviceResponseBody struct {
-	// 结果数据
-	Data []*QueryDeviceResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	// 当前页码
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 页面大小
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 总数
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data       []*QueryDeviceResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	PageNumber *int64                         `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64                         `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TotalCount *int64                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryDeviceResponseBody) String() string {
@@ -1050,24 +1028,15 @@ func (s *QueryDeviceResponseBody) SetTotalCount(v int64) *QueryDeviceResponseBod
 }
 
 type QueryDeviceResponseBodyData struct {
-	// 设备id
-	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	// 设备昵称
-	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// 设备状态 0:在线 1:离线
-	DeviceStatus *int64 `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	// 设备类型
-	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
-	// 设备类型名称
-	DeviceTypeName *string `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
-	// 直播地址
-	LiveUrls *QueryDeviceResponseBodyDataLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
-	// 设备地址
-	Location *string `json:"location,omitempty" xml:"location,omitempty"`
-	// 设备父节点id
-	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	// 产品类型 摄像头:CAMERA 其它:OTHERS
-	ProductType *string `json:"productType,omitempty" xml:"productType,omitempty"`
+	DeviceId       *string                              `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	DeviceName     *string                              `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	DeviceStatus   *int64                               `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	DeviceType     *string                              `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	DeviceTypeName *string                              `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
+	LiveUrls       *QueryDeviceResponseBodyDataLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
+	Location       *string                              `json:"location,omitempty" xml:"location,omitempty"`
+	ParentId       *string                              `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	ProductType    *string                              `json:"productType,omitempty" xml:"productType,omitempty"`
 }
 
 func (s QueryDeviceResponseBodyData) String() string {
@@ -1124,11 +1093,8 @@ func (s *QueryDeviceResponseBodyData) SetProductType(v string) *QueryDeviceRespo
 }
 
 type QueryDeviceResponseBodyDataLiveUrls struct {
-	// flv格式直播地址
-	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
-	// hls格式直播地址
-	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
-	// rtmp格式直播地址
+	Flv  *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	Hls  *string `json:"hls,omitempty" xml:"hls,omitempty"`
 	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
 }
 
@@ -1156,8 +1122,9 @@ func (s *QueryDeviceResponseBodyDataLiveUrls) SetRtmp(v string) *QueryDeviceResp
 }
 
 type QueryDeviceResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryDeviceResponse) String() string {
@@ -1170,6 +1137,11 @@ func (s QueryDeviceResponse) GoString() string {
 
 func (s *QueryDeviceResponse) SetHeaders(v map[string]*string) *QueryDeviceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryDeviceResponse) SetStatusCode(v int32) *QueryDeviceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1355,8 +1327,9 @@ func (s *QueryEventResponseBodyData) SetPicUrls(v []*string) *QueryEventResponse
 }
 
 type QueryEventResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryEventResponse) String() string {
@@ -1369,6 +1342,11 @@ func (s QueryEventResponse) GoString() string {
 
 func (s *QueryEventResponse) SetHeaders(v map[string]*string) *QueryEventResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryEventResponse) SetStatusCode(v int32) *QueryEventResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1401,28 +1379,17 @@ func (s *RegisterDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *RegisterDe
 }
 
 type RegisterDeviceRequest struct {
-	// 钉钉物联组织ID, 第三方平台必填，企业内部系统忽略
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 设备名称
-	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	// 设备状态 0:在线 1:离线
-	DeviceStatus *int32 `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	// 设备类型
-	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
-	// 设备类型名称
-	DeviceTypeName *string `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
-	// 设备id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 视频流地址直播流地址，支持rtmp、flv、hls等格式，需要https协议。
-	LiveUrls *RegisterDeviceRequestLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
-	// 设备地址
-	Location *string `json:"location,omitempty" xml:"location,omitempty"`
-	// 设备昵称
-	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	// 设备父节点id
-	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	// 设备类型 摄像头:CAMERA 其它:OTHERS
-	ProductType *string `json:"productType,omitempty" xml:"productType,omitempty"`
+	CorpId         *string                        `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeviceName     *string                        `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	DeviceStatus   *int32                         `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	DeviceType     *string                        `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	DeviceTypeName *string                        `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
+	Id             *string                        `json:"id,omitempty" xml:"id,omitempty"`
+	LiveUrls       *RegisterDeviceRequestLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
+	Location       *string                        `json:"location,omitempty" xml:"location,omitempty"`
+	NickName       *string                        `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	ParentId       *string                        `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	ProductType    *string                        `json:"productType,omitempty" xml:"productType,omitempty"`
 }
 
 func (s RegisterDeviceRequest) String() string {
@@ -1489,11 +1456,8 @@ func (s *RegisterDeviceRequest) SetProductType(v string) *RegisterDeviceRequest 
 }
 
 type RegisterDeviceRequestLiveUrls struct {
-	// flv格式视频流
-	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
-	// hls格式视频流地址
-	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
-	// rtmp格式视频流
+	Flv  *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	Hls  *string `json:"hls,omitempty" xml:"hls,omitempty"`
 	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
 }
 
@@ -1521,7 +1485,6 @@ func (s *RegisterDeviceRequestLiveUrls) SetRtmp(v string) *RegisterDeviceRequest
 }
 
 type RegisterDeviceResponseBody struct {
-	// 设备id
 	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
 }
 
@@ -1539,8 +1502,9 @@ func (s *RegisterDeviceResponseBody) SetDeviceId(v string) *RegisterDeviceRespon
 }
 
 type RegisterDeviceResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RegisterDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RegisterDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RegisterDeviceResponse) String() string {
@@ -1553,6 +1517,11 @@ func (s RegisterDeviceResponse) GoString() string {
 
 func (s *RegisterDeviceResponse) SetHeaders(v map[string]*string) *RegisterDeviceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RegisterDeviceResponse) SetStatusCode(v int32) *RegisterDeviceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1576,24 +1545,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) BatchDeleteDevice(request *BatchDeleteDeviceRequest) (_result *BatchDeleteDeviceResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &BatchDeleteDeviceHeaders{}
-	_result = &BatchDeleteDeviceResponse{}
-	_body, _err := client.BatchDeleteDeviceWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) BatchDeleteDeviceWithOptions(request *BatchDeleteDeviceRequest, headers *BatchDeleteDeviceHeaders, runtime *util.RuntimeOptions) (_result *BatchDeleteDeviceResponse, _err error) {
@@ -1623,8 +1586,19 @@ func (client *Client) BatchDeleteDeviceWithOptions(request *BatchDeleteDeviceReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchDeleteDevice"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/devices/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchDeleteDeviceResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchDeleteDevice"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/diot/devices/remove"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1632,11 +1606,11 @@ func (client *Client) BatchDeleteDeviceWithOptions(request *BatchDeleteDeviceReq
 	return _result, _err
 }
 
-func (client *Client) BatchRegisterDevice(request *BatchRegisterDeviceRequest) (_result *BatchRegisterDeviceResponse, _err error) {
+func (client *Client) BatchDeleteDevice(request *BatchDeleteDeviceRequest) (_result *BatchDeleteDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchRegisterDeviceHeaders{}
-	_result = &BatchRegisterDeviceResponse{}
-	_body, _err := client.BatchRegisterDeviceWithOptions(request, headers, runtime)
+	headers := &BatchDeleteDeviceHeaders{}
+	_result = &BatchDeleteDeviceResponse{}
+	_body, _err := client.BatchDeleteDeviceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1671,8 +1645,19 @@ func (client *Client) BatchRegisterDeviceWithOptions(request *BatchRegisterDevic
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchRegisterDevice"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/devices/registrations/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchRegisterDeviceResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchRegisterDevice"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/diot/devices/registrations/batch"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1680,11 +1665,11 @@ func (client *Client) BatchRegisterDeviceWithOptions(request *BatchRegisterDevic
 	return _result, _err
 }
 
-func (client *Client) BatchRegisterEventType(request *BatchRegisterEventTypeRequest) (_result *BatchRegisterEventTypeResponse, _err error) {
+func (client *Client) BatchRegisterDevice(request *BatchRegisterDeviceRequest) (_result *BatchRegisterDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchRegisterEventTypeHeaders{}
-	_result = &BatchRegisterEventTypeResponse{}
-	_body, _err := client.BatchRegisterEventTypeWithOptions(request, headers, runtime)
+	headers := &BatchRegisterDeviceHeaders{}
+	_result = &BatchRegisterDeviceResponse{}
+	_body, _err := client.BatchRegisterDeviceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1719,8 +1704,19 @@ func (client *Client) BatchRegisterEventTypeWithOptions(request *BatchRegisterEv
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchRegisterEventType"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/eventTypes/registrations/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchRegisterEventTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchRegisterEventType"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/diot/eventTypes/registrations/batch"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1728,11 +1724,11 @@ func (client *Client) BatchRegisterEventTypeWithOptions(request *BatchRegisterEv
 	return _result, _err
 }
 
-func (client *Client) BatchUpdateDevice(request *BatchUpdateDeviceRequest) (_result *BatchUpdateDeviceResponse, _err error) {
+func (client *Client) BatchRegisterEventType(request *BatchRegisterEventTypeRequest) (_result *BatchRegisterEventTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchUpdateDeviceHeaders{}
-	_result = &BatchUpdateDeviceResponse{}
-	_body, _err := client.BatchUpdateDeviceWithOptions(request, headers, runtime)
+	headers := &BatchRegisterEventTypeHeaders{}
+	_result = &BatchRegisterEventTypeResponse{}
+	_body, _err := client.BatchRegisterEventTypeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1767,8 +1763,19 @@ func (client *Client) BatchUpdateDeviceWithOptions(request *BatchUpdateDeviceReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchUpdateDevice"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/devices/batch"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchUpdateDeviceResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchUpdateDevice"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/diot/devices/batch"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1776,11 +1783,11 @@ func (client *Client) BatchUpdateDeviceWithOptions(request *BatchUpdateDeviceReq
 	return _result, _err
 }
 
-func (client *Client) BindSystem(request *BindSystemRequest) (_result *BindSystemResponse, _err error) {
+func (client *Client) BatchUpdateDevice(request *BatchUpdateDeviceRequest) (_result *BatchUpdateDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BindSystemHeaders{}
-	_result = &BindSystemResponse{}
-	_body, _err := client.BindSystemWithOptions(request, headers, runtime)
+	headers := &BatchUpdateDeviceHeaders{}
+	_result = &BatchUpdateDeviceResponse{}
+	_body, _err := client.BatchUpdateDeviceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1827,8 +1834,19 @@ func (client *Client) BindSystemWithOptions(request *BindSystemRequest, headers 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BindSystem"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/systems/bind"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BindSystemResponse{}
-	_body, _err := client.DoROARequest(tea.String("BindSystem"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/diot/systems/bind"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1836,11 +1854,11 @@ func (client *Client) BindSystemWithOptions(request *BindSystemRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) DeviceConference(request *DeviceConferenceRequest) (_result *DeviceConferenceResponse, _err error) {
+func (client *Client) BindSystem(request *BindSystemRequest) (_result *BindSystemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeviceConferenceHeaders{}
-	_result = &DeviceConferenceResponse{}
-	_body, _err := client.DeviceConferenceWithOptions(request, headers, runtime)
+	headers := &BindSystemHeaders{}
+	_result = &BindSystemResponse{}
+	_body, _err := client.BindSystemWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1883,8 +1901,19 @@ func (client *Client) DeviceConferenceWithOptions(request *DeviceConferenceReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeviceConference"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/deviceConferences/initiate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeviceConferenceResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeviceConference"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/diot/deviceConferences/initiate"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1892,11 +1921,11 @@ func (client *Client) DeviceConferenceWithOptions(request *DeviceConferenceReque
 	return _result, _err
 }
 
-func (client *Client) PushEvent(request *PushEventRequest) (_result *PushEventResponse, _err error) {
+func (client *Client) DeviceConference(request *DeviceConferenceRequest) (_result *DeviceConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PushEventHeaders{}
-	_result = &PushEventResponse{}
-	_body, _err := client.PushEventWithOptions(request, headers, runtime)
+	headers := &DeviceConferenceHeaders{}
+	_result = &DeviceConferenceResponse{}
+	_body, _err := client.DeviceConferenceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1963,8 +1992,19 @@ func (client *Client) PushEventWithOptions(request *PushEventRequest, headers *P
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PushEvent"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/events/push"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PushEventResponse{}
-	_body, _err := client.DoROARequest(tea.String("PushEvent"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/diot/events/push"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1972,11 +2012,11 @@ func (client *Client) PushEventWithOptions(request *PushEventRequest, headers *P
 	return _result, _err
 }
 
-func (client *Client) QueryDevice(request *QueryDeviceRequest) (_result *QueryDeviceResponse, _err error) {
+func (client *Client) PushEvent(request *PushEventRequest) (_result *PushEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryDeviceHeaders{}
-	_result = &QueryDeviceResponse{}
-	_body, _err := client.QueryDeviceWithOptions(request, headers, runtime)
+	headers := &PushEventHeaders{}
+	_result = &PushEventResponse{}
+	_body, _err := client.PushEventWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2015,8 +2055,19 @@ func (client *Client) QueryDeviceWithOptions(request *QueryDeviceRequest, header
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDevice"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/devices"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryDeviceResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryDevice"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/diot/devices"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2024,11 +2075,11 @@ func (client *Client) QueryDeviceWithOptions(request *QueryDeviceRequest, header
 	return _result, _err
 }
 
-func (client *Client) QueryEvent(request *QueryEventRequest) (_result *QueryEventResponse, _err error) {
+func (client *Client) QueryDevice(request *QueryDeviceRequest) (_result *QueryDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryEventHeaders{}
-	_result = &QueryEventResponse{}
-	_body, _err := client.QueryEventWithOptions(request, headers, runtime)
+	headers := &QueryDeviceHeaders{}
+	_result = &QueryDeviceResponse{}
+	_body, _err := client.QueryDeviceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2091,8 +2142,19 @@ func (client *Client) QueryEventWithOptions(request *QueryEventRequest, headers 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryEvent"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/events/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryEventResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryEvent"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/diot/events/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2100,11 +2162,11 @@ func (client *Client) QueryEventWithOptions(request *QueryEventRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) RegisterDevice(request *RegisterDeviceRequest) (_result *RegisterDeviceResponse, _err error) {
+func (client *Client) QueryEvent(request *QueryEventRequest) (_result *QueryEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RegisterDeviceHeaders{}
-	_result = &RegisterDeviceResponse{}
-	_body, _err := client.RegisterDeviceWithOptions(request, headers, runtime)
+	headers := &QueryEventHeaders{}
+	_result = &QueryEventResponse{}
+	_body, _err := client.QueryEventWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2175,11 +2237,34 @@ func (client *Client) RegisterDeviceWithOptions(request *RegisterDeviceRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RegisterDevice"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/devices/register"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RegisterDeviceResponse{}
-	_body, _err := client.DoROARequest(tea.String("RegisterDevice"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/diot/devices/register"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RegisterDevice(request *RegisterDeviceRequest) (_result *RegisterDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RegisterDeviceHeaders{}
+	_result = &RegisterDeviceResponse{}
+	_body, _err := client.RegisterDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

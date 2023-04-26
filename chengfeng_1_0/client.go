@@ -5,41 +5,29 @@
 package chengfeng_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type CfEmploymentRecordResp struct {
-	// 部门编码
-	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
-	// 部门名称
-	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	// 人员状态(2:试用,3:正式)
-	EmployeeStatus *string `json:"employeeStatus,omitempty" xml:"employeeStatus,omitempty"`
-	// 结束时间
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 是否是最新任职
-	IsLatestRecord *bool `json:"isLatestRecord,omitempty" xml:"isLatestRecord,omitempty"`
-	// 职级名称
-	JobLevelName *string `json:"jobLevelName,omitempty" xml:"jobLevelName,omitempty"`
-	// 职位编码
+	DeptCode        *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	DeptName        *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	EmployeeStatus  *string `json:"employeeStatus,omitempty" xml:"employeeStatus,omitempty"`
+	EndDate         *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	IsLatestRecord  *bool   `json:"isLatestRecord,omitempty" xml:"isLatestRecord,omitempty"`
+	JobLevelName    *string `json:"jobLevelName,omitempty" xml:"jobLevelName,omitempty"`
 	JobPositionCode *string `json:"jobPositionCode,omitempty" xml:"jobPositionCode,omitempty"`
-	// 职位名称
 	JobPositionName *string `json:"jobPositionName,omitempty" xml:"jobPositionName,omitempty"`
-	// 职务编码
-	JobPostCode *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
-	// 职务名称
-	JobPostName *string `json:"jobPostName,omitempty" xml:"jobPostName,omitempty"`
-	// 任职状态(1:任职中,2:任职结束)
-	ServiceStatus *string `json:"serviceStatus,omitempty" xml:"serviceStatus,omitempty"`
-	// 任职类型(5:主职, 6:兼职)
-	ServiceType *string `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
-	// 开始时间
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 工号
-	WorkNumbers *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
+	JobPostCode     *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
+	JobPostName     *string `json:"jobPostName,omitempty" xml:"jobPostName,omitempty"`
+	ServiceStatus   *string `json:"serviceStatus,omitempty" xml:"serviceStatus,omitempty"`
+	ServiceType     *string `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
+	StartDate       *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	WorkNumbers     *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
 }
 
 func (s CfEmploymentRecordResp) String() string {
@@ -121,14 +109,10 @@ func (s *CfEmploymentRecordResp) SetWorkNumbers(v string) *CfEmploymentRecordRes
 }
 
 type CfJobLevelResp struct {
-	// 级别
-	Level *int64 `json:"level,omitempty" xml:"level,omitempty"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 生效日期
+	Level     *int64  `json:"level,omitempty" xml:"level,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
 	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 失效日期
-	StopDate *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
+	StopDate  *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
 }
 
 func (s CfJobLevelResp) String() string {
@@ -160,10 +144,8 @@ func (s *CfJobLevelResp) SetStopDate(v string) *CfJobLevelResp {
 }
 
 type CfJobPositionResp struct {
-	// 职位编码
 	JobPositionCode *string `json:"jobPositionCode,omitempty" xml:"jobPositionCode,omitempty"`
-	// 职位名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CfJobPositionResp) String() string {
@@ -185,10 +167,8 @@ func (s *CfJobPositionResp) SetName(v string) *CfJobPositionResp {
 }
 
 type CfJobPostResp struct {
-	// 职务编码
 	JobPostCode *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
-	// 职务名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CfJobPostResp) String() string {
@@ -210,18 +190,12 @@ func (s *CfJobPostResp) SetName(v string) *CfJobPostResp {
 }
 
 type CfOrgResp struct {
-	// 部门编码
-	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
-	// 部门名称
-	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	// 级别
-	Level *int64 `json:"level,omitempty" xml:"level,omitempty"`
-	// 部门编码路径
+	DeptCode             *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	DeptName             *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	Level                *int64  `json:"level,omitempty" xml:"level,omitempty"`
 	OrganizationCodePath *string `json:"organizationCodePath,omitempty" xml:"organizationCodePath,omitempty"`
-	// 部门路径
-	OrganizationPath *string `json:"organizationPath,omitempty" xml:"organizationPath,omitempty"`
-	// 父级部门编码
-	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+	OrganizationPath     *string `json:"organizationPath,omitempty" xml:"organizationPath,omitempty"`
+	ParentDeptCode       *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
 }
 
 func (s CfOrgResp) String() string {
@@ -263,19 +237,12 @@ func (s *CfOrgResp) SetParentDeptCode(v string) *CfOrgResp {
 }
 
 type CfStaffResp struct {
-	// 部门编码
-	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
-	// 部门名称
-	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	// 邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
-	// 手机号
-	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	// 姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 花名
-	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	// 工号
+	DeptCode    *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	DeptName    *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	Email       *string `json:"email,omitempty" xml:"email,omitempty"`
+	Mobile      *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	NickName    *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
 	WorkNumbers *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
 }
 
@@ -323,30 +290,18 @@ func (s *CfStaffResp) SetWorkNumbers(v string) *CfStaffResp {
 }
 
 type OpenAnalyzeDataDTO struct {
-	// 部门总人数
-	DeptCount *int32 `json:"deptCount,omitempty" xml:"deptCount,omitempty"`
-	// 无对齐O人数
-	NoAlignObjectiveCount *int32 `json:"noAlignObjectiveCount,omitempty" xml:"noAlignObjectiveCount,omitempty"`
-	// 未关联关键行动人数
-	NoKeyActionCount *int32 `json:"noKeyActionCount,omitempty" xml:"noKeyActionCount,omitempty"`
-	// 目标对齐率
-	ObjectiveAlignRate *float64 `json:"objectiveAlignRate,omitempty" xml:"objectiveAlignRate,omitempty"`
-	// 目标未设定人数
-	ObjectiveNoSetCount *int32 `json:"objectiveNoSetCount,omitempty" xml:"objectiveNoSetCount,omitempty"`
-	// 有风险O的人数
-	ObjectiveRiskCount *int32 `json:"objectiveRiskCount,omitempty" xml:"objectiveRiskCount,omitempty"`
-	// 目标设定率
-	ObjectiveSetRate *float64 `json:"objectiveSetRate,omitempty" xml:"objectiveSetRate,omitempty"`
-	// 只有1个KR的人数
-	OnlyOneKeyResultCount *int32 `json:"onlyOneKeyResultCount,omitempty" xml:"onlyOneKeyResultCount,omitempty"`
-	// 只有1个O的人数
-	OnlyOneObjectiveCount *int32 `json:"onlyOneObjectiveCount,omitempty" xml:"onlyOneObjectiveCount,omitempty"`
-	// 近15天进展更新率
+	DeptCount                    *int32   `json:"deptCount,omitempty" xml:"deptCount,omitempty"`
+	NoAlignObjectiveCount        *int32   `json:"noAlignObjectiveCount,omitempty" xml:"noAlignObjectiveCount,omitempty"`
+	NoKeyActionCount             *int32   `json:"noKeyActionCount,omitempty" xml:"noKeyActionCount,omitempty"`
+	ObjectiveAlignRate           *float64 `json:"objectiveAlignRate,omitempty" xml:"objectiveAlignRate,omitempty"`
+	ObjectiveNoSetCount          *int32   `json:"objectiveNoSetCount,omitempty" xml:"objectiveNoSetCount,omitempty"`
+	ObjectiveRiskCount           *int32   `json:"objectiveRiskCount,omitempty" xml:"objectiveRiskCount,omitempty"`
+	ObjectiveSetRate             *float64 `json:"objectiveSetRate,omitempty" xml:"objectiveSetRate,omitempty"`
+	OnlyOneKeyResultCount        *int32   `json:"onlyOneKeyResultCount,omitempty" xml:"onlyOneKeyResultCount,omitempty"`
+	OnlyOneObjectiveCount        *int32   `json:"onlyOneObjectiveCount,omitempty" xml:"onlyOneObjectiveCount,omitempty"`
 	ProgressUpdateRateLast15Days *float64 `json:"progressUpdateRateLast15Days,omitempty" xml:"progressUpdateRateLast15Days,omitempty"`
-	// 近30天进展更新率
 	ProgressUpdateRateLast30Days *float64 `json:"progressUpdateRateLast30Days,omitempty" xml:"progressUpdateRateLast30Days,omitempty"`
-	// 近7天进展更新率
-	ProgressUpdateRateLast7Days *float64 `json:"progressUpdateRateLast7Days,omitempty" xml:"progressUpdateRateLast7Days,omitempty"`
+	ProgressUpdateRateLast7Days  *float64 `json:"progressUpdateRateLast7Days,omitempty" xml:"progressUpdateRateLast7Days,omitempty"`
 }
 
 func (s OpenAnalyzeDataDTO) String() string {
@@ -418,18 +373,12 @@ func (s *OpenAnalyzeDataDTO) SetProgressUpdateRateLast7Days(v float64) *OpenAnal
 }
 
 type OpenKeyResultDTO struct {
-	// 主键
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// KR进度
-	Progress *int32 `json:"progress,omitempty" xml:"progress,omitempty"`
-	// KR的状态:1:正常 3:风险
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// “@”对象列表
+	Id            *string         `json:"id,omitempty" xml:"id,omitempty"`
+	Progress      *int32          `json:"progress,omitempty" xml:"progress,omitempty"`
+	Status        *int32          `json:"status,omitempty" xml:"status,omitempty"`
+	Title         *string         `json:"title,omitempty" xml:"title,omitempty"`
 	TitleMentions []*TitleMention `json:"titleMentions,omitempty" xml:"titleMentions,omitempty" type:"Repeated"`
-	// KR类型
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Type          *int32          `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s OpenKeyResultDTO) String() string {
@@ -471,22 +420,14 @@ func (s *OpenKeyResultDTO) SetType(v int32) *OpenKeyResultDTO {
 }
 
 type OpenObjectiveDTO struct {
-	// 负责人信息
-	Executor *OpenUserDTO `json:"executor,omitempty" xml:"executor,omitempty"`
-	// 主键
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// KR列表
+	Executor   *OpenUserDTO        `json:"executor,omitempty" xml:"executor,omitempty"`
+	Id         *string             `json:"id,omitempty" xml:"id,omitempty"`
 	KeyResults []*OpenKeyResultDTO `json:"keyResults,omitempty" xml:"keyResults,omitempty" type:"Repeated"`
-	// 周期信息
-	Period *OpenPeriodDTO `json:"period,omitempty" xml:"period,omitempty"`
-	// 进度
-	Progress *int32 `json:"progress,omitempty" xml:"progress,omitempty"`
-	// 状态
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 团队信息列表
-	Teams []*OpenTeamDTO `json:"teams,omitempty" xml:"teams,omitempty" type:"Repeated"`
-	// 目标标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Period     *OpenPeriodDTO      `json:"period,omitempty" xml:"period,omitempty"`
+	Progress   *int32              `json:"progress,omitempty" xml:"progress,omitempty"`
+	Status     *int32              `json:"status,omitempty" xml:"status,omitempty"`
+	Teams      []*OpenTeamDTO      `json:"teams,omitempty" xml:"teams,omitempty" type:"Repeated"`
+	Title      *string             `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s OpenObjectiveDTO) String() string {
@@ -538,16 +479,11 @@ func (s *OpenObjectiveDTO) SetTitle(v string) *OpenObjectiveDTO {
 }
 
 type OpenPeriodDTO struct {
-	// 结束日期
-	EndDate *int64 `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 周期id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 周期名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 周期类型
+	EndDate       *int64  `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
 	PeriodBizType *string `json:"periodBizType,omitempty" xml:"periodBizType,omitempty"`
-	// 开始日期
-	StartDate *int64 `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	StartDate     *int64  `json:"startDate,omitempty" xml:"startDate,omitempty"`
 }
 
 func (s OpenPeriodDTO) String() string {
@@ -584,18 +520,12 @@ func (s *OpenPeriodDTO) SetStartDate(v int64) *OpenPeriodDTO {
 }
 
 type OpenProgressDTO struct {
-	// 创建时间戳
-	Created *int64 `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建人信息
-	Creator *OpenUserDTO `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 进展内容
-	HtmlContent *string `json:"htmlContent,omitempty" xml:"htmlContent,omitempty"`
-	// 主键
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 更新人信息
-	Modifier *OpenUserDTO `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	// 更新时间戳
-	Updated *int64 `json:"updated,omitempty" xml:"updated,omitempty"`
+	Created     *int64       `json:"created,omitempty" xml:"created,omitempty"`
+	Creator     *OpenUserDTO `json:"creator,omitempty" xml:"creator,omitempty"`
+	HtmlContent *string      `json:"htmlContent,omitempty" xml:"htmlContent,omitempty"`
+	Id          *string      `json:"id,omitempty" xml:"id,omitempty"`
+	Modifier    *OpenUserDTO `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	Updated     *int64       `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s OpenProgressDTO) String() string {
@@ -637,11 +567,8 @@ func (s *OpenProgressDTO) SetUpdated(v int64) *OpenProgressDTO {
 }
 
 type OpenTeamDTO struct {
-	// 部门id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 部门名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 钉钉对应部门编号
+	Id     *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
 	OpenId *string `json:"openId,omitempty" xml:"openId,omitempty"`
 }
 
@@ -669,11 +596,8 @@ func (s *OpenTeamDTO) SetOpenId(v string) *OpenTeamDTO {
 }
 
 type OpenUserDTO struct {
-	// 用户id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 用户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 钉钉用户id
+	Id     *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -701,12 +625,9 @@ func (s *OpenUserDTO) SetUserId(v string) *OpenUserDTO {
 }
 
 type TitleMention struct {
-	// 结束位置
-	Length *int32 `json:"length,omitempty" xml:"length,omitempty"`
-	// 开始位置
-	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
-	// “@人员”对象信息
-	User *OpenUserDTO `json:"user,omitempty" xml:"user,omitempty"`
+	Length *int32       `json:"length,omitempty" xml:"length,omitempty"`
+	Offset *int32       `json:"offset,omitempty" xml:"offset,omitempty"`
+	User   *OpenUserDTO `json:"user,omitempty" xml:"user,omitempty"`
 }
 
 func (s TitleMention) String() string {
@@ -756,10 +677,8 @@ func (s *GetAllJobLevelHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllJobL
 }
 
 type GetAllJobLevelResponseBody struct {
-	// 返回数据
-	Content []*CfJobLevelResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   []*CfJobLevelResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	RequestId *string           `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetAllJobLevelResponseBody) String() string {
@@ -781,8 +700,9 @@ func (s *GetAllJobLevelResponseBody) SetRequestId(v string) *GetAllJobLevelRespo
 }
 
 type GetAllJobLevelResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAllJobLevelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAllJobLevelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAllJobLevelResponse) String() string {
@@ -795,6 +715,11 @@ func (s GetAllJobLevelResponse) GoString() string {
 
 func (s *GetAllJobLevelResponse) SetHeaders(v map[string]*string) *GetAllJobLevelResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetAllJobLevelResponse) SetStatusCode(v int32) *GetAllJobLevelResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -827,10 +752,8 @@ func (s *GetAllJobPositionHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllJ
 }
 
 type GetAllJobPositionResponseBody struct {
-	// 职位列表
-	Content []*CfJobPositionResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   []*CfJobPositionResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	RequestId *string              `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetAllJobPositionResponseBody) String() string {
@@ -852,8 +775,9 @@ func (s *GetAllJobPositionResponseBody) SetRequestId(v string) *GetAllJobPositio
 }
 
 type GetAllJobPositionResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAllJobPositionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAllJobPositionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAllJobPositionResponse) String() string {
@@ -866,6 +790,11 @@ func (s GetAllJobPositionResponse) GoString() string {
 
 func (s *GetAllJobPositionResponse) SetHeaders(v map[string]*string) *GetAllJobPositionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetAllJobPositionResponse) SetStatusCode(v int32) *GetAllJobPositionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -898,10 +827,8 @@ func (s *GetAllJobPostHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllJobPo
 }
 
 type GetAllJobPostResponseBody struct {
-	// 返回数据
-	Content []*CfJobPostResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   []*CfJobPostResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	RequestId *string          `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetAllJobPostResponseBody) String() string {
@@ -923,8 +850,9 @@ func (s *GetAllJobPostResponseBody) SetRequestId(v string) *GetAllJobPostRespons
 }
 
 type GetAllJobPostResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAllJobPostResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAllJobPostResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAllJobPostResponse) String() string {
@@ -937,6 +865,11 @@ func (s GetAllJobPostResponse) GoString() string {
 
 func (s *GetAllJobPostResponse) SetHeaders(v map[string]*string) *GetAllJobPostResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetAllJobPostResponse) SetStatusCode(v int32) *GetAllJobPostResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -969,10 +902,8 @@ func (s *GetAnalyzeDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetAnalyze
 }
 
 type GetAnalyzeDataRequest struct {
-	// 周期ID列表
 	PeriodIds []*string `json:"periodIds,omitempty" xml:"periodIds,omitempty" type:"Repeated"`
-	// 部门编号(钉钉部门号)
-	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	DeptId    *string   `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
 func (s GetAnalyzeDataRequest) String() string {
@@ -994,10 +925,9 @@ func (s *GetAnalyzeDataRequest) SetDeptId(v string) *GetAnalyzeDataRequest {
 }
 
 type GetAnalyzeDataResponseBody struct {
-	Content *OpenAnalyzeDataDTO `json:"content,omitempty" xml:"content,omitempty"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Content   *OpenAnalyzeDataDTO `json:"content,omitempty" xml:"content,omitempty"`
+	RequestId *string             `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool               `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetAnalyzeDataResponseBody) String() string {
@@ -1024,8 +954,9 @@ func (s *GetAnalyzeDataResponseBody) SetSuccess(v bool) *GetAnalyzeDataResponseB
 }
 
 type GetAnalyzeDataResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAnalyzeDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAnalyzeDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAnalyzeDataResponse) String() string {
@@ -1038,6 +969,11 @@ func (s GetAnalyzeDataResponse) GoString() string {
 
 func (s *GetAnalyzeDataResponse) SetHeaders(v map[string]*string) *GetAnalyzeDataResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetAnalyzeDataResponse) SetStatusCode(v int32) *GetAnalyzeDataResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1070,7 +1006,6 @@ func (s *GetChildOrgListHeaders) SetXAcsDingtalkAccessToken(v string) *GetChildO
 }
 
 type GetChildOrgListRequest struct {
-	// 部门编码
 	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
 }
 
@@ -1088,10 +1023,8 @@ func (s *GetChildOrgListRequest) SetDeptCode(v string) *GetChildOrgListRequest {
 }
 
 type GetChildOrgListResponseBody struct {
-	// 返回内容
-	Content []*CfOrgResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   []*CfOrgResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	RequestId *string      `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetChildOrgListResponseBody) String() string {
@@ -1113,8 +1046,9 @@ func (s *GetChildOrgListResponseBody) SetRequestId(v string) *GetChildOrgListRes
 }
 
 type GetChildOrgListResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetChildOrgListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetChildOrgListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetChildOrgListResponse) String() string {
@@ -1127,6 +1061,11 @@ func (s GetChildOrgListResponse) GoString() string {
 
 func (s *GetChildOrgListResponse) SetHeaders(v map[string]*string) *GetChildOrgListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetChildOrgListResponse) SetStatusCode(v int32) *GetChildOrgListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1159,7 +1098,6 @@ func (s *GetEmployeeInfoByWorkNoHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetEmployeeInfoByWorkNoRequest struct {
-	// 工号
 	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
@@ -1177,10 +1115,8 @@ func (s *GetEmployeeInfoByWorkNoRequest) SetWorkNo(v string) *GetEmployeeInfoByW
 }
 
 type GetEmployeeInfoByWorkNoResponseBody struct {
-	// 请求返回数据对象
 	Content *GetEmployeeInfoByWorkNoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// 接口请求成功标识,成功为true,失败为false
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetEmployeeInfoByWorkNoResponseBody) String() string {
@@ -1202,9 +1138,7 @@ func (s *GetEmployeeInfoByWorkNoResponseBody) SetSuccess(v bool) *GetEmployeeInf
 }
 
 type GetEmployeeInfoByWorkNoResponseBodyContent struct {
-	// 员工姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 员工工号
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
 	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
@@ -1227,8 +1161,9 @@ func (s *GetEmployeeInfoByWorkNoResponseBodyContent) SetWorkNo(v string) *GetEmp
 }
 
 type GetEmployeeInfoByWorkNoResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetEmployeeInfoByWorkNoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetEmployeeInfoByWorkNoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetEmployeeInfoByWorkNoResponse) String() string {
@@ -1241,6 +1176,11 @@ func (s GetEmployeeInfoByWorkNoResponse) GoString() string {
 
 func (s *GetEmployeeInfoByWorkNoResponse) SetHeaders(v map[string]*string) *GetEmployeeInfoByWorkNoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetEmployeeInfoByWorkNoResponse) SetStatusCode(v int32) *GetEmployeeInfoByWorkNoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1273,10 +1213,8 @@ func (s *GetEmploymentRecordByWorkNoHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type GetEmploymentRecordByWorkNoResponseBody struct {
-	// 任职记录
-	Content []*CfEmploymentRecordResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   []*CfEmploymentRecordResp `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	RequestId *string                   `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetEmploymentRecordByWorkNoResponseBody) String() string {
@@ -1298,8 +1236,9 @@ func (s *GetEmploymentRecordByWorkNoResponseBody) SetRequestId(v string) *GetEmp
 }
 
 type GetEmploymentRecordByWorkNoResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetEmploymentRecordByWorkNoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetEmploymentRecordByWorkNoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetEmploymentRecordByWorkNoResponse) String() string {
@@ -1312,6 +1251,11 @@ func (s GetEmploymentRecordByWorkNoResponse) GoString() string {
 
 func (s *GetEmploymentRecordByWorkNoResponse) SetHeaders(v map[string]*string) *GetEmploymentRecordByWorkNoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetEmploymentRecordByWorkNoResponse) SetStatusCode(v int32) *GetEmploymentRecordByWorkNoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1344,7 +1288,6 @@ func (s *GetJobPositionHeaders) SetXAcsDingtalkAccessToken(v string) *GetJobPosi
 }
 
 type GetJobPositionRequest struct {
-	// 职位编码
 	JobPositionCode *string `json:"jobPositionCode,omitempty" xml:"jobPositionCode,omitempty"`
 }
 
@@ -1362,10 +1305,8 @@ func (s *GetJobPositionRequest) SetJobPositionCode(v string) *GetJobPositionRequ
 }
 
 type GetJobPositionResponseBody struct {
-	// 职位详情
-	Content *GetJobPositionResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   *GetJobPositionResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                            `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetJobPositionResponseBody) String() string {
@@ -1387,20 +1328,13 @@ func (s *GetJobPositionResponseBody) SetRequestId(v string) *GetJobPositionRespo
 }
 
 type GetJobPositionResponseBodyContent struct {
-	// 职责描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 创建时间
-	EstablishDate *string `json:"establishDate,omitempty" xml:"establishDate,omitempty"`
-	// 职位编码
-	JobCode *string `json:"jobCode,omitempty" xml:"jobCode,omitempty"`
-	// 任职要求
+	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
+	EstablishDate   *string `json:"establishDate,omitempty" xml:"establishDate,omitempty"`
+	JobCode         *string `json:"jobCode,omitempty" xml:"jobCode,omitempty"`
 	JobRequirements *string `json:"jobRequirements,omitempty" xml:"jobRequirements,omitempty"`
-	// 职位名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 生效时间
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 失效时间
-	StopDate *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
+	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
+	StartDate       *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	StopDate        *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
 }
 
 func (s GetJobPositionResponseBodyContent) String() string {
@@ -1447,8 +1381,9 @@ func (s *GetJobPositionResponseBodyContent) SetStopDate(v string) *GetJobPositio
 }
 
 type GetJobPositionResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetJobPositionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetJobPositionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetJobPositionResponse) String() string {
@@ -1461,6 +1396,11 @@ func (s GetJobPositionResponse) GoString() string {
 
 func (s *GetJobPositionResponse) SetHeaders(v map[string]*string) *GetJobPositionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetJobPositionResponse) SetStatusCode(v int32) *GetJobPositionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1493,7 +1433,6 @@ func (s *GetJobPostHeaders) SetXAcsDingtalkAccessToken(v string) *GetJobPostHead
 }
 
 type GetJobPostRequest struct {
-	// 职务编码
 	JobPostCode *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
 }
 
@@ -1511,10 +1450,8 @@ func (s *GetJobPostRequest) SetJobPostCode(v string) *GetJobPostRequest {
 }
 
 type GetJobPostResponseBody struct {
-	// 返回数据
-	Content *GetJobPostResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   *GetJobPostResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                        `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetJobPostResponseBody) String() string {
@@ -1536,16 +1473,11 @@ func (s *GetJobPostResponseBody) SetRequestId(v string) *GetJobPostResponseBody 
 }
 
 type GetJobPostResponseBodyContent struct {
-	// 职务编码
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 设立日期
+	Code          *string `json:"code,omitempty" xml:"code,omitempty"`
 	EstablishDate *string `json:"establishDate,omitempty" xml:"establishDate,omitempty"`
-	// 职务名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 生效日期
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 失效日期
-	StopDate *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	StartDate     *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	StopDate      *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
 }
 
 func (s GetJobPostResponseBodyContent) String() string {
@@ -1582,8 +1514,9 @@ func (s *GetJobPostResponseBodyContent) SetStopDate(v string) *GetJobPostRespons
 }
 
 type GetJobPostResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetJobPostResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetJobPostResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetJobPostResponse) String() string {
@@ -1596,6 +1529,11 @@ func (s GetJobPostResponse) GoString() string {
 
 func (s *GetJobPostResponse) SetHeaders(v map[string]*string) *GetJobPostResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetJobPostResponse) SetStatusCode(v int32) *GetJobPostResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1628,7 +1566,6 @@ func (s *GetOrgInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetOrgInfoHead
 }
 
 type GetOrgInfoRequest struct {
-	// 部门编码
 	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
 }
 
@@ -1646,10 +1583,8 @@ func (s *GetOrgInfoRequest) SetDeptCode(v string) *GetOrgInfoRequest {
 }
 
 type GetOrgInfoResponseBody struct {
-	// 部门详情
-	Content *GetOrgInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   *GetOrgInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                        `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetOrgInfoResponseBody) String() string {
@@ -1671,26 +1606,16 @@ func (s *GetOrgInfoResponseBody) SetRequestId(v string) *GetOrgInfoResponseBody 
 }
 
 type GetOrgInfoResponseBodyContent struct {
-	// 部门编码
-	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
-	// 部门名称
-	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	// 部门人数
-	DeptNum *string `json:"deptNum,omitempty" xml:"deptNum,omitempty"`
-	// 部门层级
-	Level *string `json:"level,omitempty" xml:"level,omitempty"`
-	// 部门编码路径
+	DeptCode             *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	DeptName             *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	DeptNum              *string `json:"deptNum,omitempty" xml:"deptNum,omitempty"`
+	Level                *string `json:"level,omitempty" xml:"level,omitempty"`
 	OrganizationCodePath *string `json:"organizationCodePath,omitempty" xml:"organizationCodePath,omitempty"`
-	// 部门路径
-	OrganizationPath *string `json:"organizationPath,omitempty" xml:"organizationPath,omitempty"`
-	// 父级部门编码
-	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
-	// 部门简称
-	ShortName *string `json:"shortName,omitempty" xml:"shortName,omitempty"`
-	// 生效日期
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 失效日期
-	StopDate *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
+	OrganizationPath     *string `json:"organizationPath,omitempty" xml:"organizationPath,omitempty"`
+	ParentDeptCode       *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+	ShortName            *string `json:"shortName,omitempty" xml:"shortName,omitempty"`
+	StartDate            *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	StopDate             *string `json:"stopDate,omitempty" xml:"stopDate,omitempty"`
 }
 
 func (s GetOrgInfoResponseBodyContent) String() string {
@@ -1752,8 +1677,9 @@ func (s *GetOrgInfoResponseBodyContent) SetStopDate(v string) *GetOrgInfoRespons
 }
 
 type GetOrgInfoResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetOrgInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetOrgInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetOrgInfoResponse) String() string {
@@ -1766,6 +1692,11 @@ func (s GetOrgInfoResponse) GoString() string {
 
 func (s *GetOrgInfoResponse) SetHeaders(v map[string]*string) *GetOrgInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetOrgInfoResponse) SetStatusCode(v int32) *GetOrgInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1798,7 +1729,6 @@ func (s *GetStaffInfoByWorkNoHeaders) SetXAcsDingtalkAccessToken(v string) *GetS
 }
 
 type GetStaffInfoByWorkNoRequest struct {
-	// 员工工号
 	WorkNumbers *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
 }
 
@@ -1816,10 +1746,8 @@ func (s *GetStaffInfoByWorkNoRequest) SetWorkNumbers(v string) *GetStaffInfoByWo
 }
 
 type GetStaffInfoByWorkNoResponseBody struct {
-	// 员工详情
-	Content *GetStaffInfoByWorkNoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   *GetStaffInfoByWorkNoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetStaffInfoByWorkNoResponseBody) String() string {
@@ -1841,34 +1769,20 @@ func (s *GetStaffInfoByWorkNoResponseBody) SetRequestId(v string) *GetStaffInfoB
 }
 
 type GetStaffInfoByWorkNoResponseBodyContent struct {
-	// 部门编码
-	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
-	// 部门名称
-	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	// 邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
-	// 员工类型
-	EmployType *string `json:"employType,omitempty" xml:"employType,omitempty"`
-	// 员工状态
-	EmployeeStatus *string `json:"employeeStatus,omitempty" xml:"employeeStatus,omitempty"`
-	// 职级
-	JobLevelName *string `json:"jobLevelName,omitempty" xml:"jobLevelName,omitempty"`
-	// 职位编码
+	DeptCode        *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	DeptName        *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	Email           *string `json:"email,omitempty" xml:"email,omitempty"`
+	EmployType      *string `json:"employType,omitempty" xml:"employType,omitempty"`
+	EmployeeStatus  *string `json:"employeeStatus,omitempty" xml:"employeeStatus,omitempty"`
+	JobLevelName    *string `json:"jobLevelName,omitempty" xml:"jobLevelName,omitempty"`
 	JobPositionCode *string `json:"jobPositionCode,omitempty" xml:"jobPositionCode,omitempty"`
-	// 职位名称
 	JobPositionName *string `json:"jobPositionName,omitempty" xml:"jobPositionName,omitempty"`
-	// 职务编码
-	JobPostCode *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
-	// 职务名称
-	JobPostName *string `json:"jobPostName,omitempty" xml:"jobPostName,omitempty"`
-	// 手机号
-	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	// 姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 花名
-	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	// 工号
-	WorkNumbers *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
+	JobPostCode     *string `json:"jobPostCode,omitempty" xml:"jobPostCode,omitempty"`
+	JobPostName     *string `json:"jobPostName,omitempty" xml:"jobPostName,omitempty"`
+	Mobile          *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
+	NickName        *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	WorkNumbers     *string `json:"workNumbers,omitempty" xml:"workNumbers,omitempty"`
 }
 
 func (s GetStaffInfoByWorkNoResponseBodyContent) String() string {
@@ -1950,8 +1864,9 @@ func (s *GetStaffInfoByWorkNoResponseBodyContent) SetWorkNumbers(v string) *GetS
 }
 
 type GetStaffInfoByWorkNoResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetStaffInfoByWorkNoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetStaffInfoByWorkNoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetStaffInfoByWorkNoResponse) String() string {
@@ -1964,6 +1879,11 @@ func (s GetStaffInfoByWorkNoResponse) GoString() string {
 
 func (s *GetStaffInfoByWorkNoResponse) SetHeaders(v map[string]*string) *GetStaffInfoByWorkNoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetStaffInfoByWorkNoResponse) SetStatusCode(v int32) *GetStaffInfoByWorkNoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1996,16 +1916,11 @@ func (s *GetStaffPageQueryHeaders) SetXAcsDingtalkAccessToken(v string) *GetStaf
 }
 
 type GetStaffPageQueryRequest struct {
-	// 部门编码
-	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
-	// 员工名称,模糊查询
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 当前页码
-	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页条数
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 工号
-	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	DeptCode   *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	WorkNo     *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s GetStaffPageQueryRequest) String() string {
@@ -2042,10 +1957,8 @@ func (s *GetStaffPageQueryRequest) SetWorkNo(v string) *GetStaffPageQueryRequest
 }
 
 type GetStaffPageQueryResponseBody struct {
-	// 查询数据返回
-	Content *GetStaffPageQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Content   *GetStaffPageQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                               `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s GetStaffPageQueryResponseBody) String() string {
@@ -2067,14 +1980,10 @@ func (s *GetStaffPageQueryResponseBody) SetRequestId(v string) *GetStaffPageQuer
 }
 
 type GetStaffPageQueryResponseBodyContent struct {
-	// 员工列表
-	Data []*CfStaffResp `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	// 当前页码
-	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页条数
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 总数量
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data       []*CfStaffResp `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	PageNumber *int32         `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32         `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TotalCount *int64         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetStaffPageQueryResponseBodyContent) String() string {
@@ -2106,8 +2015,9 @@ func (s *GetStaffPageQueryResponseBodyContent) SetTotalCount(v int64) *GetStaffP
 }
 
 type GetStaffPageQueryResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetStaffPageQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetStaffPageQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetStaffPageQueryResponse) String() string {
@@ -2120,6 +2030,11 @@ func (s GetStaffPageQueryResponse) GoString() string {
 
 func (s *GetStaffPageQueryResponse) SetHeaders(v map[string]*string) *GetStaffPageQueryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetStaffPageQueryResponse) SetStatusCode(v int32) *GetStaffPageQueryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2152,10 +2067,8 @@ func (s *GetUserHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserHeaders {
 }
 
 type GetUserRequest struct {
-	// OKR系统内部用户id
 	OkrUserId *string `json:"okrUserId,omitempty" xml:"okrUserId,omitempty"`
-	// 钉钉UserId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserRequest) String() string {
@@ -2177,10 +2090,9 @@ func (s *GetUserRequest) SetUserId(v string) *GetUserRequest {
 }
 
 type GetUserResponseBody struct {
-	Content *OpenUserDTO `json:"content,omitempty" xml:"content,omitempty"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Content   *OpenUserDTO `json:"content,omitempty" xml:"content,omitempty"`
+	RequestId *string      `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool        `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetUserResponseBody) String() string {
@@ -2207,8 +2119,9 @@ func (s *GetUserResponseBody) SetSuccess(v bool) *GetUserResponseBody {
 }
 
 type GetUserResponse struct {
-	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserResponse) String() string {
@@ -2221,6 +2134,11 @@ func (s GetUserResponse) GoString() string {
 
 func (s *GetUserResponse) SetHeaders(v map[string]*string) *GetUserResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserResponse) SetStatusCode(v int32) *GetUserResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2253,10 +2171,9 @@ func (s *ListAnalyzePeriodsHeaders) SetXAcsDingtalkAccessToken(v string) *ListAn
 }
 
 type ListAnalyzePeriodsResponseBody struct {
-	Content []*OpenPeriodDTO `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Content   []*OpenPeriodDTO `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	RequestId *string          `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool            `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ListAnalyzePeriodsResponseBody) String() string {
@@ -2283,8 +2200,9 @@ func (s *ListAnalyzePeriodsResponseBody) SetSuccess(v bool) *ListAnalyzePeriodsR
 }
 
 type ListAnalyzePeriodsResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListAnalyzePeriodsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListAnalyzePeriodsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListAnalyzePeriodsResponse) String() string {
@@ -2297,6 +2215,11 @@ func (s ListAnalyzePeriodsResponse) GoString() string {
 
 func (s *ListAnalyzePeriodsResponse) SetHeaders(v map[string]*string) *ListAnalyzePeriodsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListAnalyzePeriodsResponse) SetStatusCode(v int32) *ListAnalyzePeriodsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2329,7 +2252,6 @@ func (s *ListObjectiveByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *ListOb
 }
 
 type ListObjectiveByIdsRequest struct {
-	// 目标ID列表
 	ObjectiveIds []*string `json:"objectiveIds,omitempty" xml:"objectiveIds,omitempty" type:"Repeated"`
 }
 
@@ -2347,11 +2269,9 @@ func (s *ListObjectiveByIdsRequest) SetObjectiveIds(v []*string) *ListObjectiveB
 }
 
 type ListObjectiveByIdsResponseBody struct {
-	Content []*OpenObjectiveDTO `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Content   []*OpenObjectiveDTO `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	RequestId *string             `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool               `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ListObjectiveByIdsResponseBody) String() string {
@@ -2378,8 +2298,9 @@ func (s *ListObjectiveByIdsResponseBody) SetSuccess(v bool) *ListObjectiveByIdsR
 }
 
 type ListObjectiveByIdsResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListObjectiveByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListObjectiveByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListObjectiveByIdsResponse) String() string {
@@ -2392,6 +2313,11 @@ func (s ListObjectiveByIdsResponse) GoString() string {
 
 func (s *ListObjectiveByIdsResponse) SetHeaders(v map[string]*string) *ListObjectiveByIdsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListObjectiveByIdsResponse) SetStatusCode(v int32) *ListObjectiveByIdsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2424,12 +2350,9 @@ func (s *ListObjectiveByUserHeaders) SetXAcsDingtalkAccessToken(v string) *ListO
 }
 
 type ListObjectiveByUserRequest struct {
-	// 页数
-	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 页大小
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 钉钉userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListObjectiveByUserRequest) String() string {
@@ -2456,12 +2379,9 @@ func (s *ListObjectiveByUserRequest) SetUserId(v string) *ListObjectiveByUserReq
 }
 
 type ListObjectiveByUserResponseBody struct {
-	// 请求返回数据对象
-	Content *ListObjectiveByUserResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 接口请求是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Content   *ListObjectiveByUserResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                 `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ListObjectiveByUserResponseBody) String() string {
@@ -2488,7 +2408,6 @@ func (s *ListObjectiveByUserResponseBody) SetSuccess(v bool) *ListObjectiveByUse
 }
 
 type ListObjectiveByUserResponseBodyContent struct {
-	// 总数
 	Count      *int32              `json:"count,omitempty" xml:"count,omitempty"`
 	Objectives []*OpenObjectiveDTO `json:"objectives,omitempty" xml:"objectives,omitempty" type:"Repeated"`
 }
@@ -2512,8 +2431,9 @@ func (s *ListObjectiveByUserResponseBodyContent) SetObjectives(v []*OpenObjectiv
 }
 
 type ListObjectiveByUserResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListObjectiveByUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListObjectiveByUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListObjectiveByUserResponse) String() string {
@@ -2526,6 +2446,11 @@ func (s ListObjectiveByUserResponse) GoString() string {
 
 func (s *ListObjectiveByUserResponse) SetHeaders(v map[string]*string) *ListObjectiveByUserResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListObjectiveByUserResponse) SetStatusCode(v int32) *ListObjectiveByUserResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2558,7 +2483,6 @@ func (s *ListProgressByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *ListPro
 }
 
 type ListProgressByIdsRequest struct {
-	// 进展ID列表
 	ProgressIds []*string `json:"progressIds,omitempty" xml:"progressIds,omitempty" type:"Repeated"`
 }
 
@@ -2576,10 +2500,9 @@ func (s *ListProgressByIdsRequest) SetProgressIds(v []*string) *ListProgressById
 }
 
 type ListProgressByIdsResponseBody struct {
-	Content []*OpenProgressDTO `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Content   []*OpenProgressDTO `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	RequestId *string            `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool              `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ListProgressByIdsResponseBody) String() string {
@@ -2606,8 +2529,9 @@ func (s *ListProgressByIdsResponseBody) SetSuccess(v bool) *ListProgressByIdsRes
 }
 
 type ListProgressByIdsResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListProgressByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListProgressByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListProgressByIdsResponse) String() string {
@@ -2620,6 +2544,11 @@ func (s ListProgressByIdsResponse) GoString() string {
 
 func (s *ListProgressByIdsResponse) SetHeaders(v map[string]*string) *ListProgressByIdsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListProgressByIdsResponse) SetStatusCode(v int32) *ListProgressByIdsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2652,12 +2581,9 @@ func (s *PageListObjectiveProgressHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type PageListObjectiveProgressRequest struct {
-	// 目标id
 	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	// 页数
-	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 页大小
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageNumber  *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize    *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s PageListObjectiveProgressRequest) String() string {
@@ -2684,10 +2610,9 @@ func (s *PageListObjectiveProgressRequest) SetPageSize(v int32) *PageListObjecti
 }
 
 type PageListObjectiveProgressResponseBody struct {
-	Content *PageListObjectiveProgressResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Content   *PageListObjectiveProgressResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                       `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                                         `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s PageListObjectiveProgressResponseBody) String() string {
@@ -2737,8 +2662,9 @@ func (s *PageListObjectiveProgressResponseBodyContent) SetProgressList(v []*Open
 }
 
 type PageListObjectiveProgressResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PageListObjectiveProgressResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PageListObjectiveProgressResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PageListObjectiveProgressResponse) String() string {
@@ -2751,6 +2677,11 @@ func (s PageListObjectiveProgressResponse) GoString() string {
 
 func (s *PageListObjectiveProgressResponse) SetHeaders(v map[string]*string) *PageListObjectiveProgressResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PageListObjectiveProgressResponse) SetStatusCode(v int32) *PageListObjectiveProgressResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2783,9 +2714,7 @@ func (s *TransferUserObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *Tra
 }
 
 type TransferUserObjectiveRequest struct {
-	// 目标ID
-	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	// 目标钉钉userId
+	ObjectiveId  *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
 	TargetUserId *string `json:"targetUserId,omitempty" xml:"targetUserId,omitempty"`
 }
 
@@ -2808,12 +2737,9 @@ func (s *TransferUserObjectiveRequest) SetTargetUserId(v string) *TransferUserOb
 }
 
 type TransferUserObjectiveResponseBody struct {
-	// 转交是否成功
-	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
-	// Id of the request
+	Content   *bool   `json:"content,omitempty" xml:"content,omitempty"`
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 返回结果
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s TransferUserObjectiveResponseBody) String() string {
@@ -2840,8 +2766,9 @@ func (s *TransferUserObjectiveResponseBody) SetSuccess(v bool) *TransferUserObje
 }
 
 type TransferUserObjectiveResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *TransferUserObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *TransferUserObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s TransferUserObjectiveResponse) String() string {
@@ -2854,6 +2781,11 @@ func (s TransferUserObjectiveResponse) GoString() string {
 
 func (s *TransferUserObjectiveResponse) SetHeaders(v map[string]*string) *TransferUserObjectiveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *TransferUserObjectiveResponse) SetStatusCode(v int32) *TransferUserObjectiveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2877,24 +2809,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) GetAllJobLevel() (_result *GetAllJobLevelResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetAllJobLevelHeaders{}
-	_result = &GetAllJobLevelResponse{}
-	_body, _err := client.GetAllJobLevelWithOptions(headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) GetAllJobLevelWithOptions(headers *GetAllJobLevelHeaders, runtime *util.RuntimeOptions) (_result *GetAllJobLevelResponse, _err error) {
@@ -2910,8 +2836,19 @@ func (client *Client) GetAllJobLevelWithOptions(headers *GetAllJobLevelHeaders, 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAllJobLevel"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/jobLevels"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetAllJobLevelResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAllJobLevel"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobLevels"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2919,11 +2856,11 @@ func (client *Client) GetAllJobLevelWithOptions(headers *GetAllJobLevelHeaders, 
 	return _result, _err
 }
 
-func (client *Client) GetAllJobPosition() (_result *GetAllJobPositionResponse, _err error) {
+func (client *Client) GetAllJobLevel() (_result *GetAllJobLevelResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetAllJobPositionHeaders{}
-	_result = &GetAllJobPositionResponse{}
-	_body, _err := client.GetAllJobPositionWithOptions(headers, runtime)
+	headers := &GetAllJobLevelHeaders{}
+	_result = &GetAllJobLevelResponse{}
+	_body, _err := client.GetAllJobLevelWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2944,8 +2881,19 @@ func (client *Client) GetAllJobPositionWithOptions(headers *GetAllJobPositionHea
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAllJobPosition"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/jobPositions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetAllJobPositionResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAllJobPosition"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobPositions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2953,11 +2901,11 @@ func (client *Client) GetAllJobPositionWithOptions(headers *GetAllJobPositionHea
 	return _result, _err
 }
 
-func (client *Client) GetAllJobPost() (_result *GetAllJobPostResponse, _err error) {
+func (client *Client) GetAllJobPosition() (_result *GetAllJobPositionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetAllJobPostHeaders{}
-	_result = &GetAllJobPostResponse{}
-	_body, _err := client.GetAllJobPostWithOptions(headers, runtime)
+	headers := &GetAllJobPositionHeaders{}
+	_result = &GetAllJobPositionResponse{}
+	_body, _err := client.GetAllJobPositionWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2978,8 +2926,19 @@ func (client *Client) GetAllJobPostWithOptions(headers *GetAllJobPostHeaders, ru
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAllJobPost"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/jobPosts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetAllJobPostResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAllJobPost"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobPosts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2987,11 +2946,11 @@ func (client *Client) GetAllJobPostWithOptions(headers *GetAllJobPostHeaders, ru
 	return _result, _err
 }
 
-func (client *Client) GetAnalyzeData(request *GetAnalyzeDataRequest) (_result *GetAnalyzeDataResponse, _err error) {
+func (client *Client) GetAllJobPost() (_result *GetAllJobPostResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetAnalyzeDataHeaders{}
-	_result = &GetAnalyzeDataResponse{}
-	_body, _err := client.GetAnalyzeDataWithOptions(request, headers, runtime)
+	headers := &GetAllJobPostHeaders{}
+	_result = &GetAllJobPostResponse{}
+	_body, _err := client.GetAllJobPostWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3028,8 +2987,19 @@ func (client *Client) GetAnalyzeDataWithOptions(request *GetAnalyzeDataRequest, 
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAnalyzeData"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/okr/analyses/datas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetAnalyzeDataResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAnalyzeData"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/chengfeng/okr/analyses/datas/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3037,11 +3007,11 @@ func (client *Client) GetAnalyzeDataWithOptions(request *GetAnalyzeDataRequest, 
 	return _result, _err
 }
 
-func (client *Client) GetChildOrgList(request *GetChildOrgListRequest) (_result *GetChildOrgListResponse, _err error) {
+func (client *Client) GetAnalyzeData(request *GetAnalyzeDataRequest) (_result *GetAnalyzeDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetChildOrgListHeaders{}
-	_result = &GetChildOrgListResponse{}
-	_body, _err := client.GetChildOrgListWithOptions(request, headers, runtime)
+	headers := &GetAnalyzeDataHeaders{}
+	_result = &GetAnalyzeDataResponse{}
+	_body, _err := client.GetAnalyzeDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3072,8 +3042,19 @@ func (client *Client) GetChildOrgListWithOptions(request *GetChildOrgListRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetChildOrgList"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/organizations"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetChildOrgListResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetChildOrgList"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/organizations"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3081,11 +3062,11 @@ func (client *Client) GetChildOrgListWithOptions(request *GetChildOrgListRequest
 	return _result, _err
 }
 
-func (client *Client) GetEmployeeInfoByWorkNo(request *GetEmployeeInfoByWorkNoRequest) (_result *GetEmployeeInfoByWorkNoResponse, _err error) {
+func (client *Client) GetChildOrgList(request *GetChildOrgListRequest) (_result *GetChildOrgListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetEmployeeInfoByWorkNoHeaders{}
-	_result = &GetEmployeeInfoByWorkNoResponse{}
-	_body, _err := client.GetEmployeeInfoByWorkNoWithOptions(request, headers, runtime)
+	headers := &GetChildOrgListHeaders{}
+	_result = &GetChildOrgListResponse{}
+	_body, _err := client.GetChildOrgListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3116,8 +3097,19 @@ func (client *Client) GetEmployeeInfoByWorkNoWithOptions(request *GetEmployeeInf
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetEmployeeInfoByWorkNo"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/workNumbers/employees"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetEmployeeInfoByWorkNoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetEmployeeInfoByWorkNo"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/workNumbers/employees"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3125,11 +3117,11 @@ func (client *Client) GetEmployeeInfoByWorkNoWithOptions(request *GetEmployeeInf
 	return _result, _err
 }
 
-func (client *Client) GetEmploymentRecordByWorkNo(workNumbers *string) (_result *GetEmploymentRecordByWorkNoResponse, _err error) {
+func (client *Client) GetEmployeeInfoByWorkNo(request *GetEmployeeInfoByWorkNoRequest) (_result *GetEmployeeInfoByWorkNoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetEmploymentRecordByWorkNoHeaders{}
-	_result = &GetEmploymentRecordByWorkNoResponse{}
-	_body, _err := client.GetEmploymentRecordByWorkNoWithOptions(workNumbers, headers, runtime)
+	headers := &GetEmployeeInfoByWorkNoHeaders{}
+	_result = &GetEmployeeInfoByWorkNoResponse{}
+	_body, _err := client.GetEmployeeInfoByWorkNoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3138,7 +3130,6 @@ func (client *Client) GetEmploymentRecordByWorkNo(workNumbers *string) (_result 
 }
 
 func (client *Client) GetEmploymentRecordByWorkNoWithOptions(workNumbers *string, headers *GetEmploymentRecordByWorkNoHeaders, runtime *util.RuntimeOptions) (_result *GetEmploymentRecordByWorkNoResponse, _err error) {
-	workNumbers = openapiutil.GetEncodeParam(workNumbers)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3151,8 +3142,19 @@ func (client *Client) GetEmploymentRecordByWorkNoWithOptions(workNumbers *string
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetEmploymentRecordByWorkNo"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/users/workNumber/" + tea.StringValue(workNumbers) + "employmentRecords"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetEmploymentRecordByWorkNoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetEmploymentRecordByWorkNo"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/users/workNumber/"+tea.StringValue(workNumbers)+"employmentRecords"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3160,11 +3162,11 @@ func (client *Client) GetEmploymentRecordByWorkNoWithOptions(workNumbers *string
 	return _result, _err
 }
 
-func (client *Client) GetJobPosition(request *GetJobPositionRequest) (_result *GetJobPositionResponse, _err error) {
+func (client *Client) GetEmploymentRecordByWorkNo(workNumbers *string) (_result *GetEmploymentRecordByWorkNoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetJobPositionHeaders{}
-	_result = &GetJobPositionResponse{}
-	_body, _err := client.GetJobPositionWithOptions(request, headers, runtime)
+	headers := &GetEmploymentRecordByWorkNoHeaders{}
+	_result = &GetEmploymentRecordByWorkNoResponse{}
+	_body, _err := client.GetEmploymentRecordByWorkNoWithOptions(workNumbers, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3195,8 +3197,19 @@ func (client *Client) GetJobPositionWithOptions(request *GetJobPositionRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetJobPosition"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/jobPositions/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetJobPositionResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetJobPosition"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobPositions/infos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3204,11 +3217,11 @@ func (client *Client) GetJobPositionWithOptions(request *GetJobPositionRequest, 
 	return _result, _err
 }
 
-func (client *Client) GetJobPost(request *GetJobPostRequest) (_result *GetJobPostResponse, _err error) {
+func (client *Client) GetJobPosition(request *GetJobPositionRequest) (_result *GetJobPositionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetJobPostHeaders{}
-	_result = &GetJobPostResponse{}
-	_body, _err := client.GetJobPostWithOptions(request, headers, runtime)
+	headers := &GetJobPositionHeaders{}
+	_result = &GetJobPositionResponse{}
+	_body, _err := client.GetJobPositionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3239,8 +3252,19 @@ func (client *Client) GetJobPostWithOptions(request *GetJobPostRequest, headers 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetJobPost"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/jobPosts/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetJobPostResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetJobPost"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/jobPosts/infos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3248,11 +3272,11 @@ func (client *Client) GetJobPostWithOptions(request *GetJobPostRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) GetOrgInfo(request *GetOrgInfoRequest) (_result *GetOrgInfoResponse, _err error) {
+func (client *Client) GetJobPost(request *GetJobPostRequest) (_result *GetJobPostResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetOrgInfoHeaders{}
-	_result = &GetOrgInfoResponse{}
-	_body, _err := client.GetOrgInfoWithOptions(request, headers, runtime)
+	headers := &GetJobPostHeaders{}
+	_result = &GetJobPostResponse{}
+	_body, _err := client.GetJobPostWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3283,8 +3307,19 @@ func (client *Client) GetOrgInfoWithOptions(request *GetOrgInfoRequest, headers 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetOrgInfo"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/organizations/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetOrgInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetOrgInfo"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/organizations/infos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3292,11 +3327,11 @@ func (client *Client) GetOrgInfoWithOptions(request *GetOrgInfoRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) GetStaffInfoByWorkNo(request *GetStaffInfoByWorkNoRequest) (_result *GetStaffInfoByWorkNoResponse, _err error) {
+func (client *Client) GetOrgInfo(request *GetOrgInfoRequest) (_result *GetOrgInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetStaffInfoByWorkNoHeaders{}
-	_result = &GetStaffInfoByWorkNoResponse{}
-	_body, _err := client.GetStaffInfoByWorkNoWithOptions(request, headers, runtime)
+	headers := &GetOrgInfoHeaders{}
+	_result = &GetOrgInfoResponse{}
+	_body, _err := client.GetOrgInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3327,8 +3362,19 @@ func (client *Client) GetStaffInfoByWorkNoWithOptions(request *GetStaffInfoByWor
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetStaffInfoByWorkNo"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/users"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetStaffInfoByWorkNoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetStaffInfoByWorkNo"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/users"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3336,11 +3382,11 @@ func (client *Client) GetStaffInfoByWorkNoWithOptions(request *GetStaffInfoByWor
 	return _result, _err
 }
 
-func (client *Client) GetStaffPageQuery(request *GetStaffPageQueryRequest) (_result *GetStaffPageQueryResponse, _err error) {
+func (client *Client) GetStaffInfoByWorkNo(request *GetStaffInfoByWorkNoRequest) (_result *GetStaffInfoByWorkNoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetStaffPageQueryHeaders{}
-	_result = &GetStaffPageQueryResponse{}
-	_body, _err := client.GetStaffPageQueryWithOptions(request, headers, runtime)
+	headers := &GetStaffInfoByWorkNoHeaders{}
+	_result = &GetStaffInfoByWorkNoResponse{}
+	_body, _err := client.GetStaffInfoByWorkNoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3387,8 +3433,19 @@ func (client *Client) GetStaffPageQueryWithOptions(request *GetStaffPageQueryReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetStaffPageQuery"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/users/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetStaffPageQueryResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetStaffPageQuery"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/chengfeng/users/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3396,11 +3453,11 @@ func (client *Client) GetStaffPageQueryWithOptions(request *GetStaffPageQueryReq
 	return _result, _err
 }
 
-func (client *Client) GetUser(request *GetUserRequest) (_result *GetUserResponse, _err error) {
+func (client *Client) GetStaffPageQuery(request *GetStaffPageQueryRequest) (_result *GetStaffPageQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserHeaders{}
-	_result = &GetUserResponse{}
-	_body, _err := client.GetUserWithOptions(request, headers, runtime)
+	headers := &GetStaffPageQueryHeaders{}
+	_result = &GetStaffPageQueryResponse{}
+	_body, _err := client.GetStaffPageQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3435,8 +3492,19 @@ func (client *Client) GetUserWithOptions(request *GetUserRequest, headers *GetUs
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUser"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/okr/users"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUser"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/okr/users"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3444,11 +3512,11 @@ func (client *Client) GetUserWithOptions(request *GetUserRequest, headers *GetUs
 	return _result, _err
 }
 
-func (client *Client) ListAnalyzePeriods() (_result *ListAnalyzePeriodsResponse, _err error) {
+func (client *Client) GetUser(request *GetUserRequest) (_result *GetUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListAnalyzePeriodsHeaders{}
-	_result = &ListAnalyzePeriodsResponse{}
-	_body, _err := client.ListAnalyzePeriodsWithOptions(headers, runtime)
+	headers := &GetUserHeaders{}
+	_result = &GetUserResponse{}
+	_body, _err := client.GetUserWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3469,8 +3537,19 @@ func (client *Client) ListAnalyzePeriodsWithOptions(headers *ListAnalyzePeriodsH
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAnalyzePeriods"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/okr/analyses/periods"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListAnalyzePeriodsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListAnalyzePeriods"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/okr/analyses/periods"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3478,11 +3557,11 @@ func (client *Client) ListAnalyzePeriodsWithOptions(headers *ListAnalyzePeriodsH
 	return _result, _err
 }
 
-func (client *Client) ListObjectiveByIds(request *ListObjectiveByIdsRequest) (_result *ListObjectiveByIdsResponse, _err error) {
+func (client *Client) ListAnalyzePeriods() (_result *ListAnalyzePeriodsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListObjectiveByIdsHeaders{}
-	_result = &ListObjectiveByIdsResponse{}
-	_body, _err := client.ListObjectiveByIdsWithOptions(request, headers, runtime)
+	headers := &ListAnalyzePeriodsHeaders{}
+	_result = &ListAnalyzePeriodsResponse{}
+	_body, _err := client.ListAnalyzePeriodsWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3513,8 +3592,19 @@ func (client *Client) ListObjectiveByIdsWithOptions(request *ListObjectiveByIdsR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListObjectiveByIds"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/okr/objectives/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListObjectiveByIdsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListObjectiveByIds"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/chengfeng/okr/objectives/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3522,11 +3612,11 @@ func (client *Client) ListObjectiveByIdsWithOptions(request *ListObjectiveByIdsR
 	return _result, _err
 }
 
-func (client *Client) ListObjectiveByUser(request *ListObjectiveByUserRequest) (_result *ListObjectiveByUserResponse, _err error) {
+func (client *Client) ListObjectiveByIds(request *ListObjectiveByIdsRequest) (_result *ListObjectiveByIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListObjectiveByUserHeaders{}
-	_result = &ListObjectiveByUserResponse{}
-	_body, _err := client.ListObjectiveByUserWithOptions(request, headers, runtime)
+	headers := &ListObjectiveByIdsHeaders{}
+	_result = &ListObjectiveByIdsResponse{}
+	_body, _err := client.ListObjectiveByIdsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3565,8 +3655,19 @@ func (client *Client) ListObjectiveByUserWithOptions(request *ListObjectiveByUse
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListObjectiveByUser"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/okr/users/objectives"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListObjectiveByUserResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListObjectiveByUser"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/okr/users/objectives"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3574,11 +3675,11 @@ func (client *Client) ListObjectiveByUserWithOptions(request *ListObjectiveByUse
 	return _result, _err
 }
 
-func (client *Client) ListProgressByIds(request *ListProgressByIdsRequest) (_result *ListProgressByIdsResponse, _err error) {
+func (client *Client) ListObjectiveByUser(request *ListObjectiveByUserRequest) (_result *ListObjectiveByUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListProgressByIdsHeaders{}
-	_result = &ListProgressByIdsResponse{}
-	_body, _err := client.ListProgressByIdsWithOptions(request, headers, runtime)
+	headers := &ListObjectiveByUserHeaders{}
+	_result = &ListObjectiveByUserResponse{}
+	_body, _err := client.ListObjectiveByUserWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3609,8 +3710,19 @@ func (client *Client) ListProgressByIdsWithOptions(request *ListProgressByIdsReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListProgressByIds"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/okr/objectives/progresses/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListProgressByIdsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListProgressByIds"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/chengfeng/okr/objectives/progresses/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3618,11 +3730,11 @@ func (client *Client) ListProgressByIdsWithOptions(request *ListProgressByIdsReq
 	return _result, _err
 }
 
-func (client *Client) PageListObjectiveProgress(request *PageListObjectiveProgressRequest) (_result *PageListObjectiveProgressResponse, _err error) {
+func (client *Client) ListProgressByIds(request *ListProgressByIdsRequest) (_result *ListProgressByIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PageListObjectiveProgressHeaders{}
-	_result = &PageListObjectiveProgressResponse{}
-	_body, _err := client.PageListObjectiveProgressWithOptions(request, headers, runtime)
+	headers := &ListProgressByIdsHeaders{}
+	_result = &ListProgressByIdsResponse{}
+	_body, _err := client.ListProgressByIdsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3661,8 +3773,19 @@ func (client *Client) PageListObjectiveProgressWithOptions(request *PageListObje
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PageListObjectiveProgress"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/okr/objectives/progresses/records"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PageListObjectiveProgressResponse{}
-	_body, _err := client.DoROARequest(tea.String("PageListObjectiveProgress"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/chengfeng/okr/objectives/progresses/records"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3670,11 +3793,11 @@ func (client *Client) PageListObjectiveProgressWithOptions(request *PageListObje
 	return _result, _err
 }
 
-func (client *Client) TransferUserObjective(request *TransferUserObjectiveRequest) (_result *TransferUserObjectiveResponse, _err error) {
+func (client *Client) PageListObjectiveProgress(request *PageListObjectiveProgressRequest) (_result *PageListObjectiveProgressResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &TransferUserObjectiveHeaders{}
-	_result = &TransferUserObjectiveResponse{}
-	_body, _err := client.TransferUserObjectiveWithOptions(request, headers, runtime)
+	headers := &PageListObjectiveProgressHeaders{}
+	_result = &PageListObjectiveProgressResponse{}
+	_body, _err := client.PageListObjectiveProgressWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3709,11 +3832,34 @@ func (client *Client) TransferUserObjectiveWithOptions(request *TransferUserObje
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("TransferUserObjective"),
+		Version:     tea.String("chengfeng_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/chengfeng/okr/objectives/transfer"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &TransferUserObjectiveResponse{}
-	_body, _err := client.DoROARequest(tea.String("TransferUserObjective"), tea.String("chengfeng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/chengfeng/okr/objectives/transfer"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TransferUserObjective(request *TransferUserObjectiveRequest) (_result *TransferUserObjectiveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TransferUserObjectiveHeaders{}
+	_result = &TransferUserObjectiveResponse{}
+	_body, _err := client.TransferUserObjectiveWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

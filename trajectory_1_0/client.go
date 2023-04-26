@@ -5,9 +5,11 @@
 package trajectory_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,12 +37,9 @@ func (s *QueryAppActiveUsersHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryAppActiveUsersRequest struct {
-	// 本次读取的最大数据记录数量
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 是否需要返回位置信息
-	NeedPositionInfo *bool `json:"needPositionInfo,omitempty" xml:"needPositionInfo,omitempty"`
-	// 标记当前开始读取的位置，置空表示从头开始
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults       *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NeedPositionInfo *bool  `json:"needPositionInfo,omitempty" xml:"needPositionInfo,omitempty"`
+	NextToken        *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryAppActiveUsersRequest) String() string {
@@ -67,14 +66,10 @@ func (s *QueryAppActiveUsersRequest) SetNextToken(v int64) *QueryAppActiveUsersR
 }
 
 type QueryAppActiveUsersResponseBody struct {
-	// 是否存在更多数据需要获取
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 数据集合
-	List []*QueryAppActiveUsersResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 下一次获取开始位置
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 总数
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore    *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*QueryAppActiveUsersResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken  *int64                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TotalCount *int64                                 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryAppActiveUsersResponseBody) String() string {
@@ -106,18 +101,12 @@ func (s *QueryAppActiveUsersResponseBody) SetTotalCount(v int64) *QueryAppActive
 }
 
 type QueryAppActiveUsersResponseBodyList struct {
-	// 应用轨迹ID
-	AppTraceId *string `json:"appTraceId,omitempty" xml:"appTraceId,omitempty"`
-	// 纬度
-	Latitude *float32 `json:"latitude,omitempty" xml:"latitude,omitempty"`
-	// 经度
-	Longitude *float32 `json:"longitude,omitempty" xml:"longitude,omitempty"`
-	// 该位置采集时间
-	ReportTime *int64 `json:"reportTime,omitempty" xml:"reportTime,omitempty"`
-	// 轨迹采集开启时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 员工Id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	AppTraceId *string  `json:"appTraceId,omitempty" xml:"appTraceId,omitempty"`
+	Latitude   *float32 `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	Longitude  *float32 `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	ReportTime *int64   `json:"reportTime,omitempty" xml:"reportTime,omitempty"`
+	StartTime  *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	UserId     *string  `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryAppActiveUsersResponseBodyList) String() string {
@@ -159,8 +148,9 @@ func (s *QueryAppActiveUsersResponseBodyList) SetUserId(v string) *QueryAppActiv
 }
 
 type QueryAppActiveUsersResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryAppActiveUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryAppActiveUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryAppActiveUsersResponse) String() string {
@@ -173,6 +163,11 @@ func (s QueryAppActiveUsersResponse) GoString() string {
 
 func (s *QueryAppActiveUsersResponse) SetHeaders(v map[string]*string) *QueryAppActiveUsersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryAppActiveUsersResponse) SetStatusCode(v int32) *QueryAppActiveUsersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -205,7 +200,6 @@ func (s *QueryCollectingTraceTaskHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QueryCollectingTraceTaskRequest struct {
-	// 员工用户ID列表
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -223,7 +217,6 @@ func (s *QueryCollectingTraceTaskRequest) SetUserIds(v []*string) *QueryCollecti
 }
 
 type QueryCollectingTraceTaskResponseBody struct {
-	// result
 	List []*QueryCollectingTraceTaskResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
@@ -241,15 +234,13 @@ func (s *QueryCollectingTraceTaskResponseBody) SetList(v []*QueryCollectingTrace
 }
 
 type QueryCollectingTraceTaskResponseBodyList struct {
-	// 应用轨迹ID
 	AppTraceId       *string `json:"appTraceId,omitempty" xml:"appTraceId,omitempty"`
 	GeoCollectPeriod *int64  `json:"geoCollectPeriod,omitempty" xml:"geoCollectPeriod,omitempty"`
 	GeoReportPeriod  *int64  `json:"geoReportPeriod,omitempty" xml:"geoReportPeriod,omitempty"`
 	GeoReportStatus  *int64  `json:"geoReportStatus,omitempty" xml:"geoReportStatus,omitempty"`
 	ReportEndTime    *int64  `json:"reportEndTime,omitempty" xml:"reportEndTime,omitempty"`
 	ReportStartTime  *int64  `json:"reportStartTime,omitempty" xml:"reportStartTime,omitempty"`
-	// 组织下员工Id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryCollectingTraceTaskResponseBodyList) String() string {
@@ -296,8 +287,9 @@ func (s *QueryCollectingTraceTaskResponseBodyList) SetUserId(v string) *QueryCol
 }
 
 type QueryCollectingTraceTaskResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryCollectingTraceTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryCollectingTraceTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryCollectingTraceTaskResponse) String() string {
@@ -310,6 +302,11 @@ func (s QueryCollectingTraceTaskResponse) GoString() string {
 
 func (s *QueryCollectingTraceTaskResponse) SetHeaders(v map[string]*string) *QueryCollectingTraceTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryCollectingTraceTaskResponse) SetStatusCode(v int32) *QueryCollectingTraceTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -342,18 +339,12 @@ func (s *QueryPageTraceDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryP
 }
 
 type QueryPageTraceDataRequest struct {
-	// 终止时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 查询数量
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 起始位置
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 员工ID
-	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
-	// 开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// traceId
-	TraceId *string `json:"traceId,omitempty" xml:"traceId,omitempty"`
+	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	StaffId    *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	StartTime  *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TraceId    *string `json:"traceId,omitempty" xml:"traceId,omitempty"`
 }
 
 func (s QueryPageTraceDataRequest) String() string {
@@ -395,12 +386,9 @@ func (s *QueryPageTraceDataRequest) SetTraceId(v string) *QueryPageTraceDataRequ
 }
 
 type QueryPageTraceDataResponseBody struct {
-	// 是否结束
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 轨迹点列表
-	List []*QueryPageTraceDataResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 下一个开始位置
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*QueryPageTraceDataResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *int64                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryPageTraceDataResponseBody) String() string {
@@ -427,12 +415,9 @@ func (s *QueryPageTraceDataResponseBody) SetNextToken(v int64) *QueryPageTraceDa
 }
 
 type QueryPageTraceDataResponseBodyList struct {
-	// 经纬度
 	Coordinates *QueryPageTraceDataResponseBodyListCoordinates `json:"coordinates,omitempty" xml:"coordinates,omitempty" type:"Struct"`
-	// 定位时间
-	GmtLocation *int64 `json:"gmtLocation,omitempty" xml:"gmtLocation,omitempty"`
-	// 上报时间
-	GmtUpload *int64 `json:"gmtUpload,omitempty" xml:"gmtUpload,omitempty"`
+	GmtLocation *int64                                         `json:"gmtLocation,omitempty" xml:"gmtLocation,omitempty"`
+	GmtUpload   *int64                                         `json:"gmtUpload,omitempty" xml:"gmtUpload,omitempty"`
 }
 
 func (s QueryPageTraceDataResponseBodyList) String() string {
@@ -459,9 +444,7 @@ func (s *QueryPageTraceDataResponseBodyList) SetGmtUpload(v int64) *QueryPageTra
 }
 
 type QueryPageTraceDataResponseBodyListCoordinates struct {
-	// 纬度
-	Latitude *float32 `json:"latitude,omitempty" xml:"latitude,omitempty"`
-	// 经度
+	Latitude  *float32 `json:"latitude,omitempty" xml:"latitude,omitempty"`
 	Longitude *float32 `json:"longitude,omitempty" xml:"longitude,omitempty"`
 }
 
@@ -484,8 +467,9 @@ func (s *QueryPageTraceDataResponseBodyListCoordinates) SetLongitude(v float32) 
 }
 
 type QueryPageTraceDataResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryPageTraceDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryPageTraceDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryPageTraceDataResponse) String() string {
@@ -498,6 +482,11 @@ func (s QueryPageTraceDataResponse) GoString() string {
 
 func (s *QueryPageTraceDataResponse) SetHeaders(v map[string]*string) *QueryPageTraceDataResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryPageTraceDataResponse) SetStatusCode(v int32) *QueryPageTraceDataResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -521,24 +510,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) QueryAppActiveUsers(request *QueryAppActiveUsersRequest) (_result *QueryAppActiveUsersResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &QueryAppActiveUsersHeaders{}
-	_result = &QueryAppActiveUsersResponse{}
-	_body, _err := client.QueryAppActiveUsersWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) QueryAppActiveUsersWithOptions(request *QueryAppActiveUsersRequest, headers *QueryAppActiveUsersHeaders, runtime *util.RuntimeOptions) (_result *QueryAppActiveUsersResponse, _err error) {
@@ -572,8 +555,19 @@ func (client *Client) QueryAppActiveUsersWithOptions(request *QueryAppActiveUser
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryAppActiveUsers"),
+		Version:     tea.String("trajectory_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trajectory/activeUsers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryAppActiveUsersResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryAppActiveUsers"), tea.String("trajectory_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/trajectory/activeUsers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -581,11 +575,11 @@ func (client *Client) QueryAppActiveUsersWithOptions(request *QueryAppActiveUser
 	return _result, _err
 }
 
-func (client *Client) QueryCollectingTraceTask(request *QueryCollectingTraceTaskRequest) (_result *QueryCollectingTraceTaskResponse, _err error) {
+func (client *Client) QueryAppActiveUsers(request *QueryAppActiveUsersRequest) (_result *QueryAppActiveUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryCollectingTraceTaskHeaders{}
-	_result = &QueryCollectingTraceTaskResponse{}
-	_body, _err := client.QueryCollectingTraceTaskWithOptions(request, headers, runtime)
+	headers := &QueryAppActiveUsersHeaders{}
+	_result = &QueryAppActiveUsersResponse{}
+	_body, _err := client.QueryAppActiveUsersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -616,8 +610,19 @@ func (client *Client) QueryCollectingTraceTaskWithOptions(request *QueryCollecti
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCollectingTraceTask"),
+		Version:     tea.String("trajectory_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trajectory/currentTasks/queryByUserIds"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryCollectingTraceTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCollectingTraceTask"), tea.String("trajectory_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/trajectory/currentTasks/queryByUserIds"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -625,11 +630,11 @@ func (client *Client) QueryCollectingTraceTaskWithOptions(request *QueryCollecti
 	return _result, _err
 }
 
-func (client *Client) QueryPageTraceData(request *QueryPageTraceDataRequest) (_result *QueryPageTraceDataResponse, _err error) {
+func (client *Client) QueryCollectingTraceTask(request *QueryCollectingTraceTaskRequest) (_result *QueryCollectingTraceTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryPageTraceDataHeaders{}
-	_result = &QueryPageTraceDataResponse{}
-	_body, _err := client.QueryPageTraceDataWithOptions(request, headers, runtime)
+	headers := &QueryCollectingTraceTaskHeaders{}
+	_result = &QueryCollectingTraceTaskResponse{}
+	_body, _err := client.QueryCollectingTraceTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -680,11 +685,34 @@ func (client *Client) QueryPageTraceDataWithOptions(request *QueryPageTraceDataR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPageTraceData"),
+		Version:     tea.String("trajectory_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trajectory/data"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryPageTraceDataResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryPageTraceData"), tea.String("trajectory_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/trajectory/data"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryPageTraceData(request *QueryPageTraceDataRequest) (_result *QueryPageTraceDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPageTraceDataHeaders{}
+	_result = &QueryPageTraceDataResponse{}
+	_body, _err := client.QueryPageTraceDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

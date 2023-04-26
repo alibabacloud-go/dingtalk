@@ -5,11 +5,13 @@
 package okr_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
-	"github.com/alibabacloud-go/tea/tea"
 	"io"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	"github.com/alibabacloud-go/tea/tea"
 )
 
 type AlignObjectiveHeaders struct {
@@ -36,12 +38,9 @@ func (s *AlignObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *AlignObjec
 }
 
 type AlignObjectiveRequest struct {
-	// 周期 ID。
 	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// 对齐目标的 ID。
 	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	// 当前用户的 user ID。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AlignObjectiveRequest) String() string {
@@ -68,10 +67,8 @@ func (s *AlignObjectiveRequest) SetUserId(v string) *AlignObjectiveRequest {
 }
 
 type AlignObjectiveResponseBody struct {
-	// data
-	Data *AlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *AlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AlignObjectiveResponseBody) String() string {
@@ -93,10 +90,8 @@ func (s *AlignObjectiveResponseBody) SetSuccess(v bool) *AlignObjectiveResponseB
 }
 
 type AlignObjectiveResponseBodyData struct {
-	// 对齐目标的 ID。
 	AlignId io.Reader `json:"alignId,omitempty" xml:"alignId,omitempty"`
-	// 当前 Objective 的ID
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	Id      io.Reader `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s AlignObjectiveResponseBodyData) String() string {
@@ -118,8 +113,9 @@ func (s *AlignObjectiveResponseBodyData) SetId(v io.Reader) *AlignObjectiveRespo
 }
 
 type AlignObjectiveResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AlignObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AlignObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AlignObjectiveResponse) String() string {
@@ -132,6 +128,11 @@ func (s AlignObjectiveResponse) GoString() string {
 
 func (s *AlignObjectiveResponse) SetHeaders(v map[string]*string) *AlignObjectiveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AlignObjectiveResponse) SetStatusCode(v int32) *AlignObjectiveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -167,8 +168,7 @@ type BatchAddPermissionRequest struct {
 	List       []*BatchAddPermissionRequestList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 	TargetId   *string                          `json:"targetId,omitempty" xml:"targetId,omitempty"`
 	TargetType *string                          `json:"targetType,omitempty" xml:"targetType,omitempty"`
-	// A short description of struct
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId     *string                          `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchAddPermissionRequest) String() string {
@@ -246,10 +246,8 @@ func (s *BatchAddPermissionRequestListMember) SetType(v string) *BatchAddPermiss
 }
 
 type BatchAddPermissionResponseBody struct {
-	// 返回的数据。
-	Data *BatchAddPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *BatchAddPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchAddPermissionResponseBody) String() string {
@@ -271,9 +269,7 @@ func (s *BatchAddPermissionResponseBody) SetSuccess(v bool) *BatchAddPermissionR
 }
 
 type BatchAddPermissionResponseBodyData struct {
-	// 是否有无效的成员。
-	HasInvalidUser *bool `json:"hasInvalidUser,omitempty" xml:"hasInvalidUser,omitempty"`
-	// 权限信息。
+	HasInvalidUser *bool                                             `json:"hasInvalidUser,omitempty" xml:"hasInvalidUser,omitempty"`
 	PermissionTree *BatchAddPermissionResponseBodyDataPermissionTree `json:"permissionTree,omitempty" xml:"permissionTree,omitempty" type:"Struct"`
 }
 
@@ -296,14 +292,10 @@ func (s *BatchAddPermissionResponseBodyData) SetPermissionTree(v *BatchAddPermis
 }
 
 type BatchAddPermissionResponseBodyDataPermissionTree struct {
-	// 权限 ID。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 权限列表
+	Id         *string                                                       `json:"id,omitempty" xml:"id,omitempty"`
 	PolicyList []*BatchAddPermissionResponseBodyDataPermissionTreePolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
-	// 是否可见的标识。
-	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	// 哪种类型的权限。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Privacy    *string                                                       `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	Type       *string                                                       `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s BatchAddPermissionResponseBodyDataPermissionTree) String() string {
@@ -393,8 +385,9 @@ func (s *BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList) S
 }
 
 type BatchAddPermissionResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchAddPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchAddPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchAddPermissionResponse) String() string {
@@ -407,6 +400,11 @@ func (s BatchAddPermissionResponse) GoString() string {
 
 func (s *BatchAddPermissionResponse) SetHeaders(v map[string]*string) *BatchAddPermissionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchAddPermissionResponse) SetStatusCode(v int32) *BatchAddPermissionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -439,18 +437,12 @@ func (s *BatchQueryObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchQueryObjectiveRequest struct {
-	// 需要查看的 Objective ID。
 	ObjectiveIds []*string `json:"objectiveIds,omitempty" xml:"objectiveIds,omitempty" type:"Repeated"`
-	// 周期 ID。
-	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// 是否返回关联信息。
-	WithAlign *bool `json:"withAlign,omitempty" xml:"withAlign,omitempty"`
-	// 是否返回 KR 信息。
-	WithKr *bool `json:"withKr,omitempty" xml:"withKr,omitempty"`
-	// 是否返回进度信息
-	WithProgress *bool `json:"withProgress,omitempty" xml:"withProgress,omitempty"`
-	// 当前用户的 staff ID。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	PeriodId     *string   `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	WithAlign    *bool     `json:"withAlign,omitempty" xml:"withAlign,omitempty"`
+	WithKr       *bool     `json:"withKr,omitempty" xml:"withKr,omitempty"`
+	WithProgress *bool     `json:"withProgress,omitempty" xml:"withProgress,omitempty"`
+	UserId       *string   `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchQueryObjectiveRequest) String() string {
@@ -492,10 +484,8 @@ func (s *BatchQueryObjectiveRequest) SetUserId(v string) *BatchQueryObjectiveReq
 }
 
 type BatchQueryObjectiveResponseBody struct {
-	// data
-	Data []*BatchQueryObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    []*BatchQueryObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchQueryObjectiveResponseBody) String() string {
@@ -517,42 +507,24 @@ func (s *BatchQueryObjectiveResponseBody) SetSuccess(v bool) *BatchQueryObjectiv
 }
 
 type BatchQueryObjectiveResponseBodyData struct {
-	// 被对齐的 Objective。
-	AlignFromIds []io.Reader `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
-	// 对齐的 Objective。
-	AlignToIds []io.Reader `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
-	// Objective 内容。
-	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间。时间戳
-	GmtCreate *float32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 更新时间。时间戳
-	GmtModified *float32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// objective。
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	// KR 详情列表。
-	KrList []*BatchQueryObjectiveResponseBodyDataKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
-	// 所属者信息。
-	Owner *BatchQueryObjectiveResponseBodyDataOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	// 周期 ID。
-	PeriodId io.Reader `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// 权限值。
-	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	// 所在位置。
-	Position *int32 `json:"position,omitempty" xml:"position,omitempty"`
-	// 进度值。
-	Progress *BatchQueryObjectiveResponseBodyDataProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	// 百分比值。
-	ProgressPercent *float32 `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
-	// 是否已发布。
-	Published *bool `json:"published,omitempty" xml:"published,omitempty"`
-	// 分数值。
-	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
-	// 当前内容状态。
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户 ID。
-	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 权重值。
-	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
+	AlignFromIds    []io.Reader                                  `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
+	AlignToIds      []io.Reader                                  `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
+	Content         io.Reader                                    `json:"content,omitempty" xml:"content,omitempty"`
+	GmtCreate       *float32                                     `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified     *float32                                     `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Id              io.Reader                                    `json:"id,omitempty" xml:"id,omitempty"`
+	KrList          []*BatchQueryObjectiveResponseBodyDataKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
+	Owner           *BatchQueryObjectiveResponseBodyDataOwner    `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	PeriodId        io.Reader                                    `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	Permission      []*float32                                   `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	Position        *int32                                       `json:"position,omitempty" xml:"position,omitempty"`
+	Progress        *BatchQueryObjectiveResponseBodyDataProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	ProgressPercent *float32                                     `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
+	Published       *bool                                        `json:"published,omitempty" xml:"published,omitempty"`
+	Score           *float32                                     `json:"score,omitempty" xml:"score,omitempty"`
+	Status          *int32                                       `json:"status,omitempty" xml:"status,omitempty"`
+	UserId          io.Reader                                    `json:"userId,omitempty" xml:"userId,omitempty"`
+	Weight          *float32                                     `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s BatchQueryObjectiveResponseBodyData) String() string {
@@ -654,26 +626,16 @@ func (s *BatchQueryObjectiveResponseBodyData) SetWeight(v float32) *BatchQueryOb
 }
 
 type BatchQueryObjectiveResponseBodyDataKrList struct {
-	// KR 内容。
-	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间。时间戳
-	GmtCreate *float32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 更新时间。时间戳
-	GmtModified *float32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// KR 的 ID。
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	// 所属 Objective ID。
-	ObjectiveId io.Reader `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	// KR 权限。
-	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	// 所处位置。
-	Position *int64 `json:"position,omitempty" xml:"position,omitempty"`
-	// KR 进度。
-	Progress *BatchQueryObjectiveResponseBodyDataKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	// 所占分数。
-	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
-	// 所占权重。
-	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
+	Content     io.Reader                                          `json:"content,omitempty" xml:"content,omitempty"`
+	GmtCreate   *float32                                           `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified *float32                                           `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Id          io.Reader                                          `json:"id,omitempty" xml:"id,omitempty"`
+	ObjectiveId io.Reader                                          `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	Permission  []*float32                                         `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	Position    *int64                                             `json:"position,omitempty" xml:"position,omitempty"`
+	Progress    *BatchQueryObjectiveResponseBodyDataKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	Score       *float32                                           `json:"score,omitempty" xml:"score,omitempty"`
+	Weight      *float32                                           `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s BatchQueryObjectiveResponseBodyDataKrList) String() string {
@@ -735,7 +697,6 @@ func (s *BatchQueryObjectiveResponseBodyDataKrList) SetWeight(v float32) *BatchQ
 }
 
 type BatchQueryObjectiveResponseBodyDataKrListProgress struct {
-	// 百分比。
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -753,16 +714,11 @@ func (s *BatchQueryObjectiveResponseBodyDataKrListProgress) SetPercent(v int32) 
 }
 
 type BatchQueryObjectiveResponseBodyDataOwner struct {
-	// 所属者头像。 ID
 	AvatarMediaId io.Reader `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	// 所属者组织 I。D
-	CorpId io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 所属者在 OKR 系统中的 ID。
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	// 所属者昵称。
-	Nickname io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	// 所属者 userId。
-	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	CorpId        io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Id            io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	Nickname      io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	UserId        io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchQueryObjectiveResponseBodyDataOwner) String() string {
@@ -799,7 +755,6 @@ func (s *BatchQueryObjectiveResponseBodyDataOwner) SetUserId(v io.Reader) *Batch
 }
 
 type BatchQueryObjectiveResponseBodyDataProgress struct {
-	// 百分比。
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -817,8 +772,9 @@ func (s *BatchQueryObjectiveResponseBodyDataProgress) SetPercent(v int32) *Batch
 }
 
 type BatchQueryObjectiveResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchQueryObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchQueryObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchQueryObjectiveResponse) String() string {
@@ -831,6 +787,11 @@ func (s BatchQueryObjectiveResponse) GoString() string {
 
 func (s *BatchQueryObjectiveResponse) SetHeaders(v map[string]*string) *BatchQueryObjectiveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryObjectiveResponse) SetStatusCode(v int32) *BatchQueryObjectiveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -863,10 +824,8 @@ func (s *BatchQueryUserHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQuery
 }
 
 type BatchQueryUserRequest struct {
-	// OKR 系统中的用户 ID 列表
 	OkrUserIds []*string `json:"okrUserIds,omitempty" xml:"okrUserIds,omitempty" type:"Repeated"`
-	// 开放平台中用户 ID 列表
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	UserIds    []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s BatchQueryUserRequest) String() string {
@@ -888,10 +847,8 @@ func (s *BatchQueryUserRequest) SetUserIds(v []*string) *BatchQueryUserRequest {
 }
 
 type BatchQueryUserResponseBody struct {
-	// data
-	Data []*BatchQueryUserResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    []*BatchQueryUserResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchQueryUserResponseBody) String() string {
@@ -913,18 +870,12 @@ func (s *BatchQueryUserResponseBody) SetSuccess(v bool) *BatchQueryUserResponseB
 }
 
 type BatchQueryUserResponseBodyData struct {
-	// 所属者头像。 ID
 	AvatarMediaId io.Reader `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	// 所属者头像。 URL
-	AvatarUrl io.Reader `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 所属者组织 I。D
-	CorpId io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 所属者在 OKR 系统中的 ID。
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	// 所属者昵称。
-	Nickname io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	// 所属者 userId。
-	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	AvatarUrl     io.Reader `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	CorpId        io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Id            io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	Nickname      io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	UserId        io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchQueryUserResponseBodyData) String() string {
@@ -966,8 +917,9 @@ func (s *BatchQueryUserResponseBodyData) SetUserId(v io.Reader) *BatchQueryUserR
 }
 
 type BatchQueryUserResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchQueryUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchQueryUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchQueryUserResponse) String() string {
@@ -980,6 +932,11 @@ func (s BatchQueryUserResponse) GoString() string {
 
 func (s *BatchQueryUserResponse) SetHeaders(v map[string]*string) *BatchQueryUserResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryUserResponse) SetStatusCode(v int32) *BatchQueryUserResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1012,18 +969,12 @@ func (s *CreateKeyResultHeaders) SetXAcsDingtalkAccessToken(v string) *CreateKey
 }
 
 type CreateKeyResultRequest struct {
-	// KR 内容。
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 所属 Objective ID。
-	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	// 周期 ID。
-	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// 上一个 KR 的位置。
-	PrevPosition *int64 `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
-	// KR 的权重比。
-	Weight *int64 `json:"weight,omitempty" xml:"weight,omitempty"`
-	// 当前用户的 user ID。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Content      *string `json:"content,omitempty" xml:"content,omitempty"`
+	ObjectiveId  *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	PeriodId     *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	PrevPosition *int64  `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
+	Weight       *int64  `json:"weight,omitempty" xml:"weight,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateKeyResultRequest) String() string {
@@ -1065,9 +1016,8 @@ func (s *CreateKeyResultRequest) SetUserId(v string) *CreateKeyResultRequest {
 }
 
 type CreateKeyResultResponseBody struct {
-	Data *CreateKeyResultResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *CreateKeyResultResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateKeyResultResponseBody) String() string {
@@ -1089,12 +1039,9 @@ func (s *CreateKeyResultResponseBody) SetSuccess(v bool) *CreateKeyResultRespons
 }
 
 type CreateKeyResultResponseBodyData struct {
-	// 创建成功的 KR ID。
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	// KR的位置。
-	Position *int64 `json:"position,omitempty" xml:"position,omitempty"`
-	// KR 的权重。
-	Weight *int64 `json:"weight,omitempty" xml:"weight,omitempty"`
+	Id       io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	Position *int64    `json:"position,omitempty" xml:"position,omitempty"`
+	Weight   *int64    `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s CreateKeyResultResponseBodyData) String() string {
@@ -1121,8 +1068,9 @@ func (s *CreateKeyResultResponseBodyData) SetWeight(v int64) *CreateKeyResultRes
 }
 
 type CreateKeyResultResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateKeyResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateKeyResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateKeyResultResponse) String() string {
@@ -1135,6 +1083,11 @@ func (s CreateKeyResultResponse) GoString() string {
 
 func (s *CreateKeyResultResponse) SetHeaders(v map[string]*string) *CreateKeyResultResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateKeyResultResponse) SetStatusCode(v int32) *CreateKeyResultResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1167,14 +1120,10 @@ func (s *CreateObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *CreateObj
 }
 
 type CreateObjectiveRequest struct {
-	// 创建Objective 的内容
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 当前周期 ID。
-	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// 上一个 Objective 的位置。
+	Content      *string `json:"content,omitempty" xml:"content,omitempty"`
+	PeriodId     *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
 	PrevPosition *string `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
-	// 当前用户的 userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateObjectiveRequest) String() string {
@@ -1206,10 +1155,8 @@ func (s *CreateObjectiveRequest) SetUserId(v string) *CreateObjectiveRequest {
 }
 
 type CreateObjectiveResponseBody struct {
-	// data
-	Data *CreateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *CreateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateObjectiveResponseBody) String() string {
@@ -1231,9 +1178,7 @@ func (s *CreateObjectiveResponseBody) SetSuccess(v bool) *CreateObjectiveRespons
 }
 
 type CreateObjectiveResponseBodyData struct {
-	// 当前 Objective ID。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 当前 Objective 的位置。
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
 	Position *string `json:"position,omitempty" xml:"position,omitempty"`
 }
 
@@ -1256,8 +1201,9 @@ func (s *CreateObjectiveResponseBodyData) SetPosition(v string) *CreateObjective
 }
 
 type CreateObjectiveResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateObjectiveResponse) String() string {
@@ -1270,6 +1216,11 @@ func (s CreateObjectiveResponse) GoString() string {
 
 func (s *CreateObjectiveResponse) SetHeaders(v map[string]*string) *CreateObjectiveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateObjectiveResponse) SetStatusCode(v int32) *CreateObjectiveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1302,9 +1253,7 @@ func (s *DeleteKeyResultHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteKey
 }
 
 type DeleteKeyResultRequest struct {
-	// 当前 KR id。
-	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
-	// 当前用户的userId。
+	KrId   *string `json:"krId,omitempty" xml:"krId,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1327,9 +1276,7 @@ func (s *DeleteKeyResultRequest) SetUserId(v string) *DeleteKeyResultRequest {
 }
 
 type DeleteKeyResultResponseBody struct {
-	// 返回的信息
-	Data *bool `json:"data,omitempty" xml:"data,omitempty"`
-	// 请求成功的标识。
+	Data    *bool `json:"data,omitempty" xml:"data,omitempty"`
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1352,8 +1299,9 @@ func (s *DeleteKeyResultResponseBody) SetSuccess(v bool) *DeleteKeyResultRespons
 }
 
 type DeleteKeyResultResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteKeyResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteKeyResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteKeyResultResponse) String() string {
@@ -1366,6 +1314,11 @@ func (s DeleteKeyResultResponse) GoString() string {
 
 func (s *DeleteKeyResultResponse) SetHeaders(v map[string]*string) *DeleteKeyResultResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteKeyResultResponse) SetStatusCode(v int32) *DeleteKeyResultResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1398,7 +1351,6 @@ func (s *DeleteObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteObj
 }
 
 type DeleteObjectiveRequest struct {
-	// 当前用户的 userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1416,10 +1368,8 @@ func (s *DeleteObjectiveRequest) SetUserId(v string) *DeleteObjectiveRequest {
 }
 
 type DeleteObjectiveResponseBody struct {
-	// data
-	Data *DeleteObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *DeleteObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DeleteObjectiveResponseBody) String() string {
@@ -1441,7 +1391,6 @@ func (s *DeleteObjectiveResponseBody) SetSuccess(v bool) *DeleteObjectiveRespons
 }
 
 type DeleteObjectiveResponseBodyData struct {
-	// 当前 Objective ID。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -1459,8 +1408,9 @@ func (s *DeleteObjectiveResponseBodyData) SetId(v string) *DeleteObjectiveRespon
 }
 
 type DeleteObjectiveResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteObjectiveResponse) String() string {
@@ -1473,6 +1423,11 @@ func (s DeleteObjectiveResponse) GoString() string {
 
 func (s *DeleteObjectiveResponse) SetHeaders(v map[string]*string) *DeleteObjectiveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteObjectiveResponse) SetStatusCode(v int32) *DeleteObjectiveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1510,8 +1465,7 @@ type DeletePermissionRequest struct {
 	TargetId   *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
 	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
 	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 当前用户的userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeletePermissionRequest) String() string {
@@ -1553,9 +1507,8 @@ func (s *DeletePermissionRequest) SetUserId(v string) *DeletePermissionRequest {
 }
 
 type DeletePermissionResponseBody struct {
-	Data *DeletePermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *DeletePermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DeletePermissionResponseBody) String() string {
@@ -1577,13 +1530,10 @@ func (s *DeletePermissionResponseBody) SetSuccess(v bool) *DeletePermissionRespo
 }
 
 type DeletePermissionResponseBodyData struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 权限列表
+	Id         *string                                       `json:"id,omitempty" xml:"id,omitempty"`
 	PolicyList []*DeletePermissionResponseBodyDataPolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
-	// 是否可见的标识。
-	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	// 哪种类型的权限。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Privacy    *string                                       `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	Type       *string                                       `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DeletePermissionResponseBodyData) String() string {
@@ -1673,8 +1623,9 @@ func (s *DeletePermissionResponseBodyDataPolicyListMemberList) SetType(v string)
 }
 
 type DeletePermissionResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeletePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeletePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeletePermissionResponse) String() string {
@@ -1687,6 +1638,11 @@ func (s DeletePermissionResponse) GoString() string {
 
 func (s *DeletePermissionResponse) SetHeaders(v map[string]*string) *DeletePermissionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeletePermissionResponse) SetStatusCode(v int32) *DeletePermissionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1719,10 +1675,8 @@ func (s *GetPeriodListHeaders) SetXAcsDingtalkAccessToken(v string) *GetPeriodLi
 }
 
 type GetPeriodListResponseBody struct {
-	// data
-	Data *GetPeriodListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *GetPeriodListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                          `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetPeriodListResponseBody) String() string {
@@ -1808,8 +1762,9 @@ func (s *GetPeriodListResponseBodyDataPeriodList) SetStartTime(v float32) *GetPe
 }
 
 type GetPeriodListResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetPeriodListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPeriodListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetPeriodListResponse) String() string {
@@ -1822,6 +1777,11 @@ func (s GetPeriodListResponse) GoString() string {
 
 func (s *GetPeriodListResponse) SetHeaders(v map[string]*string) *GetPeriodListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetPeriodListResponse) SetStatusCode(v int32) *GetPeriodListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1854,9 +1814,8 @@ func (s *GetPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *GetPermissi
 }
 
 type GetPermissionRequest struct {
-	TargetId   *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
-	// A short description of struct
+	TargetId      *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	TargetType    *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
 	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	WithKr        *bool   `json:"withKr,omitempty" xml:"withKr,omitempty"`
 	WithObjective *bool   `json:"withObjective,omitempty" xml:"withObjective,omitempty"`
@@ -1896,10 +1855,8 @@ func (s *GetPermissionRequest) SetWithObjective(v bool) *GetPermissionRequest {
 }
 
 type GetPermissionResponseBody struct {
-	// 返回的数据。
-	Data *GetPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *GetPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                          `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetPermissionResponseBody) String() string {
@@ -1921,13 +1878,10 @@ func (s *GetPermissionResponseBody) SetSuccess(v bool) *GetPermissionResponseBod
 }
 
 type GetPermissionResponseBodyData struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 权限列表
+	Id         *string                                    `json:"id,omitempty" xml:"id,omitempty"`
 	PolicyList []*GetPermissionResponseBodyDataPolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
-	// 是否可见的标识。
-	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	// 哪种类型的权限。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Privacy    *string                                    `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	Type       *string                                    `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetPermissionResponseBodyData) String() string {
@@ -2017,8 +1971,9 @@ func (s *GetPermissionResponseBodyDataPolicyListMemberList) SetType(v string) *G
 }
 
 type GetPermissionResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetPermissionResponse) String() string {
@@ -2031,6 +1986,11 @@ func (s GetPermissionResponse) GoString() string {
 
 func (s *GetPermissionResponse) SetHeaders(v map[string]*string) *GetPermissionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetPermissionResponse) SetStatusCode(v int32) *GetPermissionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2063,14 +2023,10 @@ func (s *GetUserOkrHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserOkrHead
 }
 
 type GetUserOkrRequest struct {
-	// 页码，默认 为 1。
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 每页的个数，默认100。
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 周期 ID。
-	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// 当前用户的user ID。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PeriodId   *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserOkrRequest) String() string {
@@ -2102,10 +2058,8 @@ func (s *GetUserOkrRequest) SetUserId(v string) *GetUserOkrRequest {
 }
 
 type GetUserOkrResponseBody struct {
-	// data
-	Data *GetUserOkrResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *GetUserOkrResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                       `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetUserOkrResponseBody) String() string {
@@ -2127,14 +2081,10 @@ func (s *GetUserOkrResponseBody) SetSuccess(v bool) *GetUserOkrResponseBody {
 }
 
 type GetUserOkrResponseBodyData struct {
-	// OKR 列表详情。
-	List []*GetUserOkrResponseBodyDataList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 当前页码。
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 每一页的个数。
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 总数。
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	List       []*GetUserOkrResponseBodyDataList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	PageNumber *int64                            `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64                            `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TotalCount *int64                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyData) String() string {
@@ -2166,42 +2116,24 @@ func (s *GetUserOkrResponseBodyData) SetTotalCount(v int64) *GetUserOkrResponseB
 }
 
 type GetUserOkrResponseBodyDataList struct {
-	// 被对齐的 Objective。
-	AlignFromIds []io.Reader `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
-	// 对齐的 Objective。
-	AlignToIds []io.Reader `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
-	// Objective 内容。
-	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间。时间戳
-	GmtCreate *float32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 更新时间。时间戳
-	GmtModified *float32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// objective。
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	// KR 详情列表。
-	KrList []*GetUserOkrResponseBodyDataListKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
-	// 所属者信息。
-	Owner *GetUserOkrResponseBodyDataListOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	// 周期 ID。
-	PeriodId io.Reader `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// 权限值。
-	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	// 所在位置。
-	Position *int32 `json:"position,omitempty" xml:"position,omitempty"`
-	// 进度值。
-	Progress *GetUserOkrResponseBodyDataListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	// 百分比值。
-	ProgressPercent *float32 `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
-	// 是否已发布。
-	Published *bool `json:"published,omitempty" xml:"published,omitempty"`
-	// 分数值。
-	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
-	// 当前内容状态。
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 用户 ID。
-	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 权重值。
-	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
+	AlignFromIds    []io.Reader                             `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
+	AlignToIds      []io.Reader                             `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
+	Content         io.Reader                               `json:"content,omitempty" xml:"content,omitempty"`
+	GmtCreate       *float32                                `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified     *float32                                `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Id              io.Reader                               `json:"id,omitempty" xml:"id,omitempty"`
+	KrList          []*GetUserOkrResponseBodyDataListKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
+	Owner           *GetUserOkrResponseBodyDataListOwner    `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	PeriodId        io.Reader                               `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	Permission      []*float32                              `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	Position        *int32                                  `json:"position,omitempty" xml:"position,omitempty"`
+	Progress        *GetUserOkrResponseBodyDataListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	ProgressPercent *float32                                `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
+	Published       *bool                                   `json:"published,omitempty" xml:"published,omitempty"`
+	Score           *float32                                `json:"score,omitempty" xml:"score,omitempty"`
+	Status          *int32                                  `json:"status,omitempty" xml:"status,omitempty"`
+	UserId          io.Reader                               `json:"userId,omitempty" xml:"userId,omitempty"`
+	Weight          *float32                                `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyDataList) String() string {
@@ -2303,26 +2235,16 @@ func (s *GetUserOkrResponseBodyDataList) SetWeight(v float32) *GetUserOkrRespons
 }
 
 type GetUserOkrResponseBodyDataListKrList struct {
-	// KR 内容。
-	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间。时间戳
-	GmtCreate *float32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 更新时间。时间戳
-	GmtModified *float32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// KR 的 ID。
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	// 所属 Objective ID。
-	ObjectiveId io.Reader `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	// KR 权限。
-	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	// 所处位置。
-	Position *int64 `json:"position,omitempty" xml:"position,omitempty"`
-	// KR 进度。
-	Progress *GetUserOkrResponseBodyDataListKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	// 所占分数。
-	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
-	// 所占权重。
-	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
+	Content     io.Reader                                     `json:"content,omitempty" xml:"content,omitempty"`
+	GmtCreate   *float32                                      `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified *float32                                      `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Id          io.Reader                                     `json:"id,omitempty" xml:"id,omitempty"`
+	ObjectiveId io.Reader                                     `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	Permission  []*float32                                    `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	Position    *int64                                        `json:"position,omitempty" xml:"position,omitempty"`
+	Progress    *GetUserOkrResponseBodyDataListKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	Score       *float32                                      `json:"score,omitempty" xml:"score,omitempty"`
+	Weight      *float32                                      `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyDataListKrList) String() string {
@@ -2384,7 +2306,6 @@ func (s *GetUserOkrResponseBodyDataListKrList) SetWeight(v float32) *GetUserOkrR
 }
 
 type GetUserOkrResponseBodyDataListKrListProgress struct {
-	// 百分比。
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -2402,16 +2323,11 @@ func (s *GetUserOkrResponseBodyDataListKrListProgress) SetPercent(v int32) *GetU
 }
 
 type GetUserOkrResponseBodyDataListOwner struct {
-	// 所属者头像。 ID
 	AvatarMediaId io.Reader `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	// 所属者组织 I。D
-	CorpId io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 所属者 OKR 系统中的 ID。
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	// 所属者昵称。
-	Nickname io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	// 所属者 userId。
-	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	CorpId        io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Id            io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	Nickname      io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	UserId        io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyDataListOwner) String() string {
@@ -2448,7 +2364,6 @@ func (s *GetUserOkrResponseBodyDataListOwner) SetUserId(v io.Reader) *GetUserOkr
 }
 
 type GetUserOkrResponseBodyDataListProgress struct {
-	// 百分比。
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -2466,8 +2381,9 @@ func (s *GetUserOkrResponseBodyDataListProgress) SetPercent(v int32) *GetUserOkr
 }
 
 type GetUserOkrResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserOkrResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserOkrResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserOkrResponse) String() string {
@@ -2480,6 +2396,11 @@ func (s GetUserOkrResponse) GoString() string {
 
 func (s *GetUserOkrResponse) SetHeaders(v map[string]*string) *GetUserOkrResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserOkrResponse) SetStatusCode(v int32) *GetUserOkrResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2512,12 +2433,9 @@ func (s *UnAlignObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *UnAlignO
 }
 
 type UnAlignObjectiveRequest struct {
-	// 周期 ID
 	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// 对齐目标的 ID
 	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	// 当前用户的 userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UnAlignObjectiveRequest) String() string {
@@ -2544,10 +2462,8 @@ func (s *UnAlignObjectiveRequest) SetUserId(v string) *UnAlignObjectiveRequest {
 }
 
 type UnAlignObjectiveResponseBody struct {
-	// data
-	Data *UnAlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *UnAlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UnAlignObjectiveResponseBody) String() string {
@@ -2569,10 +2485,8 @@ func (s *UnAlignObjectiveResponseBody) SetSuccess(v bool) *UnAlignObjectiveRespo
 }
 
 type UnAlignObjectiveResponseBodyData struct {
-	// 对齐的 Objective ID。
 	AlignId io.Reader `json:"alignId,omitempty" xml:"alignId,omitempty"`
-	// 当前 Objective ID。
-	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	Id      io.Reader `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s UnAlignObjectiveResponseBodyData) String() string {
@@ -2594,8 +2508,9 @@ func (s *UnAlignObjectiveResponseBodyData) SetId(v io.Reader) *UnAlignObjectiveR
 }
 
 type UnAlignObjectiveResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UnAlignObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UnAlignObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UnAlignObjectiveResponse) String() string {
@@ -2608,6 +2523,11 @@ func (s UnAlignObjectiveResponse) GoString() string {
 
 func (s *UnAlignObjectiveResponse) SetHeaders(v map[string]*string) *UnAlignObjectiveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UnAlignObjectiveResponse) SetStatusCode(v int32) *UnAlignObjectiveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2640,14 +2560,10 @@ func (s *UpdateKROfContentHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateK
 }
 
 type UpdateKROfContentRequest struct {
-	// KR的内容。
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 待更新的划词 ID 列表。
+	Content         *string   `json:"content,omitempty" xml:"content,omitempty"`
 	UpdateQuoteList []*string `json:"updateQuoteList,omitempty" xml:"updateQuoteList,omitempty" type:"Repeated"`
-	// 当前 KR ID。
-	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
-	// 当前用户的userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	KrId            *string   `json:"krId,omitempty" xml:"krId,omitempty"`
+	UserId          *string   `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateKROfContentRequest) String() string {
@@ -2679,8 +2595,7 @@ func (s *UpdateKROfContentRequest) SetUserId(v string) *UpdateKROfContentRequest
 }
 
 type UpdateKROfContentResponseBody struct {
-	Data *bool `json:"data,omitempty" xml:"data,omitempty"`
-	// 请求成功的标识。
+	Data    *bool `json:"data,omitempty" xml:"data,omitempty"`
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2703,8 +2618,9 @@ func (s *UpdateKROfContentResponseBody) SetSuccess(v bool) *UpdateKROfContentRes
 }
 
 type UpdateKROfContentResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateKROfContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateKROfContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateKROfContentResponse) String() string {
@@ -2717,6 +2633,11 @@ func (s UpdateKROfContentResponse) GoString() string {
 
 func (s *UpdateKROfContentResponse) SetHeaders(v map[string]*string) *UpdateKROfContentResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateKROfContentResponse) SetStatusCode(v int32) *UpdateKROfContentResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2749,11 +2670,8 @@ func (s *UpdateKROfScoreHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateKRO
 }
 
 type UpdateKROfScoreRequest struct {
-	// 分数值。
-	Score *int64 `json:"score,omitempty" xml:"score,omitempty"`
-	// 当前 KR ID。
-	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
-	// 当前用户的userId。
+	Score  *int64  `json:"score,omitempty" xml:"score,omitempty"`
+	KrId   *string `json:"krId,omitempty" xml:"krId,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2781,9 +2699,8 @@ func (s *UpdateKROfScoreRequest) SetUserId(v string) *UpdateKROfScoreRequest {
 }
 
 type UpdateKROfScoreResponseBody struct {
-	Data *UpdateKROfScoreResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *UpdateKROfScoreResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateKROfScoreResponseBody) String() string {
@@ -2805,7 +2722,6 @@ func (s *UpdateKROfScoreResponseBody) SetSuccess(v bool) *UpdateKROfScoreRespons
 }
 
 type UpdateKROfScoreResponseBodyData struct {
-	// 目标分数。
 	ObjectiveScore *int64 `json:"objectiveScore,omitempty" xml:"objectiveScore,omitempty"`
 }
 
@@ -2823,8 +2739,9 @@ func (s *UpdateKROfScoreResponseBodyData) SetObjectiveScore(v int64) *UpdateKROf
 }
 
 type UpdateKROfScoreResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateKROfScoreResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateKROfScoreResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateKROfScoreResponse) String() string {
@@ -2837,6 +2754,11 @@ func (s UpdateKROfScoreResponse) GoString() string {
 
 func (s *UpdateKROfScoreResponse) SetHeaders(v map[string]*string) *UpdateKROfScoreResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateKROfScoreResponse) SetStatusCode(v int32) *UpdateKROfScoreResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2869,11 +2791,8 @@ func (s *UpdateKROfWeightHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateKR
 }
 
 type UpdateKROfWeightRequest struct {
-	// 权重比。
-	Weight *int64 `json:"weight,omitempty" xml:"weight,omitempty"`
-	// 当前 KR ID。
-	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
-	// 当前用户的userId。
+	Weight *int64  `json:"weight,omitempty" xml:"weight,omitempty"`
+	KrId   *string `json:"krId,omitempty" xml:"krId,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2901,9 +2820,8 @@ func (s *UpdateKROfWeightRequest) SetUserId(v string) *UpdateKROfWeightRequest {
 }
 
 type UpdateKROfWeightResponseBody struct {
-	Data *UpdateKROfWeightResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *UpdateKROfWeightResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateKROfWeightResponseBody) String() string {
@@ -2926,8 +2844,7 @@ func (s *UpdateKROfWeightResponseBody) SetSuccess(v bool) *UpdateKROfWeightRespo
 
 type UpdateKROfWeightResponseBodyData struct {
 	ObjectiveProgress *UpdateKROfWeightResponseBodyDataObjectiveProgress `json:"objectiveProgress,omitempty" xml:"objectiveProgress,omitempty" type:"Struct"`
-	// 目标分数。
-	ObjectiveScore *int64 `json:"objectiveScore,omitempty" xml:"objectiveScore,omitempty"`
+	ObjectiveScore    *int64                                             `json:"objectiveScore,omitempty" xml:"objectiveScore,omitempty"`
 }
 
 func (s UpdateKROfWeightResponseBodyData) String() string {
@@ -2949,7 +2866,6 @@ func (s *UpdateKROfWeightResponseBodyData) SetObjectiveScore(v int64) *UpdateKRO
 }
 
 type UpdateKROfWeightResponseBodyDataObjectiveProgress struct {
-	// 目标百分比。
 	Percent *int64 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -2967,8 +2883,9 @@ func (s *UpdateKROfWeightResponseBodyDataObjectiveProgress) SetPercent(v int64) 
 }
 
 type UpdateKROfWeightResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateKROfWeightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateKROfWeightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateKROfWeightResponse) String() string {
@@ -2981,6 +2898,11 @@ func (s UpdateKROfWeightResponse) GoString() string {
 
 func (s *UpdateKROfWeightResponse) SetHeaders(v map[string]*string) *UpdateKROfWeightResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateKROfWeightResponse) SetStatusCode(v int32) *UpdateKROfWeightResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3013,10 +2935,8 @@ func (s *UpdateObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateObj
 }
 
 type UpdateObjectiveRequest struct {
-	// 当前 Objective 的内容。
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 当前用户的 userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateObjectiveRequest) String() string {
@@ -3038,10 +2958,8 @@ func (s *UpdateObjectiveRequest) SetUserId(v string) *UpdateObjectiveRequest {
 }
 
 type UpdateObjectiveResponseBody struct {
-	// data
-	Data *UpdateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *UpdateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateObjectiveResponseBody) String() string {
@@ -3063,9 +2981,7 @@ func (s *UpdateObjectiveResponseBody) SetSuccess(v bool) *UpdateObjectiveRespons
 }
 
 type UpdateObjectiveResponseBodyData struct {
-	// 当前 Objective ID。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 当前 Objective 的位置。
+	Id       *string  `json:"id,omitempty" xml:"id,omitempty"`
 	Position *float32 `json:"position,omitempty" xml:"position,omitempty"`
 }
 
@@ -3088,8 +3004,9 @@ func (s *UpdateObjectiveResponseBodyData) SetPosition(v float32) *UpdateObjectiv
 }
 
 type UpdateObjectiveResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateObjectiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateObjectiveResponse) String() string {
@@ -3102,6 +3019,11 @@ func (s UpdateObjectiveResponse) GoString() string {
 
 func (s *UpdateObjectiveResponse) SetHeaders(v map[string]*string) *UpdateObjectiveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateObjectiveResponse) SetStatusCode(v int32) *UpdateObjectiveResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3134,14 +3056,10 @@ func (s *UpdatePrivacyHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePriva
 }
 
 type UpdatePrivacyRequest struct {
-	// 权限修改的类型
-	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	// 当前目标的 ID
-	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	// 当前目标的权限类型。
+	Privacy    *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	TargetId   *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
 	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
-	// 当前用户的userId。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdatePrivacyRequest) String() string {
@@ -3173,10 +3091,8 @@ func (s *UpdatePrivacyRequest) SetUserId(v string) *UpdatePrivacyRequest {
 }
 
 type UpdatePrivacyResponseBody struct {
-	// 返回的数据。
-	Data *UpdatePrivacyResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// 请求成功的标识。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Data    *UpdatePrivacyResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                          `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdatePrivacyResponseBody) String() string {
@@ -3198,13 +3114,10 @@ func (s *UpdatePrivacyResponseBody) SetSuccess(v bool) *UpdatePrivacyResponseBod
 }
 
 type UpdatePrivacyResponseBodyData struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 权限列表
+	Id         *string                                    `json:"id,omitempty" xml:"id,omitempty"`
 	PolicyList []*UpdatePrivacyResponseBodyDataPolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
-	// 是否可见的标识。
-	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	// 哪种类型的权限。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Privacy    *string                                    `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	Type       *string                                    `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s UpdatePrivacyResponseBodyData) String() string {
@@ -3294,8 +3207,9 @@ func (s *UpdatePrivacyResponseBodyDataPolicyListMemberList) SetType(v string) *U
 }
 
 type UpdatePrivacyResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdatePrivacyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdatePrivacyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdatePrivacyResponse) String() string {
@@ -3308,6 +3222,11 @@ func (s UpdatePrivacyResponse) GoString() string {
 
 func (s *UpdatePrivacyResponse) SetHeaders(v map[string]*string) *UpdatePrivacyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdatePrivacyResponse) SetStatusCode(v int32) *UpdatePrivacyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3331,6 +3250,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3339,24 +3264,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) AlignObjective(objectiveId *string, request *AlignObjectiveRequest) (_result *AlignObjectiveResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AlignObjectiveHeaders{}
-	_result = &AlignObjectiveResponse{}
-	_body, _err := client.AlignObjectiveWithOptions(objectiveId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) AlignObjectiveWithOptions(objectiveId *string, request *AlignObjectiveRequest, headers *AlignObjectiveHeaders, runtime *util.RuntimeOptions) (_result *AlignObjectiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	objectiveId = openapiutil.GetEncodeParam(objectiveId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
@@ -3385,8 +3297,19 @@ func (client *Client) AlignObjectiveWithOptions(objectiveId *string, request *Al
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AlignObjective"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/objectives/" + tea.StringValue(objectiveId) + "/alignments"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AlignObjectiveResponse{}
-	_body, _err := client.DoROARequest(tea.String("AlignObjective"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/okr/objectives/"+tea.StringValue(objectiveId)+"/alignments"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3394,11 +3317,11 @@ func (client *Client) AlignObjectiveWithOptions(objectiveId *string, request *Al
 	return _result, _err
 }
 
-func (client *Client) BatchAddPermission(request *BatchAddPermissionRequest) (_result *BatchAddPermissionResponse, _err error) {
+func (client *Client) AlignObjective(objectiveId *string, request *AlignObjectiveRequest) (_result *AlignObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchAddPermissionHeaders{}
-	_result = &BatchAddPermissionResponse{}
-	_body, _err := client.BatchAddPermissionWithOptions(request, headers, runtime)
+	headers := &AlignObjectiveHeaders{}
+	_result = &AlignObjectiveResponse{}
+	_body, _err := client.AlignObjectiveWithOptions(objectiveId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3443,8 +3366,19 @@ func (client *Client) BatchAddPermissionWithOptions(request *BatchAddPermissionR
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchAddPermission"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/permissions/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchAddPermissionResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchAddPermission"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/okr/permissions/batch"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3452,11 +3386,11 @@ func (client *Client) BatchAddPermissionWithOptions(request *BatchAddPermissionR
 	return _result, _err
 }
 
-func (client *Client) BatchQueryObjective(request *BatchQueryObjectiveRequest) (_result *BatchQueryObjectiveResponse, _err error) {
+func (client *Client) BatchAddPermission(request *BatchAddPermissionRequest) (_result *BatchAddPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchQueryObjectiveHeaders{}
-	_result = &BatchQueryObjectiveResponse{}
-	_body, _err := client.BatchQueryObjectiveWithOptions(request, headers, runtime)
+	headers := &BatchAddPermissionHeaders{}
+	_result = &BatchAddPermissionResponse{}
+	_body, _err := client.BatchAddPermissionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3509,8 +3443,19 @@ func (client *Client) BatchQueryObjectiveWithOptions(request *BatchQueryObjectiv
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchQueryObjective"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/objectives/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchQueryObjectiveResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchQueryObjective"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/okr/objectives/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3518,11 +3463,11 @@ func (client *Client) BatchQueryObjectiveWithOptions(request *BatchQueryObjectiv
 	return _result, _err
 }
 
-func (client *Client) BatchQueryUser(request *BatchQueryUserRequest) (_result *BatchQueryUserResponse, _err error) {
+func (client *Client) BatchQueryObjective(request *BatchQueryObjectiveRequest) (_result *BatchQueryObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchQueryUserHeaders{}
-	_result = &BatchQueryUserResponse{}
-	_body, _err := client.BatchQueryUserWithOptions(request, headers, runtime)
+	headers := &BatchQueryObjectiveHeaders{}
+	_result = &BatchQueryObjectiveResponse{}
+	_body, _err := client.BatchQueryObjectiveWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3557,8 +3502,19 @@ func (client *Client) BatchQueryUserWithOptions(request *BatchQueryUserRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchQueryUser"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/users/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchQueryUserResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchQueryUser"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/okr/users/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3566,11 +3522,11 @@ func (client *Client) BatchQueryUserWithOptions(request *BatchQueryUserRequest, 
 	return _result, _err
 }
 
-func (client *Client) CreateKeyResult(request *CreateKeyResultRequest) (_result *CreateKeyResultResponse, _err error) {
+func (client *Client) BatchQueryUser(request *BatchQueryUserRequest) (_result *BatchQueryUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateKeyResultHeaders{}
-	_result = &CreateKeyResultResponse{}
-	_body, _err := client.CreateKeyResultWithOptions(request, headers, runtime)
+	headers := &BatchQueryUserHeaders{}
+	_result = &BatchQueryUserResponse{}
+	_body, _err := client.BatchQueryUserWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3623,8 +3579,19 @@ func (client *Client) CreateKeyResultWithOptions(request *CreateKeyResultRequest
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateKeyResult"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/keyResults"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateKeyResultResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateKeyResult"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/okr/keyResults"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3632,11 +3599,11 @@ func (client *Client) CreateKeyResultWithOptions(request *CreateKeyResultRequest
 	return _result, _err
 }
 
-func (client *Client) CreateObjective(request *CreateObjectiveRequest) (_result *CreateObjectiveResponse, _err error) {
+func (client *Client) CreateKeyResult(request *CreateKeyResultRequest) (_result *CreateKeyResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateObjectiveHeaders{}
-	_result = &CreateObjectiveResponse{}
-	_body, _err := client.CreateObjectiveWithOptions(request, headers, runtime)
+	headers := &CreateKeyResultHeaders{}
+	_result = &CreateKeyResultResponse{}
+	_body, _err := client.CreateKeyResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3681,8 +3648,19 @@ func (client *Client) CreateObjectiveWithOptions(request *CreateObjectiveRequest
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateObjective"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/objectives"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateObjectiveResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateObjective"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/okr/objectives"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3690,11 +3668,11 @@ func (client *Client) CreateObjectiveWithOptions(request *CreateObjectiveRequest
 	return _result, _err
 }
 
-func (client *Client) DeleteKeyResult(request *DeleteKeyResultRequest) (_result *DeleteKeyResultResponse, _err error) {
+func (client *Client) CreateObjective(request *CreateObjectiveRequest) (_result *CreateObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteKeyResultHeaders{}
-	_result = &DeleteKeyResultResponse{}
-	_body, _err := client.DeleteKeyResultWithOptions(request, headers, runtime)
+	headers := &CreateObjectiveHeaders{}
+	_result = &CreateObjectiveResponse{}
+	_body, _err := client.CreateObjectiveWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3729,8 +3707,19 @@ func (client *Client) DeleteKeyResultWithOptions(request *DeleteKeyResultRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteKeyResult"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/keyResults"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteKeyResultResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteKeyResult"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/okr/keyResults"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3738,11 +3727,11 @@ func (client *Client) DeleteKeyResultWithOptions(request *DeleteKeyResultRequest
 	return _result, _err
 }
 
-func (client *Client) DeleteObjective(objectiveId *string, request *DeleteObjectiveRequest) (_result *DeleteObjectiveResponse, _err error) {
+func (client *Client) DeleteKeyResult(request *DeleteKeyResultRequest) (_result *DeleteKeyResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteObjectiveHeaders{}
-	_result = &DeleteObjectiveResponse{}
-	_body, _err := client.DeleteObjectiveWithOptions(objectiveId, request, headers, runtime)
+	headers := &DeleteKeyResultHeaders{}
+	_result = &DeleteKeyResultResponse{}
+	_body, _err := client.DeleteKeyResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3755,7 +3744,6 @@ func (client *Client) DeleteObjectiveWithOptions(objectiveId *string, request *D
 	if _err != nil {
 		return _result, _err
 	}
-	objectiveId = openapiutil.GetEncodeParam(objectiveId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
@@ -3774,8 +3762,19 @@ func (client *Client) DeleteObjectiveWithOptions(objectiveId *string, request *D
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteObjective"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/objectives/" + tea.StringValue(objectiveId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteObjectiveResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteObjective"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/okr/objectives/"+tea.StringValue(objectiveId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3783,11 +3782,11 @@ func (client *Client) DeleteObjectiveWithOptions(objectiveId *string, request *D
 	return _result, _err
 }
 
-func (client *Client) DeletePermission(request *DeletePermissionRequest) (_result *DeletePermissionResponse, _err error) {
+func (client *Client) DeleteObjective(objectiveId *string, request *DeleteObjectiveRequest) (_result *DeleteObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeletePermissionHeaders{}
-	_result = &DeletePermissionResponse{}
-	_body, _err := client.DeletePermissionWithOptions(request, headers, runtime)
+	headers := &DeleteObjectiveHeaders{}
+	_result = &DeleteObjectiveResponse{}
+	_body, _err := client.DeleteObjectiveWithOptions(objectiveId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3838,8 +3837,19 @@ func (client *Client) DeletePermissionWithOptions(request *DeletePermissionReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeletePermission"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/permissions/delete"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeletePermissionResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeletePermission"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/okr/permissions/delete"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3847,11 +3857,11 @@ func (client *Client) DeletePermissionWithOptions(request *DeletePermissionReque
 	return _result, _err
 }
 
-func (client *Client) GetPeriodList() (_result *GetPeriodListResponse, _err error) {
+func (client *Client) DeletePermission(request *DeletePermissionRequest) (_result *DeletePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetPeriodListHeaders{}
-	_result = &GetPeriodListResponse{}
-	_body, _err := client.GetPeriodListWithOptions(headers, runtime)
+	headers := &DeletePermissionHeaders{}
+	_result = &DeletePermissionResponse{}
+	_body, _err := client.DeletePermissionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3872,8 +3882,19 @@ func (client *Client) GetPeriodListWithOptions(headers *GetPeriodListHeaders, ru
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPeriodList"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/periods"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetPeriodListResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetPeriodList"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/okr/periods"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3881,11 +3902,11 @@ func (client *Client) GetPeriodListWithOptions(headers *GetPeriodListHeaders, ru
 	return _result, _err
 }
 
-func (client *Client) GetPermission(request *GetPermissionRequest) (_result *GetPermissionResponse, _err error) {
+func (client *Client) GetPeriodList() (_result *GetPeriodListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetPermissionHeaders{}
-	_result = &GetPermissionResponse{}
-	_body, _err := client.GetPermissionWithOptions(request, headers, runtime)
+	headers := &GetPeriodListHeaders{}
+	_result = &GetPeriodListResponse{}
+	_body, _err := client.GetPeriodListWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3932,8 +3953,19 @@ func (client *Client) GetPermissionWithOptions(request *GetPermissionRequest, he
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPermission"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/permissions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetPermissionResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetPermission"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/okr/permissions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3941,11 +3973,11 @@ func (client *Client) GetPermissionWithOptions(request *GetPermissionRequest, he
 	return _result, _err
 }
 
-func (client *Client) GetUserOkr(request *GetUserOkrRequest) (_result *GetUserOkrResponse, _err error) {
+func (client *Client) GetPermission(request *GetPermissionRequest) (_result *GetPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserOkrHeaders{}
-	_result = &GetUserOkrResponse{}
-	_body, _err := client.GetUserOkrWithOptions(request, headers, runtime)
+	headers := &GetPermissionHeaders{}
+	_result = &GetPermissionResponse{}
+	_body, _err := client.GetPermissionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3988,8 +4020,19 @@ func (client *Client) GetUserOkrWithOptions(request *GetUserOkrRequest, headers 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserOkr"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/users/okrs"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserOkrResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserOkr"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/okr/users/okrs"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3997,11 +4040,11 @@ func (client *Client) GetUserOkrWithOptions(request *GetUserOkrRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) UnAlignObjective(objectiveId *string, request *UnAlignObjectiveRequest) (_result *UnAlignObjectiveResponse, _err error) {
+func (client *Client) GetUserOkr(request *GetUserOkrRequest) (_result *GetUserOkrResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UnAlignObjectiveHeaders{}
-	_result = &UnAlignObjectiveResponse{}
-	_body, _err := client.UnAlignObjectiveWithOptions(objectiveId, request, headers, runtime)
+	headers := &GetUserOkrHeaders{}
+	_result = &GetUserOkrResponse{}
+	_body, _err := client.GetUserOkrWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4014,7 +4057,6 @@ func (client *Client) UnAlignObjectiveWithOptions(objectiveId *string, request *
 	if _err != nil {
 		return _result, _err
 	}
-	objectiveId = openapiutil.GetEncodeParam(objectiveId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
@@ -4043,8 +4085,19 @@ func (client *Client) UnAlignObjectiveWithOptions(objectiveId *string, request *
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UnAlignObjective"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/objectives/" + tea.StringValue(objectiveId) + "/alignments/cancel"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UnAlignObjectiveResponse{}
-	_body, _err := client.DoROARequest(tea.String("UnAlignObjective"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/okr/objectives/"+tea.StringValue(objectiveId)+"/alignments/cancel"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4052,11 +4105,11 @@ func (client *Client) UnAlignObjectiveWithOptions(objectiveId *string, request *
 	return _result, _err
 }
 
-func (client *Client) UpdateKROfContent(request *UpdateKROfContentRequest) (_result *UpdateKROfContentResponse, _err error) {
+func (client *Client) UnAlignObjective(objectiveId *string, request *UnAlignObjectiveRequest) (_result *UnAlignObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateKROfContentHeaders{}
-	_result = &UpdateKROfContentResponse{}
-	_body, _err := client.UpdateKROfContentWithOptions(request, headers, runtime)
+	headers := &UnAlignObjectiveHeaders{}
+	_result = &UnAlignObjectiveResponse{}
+	_body, _err := client.UnAlignObjectiveWithOptions(objectiveId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4101,8 +4154,19 @@ func (client *Client) UpdateKROfContentWithOptions(request *UpdateKROfContentReq
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateKROfContent"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/keyResults/contents"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateKROfContentResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateKROfContent"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/okr/keyResults/contents"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4110,11 +4174,11 @@ func (client *Client) UpdateKROfContentWithOptions(request *UpdateKROfContentReq
 	return _result, _err
 }
 
-func (client *Client) UpdateKROfScore(request *UpdateKROfScoreRequest) (_result *UpdateKROfScoreResponse, _err error) {
+func (client *Client) UpdateKROfContent(request *UpdateKROfContentRequest) (_result *UpdateKROfContentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateKROfScoreHeaders{}
-	_result = &UpdateKROfScoreResponse{}
-	_body, _err := client.UpdateKROfScoreWithOptions(request, headers, runtime)
+	headers := &UpdateKROfContentHeaders{}
+	_result = &UpdateKROfContentResponse{}
+	_body, _err := client.UpdateKROfContentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4155,8 +4219,19 @@ func (client *Client) UpdateKROfScoreWithOptions(request *UpdateKROfScoreRequest
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateKROfScore"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/keyResults/scores"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateKROfScoreResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateKROfScore"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/okr/keyResults/scores"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4164,11 +4239,11 @@ func (client *Client) UpdateKROfScoreWithOptions(request *UpdateKROfScoreRequest
 	return _result, _err
 }
 
-func (client *Client) UpdateKROfWeight(request *UpdateKROfWeightRequest) (_result *UpdateKROfWeightResponse, _err error) {
+func (client *Client) UpdateKROfScore(request *UpdateKROfScoreRequest) (_result *UpdateKROfScoreResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateKROfWeightHeaders{}
-	_result = &UpdateKROfWeightResponse{}
-	_body, _err := client.UpdateKROfWeightWithOptions(request, headers, runtime)
+	headers := &UpdateKROfScoreHeaders{}
+	_result = &UpdateKROfScoreResponse{}
+	_body, _err := client.UpdateKROfScoreWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4209,8 +4284,19 @@ func (client *Client) UpdateKROfWeightWithOptions(request *UpdateKROfWeightReque
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateKROfWeight"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/keyResults/weights"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateKROfWeightResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateKROfWeight"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/okr/keyResults/weights"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4218,11 +4304,11 @@ func (client *Client) UpdateKROfWeightWithOptions(request *UpdateKROfWeightReque
 	return _result, _err
 }
 
-func (client *Client) UpdateObjective(objectiveId *string, request *UpdateObjectiveRequest) (_result *UpdateObjectiveResponse, _err error) {
+func (client *Client) UpdateKROfWeight(request *UpdateKROfWeightRequest) (_result *UpdateKROfWeightResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateObjectiveHeaders{}
-	_result = &UpdateObjectiveResponse{}
-	_body, _err := client.UpdateObjectiveWithOptions(objectiveId, request, headers, runtime)
+	headers := &UpdateKROfWeightHeaders{}
+	_result = &UpdateKROfWeightResponse{}
+	_body, _err := client.UpdateKROfWeightWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4235,7 +4321,6 @@ func (client *Client) UpdateObjectiveWithOptions(objectiveId *string, request *U
 	if _err != nil {
 		return _result, _err
 	}
-	objectiveId = openapiutil.GetEncodeParam(objectiveId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
@@ -4260,8 +4345,19 @@ func (client *Client) UpdateObjectiveWithOptions(objectiveId *string, request *U
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateObjective"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/objectives/" + tea.StringValue(objectiveId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateObjectiveResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateObjective"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/okr/objectives/"+tea.StringValue(objectiveId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4269,11 +4365,11 @@ func (client *Client) UpdateObjectiveWithOptions(objectiveId *string, request *U
 	return _result, _err
 }
 
-func (client *Client) UpdatePrivacy(request *UpdatePrivacyRequest) (_result *UpdatePrivacyResponse, _err error) {
+func (client *Client) UpdateObjective(objectiveId *string, request *UpdateObjectiveRequest) (_result *UpdateObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdatePrivacyHeaders{}
-	_result = &UpdatePrivacyResponse{}
-	_body, _err := client.UpdatePrivacyWithOptions(request, headers, runtime)
+	headers := &UpdateObjectiveHeaders{}
+	_result = &UpdateObjectiveResponse{}
+	_body, _err := client.UpdateObjectiveWithOptions(objectiveId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4318,11 +4414,34 @@ func (client *Client) UpdatePrivacyWithOptions(request *UpdatePrivacyRequest, he
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdatePrivacy"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/permissions/privacies"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdatePrivacyResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdatePrivacy"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/okr/permissions/privacies"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdatePrivacy(request *UpdatePrivacyRequest) (_result *UpdatePrivacyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdatePrivacyHeaders{}
+	_result = &UpdatePrivacyResponse{}
+	_body, _err := client.UpdatePrivacyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

@@ -5,9 +5,11 @@
 package customer_service_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,22 +37,14 @@ func (s *CreateTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTicket
 }
 
 type CreateTicketRequest struct {
-	// 第三方会员ID
-	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	// 第三方会员名称
-	ForeignName *string `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
-	// 实例ID
-	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
-	// 智能客服产品
-	ProductionType *int32 `json:"productionType,omitempty" xml:"productionType,omitempty"`
-	// 工单表单
-	Properties []*CreateTicketRequestProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Repeated"`
-	// 会员来源
-	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
-	// 工单模板ID
-	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	// 工单标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	ForeignId      *string                          `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
+	ForeignName    *string                          `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
+	OpenInstanceId *string                          `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	ProductionType *int32                           `json:"productionType,omitempty" xml:"productionType,omitempty"`
+	Properties     []*CreateTicketRequestProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Repeated"`
+	SourceId       *string                          `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	TemplateId     *string                          `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title          *string                          `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateTicketRequest) String() string {
@@ -125,7 +119,6 @@ func (s *CreateTicketRequestProperties) SetValue(v string) *CreateTicketRequestP
 }
 
 type CreateTicketResponseBody struct {
-	// 新创建工单ID
 	TicketId *string `json:"ticketId,omitempty" xml:"ticketId,omitempty"`
 }
 
@@ -143,8 +136,9 @@ func (s *CreateTicketResponseBody) SetTicketId(v string) *CreateTicketResponseBo
 }
 
 type CreateTicketResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateTicketResponse) String() string {
@@ -157,6 +151,11 @@ func (s CreateTicketResponse) GoString() string {
 
 func (s *CreateTicketResponse) SetHeaders(v map[string]*string) *CreateTicketResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateTicketResponse) SetStatusCode(v int32) *CreateTicketResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -189,20 +188,13 @@ func (s *ExecuteActivityHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteAc
 }
 
 type ExecuteActivityRequest struct {
-	// 动作编码
-	ActivityCode *string `json:"activityCode,omitempty" xml:"activityCode,omitempty"`
-	// 会员ID
-	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	// 会员名称
-	ForeignName *string `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
-	// 实例id
-	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
-	// 产品类型
-	ProductionType *int32 `json:"productionType,omitempty" xml:"productionType,omitempty"`
-	// 工单表单字段
-	Properties []*ExecuteActivityRequestProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Repeated"`
-	// 来源ID
-	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	ActivityCode   *string                             `json:"activityCode,omitempty" xml:"activityCode,omitempty"`
+	ForeignId      *string                             `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
+	ForeignName    *string                             `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
+	OpenInstanceId *string                             `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	ProductionType *int32                              `json:"productionType,omitempty" xml:"productionType,omitempty"`
+	Properties     []*ExecuteActivityRequestProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Repeated"`
+	SourceId       *string                             `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 }
 
 func (s ExecuteActivityRequest) String() string {
@@ -249,9 +241,7 @@ func (s *ExecuteActivityRequest) SetSourceId(v string) *ExecuteActivityRequest {
 }
 
 type ExecuteActivityRequestProperties struct {
-	// 字段的key
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 字段的值
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -274,7 +264,6 @@ func (s *ExecuteActivityRequestProperties) SetValue(v string) *ExecuteActivityRe
 }
 
 type ExecuteActivityResponseBody struct {
-	// 任务id
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
@@ -292,8 +281,9 @@ func (s *ExecuteActivityResponseBody) SetTaskId(v string) *ExecuteActivityRespon
 }
 
 type ExecuteActivityResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ExecuteActivityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ExecuteActivityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ExecuteActivityResponse) String() string {
@@ -306,6 +296,11 @@ func (s ExecuteActivityResponse) GoString() string {
 
 func (s *ExecuteActivityResponse) SetHeaders(v map[string]*string) *ExecuteActivityResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ExecuteActivityResponse) SetStatusCode(v int32) *ExecuteActivityResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -449,8 +444,9 @@ func (s *GetUserSourceListResponseBodyResult) SetVendor(v string) *GetUserSource
 }
 
 type GetUserSourceListResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserSourceListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserSourceListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserSourceListResponse) String() string {
@@ -463,6 +459,11 @@ func (s GetUserSourceListResponse) GoString() string {
 
 func (s *GetUserSourceListResponse) SetHeaders(v map[string]*string) *GetUserSourceListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserSourceListResponse) SetStatusCode(v int32) *GetUserSourceListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -495,14 +496,10 @@ func (s *PageListActionHeaders) SetXAcsDingtalkAccessToken(v string) *PageListAc
 }
 
 type PageListActionRequest struct {
-	// 本次读取的最大数据记录数量，此参数为可选参数，用户传入为空时，应该有默认值。应设置最大值限制，最大不超过100
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 用来标记当前开始读取的位置，置空表示从头开始。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 实例id
+	MaxResults     *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
-	// 产品类型
-	ProductionType *int64 `json:"productionType,omitempty" xml:"productionType,omitempty"`
+	ProductionType *int64  `json:"productionType,omitempty" xml:"productionType,omitempty"`
 }
 
 func (s PageListActionRequest) String() string {
@@ -534,12 +531,9 @@ func (s *PageListActionRequest) SetProductionType(v int64) *PageListActionReques
 }
 
 type PageListActionResponseBody struct {
-	// list
-	List []*PageListActionResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// nextCursor
-	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	// total
-	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+	List       []*PageListActionResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                            `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	Total      *int64                            `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s PageListActionResponseBody) String() string {
@@ -566,16 +560,11 @@ func (s *PageListActionResponseBody) SetTotal(v int64) *PageListActionResponseBo
 }
 
 type PageListActionResponseBodyList struct {
-	// actionCode
-	ActionCode *string `json:"actionCode,omitempty" xml:"actionCode,omitempty"`
-	// actionContent
+	ActionCode    *string                                        `json:"actionCode,omitempty" xml:"actionCode,omitempty"`
 	ActionContent []*PageListActionResponseBodyListActionContent `json:"actionContent,omitempty" xml:"actionContent,omitempty" type:"Repeated"`
-	// operator
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	// operatorId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// operatorRole
-	OperatorRole *string `json:"operatorRole,omitempty" xml:"operatorRole,omitempty"`
+	Operator      *string                                        `json:"operator,omitempty" xml:"operator,omitempty"`
+	OperatorId    *string                                        `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	OperatorRole  *string                                        `json:"operatorRole,omitempty" xml:"operatorRole,omitempty"`
 }
 
 func (s PageListActionResponseBodyList) String() string {
@@ -612,16 +601,11 @@ func (s *PageListActionResponseBodyList) SetOperatorRole(v string) *PageListActi
 }
 
 type PageListActionResponseBodyListActionContent struct {
-	// displayName
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-	// displayValue
+	DisplayName  *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	DisplayValue *string `json:"displayValue,omitempty" xml:"displayValue,omitempty"`
-	// name
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// value
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
-	// valueType
-	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value        *string `json:"value,omitempty" xml:"value,omitempty"`
+	ValueType    *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
 func (s PageListActionResponseBodyListActionContent) String() string {
@@ -658,8 +642,9 @@ func (s *PageListActionResponseBodyListActionContent) SetValueType(v string) *Pa
 }
 
 type PageListActionResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PageListActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PageListActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PageListActionResponse) String() string {
@@ -672,6 +657,11 @@ func (s PageListActionResponse) GoString() string {
 
 func (s *PageListActionResponse) SetHeaders(v map[string]*string) *PageListActionResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PageListActionResponse) SetStatusCode(v int32) *PageListActionResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -704,16 +694,11 @@ func (s *PageListRobotHeaders) SetXAcsDingtalkAccessToken(v string) *PageListRob
 }
 
 type PageListRobotRequest struct {
-	// 查询的企业Id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 本次读取的最大数据记录数量
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 用来标记当前开始读取的位置，置空表示从头开始
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 多实例ID
+	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
-	// 产品类型
-	ProductionType *int32 `json:"productionType,omitempty" xml:"productionType,omitempty"`
+	ProductionType *int32  `json:"productionType,omitempty" xml:"productionType,omitempty"`
 }
 
 func (s PageListRobotRequest) String() string {
@@ -750,14 +735,10 @@ func (s *PageListRobotRequest) SetProductionType(v int32) *PageListRobotRequest 
 }
 
 type PageListRobotResponseBody struct {
-	// 是否有更多结果
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 查询结果列表
-	List []*PageListRobotResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 下一次查询起始游标
-	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	// 查询结果总数
-	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+	HasMore    *bool                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*PageListRobotResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                           `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	Total      *int64                           `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s PageListRobotResponseBody) String() string {
@@ -789,16 +770,11 @@ func (s *PageListRobotResponseBody) SetTotal(v int64) *PageListRobotResponseBody
 }
 
 type PageListRobotResponseBodyList struct {
-	// 机器人所在租户ID
-	AccountId *int64 `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 机器人APPKEY
-	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	// 机器人自增Id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 机器人名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 机器人状态
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	AccountId *int64  `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	AppKey    *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	Id        *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	Status    *int32  `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s PageListRobotResponseBodyList) String() string {
@@ -835,8 +811,9 @@ func (s *PageListRobotResponseBodyList) SetStatus(v int32) *PageListRobotRespons
 }
 
 type PageListRobotResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PageListRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PageListRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PageListRobotResponse) String() string {
@@ -849,6 +826,11 @@ func (s PageListRobotResponse) GoString() string {
 
 func (s *PageListRobotResponse) SetHeaders(v map[string]*string) *PageListRobotResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PageListRobotResponse) SetStatusCode(v int32) *PageListRobotResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -881,28 +863,17 @@ func (s *PageListTicketHeaders) SetXAcsDingtalkAccessToken(v string) *PageListTi
 }
 
 type PageListTicketRequest struct {
-	// 结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 第三方用户id
-	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	// 本次读取的最大数据记录数量
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 用来标记当前开始读取的位置，置空表示从头开始
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 实例id
+	EndTime        *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ForeignId      *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
+	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
-	// 产品类型
-	ProductionType *int32 `json:"productionType,omitempty" xml:"productionType,omitempty"`
-	// 来源
-	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
-	// 开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 工单模板
-	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	// 工单ID
-	TicketId *string `json:"ticketId,omitempty" xml:"ticketId,omitempty"`
-	// 工单状态
-	TicketStatus *string `json:"ticketStatus,omitempty" xml:"ticketStatus,omitempty"`
+	ProductionType *int32  `json:"productionType,omitempty" xml:"productionType,omitempty"`
+	SourceId       *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	StartTime      *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TicketId       *string `json:"ticketId,omitempty" xml:"ticketId,omitempty"`
+	TicketStatus   *string `json:"ticketStatus,omitempty" xml:"ticketStatus,omitempty"`
 }
 
 func (s PageListTicketRequest) String() string {
@@ -969,12 +940,9 @@ func (s *PageListTicketRequest) SetTicketStatus(v string) *PageListTicketRequest
 }
 
 type PageListTicketResponseBody struct {
-	// list
-	List []*PageListTicketResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// nextCursor
-	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	// total
-	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+	List       []*PageListTicketResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                            `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	Total      *int64                            `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s PageListTicketResponseBody) String() string {
@@ -1001,30 +969,18 @@ func (s *PageListTicketResponseBody) SetTotal(v int64) *PageListTicketResponseBo
 }
 
 type PageListTicketResponseBodyList struct {
-	// bizDataMap
-	BizDataMap map[string]interface{} `json:"bizDataMap,omitempty" xml:"bizDataMap,omitempty"`
-	// foreignId
-	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	// foreignName
-	ForeignName *string `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
-	// gmtCreate
-	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// gmtModified
-	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// openInstanceId
-	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
-	// productionType
-	ProductionType *int32 `json:"productionType,omitempty" xml:"productionType,omitempty"`
-	// sourceId
-	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
-	// templateId
-	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	// ticketId
-	TicketId *string `json:"ticketId,omitempty" xml:"ticketId,omitempty"`
-	// ticketStatus
-	TicketStatus *string `json:"ticketStatus,omitempty" xml:"ticketStatus,omitempty"`
-	// title
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	BizDataMap     map[string]interface{} `json:"bizDataMap,omitempty" xml:"bizDataMap,omitempty"`
+	ForeignId      *string                `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
+	ForeignName    *string                `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
+	GmtCreate      *string                `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified    *string                `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	OpenInstanceId *string                `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	ProductionType *int32                 `json:"productionType,omitempty" xml:"productionType,omitempty"`
+	SourceId       *string                `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	TemplateId     *string                `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TicketId       *string                `json:"ticketId,omitempty" xml:"ticketId,omitempty"`
+	TicketStatus   *string                `json:"ticketStatus,omitempty" xml:"ticketStatus,omitempty"`
+	Title          *string                `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s PageListTicketResponseBodyList) String() string {
@@ -1096,8 +1052,9 @@ func (s *PageListTicketResponseBodyList) SetTitle(v string) *PageListTicketRespo
 }
 
 type PageListTicketResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PageListTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PageListTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PageListTicketResponse) String() string {
@@ -1110,6 +1067,11 @@ func (s PageListTicketResponse) GoString() string {
 
 func (s *PageListTicketResponse) SetHeaders(v map[string]*string) *PageListTicketResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PageListTicketResponse) SetStatusCode(v int32) *PageListTicketResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1133,24 +1095,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateTicket(request *CreateTicketRequest) (_result *CreateTicketResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateTicketHeaders{}
-	_result = &CreateTicketResponse{}
-	_body, _err := client.CreateTicketWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, headers *CreateTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateTicketResponse, _err error) {
@@ -1204,8 +1160,19 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateTicket"),
+		Version:     tea.String("customerService_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/customerService/tickets"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateTicketResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateTicket"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/customerService/tickets"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1213,11 +1180,11 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 	return _result, _err
 }
 
-func (client *Client) ExecuteActivity(ticketId *string, request *ExecuteActivityRequest) (_result *ExecuteActivityResponse, _err error) {
+func (client *Client) CreateTicket(request *CreateTicketRequest) (_result *CreateTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ExecuteActivityHeaders{}
-	_result = &ExecuteActivityResponse{}
-	_body, _err := client.ExecuteActivityWithOptions(ticketId, request, headers, runtime)
+	headers := &CreateTicketHeaders{}
+	_result = &CreateTicketResponse{}
+	_body, _err := client.CreateTicketWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1230,7 +1197,6 @@ func (client *Client) ExecuteActivityWithOptions(ticketId *string, request *Exec
 	if _err != nil {
 		return _result, _err
 	}
-	ticketId = openapiutil.GetEncodeParam(ticketId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ActivityCode)) {
 		body["activityCode"] = request.ActivityCode
@@ -1273,8 +1239,19 @@ func (client *Client) ExecuteActivityWithOptions(ticketId *string, request *Exec
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ExecuteActivity"),
+		Version:     tea.String("customerService_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/customerService/tickets/" + tea.StringValue(ticketId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ExecuteActivityResponse{}
-	_body, _err := client.DoROARequest(tea.String("ExecuteActivity"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/customerService/tickets/"+tea.StringValue(ticketId)), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1282,11 +1259,11 @@ func (client *Client) ExecuteActivityWithOptions(ticketId *string, request *Exec
 	return _result, _err
 }
 
-func (client *Client) GetUserSourceList(request *GetUserSourceListRequest) (_result *GetUserSourceListResponse, _err error) {
+func (client *Client) ExecuteActivity(ticketId *string, request *ExecuteActivityRequest) (_result *ExecuteActivityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserSourceListHeaders{}
-	_result = &GetUserSourceListResponse{}
-	_body, _err := client.GetUserSourceListWithOptions(request, headers, runtime)
+	headers := &ExecuteActivityHeaders{}
+	_result = &ExecuteActivityResponse{}
+	_body, _err := client.ExecuteActivityWithOptions(ticketId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1337,8 +1314,19 @@ func (client *Client) GetUserSourceListWithOptions(request *GetUserSourceListReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserSourceList"),
+		Version:     tea.String("customerService_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/customerService/customers/sources"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserSourceListResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserSourceList"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/customerService/customers/sources"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1346,11 +1334,11 @@ func (client *Client) GetUserSourceListWithOptions(request *GetUserSourceListReq
 	return _result, _err
 }
 
-func (client *Client) PageListAction(ticketId *string, request *PageListActionRequest) (_result *PageListActionResponse, _err error) {
+func (client *Client) GetUserSourceList(request *GetUserSourceListRequest) (_result *GetUserSourceListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PageListActionHeaders{}
-	_result = &PageListActionResponse{}
-	_body, _err := client.PageListActionWithOptions(ticketId, request, headers, runtime)
+	headers := &GetUserSourceListHeaders{}
+	_result = &GetUserSourceListResponse{}
+	_body, _err := client.GetUserSourceListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1363,7 +1351,6 @@ func (client *Client) PageListActionWithOptions(ticketId *string, request *PageL
 	if _err != nil {
 		return _result, _err
 	}
-	ticketId = openapiutil.GetEncodeParam(ticketId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -1394,8 +1381,19 @@ func (client *Client) PageListActionWithOptions(ticketId *string, request *PageL
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PageListAction"),
+		Version:     tea.String("customerService_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/customerService/tickets/" + tea.StringValue(ticketId) + "/actions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PageListActionResponse{}
-	_body, _err := client.DoROARequest(tea.String("PageListAction"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/customerService/tickets/"+tea.StringValue(ticketId)+"/actions"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1403,11 +1401,11 @@ func (client *Client) PageListActionWithOptions(ticketId *string, request *PageL
 	return _result, _err
 }
 
-func (client *Client) PageListRobot(request *PageListRobotRequest) (_result *PageListRobotResponse, _err error) {
+func (client *Client) PageListAction(ticketId *string, request *PageListActionRequest) (_result *PageListActionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PageListRobotHeaders{}
-	_result = &PageListRobotResponse{}
-	_body, _err := client.PageListRobotWithOptions(request, headers, runtime)
+	headers := &PageListActionHeaders{}
+	_result = &PageListActionResponse{}
+	_body, _err := client.PageListActionWithOptions(ticketId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1454,8 +1452,19 @@ func (client *Client) PageListRobotWithOptions(request *PageListRobotRequest, he
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PageListRobot"),
+		Version:     tea.String("customerService_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/customerService/robots"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PageListRobotResponse{}
-	_body, _err := client.DoROARequest(tea.String("PageListRobot"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/customerService/robots"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1463,11 +1472,11 @@ func (client *Client) PageListRobotWithOptions(request *PageListRobotRequest, he
 	return _result, _err
 }
 
-func (client *Client) PageListTicket(request *PageListTicketRequest) (_result *PageListTicketResponse, _err error) {
+func (client *Client) PageListRobot(request *PageListRobotRequest) (_result *PageListRobotResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PageListTicketHeaders{}
-	_result = &PageListTicketResponse{}
-	_body, _err := client.PageListTicketWithOptions(request, headers, runtime)
+	headers := &PageListRobotHeaders{}
+	_result = &PageListRobotResponse{}
+	_body, _err := client.PageListRobotWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1538,11 +1547,34 @@ func (client *Client) PageListTicketWithOptions(request *PageListTicketRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PageListTicket"),
+		Version:     tea.String("customerService_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/customerService/tickets"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PageListTicketResponse{}
-	_body, _err := client.DoROARequest(tea.String("PageListTicket"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/customerService/tickets"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PageListTicket(request *PageListTicketRequest) (_result *PageListTicketResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageListTicketHeaders{}
+	_result = &PageListTicketResponse{}
+	_body, _err := client.PageListTicketWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

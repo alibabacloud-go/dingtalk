@@ -5,9 +5,11 @@
 package robot_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,10 +37,8 @@ func (s *BatchOTOQueryHeaders) SetXAcsDingtalkAccessToken(v string) *BatchOTOQue
 }
 
 type BatchOTOQueryRequest struct {
-	// 消息已读查询标志
 	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
-	// 机器人robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode       *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s BatchOTOQueryRequest) String() string {
@@ -60,10 +60,8 @@ func (s *BatchOTOQueryRequest) SetRobotCode(v string) *BatchOTOQueryRequest {
 }
 
 type BatchOTOQueryResponseBody struct {
-	// 消息已读情况
 	MessageReadInfoList []*BatchOTOQueryResponseBodyMessageReadInfoList `json:"messageReadInfoList,omitempty" xml:"messageReadInfoList,omitempty" type:"Repeated"`
-	// 消息发送状态
-	SendStatus *string `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
+	SendStatus          *string                                         `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
 }
 
 func (s BatchOTOQueryResponseBody) String() string {
@@ -85,14 +83,10 @@ func (s *BatchOTOQueryResponseBody) SetSendStatus(v string) *BatchOTOQueryRespon
 }
 
 type BatchOTOQueryResponseBodyMessageReadInfoList struct {
-	// 姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 已读状态
-	ReadStatus *string `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
-	// 已读时间
-	ReadTimestamp *int64 `json:"readTimestamp,omitempty" xml:"readTimestamp,omitempty"`
-	// 工号
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	ReadStatus    *string `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
+	ReadTimestamp *int64  `json:"readTimestamp,omitempty" xml:"readTimestamp,omitempty"`
+	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchOTOQueryResponseBodyMessageReadInfoList) String() string {
@@ -124,8 +118,9 @@ func (s *BatchOTOQueryResponseBodyMessageReadInfoList) SetUserId(v string) *Batc
 }
 
 type BatchOTOQueryResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchOTOQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchOTOQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchOTOQueryResponse) String() string {
@@ -138,6 +133,11 @@ func (s BatchOTOQueryResponse) GoString() string {
 
 func (s *BatchOTOQueryResponse) SetHeaders(v map[string]*string) *BatchOTOQueryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchOTOQueryResponse) SetStatusCode(v int32) *BatchOTOQueryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -170,12 +170,9 @@ func (s *BatchRecallGroupHeaders) SetXAcsDingtalkAccessToken(v string) *BatchRec
 }
 
 type BatchRecallGroupRequest struct {
-	// 机器人的robotCode
-	ChatbotId *string `json:"chatbotId,omitempty" xml:"chatbotId,omitempty"`
-	// 开放的群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 消息id
-	ProcessQueryKeys []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
+	ChatbotId          *string   `json:"chatbotId,omitempty" xml:"chatbotId,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	ProcessQueryKeys   []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
 }
 
 func (s BatchRecallGroupRequest) String() string {
@@ -202,10 +199,8 @@ func (s *BatchRecallGroupRequest) SetProcessQueryKeys(v []*string) *BatchRecallG
 }
 
 type BatchRecallGroupResponseBody struct {
-	// 撤回失败的消息id及原因
-	FailedResult map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
-	// 撤回成功的消息id
-	SuccessResult []*string `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
+	FailedResult  map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
+	SuccessResult []*string          `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
 }
 
 func (s BatchRecallGroupResponseBody) String() string {
@@ -227,8 +222,9 @@ func (s *BatchRecallGroupResponseBody) SetSuccessResult(v []*string) *BatchRecal
 }
 
 type BatchRecallGroupResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchRecallGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchRecallGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchRecallGroupResponse) String() string {
@@ -241,6 +237,11 @@ func (s BatchRecallGroupResponse) GoString() string {
 
 func (s *BatchRecallGroupResponse) SetHeaders(v map[string]*string) *BatchRecallGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchRecallGroupResponse) SetStatusCode(v int32) *BatchRecallGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -273,10 +274,8 @@ func (s *BatchRecallOTOHeaders) SetXAcsDingtalkAccessToken(v string) *BatchRecal
 }
 
 type BatchRecallOTORequest struct {
-	// 消息id
 	ProcessQueryKeys []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
-	// 机器人的robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode        *string   `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s BatchRecallOTORequest) String() string {
@@ -298,10 +297,8 @@ func (s *BatchRecallOTORequest) SetRobotCode(v string) *BatchRecallOTORequest {
 }
 
 type BatchRecallOTOResponseBody struct {
-	// 撤回失败的消息id及对应的失败原因
-	FailedResult map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
-	// 撤回成功的消息id
-	SuccessResult []*string `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
+	FailedResult  map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
+	SuccessResult []*string          `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
 }
 
 func (s BatchRecallOTOResponseBody) String() string {
@@ -323,8 +320,9 @@ func (s *BatchRecallOTOResponseBody) SetSuccessResult(v []*string) *BatchRecallO
 }
 
 type BatchRecallOTOResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchRecallOTOResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchRecallOTOResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchRecallOTOResponse) String() string {
@@ -337,6 +335,11 @@ func (s BatchRecallOTOResponse) GoString() string {
 
 func (s *BatchRecallOTOResponse) SetHeaders(v map[string]*string) *BatchRecallOTOResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchRecallOTOResponse) SetStatusCode(v int32) *BatchRecallOTOResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -369,12 +372,9 @@ func (s *BatchRecallPrivateChatHeaders) SetXAcsDingtalkAccessToken(v string) *Ba
 }
 
 type BatchRecallPrivateChatRequest struct {
-	// 开放的群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 消息id
-	ProcessQueryKeys []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
-	// 机器人的robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	ProcessQueryKeys   []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
+	RobotCode          *string   `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s BatchRecallPrivateChatRequest) String() string {
@@ -401,10 +401,8 @@ func (s *BatchRecallPrivateChatRequest) SetRobotCode(v string) *BatchRecallPriva
 }
 
 type BatchRecallPrivateChatResponseBody struct {
-	// 撤回失败的消息id及原因
-	FailedResult map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
-	// 撤回成功的消息id
-	SuccessResult []*string `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
+	FailedResult  map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
+	SuccessResult []*string          `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
 }
 
 func (s BatchRecallPrivateChatResponseBody) String() string {
@@ -426,8 +424,9 @@ func (s *BatchRecallPrivateChatResponseBody) SetSuccessResult(v []*string) *Batc
 }
 
 type BatchRecallPrivateChatResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchRecallPrivateChatResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchRecallPrivateChatResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchRecallPrivateChatResponse) String() string {
@@ -440,6 +439,11 @@ func (s BatchRecallPrivateChatResponse) GoString() string {
 
 func (s *BatchRecallPrivateChatResponse) SetHeaders(v map[string]*string) *BatchRecallPrivateChatResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchRecallPrivateChatResponse) SetStatusCode(v int32) *BatchRecallPrivateChatResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -472,14 +476,10 @@ func (s *BatchSendOTOHeaders) SetXAcsDingtalkAccessToken(v string) *BatchSendOTO
 }
 
 type BatchSendOTORequest struct {
-	// 消息的msgKey
-	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
-	// 消息体
-	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
-	// 机器人的robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 被推送会话人员的userId列表
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	MsgKey    *string   `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	MsgParam  *string   `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
+	RobotCode *string   `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	UserIds   []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s BatchSendOTORequest) String() string {
@@ -511,12 +511,9 @@ func (s *BatchSendOTORequest) SetUserIds(v []*string) *BatchSendOTORequest {
 }
 
 type BatchSendOTOResponseBody struct {
-	// 推送频繁，被限流的用户userId列表
 	FlowControlledStaffIdList []*string `json:"flowControlledStaffIdList,omitempty" xml:"flowControlledStaffIdList,omitempty" type:"Repeated"`
-	// 无效的用户userId列表
-	InvalidStaffIdList []*string `json:"invalidStaffIdList,omitempty" xml:"invalidStaffIdList,omitempty" type:"Repeated"`
-	// 消息id
-	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+	InvalidStaffIdList        []*string `json:"invalidStaffIdList,omitempty" xml:"invalidStaffIdList,omitempty" type:"Repeated"`
+	ProcessQueryKey           *string   `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
 }
 
 func (s BatchSendOTOResponseBody) String() string {
@@ -543,8 +540,9 @@ func (s *BatchSendOTOResponseBody) SetProcessQueryKey(v string) *BatchSendOTORes
 }
 
 type BatchSendOTOResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchSendOTOResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchSendOTOResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchSendOTOResponse) String() string {
@@ -557,6 +555,11 @@ func (s BatchSendOTOResponse) GoString() string {
 
 func (s *BatchSendOTOResponse) SetHeaders(v map[string]*string) *BatchSendOTOResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchSendOTOResponse) SetStatusCode(v int32) *BatchSendOTOResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -589,7 +592,6 @@ func (s *ClearRobotPluginHeaders) SetXAcsDingtalkAccessToken(v string) *ClearRob
 }
 
 type ClearRobotPluginRequest struct {
-	// 钉钉开放平台后台机器人的robotCode
 	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
@@ -607,7 +609,6 @@ func (s *ClearRobotPluginRequest) SetRobotCode(v string) *ClearRobotPluginReques
 }
 
 type ClearRobotPluginResponseBody struct {
-	// 是否成功清除机器人快捷入口
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -625,8 +626,9 @@ func (s *ClearRobotPluginResponseBody) SetResult(v bool) *ClearRobotPluginRespon
 }
 
 type ClearRobotPluginResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ClearRobotPluginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ClearRobotPluginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ClearRobotPluginResponse) String() string {
@@ -639,6 +641,11 @@ func (s ClearRobotPluginResponse) GoString() string {
 
 func (s *ClearRobotPluginResponse) SetHeaders(v map[string]*string) *ClearRobotPluginResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ClearRobotPluginResponse) SetStatusCode(v int32) *ClearRobotPluginResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -671,8 +678,6 @@ func (s *GetBotListInGroupHeaders) SetXAcsDingtalkAccessToken(v string) *GetBotL
 }
 
 type GetBotListInGroupRequest struct {
-	// 群id。
-	//
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -742,8 +747,9 @@ func (s *GetBotListInGroupResponseBodyChatbotInstanceVOList) SetRobotCode(v stri
 }
 
 type GetBotListInGroupResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetBotListInGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetBotListInGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetBotListInGroupResponse) String() string {
@@ -756,6 +762,11 @@ func (s GetBotListInGroupResponse) GoString() string {
 
 func (s *GetBotListInGroupResponse) SetHeaders(v map[string]*string) *GetBotListInGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetBotListInGroupResponse) SetStatusCode(v int32) *GetBotListInGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -788,10 +799,8 @@ func (s *ManageSingleChatRobotStatusHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type ManageSingleChatRobotStatusRequest struct {
-	// 钉钉开放平台后台机器人的robotCode
 	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 机器人的可用状态，enable-启用、disable-停用
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Status    *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s ManageSingleChatRobotStatusRequest) String() string {
@@ -813,7 +822,6 @@ func (s *ManageSingleChatRobotStatusRequest) SetStatus(v string) *ManageSingleCh
 }
 
 type ManageSingleChatRobotStatusResponseBody struct {
-	// 是否成功更新机器人状态
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -831,8 +839,9 @@ func (s *ManageSingleChatRobotStatusResponseBody) SetResult(v bool) *ManageSingl
 }
 
 type ManageSingleChatRobotStatusResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ManageSingleChatRobotStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ManageSingleChatRobotStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ManageSingleChatRobotStatusResponse) String() string {
@@ -845,6 +854,11 @@ func (s ManageSingleChatRobotStatusResponse) GoString() string {
 
 func (s *ManageSingleChatRobotStatusResponse) SetHeaders(v map[string]*string) *ManageSingleChatRobotStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ManageSingleChatRobotStatusResponse) SetStatusCode(v int32) *ManageSingleChatRobotStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -877,18 +891,12 @@ func (s *OrgGroupQueryHeaders) SetXAcsDingtalkAccessToken(v string) *OrgGroupQue
 }
 
 type OrgGroupQueryRequest struct {
-	// 分页查询每页的数量
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 一次查询后返回的加密的分页凭证，首次查询不填
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 开放的群id
+	MaxResults         *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 发送消息返回的加密消息id
-	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
-	// 企业机器人的robotcode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 群内机器人的webhook中的Token
-	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	ProcessQueryKey    *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+	RobotCode          *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	Token              *string `json:"token,omitempty" xml:"token,omitempty"`
 }
 
 func (s OrgGroupQueryRequest) String() string {
@@ -930,14 +938,10 @@ func (s *OrgGroupQueryRequest) SetToken(v string) *OrgGroupQueryRequest {
 }
 
 type OrgGroupQueryResponseBody struct {
-	// 分页查询是否还有人员可查询消息已读状态
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 下次分页查询的加密凭证
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 消息已读人的userId列表
+	HasMore     *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken   *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	ReadUserIds []*string `json:"readUserIds,omitempty" xml:"readUserIds,omitempty" type:"Repeated"`
-	// 消息发送状态
-	SendStatus *string `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
+	SendStatus  *string   `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
 }
 
 func (s OrgGroupQueryResponseBody) String() string {
@@ -969,8 +973,9 @@ func (s *OrgGroupQueryResponseBody) SetSendStatus(v string) *OrgGroupQueryRespon
 }
 
 type OrgGroupQueryResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *OrgGroupQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *OrgGroupQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s OrgGroupQueryResponse) String() string {
@@ -983,6 +988,11 @@ func (s OrgGroupQueryResponse) GoString() string {
 
 func (s *OrgGroupQueryResponse) SetHeaders(v map[string]*string) *OrgGroupQueryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *OrgGroupQueryResponse) SetStatusCode(v int32) *OrgGroupQueryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1015,12 +1025,9 @@ func (s *OrgGroupRecallHeaders) SetXAcsDingtalkAccessToken(v string) *OrgGroupRe
 }
 
 type OrgGroupRecallRequest struct {
-	// 开放的群id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 消息id
-	ProcessQueryKeys []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
-	// 机器人的robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	ProcessQueryKeys   []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
+	RobotCode          *string   `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s OrgGroupRecallRequest) String() string {
@@ -1047,10 +1054,8 @@ func (s *OrgGroupRecallRequest) SetRobotCode(v string) *OrgGroupRecallRequest {
 }
 
 type OrgGroupRecallResponseBody struct {
-	// 撤回失败的消息id及原因
-	FailedResult map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
-	// 撤回成功的消息id
-	SuccessResult []*string `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
+	FailedResult  map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
+	SuccessResult []*string          `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
 }
 
 func (s OrgGroupRecallResponseBody) String() string {
@@ -1072,8 +1077,9 @@ func (s *OrgGroupRecallResponseBody) SetSuccessResult(v []*string) *OrgGroupReca
 }
 
 type OrgGroupRecallResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *OrgGroupRecallResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *OrgGroupRecallResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s OrgGroupRecallResponse) String() string {
@@ -1086,6 +1092,11 @@ func (s OrgGroupRecallResponse) GoString() string {
 
 func (s *OrgGroupRecallResponse) SetHeaders(v map[string]*string) *OrgGroupRecallResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *OrgGroupRecallResponse) SetStatusCode(v int32) *OrgGroupRecallResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1118,18 +1129,12 @@ func (s *OrgGroupSendHeaders) SetXAcsDingtalkAccessToken(v string) *OrgGroupSend
 }
 
 type OrgGroupSendRequest struct {
-	// 酷应用的code
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 消息类型的key
-	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
-	// 消息体
-	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
-	// 开放的群id
+	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	MsgKey             *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	MsgParam           *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群内机器人的code
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 群内机器人的webhook中的Token
-	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	RobotCode          *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	Token              *string `json:"token,omitempty" xml:"token,omitempty"`
 }
 
 func (s OrgGroupSendRequest) String() string {
@@ -1171,7 +1176,6 @@ func (s *OrgGroupSendRequest) SetToken(v string) *OrgGroupSendRequest {
 }
 
 type OrgGroupSendResponseBody struct {
-	// 加密消息id
 	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
 }
 
@@ -1189,8 +1193,9 @@ func (s *OrgGroupSendResponseBody) SetProcessQueryKey(v string) *OrgGroupSendRes
 }
 
 type OrgGroupSendResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *OrgGroupSendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *OrgGroupSendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s OrgGroupSendResponse) String() string {
@@ -1203,6 +1208,11 @@ func (s OrgGroupSendResponse) GoString() string {
 
 func (s *OrgGroupSendResponse) SetHeaders(v map[string]*string) *OrgGroupSendResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *OrgGroupSendResponse) SetStatusCode(v int32) *OrgGroupSendResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1235,16 +1245,11 @@ func (s *PrivateChatQueryHeaders) SetXAcsDingtalkAccessToken(v string) *PrivateC
 }
 
 type PrivateChatQueryRequest struct {
-	// 分页查询每页的数量
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 一次查询后返回的加密的分页凭证，首次查询不填
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 开放的群id
+	MaxResults         *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 发送消息返回的加密消息id
-	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
-	// 企业机器人的robotcode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	ProcessQueryKey    *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+	RobotCode          *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s PrivateChatQueryRequest) String() string {
@@ -1281,14 +1286,10 @@ func (s *PrivateChatQueryRequest) SetRobotCode(v string) *PrivateChatQueryReques
 }
 
 type PrivateChatQueryResponseBody struct {
-	// 分页查询是否还有人员可查询消息已读状态
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 下次分页查询的加密凭证
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 消息已读人的userId列表
+	HasMore     *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken   *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	ReadUserIds []*string `json:"readUserIds,omitempty" xml:"readUserIds,omitempty" type:"Repeated"`
-	// 消息发送状态
-	SendStatus *string `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
+	SendStatus  *string   `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
 }
 
 func (s PrivateChatQueryResponseBody) String() string {
@@ -1320,8 +1321,9 @@ func (s *PrivateChatQueryResponseBody) SetSendStatus(v string) *PrivateChatQuery
 }
 
 type PrivateChatQueryResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PrivateChatQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PrivateChatQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PrivateChatQueryResponse) String() string {
@@ -1334,6 +1336,11 @@ func (s PrivateChatQueryResponse) GoString() string {
 
 func (s *PrivateChatQueryResponse) SetHeaders(v map[string]*string) *PrivateChatQueryResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PrivateChatQueryResponse) SetStatusCode(v int32) *PrivateChatQueryResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1366,16 +1373,11 @@ func (s *PrivateChatSendHeaders) SetXAcsDingtalkAccessToken(v string) *PrivateCh
 }
 
 type PrivateChatSendRequest struct {
-	// 酷应用的code
-	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	// 消息类型的key
-	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
-	// 消息体
-	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
-	// 开放会话ID
+	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	MsgKey             *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	MsgParam           *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 机器人robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode          *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s PrivateChatSendRequest) String() string {
@@ -1412,7 +1414,6 @@ func (s *PrivateChatSendRequest) SetRobotCode(v string) *PrivateChatSendRequest 
 }
 
 type PrivateChatSendResponseBody struct {
-	// 加密消息id
 	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
 }
 
@@ -1430,8 +1431,9 @@ func (s *PrivateChatSendResponseBody) SetProcessQueryKey(v string) *PrivateChatS
 }
 
 type PrivateChatSendResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PrivateChatSendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PrivateChatSendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s PrivateChatSendResponse) String() string {
@@ -1444,6 +1446,11 @@ func (s PrivateChatSendResponse) GoString() string {
 
 func (s *PrivateChatSendResponse) SetHeaders(v map[string]*string) *PrivateChatSendResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *PrivateChatSendResponse) SetStatusCode(v int32) *PrivateChatSendResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1476,10 +1483,9 @@ func (s *QueryBotInstanceInGroupInfoHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type QueryBotInstanceInGroupInfoRequest struct {
-	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 钉钉开放平台后台机器人的robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	RobotCode  *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s QueryBotInstanceInGroupInfoRequest) String() string {
@@ -1529,8 +1535,9 @@ func (s *QueryBotInstanceInGroupInfoResponseBody) SetOpenConversationIds(v []*st
 }
 
 type QueryBotInstanceInGroupInfoResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryBotInstanceInGroupInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryBotInstanceInGroupInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryBotInstanceInGroupInfoResponse) String() string {
@@ -1543,6 +1550,11 @@ func (s QueryBotInstanceInGroupInfoResponse) GoString() string {
 
 func (s *QueryBotInstanceInGroupInfoResponse) SetHeaders(v map[string]*string) *QueryBotInstanceInGroupInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryBotInstanceInGroupInfoResponse) SetStatusCode(v int32) *QueryBotInstanceInGroupInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1575,7 +1587,6 @@ func (s *QueryRobotPluginHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRob
 }
 
 type QueryRobotPluginRequest struct {
-	// 钉钉开放平台后台机器人的robotCode
 	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
@@ -1610,14 +1621,10 @@ func (s *QueryRobotPluginResponseBody) SetPluginInfoList(v []*QueryRobotPluginRe
 }
 
 type QueryRobotPluginResponseBodyPluginInfoList struct {
-	// 快捷入口的图标id
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 手机端快捷入口跳转链接
+	Icon      *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	// 快捷入口的名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// pc端会话快捷入口跳转链接
-	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	PcUrl     *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
 }
 
 func (s QueryRobotPluginResponseBodyPluginInfoList) String() string {
@@ -1649,8 +1656,9 @@ func (s *QueryRobotPluginResponseBodyPluginInfoList) SetPcUrl(v string) *QueryRo
 }
 
 type QueryRobotPluginResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryRobotPluginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryRobotPluginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryRobotPluginResponse) String() string {
@@ -1663,6 +1671,11 @@ func (s QueryRobotPluginResponse) GoString() string {
 
 func (s *QueryRobotPluginResponse) SetHeaders(v map[string]*string) *QueryRobotPluginResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryRobotPluginResponse) SetStatusCode(v int32) *QueryRobotPluginResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1695,10 +1708,8 @@ func (s *RobotMessageFileDownloadHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type RobotMessageFileDownloadRequest struct {
-	// 机器人收到消息中的下载码，换取临时下载文件的链接使用。
 	DownloadCode *string `json:"downloadCode,omitempty" xml:"downloadCode,omitempty"`
-	// 机器人的robotCode。
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode    *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s RobotMessageFileDownloadRequest) String() string {
@@ -1720,7 +1731,6 @@ func (s *RobotMessageFileDownloadRequest) SetRobotCode(v string) *RobotMessageFi
 }
 
 type RobotMessageFileDownloadResponseBody struct {
-	// 文件的临时下载链接。
 	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
 }
 
@@ -1738,8 +1748,9 @@ func (s *RobotMessageFileDownloadResponseBody) SetDownloadUrl(v string) *RobotMe
 }
 
 type RobotMessageFileDownloadResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RobotMessageFileDownloadResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RobotMessageFileDownloadResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RobotMessageFileDownloadResponse) String() string {
@@ -1752,6 +1763,11 @@ func (s RobotMessageFileDownloadResponse) GoString() string {
 
 func (s *RobotMessageFileDownloadResponse) SetHeaders(v map[string]*string) *RobotMessageFileDownloadResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RobotMessageFileDownloadResponse) SetStatusCode(v int32) *RobotMessageFileDownloadResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1784,16 +1800,11 @@ func (s *SendRobotDingMessageHeaders) SetXAcsDingtalkAccessToken(v string) *Send
 }
 
 type SendRobotDingMessageRequest struct {
-	// 模版对应的参数
-	ContentParams map[string]*string `json:"contentParams,omitempty" xml:"contentParams,omitempty"`
-	// 颁发的模版id，可通过宜搭申请：https://yida.alibaba-inc.com/alibaba/web/APP_NSUGAGIQUMI4ESRA7O7D/inst/homepage/#/FORM-WO866371VGXSECXX4M0NC9KSGAT92VSA3TZSK9B
-	DingTemplateId *string `json:"dingTemplateId,omitempty" xml:"dingTemplateId,omitempty"`
-	// 群聊的对外开放Id
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 接受人的userId列表
-	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
-	// 机器人的Id
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	ContentParams      map[string]*string `json:"contentParams,omitempty" xml:"contentParams,omitempty"`
+	DingTemplateId     *string            `json:"dingTemplateId,omitempty" xml:"dingTemplateId,omitempty"`
+	OpenConversationId *string            `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	ReceiverUserIdList []*string          `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	RobotCode          *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s SendRobotDingMessageRequest) String() string {
@@ -1830,7 +1841,6 @@ func (s *SendRobotDingMessageRequest) SetRobotCode(v string) *SendRobotDingMessa
 }
 
 type SendRobotDingMessageResponseBody struct {
-	// 返回的ding消息id
 	DingSendResultId *string `json:"dingSendResultId,omitempty" xml:"dingSendResultId,omitempty"`
 }
 
@@ -1848,8 +1858,9 @@ func (s *SendRobotDingMessageResponseBody) SetDingSendResultId(v string) *SendRo
 }
 
 type SendRobotDingMessageResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendRobotDingMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendRobotDingMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SendRobotDingMessageResponse) String() string {
@@ -1862,6 +1873,11 @@ func (s SendRobotDingMessageResponse) GoString() string {
 
 func (s *SendRobotDingMessageResponse) SetHeaders(v map[string]*string) *SendRobotDingMessageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SendRobotDingMessageResponse) SetStatusCode(v int32) *SendRobotDingMessageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1895,8 +1911,7 @@ func (s *SetRobotPluginHeaders) SetXAcsDingtalkAccessToken(v string) *SetRobotPl
 
 type SetRobotPluginRequest struct {
 	PluginInfoList []*SetRobotPluginRequestPluginInfoList `json:"pluginInfoList,omitempty" xml:"pluginInfoList,omitempty" type:"Repeated"`
-	// 钉钉开放平台后台机器人的robotCode
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RobotCode      *string                                `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s SetRobotPluginRequest) String() string {
@@ -1918,14 +1933,10 @@ func (s *SetRobotPluginRequest) SetRobotCode(v string) *SetRobotPluginRequest {
 }
 
 type SetRobotPluginRequestPluginInfoList struct {
-	// 快捷入口的图标id
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 手机端快捷入口跳转链接
+	Icon      *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	// 快捷入口的名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// pc端会话快捷入口跳转链接
-	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	PcUrl     *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
 }
 
 func (s SetRobotPluginRequestPluginInfoList) String() string {
@@ -1957,7 +1968,6 @@ func (s *SetRobotPluginRequestPluginInfoList) SetPcUrl(v string) *SetRobotPlugin
 }
 
 type SetRobotPluginResponseBody struct {
-	// 是否成功设置机器人插件
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1975,8 +1985,9 @@ func (s *SetRobotPluginResponseBody) SetResult(v bool) *SetRobotPluginResponseBo
 }
 
 type SetRobotPluginResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SetRobotPluginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SetRobotPluginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SetRobotPluginResponse) String() string {
@@ -1989,6 +2000,11 @@ func (s SetRobotPluginResponse) GoString() string {
 
 func (s *SetRobotPluginResponse) SetHeaders(v map[string]*string) *SetRobotPluginResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SetRobotPluginResponse) SetStatusCode(v int32) *SetRobotPluginResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2021,20 +2037,12 @@ func (s *UpdateInstalledRobotHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateInstalledRobotRequest struct {
-	// 机器人的简要描述。
-	Brief *string `json:"brief,omitempty" xml:"brief,omitempty"`
-	// 机器人的详细描述。
+	Brief       *string `json:"brief,omitempty" xml:"brief,omitempty"`
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 机器人图标的mediaId。
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 机器人的名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 机器人的robotCode。
-	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	// 更新名字或头像时是否更新群里已添加机器人的名字或头像。
-	// 0-不更新群里机器人名字或头像
-	// 1-更新群里机器人名字或头像
-	UpdateType *int32 `json:"updateType,omitempty" xml:"updateType,omitempty"`
+	Icon        *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	RobotCode   *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	UpdateType  *int32  `json:"updateType,omitempty" xml:"updateType,omitempty"`
 }
 
 func (s UpdateInstalledRobotRequest) String() string {
@@ -2076,7 +2084,6 @@ func (s *UpdateInstalledRobotRequest) SetUpdateType(v int32) *UpdateInstalledRob
 }
 
 type UpdateInstalledRobotResponseBody struct {
-	// 本次更新操作是否成功。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2094,8 +2101,9 @@ func (s *UpdateInstalledRobotResponseBody) SetSuccess(v bool) *UpdateInstalledRo
 }
 
 type UpdateInstalledRobotResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateInstalledRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInstalledRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateInstalledRobotResponse) String() string {
@@ -2108,6 +2116,11 @@ func (s UpdateInstalledRobotResponse) GoString() string {
 
 func (s *UpdateInstalledRobotResponse) SetHeaders(v map[string]*string) *UpdateInstalledRobotResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateInstalledRobotResponse) SetStatusCode(v int32) *UpdateInstalledRobotResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2131,24 +2144,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) BatchOTOQuery(request *BatchOTOQueryRequest) (_result *BatchOTOQueryResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &BatchOTOQueryHeaders{}
-	_result = &BatchOTOQueryResponse{}
-	_body, _err := client.BatchOTOQueryWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) BatchOTOQueryWithOptions(request *BatchOTOQueryRequest, headers *BatchOTOQueryHeaders, runtime *util.RuntimeOptions) (_result *BatchOTOQueryResponse, _err error) {
@@ -2178,8 +2185,19 @@ func (client *Client) BatchOTOQueryWithOptions(request *BatchOTOQueryRequest, he
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchOTOQuery"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/oToMessages/readStatus"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchOTOQueryResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchOTOQuery"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/robot/oToMessages/readStatus"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2187,11 +2205,11 @@ func (client *Client) BatchOTOQueryWithOptions(request *BatchOTOQueryRequest, he
 	return _result, _err
 }
 
-func (client *Client) BatchRecallGroup(request *BatchRecallGroupRequest) (_result *BatchRecallGroupResponse, _err error) {
+func (client *Client) BatchOTOQuery(request *BatchOTOQueryRequest) (_result *BatchOTOQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchRecallGroupHeaders{}
-	_result = &BatchRecallGroupResponse{}
-	_body, _err := client.BatchRecallGroupWithOptions(request, headers, runtime)
+	headers := &BatchOTOQueryHeaders{}
+	_result = &BatchOTOQueryResponse{}
+	_body, _err := client.BatchOTOQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2230,8 +2248,19 @@ func (client *Client) BatchRecallGroupWithOptions(request *BatchRecallGroupReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchRecallGroup"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/groupMessages/batchRecall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchRecallGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchRecallGroup"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/batchRecall"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2239,11 +2268,11 @@ func (client *Client) BatchRecallGroupWithOptions(request *BatchRecallGroupReque
 	return _result, _err
 }
 
-func (client *Client) BatchRecallOTO(request *BatchRecallOTORequest) (_result *BatchRecallOTOResponse, _err error) {
+func (client *Client) BatchRecallGroup(request *BatchRecallGroupRequest) (_result *BatchRecallGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchRecallOTOHeaders{}
-	_result = &BatchRecallOTOResponse{}
-	_body, _err := client.BatchRecallOTOWithOptions(request, headers, runtime)
+	headers := &BatchRecallGroupHeaders{}
+	_result = &BatchRecallGroupResponse{}
+	_body, _err := client.BatchRecallGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2278,8 +2307,19 @@ func (client *Client) BatchRecallOTOWithOptions(request *BatchRecallOTORequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchRecallOTO"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/otoMessages/batchRecall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchRecallOTOResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchRecallOTO"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/otoMessages/batchRecall"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2287,11 +2327,11 @@ func (client *Client) BatchRecallOTOWithOptions(request *BatchRecallOTORequest, 
 	return _result, _err
 }
 
-func (client *Client) BatchRecallPrivateChat(request *BatchRecallPrivateChatRequest) (_result *BatchRecallPrivateChatResponse, _err error) {
+func (client *Client) BatchRecallOTO(request *BatchRecallOTORequest) (_result *BatchRecallOTOResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchRecallPrivateChatHeaders{}
-	_result = &BatchRecallPrivateChatResponse{}
-	_body, _err := client.BatchRecallPrivateChatWithOptions(request, headers, runtime)
+	headers := &BatchRecallOTOHeaders{}
+	_result = &BatchRecallOTOResponse{}
+	_body, _err := client.BatchRecallOTOWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2330,8 +2370,19 @@ func (client *Client) BatchRecallPrivateChatWithOptions(request *BatchRecallPriv
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchRecallPrivateChat"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/privateChatMessages/batchRecall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchRecallPrivateChatResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchRecallPrivateChat"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/privateChatMessages/batchRecall"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2339,11 +2390,11 @@ func (client *Client) BatchRecallPrivateChatWithOptions(request *BatchRecallPriv
 	return _result, _err
 }
 
-func (client *Client) BatchSendOTO(request *BatchSendOTORequest) (_result *BatchSendOTOResponse, _err error) {
+func (client *Client) BatchRecallPrivateChat(request *BatchRecallPrivateChatRequest) (_result *BatchRecallPrivateChatResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchSendOTOHeaders{}
-	_result = &BatchSendOTOResponse{}
-	_body, _err := client.BatchSendOTOWithOptions(request, headers, runtime)
+	headers := &BatchRecallPrivateChatHeaders{}
+	_result = &BatchRecallPrivateChatResponse{}
+	_body, _err := client.BatchRecallPrivateChatWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2386,8 +2437,19 @@ func (client *Client) BatchSendOTOWithOptions(request *BatchSendOTORequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchSendOTO"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/oToMessages/batchSend"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchSendOTOResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchSendOTO"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/oToMessages/batchSend"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2395,11 +2457,11 @@ func (client *Client) BatchSendOTOWithOptions(request *BatchSendOTORequest, head
 	return _result, _err
 }
 
-func (client *Client) ClearRobotPlugin(request *ClearRobotPluginRequest) (_result *ClearRobotPluginResponse, _err error) {
+func (client *Client) BatchSendOTO(request *BatchSendOTORequest) (_result *BatchSendOTOResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ClearRobotPluginHeaders{}
-	_result = &ClearRobotPluginResponse{}
-	_body, _err := client.ClearRobotPluginWithOptions(request, headers, runtime)
+	headers := &BatchSendOTOHeaders{}
+	_result = &BatchSendOTOResponse{}
+	_body, _err := client.BatchSendOTOWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2430,8 +2492,19 @@ func (client *Client) ClearRobotPluginWithOptions(request *ClearRobotPluginReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ClearRobotPlugin"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/plugins/clear"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ClearRobotPluginResponse{}
-	_body, _err := client.DoROARequest(tea.String("ClearRobotPlugin"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/plugins/clear"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2439,11 +2512,11 @@ func (client *Client) ClearRobotPluginWithOptions(request *ClearRobotPluginReque
 	return _result, _err
 }
 
-func (client *Client) GetBotListInGroup(request *GetBotListInGroupRequest) (_result *GetBotListInGroupResponse, _err error) {
+func (client *Client) ClearRobotPlugin(request *ClearRobotPluginRequest) (_result *ClearRobotPluginResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetBotListInGroupHeaders{}
-	_result = &GetBotListInGroupResponse{}
-	_body, _err := client.GetBotListInGroupWithOptions(request, headers, runtime)
+	headers := &ClearRobotPluginHeaders{}
+	_result = &ClearRobotPluginResponse{}
+	_body, _err := client.ClearRobotPluginWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2474,8 +2547,19 @@ func (client *Client) GetBotListInGroupWithOptions(request *GetBotListInGroupReq
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetBotListInGroup"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/groups/robots/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetBotListInGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetBotListInGroup"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groups/robots/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2483,11 +2567,11 @@ func (client *Client) GetBotListInGroupWithOptions(request *GetBotListInGroupReq
 	return _result, _err
 }
 
-func (client *Client) ManageSingleChatRobotStatus(request *ManageSingleChatRobotStatusRequest) (_result *ManageSingleChatRobotStatusResponse, _err error) {
+func (client *Client) GetBotListInGroup(request *GetBotListInGroupRequest) (_result *GetBotListInGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ManageSingleChatRobotStatusHeaders{}
-	_result = &ManageSingleChatRobotStatusResponse{}
-	_body, _err := client.ManageSingleChatRobotStatusWithOptions(request, headers, runtime)
+	headers := &GetBotListInGroupHeaders{}
+	_result = &GetBotListInGroupResponse{}
+	_body, _err := client.GetBotListInGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2522,8 +2606,19 @@ func (client *Client) ManageSingleChatRobotStatusWithOptions(request *ManageSing
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ManageSingleChatRobotStatus"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/statuses/manage"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ManageSingleChatRobotStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("ManageSingleChatRobotStatus"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/statuses/manage"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2531,11 +2626,11 @@ func (client *Client) ManageSingleChatRobotStatusWithOptions(request *ManageSing
 	return _result, _err
 }
 
-func (client *Client) OrgGroupQuery(request *OrgGroupQueryRequest) (_result *OrgGroupQueryResponse, _err error) {
+func (client *Client) ManageSingleChatRobotStatus(request *ManageSingleChatRobotStatusRequest) (_result *ManageSingleChatRobotStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &OrgGroupQueryHeaders{}
-	_result = &OrgGroupQueryResponse{}
-	_body, _err := client.OrgGroupQueryWithOptions(request, headers, runtime)
+	headers := &ManageSingleChatRobotStatusHeaders{}
+	_result = &ManageSingleChatRobotStatusResponse{}
+	_body, _err := client.ManageSingleChatRobotStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2586,8 +2681,19 @@ func (client *Client) OrgGroupQueryWithOptions(request *OrgGroupQueryRequest, he
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("OrgGroupQuery"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/groupMessages/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &OrgGroupQueryResponse{}
-	_body, _err := client.DoROARequest(tea.String("OrgGroupQuery"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2595,11 +2701,11 @@ func (client *Client) OrgGroupQueryWithOptions(request *OrgGroupQueryRequest, he
 	return _result, _err
 }
 
-func (client *Client) OrgGroupRecall(request *OrgGroupRecallRequest) (_result *OrgGroupRecallResponse, _err error) {
+func (client *Client) OrgGroupQuery(request *OrgGroupQueryRequest) (_result *OrgGroupQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &OrgGroupRecallHeaders{}
-	_result = &OrgGroupRecallResponse{}
-	_body, _err := client.OrgGroupRecallWithOptions(request, headers, runtime)
+	headers := &OrgGroupQueryHeaders{}
+	_result = &OrgGroupQueryResponse{}
+	_body, _err := client.OrgGroupQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2638,8 +2744,19 @@ func (client *Client) OrgGroupRecallWithOptions(request *OrgGroupRecallRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("OrgGroupRecall"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/groupMessages/recall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &OrgGroupRecallResponse{}
-	_body, _err := client.DoROARequest(tea.String("OrgGroupRecall"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/recall"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2647,11 +2764,11 @@ func (client *Client) OrgGroupRecallWithOptions(request *OrgGroupRecallRequest, 
 	return _result, _err
 }
 
-func (client *Client) OrgGroupSend(request *OrgGroupSendRequest) (_result *OrgGroupSendResponse, _err error) {
+func (client *Client) OrgGroupRecall(request *OrgGroupRecallRequest) (_result *OrgGroupRecallResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &OrgGroupSendHeaders{}
-	_result = &OrgGroupSendResponse{}
-	_body, _err := client.OrgGroupSendWithOptions(request, headers, runtime)
+	headers := &OrgGroupRecallHeaders{}
+	_result = &OrgGroupRecallResponse{}
+	_body, _err := client.OrgGroupRecallWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2702,8 +2819,19 @@ func (client *Client) OrgGroupSendWithOptions(request *OrgGroupSendRequest, head
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("OrgGroupSend"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/groupMessages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &OrgGroupSendResponse{}
-	_body, _err := client.DoROARequest(tea.String("OrgGroupSend"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2711,11 +2839,11 @@ func (client *Client) OrgGroupSendWithOptions(request *OrgGroupSendRequest, head
 	return _result, _err
 }
 
-func (client *Client) PrivateChatQuery(request *PrivateChatQueryRequest) (_result *PrivateChatQueryResponse, _err error) {
+func (client *Client) OrgGroupSend(request *OrgGroupSendRequest) (_result *OrgGroupSendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PrivateChatQueryHeaders{}
-	_result = &PrivateChatQueryResponse{}
-	_body, _err := client.PrivateChatQueryWithOptions(request, headers, runtime)
+	headers := &OrgGroupSendHeaders{}
+	_result = &OrgGroupSendResponse{}
+	_body, _err := client.OrgGroupSendWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2762,8 +2890,19 @@ func (client *Client) PrivateChatQueryWithOptions(request *PrivateChatQueryReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PrivateChatQuery"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/privateChatMessages/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PrivateChatQueryResponse{}
-	_body, _err := client.DoROARequest(tea.String("PrivateChatQuery"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/privateChatMessages/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2771,11 +2910,11 @@ func (client *Client) PrivateChatQueryWithOptions(request *PrivateChatQueryReque
 	return _result, _err
 }
 
-func (client *Client) PrivateChatSend(request *PrivateChatSendRequest) (_result *PrivateChatSendResponse, _err error) {
+func (client *Client) PrivateChatQuery(request *PrivateChatQueryRequest) (_result *PrivateChatQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PrivateChatSendHeaders{}
-	_result = &PrivateChatSendResponse{}
-	_body, _err := client.PrivateChatSendWithOptions(request, headers, runtime)
+	headers := &PrivateChatQueryHeaders{}
+	_result = &PrivateChatQueryResponse{}
+	_body, _err := client.PrivateChatQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2822,8 +2961,19 @@ func (client *Client) PrivateChatSendWithOptions(request *PrivateChatSendRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("PrivateChatSend"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/privateChatMessages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &PrivateChatSendResponse{}
-	_body, _err := client.DoROARequest(tea.String("PrivateChatSend"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/privateChatMessages/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2831,11 +2981,11 @@ func (client *Client) PrivateChatSendWithOptions(request *PrivateChatSendRequest
 	return _result, _err
 }
 
-func (client *Client) QueryBotInstanceInGroupInfo(request *QueryBotInstanceInGroupInfoRequest) (_result *QueryBotInstanceInGroupInfoResponse, _err error) {
+func (client *Client) PrivateChatSend(request *PrivateChatSendRequest) (_result *PrivateChatSendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryBotInstanceInGroupInfoHeaders{}
-	_result = &QueryBotInstanceInGroupInfoResponse{}
-	_body, _err := client.QueryBotInstanceInGroupInfoWithOptions(request, headers, runtime)
+	headers := &PrivateChatSendHeaders{}
+	_result = &PrivateChatSendResponse{}
+	_body, _err := client.PrivateChatSendWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2874,8 +3024,19 @@ func (client *Client) QueryBotInstanceInGroupInfoWithOptions(request *QueryBotIn
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryBotInstanceInGroupInfo"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/groups/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryBotInstanceInGroupInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryBotInstanceInGroupInfo"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groups/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2883,11 +3044,11 @@ func (client *Client) QueryBotInstanceInGroupInfoWithOptions(request *QueryBotIn
 	return _result, _err
 }
 
-func (client *Client) QueryRobotPlugin(request *QueryRobotPluginRequest) (_result *QueryRobotPluginResponse, _err error) {
+func (client *Client) QueryBotInstanceInGroupInfo(request *QueryBotInstanceInGroupInfoRequest) (_result *QueryBotInstanceInGroupInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryRobotPluginHeaders{}
-	_result = &QueryRobotPluginResponse{}
-	_body, _err := client.QueryRobotPluginWithOptions(request, headers, runtime)
+	headers := &QueryBotInstanceInGroupInfoHeaders{}
+	_result = &QueryBotInstanceInGroupInfoResponse{}
+	_body, _err := client.QueryBotInstanceInGroupInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2918,8 +3079,19 @@ func (client *Client) QueryRobotPluginWithOptions(request *QueryRobotPluginReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryRobotPlugin"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/plugins/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryRobotPluginResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryRobotPlugin"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/plugins/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2927,11 +3099,11 @@ func (client *Client) QueryRobotPluginWithOptions(request *QueryRobotPluginReque
 	return _result, _err
 }
 
-func (client *Client) RobotMessageFileDownload(request *RobotMessageFileDownloadRequest) (_result *RobotMessageFileDownloadResponse, _err error) {
+func (client *Client) QueryRobotPlugin(request *QueryRobotPluginRequest) (_result *QueryRobotPluginResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RobotMessageFileDownloadHeaders{}
-	_result = &RobotMessageFileDownloadResponse{}
-	_body, _err := client.RobotMessageFileDownloadWithOptions(request, headers, runtime)
+	headers := &QueryRobotPluginHeaders{}
+	_result = &QueryRobotPluginResponse{}
+	_body, _err := client.QueryRobotPluginWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2966,8 +3138,19 @@ func (client *Client) RobotMessageFileDownloadWithOptions(request *RobotMessageF
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RobotMessageFileDownload"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/messageFiles/download"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RobotMessageFileDownloadResponse{}
-	_body, _err := client.DoROARequest(tea.String("RobotMessageFileDownload"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/messageFiles/download"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2975,11 +3158,11 @@ func (client *Client) RobotMessageFileDownloadWithOptions(request *RobotMessageF
 	return _result, _err
 }
 
-func (client *Client) SendRobotDingMessage(request *SendRobotDingMessageRequest) (_result *SendRobotDingMessageResponse, _err error) {
+func (client *Client) RobotMessageFileDownload(request *RobotMessageFileDownloadRequest) (_result *RobotMessageFileDownloadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SendRobotDingMessageHeaders{}
-	_result = &SendRobotDingMessageResponse{}
-	_body, _err := client.SendRobotDingMessageWithOptions(request, headers, runtime)
+	headers := &RobotMessageFileDownloadHeaders{}
+	_result = &RobotMessageFileDownloadResponse{}
+	_body, _err := client.RobotMessageFileDownloadWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3026,8 +3209,19 @@ func (client *Client) SendRobotDingMessageWithOptions(request *SendRobotDingMess
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SendRobotDingMessage"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/dingMessages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SendRobotDingMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendRobotDingMessage"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/dingMessages/send"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3035,11 +3229,11 @@ func (client *Client) SendRobotDingMessageWithOptions(request *SendRobotDingMess
 	return _result, _err
 }
 
-func (client *Client) SetRobotPlugin(request *SetRobotPluginRequest) (_result *SetRobotPluginResponse, _err error) {
+func (client *Client) SendRobotDingMessage(request *SendRobotDingMessageRequest) (_result *SendRobotDingMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SetRobotPluginHeaders{}
-	_result = &SetRobotPluginResponse{}
-	_body, _err := client.SetRobotPluginWithOptions(request, headers, runtime)
+	headers := &SendRobotDingMessageHeaders{}
+	_result = &SendRobotDingMessageResponse{}
+	_body, _err := client.SendRobotDingMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3074,8 +3268,19 @@ func (client *Client) SetRobotPluginWithOptions(request *SetRobotPluginRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SetRobotPlugin"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/plugins/set"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SetRobotPluginResponse{}
-	_body, _err := client.DoROARequest(tea.String("SetRobotPlugin"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/plugins/set"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3083,11 +3288,11 @@ func (client *Client) SetRobotPluginWithOptions(request *SetRobotPluginRequest, 
 	return _result, _err
 }
 
-func (client *Client) UpdateInstalledRobot(request *UpdateInstalledRobotRequest) (_result *UpdateInstalledRobotResponse, _err error) {
+func (client *Client) SetRobotPlugin(request *SetRobotPluginRequest) (_result *SetRobotPluginResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInstalledRobotHeaders{}
-	_result = &UpdateInstalledRobotResponse{}
-	_body, _err := client.UpdateInstalledRobotWithOptions(request, headers, runtime)
+	headers := &SetRobotPluginHeaders{}
+	_result = &SetRobotPluginResponse{}
+	_body, _err := client.SetRobotPluginWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3138,11 +3343,34 @@ func (client *Client) UpdateInstalledRobotWithOptions(request *UpdateInstalledRo
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInstalledRobot"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/managements/infos"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateInstalledRobotResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInstalledRobot"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/robot/managements/infos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInstalledRobot(request *UpdateInstalledRobotRequest) (_result *UpdateInstalledRobotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInstalledRobotHeaders{}
+	_result = &UpdateInstalledRobotResponse{}
+	_body, _err := client.UpdateInstalledRobotWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

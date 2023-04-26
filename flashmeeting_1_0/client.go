@@ -5,9 +5,11 @@
 package flashmeeting_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,12 +37,9 @@ func (s *CreateFlashMeetingHeaders) SetXAcsDingtalkAccessToken(v string) *Create
 }
 
 type CreateFlashMeetingRequest struct {
-	// 创建人union id
 	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 日程id
 	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
-	// 钉闪会名称
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Title   *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateFlashMeetingRequest) String() string {
@@ -67,16 +66,11 @@ func (s *CreateFlashMeetingRequest) SetTitle(v string) *CreateFlashMeetingReques
 }
 
 type CreateFlashMeetingResponseBody struct {
-	// 闪会结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 闪会的key
+	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	FlashMeetingKey *string `json:"flashMeetingKey,omitempty" xml:"flashMeetingKey,omitempty"`
-	// 闪会开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 闪会标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 闪会url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Title           *string `json:"title,omitempty" xml:"title,omitempty"`
+	Url             *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s CreateFlashMeetingResponseBody) String() string {
@@ -113,8 +107,9 @@ func (s *CreateFlashMeetingResponseBody) SetUrl(v string) *CreateFlashMeetingRes
 }
 
 type CreateFlashMeetingResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateFlashMeetingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateFlashMeetingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateFlashMeetingResponse) String() string {
@@ -127,6 +122,11 @@ func (s CreateFlashMeetingResponse) GoString() string {
 
 func (s *CreateFlashMeetingResponse) SetHeaders(v map[string]*string) *CreateFlashMeetingResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateFlashMeetingResponse) SetStatusCode(v int32) *CreateFlashMeetingResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -150,24 +150,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) CreateFlashMeeting(request *CreateFlashMeetingRequest) (_result *CreateFlashMeetingResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateFlashMeetingHeaders{}
-	_result = &CreateFlashMeetingResponse{}
-	_body, _err := client.CreateFlashMeetingWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) CreateFlashMeetingWithOptions(request *CreateFlashMeetingRequest, headers *CreateFlashMeetingHeaders, runtime *util.RuntimeOptions) (_result *CreateFlashMeetingResponse, _err error) {
@@ -201,11 +195,34 @@ func (client *Client) CreateFlashMeetingWithOptions(request *CreateFlashMeetingR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateFlashMeeting"),
+		Version:     tea.String("flashmeeting_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/flashmeeting/meetings"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateFlashMeetingResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateFlashMeeting"), tea.String("flashmeeting_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/flashmeeting/meetings"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateFlashMeeting(request *CreateFlashMeetingRequest) (_result *CreateFlashMeetingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateFlashMeetingHeaders{}
+	_result = &CreateFlashMeetingResponse{}
+	_body, _err := client.CreateFlashMeetingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

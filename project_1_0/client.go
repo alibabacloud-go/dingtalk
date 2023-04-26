@@ -5,9 +5,11 @@
 package project_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,7 +37,6 @@ func (s *AddProjectMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddProje
 }
 
 type AddProjectMemberRequest struct {
-	// 用户ID列表，建议一次不超过10个
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -93,8 +94,9 @@ func (s *AddProjectMemberResponseBodyResult) SetNickname(v string) *AddProjectMe
 }
 
 type AddProjectMemberResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddProjectMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddProjectMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddProjectMemberResponse) String() string {
@@ -107,6 +109,11 @@ func (s AddProjectMemberResponse) GoString() string {
 
 func (s *AddProjectMemberResponse) SetHeaders(v map[string]*string) *AddProjectMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddProjectMemberResponse) SetStatusCode(v int32) *AddProjectMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -156,10 +163,8 @@ func (s *ArchiveProjectResponseBody) SetResult(v *ArchiveProjectResponseBodyResu
 }
 
 type ArchiveProjectResponseBodyResult struct {
-	// 是否已放入回收站。
-	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	IsArchived *bool   `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	Updated    *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s ArchiveProjectResponseBodyResult) String() string {
@@ -181,8 +186,9 @@ func (s *ArchiveProjectResponseBodyResult) SetUpdated(v string) *ArchiveProjectR
 }
 
 type ArchiveProjectResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ArchiveProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ArchiveProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ArchiveProjectResponse) String() string {
@@ -195,6 +201,11 @@ func (s ArchiveProjectResponse) GoString() string {
 
 func (s *ArchiveProjectResponse) SetHeaders(v map[string]*string) *ArchiveProjectResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ArchiveProjectResponse) SetStatusCode(v int32) *ArchiveProjectResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -227,7 +238,6 @@ func (s *ArchiveTaskHeaders) SetXAcsDingtalkAccessToken(v string) *ArchiveTaskHe
 }
 
 type ArchiveTaskResponseBody struct {
-	// 结果
 	Result *ArchiveTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -245,7 +255,6 @@ func (s *ArchiveTaskResponseBody) SetResult(v *ArchiveTaskResponseBodyResult) *A
 }
 
 type ArchiveTaskResponseBodyResult struct {
-	// 更新时间。
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -263,8 +272,9 @@ func (s *ArchiveTaskResponseBodyResult) SetUpdated(v string) *ArchiveTaskRespons
 }
 
 type ArchiveTaskResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ArchiveTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ArchiveTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ArchiveTaskResponse) String() string {
@@ -277,6 +287,11 @@ func (s ArchiveTaskResponse) GoString() string {
 
 func (s *ArchiveTaskResponse) SetHeaders(v map[string]*string) *ArchiveTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ArchiveTaskResponse) SetStatusCode(v int32) *ArchiveTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -309,26 +324,16 @@ func (s *CreateOrganizationTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Cr
 }
 
 type CreateOrganizationTaskRequest struct {
-	// 任务标题
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 任务创建日期
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 是否禁止动态
-	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	// 是否禁止通知
-	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	// 任务截止日期
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 执行者id
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 参与者id
-	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 任务备注
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 优先级【-10,0,1,2】中选一个
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 任务可见性。involves：仅参与者可见。members:所有人可见
-	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+	Content             *string   `json:"content,omitempty" xml:"content,omitempty"`
+	CreateTime          *string   `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	DisableActivity     *bool     `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	DisableNotification *bool     `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	DueDate             *string   `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	ExecutorId          *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers      []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	Note                *string   `json:"note,omitempty" xml:"note,omitempty"`
+	Priority            *int32    `json:"priority,omitempty" xml:"priority,omitempty"`
+	Visible             *string   `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s CreateOrganizationTaskRequest) String() string {
@@ -390,7 +395,6 @@ func (s *CreateOrganizationTaskRequest) SetVisible(v string) *CreateOrganization
 }
 
 type CreateOrganizationTaskResponseBody struct {
-	// 返回结果对象
 	Result *CreateOrganizationTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -408,44 +412,25 @@ func (s *CreateOrganizationTaskResponseBody) SetResult(v *CreateOrganizationTask
 }
 
 type CreateOrganizationTaskResponseBodyResult struct {
-	// 父任务Id
-	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	// 附件数量
-	AttachmentsCount *int32 `json:"attachmentsCount,omitempty" xml:"attachmentsCount,omitempty"`
-	// 任务标题
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建者
-	Creator *CreateOrganizationTaskResponseBodyResultCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	// 创建者id
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 任务截止日期
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 执行者
-	Executor *CreateOrganizationTaskResponseBodyResultExecutor `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
-	// 执行者id
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 是否有提醒
-	HasReminder *bool `json:"hasReminder,omitempty" xml:"hasReminder,omitempty"`
-	// 任务id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 参与者id列表
-	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 参与者列表
-	Involvers []*CreateOrganizationTaskResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
-	// 是否删除
-	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 是否完成
-	IsDone *string `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 任务备注
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 优先级【-10,0,1,2】中选一个
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 更新时间
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 任务可见性。involves：仅参与者可见。members:所有人可见
-	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+	AncestorIds      []*string                                            `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	AttachmentsCount *int32                                               `json:"attachmentsCount,omitempty" xml:"attachmentsCount,omitempty"`
+	Content          *string                                              `json:"content,omitempty" xml:"content,omitempty"`
+	Created          *string                                              `json:"created,omitempty" xml:"created,omitempty"`
+	Creator          *CreateOrganizationTaskResponseBodyResultCreator     `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	CreatorId        *string                                              `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	DueDate          *string                                              `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	Executor         *CreateOrganizationTaskResponseBodyResultExecutor    `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
+	ExecutorId       *string                                              `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	HasReminder      *bool                                                `json:"hasReminder,omitempty" xml:"hasReminder,omitempty"`
+	Id               *string                                              `json:"id,omitempty" xml:"id,omitempty"`
+	InvolveMembers   []*string                                            `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	Involvers        []*CreateOrganizationTaskResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
+	IsDeleted        *bool                                                `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	IsDone           *string                                              `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Note             *string                                              `json:"note,omitempty" xml:"note,omitempty"`
+	Priority         *int32                                               `json:"priority,omitempty" xml:"priority,omitempty"`
+	Updated          *string                                              `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visible          *string                                              `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s CreateOrganizationTaskResponseBodyResult) String() string {
@@ -552,12 +537,9 @@ func (s *CreateOrganizationTaskResponseBodyResult) SetVisible(v string) *CreateO
 }
 
 type CreateOrganizationTaskResponseBodyResultCreator struct {
-	// 创建者头像地址
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 创建者姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 创建者id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateOrganizationTaskResponseBodyResultCreator) String() string {
@@ -584,12 +566,9 @@ func (s *CreateOrganizationTaskResponseBodyResultCreator) SetUserId(v string) *C
 }
 
 type CreateOrganizationTaskResponseBodyResultExecutor struct {
-	// 头像地址
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 执行者id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateOrganizationTaskResponseBodyResultExecutor) String() string {
@@ -616,12 +595,9 @@ func (s *CreateOrganizationTaskResponseBodyResultExecutor) SetUserId(v string) *
 }
 
 type CreateOrganizationTaskResponseBodyResultInvolvers struct {
-	// 头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 用户id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Id        *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateOrganizationTaskResponseBodyResultInvolvers) String() string {
@@ -648,8 +624,9 @@ func (s *CreateOrganizationTaskResponseBodyResultInvolvers) SetName(v string) *C
 }
 
 type CreateOrganizationTaskResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateOrganizationTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateOrganizationTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateOrganizationTaskResponse) String() string {
@@ -662,6 +639,11 @@ func (s CreateOrganizationTaskResponse) GoString() string {
 
 func (s *CreateOrganizationTaskResponse) SetHeaders(v map[string]*string) *CreateOrganizationTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponse) SetStatusCode(v int32) *CreateOrganizationTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -694,26 +676,16 @@ func (s *CreatePlanTimeHeaders) SetXAcsDingtalkAccessToken(v string) *CreatePlan
 }
 
 type CreatePlanTimeRequest struct {
-	// 结束时间
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 执行者userid
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 是否包含假期
-	IncludesHolidays *bool `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
-	// 是否连续
-	IsDuration *bool `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
-	// 对象id，比如任务id
-	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
-	// 对象类型，默认为task
-	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	// 计划工时数（单位：毫秒，1小时即为 3600000）
-	PlanTime *int64 `json:"planTime,omitempty" xml:"planTime,omitempty"`
-	// 开始时间
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 工时所属人员userid
-	SubmitterId *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
-	// 接口校验类型，当前默认organization
-	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
+	EndDate          *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	ExecutorId       *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	IncludesHolidays *bool   `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
+	IsDuration       *bool   `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
+	ObjectId         *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
+	ObjectType       *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	PlanTime         *int64  `json:"planTime,omitempty" xml:"planTime,omitempty"`
+	StartDate        *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	SubmitterId      *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
+	TenantType       *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 }
 
 func (s CreatePlanTimeRequest) String() string {
@@ -792,10 +764,9 @@ func (s *CreatePlanTimeResponseBody) SetResult(v *CreatePlanTimeResponseBodyResu
 }
 
 type CreatePlanTimeResponseBodyResult struct {
-	Body []*CreatePlanTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	// 执行结果描述
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	Ok      *bool   `json:"ok,omitempty" xml:"ok,omitempty"`
+	Body    []*CreatePlanTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	Message *string                                 `json:"message,omitempty" xml:"message,omitempty"`
+	Ok      *bool                                   `json:"ok,omitempty" xml:"ok,omitempty"`
 }
 
 func (s CreatePlanTimeResponseBodyResult) String() string {
@@ -822,12 +793,9 @@ func (s *CreatePlanTimeResponseBodyResult) SetOk(v bool) *CreatePlanTimeResponse
 }
 
 type CreatePlanTimeResponseBodyResultBody struct {
-	// 更新工时所属日期
-	Date *string `json:"date,omitempty" xml:"date,omitempty"`
-	// 工时关联的数据id
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
 	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
-	// 计划工时数
-	PlanTime *int64 `json:"planTime,omitempty" xml:"planTime,omitempty"`
+	PlanTime *int64  `json:"planTime,omitempty" xml:"planTime,omitempty"`
 }
 
 func (s CreatePlanTimeResponseBodyResultBody) String() string {
@@ -854,8 +822,9 @@ func (s *CreatePlanTimeResponseBodyResultBody) SetPlanTime(v int64) *CreatePlanT
 }
 
 type CreatePlanTimeResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreatePlanTimeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreatePlanTimeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreatePlanTimeResponse) String() string {
@@ -868,6 +837,11 @@ func (s CreatePlanTimeResponse) GoString() string {
 
 func (s *CreatePlanTimeResponse) SetHeaders(v map[string]*string) *CreatePlanTimeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreatePlanTimeResponse) SetStatusCode(v int32) *CreatePlanTimeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -900,7 +874,6 @@ func (s *CreateProjectHeaders) SetXAcsDingtalkAccessToken(v string) *CreateProje
 }
 
 type CreateProjectRequest struct {
-	// 项目名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -918,7 +891,6 @@ func (s *CreateProjectRequest) SetName(v string) *CreateProjectRequest {
 }
 
 type CreateProjectResponseBody struct {
-	// 返回结果。
 	Result *CreateProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -936,38 +908,22 @@ func (s *CreateProjectResponseBody) SetResult(v *CreateProjectResponseBodyResult
 }
 
 type CreateProjectResponseBodyResult struct {
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建人ID。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 自定义字段值集合。
-	Customfields []*CreateProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	// 项目默认文件夹ID。
-	DefaultCollectionId *string `json:"defaultCollectionId,omitempty" xml:"defaultCollectionId,omitempty"`
-	// 是否在回收站。
-	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	// 是否归档。
-	IsSuspended *bool `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
-	// 是否为模版项目。
-	IsTemplate *bool `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
-	// 项目封面。
-	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
-	// 项目名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 项目类型。
-	NormalType *string `json:"normalType,omitempty" xml:"normalType,omitempty"`
-	// 项目ID。
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 项目根文件夹ID。
-	RootCollectionId *string `json:"rootCollectionId,omitempty" xml:"rootCollectionId,omitempty"`
-	// 来源项目ID。
-	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
-	// 任务ID前缀。
-	UniqueIdPrefix *string `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 项目可见性。
-	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+	Created             *string                                        `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId           *string                                        `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Customfields        []*CreateProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	DefaultCollectionId *string                                        `json:"defaultCollectionId,omitempty" xml:"defaultCollectionId,omitempty"`
+	IsArchived          *bool                                          `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	IsSuspended         *bool                                          `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
+	IsTemplate          *bool                                          `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
+	Logo                *string                                        `json:"logo,omitempty" xml:"logo,omitempty"`
+	Name                *string                                        `json:"name,omitempty" xml:"name,omitempty"`
+	NormalType          *string                                        `json:"normalType,omitempty" xml:"normalType,omitempty"`
+	ProjectId           *string                                        `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	RootCollectionId    *string                                        `json:"rootCollectionId,omitempty" xml:"rootCollectionId,omitempty"`
+	SourceId            *string                                        `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	UniqueIdPrefix      *string                                        `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
+	Updated             *string                                        `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visibility          *string                                        `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
 func (s CreateProjectResponseBodyResult) String() string {
@@ -1059,12 +1015,9 @@ func (s *CreateProjectResponseBodyResult) SetVisibility(v string) *CreateProject
 }
 
 type CreateProjectResponseBodyResultCustomfields struct {
-	// 自定义字段ID。
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 自定义字段类型。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 自定义字段值列表。
-	Value []*CreateProjectResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	CustomfieldId *string                                             `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	Type          *string                                             `json:"type,omitempty" xml:"type,omitempty"`
+	Value         []*CreateProjectResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s CreateProjectResponseBodyResultCustomfields) String() string {
@@ -1091,12 +1044,9 @@ func (s *CreateProjectResponseBodyResultCustomfields) SetValue(v []*CreateProjec
 }
 
 type CreateProjectResponseBodyResultCustomfieldsValue struct {
-	// 自定义字段值ID。
 	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	// 自定义字段值元属性。
-	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	// 自定义字段值内容。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateProjectResponseBodyResultCustomfieldsValue) String() string {
@@ -1123,8 +1073,9 @@ func (s *CreateProjectResponseBodyResultCustomfieldsValue) SetTitle(v string) *C
 }
 
 type CreateProjectResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateProjectResponse) String() string {
@@ -1137,6 +1088,11 @@ func (s CreateProjectResponse) GoString() string {
 
 func (s *CreateProjectResponse) SetHeaders(v map[string]*string) *CreateProjectResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateProjectResponse) SetStatusCode(v int32) *CreateProjectResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1169,9 +1125,7 @@ func (s *CreateProjectByTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CreateProjectByTemplateRequest struct {
-	// 项目名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 模板ID
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
@@ -1194,7 +1148,6 @@ func (s *CreateProjectByTemplateRequest) SetTemplateId(v string) *CreateProjectB
 }
 
 type CreateProjectByTemplateResponseBody struct {
-	// 返回结果对象
 	Result *CreateProjectByTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1212,14 +1165,10 @@ func (s *CreateProjectByTemplateResponseBody) SetResult(v *CreateProjectByTempla
 }
 
 type CreateProjectByTemplateResponseBodyResult struct {
-	// 创建时间
 	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 项目ID
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 项目图标地址
-	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
-	// 项目名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Id      *string `json:"id,omitempty" xml:"id,omitempty"`
+	Logo    *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateProjectByTemplateResponseBodyResult) String() string {
@@ -1251,8 +1200,9 @@ func (s *CreateProjectByTemplateResponseBodyResult) SetName(v string) *CreatePro
 }
 
 type CreateProjectByTemplateResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateProjectByTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateProjectByTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateProjectByTemplateResponse) String() string {
@@ -1265,6 +1215,11 @@ func (s CreateProjectByTemplateResponse) GoString() string {
 
 func (s *CreateProjectByTemplateResponse) SetHeaders(v map[string]*string) *CreateProjectByTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateProjectByTemplateResponse) SetStatusCode(v int32) *CreateProjectByTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1297,14 +1252,10 @@ func (s *CreateProjectCustomfieldStatusHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type CreateProjectCustomfieldStatusRequest struct {
-	// 自定义字段ID。
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 自定义字段InstanceId(如果提供自定义字段ID 或者 自定义字段名称 则忽略)。
-	CustomfieldInstanceId *string `json:"customfieldInstanceId,omitempty" xml:"customfieldInstanceId,omitempty"`
-	// 自定义字段名称(如果提供自定义字段ID 则忽略)。
-	CustomfieldName *string `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
-	// 字段值集合。
-	Value []*CreateProjectCustomfieldStatusRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	CustomfieldId         *string                                       `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	CustomfieldInstanceId *string                                       `json:"customfieldInstanceId,omitempty" xml:"customfieldInstanceId,omitempty"`
+	CustomfieldName       *string                                       `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
+	Value                 []*CreateProjectCustomfieldStatusRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s CreateProjectCustomfieldStatusRequest) String() string {
@@ -1336,12 +1287,9 @@ func (s *CreateProjectCustomfieldStatusRequest) SetValue(v []*CreateProjectCusto
 }
 
 type CreateProjectCustomfieldStatusRequestValue struct {
-	// 字段值id,当自定义字段是work类型该id表示文件id，当自定义字段是commongroup类型该id表示分类id，其他类型无意义。
 	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	// 字段值元信息(json格式)。
-	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	// 字段值渲染值。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateProjectCustomfieldStatusRequestValue) String() string {
@@ -1368,7 +1316,6 @@ func (s *CreateProjectCustomfieldStatusRequestValue) SetTitle(v string) *CreateP
 }
 
 type CreateProjectCustomfieldStatusResponseBody struct {
-	// 结果。
 	Result *CreateProjectCustomfieldStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1386,18 +1333,12 @@ func (s *CreateProjectCustomfieldStatusResponseBody) SetResult(v *CreateProjectC
 }
 
 type CreateProjectCustomfieldStatusResponseBodyResult struct {
-	// 高级字段类型名(冗余)。
-	AdvCfObjectType *string `json:"advCfObjectType,omitempty" xml:"advCfObjectType,omitempty"`
-	// 自定义字段ID。
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 字段名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 如果是企业字段，返回企业字段ID。
-	OriginalId *string `json:"originalId,omitempty" xml:"originalId,omitempty"`
-	// 字段类型。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 字段值集合。
-	Value []*CreateProjectCustomfieldStatusResponseBodyResultValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	AdvCfObjectType *string                                                  `json:"advCfObjectType,omitempty" xml:"advCfObjectType,omitempty"`
+	CustomfieldId   *string                                                  `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	Name            *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
+	OriginalId      *string                                                  `json:"originalId,omitempty" xml:"originalId,omitempty"`
+	Type            *string                                                  `json:"type,omitempty" xml:"type,omitempty"`
+	Value           []*CreateProjectCustomfieldStatusResponseBodyResultValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s CreateProjectCustomfieldStatusResponseBodyResult) String() string {
@@ -1439,12 +1380,9 @@ func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetValue(v []*CreateP
 }
 
 type CreateProjectCustomfieldStatusResponseBodyResultValue struct {
-	// 字段值id。
 	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	// 自定义字段值元属性。
-	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	// 自定义字段值。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateProjectCustomfieldStatusResponseBodyResultValue) String() string {
@@ -1471,8 +1409,9 @@ func (s *CreateProjectCustomfieldStatusResponseBodyResultValue) SetTitle(v strin
 }
 
 type CreateProjectCustomfieldStatusResponse struct {
-	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateProjectCustomfieldStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateProjectCustomfieldStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateProjectCustomfieldStatusResponse) String() string {
@@ -1485,6 +1424,11 @@ func (s CreateProjectCustomfieldStatusResponse) GoString() string {
 
 func (s *CreateProjectCustomfieldStatusResponse) SetHeaders(v map[string]*string) *CreateProjectCustomfieldStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateProjectCustomfieldStatusResponse) SetStatusCode(v int32) *CreateProjectCustomfieldStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1517,30 +1461,18 @@ func (s *CreateTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTaskHead
 }
 
 type CreateTaskRequest struct {
-	// 任务标题
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 自定义字段列表
-	Customfields []*CreateTaskRequestCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	// 任务截止时间
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 执行者userId
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 任务备注
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 父任务id。
-	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
-	// 任务优先级
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 项目id
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 任务类型id，任务类型比如：缺陷、需求。。
-	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
-	// 任务列id。
-	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
-	// 任务开始时间。
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 任务可见性,members,involves。
-	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+	Content               *string                          `json:"content,omitempty" xml:"content,omitempty"`
+	Customfields          []*CreateTaskRequestCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	DueDate               *string                          `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	ExecutorId            *string                          `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	Note                  *string                          `json:"note,omitempty" xml:"note,omitempty"`
+	ParentTaskId          *string                          `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	Priority              *int32                           `json:"priority,omitempty" xml:"priority,omitempty"`
+	ProjectId             *string                          `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	ScenariofieldconfigId *string                          `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	StageId               *string                          `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	StartDate             *string                          `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	Visible               *string                          `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s CreateTaskRequest) String() string {
@@ -1612,12 +1544,9 @@ func (s *CreateTaskRequest) SetVisible(v string) *CreateTaskRequest {
 }
 
 type CreateTaskRequestCustomfields struct {
-	// 自定义字段id
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 自定义字段名称
-	CustomfieldName *string `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
-	// 自定义字段值
-	Value []*CreateTaskRequestCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	CustomfieldId   *string                               `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	CustomfieldName *string                               `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
+	Value           []*CreateTaskRequestCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s CreateTaskRequestCustomfields) String() string {
@@ -1644,7 +1573,6 @@ func (s *CreateTaskRequestCustomfields) SetValue(v []*CreateTaskRequestCustomfie
 }
 
 type CreateTaskRequestCustomfieldsValue struct {
-	// 自定义字段显示值
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -1662,7 +1590,6 @@ func (s *CreateTaskRequestCustomfieldsValue) SetTitle(v string) *CreateTaskReque
 }
 
 type CreateTaskResponseBody struct {
-	// 返回结果对象
 	Result *CreateTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1680,30 +1607,18 @@ func (s *CreateTaskResponseBody) SetResult(v *CreateTaskResponseBodyResult) *Cre
 }
 
 type CreateTaskResponseBodyResult struct {
-	// 任务标题
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 任务创建者userId
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 自定义字段列表
-	Customfields []*CreateTaskResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	// 任务截止时间
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 任务执行者userId
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 任务参与者列表
-	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 任务备注
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 任务优先级
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 项目id
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 任务id
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 更新时间
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Content        *string                                     `json:"content,omitempty" xml:"content,omitempty"`
+	Created        *string                                     `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId      *string                                     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Customfields   []*CreateTaskResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	DueDate        *string                                     `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	ExecutorId     *string                                     `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers []*string                                   `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	Note           *string                                     `json:"note,omitempty" xml:"note,omitempty"`
+	Priority       *int32                                      `json:"priority,omitempty" xml:"priority,omitempty"`
+	ProjectId      *string                                     `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	TaskId         *string                                     `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Updated        *string                                     `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s CreateTaskResponseBodyResult) String() string {
@@ -1775,10 +1690,8 @@ func (s *CreateTaskResponseBodyResult) SetUpdated(v string) *CreateTaskResponseB
 }
 
 type CreateTaskResponseBodyResultCustomfields struct {
-	// 自定义字段id
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 自定义字段值
-	Value []*CreateTaskResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	CustomfieldId *string                                          `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	Value         []*CreateTaskResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s CreateTaskResponseBodyResultCustomfields) String() string {
@@ -1800,7 +1713,6 @@ func (s *CreateTaskResponseBodyResultCustomfields) SetValue(v []*CreateTaskRespo
 }
 
 type CreateTaskResponseBodyResultCustomfieldsValue struct {
-	// 自定义字段显示值
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -1818,8 +1730,9 @@ func (s *CreateTaskResponseBodyResultCustomfieldsValue) SetTitle(v string) *Crea
 }
 
 type CreateTaskResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateTaskResponse) String() string {
@@ -1832,6 +1745,11 @@ func (s CreateTaskResponse) GoString() string {
 
 func (s *CreateTaskResponse) SetHeaders(v map[string]*string) *CreateTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateTaskResponse) SetStatusCode(v int32) *CreateTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1864,7 +1782,6 @@ func (s *CreateTaskObjectLinkHeaders) SetXAcsDingtalkAccessToken(v string) *Crea
 }
 
 type CreateTaskObjectLinkRequest struct {
-	// 关联链接对象
 	LinkedData *CreateTaskObjectLinkRequestLinkedData `json:"linkedData,omitempty" xml:"linkedData,omitempty" type:"Struct"`
 }
 
@@ -1882,14 +1799,10 @@ func (s *CreateTaskObjectLinkRequest) SetLinkedData(v *CreateTaskObjectLinkReque
 }
 
 type CreateTaskObjectLinkRequestLinkedData struct {
-	// 关联对象描述
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 关联对象头像url
+	Content      *string `json:"content,omitempty" xml:"content,omitempty"`
 	ThumbnailUrl *string `json:"thumbnailUrl,omitempty" xml:"thumbnailUrl,omitempty"`
-	// 关联对象标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 关联对象链接url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s CreateTaskObjectLinkRequestLinkedData) String() string {
@@ -1921,7 +1834,6 @@ func (s *CreateTaskObjectLinkRequestLinkedData) SetUrl(v string) *CreateTaskObje
 }
 
 type CreateTaskObjectLinkResponseBody struct {
-	// 返回结果对象
 	Result *CreateTaskObjectLinkResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1939,9 +1851,7 @@ func (s *CreateTaskObjectLinkResponseBody) SetResult(v *CreateTaskObjectLinkResp
 }
 
 type CreateTaskObjectLinkResponseBodyResult struct {
-	// 创建时间
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 关联对象id
+	Created      *string `json:"created,omitempty" xml:"created,omitempty"`
 	ObjectLinkId *string `json:"objectLinkId,omitempty" xml:"objectLinkId,omitempty"`
 }
 
@@ -1964,8 +1874,9 @@ func (s *CreateTaskObjectLinkResponseBodyResult) SetObjectLinkId(v string) *Crea
 }
 
 type CreateTaskObjectLinkResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateTaskObjectLinkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateTaskObjectLinkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateTaskObjectLinkResponse) String() string {
@@ -1978,6 +1889,11 @@ func (s CreateTaskObjectLinkResponse) GoString() string {
 
 func (s *CreateTaskObjectLinkResponse) SetHeaders(v map[string]*string) *CreateTaskObjectLinkResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateTaskObjectLinkResponse) SetStatusCode(v int32) *CreateTaskObjectLinkResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2010,26 +1926,16 @@ func (s *CreateWorkTimeHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWork
 }
 
 type CreateWorkTimeRequest struct {
-	// 结束时间
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 执行者userid
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 是否包含节假日
-	IncludesHolidays *bool `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
-	// 是否连续
-	IsDuration *bool `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
-	// 对象 ID，比如 任务 ID
-	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
-	// 对象类型，默认为 task
-	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	// 开始时间
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 工时所属人员userid
-	SubmitterId *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
-	// 实际工时数（单位毫秒，1小时即为3600000）
-	WorkTime *int64 `json:"workTime,omitempty" xml:"workTime,omitempty"`
-	// 接口校验类型，当前默认organization
-	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
+	EndDate          *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	ExecutorId       *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	IncludesHolidays *bool   `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
+	IsDuration       *bool   `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
+	ObjectId         *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
+	ObjectType       *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	StartDate        *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	SubmitterId      *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
+	WorkTime         *int64  `json:"workTime,omitempty" xml:"workTime,omitempty"`
+	TenantType       *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 }
 
 func (s CreateWorkTimeRequest) String() string {
@@ -2108,10 +2014,9 @@ func (s *CreateWorkTimeResponseBody) SetResult(v *CreateWorkTimeResponseBodyResu
 }
 
 type CreateWorkTimeResponseBodyResult struct {
-	Body []*CreateWorkTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	// 执行结果描述
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	Ok      *bool   `json:"ok,omitempty" xml:"ok,omitempty"`
+	Body    []*CreateWorkTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	Message *string                                 `json:"message,omitempty" xml:"message,omitempty"`
+	Ok      *bool                                   `json:"ok,omitempty" xml:"ok,omitempty"`
 }
 
 func (s CreateWorkTimeResponseBodyResult) String() string {
@@ -2138,12 +2043,9 @@ func (s *CreateWorkTimeResponseBodyResult) SetOk(v bool) *CreateWorkTimeResponse
 }
 
 type CreateWorkTimeResponseBodyResultBody struct {
-	// 工时所属日期
-	Date *string `json:"date,omitempty" xml:"date,omitempty"`
-	// 工时关联的数据 ID
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 实际工时
-	WorkTime *int64 `json:"workTime,omitempty" xml:"workTime,omitempty"`
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	TaskId   *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	WorkTime *int64  `json:"workTime,omitempty" xml:"workTime,omitempty"`
 }
 
 func (s CreateWorkTimeResponseBodyResultBody) String() string {
@@ -2170,8 +2072,9 @@ func (s *CreateWorkTimeResponseBodyResultBody) SetWorkTime(v int64) *CreateWorkT
 }
 
 type CreateWorkTimeResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateWorkTimeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateWorkTimeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateWorkTimeResponse) String() string {
@@ -2187,7 +2090,181 @@ func (s *CreateWorkTimeResponse) SetHeaders(v map[string]*string) *CreateWorkTim
 	return s
 }
 
+func (s *CreateWorkTimeResponse) SetStatusCode(v int32) *CreateWorkTimeResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *CreateWorkTimeResponse) SetBody(v *CreateWorkTimeResponseBody) *CreateWorkTimeResponse {
+	s.Body = v
+	return s
+}
+
+type CreateWorkTimeApproveHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateWorkTimeApproveHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeApproveHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeApproveHeaders) SetCommonHeaders(v map[string]*string) *CreateWorkTimeApproveHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateWorkTimeApproveHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWorkTimeApproveHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateWorkTimeApproveRequest struct {
+	WorkTimeIds []*string `json:"workTimeIds,omitempty" xml:"workTimeIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateWorkTimeApproveRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeApproveRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeApproveRequest) SetWorkTimeIds(v []*string) *CreateWorkTimeApproveRequest {
+	s.WorkTimeIds = v
+	return s
+}
+
+type CreateWorkTimeApproveResponseBody struct {
+	Message   *string                                  `json:"message,omitempty" xml:"message,omitempty"`
+	RequestId *string                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *CreateWorkTimeApproveResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateWorkTimeApproveResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeApproveResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeApproveResponseBody) SetMessage(v string) *CreateWorkTimeApproveResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBody) SetRequestId(v string) *CreateWorkTimeApproveResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBody) SetResult(v *CreateWorkTimeApproveResponseBodyResult) *CreateWorkTimeApproveResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateWorkTimeApproveResponseBodyResult struct {
+	ApproveOpenId  *string   `json:"approveOpenId,omitempty" xml:"approveOpenId,omitempty"`
+	CreatedAt      *string   `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
+	CreatorId      *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	OrganizationId *string   `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
+	Status         *string   `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId         *string   `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Time           *int32    `json:"time,omitempty" xml:"time,omitempty"`
+	UpdatedAt      *string   `json:"updatedAt,omitempty" xml:"updatedAt,omitempty"`
+	UserId         *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	WorkTimeIds    []*string `json:"workTimeIds,omitempty" xml:"workTimeIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateWorkTimeApproveResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeApproveResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetApproveOpenId(v string) *CreateWorkTimeApproveResponseBodyResult {
+	s.ApproveOpenId = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetCreatedAt(v string) *CreateWorkTimeApproveResponseBodyResult {
+	s.CreatedAt = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetCreatorId(v string) *CreateWorkTimeApproveResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetOrganizationId(v string) *CreateWorkTimeApproveResponseBodyResult {
+	s.OrganizationId = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetStatus(v string) *CreateWorkTimeApproveResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetTaskId(v string) *CreateWorkTimeApproveResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetTime(v int32) *CreateWorkTimeApproveResponseBodyResult {
+	s.Time = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetUpdatedAt(v string) *CreateWorkTimeApproveResponseBodyResult {
+	s.UpdatedAt = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetUserId(v string) *CreateWorkTimeApproveResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponseBodyResult) SetWorkTimeIds(v []*string) *CreateWorkTimeApproveResponseBodyResult {
+	s.WorkTimeIds = v
+	return s
+}
+
+type CreateWorkTimeApproveResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateWorkTimeApproveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateWorkTimeApproveResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeApproveResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeApproveResponse) SetHeaders(v map[string]*string) *CreateWorkTimeApproveResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponse) SetStatusCode(v int32) *CreateWorkTimeApproveResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateWorkTimeApproveResponse) SetBody(v *CreateWorkTimeApproveResponseBody) *CreateWorkTimeApproveResponse {
 	s.Body = v
 	return s
 }
@@ -2216,7 +2293,6 @@ func (s *DeleteProjectMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Delet
 }
 
 type DeleteProjectMemberRequest struct {
-	// 用户ID。
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -2234,7 +2310,6 @@ func (s *DeleteProjectMemberRequest) SetUserIds(v []*string) *DeleteProjectMembe
 }
 
 type DeleteProjectMemberResponseBody struct {
-	// 项目成员列表。
 	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2252,8 +2327,9 @@ func (s *DeleteProjectMemberResponseBody) SetResult(v []*string) *DeleteProjectM
 }
 
 type DeleteProjectMemberResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteProjectMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteProjectMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteProjectMemberResponse) String() string {
@@ -2266,6 +2342,11 @@ func (s DeleteProjectMemberResponse) GoString() string {
 
 func (s *DeleteProjectMemberResponse) SetHeaders(v map[string]*string) *DeleteProjectMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteProjectMemberResponse) SetStatusCode(v int32) *DeleteProjectMemberResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2298,7 +2379,6 @@ func (s *DeleteTaskHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteTaskHead
 }
 
 type DeleteTaskResponseBody struct {
-	// 删除的任务Id
 	Result map[string]*string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2316,8 +2396,9 @@ func (s *DeleteTaskResponseBody) SetResult(v map[string]*string) *DeleteTaskResp
 }
 
 type DeleteTaskResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteTaskResponse) String() string {
@@ -2330,6 +2411,11 @@ func (s DeleteTaskResponse) GoString() string {
 
 func (s *DeleteTaskResponse) SetHeaders(v map[string]*string) *DeleteTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteTaskResponse) SetStatusCode(v int32) *DeleteTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2397,13 +2483,10 @@ func (s *GetDeptsByOrgIdRequest) SetNextToken(v int64) *GetDeptsByOrgIdRequest {
 }
 
 type GetDeptsByOrgIdResponseBody struct {
-	// deptList
-	DeptList []*GetDeptsByOrgIdResponseBodyDeptList `json:"deptList,omitempty" xml:"deptList,omitempty" type:"Repeated"`
-	// hasMore
-	HasMore    *bool  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// nextCursor
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	DeptList   []*GetDeptsByOrgIdResponseBodyDeptList `json:"deptList,omitempty" xml:"deptList,omitempty" type:"Repeated"`
+	HasMore    *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	MaxResults *int32                                 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetDeptsByOrgIdResponseBody) String() string {
@@ -2435,12 +2518,9 @@ func (s *GetDeptsByOrgIdResponseBody) SetNextToken(v int64) *GetDeptsByOrgIdResp
 }
 
 type GetDeptsByOrgIdResponseBodyDeptList struct {
-	// id
-	DeptId *int64 `json:"dept_id,omitempty" xml:"dept_id,omitempty"`
-	// name
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// parentId
-	ParentId *int64 `json:"parent_id,omitempty" xml:"parent_id,omitempty"`
+	DeptId   *int64  `json:"dept_id,omitempty" xml:"dept_id,omitempty"`
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	ParentId *int64  `json:"parent_id,omitempty" xml:"parent_id,omitempty"`
 }
 
 func (s GetDeptsByOrgIdResponseBodyDeptList) String() string {
@@ -2467,8 +2547,9 @@ func (s *GetDeptsByOrgIdResponseBodyDeptList) SetParentId(v int64) *GetDeptsByOr
 }
 
 type GetDeptsByOrgIdResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetDeptsByOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetDeptsByOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetDeptsByOrgIdResponse) String() string {
@@ -2481,6 +2562,11 @@ func (s GetDeptsByOrgIdResponse) GoString() string {
 
 func (s *GetDeptsByOrgIdResponse) SetHeaders(v map[string]*string) *GetDeptsByOrgIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetDeptsByOrgIdResponse) SetStatusCode(v int32) *GetDeptsByOrgIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2554,11 +2640,9 @@ func (s *GetEmpsByOrgIdRequest) SetNextToken(v int64) *GetEmpsByOrgIdRequest {
 }
 
 type GetEmpsByOrgIdResponseBody struct {
-	// empList
-	EmpList []*GetEmpsByOrgIdResponseBodyEmpList `json:"empList,omitempty" xml:"empList,omitempty" type:"Repeated"`
-	// hasMore
-	HasMore   *bool  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	EmpList   []*GetEmpsByOrgIdResponseBodyEmpList `json:"empList,omitempty" xml:"empList,omitempty" type:"Repeated"`
+	HasMore   *bool                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *int64                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetEmpsByOrgIdResponseBody) String() string {
@@ -2585,23 +2669,15 @@ func (s *GetEmpsByOrgIdResponseBody) SetNextToken(v int64) *GetEmpsByOrgIdRespon
 }
 
 type GetEmpsByOrgIdResponseBodyEmpList struct {
-	// avatar
-	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
-	// deptIdList
+	Avatar     *string  `json:"avatar,omitempty" xml:"avatar,omitempty"`
 	DeptIdList []*int64 `json:"dept_id_list,omitempty" xml:"dept_id_list,omitempty" type:"Repeated"`
-	// dingId
-	DingId *string `json:"dingId,omitempty" xml:"dingId,omitempty"`
-	// name
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// nick
-	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	// orgId
-	OrgId    *int64  `json:"orgId,omitempty" xml:"orgId,omitempty"`
-	Position *string `json:"position,omitempty" xml:"position,omitempty"`
-	// unionId
-	Unionid *string `json:"unionid,omitempty" xml:"unionid,omitempty"`
-	// userid
-	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
+	DingId     *string  `json:"dingId,omitempty" xml:"dingId,omitempty"`
+	Name       *string  `json:"name,omitempty" xml:"name,omitempty"`
+	Nick       *string  `json:"nick,omitempty" xml:"nick,omitempty"`
+	OrgId      *int64   `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	Position   *string  `json:"position,omitempty" xml:"position,omitempty"`
+	Unionid    *string  `json:"unionid,omitempty" xml:"unionid,omitempty"`
+	Userid     *string  `json:"userid,omitempty" xml:"userid,omitempty"`
 }
 
 func (s GetEmpsByOrgIdResponseBodyEmpList) String() string {
@@ -2658,8 +2734,9 @@ func (s *GetEmpsByOrgIdResponseBodyEmpList) SetUserid(v string) *GetEmpsByOrgIdR
 }
 
 type GetEmpsByOrgIdResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetEmpsByOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetEmpsByOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetEmpsByOrgIdResponse) String() string {
@@ -2672,6 +2749,11 @@ func (s GetEmpsByOrgIdResponse) GoString() string {
 
 func (s *GetEmpsByOrgIdResponse) SetHeaders(v map[string]*string) *GetEmpsByOrgIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetEmpsByOrgIdResponse) SetStatusCode(v int32) *GetEmpsByOrgIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2704,7 +2786,6 @@ func (s *GetOrganizatioTaskByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetOrganizatioTaskByIdsRequest struct {
-	// 多个任务id
 	TaskIds *string `json:"taskIds,omitempty" xml:"taskIds,omitempty"`
 }
 
@@ -2722,7 +2803,6 @@ func (s *GetOrganizatioTaskByIdsRequest) SetTaskIds(v string) *GetOrganizatioTas
 }
 
 type GetOrganizatioTaskByIdsResponseBody struct {
-	// 返回结构体
 	Result []*GetOrganizatioTaskByIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2740,38 +2820,22 @@ func (s *GetOrganizatioTaskByIdsResponseBody) SetResult(v []*GetOrganizatioTaskB
 }
 
 type GetOrganizatioTaskByIdsResponseBodyResult struct {
-	// 父任务id
-	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	// 任务标题
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建者id
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 任务截止时间
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 执行者id
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 参与者列表
+	AncestorIds    []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	Content        *string   `json:"content,omitempty" xml:"content,omitempty"`
+	Created        *string   `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId      *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	DueDate        *string   `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 任务是否已删除
-	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 任务是否已完成
-	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 任务自定义标记
-	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
-	// 任务备注
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 优先级【-10,0,1,2】中选一个
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 任务开始时间
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 任务id
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 更新时间
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 任务可见性。involves：仅参与者可见。members:所有人可见
-	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+	IsDeleted      *bool     `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	IsDone         *bool     `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Labels         []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	Note           *string   `json:"note,omitempty" xml:"note,omitempty"`
+	Priority       *int32    `json:"priority,omitempty" xml:"priority,omitempty"`
+	StartDate      *string   `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaskId         *string   `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Updated        *string   `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visible        *string   `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s GetOrganizatioTaskByIdsResponseBodyResult) String() string {
@@ -2863,8 +2927,9 @@ func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetVisible(v string) *GetOrg
 }
 
 type GetOrganizatioTaskByIdsResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetOrganizatioTaskByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetOrganizatioTaskByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetOrganizatioTaskByIdsResponse) String() string {
@@ -2877,6 +2942,11 @@ func (s GetOrganizatioTaskByIdsResponse) GoString() string {
 
 func (s *GetOrganizatioTaskByIdsResponse) SetHeaders(v map[string]*string) *GetOrganizatioTaskByIdsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponse) SetStatusCode(v int32) *GetOrganizatioTaskByIdsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2909,7 +2979,6 @@ func (s *GetOrganizationPriorityListHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type GetOrganizationPriorityListResponseBody struct {
-	// 优先级列表
 	Result []*GetOrganizationPriorityListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2927,13 +2996,9 @@ func (s *GetOrganizationPriorityListResponseBody) SetResult(v []*GetOrganization
 }
 
 type GetOrganizationPriorityListResponseBodyResult struct {
-	// 颜色
-	Color *string `json:"color,omitempty" xml:"color,omitempty"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 优先级值
-	Priority *string `json:"priority,omitempty" xml:"priority,omitempty"`
-	// id
+	Color      *string `json:"color,omitempty" xml:"color,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	Priority   *string `json:"priority,omitempty" xml:"priority,omitempty"`
 	PriorityId *string `json:"priorityId,omitempty" xml:"priorityId,omitempty"`
 }
 
@@ -2966,8 +3031,9 @@ func (s *GetOrganizationPriorityListResponseBodyResult) SetPriorityId(v string) 
 }
 
 type GetOrganizationPriorityListResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetOrganizationPriorityListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetOrganizationPriorityListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetOrganizationPriorityListResponse) String() string {
@@ -2980,6 +3046,11 @@ func (s GetOrganizationPriorityListResponse) GoString() string {
 
 func (s *GetOrganizationPriorityListResponse) SetHeaders(v map[string]*string) *GetOrganizationPriorityListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetOrganizationPriorityListResponse) SetStatusCode(v int32) *GetOrganizationPriorityListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3012,7 +3083,6 @@ func (s *GetOrganizationTaskHeaders) SetXAcsDingtalkAccessToken(v string) *GetOr
 }
 
 type GetOrganizationTaskResponseBody struct {
-	// 返回结构体
 	Result *GetOrganizationTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -3030,38 +3100,22 @@ func (s *GetOrganizationTaskResponseBody) SetResult(v *GetOrganizationTaskRespon
 }
 
 type GetOrganizationTaskResponseBodyResult struct {
-	// 父任务id
-	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	// 任务标题
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建者id
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 任务截止时间
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 执行者id
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 参与者列表
+	AncestorIds    []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	Content        *string   `json:"content,omitempty" xml:"content,omitempty"`
+	Created        *string   `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId      *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	DueDate        *string   `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 任务是否已删除
-	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 任务是否已完成
-	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 任务自定义标记
-	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
-	// 任务备注
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 优先级【-10,0,1,2】中选一个
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 任务开始时间
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 任务id
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 更新时间
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 任务可见性。involves：仅参与者可见。members:所有人可见
-	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+	IsDeleted      *bool     `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	IsDone         *bool     `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Labels         []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	Note           *string   `json:"note,omitempty" xml:"note,omitempty"`
+	Priority       *int32    `json:"priority,omitempty" xml:"priority,omitempty"`
+	StartDate      *string   `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TaskId         *string   `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Updated        *string   `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visible        *string   `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s GetOrganizationTaskResponseBodyResult) String() string {
@@ -3153,8 +3207,9 @@ func (s *GetOrganizationTaskResponseBodyResult) SetVisible(v string) *GetOrganiz
 }
 
 type GetOrganizationTaskResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetOrganizationTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetOrganizationTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetOrganizationTaskResponse) String() string {
@@ -3167,6 +3222,11 @@ func (s GetOrganizationTaskResponse) GoString() string {
 
 func (s *GetOrganizationTaskResponse) SetHeaders(v map[string]*string) *GetOrganizationTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetOrganizationTaskResponse) SetStatusCode(v int32) *GetOrganizationTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3199,9 +3259,7 @@ func (s *GetProjectGroupHeaders) SetXAcsDingtalkAccessToken(v string) *GetProjec
 }
 
 type GetProjectGroupRequest struct {
-	// 分页大小，最小1，默认10，最大1000
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 查看者ID
+	PageSize *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	ViewerId *string `json:"viewerId,omitempty" xml:"viewerId,omitempty"`
 }
 
@@ -3224,7 +3282,6 @@ func (s *GetProjectGroupRequest) SetViewerId(v string) *GetProjectGroupRequest {
 }
 
 type GetProjectGroupResponseBody struct {
-	// 返回结果对象
 	Result []*GetProjectGroupResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3242,15 +3299,10 @@ func (s *GetProjectGroupResponseBody) SetResult(v []*GetProjectGroupResponseBody
 }
 
 type GetProjectGroupResponseBodyResult struct {
-	// 创建时间
 	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 分组ID
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 分组名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 更新时间
+	Id      *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 分组可见性。organization 或者 involves
 	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
@@ -3288,8 +3340,9 @@ func (s *GetProjectGroupResponseBodyResult) SetVisible(v string) *GetProjectGrou
 }
 
 type GetProjectGroupResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetProjectGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetProjectGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetProjectGroupResponse) String() string {
@@ -3302,6 +3355,11 @@ func (s GetProjectGroupResponse) GoString() string {
 
 func (s *GetProjectGroupResponse) SetHeaders(v map[string]*string) *GetProjectGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetProjectGroupResponse) SetStatusCode(v int32) *GetProjectGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3334,14 +3392,10 @@ func (s *GetProjectMemebersHeaders) SetXAcsDingtalkAccessToken(v string) *GetPro
 }
 
 type GetProjectMemebersRequest struct {
-	// 每页返回最大数量。默认10，最大300。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 项目角色ID，仅查询拥有该角色的成员，并且仅支持单个角色查询。
+	MaxResults    *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	ProjectRoleId *string `json:"projectRoleId,omitempty" xml:"projectRoleId,omitempty"`
-	// 跳过的数据数量。
-	Skip *int32 `json:"skip,omitempty" xml:"skip,omitempty"`
-	// 如果传递，仅查询这些用户ID， 用逗号组合。
-	UserIds *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
+	Skip          *int32  `json:"skip,omitempty" xml:"skip,omitempty"`
+	UserIds       *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
 }
 
 func (s GetProjectMemebersRequest) String() string {
@@ -3373,7 +3427,6 @@ func (s *GetProjectMemebersRequest) SetUserIds(v string) *GetProjectMemebersRequ
 }
 
 type GetProjectMemebersResponseBody struct {
-	// 项目成员列表。
 	Result []*GetProjectMemebersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3391,14 +3444,11 @@ func (s *GetProjectMemebersResponseBody) SetResult(v []*GetProjectMemebersRespon
 }
 
 type GetProjectMemebersResponseBodyResult struct {
-	// 项目成员ID。
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 项目角色，0=成员；1=管理员；2=拥有者。
-	Role *int32 `json:"role,omitempty" xml:"role,omitempty"`
-	// 项目角色ID列表。
-	RoleIds []*string `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
-	// 用户ID。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// Deprecated
+	MemberId *string   `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	Role     *int32    `json:"role,omitempty" xml:"role,omitempty"`
+	RoleIds  []*string `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	UserId   *string   `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetProjectMemebersResponseBodyResult) String() string {
@@ -3430,8 +3480,9 @@ func (s *GetProjectMemebersResponseBodyResult) SetUserId(v string) *GetProjectMe
 }
 
 type GetProjectMemebersResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetProjectMemebersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetProjectMemebersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetProjectMemebersResponse) String() string {
@@ -3444,6 +3495,11 @@ func (s GetProjectMemebersResponse) GoString() string {
 
 func (s *GetProjectMemebersResponse) SetHeaders(v map[string]*string) *GetProjectMemebersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetProjectMemebersResponse) SetStatusCode(v int32) *GetProjectMemebersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3476,7 +3532,6 @@ func (s *GetProjectStatusListHeaders) SetXAcsDingtalkAccessToken(v string) *GetP
 }
 
 type GetProjectStatusListResponseBody struct {
-	// 项目状态历史列表。
 	Result []*GetProjectStatusListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3494,17 +3549,11 @@ func (s *GetProjectStatusListResponseBody) SetResult(v []*GetProjectStatusListRe
 }
 
 type GetProjectStatusListResponseBodyResult struct {
-	// 项目状态内容。
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 项目状态创建人ID。
+	Content   *string `json:"content,omitempty" xml:"content,omitempty"`
+	Created   *string `json:"created,omitempty" xml:"created,omitempty"`
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 项目状态指标：'normal','risky','urgent'。
-	Degree *string `json:"degree,omitempty" xml:"degree,omitempty"`
-	// 项目状态名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 项目ID。
+	Degree    *string `json:"degree,omitempty" xml:"degree,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
 	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
 }
 
@@ -3547,8 +3596,9 @@ func (s *GetProjectStatusListResponseBodyResult) SetProjectId(v string) *GetProj
 }
 
 type GetProjectStatusListResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetProjectStatusListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetProjectStatusListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetProjectStatusListResponse) String() string {
@@ -3561,6 +3611,11 @@ func (s GetProjectStatusListResponse) GoString() string {
 
 func (s *GetProjectStatusListResponse) SetHeaders(v map[string]*string) *GetProjectStatusListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetProjectStatusListResponse) SetStatusCode(v int32) *GetProjectStatusListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3593,10 +3648,8 @@ func (s *GetTaskByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskByIds
 }
 
 type GetTaskByIdsRequest struct {
-	// 父任务ID,和taskIds冲突(选其一)。
 	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
-	// 任务ID集合,使用逗号分隔,和parentTaskId冲突(选其一)。
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskId       *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s GetTaskByIdsRequest) String() string {
@@ -3618,7 +3671,6 @@ func (s *GetTaskByIdsRequest) SetTaskId(v string) *GetTaskByIdsRequest {
 }
 
 type GetTaskByIdsResponseBody struct {
-	// 任务详情集合。
 	Result []*GetTaskByIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3636,62 +3688,34 @@ func (s *GetTaskByIdsResponseBody) SetResult(v []*GetTaskByIdsResponseBodyResult
 }
 
 type GetTaskByIdsResponseBodyResult struct {
-	// 任务完成时间(UTC)。
-	AccomplishTime *string `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
-	// 祖先任务ID列表。
-	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	// 任务标题。
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间(UTC)。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建人ID。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 自定义字段值集合。
-	Customfields []*GetTaskByIdsResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	// 任务截止时间(UTC)。
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 执行人ID。
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 参与者ID集合。
-	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 是否任务放入回收站。
-	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	// 是否任务已完成。
-	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 任务备注。
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 父任务ID。
-	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
-	// 任务优先级。
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 项目ID。
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 重复规则列表。
-	Recurrence []*string `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
-	// 任务类型ID。
-	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
-	// 迭代ID。
-	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
-	// 任务列ID。
-	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
-	// 任务开始时间(UTC)。
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// StoryPoint。
-	StoryPoint *string `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
-	// 标签ID集合。
-	TagIds []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
-	// 任务ID。
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 任务分组ID。
-	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	// 任务状态ID。
-	TaskflowstatusId *string `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
-	// 任务数字ID。
-	UniqueId *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
-	// 更新时间(UTC)。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 任务隐私性，'involves'表达仅参与者可见; 'members'表达项目成员可见。
-	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+	AccomplishTime        *string                                       `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
+	AncestorIds           []*string                                     `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	Content               *string                                       `json:"content,omitempty" xml:"content,omitempty"`
+	Created               *string                                       `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId             *string                                       `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Customfields          []*GetTaskByIdsResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	DueDate               *string                                       `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	ExecutorId            *string                                       `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers        []*string                                     `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	IsArchived            *bool                                         `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	IsDone                *bool                                         `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Note                  *string                                       `json:"note,omitempty" xml:"note,omitempty"`
+	ParentTaskId          *string                                       `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	Priority              *int32                                        `json:"priority,omitempty" xml:"priority,omitempty"`
+	ProjectId             *string                                       `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	Recurrence            []*string                                     `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
+	ScenariofieldconfigId *string                                       `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	SprintId              *string                                       `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	StageId               *string                                       `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	StartDate             *string                                       `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	StoryPoint            *string                                       `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	TagIds                []*string                                     `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	TaskId                *string                                       `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskListId            *string                                       `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	TaskflowstatusId      *string                                       `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
+	UniqueId              *string                                       `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
+	Updated               *string                                       `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visible               *string                                       `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s GetTaskByIdsResponseBodyResult) String() string {
@@ -3843,12 +3867,9 @@ func (s *GetTaskByIdsResponseBodyResult) SetVisible(v string) *GetTaskByIdsRespo
 }
 
 type GetTaskByIdsResponseBodyResultCustomfields struct {
-	// 自定义字段ID。
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 自定义字段类型。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 字段值集合。
-	Value []*GetTaskByIdsResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	CustomfieldId *string                                            `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	Type          *string                                            `json:"type,omitempty" xml:"type,omitempty"`
+	Value         []*GetTaskByIdsResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s GetTaskByIdsResponseBodyResultCustomfields) String() string {
@@ -3875,12 +3896,9 @@ func (s *GetTaskByIdsResponseBodyResultCustomfields) SetValue(v []*GetTaskByIdsR
 }
 
 type GetTaskByIdsResponseBodyResultCustomfieldsValue struct {
-	// 字段值ID。
 	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	// 字段值元属性。
-	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	// 字段值内容。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetTaskByIdsResponseBodyResultCustomfieldsValue) String() string {
@@ -3907,8 +3925,9 @@ func (s *GetTaskByIdsResponseBodyResultCustomfieldsValue) SetTitle(v string) *Ge
 }
 
 type GetTaskByIdsResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetTaskByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTaskByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetTaskByIdsResponse) String() string {
@@ -3921,6 +3940,11 @@ func (s GetTaskByIdsResponse) GoString() string {
 
 func (s *GetTaskByIdsResponse) SetHeaders(v map[string]*string) *GetTaskByIdsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetTaskByIdsResponse) SetStatusCode(v int32) *GetTaskByIdsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3953,7 +3977,6 @@ func (s *GetTbOrgIdByDingOrgIdHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetTbOrgIdByDingOrgIdRequest struct {
-	// 操作者userId
 	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
 }
 
@@ -3971,7 +3994,6 @@ func (s *GetTbOrgIdByDingOrgIdRequest) SetOptUserId(v string) *GetTbOrgIdByDingO
 }
 
 type GetTbOrgIdByDingOrgIdResponseBody struct {
-	// 结果对象
 	Result *GetTbOrgIdByDingOrgIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -3989,7 +4011,6 @@ func (s *GetTbOrgIdByDingOrgIdResponseBody) SetResult(v *GetTbOrgIdByDingOrgIdRe
 }
 
 type GetTbOrgIdByDingOrgIdResponseBodyResult struct {
-	// Teambition企业Id
 	TbOrganizationId *string `json:"tbOrganizationId,omitempty" xml:"tbOrganizationId,omitempty"`
 }
 
@@ -4007,8 +4028,9 @@ func (s *GetTbOrgIdByDingOrgIdResponseBodyResult) SetTbOrganizationId(v string) 
 }
 
 type GetTbOrgIdByDingOrgIdResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetTbOrgIdByDingOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTbOrgIdByDingOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetTbOrgIdByDingOrgIdResponse) String() string {
@@ -4021,6 +4043,11 @@ func (s GetTbOrgIdByDingOrgIdResponse) GoString() string {
 
 func (s *GetTbOrgIdByDingOrgIdResponse) SetHeaders(v map[string]*string) *GetTbOrgIdByDingOrgIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetTbOrgIdByDingOrgIdResponse) SetStatusCode(v int32) *GetTbOrgIdByDingOrgIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4101,8 +4128,7 @@ func (s *GetTbProjectGrayRequest) SetLabel(v string) *GetTbProjectGrayRequest {
 
 type GetTbProjectGrayResponseBody struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 是否灰度
-	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
 }
 
 func (s GetTbProjectGrayResponseBody) String() string {
@@ -4124,8 +4150,9 @@ func (s *GetTbProjectGrayResponseBody) SetResult(v bool) *GetTbProjectGrayRespon
 }
 
 type GetTbProjectGrayResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetTbProjectGrayResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTbProjectGrayResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetTbProjectGrayResponse) String() string {
@@ -4138,6 +4165,11 @@ func (s GetTbProjectGrayResponse) GoString() string {
 
 func (s *GetTbProjectGrayResponse) SetHeaders(v map[string]*string) *GetTbProjectGrayResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetTbProjectGrayResponse) SetStatusCode(v int32) *GetTbProjectGrayResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4200,7 +4232,6 @@ func (s *GetTbProjectSourceHeaders) SetXAcsDingtalkAccessToken(v string) *GetTbP
 }
 
 type GetTbProjectSourceResponseBody struct {
-	// 应用安装来源，"0"：来自应用中心，”6“：预安装
 	InstallSource *string `json:"installSource,omitempty" xml:"installSource,omitempty"`
 }
 
@@ -4218,8 +4249,9 @@ func (s *GetTbProjectSourceResponseBody) SetInstallSource(v string) *GetTbProjec
 }
 
 type GetTbProjectSourceResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetTbProjectSourceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTbProjectSourceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetTbProjectSourceResponse) String() string {
@@ -4232,6 +4264,11 @@ func (s GetTbProjectSourceResponse) GoString() string {
 
 func (s *GetTbProjectSourceResponse) SetHeaders(v map[string]*string) *GetTbProjectSourceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetTbProjectSourceResponse) SetStatusCode(v int32) *GetTbProjectSourceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4264,10 +4301,8 @@ func (s *GetTbUserIdByStaffIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetT
 }
 
 type GetTbUserIdByStaffIdRequest struct {
-	// 操作者userId
 	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
-	// 用户userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetTbUserIdByStaffIdRequest) String() string {
@@ -4289,7 +4324,6 @@ func (s *GetTbUserIdByStaffIdRequest) SetUserId(v string) *GetTbUserIdByStaffIdR
 }
 
 type GetTbUserIdByStaffIdResponseBody struct {
-	// 结果对象
 	Result *GetTbUserIdByStaffIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -4307,7 +4341,6 @@ func (s *GetTbUserIdByStaffIdResponseBody) SetResult(v *GetTbUserIdByStaffIdResp
 }
 
 type GetTbUserIdByStaffIdResponseBodyResult struct {
-	// Teambition用户id
 	TbUserId *string `json:"tbUserId,omitempty" xml:"tbUserId,omitempty"`
 }
 
@@ -4325,8 +4358,9 @@ func (s *GetTbUserIdByStaffIdResponseBodyResult) SetTbUserId(v string) *GetTbUse
 }
 
 type GetTbUserIdByStaffIdResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetTbUserIdByStaffIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTbUserIdByStaffIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetTbUserIdByStaffIdResponse) String() string {
@@ -4339,6 +4373,11 @@ func (s GetTbUserIdByStaffIdResponse) GoString() string {
 
 func (s *GetTbUserIdByStaffIdResponse) SetHeaders(v map[string]*string) *GetTbUserIdByStaffIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetTbUserIdByStaffIdResponse) SetStatusCode(v int32) *GetTbUserIdByStaffIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4371,10 +4410,8 @@ func (s *GetUserJoinedProjectHeaders) SetXAcsDingtalkAccessToken(v string) *GetU
 }
 
 type GetUserJoinedProjectRequest struct {
-	// 分页大小。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetUserJoinedProjectRequest) String() string {
@@ -4396,12 +4433,9 @@ func (s *GetUserJoinedProjectRequest) SetNextToken(v string) *GetUserJoinedProje
 }
 
 type GetUserJoinedProjectResponseBody struct {
-	// 分页标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 项目 ID 列表。
-	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 总数。
-	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken  *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32    `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetUserJoinedProjectResponseBody) String() string {
@@ -4428,8 +4462,9 @@ func (s *GetUserJoinedProjectResponseBody) SetTotalCount(v int32) *GetUserJoined
 }
 
 type GetUserJoinedProjectResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserJoinedProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserJoinedProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserJoinedProjectResponse) String() string {
@@ -4442,6 +4477,11 @@ func (s GetUserJoinedProjectResponse) GoString() string {
 
 func (s *GetUserJoinedProjectResponse) SetHeaders(v map[string]*string) *GetUserJoinedProjectResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserJoinedProjectResponse) SetStatusCode(v int32) *GetUserJoinedProjectResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4474,16 +4514,11 @@ func (s *QueryProjectHeaders) SetXAcsDingtalkAccessToken(v string) *QueryProject
 }
 
 type QueryProjectRequest struct {
-	// 分页大小。每页返回最大数量。默认10，最大300。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 项目名字(模糊匹配)。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 分页标。供分页使用，下一页token，从当前页结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 项目ID集合，逗号分隔。
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	ProjectIds *string `json:"projectIds,omitempty" xml:"projectIds,omitempty"`
-	// 原始项目ID。
-	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	SourceId   *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 }
 
 func (s QueryProjectRequest) String() string {
@@ -4520,7 +4555,6 @@ func (s *QueryProjectRequest) SetSourceId(v string) *QueryProjectRequest {
 }
 
 type QueryProjectResponseBody struct {
-	// 项目列表。
 	Result []*QueryProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -4538,38 +4572,22 @@ func (s *QueryProjectResponseBody) SetResult(v []*QueryProjectResponseBodyResult
 }
 
 type QueryProjectResponseBodyResult struct {
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建人ID。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 自定义字段值集合。
-	Customfields []*QueryProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	// 项目描述。
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 项目结束时间。
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 是否放入回收站。
-	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	// 是否归档。
-	IsSuspended *bool `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
-	// 是模版项目。
-	IsTemplate *bool `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
-	// 项目LOGO。
-	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
-	// 项目名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 企业ID。
-	OrganizationId *string `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
-	// 项目ID。
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 项目开始时间。
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 任务ID前缀。
-	UniqueIdPrefix *string `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 可见性，project | organization。
-	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+	Created        *string                                       `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId      *string                                       `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Customfields   []*QueryProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	Description    *string                                       `json:"description,omitempty" xml:"description,omitempty"`
+	EndDate        *string                                       `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	IsArchived     *bool                                         `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	IsSuspended    *bool                                         `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
+	IsTemplate     *bool                                         `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
+	Logo           *string                                       `json:"logo,omitempty" xml:"logo,omitempty"`
+	Name           *string                                       `json:"name,omitempty" xml:"name,omitempty"`
+	OrganizationId *string                                       `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
+	ProjectId      *string                                       `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	StartDate      *string                                       `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	UniqueIdPrefix *string                                       `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
+	Updated        *string                                       `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visibility     *string                                       `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
 func (s QueryProjectResponseBodyResult) String() string {
@@ -4661,12 +4679,9 @@ func (s *QueryProjectResponseBodyResult) SetVisibility(v string) *QueryProjectRe
 }
 
 type QueryProjectResponseBodyResultCustomfields struct {
-	// 自定义字段ID。
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 自定义字段类型。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 自定义字段值列表。
-	Value []*QueryProjectResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	CustomfieldId *string                                            `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	Type          *string                                            `json:"type,omitempty" xml:"type,omitempty"`
+	Value         []*QueryProjectResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s QueryProjectResponseBodyResultCustomfields) String() string {
@@ -4693,12 +4708,9 @@ func (s *QueryProjectResponseBodyResultCustomfields) SetValue(v []*QueryProjectR
 }
 
 type QueryProjectResponseBodyResultCustomfieldsValue struct {
-	// 自定义字段值ID。
 	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	// 自定义字段值元属性。
-	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	// 自定义字段值内容。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryProjectResponseBodyResultCustomfieldsValue) String() string {
@@ -4725,8 +4737,9 @@ func (s *QueryProjectResponseBodyResultCustomfieldsValue) SetTitle(v string) *Qu
 }
 
 type QueryProjectResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryProjectResponse) String() string {
@@ -4739,6 +4752,11 @@ func (s QueryProjectResponse) GoString() string {
 
 func (s *QueryProjectResponse) SetHeaders(v map[string]*string) *QueryProjectResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryProjectResponse) SetStatusCode(v int32) *QueryProjectResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4771,12 +4789,9 @@ func (s *QueryTaskOfProjectHeaders) SetXAcsDingtalkAccessToken(v string) *QueryT
 }
 
 type QueryTaskOfProjectRequest struct {
-	// 每页返回最大数量。默认10，最大500。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 供分页使用，下一页token，从当前页结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 查询条件。如：“content ~ 标题1” 表示查询任务标题包含“标题1”的任务；“executor=05178xxxxx” 表示执行者是05178xxxx的任务；”involveMembers NOT IN["061xx","06112xx"] AND executorId=0673xxx AND content~标题2“ 表示查询参与者不是”061xx“和”06112xx“ 并且 执行者是0673xxx 并且 标题类似 ”标题2“的所有任务。
-	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Query      *string `json:"query,omitempty" xml:"query,omitempty"`
 }
 
 func (s QueryTaskOfProjectRequest) String() string {
@@ -4803,12 +4818,9 @@ func (s *QueryTaskOfProjectRequest) SetQuery(v string) *QueryTaskOfProjectReques
 }
 
 type QueryTaskOfProjectResponseBody struct {
-	// 供分页使用，下一页token，从当前页结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 任务对象列表。
-	Result []*QueryTaskOfProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 任务总数。
-	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken  *string                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*QueryTaskOfProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                                  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryTaskOfProjectResponseBody) String() string {
@@ -4835,60 +4847,33 @@ func (s *QueryTaskOfProjectResponseBody) SetTotalCount(v int32) *QueryTaskOfProj
 }
 
 type QueryTaskOfProjectResponseBodyResult struct {
-	// 任务完成时间。
-	Accomplished *string `json:"accomplished,omitempty" xml:"accomplished,omitempty"`
-	// 父任务id列表。
-	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	// 任务标题。
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建者id。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 自定义字段id列表。
-	Customfields []*QueryTaskOfProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	// 任务截止时间。
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 执行者id。
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 参与者列表。
-	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 是否归档。
-	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	// 是否已删除。
-	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 任务是否已完成。
-	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 任务标签集合。
-	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
-	// 备注。
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 任务优先级。
-	Priority *int64 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 任务进度。
-	Progress *int32 `json:"progress,omitempty" xml:"progress,omitempty"`
-	// 项目id。
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 任务类型id。
-	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
-	// 任务迭代id。
-	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
-	// 任务列表Id。
-	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
-	// 任务开始时间。
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 故事点数。
-	StoryPoint *int32 `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
-	// 标签id集合。
-	TagIds []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
-	// 任务id。
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 任务状态id。
-	TaskflowstatusId *string `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 任务的可见性规则 involves | members。
-	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+	Accomplished          *string                                             `json:"accomplished,omitempty" xml:"accomplished,omitempty"`
+	AncestorIds           []*string                                           `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	Content               *string                                             `json:"content,omitempty" xml:"content,omitempty"`
+	Created               *string                                             `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId             *string                                             `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Customfields          []*QueryTaskOfProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	DueDate               *string                                             `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	ExecutorId            *string                                             `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers        []*string                                           `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	IsArchived            *bool                                               `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	IsDeleted             *bool                                               `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	IsDone                *bool                                               `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Labels                []*string                                           `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	Note                  *string                                             `json:"note,omitempty" xml:"note,omitempty"`
+	Priority              *int64                                              `json:"priority,omitempty" xml:"priority,omitempty"`
+	Progress              *int32                                              `json:"progress,omitempty" xml:"progress,omitempty"`
+	ProjectId             *string                                             `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	ScenariofieldconfigId *string                                             `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	SprintId              *string                                             `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	StageId               *string                                             `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	StartDate             *string                                             `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	StoryPoint            *int32                                              `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	TagIds                []*string                                           `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	TaskId                *string                                             `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskflowstatusId      *string                                             `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
+	Updated               *string                                             `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visible               *string                                             `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s QueryTaskOfProjectResponseBodyResult) String() string {
@@ -5035,7 +5020,6 @@ func (s *QueryTaskOfProjectResponseBodyResult) SetVisible(v string) *QueryTaskOf
 }
 
 type QueryTaskOfProjectResponseBodyResultCustomfields struct {
-	// 自定义字段Id。
 	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
 }
 
@@ -5053,8 +5037,9 @@ func (s *QueryTaskOfProjectResponseBodyResultCustomfields) SetCustomfieldId(v st
 }
 
 type QueryTaskOfProjectResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryTaskOfProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryTaskOfProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryTaskOfProjectResponse) String() string {
@@ -5067,6 +5052,11 @@ func (s QueryTaskOfProjectResponse) GoString() string {
 
 func (s *QueryTaskOfProjectResponse) SetHeaders(v map[string]*string) *QueryTaskOfProjectResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponse) SetStatusCode(v int32) *QueryTaskOfProjectResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5099,15 +5089,10 @@ func (s *SeachTaskStageHeaders) SetXAcsDingtalkAccessToken(v string) *SeachTaskS
 }
 
 type SeachTaskStageRequest struct {
-	// 每页返回最大数量。默认10，最大300。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页标，从上一次请求结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 任务列表名字。
-	Query *string `json:"query,omitempty" xml:"query,omitempty"`
-	// 任务列表 ID 集合，逗号组合。
-	StageIds *string `json:"stageIds,omitempty" xml:"stageIds,omitempty"`
-	// 项目分组ID。
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Query      *string `json:"query,omitempty" xml:"query,omitempty"`
+	StageIds   *string `json:"stageIds,omitempty" xml:"stageIds,omitempty"`
 	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
 }
 
@@ -5145,12 +5130,9 @@ func (s *SeachTaskStageRequest) SetTaskListId(v string) *SeachTaskStageRequest {
 }
 
 type SeachTaskStageResponseBody struct {
-	// 分页标，供分页使用，下一页token。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 任务列表列表。
-	Result []*SeachTaskStageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 总数。
-	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken  *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*SeachTaskStageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                              `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SeachTaskStageResponseBody) String() string {
@@ -5177,22 +5159,14 @@ func (s *SeachTaskStageResponseBody) SetTotalCount(v int32) *SeachTaskStageRespo
 }
 
 type SeachTaskStageResponseBodyResult struct {
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建者用户 ID。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 任务列表名称。
+	Created     *string `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId   *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 任务列表名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 项目 ID。
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 任务分组 ID。
-	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	// 任务列表 ID。
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	ProjectId   *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	TaskListId  *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
 	TaskStageId *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Updated     *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s SeachTaskStageResponseBodyResult) String() string {
@@ -5244,8 +5218,9 @@ func (s *SeachTaskStageResponseBodyResult) SetUpdated(v string) *SeachTaskStageR
 }
 
 type SeachTaskStageResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SeachTaskStageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SeachTaskStageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SeachTaskStageResponse) String() string {
@@ -5258,6 +5233,11 @@ func (s SeachTaskStageResponse) GoString() string {
 
 func (s *SeachTaskStageResponse) SetHeaders(v map[string]*string) *SeachTaskStageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SeachTaskStageResponse) SetStatusCode(v int32) *SeachTaskStageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5290,20 +5270,13 @@ func (s *SearchOranizationCustomfieldHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type SearchOranizationCustomfieldRequest struct {
-	// 自定义字段ID集合，逗号组合。
 	CustomfieldIds *string `json:"customfieldIds,omitempty" xml:"customfieldIds,omitempty"`
-	// 字段InstanceId集合，用逗号组合。
-	InstanceIds *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
-	// 每页返回最大数量。默认10，最大300。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 供分页使用，下一页token，从当前页结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 过滤出在指定项目中使用的企业字段，当scope=usedInProjectIds有效。多个以逗号隔开。
-	ProjectIds *string `json:"projectIds,omitempty" xml:"projectIds,omitempty"`
-	// 过滤字段名字。
-	Query *string `json:"query,omitempty" xml:"query,omitempty"`
-	// 字段应用场景, 可以是 sfcAdd,usedInProjectIds,all 其中一个。
-	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	InstanceIds    *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
+	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ProjectIds     *string `json:"projectIds,omitempty" xml:"projectIds,omitempty"`
+	Query          *string `json:"query,omitempty" xml:"query,omitempty"`
+	Scope          *string `json:"scope,omitempty" xml:"scope,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldRequest) String() string {
@@ -5350,12 +5323,9 @@ func (s *SearchOranizationCustomfieldRequest) SetScope(v string) *SearchOranizat
 }
 
 type SearchOranizationCustomfieldResponseBody struct {
-	// 供分页使用，下一页token，从当前页结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 自定义字段列表。
-	Result []*SearchOranizationCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 总数。
-	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken  *string                                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*SearchOranizationCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldResponseBody) String() string {
@@ -5382,22 +5352,14 @@ func (s *SearchOranizationCustomfieldResponseBody) SetTotalCount(v int32) *Searc
 }
 
 type SearchOranizationCustomfieldResponseBodyResult struct {
-	// 高级自定义字段。
 	AdvancedCustomfield *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield `json:"advancedCustomfield,omitempty" xml:"advancedCustomfield,omitempty" type:"Struct"`
-	// 如果是单选或多选字段，这里是可选项的值
-	Choices []*SearchOranizationCustomfieldResponseBodyResultChoices `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建人ID。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 自定义字段ID。
-	CustomfieldsId *string `json:"customfieldsId,omitempty" xml:"customfieldsId,omitempty"`
-	// 字段名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户自定义数据载体，json格式类型任意数据。
-	Payload map[string]interface{} `json:"payload,omitempty" xml:"payload,omitempty"`
-	// 字段类型。   'number', // 数字     'date', // 日期     'text', // 文本     'work',     'multipleChoice', // 多选     'dropDown', // 下拉,     'lookup',     'commongroup',     'cascading', // 层级字段     'rtf', // 多行文本/富文本 字段 'lookup2' // 新高级字段
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Choices             []*SearchOranizationCustomfieldResponseBodyResultChoices           `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
+	Created             *string                                                            `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId           *string                                                            `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CustomfieldsId      *string                                                            `json:"customfieldsId,omitempty" xml:"customfieldsId,omitempty"`
+	Name                *string                                                            `json:"name,omitempty" xml:"name,omitempty"`
+	Payload             map[string]interface{}                                             `json:"payload,omitempty" xml:"payload,omitempty"`
+	Type                *string                                                            `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldResponseBodyResult) String() string {
@@ -5449,12 +5411,9 @@ func (s *SearchOranizationCustomfieldResponseBodyResult) SetType(v string) *Sear
 }
 
 type SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield struct {
-	// 字段类型ID。
 	AdvancedCustomfieldId *string `json:"advancedCustomfieldId,omitempty" xml:"advancedCustomfieldId,omitempty"`
-	// 字段类型名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 字段类型名称2
-	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
+	ObjectType            *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) String() string {
@@ -5481,10 +5440,8 @@ func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) SetO
 }
 
 type SearchOranizationCustomfieldResponseBodyResultChoices struct {
-	// 选项ID。
 	ChoiceId *string `json:"choiceId,omitempty" xml:"choiceId,omitempty"`
-	// 选项值。
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldResponseBodyResultChoices) String() string {
@@ -5506,8 +5463,9 @@ func (s *SearchOranizationCustomfieldResponseBodyResultChoices) SetValue(v strin
 }
 
 type SearchOranizationCustomfieldResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchOranizationCustomfieldResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchOranizationCustomfieldResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchOranizationCustomfieldResponse) String() string {
@@ -5520,6 +5478,11 @@ func (s SearchOranizationCustomfieldResponse) GoString() string {
 
 func (s *SearchOranizationCustomfieldResponse) SetHeaders(v map[string]*string) *SearchOranizationCustomfieldResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchOranizationCustomfieldResponse) SetStatusCode(v int32) *SearchOranizationCustomfieldResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5552,20 +5515,13 @@ func (s *SearchProjectCustomfieldHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type SearchProjectCustomfieldRequest struct {
-	// 自定义字段ID集合，逗号组合。
-	CustomfieldIds *string `json:"customfieldIds,omitempty" xml:"customfieldIds,omitempty"`
-	// 字段InstanceId集合，用逗号组合。
-	InstanceIds *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
-	// 每页返回最大数量。默认10，最大500。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页标。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 过滤字段名字。
-	Query *string `json:"query,omitempty" xml:"query,omitempty"`
-	// 任务类型ID。
+	CustomfieldIds        *string `json:"customfieldIds,omitempty" xml:"customfieldIds,omitempty"`
+	InstanceIds           *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
+	MaxResults            *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken             *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Query                 *string `json:"query,omitempty" xml:"query,omitempty"`
 	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
-	// 字段应用场景, 可以是 taskTableHeader,searcherAdd,taskExportHeader,sfcAdd,kanbanCardAdd,all 其中一个。
-	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	Scope                 *string `json:"scope,omitempty" xml:"scope,omitempty"`
 }
 
 func (s SearchProjectCustomfieldRequest) String() string {
@@ -5612,12 +5568,9 @@ func (s *SearchProjectCustomfieldRequest) SetScope(v string) *SearchProjectCusto
 }
 
 type SearchProjectCustomfieldResponseBody struct {
-	// 供分页使用，下一页token，从当前页结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 自定义字段列表。
-	Result []*SearchProjectCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 总数。
-	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken  *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*SearchProjectCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchProjectCustomfieldResponseBody) String() string {
@@ -5644,26 +5597,16 @@ func (s *SearchProjectCustomfieldResponseBody) SetTotalCount(v int32) *SearchPro
 }
 
 type SearchProjectCustomfieldResponseBodyResult struct {
-	// 高级自定义字段。
 	AdvancedCustomfield *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield `json:"advancedCustomfield,omitempty" xml:"advancedCustomfield,omitempty" type:"Struct"`
-	// 绑定的对象Id，此接口为项目ID。
-	BoundToObjectId *string `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
-	// 如果是单选或多选字段，这里是可选项的值
-	Choices []*SearchProjectCustomfieldResponseBodyResultChoices `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建人ID。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 自定义字段ID。
-	CustomfiledId *string `json:"customfiledId,omitempty" xml:"customfiledId,omitempty"`
-	// 字段名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 如果是企业字段，该字段表达绑定的企业字段ID。
-	OriginalId *string `json:"originalId,omitempty" xml:"originalId,omitempty"`
-	// 用户自定义数据载体，json格式类型任意数据。
-	Payload map[string]interface{} `json:"payload,omitempty" xml:"payload,omitempty"`
-	// 字段类型。 'number', // 数字 'date', // 日期 'text', // 文本 'work', 'multipleChoice', // 多选 'dropDown', // 下拉, 'lookup', 'commongroup', 'cascading', // 层级字段 'rtf', // 多行文本/富文本 字段 'lookup2' // 新高级字段
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	BoundToObjectId     *string                                                        `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
+	Choices             []*SearchProjectCustomfieldResponseBodyResultChoices           `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
+	Created             *string                                                        `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId           *string                                                        `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CustomfiledId       *string                                                        `json:"customfiledId,omitempty" xml:"customfiledId,omitempty"`
+	Name                *string                                                        `json:"name,omitempty" xml:"name,omitempty"`
+	OriginalId          *string                                                        `json:"originalId,omitempty" xml:"originalId,omitempty"`
+	Payload             map[string]interface{}                                         `json:"payload,omitempty" xml:"payload,omitempty"`
+	Type                *string                                                        `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SearchProjectCustomfieldResponseBodyResult) String() string {
@@ -5725,12 +5668,9 @@ func (s *SearchProjectCustomfieldResponseBodyResult) SetType(v string) *SearchPr
 }
 
 type SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield struct {
-	// 字段类型ID。
 	AdvancedCustomfieldId *string `json:"advancedCustomfieldId,omitempty" xml:"advancedCustomfieldId,omitempty"`
-	// 字段类型名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 字段类型名称2。
-	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
+	ObjectType            *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
 }
 
 func (s SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) String() string {
@@ -5757,10 +5697,8 @@ func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) SetObjec
 }
 
 type SearchProjectCustomfieldResponseBodyResultChoices struct {
-	// 选项Id。
 	ChoiceId *string `json:"choiceId,omitempty" xml:"choiceId,omitempty"`
-	// 选项值。
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s SearchProjectCustomfieldResponseBodyResultChoices) String() string {
@@ -5782,8 +5720,9 @@ func (s *SearchProjectCustomfieldResponseBodyResultChoices) SetValue(v string) *
 }
 
 type SearchProjectCustomfieldResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchProjectCustomfieldResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchProjectCustomfieldResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchProjectCustomfieldResponse) String() string {
@@ -5796,6 +5735,11 @@ func (s SearchProjectCustomfieldResponse) GoString() string {
 
 func (s *SearchProjectCustomfieldResponse) SetHeaders(v map[string]*string) *SearchProjectCustomfieldResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchProjectCustomfieldResponse) SetStatusCode(v int32) *SearchProjectCustomfieldResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5828,7 +5772,6 @@ func (s *SearchProjectTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *Sea
 }
 
 type SearchProjectTemplateRequest struct {
-	// 项目模板名关键词
 	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
 }
 
@@ -5846,7 +5789,6 @@ func (s *SearchProjectTemplateRequest) SetKeyword(v string) *SearchProjectTempla
 }
 
 type SearchProjectTemplateResponseBody struct {
-	// 返回结果对象
 	Result []*SearchProjectTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -5864,24 +5806,15 @@ func (s *SearchProjectTemplateResponseBody) SetResult(v []*SearchProjectTemplate
 }
 
 type SearchProjectTemplateResponseBodyResult struct {
-	// 创建时间
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 模板描述
+	Created     *string `json:"created,omitempty" xml:"created,omitempty"`
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 模板id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 是否已删除
-	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 是否demo模板
-	IsDemo *bool `json:"isDemo,omitempty" xml:"isDemo,omitempty"`
-	// 模板log地址
-	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
-	// 模板名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 更新时间
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	// 模板可见性。organization 或者 involves
-	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsDeleted   *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	IsDemo      *bool   `json:"isDemo,omitempty" xml:"isDemo,omitempty"`
+	Logo        *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	Updated     *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visible     *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s SearchProjectTemplateResponseBodyResult) String() string {
@@ -5938,8 +5871,9 @@ func (s *SearchProjectTemplateResponseBodyResult) SetVisible(v string) *SearchPr
 }
 
 type SearchProjectTemplateResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchProjectTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchProjectTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchProjectTemplateResponse) String() string {
@@ -5952,6 +5886,11 @@ func (s SearchProjectTemplateResponse) GoString() string {
 
 func (s *SearchProjectTemplateResponse) SetHeaders(v map[string]*string) *SearchProjectTemplateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchProjectTemplateResponse) SetStatusCode(v int32) *SearchProjectTemplateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5984,13 +5923,9 @@ func (s *SearchTaskFlowHeaders) SetXAcsDingtalkAccessToken(v string) *SearchTask
 }
 
 type SearchTaskFlowRequest struct {
-	// 每页返回最大数量。默认10，最大300。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页标，从上一次请求结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 模糊查询工作流名字。
-	Query *string `json:"query,omitempty" xml:"query,omitempty"`
-	// 工作流ID集合，逗号组合。
+	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Query       *string `json:"query,omitempty" xml:"query,omitempty"`
 	TaskflowIds *string `json:"taskflowIds,omitempty" xml:"taskflowIds,omitempty"`
 }
 
@@ -6023,7 +5958,6 @@ func (s *SearchTaskFlowRequest) SetTaskflowIds(v string) *SearchTaskFlowRequest 
 }
 
 type SearchTaskFlowResponseBody struct {
-	// 工作流列表。
 	Result []*SearchTaskFlowResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -6041,22 +5975,14 @@ func (s *SearchTaskFlowResponseBody) SetResult(v []*SearchTaskFlowResponseBodyRe
 }
 
 type SearchTaskFlowResponseBodyResult struct {
-	// 绑定对象Id，此接口为项目id。
-	BoundToObjectId *string `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
-	// 绑定类型，增加项目成员默认是project。
+	BoundToObjectId   *string `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
 	BoundToObjectType *string `json:"boundToObjectType,omitempty" xml:"boundToObjectType,omitempty"`
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建者id。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 是否已删除。
-	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 工作流名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 工作流ID。
-	TaskflowId *string `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Created           *string `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId         *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	IsDeleted         *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
+	TaskflowId        *string `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
+	Updated           *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s SearchTaskFlowResponseBodyResult) String() string {
@@ -6108,8 +6034,9 @@ func (s *SearchTaskFlowResponseBodyResult) SetUpdated(v string) *SearchTaskFlowR
 }
 
 type SearchTaskFlowResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchTaskFlowResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchTaskFlowResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchTaskFlowResponse) String() string {
@@ -6122,6 +6049,11 @@ func (s SearchTaskFlowResponse) GoString() string {
 
 func (s *SearchTaskFlowResponse) SetHeaders(v map[string]*string) *SearchTaskFlowResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchTaskFlowResponse) SetStatusCode(v int32) *SearchTaskFlowResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6154,13 +6086,9 @@ func (s *SearchTaskListHeaders) SetXAcsDingtalkAccessToken(v string) *SearchTask
 }
 
 type SearchTaskListRequest struct {
-	// 每页返回最大数量。默认10，最大300。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页标，从上一次请求结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 模糊任务分组名字。
-	Query *string `json:"query,omitempty" xml:"query,omitempty"`
-	// 任务分组ID集合，逗号组合。
+	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Query       *string `json:"query,omitempty" xml:"query,omitempty"`
 	TaskListIds *string `json:"taskListIds,omitempty" xml:"taskListIds,omitempty"`
 }
 
@@ -6193,12 +6121,9 @@ func (s *SearchTaskListRequest) SetTaskListIds(v string) *SearchTaskListRequest 
 }
 
 type SearchTaskListResponseBody struct {
-	// 分页标，供分页使用，下一页token。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 任务分0组列表。
-	Result []*SearchTaskListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 总数。
-	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken  *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*SearchTaskListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                              `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchTaskListResponseBody) String() string {
@@ -6225,20 +6150,13 @@ func (s *SearchTaskListResponseBody) SetTotalCount(v int32) *SearchTaskListRespo
 }
 
 type SearchTaskListResponseBodyResult struct {
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建者用户ID。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 任务分组名称。
+	Created     *string `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId   *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 项目ID。
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 任务分组ID。
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 任务分组名称。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	ProjectId   *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	TaskId      *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+	Updated     *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s SearchTaskListResponseBodyResult) String() string {
@@ -6285,8 +6203,9 @@ func (s *SearchTaskListResponseBodyResult) SetUpdated(v string) *SearchTaskListR
 }
 
 type SearchTaskListResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchTaskListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchTaskListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchTaskListResponse) String() string {
@@ -6299,6 +6218,11 @@ func (s SearchTaskListResponse) GoString() string {
 
 func (s *SearchTaskListResponse) SetHeaders(v map[string]*string) *SearchTaskListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchTaskListResponse) SetStatusCode(v int32) *SearchTaskListResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6331,16 +6255,11 @@ func (s *SearchTaskflowStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Sear
 }
 
 type SearchTaskflowStatusRequest struct {
-	// 每页返回最大数量。默认10，最大300。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页标，从上一次请求结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 模糊查询工作流状态名字。
-	Query *string `json:"query,omitempty" xml:"query,omitempty"`
-	// 工作流ID集合，多个以逗号隔开。
-	TfIds *string `json:"tfIds,omitempty" xml:"tfIds,omitempty"`
-	// 工作流状态ID集合，多个以逗号隔开。
-	TfsIds *string `json:"tfsIds,omitempty" xml:"tfsIds,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Query      *string `json:"query,omitempty" xml:"query,omitempty"`
+	TfIds      *string `json:"tfIds,omitempty" xml:"tfIds,omitempty"`
+	TfsIds     *string `json:"tfsIds,omitempty" xml:"tfsIds,omitempty"`
 }
 
 func (s SearchTaskflowStatusRequest) String() string {
@@ -6377,7 +6296,6 @@ func (s *SearchTaskflowStatusRequest) SetTfsIds(v string) *SearchTaskflowStatusR
 }
 
 type SearchTaskflowStatusResponseBody struct {
-	// 任务工作流状态列表。
 	Result []*SearchTaskflowStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -6395,28 +6313,17 @@ func (s *SearchTaskflowStatusResponseBody) SetResult(v []*SearchTaskflowStatusRe
 }
 
 type SearchTaskflowStatusResponseBodyResult struct {
-	// 创建时间。
-	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	// 创建者ID。
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 是否已删除。
-	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 是否特定任务角色才能流转该工作流状态。
-	IsTaskflowstatusruleexector *bool `json:"isTaskflowstatusruleexector,omitempty" xml:"isTaskflowstatusruleexector,omitempty"`
-	// 任务工作流状态类型。  start: 开始  end: 结束  unset: 未设置
-	Kind *string `json:"kind,omitempty" xml:"kind,omitempty"`
-	// 任务工作流状态名字。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 任务工作流状态位置。
-	Pos *int32 `json:"pos,omitempty" xml:"pos,omitempty"`
-	// 拒绝的工作流状态Id。
-	RejectStatusIds []*string `json:"rejectStatusIds,omitempty" xml:"rejectStatusIds,omitempty" type:"Repeated"`
-	// 任务工作流ID。
-	TaskflowId *string `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
-	// 任务工作流状态ID。
-	TaskflowStatusId *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Created                     *string   `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId                   *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	IsDeleted                   *bool     `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	IsTaskflowstatusruleexector *bool     `json:"isTaskflowstatusruleexector,omitempty" xml:"isTaskflowstatusruleexector,omitempty"`
+	Kind                        *string   `json:"kind,omitempty" xml:"kind,omitempty"`
+	Name                        *string   `json:"name,omitempty" xml:"name,omitempty"`
+	Pos                         *int32    `json:"pos,omitempty" xml:"pos,omitempty"`
+	RejectStatusIds             []*string `json:"rejectStatusIds,omitempty" xml:"rejectStatusIds,omitempty" type:"Repeated"`
+	TaskflowId                  *string   `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
+	TaskflowStatusId            *string   `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
+	Updated                     *string   `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s SearchTaskflowStatusResponseBodyResult) String() string {
@@ -6483,8 +6390,9 @@ func (s *SearchTaskflowStatusResponseBodyResult) SetUpdated(v string) *SearchTas
 }
 
 type SearchTaskflowStatusResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchTaskflowStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchTaskflowStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchTaskflowStatusResponse) String() string {
@@ -6497,6 +6405,11 @@ func (s SearchTaskflowStatusResponse) GoString() string {
 
 func (s *SearchTaskflowStatusResponse) SetHeaders(v map[string]*string) *SearchTaskflowStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponse) SetStatusCode(v int32) *SearchTaskflowStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6529,12 +6442,9 @@ func (s *SearchUserTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SearchUser
 }
 
 type SearchUserTaskRequest struct {
-	// 每页返回最大数量。默认10，最大300。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页标，从上一次请求结果中获取。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 企业下任务搜索TQL语句。
-	Tql *string `json:"tql,omitempty" xml:"tql,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Tql        *string `json:"tql,omitempty" xml:"tql,omitempty"`
 }
 
 func (s SearchUserTaskRequest) String() string {
@@ -6561,14 +6471,10 @@ func (s *SearchUserTaskRequest) SetTql(v string) *SearchUserTaskRequest {
 }
 
 type SearchUserTaskResponseBody struct {
-	// 分页标，供分页使用，下一页token。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 请求 ID，请求异常时可提供此 ID，进行问题排查。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 任务ID列表。
-	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 任务总数。
-	TotalSize *int32 `json:"totalSize,omitempty" xml:"totalSize,omitempty"`
+	NextToken *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	RequestId *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalSize *int32    `json:"totalSize,omitempty" xml:"totalSize,omitempty"`
 }
 
 func (s SearchUserTaskResponseBody) String() string {
@@ -6600,8 +6506,9 @@ func (s *SearchUserTaskResponseBody) SetTotalSize(v int32) *SearchUserTaskRespon
 }
 
 type SearchUserTaskResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchUserTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchUserTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SearchUserTaskResponse) String() string {
@@ -6614,6 +6521,11 @@ func (s SearchUserTaskResponse) GoString() string {
 
 func (s *SearchUserTaskResponse) SetHeaders(v map[string]*string) *SearchUserTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SearchUserTaskResponse) SetStatusCode(v int32) *SearchUserTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6646,7 +6558,6 @@ func (s *SuspendProjectHeaders) SetXAcsDingtalkAccessToken(v string) *SuspendPro
 }
 
 type SuspendProjectResponseBody struct {
-	// 返回对象。
 	Result *SuspendProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -6664,7 +6575,6 @@ func (s *SuspendProjectResponseBody) SetResult(v *SuspendProjectResponseBodyResu
 }
 
 type SuspendProjectResponseBodyResult struct {
-	// 更新时间。
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -6682,8 +6592,9 @@ func (s *SuspendProjectResponseBodyResult) SetUpdated(v string) *SuspendProjectR
 }
 
 type SuspendProjectResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SuspendProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SuspendProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SuspendProjectResponse) String() string {
@@ -6696,6 +6607,11 @@ func (s SuspendProjectResponse) GoString() string {
 
 func (s *SuspendProjectResponse) SetHeaders(v map[string]*string) *SuspendProjectResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SuspendProjectResponse) SetStatusCode(v int32) *SuspendProjectResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6728,7 +6644,6 @@ func (s *UnSuspendProjectHeaders) SetXAcsDingtalkAccessToken(v string) *UnSuspen
 }
 
 type UnSuspendProjectResponseBody struct {
-	// 返回对象。
 	Result *UnSuspendProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -6746,7 +6661,6 @@ func (s *UnSuspendProjectResponseBody) SetResult(v *UnSuspendProjectResponseBody
 }
 
 type UnSuspendProjectResponseBodyResult struct {
-	// 更新时间。
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -6764,8 +6678,9 @@ func (s *UnSuspendProjectResponseBodyResult) SetUpdated(v string) *UnSuspendProj
 }
 
 type UnSuspendProjectResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UnSuspendProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UnSuspendProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UnSuspendProjectResponse) String() string {
@@ -6778,6 +6693,11 @@ func (s UnSuspendProjectResponse) GoString() string {
 
 func (s *UnSuspendProjectResponse) SetHeaders(v map[string]*string) *UnSuspendProjectResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UnSuspendProjectResponse) SetStatusCode(v int32) *UnSuspendProjectResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6810,12 +6730,9 @@ func (s *UpdateCustomfieldValueHeaders) SetXAcsDingtalkAccessToken(v string) *Up
 }
 
 type UpdateCustomfieldValueRequest struct {
-	// 自定义字段id
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 自定义字段名
-	CustomfieldName *string `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
-	// 自定义字段值列表，最多10个
-	Value []*UpdateCustomfieldValueRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	CustomfieldId   *string                               `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	CustomfieldName *string                               `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
+	Value           []*UpdateCustomfieldValueRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s UpdateCustomfieldValueRequest) String() string {
@@ -6842,7 +6759,6 @@ func (s *UpdateCustomfieldValueRequest) SetValue(v []*UpdateCustomfieldValueRequ
 }
 
 type UpdateCustomfieldValueRequestValue struct {
-	// 自定义字段显示值
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -6860,7 +6776,6 @@ func (s *UpdateCustomfieldValueRequestValue) SetTitle(v string) *UpdateCustomfie
 }
 
 type UpdateCustomfieldValueResponseBody struct {
-	// 返回对象
 	Result *UpdateCustomfieldValueResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -6878,7 +6793,6 @@ func (s *UpdateCustomfieldValueResponseBody) SetResult(v *UpdateCustomfieldValue
 }
 
 type UpdateCustomfieldValueResponseBodyResult struct {
-	// 自定义字段数组
 	Customfields []*UpdateCustomfieldValueResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
 }
 
@@ -6896,10 +6810,8 @@ func (s *UpdateCustomfieldValueResponseBodyResult) SetCustomfields(v []*UpdateCu
 }
 
 type UpdateCustomfieldValueResponseBodyResultCustomfields struct {
-	// 自定义字段id
-	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	// 自定义字段值对象
-	Value []*UpdateCustomfieldValueResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	CustomfieldId *string                                                      `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	Value         []*UpdateCustomfieldValueResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s UpdateCustomfieldValueResponseBodyResultCustomfields) String() string {
@@ -6921,7 +6833,6 @@ func (s *UpdateCustomfieldValueResponseBodyResultCustomfields) SetValue(v []*Upd
 }
 
 type UpdateCustomfieldValueResponseBodyResultCustomfieldsValue struct {
-	// 自定义字段显示值
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -6939,8 +6850,9 @@ func (s *UpdateCustomfieldValueResponseBodyResultCustomfieldsValue) SetTitle(v s
 }
 
 type UpdateCustomfieldValueResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateCustomfieldValueResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateCustomfieldValueResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateCustomfieldValueResponse) String() string {
@@ -6953,6 +6865,11 @@ func (s UpdateCustomfieldValueResponse) GoString() string {
 
 func (s *UpdateCustomfieldValueResponse) SetHeaders(v map[string]*string) *UpdateCustomfieldValueResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateCustomfieldValueResponse) SetStatusCode(v int32) *UpdateCustomfieldValueResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6985,12 +6902,9 @@ func (s *UpdateOrganizationTaskContentHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type UpdateOrganizationTaskContentRequest struct {
-	// 任务标题
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 是否禁止动态
-	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	// 是否禁止通知
-	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	Content             *string `json:"content,omitempty" xml:"content,omitempty"`
+	DisableActivity     *bool   `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	DisableNotification *bool   `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
 }
 
 func (s UpdateOrganizationTaskContentRequest) String() string {
@@ -7017,7 +6931,6 @@ func (s *UpdateOrganizationTaskContentRequest) SetDisableNotification(v bool) *U
 }
 
 type UpdateOrganizationTaskContentResponseBody struct {
-	// 返回对象
 	Result *UpdateOrganizationTaskContentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -7035,9 +6948,7 @@ func (s *UpdateOrganizationTaskContentResponseBody) SetResult(v *UpdateOrganizat
 }
 
 type UpdateOrganizationTaskContentResponseBodyResult struct {
-	// 任务标题
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 更新时间
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -7060,8 +6971,9 @@ func (s *UpdateOrganizationTaskContentResponseBodyResult) SetUpdated(v string) *
 }
 
 type UpdateOrganizationTaskContentResponse struct {
-	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateOrganizationTaskContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateOrganizationTaskContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateOrganizationTaskContentResponse) String() string {
@@ -7074,6 +6986,11 @@ func (s UpdateOrganizationTaskContentResponse) GoString() string {
 
 func (s *UpdateOrganizationTaskContentResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskContentResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskContentResponse) SetStatusCode(v int32) *UpdateOrganizationTaskContentResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7106,12 +7023,9 @@ func (s *UpdateOrganizationTaskDueDateHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type UpdateOrganizationTaskDueDateRequest struct {
-	// 是否禁止动态
-	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	// 是否禁止通知
-	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	// 任务截止时间
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	DisableActivity     *bool   `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	DisableNotification *bool   `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	DueDate             *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 }
 
 func (s UpdateOrganizationTaskDueDateRequest) String() string {
@@ -7138,7 +7052,6 @@ func (s *UpdateOrganizationTaskDueDateRequest) SetDueDate(v string) *UpdateOrgan
 }
 
 type UpdateOrganizationTaskDueDateResponseBody struct {
-	// 返回对象
 	Result *UpdateOrganizationTaskDueDateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -7156,9 +7069,7 @@ func (s *UpdateOrganizationTaskDueDateResponseBody) SetResult(v *UpdateOrganizat
 }
 
 type UpdateOrganizationTaskDueDateResponseBodyResult struct {
-	// 任务截止时间
-	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 更新时间
+	DueDate    *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
@@ -7181,8 +7092,9 @@ func (s *UpdateOrganizationTaskDueDateResponseBodyResult) SetUpdateTime(v string
 }
 
 type UpdateOrganizationTaskDueDateResponse struct {
-	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateOrganizationTaskDueDateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateOrganizationTaskDueDateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateOrganizationTaskDueDateResponse) String() string {
@@ -7195,6 +7107,11 @@ func (s UpdateOrganizationTaskDueDateResponse) GoString() string {
 
 func (s *UpdateOrganizationTaskDueDateResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskDueDateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskDueDateResponse) SetStatusCode(v int32) *UpdateOrganizationTaskDueDateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7256,7 +7173,6 @@ func (s *UpdateOrganizationTaskExecutorRequest) SetExecutorId(v string) *UpdateO
 }
 
 type UpdateOrganizationTaskExecutorResponseBody struct {
-	// 返回对象
 	Result *UpdateOrganizationTaskExecutorResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -7274,14 +7190,10 @@ func (s *UpdateOrganizationTaskExecutorResponseBody) SetResult(v *UpdateOrganiza
 }
 
 type UpdateOrganizationTaskExecutorResponseBodyResult struct {
-	// 执行者信息
-	Executor *UpdateOrganizationTaskExecutorResponseBodyResultExecutor `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
-	// 执行者id
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 参与者列表
-	Involvers []*UpdateOrganizationTaskExecutorResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
-	// 更新时间
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Executor   *UpdateOrganizationTaskExecutorResponseBodyResultExecutor    `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
+	ExecutorId *string                                                      `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	Involvers  []*UpdateOrganizationTaskExecutorResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
+	Updated    *string                                                      `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateOrganizationTaskExecutorResponseBodyResult) String() string {
@@ -7313,12 +7225,9 @@ func (s *UpdateOrganizationTaskExecutorResponseBodyResult) SetUpdated(v string) 
 }
 
 type UpdateOrganizationTaskExecutorResponseBodyResultExecutor struct {
-	// 头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户uid
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateOrganizationTaskExecutorResponseBodyResultExecutor) String() string {
@@ -7345,12 +7254,9 @@ func (s *UpdateOrganizationTaskExecutorResponseBodyResultExecutor) SetUserId(v s
 }
 
 type UpdateOrganizationTaskExecutorResponseBodyResultInvolvers struct {
-	// 头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户uid
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateOrganizationTaskExecutorResponseBodyResultInvolvers) String() string {
@@ -7377,8 +7283,9 @@ func (s *UpdateOrganizationTaskExecutorResponseBodyResultInvolvers) SetUserId(v 
 }
 
 type UpdateOrganizationTaskExecutorResponse struct {
-	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateOrganizationTaskExecutorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateOrganizationTaskExecutorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateOrganizationTaskExecutorResponse) String() string {
@@ -7391,6 +7298,11 @@ func (s UpdateOrganizationTaskExecutorResponse) GoString() string {
 
 func (s *UpdateOrganizationTaskExecutorResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskExecutorResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorResponse) SetStatusCode(v int32) *UpdateOrganizationTaskExecutorResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7423,16 +7335,11 @@ func (s *UpdateOrganizationTaskInvolveMembersHeaders) SetXAcsDingtalkAccessToken
 }
 
 type UpdateOrganizationTaskInvolveMembersRequest struct {
-	// 增加的参与者uid
-	AddInvolvers []*string `json:"addInvolvers,omitempty" xml:"addInvolvers,omitempty" type:"Repeated"`
-	// 删除的参与者uid
-	DelInvolvers []*string `json:"delInvolvers,omitempty" xml:"delInvolvers,omitempty" type:"Repeated"`
-	// 是否禁用动态
-	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	// 是否禁用通知
-	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	// 所有参与者uid
-	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	AddInvolvers        []*string `json:"addInvolvers,omitempty" xml:"addInvolvers,omitempty" type:"Repeated"`
+	DelInvolvers        []*string `json:"delInvolvers,omitempty" xml:"delInvolvers,omitempty" type:"Repeated"`
+	DisableActivity     *bool     `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	DisableNotification *bool     `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	InvolveMembers      []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
 }
 
 func (s UpdateOrganizationTaskInvolveMembersRequest) String() string {
@@ -7469,7 +7376,6 @@ func (s *UpdateOrganizationTaskInvolveMembersRequest) SetInvolveMembers(v []*str
 }
 
 type UpdateOrganizationTaskInvolveMembersResponseBody struct {
-	// 返回对象
 	Result *UpdateOrganizationTaskInvolveMembersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -7487,10 +7393,8 @@ func (s *UpdateOrganizationTaskInvolveMembersResponseBody) SetResult(v *UpdateOr
 }
 
 type UpdateOrganizationTaskInvolveMembersResponseBodyResult struct {
-	// 参与者列表
 	Involvers []*UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
-	// 更新时间
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Updated   *string                                                            `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateOrganizationTaskInvolveMembersResponseBodyResult) String() string {
@@ -7512,12 +7416,9 @@ func (s *UpdateOrganizationTaskInvolveMembersResponseBodyResult) SetUpdated(v st
 }
 
 type UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers struct {
-	// 头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	// 名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户uid
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers) String() string {
@@ -7544,8 +7445,9 @@ func (s *UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers) SetUse
 }
 
 type UpdateOrganizationTaskInvolveMembersResponse struct {
-	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateOrganizationTaskInvolveMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateOrganizationTaskInvolveMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateOrganizationTaskInvolveMembersResponse) String() string {
@@ -7558,6 +7460,11 @@ func (s UpdateOrganizationTaskInvolveMembersResponse) GoString() string {
 
 func (s *UpdateOrganizationTaskInvolveMembersResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskInvolveMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersResponse) SetStatusCode(v int32) *UpdateOrganizationTaskInvolveMembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7590,12 +7497,9 @@ func (s *UpdateOrganizationTaskNoteHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateOrganizationTaskNoteRequest struct {
-	// 是否禁用动态
-	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	// 是否禁用通知
-	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	// 任务备注
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	DisableActivity     *bool   `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	DisableNotification *bool   `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	Note                *string `json:"note,omitempty" xml:"note,omitempty"`
 }
 
 func (s UpdateOrganizationTaskNoteRequest) String() string {
@@ -7639,9 +7543,7 @@ func (s *UpdateOrganizationTaskNoteResponseBody) SetResult(v *UpdateOrganization
 }
 
 type UpdateOrganizationTaskNoteResponseBodyResult struct {
-	// 任务备注
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 更新时间
+	Note    *string `json:"note,omitempty" xml:"note,omitempty"`
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -7664,8 +7566,9 @@ func (s *UpdateOrganizationTaskNoteResponseBodyResult) SetUpdated(v string) *Upd
 }
 
 type UpdateOrganizationTaskNoteResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateOrganizationTaskNoteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateOrganizationTaskNoteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateOrganizationTaskNoteResponse) String() string {
@@ -7678,6 +7581,11 @@ func (s UpdateOrganizationTaskNoteResponse) GoString() string {
 
 func (s *UpdateOrganizationTaskNoteResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskNoteResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskNoteResponse) SetStatusCode(v int32) *UpdateOrganizationTaskNoteResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7710,12 +7618,9 @@ func (s *UpdateOrganizationTaskPriorityHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type UpdateOrganizationTaskPriorityRequest struct {
-	// 是否禁止动态
-	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	// 是否禁止通知
-	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	// 优先级【-10,0,1,2】中的一个值
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	DisableActivity     *bool  `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	DisableNotification *bool  `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	Priority            *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 }
 
 func (s UpdateOrganizationTaskPriorityRequest) String() string {
@@ -7742,7 +7647,6 @@ func (s *UpdateOrganizationTaskPriorityRequest) SetPriority(v int32) *UpdateOrga
 }
 
 type UpdateOrganizationTaskPriorityResponseBody struct {
-	// 返回对象
 	Result *UpdateOrganizationTaskPriorityResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -7760,10 +7664,8 @@ func (s *UpdateOrganizationTaskPriorityResponseBody) SetResult(v *UpdateOrganiza
 }
 
 type UpdateOrganizationTaskPriorityResponseBodyResult struct {
-	// 优先级【-10,0,1,2】中的一个
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 更新时间
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Priority *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
+	Updated  *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateOrganizationTaskPriorityResponseBodyResult) String() string {
@@ -7785,8 +7687,9 @@ func (s *UpdateOrganizationTaskPriorityResponseBodyResult) SetUpdated(v string) 
 }
 
 type UpdateOrganizationTaskPriorityResponse struct {
-	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateOrganizationTaskPriorityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateOrganizationTaskPriorityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateOrganizationTaskPriorityResponse) String() string {
@@ -7799,6 +7702,11 @@ func (s UpdateOrganizationTaskPriorityResponse) GoString() string {
 
 func (s *UpdateOrganizationTaskPriorityResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskPriorityResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskPriorityResponse) SetStatusCode(v int32) *UpdateOrganizationTaskPriorityResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7831,12 +7739,9 @@ func (s *UpdateOrganizationTaskStatusHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type UpdateOrganizationTaskStatusRequest struct {
-	// 是否禁用动态
-	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	// 是否禁用通知
+	DisableActivity     *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
 	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	// true改成完成，false 改成未完成
-	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	IsDone              *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
 }
 
 func (s UpdateOrganizationTaskStatusRequest) String() string {
@@ -7863,7 +7768,6 @@ func (s *UpdateOrganizationTaskStatusRequest) SetIsDone(v bool) *UpdateOrganizat
 }
 
 type UpdateOrganizationTaskStatusResponseBody struct {
-	// 返回对象
 	Result *UpdateOrganizationTaskStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -7881,9 +7785,7 @@ func (s *UpdateOrganizationTaskStatusResponseBody) SetResult(v *UpdateOrganizati
 }
 
 type UpdateOrganizationTaskStatusResponseBodyResult struct {
-	// 是否已完成
-	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 更新时间
+	IsDone     *bool   `json:"isDone,omitempty" xml:"isDone,omitempty"`
 	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
@@ -7906,8 +7808,9 @@ func (s *UpdateOrganizationTaskStatusResponseBodyResult) SetUpdateTime(v string)
 }
 
 type UpdateOrganizationTaskStatusResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateOrganizationTaskStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateOrganizationTaskStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateOrganizationTaskStatusResponse) String() string {
@@ -7920,6 +7823,11 @@ func (s UpdateOrganizationTaskStatusResponse) GoString() string {
 
 func (s *UpdateOrganizationTaskStatusResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskStatusResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskStatusResponse) SetStatusCode(v int32) *UpdateOrganizationTaskStatusResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7952,9 +7860,7 @@ func (s *UpdateProjectGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Update
 }
 
 type UpdateProjectGroupRequest struct {
-	// 增加到项目分组的Id列表，最多5个
 	AddProjectGroupIds []*string `json:"addProjectGroupIds,omitempty" xml:"addProjectGroupIds,omitempty" type:"Repeated"`
-	// 移除项目分组的Id列表，最多5个
 	DelProjectGroupIds []*string `json:"delProjectGroupIds,omitempty" xml:"delProjectGroupIds,omitempty" type:"Repeated"`
 }
 
@@ -7977,7 +7883,6 @@ func (s *UpdateProjectGroupRequest) SetDelProjectGroupIds(v []*string) *UpdatePr
 }
 
 type UpdateProjectGroupResponseBody struct {
-	// 结果对象
 	Result *UpdateProjectGroupResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -7995,7 +7900,6 @@ func (s *UpdateProjectGroupResponseBody) SetResult(v *UpdateProjectGroupResponse
 }
 
 type UpdateProjectGroupResponseBodyResult struct {
-	// 是否成功
 	Ok *bool `json:"ok,omitempty" xml:"ok,omitempty"`
 }
 
@@ -8013,8 +7917,9 @@ func (s *UpdateProjectGroupResponseBodyResult) SetOk(v bool) *UpdateProjectGroup
 }
 
 type UpdateProjectGroupResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateProjectGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateProjectGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateProjectGroupResponse) String() string {
@@ -8027,6 +7932,11 @@ func (s UpdateProjectGroupResponse) GoString() string {
 
 func (s *UpdateProjectGroupResponse) SetHeaders(v map[string]*string) *UpdateProjectGroupResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateProjectGroupResponse) SetStatusCode(v int32) *UpdateProjectGroupResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8059,7 +7969,6 @@ func (s *UpdateTaskContentHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateT
 }
 
 type UpdateTaskContentRequest struct {
-	// 任务标题。
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -8077,7 +7986,6 @@ func (s *UpdateTaskContentRequest) SetContent(v string) *UpdateTaskContentReques
 }
 
 type UpdateTaskContentResponseBody struct {
-	// 结果。
 	Result *UpdateTaskContentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -8095,9 +8003,7 @@ func (s *UpdateTaskContentResponseBody) SetResult(v *UpdateTaskContentResponseBo
 }
 
 type UpdateTaskContentResponseBodyResult struct {
-	// 任务标题。
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 更新时间。
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -8120,8 +8026,9 @@ func (s *UpdateTaskContentResponseBodyResult) SetUpdated(v string) *UpdateTaskCo
 }
 
 type UpdateTaskContentResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTaskContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTaskContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTaskContentResponse) String() string {
@@ -8134,6 +8041,11 @@ func (s UpdateTaskContentResponse) GoString() string {
 
 func (s *UpdateTaskContentResponse) SetHeaders(v map[string]*string) *UpdateTaskContentResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskContentResponse) SetStatusCode(v int32) *UpdateTaskContentResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8166,7 +8078,6 @@ func (s *UpdateTaskDueDateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateT
 }
 
 type UpdateTaskDueDateRequest struct {
-	// 截止时间。
 	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 }
 
@@ -8184,7 +8095,6 @@ func (s *UpdateTaskDueDateRequest) SetDueDate(v string) *UpdateTaskDueDateReques
 }
 
 type UpdateTaskDueDateResponseBody struct {
-	// 结果。
 	Result *UpdateTaskDueDateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -8202,9 +8112,7 @@ func (s *UpdateTaskDueDateResponseBody) SetResult(v *UpdateTaskDueDateResponseBo
 }
 
 type UpdateTaskDueDateResponseBodyResult struct {
-	// 截止时间。
 	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	// 更新时间。
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -8227,8 +8135,9 @@ func (s *UpdateTaskDueDateResponseBodyResult) SetUpdated(v string) *UpdateTaskDu
 }
 
 type UpdateTaskDueDateResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTaskDueDateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTaskDueDateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTaskDueDateResponse) String() string {
@@ -8241,6 +8150,11 @@ func (s UpdateTaskDueDateResponse) GoString() string {
 
 func (s *UpdateTaskDueDateResponse) SetHeaders(v map[string]*string) *UpdateTaskDueDateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskDueDateResponse) SetStatusCode(v int32) *UpdateTaskDueDateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8273,7 +8187,6 @@ func (s *UpdateTaskExecutorHeaders) SetXAcsDingtalkAccessToken(v string) *Update
 }
 
 type UpdateTaskExecutorRequest struct {
-	// 执行者用户ID。
 	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
 }
 
@@ -8291,7 +8204,6 @@ func (s *UpdateTaskExecutorRequest) SetExecutorId(v string) *UpdateTaskExecutorR
 }
 
 type UpdateTaskExecutorResponseBody struct {
-	// 结果。
 	Result *UpdateTaskExecutorResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -8309,10 +8221,8 @@ func (s *UpdateTaskExecutorResponseBody) SetResult(v *UpdateTaskExecutorResponse
 }
 
 type UpdateTaskExecutorResponseBodyResult struct {
-	// 执行者用户ID。
 	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Updated    *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskExecutorResponseBodyResult) String() string {
@@ -8334,8 +8244,9 @@ func (s *UpdateTaskExecutorResponseBodyResult) SetUpdated(v string) *UpdateTaskE
 }
 
 type UpdateTaskExecutorResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTaskExecutorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTaskExecutorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTaskExecutorResponse) String() string {
@@ -8348,6 +8259,11 @@ func (s UpdateTaskExecutorResponse) GoString() string {
 
 func (s *UpdateTaskExecutorResponse) SetHeaders(v map[string]*string) *UpdateTaskExecutorResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskExecutorResponse) SetStatusCode(v int32) *UpdateTaskExecutorResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8380,11 +8296,8 @@ func (s *UpdateTaskInvolvemembersHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdateTaskInvolvemembersRequest struct {
-	// 新增参与者列表。
-	AddInvolvers []*string `json:"addInvolvers,omitempty" xml:"addInvolvers,omitempty" type:"Repeated"`
-	// 移除参与者列表。
-	DelInvolvers []*string `json:"delInvolvers,omitempty" xml:"delInvolvers,omitempty" type:"Repeated"`
-	// 更新任务参与者列表。
+	AddInvolvers   []*string `json:"addInvolvers,omitempty" xml:"addInvolvers,omitempty" type:"Repeated"`
+	DelInvolvers   []*string `json:"delInvolvers,omitempty" xml:"delInvolvers,omitempty" type:"Repeated"`
 	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
 }
 
@@ -8412,7 +8325,6 @@ func (s *UpdateTaskInvolvemembersRequest) SetInvolveMembers(v []*string) *Update
 }
 
 type UpdateTaskInvolvemembersResponseBody struct {
-	// 结果
 	Result *UpdateTaskInvolvemembersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -8430,10 +8342,8 @@ func (s *UpdateTaskInvolvemembersResponseBody) SetResult(v *UpdateTaskInvolvemem
 }
 
 type UpdateTaskInvolvemembersResponseBodyResult struct {
-	// 参与者列表。
 	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Updated        *string   `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskInvolvemembersResponseBodyResult) String() string {
@@ -8455,8 +8365,9 @@ func (s *UpdateTaskInvolvemembersResponseBodyResult) SetUpdated(v string) *Updat
 }
 
 type UpdateTaskInvolvemembersResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTaskInvolvemembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTaskInvolvemembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTaskInvolvemembersResponse) String() string {
@@ -8469,6 +8380,11 @@ func (s UpdateTaskInvolvemembersResponse) GoString() string {
 
 func (s *UpdateTaskInvolvemembersResponse) SetHeaders(v map[string]*string) *UpdateTaskInvolvemembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskInvolvemembersResponse) SetStatusCode(v int32) *UpdateTaskInvolvemembersResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8501,7 +8417,6 @@ func (s *UpdateTaskNoteHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTask
 }
 
 type UpdateTaskNoteRequest struct {
-	// 任务备注。
 	Note *string `json:"note,omitempty" xml:"note,omitempty"`
 }
 
@@ -8519,7 +8434,6 @@ func (s *UpdateTaskNoteRequest) SetNote(v string) *UpdateTaskNoteRequest {
 }
 
 type UpdateTaskNoteResponseBody struct {
-	// 结果
 	Result *UpdateTaskNoteResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -8537,9 +8451,7 @@ func (s *UpdateTaskNoteResponseBody) SetResult(v *UpdateTaskNoteResponseBodyResu
 }
 
 type UpdateTaskNoteResponseBodyResult struct {
-	// 任务备注。
-	Note *string `json:"note,omitempty" xml:"note,omitempty"`
-	// 更新时间。
+	Note    *string `json:"note,omitempty" xml:"note,omitempty"`
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -8562,8 +8474,9 @@ func (s *UpdateTaskNoteResponseBodyResult) SetUpdated(v string) *UpdateTaskNoteR
 }
 
 type UpdateTaskNoteResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTaskNoteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTaskNoteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTaskNoteResponse) String() string {
@@ -8576,6 +8489,11 @@ func (s UpdateTaskNoteResponse) GoString() string {
 
 func (s *UpdateTaskNoteResponse) SetHeaders(v map[string]*string) *UpdateTaskNoteResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskNoteResponse) SetStatusCode(v int32) *UpdateTaskNoteResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8608,7 +8526,6 @@ func (s *UpdateTaskPriorityHeaders) SetXAcsDingtalkAccessToken(v string) *Update
 }
 
 type UpdateTaskPriorityRequest struct {
-	// 优先级。
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 }
 
@@ -8643,10 +8560,8 @@ func (s *UpdateTaskPriorityResponseBody) SetResult(v *UpdateTaskPriorityResponse
 }
 
 type UpdateTaskPriorityResponseBodyResult struct {
-	// 优先级，默认的优先级包含：-10、0、1、2，含义分别为较低、普通、紧急、非常紧急。
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Priority *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
+	Updated  *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskPriorityResponseBodyResult) String() string {
@@ -8668,8 +8583,9 @@ func (s *UpdateTaskPriorityResponseBodyResult) SetUpdated(v string) *UpdateTaskP
 }
 
 type UpdateTaskPriorityResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTaskPriorityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTaskPriorityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTaskPriorityResponse) String() string {
@@ -8682,6 +8598,11 @@ func (s UpdateTaskPriorityResponse) GoString() string {
 
 func (s *UpdateTaskPriorityResponse) SetHeaders(v map[string]*string) *UpdateTaskPriorityResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskPriorityResponse) SetStatusCode(v int32) *UpdateTaskPriorityResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8714,7 +8635,6 @@ func (s *UpdateTaskStageHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTas
 }
 
 type UpdateTaskStageRequest struct {
-	// 任务列表Id。
 	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
 }
 
@@ -8749,20 +8669,13 @@ func (s *UpdateTaskStageResponseBody) SetResult(v *UpdateTaskStageResponseBodyRe
 }
 
 type UpdateTaskStageResponseBodyResult struct {
-	// 任务完成时间(UTC)。
 	AccomplishTime *string `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
-	// 是否任务已完成。
-	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 项目ID。
-	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	// 任务列ID。
-	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
-	// 任务ID。
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 任务分组ID。
-	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	// 更新时间(UTC)。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	IsDone         *bool   `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	ProjectId      *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	StageId        *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	TaskId         *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskListId     *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	Updated        *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskStageResponseBodyResult) String() string {
@@ -8809,8 +8722,9 @@ func (s *UpdateTaskStageResponseBodyResult) SetUpdated(v string) *UpdateTaskStag
 }
 
 type UpdateTaskStageResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTaskStageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTaskStageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTaskStageResponse) String() string {
@@ -8823,6 +8737,11 @@ func (s UpdateTaskStageResponse) GoString() string {
 
 func (s *UpdateTaskStageResponse) SetHeaders(v map[string]*string) *UpdateTaskStageResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskStageResponse) SetStatusCode(v int32) *UpdateTaskStageResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8855,7 +8774,6 @@ func (s *UpdateTaskStartdateHeaders) SetXAcsDingtalkAccessToken(v string) *Updat
 }
 
 type UpdateTaskStartdateRequest struct {
-	// 任务开始时间。
 	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
 }
 
@@ -8873,7 +8791,6 @@ func (s *UpdateTaskStartdateRequest) SetStartDate(v string) *UpdateTaskStartdate
 }
 
 type UpdateTaskStartdateResponseBody struct {
-	// 结果
 	Result *UpdateTaskStartdateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -8891,10 +8808,8 @@ func (s *UpdateTaskStartdateResponseBody) SetResult(v *UpdateTaskStartdateRespon
 }
 
 type UpdateTaskStartdateResponseBodyResult struct {
-	// 任务开始时间。
 	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 更新时间。
-	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	Updated   *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskStartdateResponseBodyResult) String() string {
@@ -8916,8 +8831,9 @@ func (s *UpdateTaskStartdateResponseBodyResult) SetUpdated(v string) *UpdateTask
 }
 
 type UpdateTaskStartdateResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTaskStartdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTaskStartdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTaskStartdateResponse) String() string {
@@ -8930,6 +8846,11 @@ func (s UpdateTaskStartdateResponse) GoString() string {
 
 func (s *UpdateTaskStartdateResponse) SetHeaders(v map[string]*string) *UpdateTaskStartdateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskStartdateResponse) SetStatusCode(v int32) *UpdateTaskStartdateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8962,10 +8883,8 @@ func (s *UpdateTaskTaskflowstatusHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdateTaskTaskflowstatusRequest struct {
-	// 任务状态ID。
 	TaskflowStatusId *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
-	// 任务流转说明。
-	TfsUpdateNote *string `json:"tfsUpdateNote,omitempty" xml:"tfsUpdateNote,omitempty"`
+	TfsUpdateNote    *string `json:"tfsUpdateNote,omitempty" xml:"tfsUpdateNote,omitempty"`
 }
 
 func (s UpdateTaskTaskflowstatusRequest) String() string {
@@ -8987,7 +8906,6 @@ func (s *UpdateTaskTaskflowstatusRequest) SetTfsUpdateNote(v string) *UpdateTask
 }
 
 type UpdateTaskTaskflowstatusResponseBody struct {
-	// 结果。
 	Result *UpdateTaskTaskflowstatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -9005,7 +8923,6 @@ func (s *UpdateTaskTaskflowstatusResponseBody) SetResult(v *UpdateTaskTaskflowst
 }
 
 type UpdateTaskTaskflowstatusResponseBodyResult struct {
-	// 更新时间。
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -9023,8 +8940,9 @@ func (s *UpdateTaskTaskflowstatusResponseBodyResult) SetUpdated(v string) *Updat
 }
 
 type UpdateTaskTaskflowstatusResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateTaskTaskflowstatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateTaskTaskflowstatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateTaskTaskflowstatusResponse) String() string {
@@ -9040,7 +8958,241 @@ func (s *UpdateTaskTaskflowstatusResponse) SetHeaders(v map[string]*string) *Upd
 	return s
 }
 
+func (s *UpdateTaskTaskflowstatusResponse) SetStatusCode(v int32) *UpdateTaskTaskflowstatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
 func (s *UpdateTaskTaskflowstatusResponse) SetBody(v *UpdateTaskTaskflowstatusResponseBody) *UpdateTaskTaskflowstatusResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateWorkTimeApproveHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateWorkTimeApproveHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkTimeApproveHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkTimeApproveHeaders) SetCommonHeaders(v map[string]*string) *UpdateWorkTimeApproveHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateWorkTimeApproveHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateWorkTimeApproveRequest struct {
+	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
+	Url        *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s UpdateWorkTimeApproveRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkTimeApproveRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkTimeApproveRequest) SetFinishTime(v string) *UpdateWorkTimeApproveRequest {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveRequest) SetInstanceId(v string) *UpdateWorkTimeApproveRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveRequest) SetStatus(v string) *UpdateWorkTimeApproveRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveRequest) SetSubmitTime(v string) *UpdateWorkTimeApproveRequest {
+	s.SubmitTime = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveRequest) SetTitle(v string) *UpdateWorkTimeApproveRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveRequest) SetUrl(v string) *UpdateWorkTimeApproveRequest {
+	s.Url = &v
+	return s
+}
+
+type UpdateWorkTimeApproveResponseBody struct {
+	Message   *string                                  `json:"message,omitempty" xml:"message,omitempty"`
+	RequestId *string                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *UpdateWorkTimeApproveResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateWorkTimeApproveResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkTimeApproveResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkTimeApproveResponseBody) SetMessage(v string) *UpdateWorkTimeApproveResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBody) SetRequestId(v string) *UpdateWorkTimeApproveResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBody) SetResult(v *UpdateWorkTimeApproveResponseBodyResult) *UpdateWorkTimeApproveResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateWorkTimeApproveResponseBodyResult struct {
+	ApproveOpenId  *string   `json:"approveOpenId,omitempty" xml:"approveOpenId,omitempty"`
+	CreatedAt      *string   `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
+	CreatorId      *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	FinishTime     *string   `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	InstanceId     *string   `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	OrganizationId *string   `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
+	Status         *string   `json:"status,omitempty" xml:"status,omitempty"`
+	SubmitTime     *string   `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	TaskId         *string   `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Time           *int32    `json:"time,omitempty" xml:"time,omitempty"`
+	Title          *string   `json:"title,omitempty" xml:"title,omitempty"`
+	UpdatedAt      *string   `json:"updatedAt,omitempty" xml:"updatedAt,omitempty"`
+	Url            *string   `json:"url,omitempty" xml:"url,omitempty"`
+	UserId         *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	WorkTimeIds    []*string `json:"workTimeIds,omitempty" xml:"workTimeIds,omitempty" type:"Repeated"`
+}
+
+func (s UpdateWorkTimeApproveResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkTimeApproveResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetApproveOpenId(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.ApproveOpenId = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetCreatedAt(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.CreatedAt = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetCreatorId(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetFinishTime(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetInstanceId(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetOrganizationId(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.OrganizationId = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetStatus(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetSubmitTime(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.SubmitTime = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetTaskId(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetTime(v int32) *UpdateWorkTimeApproveResponseBodyResult {
+	s.Time = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetTitle(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetUpdatedAt(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.UpdatedAt = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetUrl(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.Url = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetUserId(v string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponseBodyResult) SetWorkTimeIds(v []*string) *UpdateWorkTimeApproveResponseBodyResult {
+	s.WorkTimeIds = v
+	return s
+}
+
+type UpdateWorkTimeApproveResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateWorkTimeApproveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateWorkTimeApproveResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkTimeApproveResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkTimeApproveResponse) SetHeaders(v map[string]*string) *UpdateWorkTimeApproveResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponse) SetStatusCode(v int32) *UpdateWorkTimeApproveResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateWorkTimeApproveResponse) SetBody(v *UpdateWorkTimeApproveResponseBody) *UpdateWorkTimeApproveResponse {
 	s.Body = v
 	return s
 }
@@ -9060,6 +9212,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -9068,25 +9226,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) AddProjectMember(userId *string, projectId *string, request *AddProjectMemberRequest) (_result *AddProjectMemberResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddProjectMemberHeaders{}
-	_result = &AddProjectMemberResponse{}
-	_body, _err := client.AddProjectMemberWithOptions(userId, projectId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) AddProjectMemberWithOptions(userId *string, projectId *string, request *AddProjectMemberRequest, headers *AddProjectMemberHeaders, runtime *util.RuntimeOptions) (_result *AddProjectMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
 		body["userIds"] = request.UserIds
@@ -9105,8 +9249,64 @@ func (client *Client) AddProjectMemberWithOptions(userId *string, projectId *str
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddProjectMember"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/members"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddProjectMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddProjectMember"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/members"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddProjectMember(userId *string, projectId *string, request *AddProjectMemberRequest) (_result *AddProjectMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddProjectMemberHeaders{}
+	_result = &AddProjectMemberResponse{}
+	_body, _err := client.AddProjectMemberWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ArchiveProjectWithOptions(userId *string, projectId *string, headers *ArchiveProjectHeaders, runtime *util.RuntimeOptions) (_result *ArchiveProjectResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ArchiveProject"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/archive"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ArchiveProjectResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9126,9 +9326,7 @@ func (client *Client) ArchiveProject(userId *string, projectId *string) (_result
 	return _result, _err
 }
 
-func (client *Client) ArchiveProjectWithOptions(userId *string, projectId *string, headers *ArchiveProjectHeaders, runtime *util.RuntimeOptions) (_result *ArchiveProjectResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
+func (client *Client) ArchiveTaskWithOptions(userId *string, taskId *string, headers *ArchiveTaskHeaders, runtime *util.RuntimeOptions) (_result *ArchiveTaskResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -9141,8 +9339,19 @@ func (client *Client) ArchiveProjectWithOptions(userId *string, projectId *strin
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &ArchiveProjectResponse{}
-	_body, _err := client.DoROARequest(tea.String("ArchiveProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/archive"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("ArchiveTask"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/archive"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ArchiveTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9162,48 +9371,11 @@ func (client *Client) ArchiveTask(userId *string, taskId *string) (_result *Arch
 	return _result, _err
 }
 
-func (client *Client) ArchiveTaskWithOptions(userId *string, taskId *string, headers *ArchiveTaskHeaders, runtime *util.RuntimeOptions) (_result *ArchiveTaskResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &ArchiveTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("ArchiveTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/archive"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) CreateOrganizationTask(userId *string, request *CreateOrganizationTaskRequest) (_result *CreateOrganizationTaskResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateOrganizationTaskHeaders{}
-	_result = &CreateOrganizationTaskResponse{}
-	_body, _err := client.CreateOrganizationTaskWithOptions(userId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) CreateOrganizationTaskWithOptions(userId *string, request *CreateOrganizationTaskRequest, headers *CreateOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateOrganizationTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Content)) {
 		body["content"] = request.Content
@@ -9258,8 +9430,19 @@ func (client *Client) CreateOrganizationTaskWithOptions(userId *string, request 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateOrganizationTask"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateOrganizationTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateOrganizationTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9267,11 +9450,11 @@ func (client *Client) CreateOrganizationTaskWithOptions(userId *string, request 
 	return _result, _err
 }
 
-func (client *Client) CreatePlanTime(userId *string, request *CreatePlanTimeRequest) (_result *CreatePlanTimeResponse, _err error) {
+func (client *Client) CreateOrganizationTask(userId *string, request *CreateOrganizationTaskRequest) (_result *CreateOrganizationTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreatePlanTimeHeaders{}
-	_result = &CreatePlanTimeResponse{}
-	_body, _err := client.CreatePlanTimeWithOptions(userId, request, headers, runtime)
+	headers := &CreateOrganizationTaskHeaders{}
+	_result = &CreateOrganizationTaskResponse{}
+	_body, _err := client.CreateOrganizationTaskWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9284,7 +9467,6 @@ func (client *Client) CreatePlanTimeWithOptions(userId *string, request *CreateP
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TenantType)) {
 		query["tenantType"] = request.TenantType
@@ -9341,8 +9523,74 @@ func (client *Client) CreatePlanTimeWithOptions(userId *string, request *CreateP
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreatePlanTime"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/planTimes"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreatePlanTimeResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreatePlanTime"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/planTimes"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreatePlanTime(userId *string, request *CreatePlanTimeRequest) (_result *CreatePlanTimeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreatePlanTimeHeaders{}
+	_result = &CreatePlanTimeResponse{}
+	_body, _err := client.CreatePlanTimeWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateProjectWithOptions(userId *string, request *CreateProjectRequest, headers *CreateProjectHeaders, runtime *util.RuntimeOptions) (_result *CreateProjectResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateProject"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateProjectResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9362,57 +9610,11 @@ func (client *Client) CreateProject(userId *string, request *CreateProjectReques
 	return _result, _err
 }
 
-func (client *Client) CreateProjectWithOptions(userId *string, request *CreateProjectRequest, headers *CreateProjectHeaders, runtime *util.RuntimeOptions) (_result *CreateProjectResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	userId = openapiutil.GetEncodeParam(userId)
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		body["name"] = request.Name
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &CreateProjectResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) CreateProjectByTemplate(userId *string, request *CreateProjectByTemplateRequest) (_result *CreateProjectByTemplateResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateProjectByTemplateHeaders{}
-	_result = &CreateProjectByTemplateResponse{}
-	_body, _err := client.CreateProjectByTemplateWithOptions(userId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) CreateProjectByTemplateWithOptions(userId *string, request *CreateProjectByTemplateRequest, headers *CreateProjectByTemplateHeaders, runtime *util.RuntimeOptions) (_result *CreateProjectByTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
@@ -9435,8 +9637,19 @@ func (client *Client) CreateProjectByTemplateWithOptions(userId *string, request
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateProjectByTemplate"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/templates/projects"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateProjectByTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateProjectByTemplate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/templates/projects"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9444,11 +9657,11 @@ func (client *Client) CreateProjectByTemplateWithOptions(userId *string, request
 	return _result, _err
 }
 
-func (client *Client) CreateProjectCustomfieldStatus(userId *string, projectId *string, request *CreateProjectCustomfieldStatusRequest) (_result *CreateProjectCustomfieldStatusResponse, _err error) {
+func (client *Client) CreateProjectByTemplate(userId *string, request *CreateProjectByTemplateRequest) (_result *CreateProjectByTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateProjectCustomfieldStatusHeaders{}
-	_result = &CreateProjectCustomfieldStatusResponse{}
-	_body, _err := client.CreateProjectCustomfieldStatusWithOptions(userId, projectId, request, headers, runtime)
+	headers := &CreateProjectByTemplateHeaders{}
+	_result = &CreateProjectByTemplateResponse{}
+	_body, _err := client.CreateProjectByTemplateWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9461,8 +9674,6 @@ func (client *Client) CreateProjectCustomfieldStatusWithOptions(userId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CustomfieldId)) {
 		body["customfieldId"] = request.CustomfieldId
@@ -9493,8 +9704,19 @@ func (client *Client) CreateProjectCustomfieldStatusWithOptions(userId *string, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateProjectCustomfieldStatus"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/customfields"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateProjectCustomfieldStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateProjectCustomfieldStatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/customfields"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9502,11 +9724,11 @@ func (client *Client) CreateProjectCustomfieldStatusWithOptions(userId *string, 
 	return _result, _err
 }
 
-func (client *Client) CreateTask(userId *string, request *CreateTaskRequest) (_result *CreateTaskResponse, _err error) {
+func (client *Client) CreateProjectCustomfieldStatus(userId *string, projectId *string, request *CreateProjectCustomfieldStatusRequest) (_result *CreateProjectCustomfieldStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateTaskHeaders{}
-	_result = &CreateTaskResponse{}
-	_body, _err := client.CreateTaskWithOptions(userId, request, headers, runtime)
+	headers := &CreateProjectCustomfieldStatusHeaders{}
+	_result = &CreateProjectCustomfieldStatusResponse{}
+	_body, _err := client.CreateProjectCustomfieldStatusWithOptions(userId, projectId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9519,7 +9741,6 @@ func (client *Client) CreateTaskWithOptions(userId *string, request *CreateTaskR
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Content)) {
 		body["content"] = request.Content
@@ -9582,8 +9803,74 @@ func (client *Client) CreateTaskWithOptions(userId *string, request *CreateTaskR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateTask"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateTask(userId *string, request *CreateTaskRequest) (_result *CreateTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTaskHeaders{}
+	_result = &CreateTaskResponse{}
+	_body, _err := client.CreateTaskWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateTaskObjectLinkWithOptions(userId *string, taskId *string, request *CreateTaskObjectLinkRequest, headers *CreateTaskObjectLinkHeaders, runtime *util.RuntimeOptions) (_result *CreateTaskObjectLinkResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LinkedData)) {
+		body["linkedData"] = request.LinkedData
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateTaskObjectLink"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/objectLinks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateTaskObjectLinkResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9603,58 +9890,11 @@ func (client *Client) CreateTaskObjectLink(userId *string, taskId *string, reque
 	return _result, _err
 }
 
-func (client *Client) CreateTaskObjectLinkWithOptions(userId *string, taskId *string, request *CreateTaskObjectLinkRequest, headers *CreateTaskObjectLinkHeaders, runtime *util.RuntimeOptions) (_result *CreateTaskObjectLinkResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.LinkedData)) {
-		body["linkedData"] = request.LinkedData
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &CreateTaskObjectLinkResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateTaskObjectLink"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/objectLinks"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) CreateWorkTime(userId *string, request *CreateWorkTimeRequest) (_result *CreateWorkTimeResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateWorkTimeHeaders{}
-	_result = &CreateWorkTimeResponse{}
-	_body, _err := client.CreateWorkTimeWithOptions(userId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) CreateWorkTimeWithOptions(userId *string, request *CreateWorkTimeRequest, headers *CreateWorkTimeHeaders, runtime *util.RuntimeOptions) (_result *CreateWorkTimeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TenantType)) {
 		query["tenantType"] = request.TenantType
@@ -9711,8 +9951,129 @@ func (client *Client) CreateWorkTimeWithOptions(userId *string, request *CreateW
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateWorkTime"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/workTimes"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateWorkTimeResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateWorkTime"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/workTimes"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateWorkTime(userId *string, request *CreateWorkTimeRequest) (_result *CreateWorkTimeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateWorkTimeHeaders{}
+	_result = &CreateWorkTimeResponse{}
+	_body, _err := client.CreateWorkTimeWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateWorkTimeApproveWithOptions(userId *string, request *CreateWorkTimeApproveRequest, headers *CreateWorkTimeApproveHeaders, runtime *util.RuntimeOptions) (_result *CreateWorkTimeApproveResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.WorkTimeIds)) {
+		body["workTimeIds"] = request.WorkTimeIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateWorkTimeApprove"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/workTimes/approvals"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateWorkTimeApproveResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateWorkTimeApprove(userId *string, request *CreateWorkTimeApproveRequest) (_result *CreateWorkTimeApproveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateWorkTimeApproveHeaders{}
+	_result = &CreateWorkTimeApproveResponse{}
+	_body, _err := client.CreateWorkTimeApproveWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteProjectMemberWithOptions(userId *string, projectId *string, request *DeleteProjectMemberRequest, headers *DeleteProjectMemberHeaders, runtime *util.RuntimeOptions) (_result *DeleteProjectMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteProjectMember"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/members/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteProjectMemberResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9732,18 +10093,7 @@ func (client *Client) DeleteProjectMember(userId *string, projectId *string, req
 	return _result, _err
 }
 
-func (client *Client) DeleteProjectMemberWithOptions(userId *string, projectId *string, request *DeleteProjectMemberRequest, headers *DeleteProjectMemberHeaders, runtime *util.RuntimeOptions) (_result *DeleteProjectMemberResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
-		body["userIds"] = request.UserIds
-	}
-
+func (client *Client) DeleteTaskWithOptions(userId *string, taskId *string, headers *DeleteTaskHeaders, runtime *util.RuntimeOptions) (_result *DeleteTaskResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -9755,10 +10105,20 @@ func (client *Client) DeleteProjectMemberWithOptions(userId *string, projectId *
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &DeleteProjectMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteProjectMember"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/members/remove"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("DeleteTask"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9771,42 +10131,6 @@ func (client *Client) DeleteTask(userId *string, taskId *string) (_result *Delet
 	headers := &DeleteTaskHeaders{}
 	_result = &DeleteTaskResponse{}
 	_body, _err := client.DeleteTaskWithOptions(userId, taskId, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) DeleteTaskWithOptions(userId *string, taskId *string, headers *DeleteTaskHeaders, runtime *util.RuntimeOptions) (_result *DeleteTaskResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &DeleteTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetDeptsByOrgId(request *GetDeptsByOrgIdRequest) (_result *GetDeptsByOrgIdResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetDeptsByOrgIdHeaders{}
-	_result = &GetDeptsByOrgIdResponse{}
-	_body, _err := client.GetDeptsByOrgIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9849,8 +10173,19 @@ func (client *Client) GetDeptsByOrgIdWithOptions(request *GetDeptsByOrgIdRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDeptsByOrgId"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/orgs/depts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetDeptsByOrgIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetDeptsByOrgId"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/orgs/depts"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9858,11 +10193,11 @@ func (client *Client) GetDeptsByOrgIdWithOptions(request *GetDeptsByOrgIdRequest
 	return _result, _err
 }
 
-func (client *Client) GetEmpsByOrgId(request *GetEmpsByOrgIdRequest) (_result *GetEmpsByOrgIdResponse, _err error) {
+func (client *Client) GetDeptsByOrgId(request *GetDeptsByOrgIdRequest) (_result *GetDeptsByOrgIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetEmpsByOrgIdHeaders{}
-	_result = &GetEmpsByOrgIdResponse{}
-	_body, _err := client.GetEmpsByOrgIdWithOptions(request, headers, runtime)
+	headers := &GetDeptsByOrgIdHeaders{}
+	_result = &GetDeptsByOrgIdResponse{}
+	_body, _err := client.GetDeptsByOrgIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9909,8 +10244,74 @@ func (client *Client) GetEmpsByOrgIdWithOptions(request *GetEmpsByOrgIdRequest, 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetEmpsByOrgId"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/orgs/employees"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetEmpsByOrgIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetEmpsByOrgId"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/orgs/employees"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetEmpsByOrgId(request *GetEmpsByOrgIdRequest) (_result *GetEmpsByOrgIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetEmpsByOrgIdHeaders{}
+	_result = &GetEmpsByOrgIdResponse{}
+	_body, _err := client.GetEmpsByOrgIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOrganizatioTaskByIdsWithOptions(userId *string, request *GetOrganizatioTaskByIdsRequest, headers *GetOrganizatioTaskByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskIds)) {
+		query["taskIds"] = request.TaskIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetOrganizatioTaskByIds"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetOrganizatioTaskByIdsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9930,17 +10331,7 @@ func (client *Client) GetOrganizatioTaskByIds(userId *string, request *GetOrgani
 	return _result, _err
 }
 
-func (client *Client) GetOrganizatioTaskByIdsWithOptions(userId *string, request *GetOrganizatioTaskByIdsRequest, headers *GetOrganizatioTaskByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	userId = openapiutil.GetEncodeParam(userId)
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.TaskIds)) {
-		query["taskIds"] = request.TaskIds
-	}
-
+func (client *Client) GetOrganizationPriorityListWithOptions(userId *string, headers *GetOrganizationPriorityListHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationPriorityListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -9952,10 +10343,20 @@ func (client *Client) GetOrganizatioTaskByIdsWithOptions(userId *string, request
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
 	}
-	_result = &GetOrganizatioTaskByIdsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetOrganizatioTaskByIds"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("GetOrganizationPriorityList"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/priorities"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetOrganizationPriorityListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9975,8 +10376,7 @@ func (client *Client) GetOrganizationPriorityList(userId *string) (_result *GetO
 	return _result, _err
 }
 
-func (client *Client) GetOrganizationPriorityListWithOptions(userId *string, headers *GetOrganizationPriorityListHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationPriorityListResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
+func (client *Client) GetOrganizationTaskWithOptions(taskId *string, userId *string, headers *GetOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationTaskResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -9989,8 +10389,19 @@ func (client *Client) GetOrganizationPriorityListWithOptions(userId *string, hea
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &GetOrganizationPriorityListResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetOrganizationPriorityList"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/priorities"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("GetOrganizationTask"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetOrganizationTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10010,48 +10421,11 @@ func (client *Client) GetOrganizationTask(taskId *string, userId *string) (_resu
 	return _result, _err
 }
 
-func (client *Client) GetOrganizationTaskWithOptions(taskId *string, userId *string, headers *GetOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationTaskResponse, _err error) {
-	taskId = openapiutil.GetEncodeParam(taskId)
-	userId = openapiutil.GetEncodeParam(userId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &GetOrganizationTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetOrganizationTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetProjectGroup(userId *string, request *GetProjectGroupRequest) (_result *GetProjectGroupResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetProjectGroupHeaders{}
-	_result = &GetProjectGroupResponse{}
-	_body, _err := client.GetProjectGroupWithOptions(userId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) GetProjectGroupWithOptions(userId *string, request *GetProjectGroupRequest, headers *GetProjectGroupHeaders, runtime *util.RuntimeOptions) (_result *GetProjectGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
@@ -10074,8 +10448,19 @@ func (client *Client) GetProjectGroupWithOptions(userId *string, request *GetPro
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProjectGroup"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/groups"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetProjectGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProjectGroup"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/groups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10083,11 +10468,11 @@ func (client *Client) GetProjectGroupWithOptions(userId *string, request *GetPro
 	return _result, _err
 }
 
-func (client *Client) GetProjectMemebers(userId *string, projectId *string, request *GetProjectMemebersRequest) (_result *GetProjectMemebersResponse, _err error) {
+func (client *Client) GetProjectGroup(userId *string, request *GetProjectGroupRequest) (_result *GetProjectGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetProjectMemebersHeaders{}
-	_result = &GetProjectMemebersResponse{}
-	_body, _err := client.GetProjectMemebersWithOptions(userId, projectId, request, headers, runtime)
+	headers := &GetProjectGroupHeaders{}
+	_result = &GetProjectGroupResponse{}
+	_body, _err := client.GetProjectGroupWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10100,8 +10485,6 @@ func (client *Client) GetProjectMemebersWithOptions(userId *string, projectId *s
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -10132,8 +10515,64 @@ func (client *Client) GetProjectMemebersWithOptions(userId *string, projectId *s
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProjectMemebers"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/members"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetProjectMemebersResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProjectMemebers"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/members"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetProjectMemebers(userId *string, projectId *string, request *GetProjectMemebersRequest) (_result *GetProjectMemebersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProjectMemebersHeaders{}
+	_result = &GetProjectMemebersResponse{}
+	_body, _err := client.GetProjectMemebersWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetProjectStatusListWithOptions(userId *string, projectId *string, headers *GetProjectStatusListHeaders, runtime *util.RuntimeOptions) (_result *GetProjectStatusListResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProjectStatusList"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/statuses"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetProjectStatusListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10153,48 +10592,11 @@ func (client *Client) GetProjectStatusList(userId *string, projectId *string) (_
 	return _result, _err
 }
 
-func (client *Client) GetProjectStatusListWithOptions(userId *string, projectId *string, headers *GetProjectStatusListHeaders, runtime *util.RuntimeOptions) (_result *GetProjectStatusListResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &GetProjectStatusListResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProjectStatusList"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/statuses"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetTaskByIds(userId *string, request *GetTaskByIdsRequest) (_result *GetTaskByIdsResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetTaskByIdsHeaders{}
-	_result = &GetTaskByIdsResponse{}
-	_body, _err := client.GetTaskByIdsWithOptions(userId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) GetTaskByIdsWithOptions(userId *string, request *GetTaskByIdsRequest, headers *GetTaskByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetTaskByIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ParentTaskId)) {
 		query["parentTaskId"] = request.ParentTaskId
@@ -10217,8 +10619,19 @@ func (client *Client) GetTaskByIdsWithOptions(userId *string, request *GetTaskBy
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTaskByIds"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetTaskByIdsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTaskByIds"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10226,11 +10639,11 @@ func (client *Client) GetTaskByIdsWithOptions(userId *string, request *GetTaskBy
 	return _result, _err
 }
 
-func (client *Client) GetTbOrgIdByDingOrgId(request *GetTbOrgIdByDingOrgIdRequest) (_result *GetTbOrgIdByDingOrgIdResponse, _err error) {
+func (client *Client) GetTaskByIds(userId *string, request *GetTaskByIdsRequest) (_result *GetTaskByIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetTbOrgIdByDingOrgIdHeaders{}
-	_result = &GetTbOrgIdByDingOrgIdResponse{}
-	_body, _err := client.GetTbOrgIdByDingOrgIdWithOptions(request, headers, runtime)
+	headers := &GetTaskByIdsHeaders{}
+	_result = &GetTaskByIdsResponse{}
+	_body, _err := client.GetTaskByIdsWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10261,8 +10674,19 @@ func (client *Client) GetTbOrgIdByDingOrgIdWithOptions(request *GetTbOrgIdByDing
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTbOrgIdByDingOrgId"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/teambition/organizations"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetTbOrgIdByDingOrgIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTbOrgIdByDingOrgId"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/teambition/organizations"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10270,11 +10694,11 @@ func (client *Client) GetTbOrgIdByDingOrgIdWithOptions(request *GetTbOrgIdByDing
 	return _result, _err
 }
 
-func (client *Client) GetTbProjectGray(request *GetTbProjectGrayRequest) (_result *GetTbProjectGrayResponse, _err error) {
+func (client *Client) GetTbOrgIdByDingOrgId(request *GetTbOrgIdByDingOrgIdRequest) (_result *GetTbOrgIdByDingOrgIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetTbProjectGrayHeaders{}
-	_result = &GetTbProjectGrayResponse{}
-	_body, _err := client.GetTbProjectGrayWithOptions(request, headers, runtime)
+	headers := &GetTbOrgIdByDingOrgIdHeaders{}
+	_result = &GetTbOrgIdByDingOrgIdResponse{}
+	_body, _err := client.GetTbOrgIdByDingOrgIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10325,8 +10749,19 @@ func (client *Client) GetTbProjectGrayWithOptions(request *GetTbProjectGrayReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTbProjectGray"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/projects/gray"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("json"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetTbProjectGrayResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTbProjectGray"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/projects/gray"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10334,11 +10769,11 @@ func (client *Client) GetTbProjectGrayWithOptions(request *GetTbProjectGrayReque
 	return _result, _err
 }
 
-func (client *Client) GetTbProjectSource() (_result *GetTbProjectSourceResponse, _err error) {
+func (client *Client) GetTbProjectGray(request *GetTbProjectGrayRequest) (_result *GetTbProjectGrayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetTbProjectSourceHeaders{}
-	_result = &GetTbProjectSourceResponse{}
-	_body, _err := client.GetTbProjectSourceWithOptions(headers, runtime)
+	headers := &GetTbProjectGrayHeaders{}
+	_result = &GetTbProjectGrayResponse{}
+	_body, _err := client.GetTbProjectGrayWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10379,8 +10814,19 @@ func (client *Client) GetTbProjectSourceWithOptions(headers *GetTbProjectSourceH
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTbProjectSource"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/projects/source"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetTbProjectSourceResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTbProjectSource"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/projects/source"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10388,11 +10834,11 @@ func (client *Client) GetTbProjectSourceWithOptions(headers *GetTbProjectSourceH
 	return _result, _err
 }
 
-func (client *Client) GetTbUserIdByStaffId(request *GetTbUserIdByStaffIdRequest) (_result *GetTbUserIdByStaffIdResponse, _err error) {
+func (client *Client) GetTbProjectSource() (_result *GetTbProjectSourceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetTbUserIdByStaffIdHeaders{}
-	_result = &GetTbUserIdByStaffIdResponse{}
-	_body, _err := client.GetTbUserIdByStaffIdWithOptions(request, headers, runtime)
+	headers := &GetTbProjectSourceHeaders{}
+	_result = &GetTbProjectSourceResponse{}
+	_body, _err := client.GetTbProjectSourceWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10427,8 +10873,19 @@ func (client *Client) GetTbUserIdByStaffIdWithOptions(request *GetTbUserIdByStaf
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTbUserIdByStaffId"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/teambition/users"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetTbUserIdByStaffIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTbUserIdByStaffId"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/teambition/users"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10436,11 +10893,11 @@ func (client *Client) GetTbUserIdByStaffIdWithOptions(request *GetTbUserIdByStaf
 	return _result, _err
 }
 
-func (client *Client) GetUserJoinedProject(userId *string, request *GetUserJoinedProjectRequest) (_result *GetUserJoinedProjectResponse, _err error) {
+func (client *Client) GetTbUserIdByStaffId(request *GetTbUserIdByStaffIdRequest) (_result *GetTbUserIdByStaffIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserJoinedProjectHeaders{}
-	_result = &GetUserJoinedProjectResponse{}
-	_body, _err := client.GetUserJoinedProjectWithOptions(userId, request, headers, runtime)
+	headers := &GetTbUserIdByStaffIdHeaders{}
+	_result = &GetTbUserIdByStaffIdResponse{}
+	_body, _err := client.GetTbUserIdByStaffIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10453,7 +10910,6 @@ func (client *Client) GetUserJoinedProjectWithOptions(userId *string, request *G
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -10476,8 +10932,19 @@ func (client *Client) GetUserJoinedProjectWithOptions(userId *string, request *G
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserJoinedProject"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/joinProjects"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserJoinedProjectResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserJoinedProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/joinProjects"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10485,11 +10952,11 @@ func (client *Client) GetUserJoinedProjectWithOptions(userId *string, request *G
 	return _result, _err
 }
 
-func (client *Client) QueryProject(userId *string, request *QueryProjectRequest) (_result *QueryProjectResponse, _err error) {
+func (client *Client) GetUserJoinedProject(userId *string, request *GetUserJoinedProjectRequest) (_result *GetUserJoinedProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryProjectHeaders{}
-	_result = &QueryProjectResponse{}
-	_body, _err := client.QueryProjectWithOptions(userId, request, headers, runtime)
+	headers := &GetUserJoinedProjectHeaders{}
+	_result = &GetUserJoinedProjectResponse{}
+	_body, _err := client.GetUserJoinedProjectWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10502,7 +10969,6 @@ func (client *Client) QueryProjectWithOptions(userId *string, request *QueryProj
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -10537,8 +11003,19 @@ func (client *Client) QueryProjectWithOptions(userId *string, request *QueryProj
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryProject"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryProjectResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10546,11 +11023,11 @@ func (client *Client) QueryProjectWithOptions(userId *string, request *QueryProj
 	return _result, _err
 }
 
-func (client *Client) QueryTaskOfProject(userId *string, projectId *string, request *QueryTaskOfProjectRequest) (_result *QueryTaskOfProjectResponse, _err error) {
+func (client *Client) QueryProject(userId *string, request *QueryProjectRequest) (_result *QueryProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryTaskOfProjectHeaders{}
-	_result = &QueryTaskOfProjectResponse{}
-	_body, _err := client.QueryTaskOfProjectWithOptions(userId, projectId, request, headers, runtime)
+	headers := &QueryProjectHeaders{}
+	_result = &QueryProjectResponse{}
+	_body, _err := client.QueryProjectWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10563,8 +11040,6 @@ func (client *Client) QueryTaskOfProjectWithOptions(userId *string, projectId *s
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -10591,8 +11066,19 @@ func (client *Client) QueryTaskOfProjectWithOptions(userId *string, projectId *s
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryTaskOfProject"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projectIds/" + tea.StringValue(projectId) + "/tasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryTaskOfProjectResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryTaskOfProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projectIds/"+tea.StringValue(projectId)+"/tasks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10600,11 +11086,11 @@ func (client *Client) QueryTaskOfProjectWithOptions(userId *string, projectId *s
 	return _result, _err
 }
 
-func (client *Client) SeachTaskStage(userId *string, projectId *string, request *SeachTaskStageRequest) (_result *SeachTaskStageResponse, _err error) {
+func (client *Client) QueryTaskOfProject(userId *string, projectId *string, request *QueryTaskOfProjectRequest) (_result *QueryTaskOfProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SeachTaskStageHeaders{}
-	_result = &SeachTaskStageResponse{}
-	_body, _err := client.SeachTaskStageWithOptions(userId, projectId, request, headers, runtime)
+	headers := &QueryTaskOfProjectHeaders{}
+	_result = &QueryTaskOfProjectResponse{}
+	_body, _err := client.QueryTaskOfProjectWithOptions(userId, projectId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10617,8 +11103,6 @@ func (client *Client) SeachTaskStageWithOptions(userId *string, projectId *strin
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -10653,8 +11137,19 @@ func (client *Client) SeachTaskStageWithOptions(userId *string, projectId *strin
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SeachTaskStage"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/taskStages/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SeachTaskStageResponse{}
-	_body, _err := client.DoROARequest(tea.String("SeachTaskStage"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/taskStages/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10662,11 +11157,11 @@ func (client *Client) SeachTaskStageWithOptions(userId *string, projectId *strin
 	return _result, _err
 }
 
-func (client *Client) SearchOranizationCustomfield(userId *string, request *SearchOranizationCustomfieldRequest) (_result *SearchOranizationCustomfieldResponse, _err error) {
+func (client *Client) SeachTaskStage(userId *string, projectId *string, request *SeachTaskStageRequest) (_result *SeachTaskStageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchOranizationCustomfieldHeaders{}
-	_result = &SearchOranizationCustomfieldResponse{}
-	_body, _err := client.SearchOranizationCustomfieldWithOptions(userId, request, headers, runtime)
+	headers := &SeachTaskStageHeaders{}
+	_result = &SeachTaskStageResponse{}
+	_body, _err := client.SeachTaskStageWithOptions(userId, projectId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10679,7 +11174,6 @@ func (client *Client) SearchOranizationCustomfieldWithOptions(userId *string, re
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CustomfieldIds)) {
 		query["customfieldIds"] = request.CustomfieldIds
@@ -10722,8 +11216,19 @@ func (client *Client) SearchOranizationCustomfieldWithOptions(userId *string, re
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchOranizationCustomfield"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/customfields/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchOranizationCustomfieldResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchOranizationCustomfield"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/customfields/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10731,11 +11236,11 @@ func (client *Client) SearchOranizationCustomfieldWithOptions(userId *string, re
 	return _result, _err
 }
 
-func (client *Client) SearchProjectCustomfield(userId *string, projectId *string, request *SearchProjectCustomfieldRequest) (_result *SearchProjectCustomfieldResponse, _err error) {
+func (client *Client) SearchOranizationCustomfield(userId *string, request *SearchOranizationCustomfieldRequest) (_result *SearchOranizationCustomfieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchProjectCustomfieldHeaders{}
-	_result = &SearchProjectCustomfieldResponse{}
-	_body, _err := client.SearchProjectCustomfieldWithOptions(userId, projectId, request, headers, runtime)
+	headers := &SearchOranizationCustomfieldHeaders{}
+	_result = &SearchOranizationCustomfieldResponse{}
+	_body, _err := client.SearchOranizationCustomfieldWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10748,8 +11253,6 @@ func (client *Client) SearchProjectCustomfieldWithOptions(userId *string, projec
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CustomfieldIds)) {
 		query["customfieldIds"] = request.CustomfieldIds
@@ -10792,8 +11295,74 @@ func (client *Client) SearchProjectCustomfieldWithOptions(userId *string, projec
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchProjectCustomfield"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/customfields/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchProjectCustomfieldResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchProjectCustomfield"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/customfields/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchProjectCustomfield(userId *string, projectId *string, request *SearchProjectCustomfieldRequest) (_result *SearchProjectCustomfieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchProjectCustomfieldHeaders{}
+	_result = &SearchProjectCustomfieldResponse{}
+	_body, _err := client.SearchProjectCustomfieldWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchProjectTemplateWithOptions(userId *string, request *SearchProjectTemplateRequest, headers *SearchProjectTemplateHeaders, runtime *util.RuntimeOptions) (_result *SearchProjectTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		query["keyword"] = request.Keyword
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchProjectTemplate"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/templates"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SearchProjectTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10813,58 +11382,11 @@ func (client *Client) SearchProjectTemplate(userId *string, request *SearchProje
 	return _result, _err
 }
 
-func (client *Client) SearchProjectTemplateWithOptions(userId *string, request *SearchProjectTemplateRequest, headers *SearchProjectTemplateHeaders, runtime *util.RuntimeOptions) (_result *SearchProjectTemplateResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	userId = openapiutil.GetEncodeParam(userId)
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
-		query["keyword"] = request.Keyword
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &SearchProjectTemplateResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchProjectTemplate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/templates"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) SearchTaskFlow(userId *string, projectId *string, request *SearchTaskFlowRequest) (_result *SearchTaskFlowResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &SearchTaskFlowHeaders{}
-	_result = &SearchTaskFlowResponse{}
-	_body, _err := client.SearchTaskFlowWithOptions(userId, projectId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) SearchTaskFlowWithOptions(userId *string, projectId *string, request *SearchTaskFlowRequest, headers *SearchTaskFlowHeaders, runtime *util.RuntimeOptions) (_result *SearchTaskFlowResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -10895,8 +11417,19 @@ func (client *Client) SearchTaskFlowWithOptions(userId *string, projectId *strin
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchTaskFlow"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/taskflows/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchTaskFlowResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchTaskFlow"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/taskflows/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10904,11 +11437,11 @@ func (client *Client) SearchTaskFlowWithOptions(userId *string, projectId *strin
 	return _result, _err
 }
 
-func (client *Client) SearchTaskList(userId *string, projectId *string, request *SearchTaskListRequest) (_result *SearchTaskListResponse, _err error) {
+func (client *Client) SearchTaskFlow(userId *string, projectId *string, request *SearchTaskFlowRequest) (_result *SearchTaskFlowResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchTaskListHeaders{}
-	_result = &SearchTaskListResponse{}
-	_body, _err := client.SearchTaskListWithOptions(userId, projectId, request, headers, runtime)
+	headers := &SearchTaskFlowHeaders{}
+	_result = &SearchTaskFlowResponse{}
+	_body, _err := client.SearchTaskFlowWithOptions(userId, projectId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10921,8 +11454,6 @@ func (client *Client) SearchTaskListWithOptions(userId *string, projectId *strin
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -10953,8 +11484,19 @@ func (client *Client) SearchTaskListWithOptions(userId *string, projectId *strin
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchTaskList"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/taskLists/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchTaskListResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchTaskList"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/taskLists/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10962,11 +11504,11 @@ func (client *Client) SearchTaskListWithOptions(userId *string, projectId *strin
 	return _result, _err
 }
 
-func (client *Client) SearchTaskflowStatus(userId *string, projectId *string, request *SearchTaskflowStatusRequest) (_result *SearchTaskflowStatusResponse, _err error) {
+func (client *Client) SearchTaskList(userId *string, projectId *string, request *SearchTaskListRequest) (_result *SearchTaskListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchTaskflowStatusHeaders{}
-	_result = &SearchTaskflowStatusResponse{}
-	_body, _err := client.SearchTaskflowStatusWithOptions(userId, projectId, request, headers, runtime)
+	headers := &SearchTaskListHeaders{}
+	_result = &SearchTaskListResponse{}
+	_body, _err := client.SearchTaskListWithOptions(userId, projectId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10979,8 +11521,6 @@ func (client *Client) SearchTaskflowStatusWithOptions(userId *string, projectId 
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -11015,8 +11555,19 @@ func (client *Client) SearchTaskflowStatusWithOptions(userId *string, projectId 
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchTaskflowStatus"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/taskflowStatuses/search"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchTaskflowStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchTaskflowStatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/taskflowStatuses/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11024,11 +11575,11 @@ func (client *Client) SearchTaskflowStatusWithOptions(userId *string, projectId 
 	return _result, _err
 }
 
-func (client *Client) SearchUserTask(userId *string, request *SearchUserTaskRequest) (_result *SearchUserTaskResponse, _err error) {
+func (client *Client) SearchTaskflowStatus(userId *string, projectId *string, request *SearchTaskflowStatusRequest) (_result *SearchTaskflowStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SearchUserTaskHeaders{}
-	_result = &SearchUserTaskResponse{}
-	_body, _err := client.SearchUserTaskWithOptions(userId, request, headers, runtime)
+	headers := &SearchTaskflowStatusHeaders{}
+	_result = &SearchTaskflowStatusResponse{}
+	_body, _err := client.SearchTaskflowStatusWithOptions(userId, projectId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11041,7 +11592,6 @@ func (client *Client) SearchUserTaskWithOptions(userId *string, request *SearchU
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -11068,8 +11618,64 @@ func (client *Client) SearchUserTaskWithOptions(userId *string, request *SearchU
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchUserTask"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SearchUserTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchUserTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/search"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchUserTask(userId *string, request *SearchUserTaskRequest) (_result *SearchUserTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchUserTaskHeaders{}
+	_result = &SearchUserTaskResponse{}
+	_body, _err := client.SearchUserTaskWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SuspendProjectWithOptions(projectId *string, userId *string, headers *SuspendProjectHeaders, runtime *util.RuntimeOptions) (_result *SuspendProjectResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SuspendProject"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/suspend"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SuspendProjectResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11089,9 +11695,7 @@ func (client *Client) SuspendProject(projectId *string, userId *string) (_result
 	return _result, _err
 }
 
-func (client *Client) SuspendProjectWithOptions(projectId *string, userId *string, headers *SuspendProjectHeaders, runtime *util.RuntimeOptions) (_result *SuspendProjectResponse, _err error) {
-	projectId = openapiutil.GetEncodeParam(projectId)
-	userId = openapiutil.GetEncodeParam(userId)
+func (client *Client) UnSuspendProjectWithOptions(projectId *string, userId *string, headers *UnSuspendProjectHeaders, runtime *util.RuntimeOptions) (_result *UnSuspendProjectResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -11104,8 +11708,19 @@ func (client *Client) SuspendProjectWithOptions(projectId *string, userId *strin
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
-	_result = &SuspendProjectResponse{}
-	_body, _err := client.DoROARequest(tea.String("SuspendProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/suspend"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("UnSuspendProject"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/unsuspend"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UnSuspendProjectResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11125,49 +11740,11 @@ func (client *Client) UnSuspendProject(projectId *string, userId *string) (_resu
 	return _result, _err
 }
 
-func (client *Client) UnSuspendProjectWithOptions(projectId *string, userId *string, headers *UnSuspendProjectHeaders, runtime *util.RuntimeOptions) (_result *UnSuspendProjectResponse, _err error) {
-	projectId = openapiutil.GetEncodeParam(projectId)
-	userId = openapiutil.GetEncodeParam(userId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &UnSuspendProjectResponse{}
-	_body, _err := client.DoROARequest(tea.String("UnSuspendProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/unsuspend"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) UpdateCustomfieldValue(userId *string, taskId *string, request *UpdateCustomfieldValueRequest) (_result *UpdateCustomfieldValueResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &UpdateCustomfieldValueHeaders{}
-	_result = &UpdateCustomfieldValueResponse{}
-	_body, _err := client.UpdateCustomfieldValueWithOptions(userId, taskId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) UpdateCustomfieldValueWithOptions(userId *string, taskId *string, request *UpdateCustomfieldValueRequest, headers *UpdateCustomfieldValueHeaders, runtime *util.RuntimeOptions) (_result *UpdateCustomfieldValueResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CustomfieldId)) {
 		body["customfieldId"] = request.CustomfieldId
@@ -11194,8 +11771,19 @@ func (client *Client) UpdateCustomfieldValueWithOptions(userId *string, taskId *
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateCustomfieldValue"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/customFields"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateCustomfieldValueResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateCustomfieldValue"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/customFields"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11203,11 +11791,11 @@ func (client *Client) UpdateCustomfieldValueWithOptions(userId *string, taskId *
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskContent(taskId *string, userId *string, request *UpdateOrganizationTaskContentRequest) (_result *UpdateOrganizationTaskContentResponse, _err error) {
+func (client *Client) UpdateCustomfieldValue(userId *string, taskId *string, request *UpdateCustomfieldValueRequest) (_result *UpdateCustomfieldValueResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateOrganizationTaskContentHeaders{}
-	_result = &UpdateOrganizationTaskContentResponse{}
-	_body, _err := client.UpdateOrganizationTaskContentWithOptions(taskId, userId, request, headers, runtime)
+	headers := &UpdateCustomfieldValueHeaders{}
+	_result = &UpdateCustomfieldValueResponse{}
+	_body, _err := client.UpdateCustomfieldValueWithOptions(userId, taskId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11220,8 +11808,6 @@ func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, u
 	if _err != nil {
 		return _result, _err
 	}
-	taskId = openapiutil.GetEncodeParam(taskId)
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Content)) {
 		body["content"] = request.Content
@@ -11248,8 +11834,19 @@ func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, u
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateOrganizationTaskContent"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/contents"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateOrganizationTaskContentResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskContent"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/contents"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11257,11 +11854,11 @@ func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, u
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskDueDate(taskId *string, userId *string, request *UpdateOrganizationTaskDueDateRequest) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskContent(taskId *string, userId *string, request *UpdateOrganizationTaskContentRequest) (_result *UpdateOrganizationTaskContentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateOrganizationTaskDueDateHeaders{}
-	_result = &UpdateOrganizationTaskDueDateResponse{}
-	_body, _err := client.UpdateOrganizationTaskDueDateWithOptions(taskId, userId, request, headers, runtime)
+	headers := &UpdateOrganizationTaskContentHeaders{}
+	_result = &UpdateOrganizationTaskContentResponse{}
+	_body, _err := client.UpdateOrganizationTaskContentWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11274,8 +11871,6 @@ func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, u
 	if _err != nil {
 		return _result, _err
 	}
-	taskId = openapiutil.GetEncodeParam(taskId)
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -11302,8 +11897,19 @@ func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, u
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateOrganizationTaskDueDate"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/dueDates"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateOrganizationTaskDueDateResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskDueDate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/dueDates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11311,11 +11917,11 @@ func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, u
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskExecutor(taskId *string, userId *string, request *UpdateOrganizationTaskExecutorRequest) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskDueDate(taskId *string, userId *string, request *UpdateOrganizationTaskDueDateRequest) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateOrganizationTaskExecutorHeaders{}
-	_result = &UpdateOrganizationTaskExecutorResponse{}
-	_body, _err := client.UpdateOrganizationTaskExecutorWithOptions(taskId, userId, request, headers, runtime)
+	headers := &UpdateOrganizationTaskDueDateHeaders{}
+	_result = &UpdateOrganizationTaskDueDateResponse{}
+	_body, _err := client.UpdateOrganizationTaskDueDateWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11328,8 +11934,6 @@ func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	taskId = openapiutil.GetEncodeParam(taskId)
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -11356,8 +11960,19 @@ func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateOrganizationTaskExecutor"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/executors"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateOrganizationTaskExecutorResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskExecutor"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/executors"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11365,11 +11980,11 @@ func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, 
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskInvolveMembers(taskId *string, userId *string, request *UpdateOrganizationTaskInvolveMembersRequest) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskExecutor(taskId *string, userId *string, request *UpdateOrganizationTaskExecutorRequest) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateOrganizationTaskInvolveMembersHeaders{}
-	_result = &UpdateOrganizationTaskInvolveMembersResponse{}
-	_body, _err := client.UpdateOrganizationTaskInvolveMembersWithOptions(taskId, userId, request, headers, runtime)
+	headers := &UpdateOrganizationTaskExecutorHeaders{}
+	_result = &UpdateOrganizationTaskExecutorResponse{}
+	_body, _err := client.UpdateOrganizationTaskExecutorWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11382,8 +11997,6 @@ func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *st
 	if _err != nil {
 		return _result, _err
 	}
-	taskId = openapiutil.GetEncodeParam(taskId)
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AddInvolvers)) {
 		body["addInvolvers"] = request.AddInvolvers
@@ -11418,8 +12031,19 @@ func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *st
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateOrganizationTaskInvolveMembers"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/involveMembers"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateOrganizationTaskInvolveMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskInvolveMembers"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/involveMembers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11427,11 +12051,11 @@ func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *st
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskNote(taskId *string, userId *string, request *UpdateOrganizationTaskNoteRequest) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskInvolveMembers(taskId *string, userId *string, request *UpdateOrganizationTaskInvolveMembersRequest) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateOrganizationTaskNoteHeaders{}
-	_result = &UpdateOrganizationTaskNoteResponse{}
-	_body, _err := client.UpdateOrganizationTaskNoteWithOptions(taskId, userId, request, headers, runtime)
+	headers := &UpdateOrganizationTaskInvolveMembersHeaders{}
+	_result = &UpdateOrganizationTaskInvolveMembersResponse{}
+	_body, _err := client.UpdateOrganizationTaskInvolveMembersWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11444,8 +12068,6 @@ func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, user
 	if _err != nil {
 		return _result, _err
 	}
-	taskId = openapiutil.GetEncodeParam(taskId)
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -11472,8 +12094,19 @@ func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, user
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateOrganizationTaskNote"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/notes"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateOrganizationTaskNoteResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskNote"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/notes"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11481,11 +12114,11 @@ func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, user
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskPriority(taskId *string, userId *string, request *UpdateOrganizationTaskPriorityRequest) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskNote(taskId *string, userId *string, request *UpdateOrganizationTaskNoteRequest) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateOrganizationTaskPriorityHeaders{}
-	_result = &UpdateOrganizationTaskPriorityResponse{}
-	_body, _err := client.UpdateOrganizationTaskPriorityWithOptions(taskId, userId, request, headers, runtime)
+	headers := &UpdateOrganizationTaskNoteHeaders{}
+	_result = &UpdateOrganizationTaskNoteResponse{}
+	_body, _err := client.UpdateOrganizationTaskNoteWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11498,8 +12131,6 @@ func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	taskId = openapiutil.GetEncodeParam(taskId)
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -11526,8 +12157,19 @@ func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateOrganizationTaskPriority"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/priorities"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateOrganizationTaskPriorityResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskPriority"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/priorities"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11535,11 +12177,11 @@ func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, 
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskStatus(taskId *string, userId *string, request *UpdateOrganizationTaskStatusRequest) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskPriority(taskId *string, userId *string, request *UpdateOrganizationTaskPriorityRequest) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateOrganizationTaskStatusHeaders{}
-	_result = &UpdateOrganizationTaskStatusResponse{}
-	_body, _err := client.UpdateOrganizationTaskStatusWithOptions(taskId, userId, request, headers, runtime)
+	headers := &UpdateOrganizationTaskPriorityHeaders{}
+	_result = &UpdateOrganizationTaskPriorityResponse{}
+	_body, _err := client.UpdateOrganizationTaskPriorityWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11552,8 +12194,6 @@ func (client *Client) UpdateOrganizationTaskStatusWithOptions(taskId *string, us
 	if _err != nil {
 		return _result, _err
 	}
-	taskId = openapiutil.GetEncodeParam(taskId)
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -11580,8 +12220,19 @@ func (client *Client) UpdateOrganizationTaskStatusWithOptions(taskId *string, us
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateOrganizationTaskStatus"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/organizations/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/states"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateOrganizationTaskStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskStatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/states"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11589,11 +12240,11 @@ func (client *Client) UpdateOrganizationTaskStatusWithOptions(taskId *string, us
 	return _result, _err
 }
 
-func (client *Client) UpdateProjectGroup(userId *string, projectId *string, request *UpdateProjectGroupRequest) (_result *UpdateProjectGroupResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskStatus(taskId *string, userId *string, request *UpdateOrganizationTaskStatusRequest) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateProjectGroupHeaders{}
-	_result = &UpdateProjectGroupResponse{}
-	_body, _err := client.UpdateProjectGroupWithOptions(userId, projectId, request, headers, runtime)
+	headers := &UpdateOrganizationTaskStatusHeaders{}
+	_result = &UpdateOrganizationTaskStatusResponse{}
+	_body, _err := client.UpdateOrganizationTaskStatusWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11606,8 +12257,6 @@ func (client *Client) UpdateProjectGroupWithOptions(userId *string, projectId *s
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	projectId = openapiutil.GetEncodeParam(projectId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AddProjectGroupIds)) {
 		body["addProjectGroupIds"] = request.AddProjectGroupIds
@@ -11630,8 +12279,74 @@ func (client *Client) UpdateProjectGroupWithOptions(userId *string, projectId *s
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateProjectGroup"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/projects/" + tea.StringValue(projectId) + "/groups"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateProjectGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateProjectGroup"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/groups"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateProjectGroup(userId *string, projectId *string, request *UpdateProjectGroupRequest) (_result *UpdateProjectGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateProjectGroupHeaders{}
+	_result = &UpdateProjectGroupResponse{}
+	_body, _err := client.UpdateProjectGroupWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskContentWithOptions(userId *string, taskId *string, request *UpdateTaskContentRequest, headers *UpdateTaskContentHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskContentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTaskContent"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/contents"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTaskContentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11651,16 +12366,14 @@ func (client *Client) UpdateTaskContent(userId *string, taskId *string, request 
 	return _result, _err
 }
 
-func (client *Client) UpdateTaskContentWithOptions(userId *string, taskId *string, request *UpdateTaskContentRequest, headers *UpdateTaskContentHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskContentResponse, _err error) {
+func (client *Client) UpdateTaskDueDateWithOptions(userId *string, taskId *string, request *UpdateTaskDueDateRequest, headers *UpdateTaskDueDateHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskDueDateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Content)) {
-		body["content"] = request.Content
+	if !tea.BoolValue(util.IsUnset(request.DueDate)) {
+		body["dueDate"] = request.DueDate
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11676,8 +12389,19 @@ func (client *Client) UpdateTaskContentWithOptions(userId *string, taskId *strin
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &UpdateTaskContentResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTaskContent"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/contents"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTaskDueDate"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/dueDates"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTaskDueDateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11697,16 +12421,14 @@ func (client *Client) UpdateTaskDueDate(userId *string, taskId *string, request 
 	return _result, _err
 }
 
-func (client *Client) UpdateTaskDueDateWithOptions(userId *string, taskId *string, request *UpdateTaskDueDateRequest, headers *UpdateTaskDueDateHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskDueDateResponse, _err error) {
+func (client *Client) UpdateTaskExecutorWithOptions(userId *string, taskId *string, request *UpdateTaskExecutorRequest, headers *UpdateTaskExecutorHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskExecutorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.DueDate)) {
-		body["dueDate"] = request.DueDate
+	if !tea.BoolValue(util.IsUnset(request.ExecutorId)) {
+		body["executorId"] = request.ExecutorId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11722,8 +12444,19 @@ func (client *Client) UpdateTaskDueDateWithOptions(userId *string, taskId *strin
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &UpdateTaskDueDateResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTaskDueDate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/dueDates"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTaskExecutor"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/executors"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTaskExecutorResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11743,59 +12476,11 @@ func (client *Client) UpdateTaskExecutor(userId *string, taskId *string, request
 	return _result, _err
 }
 
-func (client *Client) UpdateTaskExecutorWithOptions(userId *string, taskId *string, request *UpdateTaskExecutorRequest, headers *UpdateTaskExecutorHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskExecutorResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.ExecutorId)) {
-		body["executorId"] = request.ExecutorId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &UpdateTaskExecutorResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTaskExecutor"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/executors"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) UpdateTaskInvolvemembers(userId *string, taskId *string, request *UpdateTaskInvolvemembersRequest) (_result *UpdateTaskInvolvemembersResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &UpdateTaskInvolvemembersHeaders{}
-	_result = &UpdateTaskInvolvemembersResponse{}
-	_body, _err := client.UpdateTaskInvolvemembersWithOptions(userId, taskId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) UpdateTaskInvolvemembersWithOptions(userId *string, taskId *string, request *UpdateTaskInvolvemembersRequest, headers *UpdateTaskInvolvemembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskInvolvemembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AddInvolvers)) {
 		body["addInvolvers"] = request.AddInvolvers
@@ -11822,8 +12507,74 @@ func (client *Client) UpdateTaskInvolvemembersWithOptions(userId *string, taskId
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTaskInvolvemembers"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/involveMembers"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateTaskInvolvemembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTaskInvolvemembers"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/involveMembers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskInvolvemembers(userId *string, taskId *string, request *UpdateTaskInvolvemembersRequest) (_result *UpdateTaskInvolvemembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskInvolvemembersHeaders{}
+	_result = &UpdateTaskInvolvemembersResponse{}
+	_body, _err := client.UpdateTaskInvolvemembersWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskNoteWithOptions(userId *string, taskId *string, request *UpdateTaskNoteRequest, headers *UpdateTaskNoteHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskNoteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Note)) {
+		body["note"] = request.Note
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTaskNote"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/notes"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTaskNoteResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11843,16 +12594,14 @@ func (client *Client) UpdateTaskNote(userId *string, taskId *string, request *Up
 	return _result, _err
 }
 
-func (client *Client) UpdateTaskNoteWithOptions(userId *string, taskId *string, request *UpdateTaskNoteRequest, headers *UpdateTaskNoteHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskNoteResponse, _err error) {
+func (client *Client) UpdateTaskPriorityWithOptions(userId *string, taskId *string, request *UpdateTaskPriorityRequest, headers *UpdateTaskPriorityHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskPriorityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Note)) {
-		body["note"] = request.Note
+	if !tea.BoolValue(util.IsUnset(request.Priority)) {
+		body["priority"] = request.Priority
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11868,8 +12617,19 @@ func (client *Client) UpdateTaskNoteWithOptions(userId *string, taskId *string, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &UpdateTaskNoteResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTaskNote"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/notes"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTaskPriority"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/priorities"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTaskPriorityResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11889,16 +12649,14 @@ func (client *Client) UpdateTaskPriority(userId *string, taskId *string, request
 	return _result, _err
 }
 
-func (client *Client) UpdateTaskPriorityWithOptions(userId *string, taskId *string, request *UpdateTaskPriorityRequest, headers *UpdateTaskPriorityHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskPriorityResponse, _err error) {
+func (client *Client) UpdateTaskStageWithOptions(userId *string, taskId *string, request *UpdateTaskStageRequest, headers *UpdateTaskStageHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskStageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Priority)) {
-		body["priority"] = request.Priority
+	if !tea.BoolValue(util.IsUnset(request.StageId)) {
+		body["stageId"] = request.StageId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11914,8 +12672,19 @@ func (client *Client) UpdateTaskPriorityWithOptions(userId *string, taskId *stri
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &UpdateTaskPriorityResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTaskPriority"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/priorities"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTaskStage"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/stages"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTaskStageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11935,16 +12704,14 @@ func (client *Client) UpdateTaskStage(userId *string, taskId *string, request *U
 	return _result, _err
 }
 
-func (client *Client) UpdateTaskStageWithOptions(userId *string, taskId *string, request *UpdateTaskStageRequest, headers *UpdateTaskStageHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskStageResponse, _err error) {
+func (client *Client) UpdateTaskStartdateWithOptions(userId *string, taskId *string, request *UpdateTaskStartdateRequest, headers *UpdateTaskStartdateHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskStartdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.StageId)) {
-		body["stageId"] = request.StageId
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		body["startDate"] = request.StartDate
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11960,8 +12727,19 @@ func (client *Client) UpdateTaskStageWithOptions(userId *string, taskId *string,
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &UpdateTaskStageResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTaskStage"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/stages"), tea.String("json"), req, runtime)
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTaskStartdate"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/startDates"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTaskStartdateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11981,59 +12759,11 @@ func (client *Client) UpdateTaskStartdate(userId *string, taskId *string, reques
 	return _result, _err
 }
 
-func (client *Client) UpdateTaskStartdateWithOptions(userId *string, taskId *string, request *UpdateTaskStartdateRequest, headers *UpdateTaskStartdateHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskStartdateResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
-		body["startDate"] = request.StartDate
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &UpdateTaskStartdateResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTaskStartdate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/startDates"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) UpdateTaskTaskflowstatus(userId *string, taskId *string, request *UpdateTaskTaskflowstatusRequest) (_result *UpdateTaskTaskflowstatusResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &UpdateTaskTaskflowstatusHeaders{}
-	_result = &UpdateTaskTaskflowstatusResponse{}
-	_body, _err := client.UpdateTaskTaskflowstatusWithOptions(userId, taskId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
 func (client *Client) UpdateTaskTaskflowstatusWithOptions(userId *string, taskId *string, request *UpdateTaskTaskflowstatusRequest, headers *UpdateTaskTaskflowstatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskTaskflowstatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	taskId = openapiutil.GetEncodeParam(taskId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TaskflowStatusId)) {
 		body["taskflowStatusId"] = request.TaskflowStatusId
@@ -12056,11 +12786,109 @@ func (client *Client) UpdateTaskTaskflowstatusWithOptions(userId *string, taskId
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTaskTaskflowstatus"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tasks/" + tea.StringValue(taskId) + "/taskflowStatuses"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateTaskTaskflowstatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTaskTaskflowstatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/taskflowStatuses"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskTaskflowstatus(userId *string, taskId *string, request *UpdateTaskTaskflowstatusRequest) (_result *UpdateTaskTaskflowstatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskTaskflowstatusHeaders{}
+	_result = &UpdateTaskTaskflowstatusResponse{}
+	_body, _err := client.UpdateTaskTaskflowstatusWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateWorkTimeApproveWithOptions(userId *string, approveOpenId *string, request *UpdateWorkTimeApproveRequest, headers *UpdateWorkTimeApproveHeaders, runtime *util.RuntimeOptions) (_result *UpdateWorkTimeApproveResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FinishTime)) {
+		body["finishTime"] = request.FinishTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubmitTime)) {
+		body["submitTime"] = request.SubmitTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Url)) {
+		body["url"] = request.Url
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateWorkTimeApprove"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/workTimes/approvals/" + tea.StringValue(approveOpenId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateWorkTimeApproveResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateWorkTimeApprove(userId *string, approveOpenId *string, request *UpdateWorkTimeApproveRequest) (_result *UpdateWorkTimeApproveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateWorkTimeApproveHeaders{}
+	_result = &UpdateWorkTimeApproveResponse{}
+	_body, _err := client.UpdateWorkTimeApproveWithOptions(userId, approveOpenId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

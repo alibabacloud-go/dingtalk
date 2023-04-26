@@ -5,16 +5,16 @@
 package workflow_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type AvaliableTemplate struct {
-	// 表单名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 表单模板processCode
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -37,12 +37,9 @@ func (s *AvaliableTemplate) SetProcessCode(v string) *AvaliableTemplate {
 }
 
 type FormComponent struct {
-	// 子控件集合
-	Children []*FormComponent `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
-	// 控件类型
-	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	// 控件属性
-	Props *FormComponentProps `json:"props,omitempty" xml:"props,omitempty"`
+	Children      []*FormComponent    `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	ComponentType *string             `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Props         *FormComponentProps `json:"props,omitempty" xml:"props,omitempty"`
 }
 
 func (s FormComponent) String() string {
@@ -69,72 +66,39 @@ func (s *FormComponent) SetProps(v *FormComponentProps) *FormComponent {
 }
 
 type FormComponentProps struct {
-	// 明细控件按钮显示文案
-	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	// 地址控件模式city省市,district省市区,street省市区街道
-	AddressModel *string `json:"addressModel,omitempty" xml:"addressModel,omitempty"`
-	// 文字提示控件显示方式:top|middle|bottom
-	Align *string `json:"align,omitempty" xml:"align,omitempty"`
-	// 套件中控件是否可设置为分条件字段
-	AsyncCondition *bool `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
-	// 关联审批单控件限定模板列表
-	AvailableTemplates []*AvaliableTemplate `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
-	// 业务别名
-	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 套件的业务标识
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 联系人控件是否支持多选，1多选，0单选
-	Choice *string `json:"choice,omitempty" xml:"choice,omitempty"`
-	// 自定义控件渲染标识
-	CommonBizType *string `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
-	// 控件表单内唯一id
-	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
-	// 说明文字控件内容
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 关联数据源配置
-	DataSource *FormDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty"`
-	// 是否不可编辑
-	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	// 是否自动计算时长
-	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
-	// 时间格式
-	Format *string `json:"format,omitempty" xml:"format,omitempty"`
-	// 公式
-	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
-	// 是否隐藏字段
-	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	// 控件标题
-	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	// 评分控件上限
-	Limit *int32 `json:"limit,omitempty" xml:"limit,omitempty"`
-	// 说明文字控件链接地址
-	Link *string `json:"link,omitempty" xml:"link,omitempty"`
-	// 文本控件支持的最大长度
-	MaxLength *int32 `json:"maxLength,omitempty" xml:"maxLength,omitempty"`
-	// 电话控件支持的类型
-	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
-	// 部门控件是否可多选
-	Multiple *bool `json:"multiple,omitempty" xml:"multiple,omitempty"`
-	// 单选多选控件选项列表
-	Options []*SelectOption `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	// 输入提示
-	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	// 小数点位数
-	Precision *int32 `json:"precision,omitempty" xml:"precision,omitempty"`
-	// 字段是否可打印，1打印，0不打印，默认打印
-	Print *string `json:"print,omitempty" xml:"print,omitempty"`
-	// 是否必填
-	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
-	// 明细控件数据汇总统计
-	StatField []*FormComponentPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	// 明细填写方式，table（表格）、list（列表）
-	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
-	// 时间单位（天、小时）
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 金额控件是否需要大写，1不需要大写，其他需要大写
-	Upper *string `json:"upper,omitempty" xml:"upper,omitempty"`
-	// 明细打印方式false横向，true纵向
-	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	ActionName         *string                        `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	AddressModel       *string                        `json:"addressModel,omitempty" xml:"addressModel,omitempty"`
+	Align              *string                        `json:"align,omitempty" xml:"align,omitempty"`
+	AsyncCondition     *bool                          `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
+	AvailableTemplates []*AvaliableTemplate           `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	BizAlias           *string                        `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	BizType            *string                        `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Choice             *string                        `json:"choice,omitempty" xml:"choice,omitempty"`
+	CommonBizType      *string                        `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
+	ComponentId        *string                        `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	Content            *string                        `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource         *FormDataSource                `json:"dataSource,omitempty" xml:"dataSource,omitempty"`
+	Disabled           *bool                          `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration           *bool                          `json:"duration,omitempty" xml:"duration,omitempty"`
+	Format             *string                        `json:"format,omitempty" xml:"format,omitempty"`
+	Formula            *string                        `json:"formula,omitempty" xml:"formula,omitempty"`
+	Invisible          *bool                          `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	Label              *string                        `json:"label,omitempty" xml:"label,omitempty"`
+	Limit              *int32                         `json:"limit,omitempty" xml:"limit,omitempty"`
+	Link               *string                        `json:"link,omitempty" xml:"link,omitempty"`
+	MaxLength          *int32                         `json:"maxLength,omitempty" xml:"maxLength,omitempty"`
+	Mode               *string                        `json:"mode,omitempty" xml:"mode,omitempty"`
+	Multiple           *bool                          `json:"multiple,omitempty" xml:"multiple,omitempty"`
+	Options            []*SelectOption                `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	Placeholder        *string                        `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Precision          *int32                         `json:"precision,omitempty" xml:"precision,omitempty"`
+	Print              *string                        `json:"print,omitempty" xml:"print,omitempty"`
+	Required           *bool                          `json:"required,omitempty" xml:"required,omitempty"`
+	StatField          []*FormComponentPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	TableViewMode      *string                        `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+	Unit               *string                        `json:"unit,omitempty" xml:"unit,omitempty"`
+	Upper              *string                        `json:"upper,omitempty" xml:"upper,omitempty"`
+	VerticalPrint      *bool                          `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
 }
 
 func (s FormComponentProps) String() string {
@@ -311,12 +275,9 @@ func (s *FormComponentProps) SetVerticalPrint(v bool) *FormComponentProps {
 }
 
 type FormComponentPropsStatField struct {
-	// 需要统计的明细控件内子控件id
 	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
-	// 子控件标题
-	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	// 金额控件是否需要大写，1不需要大写，其他需要大写
-	Upper *string `json:"upper,omitempty" xml:"upper,omitempty"`
+	Label       *string `json:"label,omitempty" xml:"label,omitempty"`
+	Upper       *string `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s FormComponentPropsStatField) String() string {
@@ -343,10 +304,8 @@ func (s *FormComponentPropsStatField) SetUpper(v string) *FormComponentPropsStat
 }
 
 type FormDataSource struct {
-	// 关联表单信息
 	Target *FormDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
-	// 关联类型，form关联表单
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Type   *string               `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s FormDataSource) String() string {
@@ -368,13 +327,9 @@ func (s *FormDataSource) SetType(v string) *FormDataSource {
 }
 
 type FormDataSourceTarget struct {
-	// 表单类型，0流程表单
-	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 应用appUuid
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 关联表单业务标识
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 关联表单的formCode
+	AppType  *int32  `json:"appType,omitempty" xml:"appType,omitempty"`
+	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
 }
 
@@ -407,9 +362,7 @@ func (s *FormDataSourceTarget) SetFormCode(v string) *FormDataSourceTarget {
 }
 
 type SelectOption struct {
-	// 每一个选项的唯一键
-	Key *string `json:"key,omitempty" xml:"key,omitempty"`
-	// 每一个选项的值
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -455,10 +408,8 @@ func (s *AddApproveDentryAuthHeaders) SetXAcsDingtalkAccessToken(v string) *AddA
 }
 
 type AddApproveDentryAuthRequest struct {
-	// 授权的钉盘文件信息列表。支持批量授权，最大列表长度：10。
 	FileInfos []*AddApproveDentryAuthRequestFileInfos `json:"fileInfos,omitempty" xml:"fileInfos,omitempty" type:"Repeated"`
-	// 授权的用户userid。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId    *string                                 `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddApproveDentryAuthRequest) String() string {
@@ -480,10 +431,8 @@ func (s *AddApproveDentryAuthRequest) SetUserId(v string) *AddApproveDentryAuthR
 }
 
 type AddApproveDentryAuthRequestFileInfos struct {
-	// 文件ID。
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 钉盘空间spaceId。
-	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	FileId  *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	SpaceId *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s AddApproveDentryAuthRequestFileInfos) String() string {
@@ -505,9 +454,7 @@ func (s *AddApproveDentryAuthRequestFileInfos) SetSpaceId(v int64) *AddApproveDe
 }
 
 type AddApproveDentryAuthResponseBody struct {
-	// 返回结果。
-	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
-	// 接口调用是否成功。
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -530,8 +477,9 @@ func (s *AddApproveDentryAuthResponseBody) SetSuccess(v bool) *AddApproveDentryA
 }
 
 type AddApproveDentryAuthResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddApproveDentryAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddApproveDentryAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddApproveDentryAuthResponse) String() string {
@@ -544,6 +492,11 @@ func (s AddApproveDentryAuthResponse) GoString() string {
 
 func (s *AddApproveDentryAuthResponse) SetHeaders(v map[string]*string) *AddApproveDentryAuthResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddApproveDentryAuthResponse) SetStatusCode(v int32) *AddApproveDentryAuthResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -576,14 +529,10 @@ func (s *AddProcessInstanceCommentHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type AddProcessInstanceCommentRequest struct {
-	// 评论人的userid。
-	CommentUserId *string `json:"commentUserId,omitempty" xml:"commentUserId,omitempty"`
-	// 文件。
-	File *AddProcessInstanceCommentRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
-	// 审批实例ID，可通过调用获取审批实例ID列表接口获取。
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 评论的内容。
-	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	CommentUserId     *string                               `json:"commentUserId,omitempty" xml:"commentUserId,omitempty"`
+	File              *AddProcessInstanceCommentRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
+	ProcessInstanceId *string                               `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Text              *string                               `json:"text,omitempty" xml:"text,omitempty"`
 }
 
 func (s AddProcessInstanceCommentRequest) String() string {
@@ -615,10 +564,8 @@ func (s *AddProcessInstanceCommentRequest) SetText(v string) *AddProcessInstance
 }
 
 type AddProcessInstanceCommentRequestFile struct {
-	// 附件列表。
 	Attachments []*AddProcessInstanceCommentRequestFileAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	// 图片URL地址。
-	Photos []*string `json:"photos,omitempty" xml:"photos,omitempty" type:"Repeated"`
+	Photos      []*string                                          `json:"photos,omitempty" xml:"photos,omitempty" type:"Repeated"`
 }
 
 func (s AddProcessInstanceCommentRequestFile) String() string {
@@ -640,16 +587,11 @@ func (s *AddProcessInstanceCommentRequestFile) SetPhotos(v []*string) *AddProces
 }
 
 type AddProcessInstanceCommentRequestFileAttachments struct {
-	// 文件ID。
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 文件名称。
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 文件大小。
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	// 文件类型。
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	// 钉盘空间ID。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s AddProcessInstanceCommentRequestFileAttachments) String() string {
@@ -686,9 +628,7 @@ func (s *AddProcessInstanceCommentRequestFileAttachments) SetSpaceId(v string) *
 }
 
 type AddProcessInstanceCommentResponseBody struct {
-	// 评论是否成功。
-	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
-	// 接口调用是否成功。
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -711,8 +651,9 @@ func (s *AddProcessInstanceCommentResponseBody) SetSuccess(v bool) *AddProcessIn
 }
 
 type AddProcessInstanceCommentResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddProcessInstanceCommentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddProcessInstanceCommentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddProcessInstanceCommentResponse) String() string {
@@ -725,6 +666,11 @@ func (s AddProcessInstanceCommentResponse) GoString() string {
 
 func (s *AddProcessInstanceCommentResponse) SetHeaders(v map[string]*string) *AddProcessInstanceCommentResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddProcessInstanceCommentResponse) SetStatusCode(v int32) *AddProcessInstanceCommentResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -757,7 +703,6 @@ func (s *BatchUpdateProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type BatchUpdateProcessInstanceRequest struct {
-	// 实列列表。
 	UpdateProcessInstanceRequests []*BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests `json:"updateProcessInstanceRequests,omitempty" xml:"updateProcessInstanceRequests,omitempty" type:"Repeated"`
 }
 
@@ -775,20 +720,10 @@ func (s *BatchUpdateProcessInstanceRequest) SetUpdateProcessInstanceRequests(v [
 }
 
 type BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests struct {
-	// 抄送列表，注意最大抄送人数量不能超过30。
-	Notifiers []*BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
-	// 实例id
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 实例结果：
-	// 实例状态是COMPLETED，必须设置代表以下含义。
-	// agree：同意
-	// refuse：拒绝
-	// 实例状态为TERMINATED，必须设置代表含义，result取值agree和refuse均代表撤销审批流。
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 实例状态：
-	// COMPLETED：结束审批流
-	// TERMINATED：终止审批流
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Notifiers         []*BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
+	ProcessInstanceId *string                                                                    `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Result            *string                                                                    `json:"result,omitempty" xml:"result,omitempty"`
+	Status            *string                                                                    `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) String() string {
@@ -820,7 +755,6 @@ func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) SetStat
 }
 
 type BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers struct {
-	// 抄送接收人用户userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -838,7 +772,6 @@ func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers
 }
 
 type BatchUpdateProcessInstanceResponseBody struct {
-	// 成功标识
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -856,8 +789,9 @@ func (s *BatchUpdateProcessInstanceResponseBody) SetSuccess(v bool) *BatchUpdate
 }
 
 type BatchUpdateProcessInstanceResponse struct {
-	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchUpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchUpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchUpdateProcessInstanceResponse) String() string {
@@ -870,6 +804,11 @@ func (s BatchUpdateProcessInstanceResponse) GoString() string {
 
 func (s *BatchUpdateProcessInstanceResponse) SetHeaders(v map[string]*string) *BatchUpdateProcessInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateProcessInstanceResponse) SetStatusCode(v int32) *BatchUpdateProcessInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -902,12 +841,9 @@ func (s *CancelIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Canc
 }
 
 type CancelIntegratedTaskRequest struct {
-	// 待办组ID，需要在调用创建待办接口时，主动设置该值。
-	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	// 待办组ID列表，用于批量取消。
-	ActivityIds []*string `json:"activityIds,omitempty" xml:"activityIds,omitempty" type:"Repeated"`
-	// OA审批流程实例ID
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ActivityId        *string   `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	ActivityIds       []*string `json:"activityIds,omitempty" xml:"activityIds,omitempty" type:"Repeated"`
+	ProcessInstanceId *string   `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
 func (s CancelIntegratedTaskRequest) String() string {
@@ -934,7 +870,6 @@ func (s *CancelIntegratedTaskRequest) SetProcessInstanceId(v string) *CancelInte
 }
 
 type CancelIntegratedTaskResponseBody struct {
-	// 是否更新成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -952,8 +887,9 @@ func (s *CancelIntegratedTaskResponseBody) SetSuccess(v bool) *CancelIntegratedT
 }
 
 type CancelIntegratedTaskResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CancelIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CancelIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CancelIntegratedTaskResponse) String() string {
@@ -966,6 +902,11 @@ func (s CancelIntegratedTaskResponse) GoString() string {
 
 func (s *CancelIntegratedTaskResponse) SetHeaders(v map[string]*string) *CancelIntegratedTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CancelIntegratedTaskResponse) SetStatusCode(v int32) *CancelIntegratedTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -998,9 +939,7 @@ func (s *CleanProcessDataHeaders) SetXAcsDingtalkAccessToken(v string) *CleanPro
 }
 
 type CleanProcessDataRequest struct {
-	// 企业的corpId。
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 模板唯一码。
+	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -1023,7 +962,6 @@ func (s *CleanProcessDataRequest) SetProcessCode(v string) *CleanProcessDataRequ
 }
 
 type CleanProcessDataResponseBody struct {
-	// 是否调用成功。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1041,8 +979,9 @@ func (s *CleanProcessDataResponseBody) SetSuccess(v bool) *CleanProcessDataRespo
 }
 
 type CleanProcessDataResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CleanProcessDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CleanProcessDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CleanProcessDataResponse) String() string {
@@ -1055,6 +994,11 @@ func (s CleanProcessDataResponse) GoString() string {
 
 func (s *CleanProcessDataResponse) SetHeaders(v map[string]*string) *CleanProcessDataResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CleanProcessDataResponse) SetStatusCode(v int32) *CleanProcessDataResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1087,10 +1031,8 @@ func (s *CopyProcessHeaders) SetXAcsDingtalkAccessToken(v string) *CopyProcessHe
 }
 
 type CopyProcessRequest struct {
-	// 复制选项
-	CopyOptions  *CopyProcessRequestCopyOptions `json:"copyOptions,omitempty" xml:"copyOptions,omitempty" type:"Struct"`
-	SourceCorpId *string                        `json:"sourceCorpId,omitempty" xml:"sourceCorpId,omitempty"`
-	// 源模版列表
+	CopyOptions         *CopyProcessRequestCopyOptions           `json:"copyOptions,omitempty" xml:"copyOptions,omitempty" type:"Struct"`
+	SourceCorpId        *string                                  `json:"sourceCorpId,omitempty" xml:"sourceCorpId,omitempty"`
 	SourceProcessVOList []*CopyProcessRequestSourceProcessVOList `json:"sourceProcessVOList,omitempty" xml:"sourceProcessVOList,omitempty" type:"Repeated"`
 }
 
@@ -1118,9 +1060,6 @@ func (s *CopyProcessRequest) SetSourceProcessVOList(v []*CopyProcessRequestSourc
 }
 
 type CopyProcessRequestCopyOptions struct {
-	// 默认为1
-	// COPE_TYPE_DEFAULT = 1 默认会使用groupId进行隔离分组，审批首页不可见
-	// COPE_TYPE_INCLUDE_FLOW = 2 使用dingtalk 2作为隔离分组，审批首页可见
 	CopyType *int32 `json:"copyType,omitempty" xml:"copyType,omitempty"`
 }
 
@@ -1138,11 +1077,8 @@ func (s *CopyProcessRequestCopyOptions) SetCopyType(v int32) *CopyProcessRequest
 }
 
 type CopyProcessRequestSourceProcessVOList struct {
-	// 套件业务标识
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 模板名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 模板code
+	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -1187,11 +1123,8 @@ func (s *CopyProcessResponseBody) SetResult(v []*CopyProcessResponseBodyResult) 
 }
 
 type CopyProcessResponseBodyResult struct {
-	// 业务标识
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 模板名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 模板code
+	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -1219,8 +1152,9 @@ func (s *CopyProcessResponseBodyResult) SetProcessCode(v string) *CopyProcessRes
 }
 
 type CopyProcessResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CopyProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CopyProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CopyProcessResponse) String() string {
@@ -1233,6 +1167,11 @@ func (s CopyProcessResponse) GoString() string {
 
 func (s *CopyProcessResponse) SetHeaders(v map[string]*string) *CopyProcessResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CopyProcessResponse) SetStatusCode(v int32) *CopyProcessResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1265,13 +1204,9 @@ func (s *CreateIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Crea
 }
 
 type CreateIntegratedTaskRequest struct {
-	// 待办组ID，调用方提供自定义唯一分组标识
-	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	// OA审批实例ID，通过创建实例接口获取。
-	//
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 任务列表
-	Tasks []*CreateIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	ActivityId        *string                             `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	ProcessInstanceId *string                             `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Tasks             []*CreateIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
 }
 
 func (s CreateIntegratedTaskRequest) String() string {
@@ -1298,14 +1233,9 @@ func (s *CreateIntegratedTaskRequest) SetTasks(v []*CreateIntegratedTaskRequestT
 }
 
 type CreateIntegratedTaskRequestTasks struct {
-	// 用户自定义数据，页面跳转时将通过 url 查询参数回传，格式为 customData=xxxxx
 	CustomData *string `json:"customData,omitempty" xml:"customData,omitempty"`
-	// 待办事项跳转URL。
-	// 创建审批实例接口里的url，实现的是钉钉审批应用里的审批单跳转。这个接口里的url，实现的是钉钉待办页面，对应的待办卡片的跳转。两种跳转场景不同。需要注意的是，钉钉的待办页面，也同时支持移动端和PC端，所以这个接口里传的url参数，它所对应的页面也要适配好移动端和PC端。
-	//
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// OA审批任务执行人的用户ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Url        *string `json:"url,omitempty" xml:"url,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateIntegratedTaskRequestTasks) String() string {
@@ -1332,9 +1262,8 @@ func (s *CreateIntegratedTaskRequestTasks) SetUserId(v string) *CreateIntegrated
 }
 
 type CreateIntegratedTaskResponseBody struct {
-	Result []*CreateIntegratedTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 是否创建成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  []*CreateIntegratedTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateIntegratedTaskResponseBody) String() string {
@@ -1356,9 +1285,7 @@ func (s *CreateIntegratedTaskResponseBody) SetSuccess(v bool) *CreateIntegratedT
 }
 
 type CreateIntegratedTaskResponseBodyResult struct {
-	// OA审批任务ID
-	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// OA审批任务执行人用户ID
+	TaskId *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1381,8 +1308,9 @@ func (s *CreateIntegratedTaskResponseBodyResult) SetUserId(v string) *CreateInte
 }
 
 type CreateIntegratedTaskResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateIntegratedTaskResponse) String() string {
@@ -1395,6 +1323,11 @@ func (s CreateIntegratedTaskResponse) GoString() string {
 
 func (s *CreateIntegratedTaskResponse) SetHeaders(v map[string]*string) *CreateIntegratedTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *CreateIntegratedTaskResponse) SetStatusCode(v int32) *CreateIntegratedTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1427,10 +1360,8 @@ func (s *DeleteProcessHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteProce
 }
 
 type DeleteProcessRequest struct {
-	// 是否清理正在运行的任务
-	CleanRunningTask *bool `json:"cleanRunningTask,omitempty" xml:"cleanRunningTask,omitempty"`
-	// 模板code
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	CleanRunningTask *bool   `json:"cleanRunningTask,omitempty" xml:"cleanRunningTask,omitempty"`
+	ProcessCode      *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
 func (s DeleteProcessRequest) String() string {
@@ -1469,7 +1400,6 @@ func (s *DeleteProcessResponseBody) SetResult(v *DeleteProcessResponseBodyResult
 }
 
 type DeleteProcessResponseBodyResult struct {
-	// 模板code
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -1487,8 +1417,9 @@ func (s *DeleteProcessResponseBodyResult) SetProcessCode(v string) *DeleteProces
 }
 
 type DeleteProcessResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteProcessResponse) String() string {
@@ -1501,6 +1432,11 @@ func (s DeleteProcessResponse) GoString() string {
 
 func (s *DeleteProcessResponse) SetHeaders(v map[string]*string) *DeleteProcessResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteProcessResponse) SetStatusCode(v int32) *DeleteProcessResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1533,22 +1469,12 @@ func (s *ExecuteProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Ex
 }
 
 type ExecuteProcessInstanceRequest struct {
-	// 操作人userid，可通过调用获取审批实例详情接口获取。
-	ActionerUserId *string `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
-	// 文件。
-	File *ExecuteProcessInstanceRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
-	// 审批实例ID，可通过调用获取审批实例ID列表接口获取。
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 审批意见，可为空。
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 审批操作，取值。
-	//
-	// agree：同意
-	//
-	// refuse：拒绝
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 任务节点id，可通过调用获取审批实例详情接口获取。
-	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	ActionerUserId    *string                            `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
+	File              *ExecuteProcessInstanceRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
+	ProcessInstanceId *string                            `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Remark            *string                            `json:"remark,omitempty" xml:"remark,omitempty"`
+	Result            *string                            `json:"result,omitempty" xml:"result,omitempty"`
+	TaskId            *int64                             `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s ExecuteProcessInstanceRequest) String() string {
@@ -1590,10 +1516,8 @@ func (s *ExecuteProcessInstanceRequest) SetTaskId(v int64) *ExecuteProcessInstan
 }
 
 type ExecuteProcessInstanceRequestFile struct {
-	// 附件列表。
 	Attachments []*ExecuteProcessInstanceRequestFileAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	// 图片URL地址。
-	Photos []*string `json:"photos,omitempty" xml:"photos,omitempty" type:"Repeated"`
+	Photos      []*string                                       `json:"photos,omitempty" xml:"photos,omitempty" type:"Repeated"`
 }
 
 func (s ExecuteProcessInstanceRequestFile) String() string {
@@ -1615,16 +1539,11 @@ func (s *ExecuteProcessInstanceRequestFile) SetPhotos(v []*string) *ExecuteProce
 }
 
 type ExecuteProcessInstanceRequestFileAttachments struct {
-	// 文件ID。
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 文件名称。
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 文件大小。
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	// 文件类型。
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	// 钉盘空间ID。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s ExecuteProcessInstanceRequestFileAttachments) String() string {
@@ -1661,9 +1580,7 @@ func (s *ExecuteProcessInstanceRequestFileAttachments) SetSpaceId(v string) *Exe
 }
 
 type ExecuteProcessInstanceResponseBody struct {
-	// 同意或拒绝结果。
-	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
-	// 接口调用是否成功。
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1686,8 +1603,9 @@ func (s *ExecuteProcessInstanceResponseBody) SetSuccess(v bool) *ExecuteProcessI
 }
 
 type ExecuteProcessInstanceResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ExecuteProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ExecuteProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ExecuteProcessInstanceResponse) String() string {
@@ -1700,6 +1618,11 @@ func (s ExecuteProcessInstanceResponse) GoString() string {
 
 func (s *ExecuteProcessInstanceResponse) SetHeaders(v map[string]*string) *ExecuteProcessInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ExecuteProcessInstanceResponse) SetStatusCode(v int32) *ExecuteProcessInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1732,14 +1655,10 @@ func (s *FormCreateHeaders) SetXAcsDingtalkAccessToken(v string) *FormCreateHead
 }
 
 type FormCreateRequest struct {
-	// 表单模板描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 表单控件列表
-	FormComponents []*FormComponent `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
-	// 表单模板名称
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 模板配置信息
+	Description    *string                          `json:"description,omitempty" xml:"description,omitempty"`
+	FormComponents []*FormComponent                 `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
+	Name           *string                          `json:"name,omitempty" xml:"name,omitempty"`
+	ProcessCode    *string                          `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	TemplateConfig *FormCreateRequestTemplateConfig `json:"templateConfig,omitempty" xml:"templateConfig,omitempty" type:"Struct"`
 }
 
@@ -1777,22 +1696,14 @@ func (s *FormCreateRequest) SetTemplateConfig(v *FormCreateRequestTemplateConfig
 }
 
 type FormCreateRequestTemplateConfig struct {
-	// 更新后模板目录id
-	DirId *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
-	// 禁用模板删除按钮
-	DisableDeleteProcess *bool `json:"disableDeleteProcess,omitempty" xml:"disableDeleteProcess,omitempty"`
-	// 禁用表单编辑
-	DisableFormEdit *bool `json:"disableFormEdit,omitempty" xml:"disableFormEdit,omitempty"`
-	// 首页工作台是否可见
-	DisableHomepage *bool `json:"disableHomepage,omitempty" xml:"disableHomepage,omitempty"`
-	// 禁用再次提交
-	DisableResubmit *bool `json:"disableResubmit,omitempty" xml:"disableResubmit,omitempty"`
-	// 禁用停止按钮
-	DisableStopProcessButton *bool `json:"disableStopProcessButton,omitempty" xml:"disableStopProcessButton,omitempty"`
-	// 审批场景内隐藏模板
-	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
-	// 源模板目录id
-	OriginDirId *string `json:"originDirId,omitempty" xml:"originDirId,omitempty"`
+	DirId                    *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
+	DisableDeleteProcess     *bool   `json:"disableDeleteProcess,omitempty" xml:"disableDeleteProcess,omitempty"`
+	DisableFormEdit          *bool   `json:"disableFormEdit,omitempty" xml:"disableFormEdit,omitempty"`
+	DisableHomepage          *bool   `json:"disableHomepage,omitempty" xml:"disableHomepage,omitempty"`
+	DisableResubmit          *bool   `json:"disableResubmit,omitempty" xml:"disableResubmit,omitempty"`
+	DisableStopProcessButton *bool   `json:"disableStopProcessButton,omitempty" xml:"disableStopProcessButton,omitempty"`
+	Hidden                   *bool   `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	OriginDirId              *string `json:"originDirId,omitempty" xml:"originDirId,omitempty"`
 }
 
 func (s FormCreateRequestTemplateConfig) String() string {
@@ -1844,7 +1755,6 @@ func (s *FormCreateRequestTemplateConfig) SetOriginDirId(v string) *FormCreateRe
 }
 
 type FormCreateResponseBody struct {
-	// 表单模板信息
 	Result *FormCreateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1862,7 +1772,6 @@ func (s *FormCreateResponseBody) SetResult(v *FormCreateResponseBodyResult) *For
 }
 
 type FormCreateResponseBodyResult struct {
-	// 保存或更新的表单code
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -1880,8 +1789,9 @@ func (s *FormCreateResponseBodyResult) SetProcessCode(v string) *FormCreateRespo
 }
 
 type FormCreateResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *FormCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *FormCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s FormCreateResponse) String() string {
@@ -1894,6 +1804,11 @@ func (s FormCreateResponse) GoString() string {
 
 func (s *FormCreateResponse) SetHeaders(v map[string]*string) *FormCreateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *FormCreateResponse) SetStatusCode(v int32) *FormCreateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -1926,10 +1841,8 @@ func (s *GetAttachmentSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetAtt
 }
 
 type GetAttachmentSpaceRequest struct {
-	// 应用的agentid。
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 用户的userid
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	AgentId *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetAttachmentSpaceRequest) String() string {
@@ -1951,10 +1864,8 @@ func (s *GetAttachmentSpaceRequest) SetUserId(v string) *GetAttachmentSpaceReque
 }
 
 type GetAttachmentSpaceResponseBody struct {
-	// 返回结果。
-	Result *GetAttachmentSpaceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 接口调用是否成功。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *GetAttachmentSpaceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetAttachmentSpaceResponseBody) String() string {
@@ -1976,7 +1887,6 @@ func (s *GetAttachmentSpaceResponseBody) SetSuccess(v bool) *GetAttachmentSpaceR
 }
 
 type GetAttachmentSpaceResponseBodyResult struct {
-	// 钉盘空间ID。
 	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
@@ -1994,8 +1904,9 @@ func (s *GetAttachmentSpaceResponseBodyResult) SetSpaceId(v int64) *GetAttachmen
 }
 
 type GetAttachmentSpaceResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetAttachmentSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAttachmentSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetAttachmentSpaceResponse) String() string {
@@ -2008,6 +1919,11 @@ func (s GetAttachmentSpaceResponse) GoString() string {
 
 func (s *GetAttachmentSpaceResponse) SetHeaders(v map[string]*string) *GetAttachmentSpaceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetAttachmentSpaceResponse) SetStatusCode(v int32) *GetAttachmentSpaceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2040,11 +1956,7 @@ func (s *GetConditionFormComponentHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetConditionFormComponentRequest struct {
-	// 应用ID (三方应用为AppID)，可在开发者管理后台后台的应用详情页面获取。
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 审批模板ID。
-	//
-	// processCode需要OA管理后台，在编辑审批表单的URL中获取。
+	AgentId     *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -2067,7 +1979,6 @@ func (s *GetConditionFormComponentRequest) SetProcessCode(v string) *GetConditio
 }
 
 type GetConditionFormComponentResponseBody struct {
-	// 返回结果。
 	Result []*GetConditionFormComponentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2085,9 +1996,7 @@ func (s *GetConditionFormComponentResponseBody) SetResult(v []*GetConditionFormC
 }
 
 type GetConditionFormComponentResponseBodyResult struct {
-	// 表单ID。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 表单名称。
+	Id    *string `json:"id,omitempty" xml:"id,omitempty"`
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
 }
 
@@ -2110,8 +2019,9 @@ func (s *GetConditionFormComponentResponseBodyResult) SetLabel(v string) *GetCon
 }
 
 type GetConditionFormComponentResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetConditionFormComponentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetConditionFormComponentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetConditionFormComponentResponse) String() string {
@@ -2124,6 +2034,11 @@ func (s GetConditionFormComponentResponse) GoString() string {
 
 func (s *GetConditionFormComponentResponse) SetHeaders(v map[string]*string) *GetConditionFormComponentResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetConditionFormComponentResponse) SetStatusCode(v int32) *GetConditionFormComponentResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2156,7 +2071,6 @@ func (s *GetCrmProcCodesHeaders) SetXAcsDingtalkAccessToken(v string) *GetCrmPro
 }
 
 type GetCrmProcCodesResponseBody struct {
-	// 模板code列表。
 	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2174,8 +2088,9 @@ func (s *GetCrmProcCodesResponseBody) SetResult(v []*string) *GetCrmProcCodesRes
 }
 
 type GetCrmProcCodesResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCrmProcCodesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetCrmProcCodesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetCrmProcCodesResponse) String() string {
@@ -2188,6 +2103,11 @@ func (s GetCrmProcCodesResponse) GoString() string {
 
 func (s *GetCrmProcCodesResponse) SetHeaders(v map[string]*string) *GetCrmProcCodesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetCrmProcCodesResponse) SetStatusCode(v int32) *GetCrmProcCodesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2220,7 +2140,6 @@ func (s *GetManageProcessByStaffIdHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetManageProcessByStaffIdRequest struct {
-	// 用户的userid。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2238,10 +2157,8 @@ func (s *GetManageProcessByStaffIdRequest) SetUserId(v string) *GetManageProcess
 }
 
 type GetManageProcessByStaffIdResponseBody struct {
-	// 返回结果列表。
-	Result []*GetManageProcessByStaffIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	// 接口调用是否成功。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  []*GetManageProcessByStaffIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                          `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetManageProcessByStaffIdResponseBody) String() string {
@@ -2263,24 +2180,13 @@ func (s *GetManageProcessByStaffIdResponseBody) SetSuccess(v bool) *GetManagePro
 }
 
 type GetManageProcessByStaffIdResponseBodyResult struct {
-	// 关联考勤类型，取值。
-	//
-	// 0：无
-	// 1：补卡申请
-	// 2：请假
-	AttendanceType *int32 `json:"attendanceType,omitempty" xml:"attendanceType,omitempty"`
-	// 模版名称。
-	FlowTitle *string `json:"flowTitle,omitempty" xml:"flowTitle,omitempty"`
-	// 修改时间。
-	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// 模板图标名。
-	IconName *string `json:"iconName,omitempty" xml:"iconName,omitempty"`
-	// 图标URL地址。
-	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
-	// 是否新模版。
-	NewProcess *bool `json:"newProcess,omitempty" xml:"newProcess,omitempty"`
-	// 模版code。
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	AttendanceType *int32  `json:"attendanceType,omitempty" xml:"attendanceType,omitempty"`
+	FlowTitle      *string `json:"flowTitle,omitempty" xml:"flowTitle,omitempty"`
+	GmtModified    *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	IconName       *string `json:"iconName,omitempty" xml:"iconName,omitempty"`
+	IconUrl        *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	NewProcess     *bool   `json:"newProcess,omitempty" xml:"newProcess,omitempty"`
+	ProcessCode    *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
 func (s GetManageProcessByStaffIdResponseBodyResult) String() string {
@@ -2327,8 +2233,9 @@ func (s *GetManageProcessByStaffIdResponseBodyResult) SetProcessCode(v string) *
 }
 
 type GetManageProcessByStaffIdResponse struct {
-	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetManageProcessByStaffIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetManageProcessByStaffIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetManageProcessByStaffIdResponse) String() string {
@@ -2341,6 +2248,11 @@ func (s GetManageProcessByStaffIdResponse) GoString() string {
 
 func (s *GetManageProcessByStaffIdResponse) SetHeaders(v map[string]*string) *GetManageProcessByStaffIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetManageProcessByStaffIdResponse) SetStatusCode(v int32) *GetManageProcessByStaffIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2373,7 +2285,6 @@ func (s *GetProcessCodeByNameHeaders) SetXAcsDingtalkAccessToken(v string) *GetP
 }
 
 type GetProcessCodeByNameRequest struct {
-	// 模板名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -2391,7 +2302,6 @@ func (s *GetProcessCodeByNameRequest) SetName(v string) *GetProcessCodeByNameReq
 }
 
 type GetProcessCodeByNameResponseBody struct {
-	// 表单模板信息
 	Result *GetProcessCodeByNameResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -2409,7 +2319,6 @@ func (s *GetProcessCodeByNameResponseBody) SetResult(v *GetProcessCodeByNameResp
 }
 
 type GetProcessCodeByNameResponseBodyResult struct {
-	// 保存或更新的表单code
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -2427,8 +2336,9 @@ func (s *GetProcessCodeByNameResponseBodyResult) SetProcessCode(v string) *GetPr
 }
 
 type GetProcessCodeByNameResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetProcessCodeByNameResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetProcessCodeByNameResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetProcessCodeByNameResponse) String() string {
@@ -2441,6 +2351,11 @@ func (s GetProcessCodeByNameResponse) GoString() string {
 
 func (s *GetProcessCodeByNameResponse) SetHeaders(v map[string]*string) *GetProcessCodeByNameResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetProcessCodeByNameResponse) SetStatusCode(v int32) *GetProcessCodeByNameResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2473,7 +2388,6 @@ func (s *GetProcessConfigHeaders) SetXAcsDingtalkAccessToken(v string) *GetProce
 }
 
 type GetProcessConfigRequest struct {
-	// 模板code
 	ProcCode *string `json:"procCode,omitempty" xml:"procCode,omitempty"`
 }
 
@@ -2508,44 +2422,25 @@ func (s *GetProcessConfigResponseBody) SetResult(v *GetProcessConfigResponseBody
 }
 
 type GetProcessConfigResponseBodyResult struct {
-	// 自定义摘要信息
-	AbstractGenRule []*string `json:"abstractGenRule,omitempty" xml:"abstractGenRule,omitempty" type:"Repeated"`
-	// 表单节点权限
-	ActivityAuth *string `json:"activityAuth,omitempty" xml:"activityAuth,omitempty"`
-	// 是否允许撤销
-	AllowRevoke *bool `json:"allowRevoke,omitempty" xml:"allowRevoke,omitempty"`
-	// 是否允许加签
-	AppendEnable *bool `json:"appendEnable,omitempty" xml:"appendEnable,omitempty"`
-	// 如果审批人和发起人是同一个人，则去重
-	AutoExecuteOriginatorTasks *bool `json:"autoExecuteOriginatorTasks,omitempty" xml:"autoExecuteOriginatorTasks,omitempty"`
-	// 流程表单业务标识
-	BizCategoryId *string `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
-	// 纯表单业务标识
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 评论配置
-	CommentConf *GetProcessConfigResponseBodyResultCommentConf `json:"commentConf,omitempty" xml:"commentConf,omitempty" type:"Struct"`
-	// 审批人自动去重
-	DuplicateRemoval *string `json:"duplicateRemoval,omitempty" xml:"duplicateRemoval,omitempty"`
-	// 表单配置
-	FormSchema *string `json:"formSchema,omitempty" xml:"formSchema,omitempty"`
-	// 手写签名配置
-	HandSignConf *GetProcessConfigResponseBodyResultHandSignConf `json:"handSignConf,omitempty" xml:"handSignConf,omitempty" type:"Struct"`
-	// 表单管理员
-	Managers []*string `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
-	// 表单名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 是否流程表单
-	ProcessAppType *bool `json:"processAppType,omitempty" xml:"processAppType,omitempty"`
-	// 流程配置
-	ProcessConfig *string `json:"processConfig,omitempty" xml:"processConfig,omitempty"`
-	// 是否静态流程
-	StaticProc *bool `json:"staticProc,omitempty" xml:"staticProc,omitempty"`
-	// 代提交配置
-	SubstituteSubmitConf *GetProcessConfigResponseBodyResultSubstituteSubmitConf `json:"substituteSubmitConf,omitempty" xml:"substituteSubmitConf,omitempty" type:"Struct"`
-	// 自定义标题规则
-	TitleGenRule *GetProcessConfigResponseBodyResultTitleGenRule `json:"titleGenRule,omitempty" xml:"titleGenRule,omitempty" type:"Struct"`
-	// 模板可见性
-	Visibility []*GetProcessConfigResponseBodyResultVisibility `json:"visibility,omitempty" xml:"visibility,omitempty" type:"Repeated"`
+	AbstractGenRule            []*string                                               `json:"abstractGenRule,omitempty" xml:"abstractGenRule,omitempty" type:"Repeated"`
+	ActivityAuth               *string                                                 `json:"activityAuth,omitempty" xml:"activityAuth,omitempty"`
+	AllowRevoke                *bool                                                   `json:"allowRevoke,omitempty" xml:"allowRevoke,omitempty"`
+	AppendEnable               *bool                                                   `json:"appendEnable,omitempty" xml:"appendEnable,omitempty"`
+	AutoExecuteOriginatorTasks *bool                                                   `json:"autoExecuteOriginatorTasks,omitempty" xml:"autoExecuteOriginatorTasks,omitempty"`
+	BizCategoryId              *string                                                 `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	BizType                    *string                                                 `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CommentConf                *GetProcessConfigResponseBodyResultCommentConf          `json:"commentConf,omitempty" xml:"commentConf,omitempty" type:"Struct"`
+	DuplicateRemoval           *string                                                 `json:"duplicateRemoval,omitempty" xml:"duplicateRemoval,omitempty"`
+	FormSchema                 *string                                                 `json:"formSchema,omitempty" xml:"formSchema,omitempty"`
+	HandSignConf               *GetProcessConfigResponseBodyResultHandSignConf         `json:"handSignConf,omitempty" xml:"handSignConf,omitempty" type:"Struct"`
+	Managers                   []*string                                               `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
+	Name                       *string                                                 `json:"name,omitempty" xml:"name,omitempty"`
+	ProcessAppType             *bool                                                   `json:"processAppType,omitempty" xml:"processAppType,omitempty"`
+	ProcessConfig              *string                                                 `json:"processConfig,omitempty" xml:"processConfig,omitempty"`
+	StaticProc                 *bool                                                   `json:"staticProc,omitempty" xml:"staticProc,omitempty"`
+	SubstituteSubmitConf       *GetProcessConfigResponseBodyResultSubstituteSubmitConf `json:"substituteSubmitConf,omitempty" xml:"substituteSubmitConf,omitempty" type:"Struct"`
+	TitleGenRule               *GetProcessConfigResponseBodyResultTitleGenRule         `json:"titleGenRule,omitempty" xml:"titleGenRule,omitempty" type:"Struct"`
+	Visibility                 []*GetProcessConfigResponseBodyResultVisibility         `json:"visibility,omitempty" xml:"visibility,omitempty" type:"Repeated"`
 }
 
 func (s GetProcessConfigResponseBodyResult) String() string {
@@ -2652,12 +2547,9 @@ func (s *GetProcessConfigResponseBodyResult) SetVisibility(v []*GetProcessConfig
 }
 
 type GetProcessConfigResponseBodyResultCommentConf struct {
-	// 提示内容
-	CommentDescription *string `json:"commentDescription,omitempty" xml:"commentDescription,omitempty"`
-	// 评论对发起人不可见
-	CommentHiddenForProposer *bool `json:"commentHiddenForProposer,omitempty" xml:"commentHiddenForProposer,omitempty"`
-	// 评论必填
-	CommentRequired *bool `json:"commentRequired,omitempty" xml:"commentRequired,omitempty"`
+	CommentDescription       *string `json:"commentDescription,omitempty" xml:"commentDescription,omitempty"`
+	CommentHiddenForProposer *bool   `json:"commentHiddenForProposer,omitempty" xml:"commentHiddenForProposer,omitempty"`
+	CommentRequired          *bool   `json:"commentRequired,omitempty" xml:"commentRequired,omitempty"`
 }
 
 func (s GetProcessConfigResponseBodyResultCommentConf) String() string {
@@ -2684,10 +2576,8 @@ func (s *GetProcessConfigResponseBodyResultCommentConf) SetCommentRequired(v boo
 }
 
 type GetProcessConfigResponseBodyResultHandSignConf struct {
-	// 开启手写签名
 	HandSignEnable *bool `json:"handSignEnable,omitempty" xml:"handSignEnable,omitempty"`
-	// 是否使用上次签名
-	ResignEnable *bool `json:"resignEnable,omitempty" xml:"resignEnable,omitempty"`
+	ResignEnable   *bool `json:"resignEnable,omitempty" xml:"resignEnable,omitempty"`
 }
 
 func (s GetProcessConfigResponseBodyResultHandSignConf) String() string {
@@ -2709,9 +2599,7 @@ func (s *GetProcessConfigResponseBodyResultHandSignConf) SetResignEnable(v bool)
 }
 
 type GetProcessConfigResponseBodyResultSubstituteSubmitConf struct {
-	// 是否允许代提交
-	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
-	// 代提交人
+	Enable        *bool                                                                  `json:"enable,omitempty" xml:"enable,omitempty"`
 	SubmitterList []*GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList `json:"submitterList,omitempty" xml:"submitterList,omitempty" type:"Repeated"`
 }
 
@@ -2734,11 +2622,8 @@ func (s *GetProcessConfigResponseBodyResultSubstituteSubmitConf) SetSubmitterLis
 }
 
 type GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList struct {
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 类型
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 员工staffId/部门id
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -2766,10 +2651,8 @@ func (s *GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList) Se
 }
 
 type GetProcessConfigResponseBodyResultTitleGenRule struct {
-	// 规则表达式
 	Express *string `json:"express,omitempty" xml:"express,omitempty"`
-	// 规则类型
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	Type    *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetProcessConfigResponseBodyResultTitleGenRule) String() string {
@@ -2791,9 +2674,7 @@ func (s *GetProcessConfigResponseBodyResultTitleGenRule) SetType(v int32) *GetPr
 }
 
 type GetProcessConfigResponseBodyResultVisibility struct {
-	// 类型
-	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
-	// 员工staffId/部门id
+	Type  *int32  `json:"type,omitempty" xml:"type,omitempty"`
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -2816,8 +2697,9 @@ func (s *GetProcessConfigResponseBodyResultVisibility) SetValue(v string) *GetPr
 }
 
 type GetProcessConfigResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetProcessConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetProcessConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetProcessConfigResponse) String() string {
@@ -2830,6 +2712,11 @@ func (s GetProcessConfigResponse) GoString() string {
 
 func (s *GetProcessConfigResponse) SetHeaders(v map[string]*string) *GetProcessConfigResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetProcessConfigResponse) SetStatusCode(v int32) *GetProcessConfigResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2862,7 +2749,6 @@ func (s *GetProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *GetPro
 }
 
 type GetProcessInstanceRequest struct {
-	// 审批实例ID企业内部应用可通过获取审批实例ID列表接口获取。钉钉三方企业应用可以通过推送的审批事件中获取，参考biz_type=22。
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
@@ -2880,10 +2766,8 @@ func (s *GetProcessInstanceRequest) SetProcessInstanceId(v string) *GetProcessIn
 }
 
 type GetProcessInstanceResponseBody struct {
-	// 返回结果。
-	Result *GetProcessInstanceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 调用是否成功。
-	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *GetProcessInstanceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                               `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBody) String() string {
@@ -2905,40 +2789,23 @@ func (s *GetProcessInstanceResponseBody) SetSuccess(v string) *GetProcessInstanc
 }
 
 type GetProcessInstanceResponseBodyResult struct {
-	// 审批人userid列表。
-	ApproverUserIds []*string `json:"approverUserIds,omitempty" xml:"approverUserIds,omitempty" type:"Repeated"`
-	// 审批附属实例列表，当已经通过的审批实例被修改或撤销，会生成一个新的实例，作为原有审批实例的附属。  如果想知道当前已经通过的审批实例的状态，可以依次遍历它的附属列表，查询里面每个实例的biz_action。
-	AttachedProcessInstanceIds []*string `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty" type:"Repeated"`
-	// 审批实例业务动作：  MODIFY：表示该审批实例是基于原来的实例修改而来  REVOKE：表示该审批实例是由原来的实例撤销后重新发起的  NONE表示正常发起
-	BizAction *string `json:"bizAction,omitempty" xml:"bizAction,omitempty"`
-	// 审批实例业务编号。
-	BusinessId *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
-	// 抄送人userid列表。
-	CcUserIds []*string `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
-	// 创建时间。
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 结束时间。
-	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	// 表单详情列表。
-	FormComponentValues []*GetProcessInstanceResponseBodyResultFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
-	// 主流程实例标识。
-	MainProcessInstanceId *string `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
-	// 操作记录列表。
-	OperationRecords []*GetProcessInstanceResponseBodyResultOperationRecords `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
-	// 发起人的部门。-1表示根部门。
-	OriginatorDeptId *string `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
-	// 发起人的部门名。
-	OriginatorDeptName *string `json:"originatorDeptName,omitempty" xml:"originatorDeptName,omitempty"`
-	// 发起人的userid。
-	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
-	// 审批结果：  agree：同意  refuse：拒绝。 说明 status为COMPLETED且result为同意时，表示审批单完结并审批通过。
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 审批状态：  NEW：新创建  RUNNING：审批中  TERMINATED：被终止  COMPLETED：完成  CANCELED：取消
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 任务列表。
-	Tasks []*GetProcessInstanceResponseBodyResultTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
-	// 审批实例标题。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	ApproverUserIds            []*string                                                  `json:"approverUserIds,omitempty" xml:"approverUserIds,omitempty" type:"Repeated"`
+	AttachedProcessInstanceIds []*string                                                  `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty" type:"Repeated"`
+	BizAction                  *string                                                    `json:"bizAction,omitempty" xml:"bizAction,omitempty"`
+	BusinessId                 *string                                                    `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CcUserIds                  []*string                                                  `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
+	CreateTime                 *string                                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FinishTime                 *string                                                    `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	FormComponentValues        []*GetProcessInstanceResponseBodyResultFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	MainProcessInstanceId      *string                                                    `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	OperationRecords           []*GetProcessInstanceResponseBodyResultOperationRecords    `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
+	OriginatorDeptId           *string                                                    `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
+	OriginatorDeptName         *string                                                    `json:"originatorDeptName,omitempty" xml:"originatorDeptName,omitempty"`
+	OriginatorUserId           *string                                                    `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	Result                     *string                                                    `json:"result,omitempty" xml:"result,omitempty"`
+	Status                     *string                                                    `json:"status,omitempty" xml:"status,omitempty"`
+	Tasks                      []*GetProcessInstanceResponseBodyResultTasks               `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	Title                      *string                                                    `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBodyResult) String() string {
@@ -3035,18 +2902,12 @@ func (s *GetProcessInstanceResponseBodyResult) SetTitle(v string) *GetProcessIns
 }
 
 type GetProcessInstanceResponseBodyResultFormComponentValues struct {
-	// 组件别名。
-	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 组件类型。
+	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	// 标签扩展值。
-	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	// 组件ID。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 组件名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 标签值。
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBodyResultFormComponentValues) String() string {
@@ -3088,20 +2949,13 @@ func (s *GetProcessInstanceResponseBodyResultFormComponentValues) SetValue(v str
 }
 
 type GetProcessInstanceResponseBodyResultOperationRecords struct {
-	// 评论附件列表。
 	Attachments []*GetProcessInstanceResponseBodyResultOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	// 抄送人userIds列表
-	CcUserIds []*string `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
-	// 操作时间。
-	Date *string `json:"date,omitempty" xml:"date,omitempty"`
-	// 评论内容。  审批操作附带评论时才返回该字段。
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 操作结果：  AGREE：同意  REFUSE：拒绝  NONE
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 操作类型：  EXECUTE_TASK_NORMAL：正常执行任务  EXECUTE_TASK_AGENT：代理人执行任务  APPEND_TASK_BEFORE：前加签任务  APPEND_TASK_AFTER：后加签任务  REDIRECT_TASK：转交任务  START_PROCESS_INSTANCE：发起流程实例  TERMINATE_PROCESS_INSTANCE：终止(撤销)流程实例  FINISH_PROCESS_INSTANCE：结束流程实例  ADD_REMARK：添加评论  REDIRECT_PROCESS：审批退回  PROCESS_CC：抄送
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 操作人userid。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	CcUserIds   []*string                                                          `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
+	Date        *string                                                            `json:"date,omitempty" xml:"date,omitempty"`
+	Remark      *string                                                            `json:"remark,omitempty" xml:"remark,omitempty"`
+	Result      *string                                                            `json:"result,omitempty" xml:"result,omitempty"`
+	Type        *string                                                            `json:"type,omitempty" xml:"type,omitempty"`
+	UserId      *string                                                            `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBodyResultOperationRecords) String() string {
@@ -3148,13 +3002,9 @@ func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetUserId(v strin
 }
 
 type GetProcessInstanceResponseBodyResultOperationRecordsAttachments struct {
-	// 附件ID。
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 附件名称。
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 附件大小。
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	// 附件类型。
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
 }
 
@@ -3187,26 +3037,16 @@ func (s *GetProcessInstanceResponseBodyResultOperationRecordsAttachments) SetFil
 }
 
 type GetProcessInstanceResponseBodyResultTasks struct {
-	// 任务节点ID。
-	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	// 开始时间。
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 结束时间。
-	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	// 移动端任务URL。
-	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	// PC端任务URL。
-	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	// 实例ID。
+	ActivityId        *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	CreateTime        *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FinishTime        *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	MobileUrl         *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	PcUrl             *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 结果：  AGREE：同意  REFUSE：拒绝  REDIRECTED：转交
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 任务状态：  NEW：未启动  RUNNING：处理中  PAUSED：暂停  CANCELED：取消  COMPLETED：完成  TERMINATED：终止
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 任务ID。
-	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 任务处理人。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Result            *string `json:"result,omitempty" xml:"result,omitempty"`
+	Status            *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId            *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBodyResultTasks) String() string {
@@ -3268,8 +3108,9 @@ func (s *GetProcessInstanceResponseBodyResultTasks) SetUserId(v string) *GetProc
 }
 
 type GetProcessInstanceResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetProcessInstanceResponse) String() string {
@@ -3282,6 +3123,11 @@ func (s GetProcessInstanceResponse) GoString() string {
 
 func (s *GetProcessInstanceResponse) SetHeaders(v map[string]*string) *GetProcessInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetProcessInstanceResponse) SetStatusCode(v int32) *GetProcessInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3314,24 +3160,11 @@ func (s *GetSpaceWithDownloadAuthHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type GetSpaceWithDownloadAuthRequest struct {
-	// 应用的agentid。
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// 审批附件ID。
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 附件ID列表，支持批量授权，最大列表长度：20。
-	FileIdList []*string `json:"fileIdList,omitempty" xml:"fileIdList,omitempty" type:"Repeated"`
-	// 实例ID。
-	//
-	// 企业内部应用
-	//
-	// 可通过获取审批实例ID列表接口获取。
-	//
-	// 第三方企业应用
-	//
-	// 可以通过推送的审批事件中获取，参考biz_type=22。
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 授权允许预览附件的用户userid。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	AgentId           *int64    `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	FileId            *string   `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileIdList        []*string `json:"fileIdList,omitempty" xml:"fileIdList,omitempty" type:"Repeated"`
+	ProcessInstanceId *string   `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	UserId            *string   `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetSpaceWithDownloadAuthRequest) String() string {
@@ -3368,10 +3201,8 @@ func (s *GetSpaceWithDownloadAuthRequest) SetUserId(v string) *GetSpaceWithDownl
 }
 
 type GetSpaceWithDownloadAuthResponseBody struct {
-	// 返回结果。
-	Result *GetSpaceWithDownloadAuthResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 接口调用是否成功。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *GetSpaceWithDownloadAuthResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetSpaceWithDownloadAuthResponseBody) String() string {
@@ -3393,7 +3224,6 @@ func (s *GetSpaceWithDownloadAuthResponseBody) SetSuccess(v bool) *GetSpaceWithD
 }
 
 type GetSpaceWithDownloadAuthResponseBodyResult struct {
-	// 钉盘空间ID。
 	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
@@ -3411,8 +3241,9 @@ func (s *GetSpaceWithDownloadAuthResponseBodyResult) SetSpaceId(v int64) *GetSpa
 }
 
 type GetSpaceWithDownloadAuthResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetSpaceWithDownloadAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSpaceWithDownloadAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetSpaceWithDownloadAuthResponse) String() string {
@@ -3425,6 +3256,11 @@ func (s GetSpaceWithDownloadAuthResponse) GoString() string {
 
 func (s *GetSpaceWithDownloadAuthResponse) SetHeaders(v map[string]*string) *GetSpaceWithDownloadAuthResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetSpaceWithDownloadAuthResponse) SetStatusCode(v int32) *GetSpaceWithDownloadAuthResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3457,7 +3293,6 @@ func (s *GetUserTodoTaskSumHeaders) SetXAcsDingtalkAccessToken(v string) *GetUse
 }
 
 type GetUserTodoTaskSumRequest struct {
-	// 要查询的用户userid。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3475,7 +3310,6 @@ func (s *GetUserTodoTaskSumRequest) SetUserId(v string) *GetUserTodoTaskSumReque
 }
 
 type GetUserTodoTaskSumResponseBody struct {
-	// 待处理的审批数量。
 	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3493,8 +3327,9 @@ func (s *GetUserTodoTaskSumResponseBody) SetResult(v int32) *GetUserTodoTaskSumR
 }
 
 type GetUserTodoTaskSumResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetUserTodoTaskSumResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserTodoTaskSumResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetUserTodoTaskSumResponse) String() string {
@@ -3507,6 +3342,11 @@ func (s GetUserTodoTaskSumResponse) GoString() string {
 
 func (s *GetUserTodoTaskSumResponse) SetHeaders(v map[string]*string) *GetUserTodoTaskSumResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetUserTodoTaskSumResponse) SetStatusCode(v int32) *GetUserTodoTaskSumResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3539,14 +3379,10 @@ func (s *GrantCspaceAuthorizationHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type GrantCspaceAuthorizationRequest struct {
-	// 权限有效时间，单位为秒。
-	DurationSeconds *int64 `json:"durationSeconds,omitempty" xml:"durationSeconds,omitempty"`
-	// 审批控件 id。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 权限类型。
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 用户 id。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	DurationSeconds *int64  `json:"durationSeconds,omitempty" xml:"durationSeconds,omitempty"`
+	SpaceId         *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	Type            *string `json:"type,omitempty" xml:"type,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GrantCspaceAuthorizationRequest) String() string {
@@ -3578,7 +3414,8 @@ func (s *GrantCspaceAuthorizationRequest) SetUserId(v string) *GrantCspaceAuthor
 }
 
 type GrantCspaceAuthorizationResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
 }
 
 func (s GrantCspaceAuthorizationResponse) String() string {
@@ -3591,6 +3428,11 @@ func (s GrantCspaceAuthorizationResponse) GoString() string {
 
 func (s *GrantCspaceAuthorizationResponse) SetHeaders(v map[string]*string) *GrantCspaceAuthorizationResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationResponse) SetStatusCode(v int32) *GrantCspaceAuthorizationResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3618,11 +3460,7 @@ func (s *GrantProcessInstanceForDownloadFileHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type GrantProcessInstanceForDownloadFileRequest struct {
-	// 文件id，调用获取审批实例详情接口获取。
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 实例ID。
-	//
-	// 调用获取审批实例详情接口获取。
+	FileId            *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
@@ -3645,10 +3483,8 @@ func (s *GrantProcessInstanceForDownloadFileRequest) SetProcessInstanceId(v stri
 }
 
 type GrantProcessInstanceForDownloadFileResponseBody struct {
-	// 返回结果。
-	Result *GrantProcessInstanceForDownloadFileResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 接口调用是否成功。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *GrantProcessInstanceForDownloadFileResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                                  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GrantProcessInstanceForDownloadFileResponseBody) String() string {
@@ -3670,12 +3506,9 @@ func (s *GrantProcessInstanceForDownloadFileResponseBody) SetSuccess(v bool) *Gr
 }
 
 type GrantProcessInstanceForDownloadFileResponseBodyResult struct {
-	// 文件下载地址。
 	DownloadUri *string `json:"downloadUri,omitempty" xml:"downloadUri,omitempty"`
-	// 文件ID。
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 钉盘空间ID。
-	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	FileId      *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	SpaceId     *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s GrantProcessInstanceForDownloadFileResponseBodyResult) String() string {
@@ -3702,8 +3535,9 @@ func (s *GrantProcessInstanceForDownloadFileResponseBodyResult) SetSpaceId(v int
 }
 
 type GrantProcessInstanceForDownloadFileResponse struct {
-	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GrantProcessInstanceForDownloadFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GrantProcessInstanceForDownloadFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GrantProcessInstanceForDownloadFileResponse) String() string {
@@ -3716,6 +3550,11 @@ func (s GrantProcessInstanceForDownloadFileResponse) GoString() string {
 
 func (s *GrantProcessInstanceForDownloadFileResponse) SetHeaders(v map[string]*string) *GrantProcessInstanceForDownloadFileResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GrantProcessInstanceForDownloadFileResponse) SetStatusCode(v int32) *GrantProcessInstanceForDownloadFileResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3748,13 +3587,9 @@ func (s *InstallAppHeaders) SetXAcsDingtalkAccessToken(v string) *InstallAppHead
 }
 
 type InstallAppRequest struct {
-	// 业务分组
-	BizGroup *string `json:"bizGroup,omitempty" xml:"bizGroup,omitempty"`
-	// 安装选项
-	//
+	BizGroup      *string                         `json:"bizGroup,omitempty" xml:"bizGroup,omitempty"`
 	InstallOption *InstallAppRequestInstallOption `json:"installOption,omitempty" xml:"installOption,omitempty" type:"Struct"`
-	// 安装的目录名称
-	SourceDirName *string `json:"sourceDirName,omitempty" xml:"sourceDirName,omitempty"`
+	SourceDirName *string                         `json:"sourceDirName,omitempty" xml:"sourceDirName,omitempty"`
 }
 
 func (s InstallAppRequest) String() string {
@@ -3781,7 +3616,6 @@ func (s *InstallAppRequest) SetSourceDirName(v string) *InstallAppRequest {
 }
 
 type InstallAppRequestInstallOption struct {
-	// 是否同步，目前只有同步
 	IsSync *bool `json:"isSync,omitempty" xml:"isSync,omitempty"`
 }
 
@@ -3799,7 +3633,6 @@ func (s *InstallAppRequestInstallOption) SetIsSync(v bool) *InstallAppRequestIns
 }
 
 type InstallAppResponseBody struct {
-	// 返回对象列表
 	Result []*InstallAppResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3817,11 +3650,8 @@ func (s *InstallAppResponseBody) SetResult(v []*InstallAppResponseBodyResult) *I
 }
 
 type InstallAppResponseBodyResult struct {
-	// 套件业务类型
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 模版名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 模版processcode
+	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -3849,8 +3679,9 @@ func (s *InstallAppResponseBodyResult) SetProcessCode(v string) *InstallAppRespo
 }
 
 type InstallAppResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *InstallAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *InstallAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s InstallAppResponse) String() string {
@@ -3863,6 +3694,11 @@ func (s InstallAppResponse) GoString() string {
 
 func (s *InstallAppResponse) SetHeaders(v map[string]*string) *InstallAppResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *InstallAppResponse) SetStatusCode(v int32) *InstallAppResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -3895,29 +3731,13 @@ func (s *ListProcessInstanceIdsHeaders) SetXAcsDingtalkAccessToken(v string) *Li
 }
 
 type ListProcessInstanceIdsRequest struct {
-	// 审批实例结束时间，Unix时间戳，单位毫秒。  例如：获取审批单发起时间在2020.4.10-2020.4.14之间审批单，该值传2020.4.14 23:59:59对应的时间戳1586879999000。
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 分页参数，每页大小，最多传20。
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页查询的游标，最开始传0，后续传返回参数中的nextToken值。
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 审批流的唯一码。
-	//
-	// processCode在审批模板编辑页面的URL中获取。
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 审批实例开始时间。Unix时间戳，单位毫秒。
-	//
-	// 例如：获取审批单发起时间在2020.4.10-2020.4.14之间审批单，该值传2020.4.10 00:00:00对应的时间戳1586448000000。
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 流程实例状态，未传值代表查询所有状态的实例ID列表。
-	// NEW：新创建
-	// RUNNING：审批中
-	// TERMINATED：被终止
-	// COMPLETED：完成
-	// CANCELED：取消
-	Statuses []*string `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
-	// 发起userid列表，最大列表长度为10。
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	EndTime     *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	MaxResults  *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken   *int64    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ProcessCode *string   `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	StartTime   *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Statuses    []*string `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
+	UserIds     []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s ListProcessInstanceIdsRequest) String() string {
@@ -3964,10 +3784,8 @@ func (s *ListProcessInstanceIdsRequest) SetUserIds(v []*string) *ListProcessInst
 }
 
 type ListProcessInstanceIdsResponseBody struct {
-	// 返回结果。
-	Result *ListProcessInstanceIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// 接口请求是否成功。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *ListProcessInstanceIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ListProcessInstanceIdsResponseBody) String() string {
@@ -3989,10 +3807,8 @@ func (s *ListProcessInstanceIdsResponseBody) SetSuccess(v bool) *ListProcessInst
 }
 
 type ListProcessInstanceIdsResponseBodyResult struct {
-	// 审批实例ID列表。
-	List []*string `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 表示下次查询的游标，当返回结果没有该字段时表示没有更多数据了。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	List      []*string `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListProcessInstanceIdsResponseBodyResult) String() string {
@@ -4014,8 +3830,9 @@ func (s *ListProcessInstanceIdsResponseBodyResult) SetNextToken(v string) *ListP
 }
 
 type ListProcessInstanceIdsResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListProcessInstanceIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListProcessInstanceIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListProcessInstanceIdsResponse) String() string {
@@ -4028,6 +3845,11 @@ func (s ListProcessInstanceIdsResponse) GoString() string {
 
 func (s *ListProcessInstanceIdsResponse) SetHeaders(v map[string]*string) *ListProcessInstanceIdsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListProcessInstanceIdsResponse) SetStatusCode(v int32) *ListProcessInstanceIdsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4060,23 +3882,10 @@ func (s *ListTodoWorkRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *ListT
 }
 
 type ListTodoWorkRecordsRequest struct {
-	// 分页大小，最大值50。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标。
-	//
-	// 如果是首次调用，该参数传0。
-	// 如果是非首次调用，该参数传上次调用时返回的nextToken。
-	//
-	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 待办事项的状态：
-	//
-	// 0：待处理
-	//
-	// -1：已经移除
-	//
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 要查询的执行人userid。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Status     *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListTodoWorkRecordsRequest) String() string {
@@ -4108,7 +3917,6 @@ func (s *ListTodoWorkRecordsRequest) SetUserId(v string) *ListTodoWorkRecordsReq
 }
 
 type ListTodoWorkRecordsResponseBody struct {
-	// 查询结果。
 	Result *ListTodoWorkRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -4126,10 +3934,8 @@ func (s *ListTodoWorkRecordsResponseBody) SetResult(v *ListTodoWorkRecordsRespon
 }
 
 type ListTodoWorkRecordsResponseBodyResult struct {
-	// 待办事项列表。
-	List []*ListTodoWorkRecordsResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 分页游标。不为空表示有数据。
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	List      []*ListTodoWorkRecordsResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *int64                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListTodoWorkRecordsResponseBodyResult) String() string {
@@ -4151,16 +3957,11 @@ func (s *ListTodoWorkRecordsResponseBodyResult) SetNextToken(v int64) *ListTodoW
 }
 
 type ListTodoWorkRecordsResponseBodyResultList struct {
-	// 表单列表。
-	Forms []*ListTodoWorkRecordsResponseBodyResultListForms `json:"forms,omitempty" xml:"forms,omitempty" type:"Repeated"`
-	// 实例ID。
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	// 待办任务ID。
-	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 待办标题。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 待办跳转链接。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	Forms      []*ListTodoWorkRecordsResponseBodyResultListForms `json:"forms,omitempty" xml:"forms,omitempty" type:"Repeated"`
+	InstanceId *string                                           `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	TaskId     *int64                                            `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Title      *string                                           `json:"title,omitempty" xml:"title,omitempty"`
+	Url        *string                                           `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s ListTodoWorkRecordsResponseBodyResultList) String() string {
@@ -4197,10 +3998,8 @@ func (s *ListTodoWorkRecordsResponseBodyResultList) SetUrl(v string) *ListTodoWo
 }
 
 type ListTodoWorkRecordsResponseBodyResultListForms struct {
-	// 表单内容。
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 表单标题。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Title   *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s ListTodoWorkRecordsResponseBodyResultListForms) String() string {
@@ -4222,8 +4021,9 @@ func (s *ListTodoWorkRecordsResponseBodyResultListForms) SetTitle(v string) *Lis
 }
 
 type ListTodoWorkRecordsResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListTodoWorkRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListTodoWorkRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListTodoWorkRecordsResponse) String() string {
@@ -4236,6 +4036,11 @@ func (s ListTodoWorkRecordsResponse) GoString() string {
 
 func (s *ListTodoWorkRecordsResponse) SetHeaders(v map[string]*string) *ListTodoWorkRecordsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListTodoWorkRecordsResponse) SetStatusCode(v int32) *ListTodoWorkRecordsResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4268,12 +4073,9 @@ func (s *ListUserVisibleBpmsProcessesHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type ListUserVisibleBpmsProcessesRequest struct {
-	// 分页大小，最大可设置成100。
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标，从0开始。根据返回结果里的nextToken是否为空来判断是否还有下一页，且再次调用时设置成nextToken的最新值。
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 要查询的员工的userid。不传表示查询企业下所有审批表单。
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListUserVisibleBpmsProcessesRequest) String() string {
@@ -4300,7 +4102,6 @@ func (s *ListUserVisibleBpmsProcessesRequest) SetUserId(v string) *ListUserVisib
 }
 
 type ListUserVisibleBpmsProcessesResponseBody struct {
-	// 返回结果。
 	Result *ListUserVisibleBpmsProcessesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -4318,9 +4119,7 @@ func (s *ListUserVisibleBpmsProcessesResponseBody) SetResult(v *ListUserVisibleB
 }
 
 type ListUserVisibleBpmsProcessesResponseBodyResult struct {
-	// 下一次分页调用的值，当返回结果里没有nextToken时，表示分页结束。
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 可见表单列表。
+	NextToken   *int64                                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	ProcessList []*ListUserVisibleBpmsProcessesResponseBodyResultProcessList `json:"processList,omitempty" xml:"processList,omitempty" type:"Repeated"`
 }
 
@@ -4343,14 +4142,10 @@ func (s *ListUserVisibleBpmsProcessesResponseBodyResult) SetProcessList(v []*Lis
 }
 
 type ListUserVisibleBpmsProcessesResponseBodyResultProcessList struct {
-	// 图标URL。
-	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
-	// 表单名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 表单唯一标识。
+	IconUrl     *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 表单URL。
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	Url         *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s ListUserVisibleBpmsProcessesResponseBodyResultProcessList) String() string {
@@ -4382,8 +4177,9 @@ func (s *ListUserVisibleBpmsProcessesResponseBodyResultProcessList) SetUrl(v str
 }
 
 type ListUserVisibleBpmsProcessesResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListUserVisibleBpmsProcessesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListUserVisibleBpmsProcessesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ListUserVisibleBpmsProcessesResponse) String() string {
@@ -4396,6 +4192,11 @@ func (s ListUserVisibleBpmsProcessesResponse) GoString() string {
 
 func (s *ListUserVisibleBpmsProcessesResponse) SetHeaders(v map[string]*string) *ListUserVisibleBpmsProcessesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ListUserVisibleBpmsProcessesResponse) SetStatusCode(v int32) *ListUserVisibleBpmsProcessesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4428,14 +4229,10 @@ func (s *ProcessForecastHeaders) SetXAcsDingtalkAccessToken(v string) *ProcessFo
 }
 
 type ProcessForecastRequest struct {
-	// 部门ID
-	DeptId *int32 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 表单数据内容，控件列表
+	DeptId              *int32                                       `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	FormComponentValues []*ProcessForecastRequestFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
-	// 审批流的唯一码
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 审批发起人的userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	ProcessCode         *string                                      `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	UserId              *string                                      `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ProcessForecastRequest) String() string {
@@ -4467,19 +4264,13 @@ func (s *ProcessForecastRequest) SetUserId(v string) *ProcessForecastRequest {
 }
 
 type ProcessForecastRequestFormComponentValues struct {
-	// 控件别名
-	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 控件类型
+	BizAlias      *string                                             `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string                                             `json:"componentType,omitempty" xml:"componentType,omitempty"`
 	Details       []*ProcessForecastRequestFormComponentValuesDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	// 控件扩展值
-	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	// 控件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 控件名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 控件值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	ExtValue      *string                                             `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id            *string                                             `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string                                             `json:"name,omitempty" xml:"name,omitempty"`
+	Value         *string                                             `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s ProcessForecastRequestFormComponentValues) String() string {
@@ -4526,17 +4317,12 @@ func (s *ProcessForecastRequestFormComponentValues) SetValue(v string) *ProcessF
 }
 
 type ProcessForecastRequestFormComponentValuesDetails struct {
-	// 控件别名
 	BizAlias *string                                                    `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	Details  []*ProcessForecastRequestFormComponentValuesDetailsDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	// 控件扩展值
-	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	// 控件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 控件名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 控件值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	ExtValue *string                                                    `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id       *string                                                    `json:"id,omitempty" xml:"id,omitempty"`
+	Name     *string                                                    `json:"name,omitempty" xml:"name,omitempty"`
+	Value    *string                                                    `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s ProcessForecastRequestFormComponentValuesDetails) String() string {
@@ -4578,17 +4364,12 @@ func (s *ProcessForecastRequestFormComponentValuesDetails) SetValue(v string) *P
 }
 
 type ProcessForecastRequestFormComponentValuesDetailsDetails struct {
-	// 控件别名
 	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	// 控件扩展值
-	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	// 控件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 控件名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 控件值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s ProcessForecastRequestFormComponentValuesDetailsDetails) String() string {
@@ -4630,7 +4411,6 @@ func (s *ProcessForecastRequestFormComponentValuesDetailsDetails) SetValue(v str
 }
 
 type ProcessForecastResponseBody struct {
-	// 返回结果
 	Result *ProcessForecastResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -4648,15 +4428,10 @@ func (s *ProcessForecastResponseBody) SetResult(v *ProcessForecastResponseBodyRe
 }
 
 type ProcessForecastResponseBodyResult struct {
-	// 是否预测成功
-	IsForecastSuccess *bool `json:"isForecastSuccess,omitempty" xml:"isForecastSuccess,omitempty"`
-	// 是否静态流程
-	IsStaticWorkflow *bool `json:"isStaticWorkflow,omitempty" xml:"isStaticWorkflow,omitempty"`
-	// 流程 code
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 流程 id
-	ProcessId *int64 `json:"processId,omitempty" xml:"processId,omitempty"`
-	// 用户 id
+	IsForecastSuccess     *bool                                                     `json:"isForecastSuccess,omitempty" xml:"isForecastSuccess,omitempty"`
+	IsStaticWorkflow      *bool                                                     `json:"isStaticWorkflow,omitempty" xml:"isStaticWorkflow,omitempty"`
+	ProcessCode           *string                                                   `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	ProcessId             *int64                                                    `json:"processId,omitempty" xml:"processId,omitempty"`
 	UserId                *string                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
 	WorkflowActivityRules []*ProcessForecastResponseBodyResultWorkflowActivityRules `json:"workflowActivityRules,omitempty" xml:"workflowActivityRules,omitempty" type:"Repeated"`
 	WorkflowForecastNodes []*ProcessForecastResponseBodyResultWorkflowForecastNodes `json:"workflowForecastNodes,omitempty" xml:"workflowForecastNodes,omitempty" type:"Repeated"`
@@ -4706,18 +4481,12 @@ func (s *ProcessForecastResponseBodyResult) SetWorkflowForecastNodes(v []*Proces
 }
 
 type ProcessForecastResponseBodyResultWorkflowActivityRules struct {
-	// 节点 id
-	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	// 节点名称
-	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
-	// 规则类型
-	ActivityType *string `json:"activityType,omitempty" xml:"activityType,omitempty"`
-	// 是否自选审批节点
-	IsTargetSelect *bool `json:"isTargetSelect,omitempty" xml:"isTargetSelect,omitempty"`
-	// 流程中前一个节点的 id
-	PrevActivityId *string `json:"prevActivityId,omitempty" xml:"prevActivityId,omitempty"`
-	// 节点操作人信息
-	WorkflowActor *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor `json:"workflowActor,omitempty" xml:"workflowActor,omitempty" type:"Struct"`
+	ActivityId     *string                                                              `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	ActivityName   *string                                                              `json:"activityName,omitempty" xml:"activityName,omitempty"`
+	ActivityType   *string                                                              `json:"activityType,omitempty" xml:"activityType,omitempty"`
+	IsTargetSelect *bool                                                                `json:"isTargetSelect,omitempty" xml:"isTargetSelect,omitempty"`
+	PrevActivityId *string                                                              `json:"prevActivityId,omitempty" xml:"prevActivityId,omitempty"`
+	WorkflowActor  *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor `json:"workflowActor,omitempty" xml:"workflowActor,omitempty" type:"Struct"`
 }
 
 func (s ProcessForecastResponseBodyResultWorkflowActivityRules) String() string {
@@ -4759,24 +4528,15 @@ func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetWorkflowActo
 }
 
 type ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor struct {
-	// 节点激活类型
-	ActorActivateType *string `json:"actorActivateType,omitempty" xml:"actorActivateType,omitempty"`
-	// 节点操作人 key
-	ActorKey *string `json:"actorKey,omitempty" xml:"actorKey,omitempty"`
-	// 节点操作人选择范围
+	ActorActivateType   *string                                                                                 `json:"actorActivateType,omitempty" xml:"actorActivateType,omitempty"`
+	ActorKey            *string                                                                                 `json:"actorKey,omitempty" xml:"actorKey,omitempty"`
 	ActorSelectionRange *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange `json:"actorSelectionRange,omitempty" xml:"actorSelectionRange,omitempty" type:"Struct"`
-	// 节点操作人选择范围类型
-	ActorSelectionType *string `json:"actorSelectionType,omitempty" xml:"actorSelectionType,omitempty"`
-	// 节点操作人类型
-	ActorType *string `json:"actorType,omitempty" xml:"actorType,omitempty"`
-	// 是否允许多选，还是仅允许选一人
-	AllowedMulti *bool `json:"allowedMulti,omitempty" xml:"allowedMulti,omitempty"`
-	// 节点审批方式
-	ApprovalMethod *string `json:"approvalMethod,omitempty" xml:"approvalMethod,omitempty"`
-	// 节点审批类型
-	ApprovalType *string `json:"approvalType,omitempty" xml:"approvalType,omitempty"`
-	// 该审批人节点在发起审批时是否必填
-	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	ActorSelectionType  *string                                                                                 `json:"actorSelectionType,omitempty" xml:"actorSelectionType,omitempty"`
+	ActorType           *string                                                                                 `json:"actorType,omitempty" xml:"actorType,omitempty"`
+	AllowedMulti        *bool                                                                                   `json:"allowedMulti,omitempty" xml:"allowedMulti,omitempty"`
+	ApprovalMethod      *string                                                                                 `json:"approvalMethod,omitempty" xml:"approvalMethod,omitempty"`
+	ApprovalType        *string                                                                                 `json:"approvalType,omitempty" xml:"approvalType,omitempty"`
+	Required            *bool                                                                                   `json:"required,omitempty" xml:"required,omitempty"`
 }
 
 func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) String() string {
@@ -4833,10 +4593,8 @@ func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) Se
 }
 
 type ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange struct {
-	// 审批指定成员
 	Approvals []*ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals `json:"approvals,omitempty" xml:"approvals,omitempty" type:"Repeated"`
-	// 审批指定角色
-	Labels []*ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	Labels    []*ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels    `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
 }
 
 func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange) String() string {
@@ -4858,10 +4616,8 @@ func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActo
 }
 
 type ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals struct {
-	// 员工姓名
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
-	// 员工 userId
-	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	WorkNo   *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals) String() string {
@@ -4883,10 +4639,8 @@ func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActo
 }
 
 type ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels struct {
-	// 角色名字
 	LabelNames *string `json:"labelNames,omitempty" xml:"labelNames,omitempty"`
-	// 角色 id
-	Labels *string `json:"labels,omitempty" xml:"labels,omitempty"`
+	Labels     *string `json:"labels,omitempty" xml:"labels,omitempty"`
 }
 
 func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels) String() string {
@@ -4908,10 +4662,8 @@ func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActo
 }
 
 type ProcessForecastResponseBodyResultWorkflowForecastNodes struct {
-	// 节点 id
 	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	// 节点出线 id
-	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	OutId      *string `json:"outId,omitempty" xml:"outId,omitempty"`
 }
 
 func (s ProcessForecastResponseBodyResultWorkflowForecastNodes) String() string {
@@ -4933,8 +4685,9 @@ func (s *ProcessForecastResponseBodyResultWorkflowForecastNodes) SetOutId(v stri
 }
 
 type ProcessForecastResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ProcessForecastResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ProcessForecastResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ProcessForecastResponse) String() string {
@@ -4947,6 +4700,11 @@ func (s ProcessForecastResponse) GoString() string {
 
 func (s *ProcessForecastResponse) SetHeaders(v map[string]*string) *ProcessForecastResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *ProcessForecastResponse) SetStatusCode(v int32) *ProcessForecastResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4979,14 +4737,10 @@ func (s *QueryAllFormInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryAllFormInstancesRequest struct {
-	// 应用搭建id
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 表单模板id
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 翻页size
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标，第一次调用传空或者null
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	AppUuid    *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	FormCode   *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryAllFormInstancesRequest) String() string {
@@ -5018,7 +4772,6 @@ func (s *QueryAllFormInstancesRequest) SetNextToken(v string) *QueryAllFormInsta
 }
 
 type QueryAllFormInstancesResponseBody struct {
-	// 分页结果
 	Result *QueryAllFormInstancesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -5036,14 +4789,10 @@ func (s *QueryAllFormInstancesResponseBody) SetResult(v *QueryAllFormInstancesRe
 }
 
 type QueryAllFormInstancesResponseBodyResult struct {
-	// 是否有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 分页大小
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 下一页的游标
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 表单列表
-	Values []*QueryAllFormInstancesResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	HasMore    *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	MaxResults *int64                                           `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Values     []*QueryAllFormInstancesResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s QueryAllFormInstancesResponseBodyResult) String() string {
@@ -5075,30 +4824,18 @@ func (s *QueryAllFormInstancesResponseBodyResult) SetValues(v []*QueryAllFormIns
 }
 
 type QueryAllFormInstancesResponseBodyResultValues struct {
-	// 应用搭建id
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 扩展信息
-	Attributes map[string]interface{} `json:"attributes,omitempty" xml:"attributes,omitempty"`
-	// 创建时间
-	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	// 创建人
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 表单模板code
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 表单实例数据
+	AppUuid          *string                                                          `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	Attributes       map[string]interface{}                                           `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	CreateTimestamp  *int64                                                           `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	Creator          *string                                                          `json:"creator,omitempty" xml:"creator,omitempty"`
+	FormCode         *string                                                          `json:"formCode,omitempty" xml:"formCode,omitempty"`
 	FormInstDataList []*QueryAllFormInstancesResponseBodyResultValuesFormInstDataList `json:"formInstDataList,omitempty" xml:"formInstDataList,omitempty" type:"Repeated"`
-	// 表单实例id
-	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	// 修改人
-	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	// 修改时间
-	ModifyTimestamp *int64 `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
-	// 外部业务编码
-	OutBizCode *string `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
-	// 外部实例编码
-	OutInstanceId *string `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
-	// 标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	FormInstanceId   *string                                                          `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	Modifier         *string                                                          `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	ModifyTimestamp  *int64                                                           `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
+	OutBizCode       *string                                                          `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
+	OutInstanceId    *string                                                          `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
+	Title            *string                                                          `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryAllFormInstancesResponseBodyResultValues) String() string {
@@ -5170,18 +4907,12 @@ func (s *QueryAllFormInstancesResponseBodyResultValues) SetTitle(v string) *Quer
 }
 
 type QueryAllFormInstancesResponseBodyResultValuesFormInstDataList struct {
-	// 控件别名
-	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 控件类型
+	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	// 表单控件扩展数据
-	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	// 控件唯一id
-	Key *string `json:"key,omitempty" xml:"key,omitempty"`
-	// 控件名称
-	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	// 控件填写的数据
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	ExtendValue   *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	Key           *string `json:"key,omitempty" xml:"key,omitempty"`
+	Label         *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s QueryAllFormInstancesResponseBodyResultValuesFormInstDataList) String() string {
@@ -5223,8 +4954,9 @@ func (s *QueryAllFormInstancesResponseBodyResultValuesFormInstDataList) SetValue
 }
 
 type QueryAllFormInstancesResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryAllFormInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryAllFormInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryAllFormInstancesResponse) String() string {
@@ -5237,6 +4969,11 @@ func (s QueryAllFormInstancesResponse) GoString() string {
 
 func (s *QueryAllFormInstancesResponse) SetHeaders(v map[string]*string) *QueryAllFormInstancesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryAllFormInstancesResponse) SetStatusCode(v int32) *QueryAllFormInstancesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5269,18 +5006,12 @@ func (s *QueryAllProcessInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QueryAllProcessInstancesRequest struct {
-	// 应用编码
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 结束时间
-	EndTimeInMills *int64 `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
-	// 分页大小
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页起始值
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 模板编码
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 开始时间
-	StartTimeInMills *int64 `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
+	AppUuid          *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	EndTimeInMills   *int64  `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
+	MaxResults       *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken        *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ProcessCode      *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	StartTimeInMills *int64  `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
 }
 
 func (s QueryAllProcessInstancesRequest) String() string {
@@ -5322,7 +5053,6 @@ func (s *QueryAllProcessInstancesRequest) SetStartTimeInMills(v int64) *QueryAll
 }
 
 type QueryAllProcessInstancesResponseBody struct {
-	// result
 	Result *QueryAllProcessInstancesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -5340,13 +5070,10 @@ func (s *QueryAllProcessInstancesResponseBody) SetResult(v *QueryAllProcessInsta
 }
 
 type QueryAllProcessInstancesResponseBodyResult struct {
-	// 是否有更多数据
-	HasMore *bool                                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List    []*QueryAllProcessInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 总数
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 下次获取数据的游标
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore    *bool                                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*QueryAllProcessInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	MaxResults *int64                                            `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResult) String() string {
@@ -5378,33 +5105,20 @@ func (s *QueryAllProcessInstancesResponseBodyResult) SetNextToken(v string) *Que
 }
 
 type QueryAllProcessInstancesResponseBodyResultList struct {
-	// 附属单信息
-	AttachedProcessInstanceIds *string `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty"`
-	// 审批单编号
-	BusinessId *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
-	// 审批单创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 审批结束时间
-	FinishTime          *int64                                                               `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	FormComponentValues []*QueryAllProcessInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
-	// 主单实例Id
-	MainProcessInstanceId *string `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
-	// 审批单操作记录
-	OperationRecords []*QueryAllProcessInstancesResponseBodyResultListOperationRecords `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
-	// 发起人部门id
-	OriginatorDeptId *string `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
-	// 发起者userId
-	OriginatorUserid *string `json:"originatorUserid,omitempty" xml:"originatorUserid,omitempty"`
-	// 流程实例ID
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 审批结果
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 审批单状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 任务列表
-	Tasks []*QueryAllProcessInstancesResponseBodyResultListTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
-	// 审批单标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	AttachedProcessInstanceIds *string                                                              `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty"`
+	BusinessId                 *string                                                              `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CreateTime                 *int64                                                               `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FinishTime                 *int64                                                               `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	FormComponentValues        []*QueryAllProcessInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	MainProcessInstanceId      *string                                                              `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	OperationRecords           []*QueryAllProcessInstancesResponseBodyResultListOperationRecords    `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
+	OriginatorDeptId           *string                                                              `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
+	OriginatorUserid           *string                                                              `json:"originatorUserid,omitempty" xml:"originatorUserid,omitempty"`
+	ProcessInstanceId          *string                                                              `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Result                     *string                                                              `json:"result,omitempty" xml:"result,omitempty"`
+	Status                     *string                                                              `json:"status,omitempty" xml:"status,omitempty"`
+	Tasks                      []*QueryAllProcessInstancesResponseBodyResultListTasks               `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	Title                      *string                                                              `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResultList) String() string {
@@ -5486,14 +5200,10 @@ func (s *QueryAllProcessInstancesResponseBodyResultList) SetTitle(v string) *Que
 }
 
 type QueryAllProcessInstancesResponseBodyResultListFormComponentValues struct {
-	// 控件扩展数据
 	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	// 控件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 控件名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 控件数据
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResultListFormComponentValues) String() string {
@@ -5525,18 +5235,12 @@ func (s *QueryAllProcessInstancesResponseBodyResultListFormComponentValues) SetV
 }
 
 type QueryAllProcessInstancesResponseBodyResultListOperationRecords struct {
-	// 评论附件
-	Attachments []*QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	// 操作类型
-	OperationType *string `json:"operationType,omitempty" xml:"operationType,omitempty"`
-	// 评论
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 操作结果
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 操作时间戳
-	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
-	// 操作人staffId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Attachments   []*QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	OperationType *string                                                                      `json:"operationType,omitempty" xml:"operationType,omitempty"`
+	Remark        *string                                                                      `json:"remark,omitempty" xml:"remark,omitempty"`
+	Result        *string                                                                      `json:"result,omitempty" xml:"result,omitempty"`
+	Timestamp     *int64                                                                       `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	UserId        *string                                                                      `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResultListOperationRecords) String() string {
@@ -5578,13 +5282,9 @@ func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecords) SetUser
 }
 
 type QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments struct {
-	// 附件钉盘id
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 附件名称
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 文件大小
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	// 文件类型
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
 }
 
@@ -5617,20 +5317,13 @@ func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachmen
 }
 
 type QueryAllProcessInstancesResponseBodyResultListTasks struct {
-	// 节点id
-	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	// 任务创建时间戳
-	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	// 任务结束时间戳
-	FinishTimestamp *int64 `json:"finishTimestamp,omitempty" xml:"finishTimestamp,omitempty"`
-	// 任务结果
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 任务状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 任务Id
-	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// 任务处理人
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	ActivityId      *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	CreateTimestamp *int64  `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	FinishTimestamp *int64  `json:"finishTimestamp,omitempty" xml:"finishTimestamp,omitempty"`
+	Result          *string `json:"result,omitempty" xml:"result,omitempty"`
+	Status          *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId          *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResultListTasks) String() string {
@@ -5677,8 +5370,9 @@ func (s *QueryAllProcessInstancesResponseBodyResultListTasks) SetUserId(v string
 }
 
 type QueryAllProcessInstancesResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryAllProcessInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryAllProcessInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryAllProcessInstancesResponse) String() string {
@@ -5691,6 +5385,11 @@ func (s QueryAllProcessInstancesResponse) GoString() string {
 
 func (s *QueryAllProcessInstancesResponse) SetHeaders(v map[string]*string) *QueryAllProcessInstancesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponse) SetStatusCode(v int32) *QueryAllProcessInstancesResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5723,9 +5422,7 @@ func (s *QueryFormByBizTypeHeaders) SetXAcsDingtalkAccessToken(v string) *QueryF
 }
 
 type QueryFormByBizTypeRequest struct {
-	// 应用搭建id
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 表单业务标识
+	AppUuid  *string   `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
 	BizTypes []*string `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
 }
 
@@ -5748,7 +5445,6 @@ func (s *QueryFormByBizTypeRequest) SetBizTypes(v []*string) *QueryFormByBizType
 }
 
 type QueryFormByBizTypeResponseBody struct {
-	// 模板列表
 	Result []*QueryFormByBizTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -5766,32 +5462,19 @@ func (s *QueryFormByBizTypeResponseBody) SetResult(v []*QueryFormByBizTypeRespon
 }
 
 type QueryFormByBizTypeResponseBodyResult struct {
-	// 表单类型，0为流程表单，1为数据表单
-	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 应用搭建id
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 业务标识
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 表单控件描述
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 创建人
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 模板code
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 表单uuid
-	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	// 模板描述
-	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
-	// 修改时间
-	ModifedTime *int64 `json:"modifedTime,omitempty" xml:"modifedTime,omitempty"`
-	// 模板名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 数据归属id
-	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
-	// 模板状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	AppType     *int32  `json:"appType,omitempty" xml:"appType,omitempty"`
+	AppUuid     *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Content     *string `json:"content,omitempty" xml:"content,omitempty"`
+	CreateTime  *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator     *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	FormCode    *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	FormUuid    *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	Memo        *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	ModifedTime *int64  `json:"modifedTime,omitempty" xml:"modifedTime,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	OwnerId     *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryFormByBizTypeResponseBodyResult) String() string {
@@ -5868,8 +5551,9 @@ func (s *QueryFormByBizTypeResponseBodyResult) SetStatus(v string) *QueryFormByB
 }
 
 type QueryFormByBizTypeResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryFormByBizTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryFormByBizTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryFormByBizTypeResponse) String() string {
@@ -5882,6 +5566,11 @@ func (s QueryFormByBizTypeResponse) GoString() string {
 
 func (s *QueryFormByBizTypeResponse) SetHeaders(v map[string]*string) *QueryFormByBizTypeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponse) SetStatusCode(v int32) *QueryFormByBizTypeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -5914,11 +5603,8 @@ func (s *QueryFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryFo
 }
 
 type QueryFormInstanceRequest struct {
-	// 应用搭建id
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 表单模板Code
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 表单实例id
+	AppUuid        *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	FormCode       *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
 	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
 }
 
@@ -5946,30 +5632,18 @@ func (s *QueryFormInstanceRequest) SetFormInstanceId(v string) *QueryFormInstanc
 }
 
 type QueryFormInstanceResponseBody struct {
-	// 应用搭建id
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 扩展信息
-	Attributes map[string]interface{} `json:"attributes,omitempty" xml:"attributes,omitempty"`
-	// 实例创建时间戳
-	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	// 创建人
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 表单模板id
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 表单数据
+	AppUuid          *string                                          `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	Attributes       map[string]interface{}                           `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	CreateTimestamp  *int64                                           `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	Creator          *string                                          `json:"creator,omitempty" xml:"creator,omitempty"`
+	FormCode         *string                                          `json:"formCode,omitempty" xml:"formCode,omitempty"`
 	FormInstDataList []*QueryFormInstanceResponseBodyFormInstDataList `json:"formInstDataList,omitempty" xml:"formInstDataList,omitempty" type:"Repeated"`
-	// 实例id
-	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	// 修改人
-	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	// 实例最近修改时间戳
-	ModifyTimestamp *int64 `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
-	// 外联业务code
-	OutBizCode *string `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
-	// 外联业务实例id
-	OutInstanceId *string `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
-	// 表单标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	FormInstanceId   *string                                          `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	Modifier         *string                                          `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	ModifyTimestamp  *int64                                           `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
+	OutBizCode       *string                                          `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
+	OutInstanceId    *string                                          `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
+	Title            *string                                          `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryFormInstanceResponseBody) String() string {
@@ -6088,8 +5762,9 @@ func (s *QueryFormInstanceResponseBodyFormInstDataList) SetValue(v string) *Quer
 }
 
 type QueryFormInstanceResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryFormInstanceResponse) String() string {
@@ -6102,6 +5777,11 @@ func (s QueryFormInstanceResponse) GoString() string {
 
 func (s *QueryFormInstanceResponse) SetHeaders(v map[string]*string) *QueryFormInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryFormInstanceResponse) SetStatusCode(v int32) *QueryFormInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6134,13 +5814,10 @@ func (s *QueryIntegratedTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Q
 }
 
 type QueryIntegratedTodoTaskRequest struct {
-	// 在此时间戳之前创建的
-	CreateBefore *int64 `json:"createBefore,omitempty" xml:"createBefore,omitempty"`
-	// 第几页，取值范围为 1 ≤ page ≤ 1000
-	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小，取值范围为 1 ≤ pageSize ≤ 40
-	PageSize *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	CreateBefore *int64  `json:"createBefore,omitempty" xml:"createBefore,omitempty"`
+	PageNumber   *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize     *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryIntegratedTodoTaskRequest) String() string {
@@ -6189,7 +5866,6 @@ func (s *QueryIntegratedTodoTaskResponseBody) SetResult(v *QueryIntegratedTodoTa
 }
 
 type QueryIntegratedTodoTaskResponseBodyResult struct {
-	// 是否还有下一页
 	HasMore *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 	List    []*QueryIntegratedTodoTaskResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
@@ -6213,22 +5889,14 @@ func (s *QueryIntegratedTodoTaskResponseBodyResult) SetList(v []*QueryIntegrated
 }
 
 type QueryIntegratedTodoTaskResponseBodyResultList struct {
-	// 待办组ID，需要在调用创建流程中心集成任务接口时，主动设置该值。
-	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	// OA审批任务创建时间。
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// OA审批任务完成时间。
-	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	// 流程实例ID
+	ActivityId        *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	CreateTime        *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FinishTime        *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 任务处理结果：agree 或 refuse
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 任务状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// OA审批任务ID
-	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// OA审批任务执行人的用户ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Result            *string `json:"result,omitempty" xml:"result,omitempty"`
+	Status            *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId            *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryIntegratedTodoTaskResponseBodyResultList) String() string {
@@ -6280,8 +5948,9 @@ func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetUserId(v string) *Que
 }
 
 type QueryIntegratedTodoTaskResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryIntegratedTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryIntegratedTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryIntegratedTodoTaskResponse) String() string {
@@ -6294,6 +5963,11 @@ func (s QueryIntegratedTodoTaskResponse) GoString() string {
 
 func (s *QueryIntegratedTodoTaskResponse) SetHeaders(v map[string]*string) *QueryIntegratedTodoTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponse) SetStatusCode(v int32) *QueryIntegratedTodoTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6326,10 +6000,8 @@ func (s *QueryProcessByBizCategoryIdHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type QueryProcessByBizCategoryIdRequest struct {
-	// 业务标识
 	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryProcessByBizCategoryIdRequest) String() string {
@@ -6368,20 +6040,10 @@ func (s *QueryProcessByBizCategoryIdResponseBody) SetResult(v []*QueryProcessByB
 }
 
 type QueryProcessByBizCategoryIdResponseBodyResult struct {
-	// 模板描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 模板名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 模板code
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 模版发布状态。
-	//
-	// - PUBLISHED：已启用
-	//
-	// - INVALID：停用
-	//
-	// - SAVED：已保存
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryProcessByBizCategoryIdResponseBodyResult) String() string {
@@ -6413,8 +6075,9 @@ func (s *QueryProcessByBizCategoryIdResponseBodyResult) SetStatus(v string) *Que
 }
 
 type QueryProcessByBizCategoryIdResponse struct {
-	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryProcessByBizCategoryIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryProcessByBizCategoryIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryProcessByBizCategoryIdResponse) String() string {
@@ -6427,6 +6090,11 @@ func (s QueryProcessByBizCategoryIdResponse) GoString() string {
 
 func (s *QueryProcessByBizCategoryIdResponse) SetHeaders(v map[string]*string) *QueryProcessByBizCategoryIdResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QueryProcessByBizCategoryIdResponse) SetStatusCode(v int32) *QueryProcessByBizCategoryIdResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -6459,9 +6127,7 @@ func (s *QuerySchemaByProcessCodeHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QuerySchemaByProcessCodeRequest struct {
-	// 应用搭建隔离信息
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 表单的唯一码
+	AppUuid     *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -6484,7 +6150,6 @@ func (s *QuerySchemaByProcessCodeRequest) SetProcessCode(v string) *QuerySchemaB
 }
 
 type QuerySchemaByProcessCodeResponseBody struct {
-	// 返回结果详情。
 	Result *QuerySchemaByProcessCodeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -6502,44 +6167,25 @@ func (s *QuerySchemaByProcessCodeResponseBody) SetResult(v *QuerySchemaByProcess
 }
 
 type QuerySchemaByProcessCodeResponseBodyResult struct {
-	// 表单类型。
-	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 表单应用 uuid 或者 corpId。
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 代表表单业务含义的类型。
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 创建人 userId。
-	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	// 业务自定义设置数据。
-	CustomSetting *string `json:"customSetting,omitempty" xml:"customSetting,omitempty"`
-	// 引擎类型，表单：0，页面：1
-	EngineType *int32 `json:"engineType,omitempty" xml:"engineType,omitempty"`
-	// 表单的唯一码。
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 表单 uuid。
-	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	// 创建时间的时间戳。
-	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 修改时间的时间戳。
-	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// 图标。
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 排序 id。
-	ListOrder *int32 `json:"listOrder,omitempty" xml:"listOrder,omitempty"`
-	// 说明文案。
-	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
-	// 表单名称。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 数据归属者的 id 类型。企业(orgId), 群(cid), 人(uid)。
-	OwnerIdType *string `json:"ownerIdType,omitempty" xml:"ownerIdType,omitempty"`
-	// 目标类型: inner, outer, customer。
-	ProcType *string `json:"procType,omitempty" xml:"procType,omitempty"`
-	// 表单 schema 详情。
+	AppType       *int32                                                   `json:"appType,omitempty" xml:"appType,omitempty"`
+	AppUuid       *string                                                  `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	BizType       *string                                                  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CreatorUserId *string                                                  `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	CustomSetting *string                                                  `json:"customSetting,omitempty" xml:"customSetting,omitempty"`
+	EngineType    *int32                                                   `json:"engineType,omitempty" xml:"engineType,omitempty"`
+	FormCode      *string                                                  `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	FormUuid      *string                                                  `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	GmtCreate     *string                                                  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified   *string                                                  `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Icon          *string                                                  `json:"icon,omitempty" xml:"icon,omitempty"`
+	ListOrder     *int32                                                   `json:"listOrder,omitempty" xml:"listOrder,omitempty"`
+	Memo          *string                                                  `json:"memo,omitempty" xml:"memo,omitempty"`
+	Name          *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
+	OwnerIdType   *string                                                  `json:"ownerIdType,omitempty" xml:"ownerIdType,omitempty"`
+	ProcType      *string                                                  `json:"procType,omitempty" xml:"procType,omitempty"`
 	SchemaContent *QuerySchemaByProcessCodeResponseBodyResultSchemaContent `json:"schemaContent,omitempty" xml:"schemaContent,omitempty" type:"Struct"`
-	// 状态, PUBLISHED(启用), INVALID(停用), SAVED(草稿)
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 可见范围类型。
-	VisibleRange *string `json:"visibleRange,omitempty" xml:"visibleRange,omitempty"`
+	Status        *string                                                  `json:"status,omitempty" xml:"status,omitempty"`
+	VisibleRange  *string                                                  `json:"visibleRange,omitempty" xml:"visibleRange,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResult) String() string {
@@ -6646,12 +6292,9 @@ func (s *QuerySchemaByProcessCodeResponseBodyResult) SetVisibleRange(v string) *
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContent struct {
-	// 图标
-	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 控件列表
+	Icon  *string                                                         `json:"icon,omitempty" xml:"icon,omitempty"`
 	Items []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	// 表单名称。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Title *string                                                         `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContent) String() string {
@@ -6678,12 +6321,9 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContent) SetTitle(v str
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems struct {
-	// 子控件列表
-	Children []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
-	// 控件类型，取值：
-	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	// 控件属性。
-	Props *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	Children      []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	ComponentName *string                                                                 `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	Props         *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps      `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) String() string {
@@ -6710,10 +6350,8 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) SetProps(
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren struct {
-	// 控件类型
-	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	// 子控件属性
-	Props *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	ComponentName *string                                                                    `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	Props         *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) String() string {
@@ -6735,14 +6373,10 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) S
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps struct {
-	// 控件业务别名
 	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 控件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 控件名称
-	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	// 是否必填
-	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	Label    *string `json:"label,omitempty" xml:"label,omitempty"`
+	Required *bool   `json:"required,omitempty" xml:"required,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) String() string {
@@ -6774,96 +6408,51 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenPro
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps struct {
-	// 加班套件4.0新增 加班明细名称。
-	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	// textnote的样式，top|middle|bottom。
-	Align *string `json:"align,omitempty" xml:"align,omitempty"`
-	// ISV 微应用 appId，用于ISV身份权限识别，ISV可获得相应数据。
-	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 套件是否开启异步获取分条件规则，true：开启；false：不开启。
-	AsyncCondition *bool `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
-	// 请假、出差、外出、加班类型标签。
-	AttendTypeLabel *string `json:"attendTypeLabel,omitempty" xml:"attendTypeLabel,omitempty"`
-	// 表单关联控件列表。
-	BehaviorLinkage []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage `json:"behaviorLinkage,omitempty" xml:"behaviorLinkage,omitempty" type:"Repeated"`
-	// 控件业务自定义别名。
-	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 业务套件类型。
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 套件内子组件可见性
-	ChildFieldVisible map[string]*bool `json:"childFieldVisible,omitempty" xml:"childFieldVisible,omitempty"`
-	// 内部联系人choice，1表示多选，0表示单选。
-	Choice *int32 `json:"choice,omitempty" xml:"choice,omitempty"`
-	// common field的commonBizType。
-	CommonBizType *string `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
-	// 是否可编辑。
-	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	// 是否自动计算时长。
-	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
-	// 兼容字段。
-	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
-	// e签宝专用标识。
-	ESign *bool `json:"eSign,omitempty" xml:"eSign,omitempty"`
-	// 套件值是否打平
-	Extract *bool `json:"extract,omitempty" xml:"extract,omitempty"`
-	// 关联表单中的fields存储
-	FieldsInfo *string `json:"fieldsInfo,omitempty" xml:"fieldsInfo,omitempty"`
-	// 时间格式(DDDateField和DDDateRangeField)。
-	Format *string `json:"format,omitempty" xml:"format,omitempty"`
-	// 公式。
-	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
-	// 加班套件4.0新增 加班明细是否隐藏。
-	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
-	// textnote在详情页是否隐藏，true隐藏， false不隐藏
-	HiddenInApprovalDetail *bool `json:"hiddenInApprovalDetail,omitempty" xml:"hiddenInApprovalDetail,omitempty"`
-	// 加班套件4.0新增 加班明细是否隐藏标签。
-	HideLabel *bool `json:"hideLabel,omitempty" xml:"hideLabel,omitempty"`
-	// 兼容出勤套件类型。
-	HolidayOptions []map[string]*string `json:"holidayOptions,omitempty" xml:"holidayOptions,omitempty" type:"Repeated"`
-	// 控件 id。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 控件名称。
-	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	// label是否可修改 true：不可修改。
-	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	// 说明文案的链接地址。
-	Link *string `json:"link,omitempty" xml:"link,omitempty"`
-	// 加班套件4.0新增 加班明细描述。
-	MainTitle *string `json:"mainTitle,omitempty" xml:"mainTitle,omitempty"`
-	// 是否参与打印(1表示不打印, 0表示打印)。
-	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
-	// 是否需要大写 默认是需要; 1:不需要大写, 空或者0:需要大写。
-	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	// 选项内容列表，提供给业务方更多的选择器操作。
-	ObjOptions []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions `json:"objOptions,omitempty" xml:"objOptions,omitempty" type:"Repeated"`
-	// 单选框选项列表。
-	Options []*string `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	// 是否有支付属性。
-	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	// 占位符。
-	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	// 同步到考勤, 表示是否设置为员工状态。
-	Push *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush `json:"push,omitempty" xml:"push,omitempty" type:"Struct"`
-	// 推送到考勤, 子类型(DDSelectField)。
-	PushToAttendance *bool `json:"pushToAttendance,omitempty" xml:"pushToAttendance,omitempty"`
-	// 是否推送管理日历(DDDateRangeField, 1表示推送, 0表示不推送, 该属性为兼容保留)。
-	PushToCalendar *int32 `json:"pushToCalendar,omitempty" xml:"pushToCalendar,omitempty"`
-	// 是否必填。
-	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
-	// 必填是否可修改 true：不可修改。
-	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	// 兼容出勤套件类型。
-	ShowAttendOptions *bool `json:"showAttendOptions,omitempty" xml:"showAttendOptions,omitempty"`
-	// 是否开启员工状态。
-	StaffStatusEnabled *bool `json:"staffStatusEnabled,omitempty" xml:"staffStatusEnabled,omitempty"`
-	// 需要计算总和的明细组件
-	StatField []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	// 数字组件/日期区间组件单位属性。
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 是否使用考勤日历。
-	UseCalendar *bool `json:"useCalendar,omitempty" xml:"useCalendar,omitempty"`
-	// 明细打印排版方式 false：横向 true：纵向。
-	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	ActionName             *string                                                                             `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	Align                  *string                                                                             `json:"align,omitempty" xml:"align,omitempty"`
+	AppId                  *int64                                                                              `json:"appId,omitempty" xml:"appId,omitempty"`
+	AsyncCondition         *bool                                                                               `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
+	AttendTypeLabel        *string                                                                             `json:"attendTypeLabel,omitempty" xml:"attendTypeLabel,omitempty"`
+	BehaviorLinkage        []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage `json:"behaviorLinkage,omitempty" xml:"behaviorLinkage,omitempty" type:"Repeated"`
+	BizAlias               *string                                                                             `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	BizType                *string                                                                             `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	ChildFieldVisible      map[string]*bool                                                                    `json:"childFieldVisible,omitempty" xml:"childFieldVisible,omitempty"`
+	Choice                 *int32                                                                              `json:"choice,omitempty" xml:"choice,omitempty"`
+	CommonBizType          *string                                                                             `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
+	Disabled               *bool                                                                               `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration               *bool                                                                               `json:"duration,omitempty" xml:"duration,omitempty"`
+	DurationLabel          *string                                                                             `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	ESign                  *bool                                                                               `json:"eSign,omitempty" xml:"eSign,omitempty"`
+	Extract                *bool                                                                               `json:"extract,omitempty" xml:"extract,omitempty"`
+	FieldsInfo             *string                                                                             `json:"fieldsInfo,omitempty" xml:"fieldsInfo,omitempty"`
+	Format                 *string                                                                             `json:"format,omitempty" xml:"format,omitempty"`
+	Formula                *string                                                                             `json:"formula,omitempty" xml:"formula,omitempty"`
+	Hidden                 *bool                                                                               `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	HiddenInApprovalDetail *bool                                                                               `json:"hiddenInApprovalDetail,omitempty" xml:"hiddenInApprovalDetail,omitempty"`
+	HideLabel              *bool                                                                               `json:"hideLabel,omitempty" xml:"hideLabel,omitempty"`
+	HolidayOptions         []map[string]*string                                                                `json:"holidayOptions,omitempty" xml:"holidayOptions,omitempty" type:"Repeated"`
+	Id                     *string                                                                             `json:"id,omitempty" xml:"id,omitempty"`
+	Label                  *string                                                                             `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze    *bool                                                                               `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Link                   *string                                                                             `json:"link,omitempty" xml:"link,omitempty"`
+	MainTitle              *string                                                                             `json:"mainTitle,omitempty" xml:"mainTitle,omitempty"`
+	NotPrint               *string                                                                             `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	NotUpper               *string                                                                             `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	ObjOptions             []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions      `json:"objOptions,omitempty" xml:"objOptions,omitempty" type:"Repeated"`
+	Options                []*string                                                                           `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable              *bool                                                                               `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder            *string                                                                             `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Push                   *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush              `json:"push,omitempty" xml:"push,omitempty" type:"Struct"`
+	PushToAttendance       *bool                                                                               `json:"pushToAttendance,omitempty" xml:"pushToAttendance,omitempty"`
+	PushToCalendar         *int32                                                                              `json:"pushToCalendar,omitempty" xml:"pushToCalendar,omitempty"`
+	Required               *bool                                                                               `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool                                                                               `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	ShowAttendOptions      *bool                                                                               `json:"showAttendOptions,omitempty" xml:"showAttendOptions,omitempty"`
+	StaffStatusEnabled     *bool                                                                               `json:"staffStatusEnabled,omitempty" xml:"staffStatusEnabled,omitempty"`
+	StatField              []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField       `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	Unit                   *string                                                                             `json:"unit,omitempty" xml:"unit,omitempty"`
+	UseCalendar            *bool                                                                               `json:"useCalendar,omitempty" xml:"useCalendar,omitempty"`
+	VerticalPrint          *bool                                                                               `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) String() string {
@@ -7100,10 +6689,8 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetV
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage struct {
-	// 关联控件列表。
 	Targets []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets `json:"targets,omitempty" xml:"targets,omitempty" type:"Repeated"`
-	// 控件值。
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	Value   *string                                                                                    `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) String() string {
@@ -7125,10 +6712,8 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehavi
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets struct {
-	// 行为。
 	Behavior *string `json:"behavior,omitempty" xml:"behavior,omitempty"`
-	// 字段 id。
-	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	FieldId  *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) String() string {
@@ -7167,12 +6752,9 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOpt
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush struct {
-	// 考勤类型(1表示请假, 2表示出差, 3表示加班, 4表示外出)
-	AttendanceRule *int32 `json:"attendanceRule,omitempty" xml:"attendanceRule,omitempty"`
-	// 开启状态(1表示开启, 0表示关闭)
-	PushSwitch *int32 `json:"pushSwitch,omitempty" xml:"pushSwitch,omitempty"`
-	// 状态显示名称
-	PushTag *string `json:"pushTag,omitempty" xml:"pushTag,omitempty"`
+	AttendanceRule *int32  `json:"attendanceRule,omitempty" xml:"attendanceRule,omitempty"`
+	PushSwitch     *int32  `json:"pushSwitch,omitempty" xml:"pushSwitch,omitempty"`
+	PushTag        *string `json:"pushTag,omitempty" xml:"pushTag,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) String() string {
@@ -7199,14 +6781,10 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) 
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField struct {
-	// id 值。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 名称。
+	Id    *string `json:"id,omitempty" xml:"id,omitempty"`
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	// 单位。
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 大写。
-	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
+	Unit  *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Upper *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) String() string {
@@ -7238,8 +6816,9 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatFi
 }
 
 type QuerySchemaByProcessCodeResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QuerySchemaByProcessCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QuerySchemaByProcessCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QuerySchemaByProcessCodeResponse) String() string {
@@ -7252,6 +6831,11 @@ func (s QuerySchemaByProcessCodeResponse) GoString() string {
 
 func (s *QuerySchemaByProcessCodeResponse) SetHeaders(v map[string]*string) *QuerySchemaByProcessCodeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponse) SetStatusCode(v int32) *QuerySchemaByProcessCodeResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7284,18 +6868,12 @@ func (s *RedirectWorkflowTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Redi
 }
 
 type RedirectWorkflowTaskRequest struct {
-	// 操作节点名
-	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	// 文件。
-	File *RedirectWorkflowTaskRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
-	// 操作人的用户ID，需要跟任务的当前执行人保持一致，否则无法通过校验
-	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
-	// 转交备注信息
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// OA审批任务ID
-	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// OA审批任务被转交对象的用户ID
-	ToUserId *string `json:"toUserId,omitempty" xml:"toUserId,omitempty"`
+	ActionName    *string                          `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	File          *RedirectWorkflowTaskRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
+	OperateUserId *string                          `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	Remark        *string                          `json:"remark,omitempty" xml:"remark,omitempty"`
+	TaskId        *int64                           `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	ToUserId      *string                          `json:"toUserId,omitempty" xml:"toUserId,omitempty"`
 }
 
 func (s RedirectWorkflowTaskRequest) String() string {
@@ -7337,10 +6915,8 @@ func (s *RedirectWorkflowTaskRequest) SetToUserId(v string) *RedirectWorkflowTas
 }
 
 type RedirectWorkflowTaskRequestFile struct {
-	// 附件列表。
 	Attachments []*RedirectWorkflowTaskRequestFileAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	// 图片URL地址。
-	Photos []*string `json:"photos,omitempty" xml:"photos,omitempty" type:"Repeated"`
+	Photos      []*string                                     `json:"photos,omitempty" xml:"photos,omitempty" type:"Repeated"`
 }
 
 func (s RedirectWorkflowTaskRequestFile) String() string {
@@ -7362,16 +6938,11 @@ func (s *RedirectWorkflowTaskRequestFile) SetPhotos(v []*string) *RedirectWorkfl
 }
 
 type RedirectWorkflowTaskRequestFileAttachments struct {
-	// 文件ID。
-	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	// 文件名称。
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 文件大小。
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	// 文件类型。
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	// 钉盘空间ID。
-	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s RedirectWorkflowTaskRequestFileAttachments) String() string {
@@ -7408,7 +6979,6 @@ func (s *RedirectWorkflowTaskRequestFileAttachments) SetSpaceId(v string) *Redir
 }
 
 type RedirectWorkflowTaskResponseBody struct {
-	// 是否转交成功
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -7426,8 +6996,9 @@ func (s *RedirectWorkflowTaskResponseBody) SetResult(v bool) *RedirectWorkflowTa
 }
 
 type RedirectWorkflowTaskResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *RedirectWorkflowTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RedirectWorkflowTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RedirectWorkflowTaskResponse) String() string {
@@ -7440,6 +7011,11 @@ func (s RedirectWorkflowTaskResponse) GoString() string {
 
 func (s *RedirectWorkflowTaskResponse) SetHeaders(v map[string]*string) *RedirectWorkflowTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RedirectWorkflowTaskResponse) SetStatusCode(v int32) *RedirectWorkflowTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7474,14 +7050,10 @@ func (s *SaveIntegratedInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Sa
 type SaveIntegratedInstanceRequest struct {
 	FormComponentValueList []*SaveIntegratedInstanceRequestFormComponentValueList `json:"formComponentValueList,omitempty" xml:"formComponentValueList,omitempty" type:"Repeated"`
 	Notifiers              []*SaveIntegratedInstanceRequestNotifiers              `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
-	// 审批实例接收人的userId。
-	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
-	// 审批模板唯一码
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 实例标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 三方审批系统中审批单的详情页地址
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	OriginatorUserId       *string                                                `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	ProcessCode            *string                                                `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	Title                  *string                                                `json:"title,omitempty" xml:"title,omitempty"`
+	Url                    *string                                                `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s SaveIntegratedInstanceRequest) String() string {
@@ -7523,56 +7095,12 @@ func (s *SaveIntegratedInstanceRequest) SetUrl(v string) *SaveIntegratedInstance
 }
 
 type SaveIntegratedInstanceRequestFormComponentValueList struct {
-	// 控件别名
-	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 控件类型，取值：
-	//
-	// TextField：单行输入框
-	//
-	// TextareaField：多行输入框
-	//
-	// NumberField：数字输入框
-	//
-	// DDSelectField：单选框
-	//
-	// DDMultiSelectField：多选框
-	//
-	// DDDateField：日期控件
-	//
-	// DDDateRangeField：时间区间控件
-	//
-	// TextNote：文字说明控件
-	//
-	// PhoneField：电话控件
-	//
-	// DDPhotoField：图片控件
-	//
-	// MoneyField：金额控件
-	//
-	// TableField：明细控件
-	//
-	// DDAttachment：附件
-	//
-	// InnerContactField：联系人控件
-	//
-	// RelateField：关联审批单
-	//
-	// FormRelateField：关联控件
-	//
-	// AddressField：省市区控件
-	//
-	// StarRatingField：评分控件
-	//
-	// DepartmentField：部门控件
+	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	// 表单扩展值
-	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	// 控件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 表单名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 表单值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s SaveIntegratedInstanceRequestFormComponentValueList) String() string {
@@ -7614,13 +7142,8 @@ func (s *SaveIntegratedInstanceRequestFormComponentValueList) SetValue(v string)
 }
 
 type SaveIntegratedInstanceRequestNotifiers struct {
-	// 抄送位置，可以值有：
-	// start - 审批发起时，通知抄送人
-	// finish - 审批通过后，通知抄送人
-	// start_finish - 审批发起时和审批通过后，都通知抄送人
 	Position *string `json:"position,omitempty" xml:"position,omitempty"`
-	// 抄送接收人用户ID
-	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
+	Userid   *string `json:"userid,omitempty" xml:"userid,omitempty"`
 }
 
 func (s SaveIntegratedInstanceRequestNotifiers) String() string {
@@ -7659,7 +7182,6 @@ func (s *SaveIntegratedInstanceResponseBody) SetResult(v *SaveIntegratedInstance
 }
 
 type SaveIntegratedInstanceResponseBodyResult struct {
-	// 实例id
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
@@ -7677,8 +7199,9 @@ func (s *SaveIntegratedInstanceResponseBodyResult) SetProcessInstanceId(v string
 }
 
 type SaveIntegratedInstanceResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SaveIntegratedInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SaveIntegratedInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SaveIntegratedInstanceResponse) String() string {
@@ -7691,6 +7214,11 @@ func (s SaveIntegratedInstanceResponse) GoString() string {
 
 func (s *SaveIntegratedInstanceResponse) SetHeaders(v map[string]*string) *SaveIntegratedInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SaveIntegratedInstanceResponse) SetStatusCode(v int32) *SaveIntegratedInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -7723,17 +7251,12 @@ func (s *SaveProcessHeaders) SetXAcsDingtalkAccessToken(v string) *SaveProcessHe
 }
 
 type SaveProcessRequest struct {
-	// 表单模板描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 表单控件列表
-	FormComponents []*FormComponent `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
-	// 表单模板名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 模板code
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 流程中心集成配置
+	Description          *string                                 `json:"description,omitempty" xml:"description,omitempty"`
+	FormComponents       []*FormComponent                        `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
+	Name                 *string                                 `json:"name,omitempty" xml:"name,omitempty"`
+	ProcessCode          *string                                 `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	ProcessFeatureConfig *SaveProcessRequestProcessFeatureConfig `json:"processFeatureConfig,omitempty" xml:"processFeatureConfig,omitempty" type:"Struct"`
-	// 流程中心模板配置
+	// Deprecated
 	TemplateConfig *SaveProcessRequestTemplateConfig `json:"templateConfig,omitempty" xml:"templateConfig,omitempty" type:"Struct"`
 }
 
@@ -7776,7 +7299,6 @@ func (s *SaveProcessRequest) SetTemplateConfig(v *SaveProcessRequestTemplateConf
 }
 
 type SaveProcessRequestProcessFeatureConfig struct {
-	// 配置列表
 	Features []*SaveProcessRequestProcessFeatureConfigFeatures `json:"features,omitempty" xml:"features,omitempty" type:"Repeated"`
 }
 
@@ -7794,17 +7316,11 @@ func (s *SaveProcessRequestProcessFeatureConfig) SetFeatures(v []*SaveProcessReq
 }
 
 type SaveProcessRequestProcessFeatureConfigFeatures struct {
-	Callback *SaveProcessRequestProcessFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
-	// 手机端链接
-	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// pc端链接
-	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	// 运行方式：
-	// ORIGIN：原生运行，即在官方审批内运行对应功能；
-	// REDIRECT：外部跳转运行，需要跳转到三方地址运行对应功能
-	RunType *string `json:"runType,omitempty" xml:"runType,omitempty"`
+	Callback  *SaveProcessRequestProcessFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
+	MobileUrl *string                                                 `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	Name      *string                                                 `json:"name,omitempty" xml:"name,omitempty"`
+	PcUrl     *string                                                 `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	RunType   *string                                                 `json:"runType,omitempty" xml:"runType,omitempty"`
 }
 
 func (s SaveProcessRequestProcessFeatureConfigFeatures) String() string {
@@ -7841,11 +7357,8 @@ func (s *SaveProcessRequestProcessFeatureConfigFeatures) SetRunType(v string) *S
 }
 
 type SaveProcessRequestProcessFeatureConfigFeaturesCallback struct {
-	// 网关接口标识
-	ApiKey *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
-	// 网关接口对应应用的uuid
+	ApiKey  *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
 	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 网关接口版本
 	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
@@ -7873,14 +7386,13 @@ func (s *SaveProcessRequestProcessFeatureConfigFeaturesCallback) SetVersion(v st
 }
 
 type SaveProcessRequestTemplateConfig struct {
-	// 表单创建移动端地址
+	// Deprecated
 	CreateInstanceMobileUrl *string `json:"createInstanceMobileUrl,omitempty" xml:"createInstanceMobileUrl,omitempty"`
-	// 表单创建PC端地址
+	// Deprecated
 	CreateInstancePcUrl *string `json:"createInstancePcUrl,omitempty" xml:"createInstancePcUrl,omitempty"`
 	DisableSendCard     *bool   `json:"disableSendCard,omitempty" xml:"disableSendCard,omitempty"`
-	// 是否为隐藏模板
-	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
-	// 模板编辑地址
+	Hidden              *bool   `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	// Deprecated
 	TemplateEditUrl *string `json:"templateEditUrl,omitempty" xml:"templateEditUrl,omitempty"`
 }
 
@@ -7918,7 +7430,6 @@ func (s *SaveProcessRequestTemplateConfig) SetTemplateEditUrl(v string) *SavePro
 }
 
 type SaveProcessResponseBody struct {
-	// 表单模板信息
 	Result *SaveProcessResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -7936,7 +7447,6 @@ func (s *SaveProcessResponseBody) SetResult(v *SaveProcessResponseBodyResult) *S
 }
 
 type SaveProcessResponseBodyResult struct {
-	// 保存或更新的表单code
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -7954,8 +7464,9 @@ func (s *SaveProcessResponseBodyResult) SetProcessCode(v string) *SaveProcessRes
 }
 
 type SaveProcessResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SaveProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SaveProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SaveProcessResponse) String() string {
@@ -7968,6 +7479,11 @@ func (s SaveProcessResponse) GoString() string {
 
 func (s *SaveProcessResponse) SetHeaders(v map[string]*string) *SaveProcessResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SaveProcessResponse) SetStatusCode(v int32) *SaveProcessResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8000,23 +7516,14 @@ func (s *StartProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Star
 }
 
 type StartProcessInstanceRequest struct {
-	// 不使用审批流模板时，直接指定审批人列表
-	Approvers []*StartProcessInstanceRequestApprovers `json:"approvers,omitempty" xml:"approvers,omitempty" type:"Repeated"`
-	// 抄送人userId列表
-	CcList []*string `json:"ccList,omitempty" xml:"ccList,omitempty" type:"Repeated"`
-	// 抄送时间
-	CcPosition *string `json:"ccPosition,omitempty" xml:"ccPosition,omitempty"`
-	// 部门ID
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 表单数据内容，控件列表
-	FormComponentValues []*StartProcessInstanceRequestFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
-	// 企业微应用标识
-	MicroappAgentId *int64 `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
-	// 审批发起人的userId
-	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
-	// 审批流的唯一码
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 使用审批流模板时，模板上的自选操作人列表
+	Approvers             []*StartProcessInstanceRequestApprovers             `json:"approvers,omitempty" xml:"approvers,omitempty" type:"Repeated"`
+	CcList                []*string                                           `json:"ccList,omitempty" xml:"ccList,omitempty" type:"Repeated"`
+	CcPosition            *string                                             `json:"ccPosition,omitempty" xml:"ccPosition,omitempty"`
+	DeptId                *int64                                              `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	FormComponentValues   []*StartProcessInstanceRequestFormComponentValues   `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	MicroappAgentId       *int64                                              `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	OriginatorUserId      *string                                             `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	ProcessCode           *string                                             `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	TargetSelectActioners []*StartProcessInstanceRequestTargetSelectActioners `json:"targetSelectActioners,omitempty" xml:"targetSelectActioners,omitempty" type:"Repeated"`
 }
 
@@ -8074,10 +7581,8 @@ func (s *StartProcessInstanceRequest) SetTargetSelectActioners(v []*StartProcess
 }
 
 type StartProcessInstanceRequestApprovers struct {
-	// 审批类型
-	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 审批人列表
-	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	ActionType *string   `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	UserIds    []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s StartProcessInstanceRequestApprovers) String() string {
@@ -8099,19 +7604,13 @@ func (s *StartProcessInstanceRequestApprovers) SetUserIds(v []*string) *StartPro
 }
 
 type StartProcessInstanceRequestFormComponentValues struct {
-	// 控件别名
-	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 控件类型
+	BizAlias      *string                                                  `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string                                                  `json:"componentType,omitempty" xml:"componentType,omitempty"`
 	Details       []*StartProcessInstanceRequestFormComponentValuesDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	// 控件扩展值
-	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	// 控件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 控件名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 控件值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	ExtValue      *string                                                  `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id            *string                                                  `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
+	Value         *string                                                  `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s StartProcessInstanceRequestFormComponentValues) String() string {
@@ -8158,17 +7657,12 @@ func (s *StartProcessInstanceRequestFormComponentValues) SetValue(v string) *Sta
 }
 
 type StartProcessInstanceRequestFormComponentValuesDetails struct {
-	// 控件别名
 	BizAlias *string                                                         `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	Details  []*StartProcessInstanceRequestFormComponentValuesDetailsDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	// 控件扩展值
-	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	// 控件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 控件名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 控件值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	ExtValue *string                                                         `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id       *string                                                         `json:"id,omitempty" xml:"id,omitempty"`
+	Name     *string                                                         `json:"name,omitempty" xml:"name,omitempty"`
+	Value    *string                                                         `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s StartProcessInstanceRequestFormComponentValuesDetails) String() string {
@@ -8210,18 +7704,12 @@ func (s *StartProcessInstanceRequestFormComponentValuesDetails) SetValue(v strin
 }
 
 type StartProcessInstanceRequestFormComponentValuesDetailsDetails struct {
-	// 控件别名
-	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	// 控件类型
+	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	// 控件扩展值
-	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	// 控件id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 控件名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 控件值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s StartProcessInstanceRequestFormComponentValuesDetailsDetails) String() string {
@@ -8263,9 +7751,7 @@ func (s *StartProcessInstanceRequestFormComponentValuesDetailsDetails) SetValue(
 }
 
 type StartProcessInstanceRequestTargetSelectActioners struct {
-	// 自选节点的规则key
-	ActionerKey *string `json:"actionerKey,omitempty" xml:"actionerKey,omitempty"`
-	// 操作人userId列表
+	ActionerKey     *string   `json:"actionerKey,omitempty" xml:"actionerKey,omitempty"`
 	ActionerUserIds []*string `json:"actionerUserIds,omitempty" xml:"actionerUserIds,omitempty" type:"Repeated"`
 }
 
@@ -8288,7 +7774,6 @@ func (s *StartProcessInstanceRequestTargetSelectActioners) SetActionerUserIds(v 
 }
 
 type StartProcessInstanceResponseBody struct {
-	// 审批实例id
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
@@ -8306,8 +7791,9 @@ func (s *StartProcessInstanceResponseBody) SetInstanceId(v string) *StartProcess
 }
 
 type StartProcessInstanceResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *StartProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *StartProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s StartProcessInstanceResponse) String() string {
@@ -8320,6 +7806,11 @@ func (s StartProcessInstanceResponse) GoString() string {
 
 func (s *StartProcessInstanceResponse) SetHeaders(v map[string]*string) *StartProcessInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *StartProcessInstanceResponse) SetStatusCode(v int32) *StartProcessInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8352,20 +7843,10 @@ func (s *TerminateProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type TerminateProcessInstanceRequest struct {
-	// 是否通过系统操作：
-	//
-	// true：由系统直接终止
-	//
-	// false：由指定的操作者终止
-	IsSystem *bool `json:"isSystem,omitempty" xml:"isSystem,omitempty"`
-	// 操作人的userid。
-	//
-	// 当is_system为false时，该参数必传。
-	OperatingUserId *string `json:"operatingUserId,omitempty" xml:"operatingUserId,omitempty"`
-	// 审批实例ID，可通过调用获取审批实例ID列表接口获取。
+	IsSystem          *bool   `json:"isSystem,omitempty" xml:"isSystem,omitempty"`
+	OperatingUserId   *string `json:"operatingUserId,omitempty" xml:"operatingUserId,omitempty"`
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 终止说明。
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	Remark            *string `json:"remark,omitempty" xml:"remark,omitempty"`
 }
 
 func (s TerminateProcessInstanceRequest) String() string {
@@ -8397,9 +7878,7 @@ func (s *TerminateProcessInstanceRequest) SetRemark(v string) *TerminateProcessI
 }
 
 type TerminateProcessInstanceResponseBody struct {
-	// 撤销结果。
-	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
-	// 接口调用是否成功。
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -8422,8 +7901,9 @@ func (s *TerminateProcessInstanceResponseBody) SetSuccess(v bool) *TerminateProc
 }
 
 type TerminateProcessInstanceResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *TerminateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *TerminateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s TerminateProcessInstanceResponse) String() string {
@@ -8436,6 +7916,11 @@ func (s TerminateProcessInstanceResponse) GoString() string {
 
 func (s *TerminateProcessInstanceResponse) SetHeaders(v map[string]*string) *TerminateProcessInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *TerminateProcessInstanceResponse) SetStatusCode(v int32) *TerminateProcessInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8468,7 +7953,6 @@ func (s *UpdateIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateIntegratedTaskRequest struct {
-	// OA审批流程实例ID，过创建实例接口获取
 	ProcessInstanceId *string                             `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 	Tasks             []*UpdateIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
 }
@@ -8492,16 +7976,9 @@ func (s *UpdateIntegratedTaskRequest) SetTasks(v []*UpdateIntegratedTaskRequestT
 }
 
 type UpdateIntegratedTaskRequestTasks struct {
-	// 当status为COMPLETED时，必须指定任务结果：
-	// AGREE：同意
-	// REFUSE：拒绝
-	//
-	// 说明 当status为CANCELED时，不需要传result。
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 更新为目标任务状态，可选值 CANCELED、COMPLETED
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// OA审批任务ID
-	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskId *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s UpdateIntegratedTaskRequestTasks) String() string {
@@ -8528,7 +8005,6 @@ func (s *UpdateIntegratedTaskRequestTasks) SetTaskId(v int64) *UpdateIntegratedT
 }
 
 type UpdateIntegratedTaskResponseBody struct {
-	// 是否更新成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -8546,8 +8022,9 @@ func (s *UpdateIntegratedTaskResponseBody) SetSuccess(v bool) *UpdateIntegratedT
 }
 
 type UpdateIntegratedTaskResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateIntegratedTaskResponse) String() string {
@@ -8560,6 +8037,11 @@ func (s UpdateIntegratedTaskResponse) GoString() string {
 
 func (s *UpdateIntegratedTaskResponse) SetHeaders(v map[string]*string) *UpdateIntegratedTaskResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateIntegratedTaskResponse) SetStatusCode(v int32) *UpdateIntegratedTaskResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8592,20 +8074,10 @@ func (s *UpdateProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateProcessInstanceRequest struct {
-	// 抄送列表，注意最大抄送人数量不能超过30。
-	Notifiers []*UpdateProcessInstanceRequestNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
-	// 审批实例ID。
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 实例结果：
-	// 实例状态是COMPLETED，必须设置代表以下含义。
-	// agree：同意
-	// refuse：拒绝
-	// 实例状态为TERMINATED，必须设置代表含义，result取值agree和refuse均代表撤销审批流。
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-	// 实例状态：
-	// COMPLETED：结束审批流
-	// TERMINATED：终止审批流
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Notifiers         []*UpdateProcessInstanceRequestNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
+	ProcessInstanceId *string                                  `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Result            *string                                  `json:"result,omitempty" xml:"result,omitempty"`
+	Status            *string                                  `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s UpdateProcessInstanceRequest) String() string {
@@ -8637,7 +8109,6 @@ func (s *UpdateProcessInstanceRequest) SetStatus(v string) *UpdateProcessInstanc
 }
 
 type UpdateProcessInstanceRequestNotifiers struct {
-	// 抄送接收人用户userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -8672,8 +8143,9 @@ func (s *UpdateProcessInstanceResponseBody) SetSuccess(v bool) *UpdateProcessIns
 }
 
 type UpdateProcessInstanceResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateProcessInstanceResponse) String() string {
@@ -8686,6 +8158,11 @@ func (s UpdateProcessInstanceResponse) GoString() string {
 
 func (s *UpdateProcessInstanceResponse) SetHeaders(v map[string]*string) *UpdateProcessInstanceResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateProcessInstanceResponse) SetStatusCode(v int32) *UpdateProcessInstanceResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -8709,24 +8186,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) AddApproveDentryAuth(request *AddApproveDentryAuthRequest) (_result *AddApproveDentryAuthResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddApproveDentryAuthHeaders{}
-	_result = &AddApproveDentryAuthResponse{}
-	_body, _err := client.AddApproveDentryAuthWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) AddApproveDentryAuthWithOptions(request *AddApproveDentryAuthRequest, headers *AddApproveDentryAuthHeaders, runtime *util.RuntimeOptions) (_result *AddApproveDentryAuthResponse, _err error) {
@@ -8756,8 +8227,19 @@ func (client *Client) AddApproveDentryAuthWithOptions(request *AddApproveDentryA
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddApproveDentryAuth"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances/spaces/files/authDownload"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddApproveDentryAuthResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddApproveDentryAuth"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances/spaces/files/authDownload"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8765,11 +8247,11 @@ func (client *Client) AddApproveDentryAuthWithOptions(request *AddApproveDentryA
 	return _result, _err
 }
 
-func (client *Client) AddProcessInstanceComment(request *AddProcessInstanceCommentRequest) (_result *AddProcessInstanceCommentResponse, _err error) {
+func (client *Client) AddApproveDentryAuth(request *AddApproveDentryAuthRequest) (_result *AddApproveDentryAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddProcessInstanceCommentHeaders{}
-	_result = &AddProcessInstanceCommentResponse{}
-	_body, _err := client.AddProcessInstanceCommentWithOptions(request, headers, runtime)
+	headers := &AddApproveDentryAuthHeaders{}
+	_result = &AddApproveDentryAuthResponse{}
+	_body, _err := client.AddApproveDentryAuthWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8812,8 +8294,19 @@ func (client *Client) AddProcessInstanceCommentWithOptions(request *AddProcessIn
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("AddProcessInstanceComment"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances/comments"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &AddProcessInstanceCommentResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddProcessInstanceComment"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances/comments"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8821,11 +8314,11 @@ func (client *Client) AddProcessInstanceCommentWithOptions(request *AddProcessIn
 	return _result, _err
 }
 
-func (client *Client) BatchUpdateProcessInstance(request *BatchUpdateProcessInstanceRequest) (_result *BatchUpdateProcessInstanceResponse, _err error) {
+func (client *Client) AddProcessInstanceComment(request *AddProcessInstanceCommentRequest) (_result *AddProcessInstanceCommentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchUpdateProcessInstanceHeaders{}
-	_result = &BatchUpdateProcessInstanceResponse{}
-	_body, _err := client.BatchUpdateProcessInstanceWithOptions(request, headers, runtime)
+	headers := &AddProcessInstanceCommentHeaders{}
+	_result = &AddProcessInstanceCommentResponse{}
+	_body, _err := client.AddProcessInstanceCommentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8856,8 +8349,19 @@ func (client *Client) BatchUpdateProcessInstanceWithOptions(request *BatchUpdate
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchUpdateProcessInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/instances/batch"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &BatchUpdateProcessInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchUpdateProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/instances/batch"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8865,11 +8369,11 @@ func (client *Client) BatchUpdateProcessInstanceWithOptions(request *BatchUpdate
 	return _result, _err
 }
 
-func (client *Client) CancelIntegratedTask(request *CancelIntegratedTaskRequest) (_result *CancelIntegratedTaskResponse, _err error) {
+func (client *Client) BatchUpdateProcessInstance(request *BatchUpdateProcessInstanceRequest) (_result *BatchUpdateProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CancelIntegratedTaskHeaders{}
-	_result = &CancelIntegratedTaskResponse{}
-	_body, _err := client.CancelIntegratedTaskWithOptions(request, headers, runtime)
+	headers := &BatchUpdateProcessInstanceHeaders{}
+	_result = &BatchUpdateProcessInstanceResponse{}
+	_body, _err := client.BatchUpdateProcessInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8908,8 +8412,19 @@ func (client *Client) CancelIntegratedTaskWithOptions(request *CancelIntegratedT
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CancelIntegratedTask"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/tasks/cancel"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CancelIntegratedTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("CancelIntegratedTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/tasks/cancel"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8917,11 +8432,11 @@ func (client *Client) CancelIntegratedTaskWithOptions(request *CancelIntegratedT
 	return _result, _err
 }
 
-func (client *Client) CleanProcessData(request *CleanProcessDataRequest) (_result *CleanProcessDataResponse, _err error) {
+func (client *Client) CancelIntegratedTask(request *CancelIntegratedTaskRequest) (_result *CancelIntegratedTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CleanProcessDataHeaders{}
-	_result = &CleanProcessDataResponse{}
-	_body, _err := client.CleanProcessDataWithOptions(request, headers, runtime)
+	headers := &CancelIntegratedTaskHeaders{}
+	_result = &CancelIntegratedTaskResponse{}
+	_body, _err := client.CancelIntegratedTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8956,8 +8471,19 @@ func (client *Client) CleanProcessDataWithOptions(request *CleanProcessDataReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CleanProcessData"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/clean"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CleanProcessDataResponse{}
-	_body, _err := client.DoROARequest(tea.String("CleanProcessData"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/clean"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8965,11 +8491,11 @@ func (client *Client) CleanProcessDataWithOptions(request *CleanProcessDataReque
 	return _result, _err
 }
 
-func (client *Client) CopyProcess(request *CopyProcessRequest) (_result *CopyProcessResponse, _err error) {
+func (client *Client) CleanProcessData(request *CleanProcessDataRequest) (_result *CleanProcessDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CopyProcessHeaders{}
-	_result = &CopyProcessResponse{}
-	_body, _err := client.CopyProcessWithOptions(request, headers, runtime)
+	headers := &CleanProcessDataHeaders{}
+	_result = &CleanProcessDataResponse{}
+	_body, _err := client.CleanProcessDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9008,8 +8534,19 @@ func (client *Client) CopyProcessWithOptions(request *CopyProcessRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CopyProcess"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/copy"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CopyProcessResponse{}
-	_body, _err := client.DoROARequest(tea.String("CopyProcess"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/copy"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9017,11 +8554,11 @@ func (client *Client) CopyProcessWithOptions(request *CopyProcessRequest, header
 	return _result, _err
 }
 
-func (client *Client) CreateIntegratedTask(request *CreateIntegratedTaskRequest) (_result *CreateIntegratedTaskResponse, _err error) {
+func (client *Client) CopyProcess(request *CopyProcessRequest) (_result *CopyProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateIntegratedTaskHeaders{}
-	_result = &CreateIntegratedTaskResponse{}
-	_body, _err := client.CreateIntegratedTaskWithOptions(request, headers, runtime)
+	headers := &CopyProcessHeaders{}
+	_result = &CopyProcessResponse{}
+	_body, _err := client.CopyProcessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9060,8 +8597,19 @@ func (client *Client) CreateIntegratedTaskWithOptions(request *CreateIntegratedT
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateIntegratedTask"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/tasks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &CreateIntegratedTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateIntegratedTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/tasks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9069,11 +8617,11 @@ func (client *Client) CreateIntegratedTaskWithOptions(request *CreateIntegratedT
 	return _result, _err
 }
 
-func (client *Client) DeleteProcess(request *DeleteProcessRequest) (_result *DeleteProcessResponse, _err error) {
+func (client *Client) CreateIntegratedTask(request *CreateIntegratedTaskRequest) (_result *CreateIntegratedTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteProcessHeaders{}
-	_result = &DeleteProcessResponse{}
-	_body, _err := client.DeleteProcessWithOptions(request, headers, runtime)
+	headers := &CreateIntegratedTaskHeaders{}
+	_result = &CreateIntegratedTaskResponse{}
+	_body, _err := client.CreateIntegratedTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9108,8 +8656,19 @@ func (client *Client) DeleteProcessWithOptions(request *DeleteProcessRequest, he
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteProcess"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/schemas"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &DeleteProcessResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteProcess"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/schemas"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9117,11 +8676,11 @@ func (client *Client) DeleteProcessWithOptions(request *DeleteProcessRequest, he
 	return _result, _err
 }
 
-func (client *Client) ExecuteProcessInstance(request *ExecuteProcessInstanceRequest) (_result *ExecuteProcessInstanceResponse, _err error) {
+func (client *Client) DeleteProcess(request *DeleteProcessRequest) (_result *DeleteProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ExecuteProcessInstanceHeaders{}
-	_result = &ExecuteProcessInstanceResponse{}
-	_body, _err := client.ExecuteProcessInstanceWithOptions(request, headers, runtime)
+	headers := &DeleteProcessHeaders{}
+	_result = &DeleteProcessResponse{}
+	_body, _err := client.DeleteProcessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9172,8 +8731,19 @@ func (client *Client) ExecuteProcessInstanceWithOptions(request *ExecuteProcessI
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ExecuteProcessInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances/execute"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ExecuteProcessInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("ExecuteProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances/execute"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9181,11 +8751,11 @@ func (client *Client) ExecuteProcessInstanceWithOptions(request *ExecuteProcessI
 	return _result, _err
 }
 
-func (client *Client) FormCreate(request *FormCreateRequest) (_result *FormCreateResponse, _err error) {
+func (client *Client) ExecuteProcessInstance(request *ExecuteProcessInstanceRequest) (_result *ExecuteProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &FormCreateHeaders{}
-	_result = &FormCreateResponse{}
-	_body, _err := client.FormCreateWithOptions(request, headers, runtime)
+	headers := &ExecuteProcessInstanceHeaders{}
+	_result = &ExecuteProcessInstanceResponse{}
+	_body, _err := client.ExecuteProcessInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9232,8 +8802,19 @@ func (client *Client) FormCreateWithOptions(request *FormCreateRequest, headers 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("FormCreate"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/forms"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &FormCreateResponse{}
-	_body, _err := client.DoROARequest(tea.String("FormCreate"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/forms"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9241,11 +8822,11 @@ func (client *Client) FormCreateWithOptions(request *FormCreateRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) GetAttachmentSpace(request *GetAttachmentSpaceRequest) (_result *GetAttachmentSpaceResponse, _err error) {
+func (client *Client) FormCreate(request *FormCreateRequest) (_result *FormCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetAttachmentSpaceHeaders{}
-	_result = &GetAttachmentSpaceResponse{}
-	_body, _err := client.GetAttachmentSpaceWithOptions(request, headers, runtime)
+	headers := &FormCreateHeaders{}
+	_result = &FormCreateResponse{}
+	_body, _err := client.FormCreateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9280,8 +8861,19 @@ func (client *Client) GetAttachmentSpaceWithOptions(request *GetAttachmentSpaceR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAttachmentSpace"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances/spaces/infos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetAttachmentSpaceResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetAttachmentSpace"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances/spaces/infos/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9289,11 +8881,11 @@ func (client *Client) GetAttachmentSpaceWithOptions(request *GetAttachmentSpaceR
 	return _result, _err
 }
 
-func (client *Client) GetConditionFormComponent(request *GetConditionFormComponentRequest) (_result *GetConditionFormComponentResponse, _err error) {
+func (client *Client) GetAttachmentSpace(request *GetAttachmentSpaceRequest) (_result *GetAttachmentSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetConditionFormComponentHeaders{}
-	_result = &GetConditionFormComponentResponse{}
-	_body, _err := client.GetConditionFormComponentWithOptions(request, headers, runtime)
+	headers := &GetAttachmentSpaceHeaders{}
+	_result = &GetAttachmentSpaceResponse{}
+	_body, _err := client.GetAttachmentSpaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9328,8 +8920,19 @@ func (client *Client) GetConditionFormComponentWithOptions(request *GetCondition
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetConditionFormComponent"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/conditions/components"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetConditionFormComponentResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetConditionFormComponent"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processes/conditions/components"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9337,11 +8940,11 @@ func (client *Client) GetConditionFormComponentWithOptions(request *GetCondition
 	return _result, _err
 }
 
-func (client *Client) GetCrmProcCodes() (_result *GetCrmProcCodesResponse, _err error) {
+func (client *Client) GetConditionFormComponent(request *GetConditionFormComponentRequest) (_result *GetConditionFormComponentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetCrmProcCodesHeaders{}
-	_result = &GetCrmProcCodesResponse{}
-	_body, _err := client.GetCrmProcCodesWithOptions(headers, runtime)
+	headers := &GetConditionFormComponentHeaders{}
+	_result = &GetConditionFormComponentResponse{}
+	_body, _err := client.GetConditionFormComponentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9362,8 +8965,19 @@ func (client *Client) GetCrmProcCodesWithOptions(headers *GetCrmProcCodesHeaders
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCrmProcCodes"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/crm/processes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetCrmProcCodesResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCrmProcCodes"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/crm/processes"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9371,11 +8985,11 @@ func (client *Client) GetCrmProcCodesWithOptions(headers *GetCrmProcCodesHeaders
 	return _result, _err
 }
 
-func (client *Client) GetManageProcessByStaffId(request *GetManageProcessByStaffIdRequest) (_result *GetManageProcessByStaffIdResponse, _err error) {
+func (client *Client) GetCrmProcCodes() (_result *GetCrmProcCodesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetManageProcessByStaffIdHeaders{}
-	_result = &GetManageProcessByStaffIdResponse{}
-	_body, _err := client.GetManageProcessByStaffIdWithOptions(request, headers, runtime)
+	headers := &GetCrmProcCodesHeaders{}
+	_result = &GetCrmProcCodesResponse{}
+	_body, _err := client.GetCrmProcCodesWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9406,8 +9020,19 @@ func (client *Client) GetManageProcessByStaffIdWithOptions(request *GetManagePro
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetManageProcessByStaffId"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/managements/templates"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetManageProcessByStaffIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetManageProcessByStaffId"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processes/managements/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9415,11 +9040,11 @@ func (client *Client) GetManageProcessByStaffIdWithOptions(request *GetManagePro
 	return _result, _err
 }
 
-func (client *Client) GetProcessCodeByName(request *GetProcessCodeByNameRequest) (_result *GetProcessCodeByNameResponse, _err error) {
+func (client *Client) GetManageProcessByStaffId(request *GetManageProcessByStaffIdRequest) (_result *GetManageProcessByStaffIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetProcessCodeByNameHeaders{}
-	_result = &GetProcessCodeByNameResponse{}
-	_body, _err := client.GetProcessCodeByNameWithOptions(request, headers, runtime)
+	headers := &GetManageProcessByStaffIdHeaders{}
+	_result = &GetManageProcessByStaffIdResponse{}
+	_body, _err := client.GetManageProcessByStaffIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9450,8 +9075,19 @@ func (client *Client) GetProcessCodeByNameWithOptions(request *GetProcessCodeByN
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProcessCodeByName"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/schemaNames/processCodes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetProcessCodeByNameResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProcessCodeByName"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/schemaNames/processCodes"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9459,11 +9095,11 @@ func (client *Client) GetProcessCodeByNameWithOptions(request *GetProcessCodeByN
 	return _result, _err
 }
 
-func (client *Client) GetProcessConfig(request *GetProcessConfigRequest) (_result *GetProcessConfigResponse, _err error) {
+func (client *Client) GetProcessCodeByName(request *GetProcessCodeByNameRequest) (_result *GetProcessCodeByNameResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetProcessConfigHeaders{}
-	_result = &GetProcessConfigResponse{}
-	_body, _err := client.GetProcessConfigWithOptions(request, headers, runtime)
+	headers := &GetProcessCodeByNameHeaders{}
+	_result = &GetProcessCodeByNameResponse{}
+	_body, _err := client.GetProcessCodeByNameWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9494,8 +9130,19 @@ func (client *Client) GetProcessConfigWithOptions(request *GetProcessConfigReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProcessConfig"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/crm/processes/configurations"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetProcessConfigResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProcessConfig"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/crm/processes/configurations"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9503,11 +9150,11 @@ func (client *Client) GetProcessConfigWithOptions(request *GetProcessConfigReque
 	return _result, _err
 }
 
-func (client *Client) GetProcessInstance(request *GetProcessInstanceRequest) (_result *GetProcessInstanceResponse, _err error) {
+func (client *Client) GetProcessConfig(request *GetProcessConfigRequest) (_result *GetProcessConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetProcessInstanceHeaders{}
-	_result = &GetProcessInstanceResponse{}
-	_body, _err := client.GetProcessInstanceWithOptions(request, headers, runtime)
+	headers := &GetProcessConfigHeaders{}
+	_result = &GetProcessConfigResponse{}
+	_body, _err := client.GetProcessConfigWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9538,8 +9185,19 @@ func (client *Client) GetProcessInstanceWithOptions(request *GetProcessInstanceR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProcessInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetProcessInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9547,11 +9205,11 @@ func (client *Client) GetProcessInstanceWithOptions(request *GetProcessInstanceR
 	return _result, _err
 }
 
-func (client *Client) GetSpaceWithDownloadAuth(request *GetSpaceWithDownloadAuthRequest) (_result *GetSpaceWithDownloadAuthResponse, _err error) {
+func (client *Client) GetProcessInstance(request *GetProcessInstanceRequest) (_result *GetProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetSpaceWithDownloadAuthHeaders{}
-	_result = &GetSpaceWithDownloadAuthResponse{}
-	_body, _err := client.GetSpaceWithDownloadAuthWithOptions(request, headers, runtime)
+	headers := &GetProcessInstanceHeaders{}
+	_result = &GetProcessInstanceResponse{}
+	_body, _err := client.GetProcessInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9598,8 +9256,19 @@ func (client *Client) GetSpaceWithDownloadAuthWithOptions(request *GetSpaceWithD
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSpaceWithDownloadAuth"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances/spaces/authPreview"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetSpaceWithDownloadAuthResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSpaceWithDownloadAuth"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances/spaces/authPreview"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9607,11 +9276,11 @@ func (client *Client) GetSpaceWithDownloadAuthWithOptions(request *GetSpaceWithD
 	return _result, _err
 }
 
-func (client *Client) GetUserTodoTaskSum(request *GetUserTodoTaskSumRequest) (_result *GetUserTodoTaskSumResponse, _err error) {
+func (client *Client) GetSpaceWithDownloadAuth(request *GetSpaceWithDownloadAuthRequest) (_result *GetSpaceWithDownloadAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetUserTodoTaskSumHeaders{}
-	_result = &GetUserTodoTaskSumResponse{}
-	_body, _err := client.GetUserTodoTaskSumWithOptions(request, headers, runtime)
+	headers := &GetSpaceWithDownloadAuthHeaders{}
+	_result = &GetSpaceWithDownloadAuthResponse{}
+	_body, _err := client.GetSpaceWithDownloadAuthWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9642,8 +9311,19 @@ func (client *Client) GetUserTodoTaskSumWithOptions(request *GetUserTodoTaskSumR
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserTodoTaskSum"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/todoTasks/numbers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetUserTodoTaskSumResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUserTodoTaskSum"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processes/todoTasks/numbers"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9651,11 +9331,11 @@ func (client *Client) GetUserTodoTaskSumWithOptions(request *GetUserTodoTaskSumR
 	return _result, _err
 }
 
-func (client *Client) GrantCspaceAuthorization(request *GrantCspaceAuthorizationRequest) (_result *GrantCspaceAuthorizationResponse, _err error) {
+func (client *Client) GetUserTodoTaskSum(request *GetUserTodoTaskSumRequest) (_result *GetUserTodoTaskSumResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GrantCspaceAuthorizationHeaders{}
-	_result = &GrantCspaceAuthorizationResponse{}
-	_body, _err := client.GrantCspaceAuthorizationWithOptions(request, headers, runtime)
+	headers := &GetUserTodoTaskSumHeaders{}
+	_result = &GetUserTodoTaskSumResponse{}
+	_body, _err := client.GetUserTodoTaskSumWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9698,8 +9378,19 @@ func (client *Client) GrantCspaceAuthorizationWithOptions(request *GrantCspaceAu
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GrantCspaceAuthorization"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/spaces/authorize"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
 	_result = &GrantCspaceAuthorizationResponse{}
-	_body, _err := client.DoROARequest(tea.String("GrantCspaceAuthorization"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/spaces/authorize"), tea.String("none"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9707,11 +9398,11 @@ func (client *Client) GrantCspaceAuthorizationWithOptions(request *GrantCspaceAu
 	return _result, _err
 }
 
-func (client *Client) GrantProcessInstanceForDownloadFile(request *GrantProcessInstanceForDownloadFileRequest) (_result *GrantProcessInstanceForDownloadFileResponse, _err error) {
+func (client *Client) GrantCspaceAuthorization(request *GrantCspaceAuthorizationRequest) (_result *GrantCspaceAuthorizationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GrantProcessInstanceForDownloadFileHeaders{}
-	_result = &GrantProcessInstanceForDownloadFileResponse{}
-	_body, _err := client.GrantProcessInstanceForDownloadFileWithOptions(request, headers, runtime)
+	headers := &GrantCspaceAuthorizationHeaders{}
+	_result = &GrantCspaceAuthorizationResponse{}
+	_body, _err := client.GrantCspaceAuthorizationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9746,8 +9437,19 @@ func (client *Client) GrantProcessInstanceForDownloadFileWithOptions(request *Gr
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GrantProcessInstanceForDownloadFile"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances/spaces/files/urls/download"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GrantProcessInstanceForDownloadFileResponse{}
-	_body, _err := client.DoROARequest(tea.String("GrantProcessInstanceForDownloadFile"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances/spaces/files/urls/download"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9755,11 +9457,11 @@ func (client *Client) GrantProcessInstanceForDownloadFileWithOptions(request *Gr
 	return _result, _err
 }
 
-func (client *Client) InstallApp(request *InstallAppRequest) (_result *InstallAppResponse, _err error) {
+func (client *Client) GrantProcessInstanceForDownloadFile(request *GrantProcessInstanceForDownloadFileRequest) (_result *GrantProcessInstanceForDownloadFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &InstallAppHeaders{}
-	_result = &InstallAppResponse{}
-	_body, _err := client.InstallAppWithOptions(request, headers, runtime)
+	headers := &GrantProcessInstanceForDownloadFileHeaders{}
+	_result = &GrantProcessInstanceForDownloadFileResponse{}
+	_body, _err := client.GrantProcessInstanceForDownloadFileWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9798,8 +9500,19 @@ func (client *Client) InstallAppWithOptions(request *InstallAppRequest, headers 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("InstallApp"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/apps/install"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &InstallAppResponse{}
-	_body, _err := client.DoROARequest(tea.String("InstallApp"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/apps/install"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9807,11 +9520,11 @@ func (client *Client) InstallAppWithOptions(request *InstallAppRequest, headers 
 	return _result, _err
 }
 
-func (client *Client) ListProcessInstanceIds(request *ListProcessInstanceIdsRequest) (_result *ListProcessInstanceIdsResponse, _err error) {
+func (client *Client) InstallApp(request *InstallAppRequest) (_result *InstallAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListProcessInstanceIdsHeaders{}
-	_result = &ListProcessInstanceIdsResponse{}
-	_body, _err := client.ListProcessInstanceIdsWithOptions(request, headers, runtime)
+	headers := &InstallAppHeaders{}
+	_result = &InstallAppResponse{}
+	_body, _err := client.InstallAppWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9866,8 +9579,19 @@ func (client *Client) ListProcessInstanceIdsWithOptions(request *ListProcessInst
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListProcessInstanceIds"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/instanceIds/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListProcessInstanceIdsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListProcessInstanceIds"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/instanceIds/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9875,11 +9599,11 @@ func (client *Client) ListProcessInstanceIdsWithOptions(request *ListProcessInst
 	return _result, _err
 }
 
-func (client *Client) ListTodoWorkRecords(request *ListTodoWorkRecordsRequest) (_result *ListTodoWorkRecordsResponse, _err error) {
+func (client *Client) ListProcessInstanceIds(request *ListProcessInstanceIdsRequest) (_result *ListProcessInstanceIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListTodoWorkRecordsHeaders{}
-	_result = &ListTodoWorkRecordsResponse{}
-	_body, _err := client.ListTodoWorkRecordsWithOptions(request, headers, runtime)
+	headers := &ListProcessInstanceIdsHeaders{}
+	_result = &ListProcessInstanceIdsResponse{}
+	_body, _err := client.ListProcessInstanceIdsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9922,8 +9646,19 @@ func (client *Client) ListTodoWorkRecordsWithOptions(request *ListTodoWorkRecord
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListTodoWorkRecords"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/workRecords/todoTasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListTodoWorkRecordsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListTodoWorkRecords"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/workRecords/todoTasks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9931,11 +9666,11 @@ func (client *Client) ListTodoWorkRecordsWithOptions(request *ListTodoWorkRecord
 	return _result, _err
 }
 
-func (client *Client) ListUserVisibleBpmsProcesses(request *ListUserVisibleBpmsProcessesRequest) (_result *ListUserVisibleBpmsProcessesResponse, _err error) {
+func (client *Client) ListTodoWorkRecords(request *ListTodoWorkRecordsRequest) (_result *ListTodoWorkRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListUserVisibleBpmsProcessesHeaders{}
-	_result = &ListUserVisibleBpmsProcessesResponse{}
-	_body, _err := client.ListUserVisibleBpmsProcessesWithOptions(request, headers, runtime)
+	headers := &ListTodoWorkRecordsHeaders{}
+	_result = &ListTodoWorkRecordsResponse{}
+	_body, _err := client.ListTodoWorkRecordsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9974,8 +9709,19 @@ func (client *Client) ListUserVisibleBpmsProcessesWithOptions(request *ListUserV
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ListUserVisibleBpmsProcesses"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/userVisibilities/templates"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ListUserVisibleBpmsProcessesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListUserVisibleBpmsProcesses"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processes/userVisibilities/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9983,11 +9729,11 @@ func (client *Client) ListUserVisibleBpmsProcessesWithOptions(request *ListUserV
 	return _result, _err
 }
 
-func (client *Client) ProcessForecast(request *ProcessForecastRequest) (_result *ProcessForecastResponse, _err error) {
+func (client *Client) ListUserVisibleBpmsProcesses(request *ListUserVisibleBpmsProcessesRequest) (_result *ListUserVisibleBpmsProcessesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ProcessForecastHeaders{}
-	_result = &ProcessForecastResponse{}
-	_body, _err := client.ProcessForecastWithOptions(request, headers, runtime)
+	headers := &ListUserVisibleBpmsProcessesHeaders{}
+	_result = &ListUserVisibleBpmsProcessesResponse{}
+	_body, _err := client.ListUserVisibleBpmsProcessesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10030,8 +9776,19 @@ func (client *Client) ProcessForecastWithOptions(request *ProcessForecastRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("ProcessForecast"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/forecast"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &ProcessForecastResponse{}
-	_body, _err := client.DoROARequest(tea.String("ProcessForecast"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/forecast"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10039,11 +9796,11 @@ func (client *Client) ProcessForecastWithOptions(request *ProcessForecastRequest
 	return _result, _err
 }
 
-func (client *Client) QueryAllFormInstances(request *QueryAllFormInstancesRequest) (_result *QueryAllFormInstancesResponse, _err error) {
+func (client *Client) ProcessForecast(request *ProcessForecastRequest) (_result *ProcessForecastResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryAllFormInstancesHeaders{}
-	_result = &QueryAllFormInstancesResponse{}
-	_body, _err := client.QueryAllFormInstancesWithOptions(request, headers, runtime)
+	headers := &ProcessForecastHeaders{}
+	_result = &ProcessForecastResponse{}
+	_body, _err := client.ProcessForecastWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10086,8 +9843,19 @@ func (client *Client) QueryAllFormInstancesWithOptions(request *QueryAllFormInst
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryAllFormInstances"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/forms/pages/instances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryAllFormInstancesResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryAllFormInstances"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/forms/pages/instances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10095,11 +9863,11 @@ func (client *Client) QueryAllFormInstancesWithOptions(request *QueryAllFormInst
 	return _result, _err
 }
 
-func (client *Client) QueryAllProcessInstances(request *QueryAllProcessInstancesRequest) (_result *QueryAllProcessInstancesResponse, _err error) {
+func (client *Client) QueryAllFormInstances(request *QueryAllFormInstancesRequest) (_result *QueryAllFormInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryAllProcessInstancesHeaders{}
-	_result = &QueryAllProcessInstancesResponse{}
-	_body, _err := client.QueryAllProcessInstancesWithOptions(request, headers, runtime)
+	headers := &QueryAllFormInstancesHeaders{}
+	_result = &QueryAllFormInstancesResponse{}
+	_body, _err := client.QueryAllFormInstancesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10150,8 +9918,19 @@ func (client *Client) QueryAllProcessInstancesWithOptions(request *QueryAllProce
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryAllProcessInstances"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/pages/instances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryAllProcessInstancesResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryAllProcessInstances"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processes/pages/instances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10159,11 +9938,11 @@ func (client *Client) QueryAllProcessInstancesWithOptions(request *QueryAllProce
 	return _result, _err
 }
 
-func (client *Client) QueryFormByBizType(request *QueryFormByBizTypeRequest) (_result *QueryFormByBizTypeResponse, _err error) {
+func (client *Client) QueryAllProcessInstances(request *QueryAllProcessInstancesRequest) (_result *QueryAllProcessInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryFormByBizTypeHeaders{}
-	_result = &QueryFormByBizTypeResponse{}
-	_body, _err := client.QueryFormByBizTypeWithOptions(request, headers, runtime)
+	headers := &QueryAllProcessInstancesHeaders{}
+	_result = &QueryAllProcessInstancesResponse{}
+	_body, _err := client.QueryAllProcessInstancesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10198,8 +9977,19 @@ func (client *Client) QueryFormByBizTypeWithOptions(request *QueryFormByBizTypeR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryFormByBizType"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/forms/forminfos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryFormByBizTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryFormByBizType"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/forms/forminfos/query"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10207,11 +9997,11 @@ func (client *Client) QueryFormByBizTypeWithOptions(request *QueryFormByBizTypeR
 	return _result, _err
 }
 
-func (client *Client) QueryFormInstance(request *QueryFormInstanceRequest) (_result *QueryFormInstanceResponse, _err error) {
+func (client *Client) QueryFormByBizType(request *QueryFormByBizTypeRequest) (_result *QueryFormByBizTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryFormInstanceHeaders{}
-	_result = &QueryFormInstanceResponse{}
-	_body, _err := client.QueryFormInstanceWithOptions(request, headers, runtime)
+	headers := &QueryFormByBizTypeHeaders{}
+	_result = &QueryFormByBizTypeResponse{}
+	_body, _err := client.QueryFormByBizTypeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10250,8 +10040,19 @@ func (client *Client) QueryFormInstanceWithOptions(request *QueryFormInstanceReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryFormInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/forms/instances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryFormInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryFormInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/forms/instances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10259,11 +10060,11 @@ func (client *Client) QueryFormInstanceWithOptions(request *QueryFormInstanceReq
 	return _result, _err
 }
 
-func (client *Client) QueryIntegratedTodoTask(request *QueryIntegratedTodoTaskRequest) (_result *QueryIntegratedTodoTaskResponse, _err error) {
+func (client *Client) QueryFormInstance(request *QueryFormInstanceRequest) (_result *QueryFormInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryIntegratedTodoTaskHeaders{}
-	_result = &QueryIntegratedTodoTaskResponse{}
-	_body, _err := client.QueryIntegratedTodoTaskWithOptions(request, headers, runtime)
+	headers := &QueryFormInstanceHeaders{}
+	_result = &QueryFormInstanceResponse{}
+	_body, _err := client.QueryFormInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10306,8 +10107,19 @@ func (client *Client) QueryIntegratedTodoTaskWithOptions(request *QueryIntegrate
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryIntegratedTodoTask"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/todoTasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryIntegratedTodoTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryIntegratedTodoTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/todoTasks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10315,11 +10127,11 @@ func (client *Client) QueryIntegratedTodoTaskWithOptions(request *QueryIntegrate
 	return _result, _err
 }
 
-func (client *Client) QueryProcessByBizCategoryId(request *QueryProcessByBizCategoryIdRequest) (_result *QueryProcessByBizCategoryIdResponse, _err error) {
+func (client *Client) QueryIntegratedTodoTask(request *QueryIntegratedTodoTaskRequest) (_result *QueryIntegratedTodoTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryProcessByBizCategoryIdHeaders{}
-	_result = &QueryProcessByBizCategoryIdResponse{}
-	_body, _err := client.QueryProcessByBizCategoryIdWithOptions(request, headers, runtime)
+	headers := &QueryIntegratedTodoTaskHeaders{}
+	_result = &QueryIntegratedTodoTaskResponse{}
+	_body, _err := client.QueryIntegratedTodoTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10354,8 +10166,19 @@ func (client *Client) QueryProcessByBizCategoryIdWithOptions(request *QueryProce
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryProcessByBizCategoryId"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/categories/templates"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QueryProcessByBizCategoryIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryProcessByBizCategoryId"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processes/categories/templates"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10363,11 +10186,11 @@ func (client *Client) QueryProcessByBizCategoryIdWithOptions(request *QueryProce
 	return _result, _err
 }
 
-func (client *Client) QuerySchemaByProcessCode(request *QuerySchemaByProcessCodeRequest) (_result *QuerySchemaByProcessCodeResponse, _err error) {
+func (client *Client) QueryProcessByBizCategoryId(request *QueryProcessByBizCategoryIdRequest) (_result *QueryProcessByBizCategoryIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QuerySchemaByProcessCodeHeaders{}
-	_result = &QuerySchemaByProcessCodeResponse{}
-	_body, _err := client.QuerySchemaByProcessCodeWithOptions(request, headers, runtime)
+	headers := &QueryProcessByBizCategoryIdHeaders{}
+	_result = &QueryProcessByBizCategoryIdResponse{}
+	_body, _err := client.QueryProcessByBizCategoryIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10402,8 +10225,19 @@ func (client *Client) QuerySchemaByProcessCodeWithOptions(request *QuerySchemaBy
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySchemaByProcessCode"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/forms/schemas/processCodes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &QuerySchemaByProcessCodeResponse{}
-	_body, _err := client.DoROARequest(tea.String("QuerySchemaByProcessCode"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/forms/schemas/processCodes"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10411,11 +10245,11 @@ func (client *Client) QuerySchemaByProcessCodeWithOptions(request *QuerySchemaBy
 	return _result, _err
 }
 
-func (client *Client) RedirectWorkflowTask(request *RedirectWorkflowTaskRequest) (_result *RedirectWorkflowTaskResponse, _err error) {
+func (client *Client) QuerySchemaByProcessCode(request *QuerySchemaByProcessCodeRequest) (_result *QuerySchemaByProcessCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &RedirectWorkflowTaskHeaders{}
-	_result = &RedirectWorkflowTaskResponse{}
-	_body, _err := client.RedirectWorkflowTaskWithOptions(request, headers, runtime)
+	headers := &QuerySchemaByProcessCodeHeaders{}
+	_result = &QuerySchemaByProcessCodeResponse{}
+	_body, _err := client.QuerySchemaByProcessCodeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10466,8 +10300,19 @@ func (client *Client) RedirectWorkflowTaskWithOptions(request *RedirectWorkflowT
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("RedirectWorkflowTask"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/tasks/redirect"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &RedirectWorkflowTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("RedirectWorkflowTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/tasks/redirect"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10475,11 +10320,11 @@ func (client *Client) RedirectWorkflowTaskWithOptions(request *RedirectWorkflowT
 	return _result, _err
 }
 
-func (client *Client) SaveIntegratedInstance(request *SaveIntegratedInstanceRequest) (_result *SaveIntegratedInstanceResponse, _err error) {
+func (client *Client) RedirectWorkflowTask(request *RedirectWorkflowTaskRequest) (_result *RedirectWorkflowTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SaveIntegratedInstanceHeaders{}
-	_result = &SaveIntegratedInstanceResponse{}
-	_body, _err := client.SaveIntegratedInstanceWithOptions(request, headers, runtime)
+	headers := &RedirectWorkflowTaskHeaders{}
+	_result = &RedirectWorkflowTaskResponse{}
+	_body, _err := client.RedirectWorkflowTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10530,8 +10375,19 @@ func (client *Client) SaveIntegratedInstanceWithOptions(request *SaveIntegratedI
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveIntegratedInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/instances"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SaveIntegratedInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("SaveIntegratedInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/instances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10539,11 +10395,11 @@ func (client *Client) SaveIntegratedInstanceWithOptions(request *SaveIntegratedI
 	return _result, _err
 }
 
-func (client *Client) SaveProcess(request *SaveProcessRequest) (_result *SaveProcessResponse, _err error) {
+func (client *Client) SaveIntegratedInstance(request *SaveIntegratedInstanceRequest) (_result *SaveIntegratedInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &SaveProcessHeaders{}
-	_result = &SaveProcessResponse{}
-	_body, _err := client.SaveProcessWithOptions(request, headers, runtime)
+	headers := &SaveIntegratedInstanceHeaders{}
+	_result = &SaveIntegratedInstanceResponse{}
+	_body, _err := client.SaveIntegratedInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10594,8 +10450,19 @@ func (client *Client) SaveProcessWithOptions(request *SaveProcessRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveProcess"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/schemas"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &SaveProcessResponse{}
-	_body, _err := client.DoROARequest(tea.String("SaveProcess"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/schemas"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10603,11 +10470,11 @@ func (client *Client) SaveProcessWithOptions(request *SaveProcessRequest, header
 	return _result, _err
 }
 
-func (client *Client) StartProcessInstance(request *StartProcessInstanceRequest) (_result *StartProcessInstanceResponse, _err error) {
+func (client *Client) SaveProcess(request *SaveProcessRequest) (_result *SaveProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &StartProcessInstanceHeaders{}
-	_result = &StartProcessInstanceResponse{}
-	_body, _err := client.StartProcessInstanceWithOptions(request, headers, runtime)
+	headers := &SaveProcessHeaders{}
+	_result = &SaveProcessResponse{}
+	_body, _err := client.SaveProcessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10670,8 +10537,19 @@ func (client *Client) StartProcessInstanceWithOptions(request *StartProcessInsta
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("StartProcessInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &StartProcessInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("StartProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10679,11 +10557,11 @@ func (client *Client) StartProcessInstanceWithOptions(request *StartProcessInsta
 	return _result, _err
 }
 
-func (client *Client) TerminateProcessInstance(request *TerminateProcessInstanceRequest) (_result *TerminateProcessInstanceResponse, _err error) {
+func (client *Client) StartProcessInstance(request *StartProcessInstanceRequest) (_result *StartProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &TerminateProcessInstanceHeaders{}
-	_result = &TerminateProcessInstanceResponse{}
-	_body, _err := client.TerminateProcessInstanceWithOptions(request, headers, runtime)
+	headers := &StartProcessInstanceHeaders{}
+	_result = &StartProcessInstanceResponse{}
+	_body, _err := client.StartProcessInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10726,8 +10604,19 @@ func (client *Client) TerminateProcessInstanceWithOptions(request *TerminateProc
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("TerminateProcessInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances/terminate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &TerminateProcessInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("TerminateProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances/terminate"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10735,11 +10624,11 @@ func (client *Client) TerminateProcessInstanceWithOptions(request *TerminateProc
 	return _result, _err
 }
 
-func (client *Client) UpdateIntegratedTask(request *UpdateIntegratedTaskRequest) (_result *UpdateIntegratedTaskResponse, _err error) {
+func (client *Client) TerminateProcessInstance(request *TerminateProcessInstanceRequest) (_result *TerminateProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateIntegratedTaskHeaders{}
-	_result = &UpdateIntegratedTaskResponse{}
-	_body, _err := client.UpdateIntegratedTaskWithOptions(request, headers, runtime)
+	headers := &TerminateProcessInstanceHeaders{}
+	_result = &TerminateProcessInstanceResponse{}
+	_body, _err := client.TerminateProcessInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10774,8 +10663,19 @@ func (client *Client) UpdateIntegratedTaskWithOptions(request *UpdateIntegratedT
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateIntegratedTask"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/tasks"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateIntegratedTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateIntegratedTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/tasks"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10783,11 +10683,11 @@ func (client *Client) UpdateIntegratedTaskWithOptions(request *UpdateIntegratedT
 	return _result, _err
 }
 
-func (client *Client) UpdateProcessInstance(request *UpdateProcessInstanceRequest) (_result *UpdateProcessInstanceResponse, _err error) {
+func (client *Client) UpdateIntegratedTask(request *UpdateIntegratedTaskRequest) (_result *UpdateIntegratedTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateProcessInstanceHeaders{}
-	_result = &UpdateProcessInstanceResponse{}
-	_body, _err := client.UpdateProcessInstanceWithOptions(request, headers, runtime)
+	headers := &UpdateIntegratedTaskHeaders{}
+	_result = &UpdateIntegratedTaskResponse{}
+	_body, _err := client.UpdateIntegratedTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10830,11 +10730,34 @@ func (client *Client) UpdateProcessInstanceWithOptions(request *UpdateProcessIns
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateProcessInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/instances"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &UpdateProcessInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/instances"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateProcessInstance(request *UpdateProcessInstanceRequest) (_result *UpdateProcessInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateProcessInstanceHeaders{}
+	_result = &UpdateProcessInstanceResponse{}
+	_body, _err := client.UpdateProcessInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }

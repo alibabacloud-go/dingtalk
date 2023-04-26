@@ -5,9 +5,11 @@
 package carbon_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
-	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -35,10 +37,8 @@ func (s *GetPersonalCarbonInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetPersonalCarbonInfoRequest struct {
-	// 参数类型
 	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 钉钉unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetPersonalCarbonInfoRequest) String() string {
@@ -60,9 +60,7 @@ func (s *GetPersonalCarbonInfoRequest) SetUnionId(v string) *GetPersonalCarbonIn
 }
 
 type GetPersonalCarbonInfoResponseBody struct {
-	// 文案
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 减碳数据
+	Content              *string  `json:"content,omitempty" xml:"content,omitempty"`
 	PersonalCarbonAmount *float64 `json:"personalCarbonAmount,omitempty" xml:"personalCarbonAmount,omitempty"`
 }
 
@@ -85,8 +83,9 @@ func (s *GetPersonalCarbonInfoResponseBody) SetPersonalCarbonAmount(v float64) *
 }
 
 type GetPersonalCarbonInfoResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetPersonalCarbonInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPersonalCarbonInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GetPersonalCarbonInfoResponse) String() string {
@@ -99,6 +98,11 @@ func (s GetPersonalCarbonInfoResponse) GoString() string {
 
 func (s *GetPersonalCarbonInfoResponse) SetHeaders(v map[string]*string) *GetPersonalCarbonInfoResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetPersonalCarbonInfoResponse) SetStatusCode(v int32) *GetPersonalCarbonInfoResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -131,7 +135,6 @@ func (s *WriteAlibabaOrgCarbonHeaders) SetXAcsDingtalkAccessToken(v string) *Wri
 }
 
 type WriteAlibabaOrgCarbonRequest struct {
-	// 入参集
 	OrgDetailsList []*WriteAlibabaOrgCarbonRequestOrgDetailsList `json:"orgDetailsList,omitempty" xml:"orgDetailsList,omitempty" type:"Repeated"`
 }
 
@@ -149,20 +152,13 @@ func (s *WriteAlibabaOrgCarbonRequest) SetOrgDetailsList(v []*WriteAlibabaOrgCar
 }
 
 type WriteAlibabaOrgCarbonRequestOrgDetailsList struct {
-	// 系统唯一id，生成格式：userId+日期20211126
-	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
-	// 行为发生时间
-	ActionTime *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
-	// 碳能量行为类型，需要联系管理员添加
-	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 碳能量数据
+	ActionId     *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	ActionTime   *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
+	ActionType   *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
 	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	// 钉钉组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 钉钉部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 版本，默认为1
-	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
+	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeptId       *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	Version      *int32  `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteAlibabaOrgCarbonRequestOrgDetailsList) String() string {
@@ -209,10 +205,8 @@ func (s *WriteAlibabaOrgCarbonRequestOrgDetailsList) SetVersion(v int32) *WriteA
 }
 
 type WriteAlibabaOrgCarbonResponseBody struct {
-	// 返回请求成功的数量
-	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
-	// 请求是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *int32 `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WriteAlibabaOrgCarbonResponseBody) String() string {
@@ -234,8 +228,9 @@ func (s *WriteAlibabaOrgCarbonResponseBody) SetSuccess(v bool) *WriteAlibabaOrgC
 }
 
 type WriteAlibabaOrgCarbonResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *WriteAlibabaOrgCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WriteAlibabaOrgCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s WriteAlibabaOrgCarbonResponse) String() string {
@@ -248,6 +243,11 @@ func (s WriteAlibabaOrgCarbonResponse) GoString() string {
 
 func (s *WriteAlibabaOrgCarbonResponse) SetHeaders(v map[string]*string) *WriteAlibabaOrgCarbonResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *WriteAlibabaOrgCarbonResponse) SetStatusCode(v int32) *WriteAlibabaOrgCarbonResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -280,7 +280,6 @@ func (s *WriteAlibabaUserCarbonHeaders) SetXAcsDingtalkAccessToken(v string) *Wr
 }
 
 type WriteAlibabaUserCarbonRequest struct {
-	// 入参集
 	UserDetailsList []*WriteAlibabaUserCarbonRequestUserDetailsList `json:"userDetailsList,omitempty" xml:"userDetailsList,omitempty" type:"Repeated"`
 }
 
@@ -298,24 +297,15 @@ func (s *WriteAlibabaUserCarbonRequest) SetUserDetailsList(v []*WriteAlibabaUser
 }
 
 type WriteAlibabaUserCarbonRequestUserDetailsList struct {
-	// 行为结束时间
-	ActionEndTime *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
-	// 系统唯一id，生成格式：userId+日期20211126
-	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
-	// 行为起始时间
+	ActionEndTime   *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
+	ActionId        *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
 	ActionStartTime *string `json:"actionStartTime,omitempty" xml:"actionStartTime,omitempty"`
-	// 碳能量行为类型，需要联系管理员添加
-	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 碳能量数据
-	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	// 钉钉组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 钉钉部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 钉钉用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 版本，默认为1
-	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
+	ActionType      *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	CarbonAmount    *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
+	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeptId          *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Version         *int32  `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteAlibabaUserCarbonRequestUserDetailsList) String() string {
@@ -372,10 +362,8 @@ func (s *WriteAlibabaUserCarbonRequestUserDetailsList) SetVersion(v int32) *Writ
 }
 
 type WriteAlibabaUserCarbonResponseBody struct {
-	// 返回请求成功个数
-	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
-	// 请求是否写入成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *int32 `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WriteAlibabaUserCarbonResponseBody) String() string {
@@ -397,8 +385,9 @@ func (s *WriteAlibabaUserCarbonResponseBody) SetSuccess(v bool) *WriteAlibabaUse
 }
 
 type WriteAlibabaUserCarbonResponse struct {
-	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *WriteAlibabaUserCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WriteAlibabaUserCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s WriteAlibabaUserCarbonResponse) String() string {
@@ -411,6 +400,11 @@ func (s WriteAlibabaUserCarbonResponse) GoString() string {
 
 func (s *WriteAlibabaUserCarbonResponse) SetHeaders(v map[string]*string) *WriteAlibabaUserCarbonResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *WriteAlibabaUserCarbonResponse) SetStatusCode(v int32) *WriteAlibabaUserCarbonResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -443,9 +437,7 @@ func (s *WriteIsvStateHeaders) SetXAcsDingtalkAccessToken(v string) *WriteIsvSta
 }
 
 type WriteIsvStateRequest struct {
-	// ISV名称
-	IsvName *string `json:"isvName,omitempty" xml:"isvName,omitempty"`
-	// 数据完成日期
+	IsvName  *string `json:"isvName,omitempty" xml:"isvName,omitempty"`
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -468,7 +460,6 @@ func (s *WriteIsvStateRequest) SetStatDate(v string) *WriteIsvStateRequest {
 }
 
 type WriteIsvStateResponseBody struct {
-	// 数据写入标识
 	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -486,8 +477,9 @@ func (s *WriteIsvStateResponseBody) SetResult(v int64) *WriteIsvStateResponseBod
 }
 
 type WriteIsvStateResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *WriteIsvStateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WriteIsvStateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s WriteIsvStateResponse) String() string {
@@ -500,6 +492,11 @@ func (s WriteIsvStateResponse) GoString() string {
 
 func (s *WriteIsvStateResponse) SetHeaders(v map[string]*string) *WriteIsvStateResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *WriteIsvStateResponse) SetStatusCode(v int32) *WriteIsvStateResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -532,7 +529,6 @@ func (s *WriteOrgCarbonHeaders) SetXAcsDingtalkAccessToken(v string) *WriteOrgCa
 }
 
 type WriteOrgCarbonRequest struct {
-	// 入参集
 	OrgDetailsList []*WriteOrgCarbonRequestOrgDetailsList `json:"orgDetailsList,omitempty" xml:"orgDetailsList,omitempty" type:"Repeated"`
 }
 
@@ -550,20 +546,13 @@ func (s *WriteOrgCarbonRequest) SetOrgDetailsList(v []*WriteOrgCarbonRequestOrgD
 }
 
 type WriteOrgCarbonRequestOrgDetailsList struct {
-	// 系统唯一id，生成格式：userId+日期20211126
-	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
-	// 行为发生时间
-	ActionTime *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
-	// 碳能量行为类型，需要联系管理员添加
-	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 碳能量数据
+	ActionId     *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	ActionTime   *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
+	ActionType   *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
 	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	// 钉钉组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 钉钉部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 版本，默认为1
-	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
+	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeptId       *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	Version      *int32  `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteOrgCarbonRequestOrgDetailsList) String() string {
@@ -610,10 +599,8 @@ func (s *WriteOrgCarbonRequestOrgDetailsList) SetVersion(v int32) *WriteOrgCarbo
 }
 
 type WriteOrgCarbonResponseBody struct {
-	// 请求成功返回的个数
-	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
-	// 请求是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *int32 `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WriteOrgCarbonResponseBody) String() string {
@@ -635,8 +622,9 @@ func (s *WriteOrgCarbonResponseBody) SetSuccess(v bool) *WriteOrgCarbonResponseB
 }
 
 type WriteOrgCarbonResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *WriteOrgCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WriteOrgCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s WriteOrgCarbonResponse) String() string {
@@ -649,6 +637,11 @@ func (s WriteOrgCarbonResponse) GoString() string {
 
 func (s *WriteOrgCarbonResponse) SetHeaders(v map[string]*string) *WriteOrgCarbonResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *WriteOrgCarbonResponse) SetStatusCode(v int32) *WriteOrgCarbonResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -681,7 +674,6 @@ func (s *WriteUserCarbonHeaders) SetXAcsDingtalkAccessToken(v string) *WriteUser
 }
 
 type WriteUserCarbonRequest struct {
-	// 入参集
 	UserDetailsList []*WriteUserCarbonRequestUserDetailsList `json:"userDetailsList,omitempty" xml:"userDetailsList,omitempty" type:"Repeated"`
 }
 
@@ -699,24 +691,15 @@ func (s *WriteUserCarbonRequest) SetUserDetailsList(v []*WriteUserCarbonRequestU
 }
 
 type WriteUserCarbonRequestUserDetailsList struct {
-	// 行为结束时间
-	ActionEndTime *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
-	// 系统唯一id，生成格式：userId+日期20211126
-	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
-	// 行为起始时间
+	ActionEndTime   *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
+	ActionId        *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
 	ActionStartTime *string `json:"actionStartTime,omitempty" xml:"actionStartTime,omitempty"`
-	// 碳能量行为类型，需要联系管理员添加
-	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 碳能量数据
-	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	// 钉钉组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 钉钉部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 钉钉用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 版本，默认为1
-	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
+	ActionType      *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	CarbonAmount    *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
+	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeptId          *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Version         *int32  `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteUserCarbonRequestUserDetailsList) String() string {
@@ -773,10 +756,8 @@ func (s *WriteUserCarbonRequestUserDetailsList) SetVersion(v int32) *WriteUserCa
 }
 
 type WriteUserCarbonResponseBody struct {
-	// 返回请求成功个数
-	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
-	// 请求是否写入成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *int32 `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WriteUserCarbonResponseBody) String() string {
@@ -798,8 +779,9 @@ func (s *WriteUserCarbonResponseBody) SetSuccess(v bool) *WriteUserCarbonRespons
 }
 
 type WriteUserCarbonResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *WriteUserCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WriteUserCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s WriteUserCarbonResponse) String() string {
@@ -812,6 +794,11 @@ func (s WriteUserCarbonResponse) GoString() string {
 
 func (s *WriteUserCarbonResponse) SetHeaders(v map[string]*string) *WriteUserCarbonResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *WriteUserCarbonResponse) SetStatusCode(v int32) *WriteUserCarbonResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -861,24 +848,15 @@ func (s *WriteUserCarbonEnergyRequest) SetUserDetailsList(v []*WriteUserCarbonEn
 }
 
 type WriteUserCarbonEnergyRequestUserDetailsList struct {
-	// 行为结束时间
-	ActionEndTime *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
-	// 系统唯一id，生成格式：userId+日期20230302
-	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
-	// 行为起始时间
+	ActionEndTime   *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
+	ActionId        *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
 	ActionStartTime *string `json:"actionStartTime,omitempty" xml:"actionStartTime,omitempty"`
-	// 碳能量行为类型，需要联系管理员添加
-	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	// 碳能量数据
-	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	// 钉钉组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 钉钉部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 钉钉用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 版本，默认为1
-	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
+	ActionType      *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	CarbonAmount    *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
+	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeptId          *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Version         *int32  `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteUserCarbonEnergyRequestUserDetailsList) String() string {
@@ -935,10 +913,8 @@ func (s *WriteUserCarbonEnergyRequestUserDetailsList) SetVersion(v int32) *Write
 }
 
 type WriteUserCarbonEnergyResponseBody struct {
-	// 返回结果
-	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
-	// 输出状态
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *int32 `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WriteUserCarbonEnergyResponseBody) String() string {
@@ -960,8 +936,9 @@ func (s *WriteUserCarbonEnergyResponseBody) SetSuccess(v bool) *WriteUserCarbonE
 }
 
 type WriteUserCarbonEnergyResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *WriteUserCarbonEnergyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WriteUserCarbonEnergyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s WriteUserCarbonEnergyResponse) String() string {
@@ -974,6 +951,11 @@ func (s WriteUserCarbonEnergyResponse) GoString() string {
 
 func (s *WriteUserCarbonEnergyResponse) SetHeaders(v map[string]*string) *WriteUserCarbonEnergyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *WriteUserCarbonEnergyResponse) SetStatusCode(v int32) *WriteUserCarbonEnergyResponse {
+	s.StatusCode = &v
 	return s
 }
 
@@ -997,24 +979,18 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
-}
-
-func (client *Client) GetPersonalCarbonInfo(request *GetPersonalCarbonInfoRequest) (_result *GetPersonalCarbonInfoResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetPersonalCarbonInfoHeaders{}
-	_result = &GetPersonalCarbonInfoResponse{}
-	_body, _err := client.GetPersonalCarbonInfoWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
 }
 
 func (client *Client) GetPersonalCarbonInfoWithOptions(request *GetPersonalCarbonInfoRequest, headers *GetPersonalCarbonInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPersonalCarbonInfoResponse, _err error) {
@@ -1044,8 +1020,19 @@ func (client *Client) GetPersonalCarbonInfoWithOptions(request *GetPersonalCarbo
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPersonalCarbonInfo"),
+		Version:     tea.String("carbon_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/carbon/personals/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &GetPersonalCarbonInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetPersonalCarbonInfo"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/carbon/personals/infos"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1053,11 +1040,11 @@ func (client *Client) GetPersonalCarbonInfoWithOptions(request *GetPersonalCarbo
 	return _result, _err
 }
 
-func (client *Client) WriteAlibabaOrgCarbon(request *WriteAlibabaOrgCarbonRequest) (_result *WriteAlibabaOrgCarbonResponse, _err error) {
+func (client *Client) GetPersonalCarbonInfo(request *GetPersonalCarbonInfoRequest) (_result *GetPersonalCarbonInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &WriteAlibabaOrgCarbonHeaders{}
-	_result = &WriteAlibabaOrgCarbonResponse{}
-	_body, _err := client.WriteAlibabaOrgCarbonWithOptions(request, headers, runtime)
+	headers := &GetPersonalCarbonInfoHeaders{}
+	_result = &GetPersonalCarbonInfoResponse{}
+	_body, _err := client.GetPersonalCarbonInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1088,8 +1075,19 @@ func (client *Client) WriteAlibabaOrgCarbonWithOptions(request *WriteAlibabaOrgC
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("WriteAlibabaOrgCarbon"),
+		Version:     tea.String("carbon_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/carbon/alibabaOrgDetails/write"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &WriteAlibabaOrgCarbonResponse{}
-	_body, _err := client.DoROARequest(tea.String("WriteAlibabaOrgCarbon"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/carbon/alibabaOrgDetails/write"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1097,11 +1095,11 @@ func (client *Client) WriteAlibabaOrgCarbonWithOptions(request *WriteAlibabaOrgC
 	return _result, _err
 }
 
-func (client *Client) WriteAlibabaUserCarbon(request *WriteAlibabaUserCarbonRequest) (_result *WriteAlibabaUserCarbonResponse, _err error) {
+func (client *Client) WriteAlibabaOrgCarbon(request *WriteAlibabaOrgCarbonRequest) (_result *WriteAlibabaOrgCarbonResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &WriteAlibabaUserCarbonHeaders{}
-	_result = &WriteAlibabaUserCarbonResponse{}
-	_body, _err := client.WriteAlibabaUserCarbonWithOptions(request, headers, runtime)
+	headers := &WriteAlibabaOrgCarbonHeaders{}
+	_result = &WriteAlibabaOrgCarbonResponse{}
+	_body, _err := client.WriteAlibabaOrgCarbonWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1132,8 +1130,19 @@ func (client *Client) WriteAlibabaUserCarbonWithOptions(request *WriteAlibabaUse
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("WriteAlibabaUserCarbon"),
+		Version:     tea.String("carbon_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/carbon/alibabaUserDetails/write"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &WriteAlibabaUserCarbonResponse{}
-	_body, _err := client.DoROARequest(tea.String("WriteAlibabaUserCarbon"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/carbon/alibabaUserDetails/write"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1141,11 +1150,11 @@ func (client *Client) WriteAlibabaUserCarbonWithOptions(request *WriteAlibabaUse
 	return _result, _err
 }
 
-func (client *Client) WriteIsvState(request *WriteIsvStateRequest) (_result *WriteIsvStateResponse, _err error) {
+func (client *Client) WriteAlibabaUserCarbon(request *WriteAlibabaUserCarbonRequest) (_result *WriteAlibabaUserCarbonResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &WriteIsvStateHeaders{}
-	_result = &WriteIsvStateResponse{}
-	_body, _err := client.WriteIsvStateWithOptions(request, headers, runtime)
+	headers := &WriteAlibabaUserCarbonHeaders{}
+	_result = &WriteAlibabaUserCarbonResponse{}
+	_body, _err := client.WriteAlibabaUserCarbonWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1180,8 +1189,19 @@ func (client *Client) WriteIsvStateWithOptions(request *WriteIsvStateRequest, he
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("WriteIsvState"),
+		Version:     tea.String("carbon_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/carbon/datas/states/write"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &WriteIsvStateResponse{}
-	_body, _err := client.DoROARequest(tea.String("WriteIsvState"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/carbon/datas/states/write"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1189,11 +1209,11 @@ func (client *Client) WriteIsvStateWithOptions(request *WriteIsvStateRequest, he
 	return _result, _err
 }
 
-func (client *Client) WriteOrgCarbon(request *WriteOrgCarbonRequest) (_result *WriteOrgCarbonResponse, _err error) {
+func (client *Client) WriteIsvState(request *WriteIsvStateRequest) (_result *WriteIsvStateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &WriteOrgCarbonHeaders{}
-	_result = &WriteOrgCarbonResponse{}
-	_body, _err := client.WriteOrgCarbonWithOptions(request, headers, runtime)
+	headers := &WriteIsvStateHeaders{}
+	_result = &WriteIsvStateResponse{}
+	_body, _err := client.WriteIsvStateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1224,8 +1244,19 @@ func (client *Client) WriteOrgCarbonWithOptions(request *WriteOrgCarbonRequest, 
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("WriteOrgCarbon"),
+		Version:     tea.String("carbon_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/carbon/orgDetails/write"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &WriteOrgCarbonResponse{}
-	_body, _err := client.DoROARequest(tea.String("WriteOrgCarbon"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/carbon/orgDetails/write"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1233,11 +1264,11 @@ func (client *Client) WriteOrgCarbonWithOptions(request *WriteOrgCarbonRequest, 
 	return _result, _err
 }
 
-func (client *Client) WriteUserCarbon(request *WriteUserCarbonRequest) (_result *WriteUserCarbonResponse, _err error) {
+func (client *Client) WriteOrgCarbon(request *WriteOrgCarbonRequest) (_result *WriteOrgCarbonResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &WriteUserCarbonHeaders{}
-	_result = &WriteUserCarbonResponse{}
-	_body, _err := client.WriteUserCarbonWithOptions(request, headers, runtime)
+	headers := &WriteOrgCarbonHeaders{}
+	_result = &WriteOrgCarbonResponse{}
+	_body, _err := client.WriteOrgCarbonWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1268,8 +1299,19 @@ func (client *Client) WriteUserCarbonWithOptions(request *WriteUserCarbonRequest
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("WriteUserCarbon"),
+		Version:     tea.String("carbon_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/carbon/userDetails/write"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &WriteUserCarbonResponse{}
-	_body, _err := client.DoROARequest(tea.String("WriteUserCarbon"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/carbon/userDetails/write"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1277,11 +1319,11 @@ func (client *Client) WriteUserCarbonWithOptions(request *WriteUserCarbonRequest
 	return _result, _err
 }
 
-func (client *Client) WriteUserCarbonEnergy(request *WriteUserCarbonEnergyRequest) (_result *WriteUserCarbonEnergyResponse, _err error) {
+func (client *Client) WriteUserCarbon(request *WriteUserCarbonRequest) (_result *WriteUserCarbonResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &WriteUserCarbonEnergyHeaders{}
-	_result = &WriteUserCarbonEnergyResponse{}
-	_body, _err := client.WriteUserCarbonEnergyWithOptions(request, headers, runtime)
+	headers := &WriteUserCarbonHeaders{}
+	_result = &WriteUserCarbonResponse{}
+	_body, _err := client.WriteUserCarbonWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1312,11 +1354,34 @@ func (client *Client) WriteUserCarbonEnergyWithOptions(request *WriteUserCarbonE
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
+	params := &openapi.Params{
+		Action:      tea.String("WriteUserCarbonEnergy"),
+		Version:     tea.String("carbon_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/carbon/userDetails/energies/write"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
 	_result = &WriteUserCarbonEnergyResponse{}
-	_body, _err := client.DoROARequest(tea.String("WriteUserCarbonEnergy"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/carbon/userDetails/energies/write"), tea.String("json"), req, runtime)
+	_body, _err := client.Execute(params, req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
 	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) WriteUserCarbonEnergy(request *WriteUserCarbonEnergyRequest) (_result *WriteUserCarbonEnergyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &WriteUserCarbonEnergyHeaders{}
+	_result = &WriteUserCarbonEnergyResponse{}
+	_body, _err := client.WriteUserCarbonEnergyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
 	return _result, _err
 }
