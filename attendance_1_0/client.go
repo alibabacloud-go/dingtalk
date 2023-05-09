@@ -1789,7 +1789,7 @@ func (s *GetAdjustmentsRequest) SetPageSize(v int64) *GetAdjustmentsRequest {
 }
 
 type GetAdjustmentsResponseBody struct {
-	Result []*GetAdjustmentsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Result *GetAdjustmentsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s GetAdjustmentsResponseBody) String() string {
@@ -1800,7 +1800,7 @@ func (s GetAdjustmentsResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetAdjustmentsResponseBody) SetResult(v []*GetAdjustmentsResponseBodyResult) *GetAdjustmentsResponseBody {
+func (s *GetAdjustmentsResponseBody) SetResult(v *GetAdjustmentsResponseBodyResult) *GetAdjustmentsResponseBody {
 	s.Result = v
 	return s
 }
@@ -3454,7 +3454,7 @@ func (s *GetSimpleOvertimeSettingRequest) SetPageSize(v int64) *GetSimpleOvertim
 }
 
 type GetSimpleOvertimeSettingResponseBody struct {
-	Result []*GetSimpleOvertimeSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Result *GetSimpleOvertimeSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s GetSimpleOvertimeSettingResponseBody) String() string {
@@ -3465,7 +3465,7 @@ func (s GetSimpleOvertimeSettingResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetSimpleOvertimeSettingResponseBody) SetResult(v []*GetSimpleOvertimeSettingResponseBodyResult) *GetSimpleOvertimeSettingResponseBody {
+func (s *GetSimpleOvertimeSettingResponseBody) SetResult(v *GetSimpleOvertimeSettingResponseBodyResult) *GetSimpleOvertimeSettingResponseBody {
 	s.Result = v
 	return s
 }

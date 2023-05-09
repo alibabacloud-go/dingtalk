@@ -1022,6 +1022,7 @@ type TeamVO struct {
 	Id              *string                `json:"id,omitempty" xml:"id,omitempty"`
 	Name            *string                `json:"name,omitempty" xml:"name,omitempty"`
 	RelatedDeptInfo *TeamVORelatedDeptInfo `json:"relatedDeptInfo,omitempty" xml:"relatedDeptInfo,omitempty" type:"Struct"`
+	ShareScopeInfo  *TeamVOShareScopeInfo  `json:"shareScopeInfo,omitempty" xml:"shareScopeInfo,omitempty" type:"Struct"`
 	Status          *int32                 `json:"status,omitempty" xml:"status,omitempty"`
 	Type            *int32                 `json:"type,omitempty" xml:"type,omitempty"`
 	UpdatedTime     *int64                 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
@@ -1075,6 +1076,11 @@ func (s *TeamVO) SetName(v string) *TeamVO {
 
 func (s *TeamVO) SetRelatedDeptInfo(v *TeamVORelatedDeptInfo) *TeamVO {
 	s.RelatedDeptInfo = v
+	return s
+}
+
+func (s *TeamVO) SetShareScopeInfo(v *TeamVOShareScopeInfo) *TeamVO {
+	s.ShareScopeInfo = v
 	return s
 }
 
@@ -1151,6 +1157,29 @@ func (s *TeamVORelatedDeptInfo) SetDeptId(v string) *TeamVORelatedDeptInfo {
 
 func (s *TeamVORelatedDeptInfo) SetDeptName(v string) *TeamVORelatedDeptInfo {
 	s.DeptName = &v
+	return s
+}
+
+type TeamVOShareScopeInfo struct {
+	RoleId *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	Scope  *int32  `json:"scope,omitempty" xml:"scope,omitempty"`
+}
+
+func (s TeamVOShareScopeInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TeamVOShareScopeInfo) GoString() string {
+	return s.String()
+}
+
+func (s *TeamVOShareScopeInfo) SetRoleId(v string) *TeamVOShareScopeInfo {
+	s.RoleId = &v
+	return s
+}
+
+func (s *TeamVOShareScopeInfo) SetScope(v int32) *TeamVOShareScopeInfo {
+	s.Scope = &v
 	return s
 }
 

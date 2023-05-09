@@ -6154,7 +6154,7 @@ type SearchTaskListResponseBodyResult struct {
 	CreatorId   *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	ProjectId   *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	TaskId      *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskListId  *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
 	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
 	Updated     *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
@@ -6187,8 +6187,8 @@ func (s *SearchTaskListResponseBodyResult) SetProjectId(v string) *SearchTaskLis
 	return s
 }
 
-func (s *SearchTaskListResponseBodyResult) SetTaskId(v string) *SearchTaskListResponseBodyResult {
-	s.TaskId = &v
+func (s *SearchTaskListResponseBodyResult) SetTaskListId(v string) *SearchTaskListResponseBodyResult {
+	s.TaskListId = &v
 	return s
 }
 
@@ -6471,10 +6471,10 @@ func (s *SearchUserTaskRequest) SetTql(v string) *SearchUserTaskRequest {
 }
 
 type SearchUserTaskResponseBody struct {
-	NextToken *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	RequestId *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalSize *int32    `json:"totalSize,omitempty" xml:"totalSize,omitempty"`
+	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	RequestId *string                             `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    []*SearchUserTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalSize *int32                              `json:"totalSize,omitempty" xml:"totalSize,omitempty"`
 }
 
 func (s SearchUserTaskResponseBody) String() string {
@@ -6495,13 +6495,256 @@ func (s *SearchUserTaskResponseBody) SetRequestId(v string) *SearchUserTaskRespo
 	return s
 }
 
-func (s *SearchUserTaskResponseBody) SetResult(v []*string) *SearchUserTaskResponseBody {
+func (s *SearchUserTaskResponseBody) SetResult(v []*SearchUserTaskResponseBodyResult) *SearchUserTaskResponseBody {
 	s.Result = v
 	return s
 }
 
 func (s *SearchUserTaskResponseBody) SetTotalSize(v int32) *SearchUserTaskResponseBody {
 	s.TotalSize = &v
+	return s
+}
+
+type SearchUserTaskResponseBodyResult struct {
+	AccomplishTime   *string                                         `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
+	AncestorIds      []*string                                       `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	Content          *string                                         `json:"content,omitempty" xml:"content,omitempty"`
+	Created          *string                                         `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId        *string                                         `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Customfields     []*SearchUserTaskResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	DueDate          *string                                         `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	ExecutorId       *string                                         `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers   []*string                                       `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	IsArchived       *bool                                           `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	IsDone           *bool                                           `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Note             *string                                         `json:"note,omitempty" xml:"note,omitempty"`
+	ParentTaskId     *string                                         `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	Priority         *int32                                          `json:"priority,omitempty" xml:"priority,omitempty"`
+	ProjectId        *string                                         `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	Recurrence       []*string                                       `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
+	SfcId            *string                                         `json:"sfcId,omitempty" xml:"sfcId,omitempty"`
+	SprintId         *string                                         `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	StartDate        *string                                         `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	StoryPoint       *string                                         `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	TagIds           []*string                                       `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	TaskId           *string                                         `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskListId       *string                                         `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	TaskflowstatusId *string                                         `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
+	TaskstageId      *string                                         `json:"taskstageId,omitempty" xml:"taskstageId,omitempty"`
+	UniqueId         *string                                         `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
+	Updated          *string                                         `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visible          *string                                         `json:"visible,omitempty" xml:"visible,omitempty"`
+}
+
+func (s SearchUserTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetAccomplishTime(v string) *SearchUserTaskResponseBodyResult {
+	s.AccomplishTime = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetAncestorIds(v []*string) *SearchUserTaskResponseBodyResult {
+	s.AncestorIds = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetContent(v string) *SearchUserTaskResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetCreated(v string) *SearchUserTaskResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetCreatorId(v string) *SearchUserTaskResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetCustomfields(v []*SearchUserTaskResponseBodyResultCustomfields) *SearchUserTaskResponseBodyResult {
+	s.Customfields = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetDueDate(v string) *SearchUserTaskResponseBodyResult {
+	s.DueDate = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetExecutorId(v string) *SearchUserTaskResponseBodyResult {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetInvolveMembers(v []*string) *SearchUserTaskResponseBodyResult {
+	s.InvolveMembers = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetIsArchived(v bool) *SearchUserTaskResponseBodyResult {
+	s.IsArchived = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetIsDone(v bool) *SearchUserTaskResponseBodyResult {
+	s.IsDone = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetNote(v string) *SearchUserTaskResponseBodyResult {
+	s.Note = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetParentTaskId(v string) *SearchUserTaskResponseBodyResult {
+	s.ParentTaskId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetPriority(v int32) *SearchUserTaskResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetProjectId(v string) *SearchUserTaskResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetRecurrence(v []*string) *SearchUserTaskResponseBodyResult {
+	s.Recurrence = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetSfcId(v string) *SearchUserTaskResponseBodyResult {
+	s.SfcId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetSprintId(v string) *SearchUserTaskResponseBodyResult {
+	s.SprintId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetStartDate(v string) *SearchUserTaskResponseBodyResult {
+	s.StartDate = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetStoryPoint(v string) *SearchUserTaskResponseBodyResult {
+	s.StoryPoint = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetTagIds(v []*string) *SearchUserTaskResponseBodyResult {
+	s.TagIds = v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetTaskId(v string) *SearchUserTaskResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetTaskListId(v string) *SearchUserTaskResponseBodyResult {
+	s.TaskListId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetTaskflowstatusId(v string) *SearchUserTaskResponseBodyResult {
+	s.TaskflowstatusId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetTaskstageId(v string) *SearchUserTaskResponseBodyResult {
+	s.TaskstageId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetUniqueId(v string) *SearchUserTaskResponseBodyResult {
+	s.UniqueId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetUpdated(v string) *SearchUserTaskResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResult) SetVisible(v string) *SearchUserTaskResponseBodyResult {
+	s.Visible = &v
+	return s
+}
+
+type SearchUserTaskResponseBodyResultCustomfields struct {
+	CustomfieldId *string                                              `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	Type          *string                                              `json:"type,omitempty" xml:"type,omitempty"`
+	Value         []*SearchUserTaskResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s SearchUserTaskResponseBodyResultCustomfields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskResponseBodyResultCustomfields) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfields) SetCustomfieldId(v string) *SearchUserTaskResponseBodyResultCustomfields {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfields) SetType(v string) *SearchUserTaskResponseBodyResultCustomfields {
+	s.Type = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfields) SetValue(v []*SearchUserTaskResponseBodyResultCustomfieldsValue) *SearchUserTaskResponseBodyResultCustomfields {
+	s.Value = v
+	return s
+}
+
+type SearchUserTaskResponseBodyResultCustomfieldsValue struct {
+	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
+	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	TotalCount   *int32  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchUserTaskResponseBodyResultCustomfieldsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserTaskResponseBodyResultCustomfieldsValue) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
+	s.FieldvalueId = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetMetaString(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
+	s.MetaString = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetTitle(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
+	s.Title = &v
+	return s
+}
+
+func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetTotalCount(v int32) *SearchUserTaskResponseBodyResultCustomfieldsValue {
+	s.TotalCount = &v
 	return s
 }
 
@@ -8635,7 +8878,7 @@ func (s *UpdateTaskStageHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTas
 }
 
 type UpdateTaskStageRequest struct {
-	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	TaskStageId *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
 }
 
 func (s UpdateTaskStageRequest) String() string {
@@ -8646,8 +8889,8 @@ func (s UpdateTaskStageRequest) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateTaskStageRequest) SetStageId(v string) *UpdateTaskStageRequest {
-	s.StageId = &v
+func (s *UpdateTaskStageRequest) SetTaskStageId(v string) *UpdateTaskStageRequest {
+	s.TaskStageId = &v
 	return s
 }
 
@@ -12655,8 +12898,8 @@ func (client *Client) UpdateTaskStageWithOptions(userId *string, taskId *string,
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.StageId)) {
-		body["stageId"] = request.StageId
+	if !tea.BoolValue(util.IsUnset(request.TaskStageId)) {
+		body["taskStageId"] = request.TaskStageId
 	}
 
 	realHeaders := make(map[string]*string)

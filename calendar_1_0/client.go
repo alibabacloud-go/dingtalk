@@ -548,6 +548,7 @@ type CreateEventRequest struct {
 	Reminders         []*CreateEventRequestReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	Start             *CreateEventRequestStart             `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
 	Summary           *string                              `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs         []*CreateEventRequestUiConfigs       `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
 }
 
 func (s CreateEventRequest) String() string {
@@ -610,6 +611,11 @@ func (s *CreateEventRequest) SetStart(v *CreateEventRequestStart) *CreateEventRe
 
 func (s *CreateEventRequest) SetSummary(v string) *CreateEventRequest {
 	s.Summary = &v
+	return s
+}
+
+func (s *CreateEventRequest) SetUiConfigs(v []*CreateEventRequestUiConfigs) *CreateEventRequest {
+	s.UiConfigs = v
 	return s
 }
 
@@ -844,6 +850,29 @@ func (s *CreateEventRequestStart) SetTimeZone(v string) *CreateEventRequestStart
 	return s
 }
 
+type CreateEventRequestUiConfigs struct {
+	UiName   *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	UiStatus *string `json:"uiStatus,omitempty" xml:"uiStatus,omitempty"`
+}
+
+func (s CreateEventRequestUiConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestUiConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestUiConfigs) SetUiName(v string) *CreateEventRequestUiConfigs {
+	s.UiName = &v
+	return s
+}
+
+func (s *CreateEventRequestUiConfigs) SetUiStatus(v string) *CreateEventRequestUiConfigs {
+	s.UiStatus = &v
+	return s
+}
+
 type CreateEventResponseBody struct {
 	Attendees         []*CreateEventResponseBodyAttendees       `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
 	CreateTime        *string                                   `json:"createTime,omitempty" xml:"createTime,omitempty"`
@@ -858,6 +887,7 @@ type CreateEventResponseBody struct {
 	Reminders         []*CreateEventResponseBodyReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	Start             *CreateEventResponseBodyStart             `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
 	Summary           *string                                   `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs         []*CreateEventResponseBodyUiConfigs       `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
 	UpdateTime        *string                                   `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
@@ -931,6 +961,11 @@ func (s *CreateEventResponseBody) SetStart(v *CreateEventResponseBodyStart) *Cre
 
 func (s *CreateEventResponseBody) SetSummary(v string) *CreateEventResponseBody {
 	s.Summary = &v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetUiConfigs(v []*CreateEventResponseBodyUiConfigs) *CreateEventResponseBody {
+	s.UiConfigs = v
 	return s
 }
 
@@ -1238,6 +1273,29 @@ func (s *CreateEventResponseBodyStart) SetDateTime(v string) *CreateEventRespons
 
 func (s *CreateEventResponseBodyStart) SetTimeZone(v string) *CreateEventResponseBodyStart {
 	s.TimeZone = &v
+	return s
+}
+
+type CreateEventResponseBodyUiConfigs struct {
+	UiName   *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	UiStatus *string `json:"uiStatus,omitempty" xml:"uiStatus,omitempty"`
+}
+
+func (s CreateEventResponseBodyUiConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyUiConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyUiConfigs) SetUiName(v string) *CreateEventResponseBodyUiConfigs {
+	s.UiName = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyUiConfigs) SetUiStatus(v string) *CreateEventResponseBodyUiConfigs {
+	s.UiStatus = &v
 	return s
 }
 
@@ -7639,6 +7697,10 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 
 	if !tea.BoolValue(util.IsUnset(request.Summary)) {
 		body["summary"] = request.Summary
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UiConfigs)) {
+		body["uiConfigs"] = request.UiConfigs
 	}
 
 	realHeaders := make(map[string]*string)

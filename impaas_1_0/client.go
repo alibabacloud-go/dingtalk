@@ -2051,6 +2051,110 @@ func (s *UpdateGroupOwnerResponse) SetBody(v *UpdateGroupOwnerResponseBody) *Upd
 	return s
 }
 
+type UploadFileHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UploadFileHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadFileHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UploadFileHeaders) SetCommonHeaders(v map[string]*string) *UploadFileHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UploadFileHeaders) SetXAcsDingtalkAccessToken(v string) *UploadFileHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UploadFileRequest struct {
+	FileName  *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileType  *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	FileUrl   *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+	SenderUid *string `json:"senderUid,omitempty" xml:"senderUid,omitempty"`
+}
+
+func (s UploadFileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadFileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UploadFileRequest) SetFileName(v string) *UploadFileRequest {
+	s.FileName = &v
+	return s
+}
+
+func (s *UploadFileRequest) SetFileType(v string) *UploadFileRequest {
+	s.FileType = &v
+	return s
+}
+
+func (s *UploadFileRequest) SetFileUrl(v string) *UploadFileRequest {
+	s.FileUrl = &v
+	return s
+}
+
+func (s *UploadFileRequest) SetSenderUid(v string) *UploadFileRequest {
+	s.SenderUid = &v
+	return s
+}
+
+type UploadFileResponseBody struct {
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s UploadFileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadFileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UploadFileResponseBody) SetMediaId(v string) *UploadFileResponseBody {
+	s.MediaId = &v
+	return s
+}
+
+type UploadFileResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UploadFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UploadFileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadFileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UploadFileResponse) SetHeaders(v map[string]*string) *UploadFileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UploadFileResponse) SetStatusCode(v int32) *UploadFileResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UploadFileResponse) SetBody(v *UploadFileResponseBody) *UploadFileResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -3370,6 +3474,73 @@ func (client *Client) UpdateGroupOwner(request *UpdateGroupOwnerRequest) (_resul
 	headers := &UpdateGroupOwnerHeaders{}
 	_result = &UpdateGroupOwnerResponse{}
 	_body, _err := client.UpdateGroupOwnerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UploadFileWithOptions(request *UploadFileRequest, headers *UploadFileHeaders, runtime *util.RuntimeOptions) (_result *UploadFileResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileName)) {
+		body["fileName"] = request.FileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileType)) {
+		body["fileType"] = request.FileType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileUrl)) {
+		body["fileUrl"] = request.FileUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderUid)) {
+		body["senderUid"] = request.SenderUid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UploadFile"),
+		Version:     tea.String("impaas_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/impaas/interconnections/files/upload"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UploadFileResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UploadFile(request *UploadFileRequest) (_result *UploadFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UploadFileHeaders{}
+	_result = &UploadFileResponse{}
+	_body, _err := client.UploadFileWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

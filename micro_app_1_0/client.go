@@ -2060,6 +2060,7 @@ type ListInnerAppVersionResponseBodyAppVersionList struct {
 	AppVersionId   *int64  `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
 	AppVersionType *int32  `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
 	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	EntranceLink   *string `json:"entranceLink,omitempty" xml:"entranceLink,omitempty"`
 	MiniAppId      *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 	MiniAppOnPc    *bool   `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
 	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
@@ -2090,6 +2091,11 @@ func (s *ListInnerAppVersionResponseBodyAppVersionList) SetAppVersionType(v int3
 
 func (s *ListInnerAppVersionResponseBodyAppVersionList) SetCreateTime(v string) *ListInnerAppVersionResponseBodyAppVersionList {
 	s.CreateTime = &v
+	return s
+}
+
+func (s *ListInnerAppVersionResponseBodyAppVersionList) SetEntranceLink(v string) *ListInnerAppVersionResponseBodyAppVersionList {
+	s.EntranceLink = &v
 	return s
 }
 

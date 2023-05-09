@@ -379,6 +379,7 @@ func (s *CreateAndDeliverHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAn
 
 type CreateAndDeliverRequest struct {
 	CallbackRouteKey        *string                                         `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CallbackType            *string                                         `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
 	CardData                *CreateAndDeliverRequestCardData                `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
 	CardTemplateId          *string                                         `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	CoFeedOpenDeliverModel  *CreateAndDeliverRequestCoFeedOpenDeliverModel  `json:"coFeedOpenDeliverModel,omitempty" xml:"coFeedOpenDeliverModel,omitempty" type:"Struct"`
@@ -408,6 +409,11 @@ func (s CreateAndDeliverRequest) GoString() string {
 
 func (s *CreateAndDeliverRequest) SetCallbackRouteKey(v string) *CreateAndDeliverRequest {
 	s.CallbackRouteKey = &v
+	return s
+}
+
+func (s *CreateAndDeliverRequest) SetCallbackType(v string) *CreateAndDeliverRequest {
+	s.CallbackType = &v
 	return s
 }
 
@@ -1052,6 +1058,7 @@ func (s *CreateCardHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCardHead
 
 type CreateCardRequest struct {
 	CallbackRouteKey      *string                                 `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CallbackType          *string                                 `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
 	CardData              *CreateCardRequestCardData              `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
 	CardTemplateId        *string                                 `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	CoFeedOpenSpaceModel  *CreateCardRequestCoFeedOpenSpaceModel  `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
@@ -1075,6 +1082,11 @@ func (s CreateCardRequest) GoString() string {
 
 func (s *CreateCardRequest) SetCallbackRouteKey(v string) *CreateCardRequest {
 	s.CallbackRouteKey = &v
+	return s
+}
+
+func (s *CreateCardRequest) SetCallbackType(v string) *CreateCardRequest {
+	s.CallbackType = &v
 	return s
 }
 
@@ -2162,6 +2174,10 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 		body["callbackRouteKey"] = request.CallbackRouteKey
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.CallbackType)) {
+		body["callbackType"] = request.CallbackType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.CardData)) {
 		body["cardData"] = request.CardData
 	}
@@ -2283,6 +2299,10 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CallbackRouteKey)) {
 		body["callbackRouteKey"] = request.CallbackRouteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallbackType)) {
+		body["callbackType"] = request.CallbackType
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.CardData)) {
