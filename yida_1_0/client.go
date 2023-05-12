@@ -13,6 +13,116 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AppLoginCodeGenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AppLoginCodeGenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppLoginCodeGenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AppLoginCodeGenHeaders) SetCommonHeaders(v map[string]*string) *AppLoginCodeGenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AppLoginCodeGenHeaders) SetXAcsDingtalkAccessToken(v string) *AppLoginCodeGenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AppLoginCodeGenRequest struct {
+	AppKey           *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	SignTimestampStr *string `json:"signTimestampStr,omitempty" xml:"signTimestampStr,omitempty"`
+	Signature        *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	FullUrl          *string `json:"fullUrl,omitempty" xml:"fullUrl,omitempty"`
+	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AppLoginCodeGenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppLoginCodeGenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AppLoginCodeGenRequest) SetAppKey(v string) *AppLoginCodeGenRequest {
+	s.AppKey = &v
+	return s
+}
+
+func (s *AppLoginCodeGenRequest) SetSignTimestampStr(v string) *AppLoginCodeGenRequest {
+	s.SignTimestampStr = &v
+	return s
+}
+
+func (s *AppLoginCodeGenRequest) SetSignature(v string) *AppLoginCodeGenRequest {
+	s.Signature = &v
+	return s
+}
+
+func (s *AppLoginCodeGenRequest) SetFullUrl(v string) *AppLoginCodeGenRequest {
+	s.FullUrl = &v
+	return s
+}
+
+func (s *AppLoginCodeGenRequest) SetUserId(v string) *AppLoginCodeGenRequest {
+	s.UserId = &v
+	return s
+}
+
+type AppLoginCodeGenResponseBody struct {
+	LoginCode *string `json:"loginCode,omitempty" xml:"loginCode,omitempty"`
+}
+
+func (s AppLoginCodeGenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppLoginCodeGenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AppLoginCodeGenResponseBody) SetLoginCode(v string) *AppLoginCodeGenResponseBody {
+	s.LoginCode = &v
+	return s
+}
+
+type AppLoginCodeGenResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AppLoginCodeGenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AppLoginCodeGenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppLoginCodeGenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AppLoginCodeGenResponse) SetHeaders(v map[string]*string) *AppLoginCodeGenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AppLoginCodeGenResponse) SetStatusCode(v int32) *AppLoginCodeGenResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AppLoginCodeGenResponse) SetBody(v *AppLoginCodeGenResponseBody) *AppLoginCodeGenResponse {
+	s.Body = v
+	return s
+}
+
 type BatchGetFormDataByIdListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15252,6 +15362,79 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) AppLoginCodeGenWithOptions(request *AppLoginCodeGenRequest, headers *AppLoginCodeGenHeaders, runtime *util.RuntimeOptions) (_result *AppLoginCodeGenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FullUrl)) {
+		query["fullUrl"] = request.FullUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppKey)) {
+		body["appKey"] = request.AppKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignTimestampStr)) {
+		body["signTimestampStr"] = request.SignTimestampStr
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AppLoginCodeGen"),
+		Version:     tea.String("yida_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/yida/authorizations/appLoginCodes"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AppLoginCodeGenResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AppLoginCodeGen(request *AppLoginCodeGenRequest) (_result *AppLoginCodeGenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AppLoginCodeGenHeaders{}
+	_result = &AppLoginCodeGenResponse{}
+	_body, _err := client.AppLoginCodeGenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) BatchGetFormDataByIdListWithOptions(request *BatchGetFormDataByIdListRequest, headers *BatchGetFormDataByIdListHeaders, runtime *util.RuntimeOptions) (_result *BatchGetFormDataByIdListResponse, _err error) {

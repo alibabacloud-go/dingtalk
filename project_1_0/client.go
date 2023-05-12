@@ -910,7 +910,7 @@ func (s *CreateProjectResponseBody) SetResult(v *CreateProjectResponseBodyResult
 type CreateProjectResponseBodyResult struct {
 	Created             *string                                        `json:"created,omitempty" xml:"created,omitempty"`
 	CreatorId           *string                                        `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Customfields        []*CreateProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	CustomFields        []*CreateProjectResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
 	DefaultCollectionId *string                                        `json:"defaultCollectionId,omitempty" xml:"defaultCollectionId,omitempty"`
 	IsArchived          *bool                                          `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
 	IsSuspended         *bool                                          `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
@@ -944,8 +944,8 @@ func (s *CreateProjectResponseBodyResult) SetCreatorId(v string) *CreateProjectR
 	return s
 }
 
-func (s *CreateProjectResponseBodyResult) SetCustomfields(v []*CreateProjectResponseBodyResultCustomfields) *CreateProjectResponseBodyResult {
-	s.Customfields = v
+func (s *CreateProjectResponseBodyResult) SetCustomFields(v []*CreateProjectResponseBodyResultCustomFields) *CreateProjectResponseBodyResult {
+	s.CustomFields = v
 	return s
 }
 
@@ -1014,60 +1014,60 @@ func (s *CreateProjectResponseBodyResult) SetVisibility(v string) *CreateProject
 	return s
 }
 
-type CreateProjectResponseBodyResultCustomfields struct {
-	CustomfieldId *string                                             `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+type CreateProjectResponseBodyResultCustomFields struct {
+	CustomFieldId *string                                             `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
 	Type          *string                                             `json:"type,omitempty" xml:"type,omitempty"`
-	Value         []*CreateProjectResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	Value         []*CreateProjectResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
-func (s CreateProjectResponseBodyResultCustomfields) String() string {
+func (s CreateProjectResponseBodyResultCustomFields) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateProjectResponseBodyResultCustomfields) GoString() string {
+func (s CreateProjectResponseBodyResultCustomFields) GoString() string {
 	return s.String()
 }
 
-func (s *CreateProjectResponseBodyResultCustomfields) SetCustomfieldId(v string) *CreateProjectResponseBodyResultCustomfields {
-	s.CustomfieldId = &v
+func (s *CreateProjectResponseBodyResultCustomFields) SetCustomFieldId(v string) *CreateProjectResponseBodyResultCustomFields {
+	s.CustomFieldId = &v
 	return s
 }
 
-func (s *CreateProjectResponseBodyResultCustomfields) SetType(v string) *CreateProjectResponseBodyResultCustomfields {
+func (s *CreateProjectResponseBodyResultCustomFields) SetType(v string) *CreateProjectResponseBodyResultCustomFields {
 	s.Type = &v
 	return s
 }
 
-func (s *CreateProjectResponseBodyResultCustomfields) SetValue(v []*CreateProjectResponseBodyResultCustomfieldsValue) *CreateProjectResponseBodyResultCustomfields {
+func (s *CreateProjectResponseBodyResultCustomFields) SetValue(v []*CreateProjectResponseBodyResultCustomFieldsValue) *CreateProjectResponseBodyResultCustomFields {
 	s.Value = v
 	return s
 }
 
-type CreateProjectResponseBodyResultCustomfieldsValue struct {
-	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+type CreateProjectResponseBodyResultCustomFieldsValue struct {
+	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
+	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
-func (s CreateProjectResponseBodyResultCustomfieldsValue) String() string {
+func (s CreateProjectResponseBodyResultCustomFieldsValue) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateProjectResponseBodyResultCustomfieldsValue) GoString() string {
+func (s CreateProjectResponseBodyResultCustomFieldsValue) GoString() string {
 	return s.String()
 }
 
-func (s *CreateProjectResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *CreateProjectResponseBodyResultCustomfieldsValue {
-	s.FieldvalueId = &v
+func (s *CreateProjectResponseBodyResultCustomFieldsValue) SetCustomFieldValueId(v string) *CreateProjectResponseBodyResultCustomFieldsValue {
+	s.CustomFieldValueId = &v
 	return s
 }
 
-func (s *CreateProjectResponseBodyResultCustomfieldsValue) SetMetaString(v string) *CreateProjectResponseBodyResultCustomfieldsValue {
+func (s *CreateProjectResponseBodyResultCustomFieldsValue) SetMetaString(v string) *CreateProjectResponseBodyResultCustomFieldsValue {
 	s.MetaString = &v
 	return s
 }
 
-func (s *CreateProjectResponseBodyResultCustomfieldsValue) SetTitle(v string) *CreateProjectResponseBodyResultCustomfieldsValue {
+func (s *CreateProjectResponseBodyResultCustomFieldsValue) SetTitle(v string) *CreateProjectResponseBodyResultCustomFieldsValue {
 	s.Title = &v
 	return s
 }
@@ -1252,9 +1252,9 @@ func (s *CreateProjectCustomfieldStatusHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type CreateProjectCustomfieldStatusRequest struct {
-	CustomfieldId         *string                                       `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	CustomfieldInstanceId *string                                       `json:"customfieldInstanceId,omitempty" xml:"customfieldInstanceId,omitempty"`
-	CustomfieldName       *string                                       `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
+	CustomFieldId         *string                                       `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	CustomFieldInstanceId *string                                       `json:"customFieldInstanceId,omitempty" xml:"customFieldInstanceId,omitempty"`
+	CustomFieldName       *string                                       `json:"customFieldName,omitempty" xml:"customFieldName,omitempty"`
 	Value                 []*CreateProjectCustomfieldStatusRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
@@ -1266,18 +1266,18 @@ func (s CreateProjectCustomfieldStatusRequest) GoString() string {
 	return s.String()
 }
 
-func (s *CreateProjectCustomfieldStatusRequest) SetCustomfieldId(v string) *CreateProjectCustomfieldStatusRequest {
-	s.CustomfieldId = &v
+func (s *CreateProjectCustomfieldStatusRequest) SetCustomFieldId(v string) *CreateProjectCustomfieldStatusRequest {
+	s.CustomFieldId = &v
 	return s
 }
 
-func (s *CreateProjectCustomfieldStatusRequest) SetCustomfieldInstanceId(v string) *CreateProjectCustomfieldStatusRequest {
-	s.CustomfieldInstanceId = &v
+func (s *CreateProjectCustomfieldStatusRequest) SetCustomFieldInstanceId(v string) *CreateProjectCustomfieldStatusRequest {
+	s.CustomFieldInstanceId = &v
 	return s
 }
 
-func (s *CreateProjectCustomfieldStatusRequest) SetCustomfieldName(v string) *CreateProjectCustomfieldStatusRequest {
-	s.CustomfieldName = &v
+func (s *CreateProjectCustomfieldStatusRequest) SetCustomFieldName(v string) *CreateProjectCustomfieldStatusRequest {
+	s.CustomFieldName = &v
 	return s
 }
 
@@ -1287,9 +1287,9 @@ func (s *CreateProjectCustomfieldStatusRequest) SetValue(v []*CreateProjectCusto
 }
 
 type CreateProjectCustomfieldStatusRequestValue struct {
-	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
+	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateProjectCustomfieldStatusRequestValue) String() string {
@@ -1300,8 +1300,8 @@ func (s CreateProjectCustomfieldStatusRequestValue) GoString() string {
 	return s.String()
 }
 
-func (s *CreateProjectCustomfieldStatusRequestValue) SetFieldvalueId(v string) *CreateProjectCustomfieldStatusRequestValue {
-	s.FieldvalueId = &v
+func (s *CreateProjectCustomfieldStatusRequestValue) SetCustomFieldValueId(v string) *CreateProjectCustomfieldStatusRequestValue {
+	s.CustomFieldValueId = &v
 	return s
 }
 
@@ -1333,12 +1333,12 @@ func (s *CreateProjectCustomfieldStatusResponseBody) SetResult(v *CreateProjectC
 }
 
 type CreateProjectCustomfieldStatusResponseBodyResult struct {
-	AdvCfObjectType *string                                                  `json:"advCfObjectType,omitempty" xml:"advCfObjectType,omitempty"`
-	CustomfieldId   *string                                                  `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	Name            *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
-	OriginalId      *string                                                  `json:"originalId,omitempty" xml:"originalId,omitempty"`
-	Type            *string                                                  `json:"type,omitempty" xml:"type,omitempty"`
-	Value           []*CreateProjectCustomfieldStatusResponseBodyResultValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	AdvancedCustomFieldObjectType *string                                                  `json:"advancedCustomFieldObjectType,omitempty" xml:"advancedCustomFieldObjectType,omitempty"`
+	CustomFieldId                 *string                                                  `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	Name                          *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
+	OriginalId                    *string                                                  `json:"originalId,omitempty" xml:"originalId,omitempty"`
+	Type                          *string                                                  `json:"type,omitempty" xml:"type,omitempty"`
+	Value                         []*CreateProjectCustomfieldStatusResponseBodyResultValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s CreateProjectCustomfieldStatusResponseBodyResult) String() string {
@@ -1349,13 +1349,13 @@ func (s CreateProjectCustomfieldStatusResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetAdvCfObjectType(v string) *CreateProjectCustomfieldStatusResponseBodyResult {
-	s.AdvCfObjectType = &v
+func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetAdvancedCustomFieldObjectType(v string) *CreateProjectCustomfieldStatusResponseBodyResult {
+	s.AdvancedCustomFieldObjectType = &v
 	return s
 }
 
-func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetCustomfieldId(v string) *CreateProjectCustomfieldStatusResponseBodyResult {
-	s.CustomfieldId = &v
+func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetCustomFieldId(v string) *CreateProjectCustomfieldStatusResponseBodyResult {
+	s.CustomFieldId = &v
 	return s
 }
 
@@ -1380,9 +1380,9 @@ func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetValue(v []*CreateP
 }
 
 type CreateProjectCustomfieldStatusResponseBodyResultValue struct {
-	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
+	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateProjectCustomfieldStatusResponseBodyResultValue) String() string {
@@ -1393,8 +1393,8 @@ func (s CreateProjectCustomfieldStatusResponseBodyResultValue) GoString() string
 	return s.String()
 }
 
-func (s *CreateProjectCustomfieldStatusResponseBodyResultValue) SetFieldvalueId(v string) *CreateProjectCustomfieldStatusResponseBodyResultValue {
-	s.FieldvalueId = &v
+func (s *CreateProjectCustomfieldStatusResponseBodyResultValue) SetCustomFieldValueId(v string) *CreateProjectCustomfieldStatusResponseBodyResultValue {
+	s.CustomFieldValueId = &v
 	return s
 }
 
@@ -3693,7 +3693,7 @@ type GetTaskByIdsResponseBodyResult struct {
 	Content               *string                                       `json:"content,omitempty" xml:"content,omitempty"`
 	Created               *string                                       `json:"created,omitempty" xml:"created,omitempty"`
 	CreatorId             *string                                       `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Customfields          []*GetTaskByIdsResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	CustomFields          []*GetTaskByIdsResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
 	DueDate               *string                                       `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 	ExecutorId            *string                                       `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	InvolveMembers        []*string                                     `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
@@ -3704,15 +3704,15 @@ type GetTaskByIdsResponseBodyResult struct {
 	Priority              *int32                                        `json:"priority,omitempty" xml:"priority,omitempty"`
 	ProjectId             *string                                       `json:"projectId,omitempty" xml:"projectId,omitempty"`
 	Recurrence            []*string                                     `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
-	ScenariofieldconfigId *string                                       `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	ScenarioFieldConfigId *string                                       `json:"scenarioFieldConfigId,omitempty" xml:"scenarioFieldConfigId,omitempty"`
 	SprintId              *string                                       `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
-	StageId               *string                                       `json:"stageId,omitempty" xml:"stageId,omitempty"`
 	StartDate             *string                                       `json:"startDate,omitempty" xml:"startDate,omitempty"`
 	StoryPoint            *string                                       `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
 	TagIds                []*string                                     `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
 	TaskId                *string                                       `json:"taskId,omitempty" xml:"taskId,omitempty"`
 	TaskListId            *string                                       `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	TaskflowstatusId      *string                                       `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
+	TaskStageId           *string                                       `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
+	TaskflowStatusId      *string                                       `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
 	UniqueId              *string                                       `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
 	Updated               *string                                       `json:"updated,omitempty" xml:"updated,omitempty"`
 	Visible               *string                                       `json:"visible,omitempty" xml:"visible,omitempty"`
@@ -3751,8 +3751,8 @@ func (s *GetTaskByIdsResponseBodyResult) SetCreatorId(v string) *GetTaskByIdsRes
 	return s
 }
 
-func (s *GetTaskByIdsResponseBodyResult) SetCustomfields(v []*GetTaskByIdsResponseBodyResultCustomfields) *GetTaskByIdsResponseBodyResult {
-	s.Customfields = v
+func (s *GetTaskByIdsResponseBodyResult) SetCustomFields(v []*GetTaskByIdsResponseBodyResultCustomFields) *GetTaskByIdsResponseBodyResult {
+	s.CustomFields = v
 	return s
 }
 
@@ -3806,18 +3806,13 @@ func (s *GetTaskByIdsResponseBodyResult) SetRecurrence(v []*string) *GetTaskById
 	return s
 }
 
-func (s *GetTaskByIdsResponseBodyResult) SetScenariofieldconfigId(v string) *GetTaskByIdsResponseBodyResult {
-	s.ScenariofieldconfigId = &v
+func (s *GetTaskByIdsResponseBodyResult) SetScenarioFieldConfigId(v string) *GetTaskByIdsResponseBodyResult {
+	s.ScenarioFieldConfigId = &v
 	return s
 }
 
 func (s *GetTaskByIdsResponseBodyResult) SetSprintId(v string) *GetTaskByIdsResponseBodyResult {
 	s.SprintId = &v
-	return s
-}
-
-func (s *GetTaskByIdsResponseBodyResult) SetStageId(v string) *GetTaskByIdsResponseBodyResult {
-	s.StageId = &v
 	return s
 }
 
@@ -3846,8 +3841,13 @@ func (s *GetTaskByIdsResponseBodyResult) SetTaskListId(v string) *GetTaskByIdsRe
 	return s
 }
 
-func (s *GetTaskByIdsResponseBodyResult) SetTaskflowstatusId(v string) *GetTaskByIdsResponseBodyResult {
-	s.TaskflowstatusId = &v
+func (s *GetTaskByIdsResponseBodyResult) SetTaskStageId(v string) *GetTaskByIdsResponseBodyResult {
+	s.TaskStageId = &v
+	return s
+}
+
+func (s *GetTaskByIdsResponseBodyResult) SetTaskflowStatusId(v string) *GetTaskByIdsResponseBodyResult {
+	s.TaskflowStatusId = &v
 	return s
 }
 
@@ -3866,60 +3866,60 @@ func (s *GetTaskByIdsResponseBodyResult) SetVisible(v string) *GetTaskByIdsRespo
 	return s
 }
 
-type GetTaskByIdsResponseBodyResultCustomfields struct {
-	CustomfieldId *string                                            `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+type GetTaskByIdsResponseBodyResultCustomFields struct {
+	CustomFieldId *string                                            `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
 	Type          *string                                            `json:"type,omitempty" xml:"type,omitempty"`
-	Value         []*GetTaskByIdsResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	Value         []*GetTaskByIdsResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
-func (s GetTaskByIdsResponseBodyResultCustomfields) String() string {
+func (s GetTaskByIdsResponseBodyResultCustomFields) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetTaskByIdsResponseBodyResultCustomfields) GoString() string {
+func (s GetTaskByIdsResponseBodyResultCustomFields) GoString() string {
 	return s.String()
 }
 
-func (s *GetTaskByIdsResponseBodyResultCustomfields) SetCustomfieldId(v string) *GetTaskByIdsResponseBodyResultCustomfields {
-	s.CustomfieldId = &v
+func (s *GetTaskByIdsResponseBodyResultCustomFields) SetCustomFieldId(v string) *GetTaskByIdsResponseBodyResultCustomFields {
+	s.CustomFieldId = &v
 	return s
 }
 
-func (s *GetTaskByIdsResponseBodyResultCustomfields) SetType(v string) *GetTaskByIdsResponseBodyResultCustomfields {
+func (s *GetTaskByIdsResponseBodyResultCustomFields) SetType(v string) *GetTaskByIdsResponseBodyResultCustomFields {
 	s.Type = &v
 	return s
 }
 
-func (s *GetTaskByIdsResponseBodyResultCustomfields) SetValue(v []*GetTaskByIdsResponseBodyResultCustomfieldsValue) *GetTaskByIdsResponseBodyResultCustomfields {
+func (s *GetTaskByIdsResponseBodyResultCustomFields) SetValue(v []*GetTaskByIdsResponseBodyResultCustomFieldsValue) *GetTaskByIdsResponseBodyResultCustomFields {
 	s.Value = v
 	return s
 }
 
-type GetTaskByIdsResponseBodyResultCustomfieldsValue struct {
-	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+type GetTaskByIdsResponseBodyResultCustomFieldsValue struct {
+	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
+	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
-func (s GetTaskByIdsResponseBodyResultCustomfieldsValue) String() string {
+func (s GetTaskByIdsResponseBodyResultCustomFieldsValue) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetTaskByIdsResponseBodyResultCustomfieldsValue) GoString() string {
+func (s GetTaskByIdsResponseBodyResultCustomFieldsValue) GoString() string {
 	return s.String()
 }
 
-func (s *GetTaskByIdsResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *GetTaskByIdsResponseBodyResultCustomfieldsValue {
-	s.FieldvalueId = &v
+func (s *GetTaskByIdsResponseBodyResultCustomFieldsValue) SetCustomFieldValueId(v string) *GetTaskByIdsResponseBodyResultCustomFieldsValue {
+	s.CustomFieldValueId = &v
 	return s
 }
 
-func (s *GetTaskByIdsResponseBodyResultCustomfieldsValue) SetMetaString(v string) *GetTaskByIdsResponseBodyResultCustomfieldsValue {
+func (s *GetTaskByIdsResponseBodyResultCustomFieldsValue) SetMetaString(v string) *GetTaskByIdsResponseBodyResultCustomFieldsValue {
 	s.MetaString = &v
 	return s
 }
 
-func (s *GetTaskByIdsResponseBodyResultCustomfieldsValue) SetTitle(v string) *GetTaskByIdsResponseBodyResultCustomfieldsValue {
+func (s *GetTaskByIdsResponseBodyResultCustomFieldsValue) SetTitle(v string) *GetTaskByIdsResponseBodyResultCustomFieldsValue {
 	s.Title = &v
 	return s
 }
@@ -4433,9 +4433,8 @@ func (s *GetUserJoinedProjectRequest) SetNextToken(v string) *GetUserJoinedProje
 }
 
 type GetUserJoinedProjectResponseBody struct {
-	NextToken  *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Result     []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalCount *int32    `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
 func (s GetUserJoinedProjectResponseBody) String() string {
@@ -4453,11 +4452,6 @@ func (s *GetUserJoinedProjectResponseBody) SetNextToken(v string) *GetUserJoined
 
 func (s *GetUserJoinedProjectResponseBody) SetResult(v []*string) *GetUserJoinedProjectResponseBody {
 	s.Result = v
-	return s
-}
-
-func (s *GetUserJoinedProjectResponseBody) SetTotalCount(v int32) *GetUserJoinedProjectResponseBody {
-	s.TotalCount = &v
 	return s
 }
 
@@ -4574,7 +4568,7 @@ func (s *QueryProjectResponseBody) SetResult(v []*QueryProjectResponseBodyResult
 type QueryProjectResponseBodyResult struct {
 	Created        *string                                       `json:"created,omitempty" xml:"created,omitempty"`
 	CreatorId      *string                                       `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Customfields   []*QueryProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	CustomFields   []*QueryProjectResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
 	Description    *string                                       `json:"description,omitempty" xml:"description,omitempty"`
 	EndDate        *string                                       `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	IsArchived     *bool                                         `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
@@ -4608,8 +4602,8 @@ func (s *QueryProjectResponseBodyResult) SetCreatorId(v string) *QueryProjectRes
 	return s
 }
 
-func (s *QueryProjectResponseBodyResult) SetCustomfields(v []*QueryProjectResponseBodyResultCustomfields) *QueryProjectResponseBodyResult {
-	s.Customfields = v
+func (s *QueryProjectResponseBodyResult) SetCustomFields(v []*QueryProjectResponseBodyResultCustomFields) *QueryProjectResponseBodyResult {
+	s.CustomFields = v
 	return s
 }
 
@@ -4678,60 +4672,60 @@ func (s *QueryProjectResponseBodyResult) SetVisibility(v string) *QueryProjectRe
 	return s
 }
 
-type QueryProjectResponseBodyResultCustomfields struct {
-	CustomfieldId *string                                            `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+type QueryProjectResponseBodyResultCustomFields struct {
+	CustomFieldId *string                                            `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
 	Type          *string                                            `json:"type,omitempty" xml:"type,omitempty"`
-	Value         []*QueryProjectResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	Value         []*QueryProjectResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
-func (s QueryProjectResponseBodyResultCustomfields) String() string {
+func (s QueryProjectResponseBodyResultCustomFields) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryProjectResponseBodyResultCustomfields) GoString() string {
+func (s QueryProjectResponseBodyResultCustomFields) GoString() string {
 	return s.String()
 }
 
-func (s *QueryProjectResponseBodyResultCustomfields) SetCustomfieldId(v string) *QueryProjectResponseBodyResultCustomfields {
-	s.CustomfieldId = &v
+func (s *QueryProjectResponseBodyResultCustomFields) SetCustomFieldId(v string) *QueryProjectResponseBodyResultCustomFields {
+	s.CustomFieldId = &v
 	return s
 }
 
-func (s *QueryProjectResponseBodyResultCustomfields) SetType(v string) *QueryProjectResponseBodyResultCustomfields {
+func (s *QueryProjectResponseBodyResultCustomFields) SetType(v string) *QueryProjectResponseBodyResultCustomFields {
 	s.Type = &v
 	return s
 }
 
-func (s *QueryProjectResponseBodyResultCustomfields) SetValue(v []*QueryProjectResponseBodyResultCustomfieldsValue) *QueryProjectResponseBodyResultCustomfields {
+func (s *QueryProjectResponseBodyResultCustomFields) SetValue(v []*QueryProjectResponseBodyResultCustomFieldsValue) *QueryProjectResponseBodyResultCustomFields {
 	s.Value = v
 	return s
 }
 
-type QueryProjectResponseBodyResultCustomfieldsValue struct {
-	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+type QueryProjectResponseBodyResultCustomFieldsValue struct {
+	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
+	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
-func (s QueryProjectResponseBodyResultCustomfieldsValue) String() string {
+func (s QueryProjectResponseBodyResultCustomFieldsValue) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryProjectResponseBodyResultCustomfieldsValue) GoString() string {
+func (s QueryProjectResponseBodyResultCustomFieldsValue) GoString() string {
 	return s.String()
 }
 
-func (s *QueryProjectResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *QueryProjectResponseBodyResultCustomfieldsValue {
-	s.FieldvalueId = &v
+func (s *QueryProjectResponseBodyResultCustomFieldsValue) SetCustomFieldValueId(v string) *QueryProjectResponseBodyResultCustomFieldsValue {
+	s.CustomFieldValueId = &v
 	return s
 }
 
-func (s *QueryProjectResponseBodyResultCustomfieldsValue) SetMetaString(v string) *QueryProjectResponseBodyResultCustomfieldsValue {
+func (s *QueryProjectResponseBodyResultCustomFieldsValue) SetMetaString(v string) *QueryProjectResponseBodyResultCustomFieldsValue {
 	s.MetaString = &v
 	return s
 }
 
-func (s *QueryProjectResponseBodyResultCustomfieldsValue) SetTitle(v string) *QueryProjectResponseBodyResultCustomfieldsValue {
+func (s *QueryProjectResponseBodyResultCustomFieldsValue) SetTitle(v string) *QueryProjectResponseBodyResultCustomFieldsValue {
 	s.Title = &v
 	return s
 }
@@ -5089,11 +5083,11 @@ func (s *SeachTaskStageHeaders) SetXAcsDingtalkAccessToken(v string) *SeachTaskS
 }
 
 type SeachTaskStageRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Query      *string `json:"query,omitempty" xml:"query,omitempty"`
-	StageIds   *string `json:"stageIds,omitempty" xml:"stageIds,omitempty"`
-	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	MaxResults   *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken    *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Query        *string `json:"query,omitempty" xml:"query,omitempty"`
+	TaskListId   *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	TaskStageIds *string `json:"taskStageIds,omitempty" xml:"taskStageIds,omitempty"`
 }
 
 func (s SeachTaskStageRequest) String() string {
@@ -5119,20 +5113,19 @@ func (s *SeachTaskStageRequest) SetQuery(v string) *SeachTaskStageRequest {
 	return s
 }
 
-func (s *SeachTaskStageRequest) SetStageIds(v string) *SeachTaskStageRequest {
-	s.StageIds = &v
-	return s
-}
-
 func (s *SeachTaskStageRequest) SetTaskListId(v string) *SeachTaskStageRequest {
 	s.TaskListId = &v
 	return s
 }
 
+func (s *SeachTaskStageRequest) SetTaskStageIds(v string) *SeachTaskStageRequest {
+	s.TaskStageIds = &v
+	return s
+}
+
 type SeachTaskStageResponseBody struct {
-	NextToken  *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Result     []*SeachTaskStageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalCount *int32                              `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*SeachTaskStageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
 func (s SeachTaskStageResponseBody) String() string {
@@ -5150,11 +5143,6 @@ func (s *SeachTaskStageResponseBody) SetNextToken(v string) *SeachTaskStageRespo
 
 func (s *SeachTaskStageResponseBody) SetResult(v []*SeachTaskStageResponseBodyResult) *SeachTaskStageResponseBody {
 	s.Result = v
-	return s
-}
-
-func (s *SeachTaskStageResponseBody) SetTotalCount(v int32) *SeachTaskStageResponseBody {
-	s.TotalCount = &v
 	return s
 }
 
@@ -5270,13 +5258,12 @@ func (s *SearchOranizationCustomfieldHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type SearchOranizationCustomfieldRequest struct {
-	CustomfieldIds *string `json:"customfieldIds,omitempty" xml:"customfieldIds,omitempty"`
+	CustomFieldIds *string `json:"customFieldIds,omitempty" xml:"customFieldIds,omitempty"`
 	InstanceIds    *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
 	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	ProjectIds     *string `json:"projectIds,omitempty" xml:"projectIds,omitempty"`
 	Query          *string `json:"query,omitempty" xml:"query,omitempty"`
-	Scope          *string `json:"scope,omitempty" xml:"scope,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldRequest) String() string {
@@ -5287,8 +5274,8 @@ func (s SearchOranizationCustomfieldRequest) GoString() string {
 	return s.String()
 }
 
-func (s *SearchOranizationCustomfieldRequest) SetCustomfieldIds(v string) *SearchOranizationCustomfieldRequest {
-	s.CustomfieldIds = &v
+func (s *SearchOranizationCustomfieldRequest) SetCustomFieldIds(v string) *SearchOranizationCustomfieldRequest {
+	s.CustomFieldIds = &v
 	return s
 }
 
@@ -5317,15 +5304,9 @@ func (s *SearchOranizationCustomfieldRequest) SetQuery(v string) *SearchOranizat
 	return s
 }
 
-func (s *SearchOranizationCustomfieldRequest) SetScope(v string) *SearchOranizationCustomfieldRequest {
-	s.Scope = &v
-	return s
-}
-
 type SearchOranizationCustomfieldResponseBody struct {
-	NextToken  *string                                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Result     []*SearchOranizationCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalCount *int32                                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken *string                                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*SearchOranizationCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
 func (s SearchOranizationCustomfieldResponseBody) String() string {
@@ -5346,17 +5327,12 @@ func (s *SearchOranizationCustomfieldResponseBody) SetResult(v []*SearchOranizat
 	return s
 }
 
-func (s *SearchOranizationCustomfieldResponseBody) SetTotalCount(v int32) *SearchOranizationCustomfieldResponseBody {
-	s.TotalCount = &v
-	return s
-}
-
 type SearchOranizationCustomfieldResponseBodyResult struct {
-	AdvancedCustomfield *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield `json:"advancedCustomfield,omitempty" xml:"advancedCustomfield,omitempty" type:"Struct"`
+	AdvancedCustomField *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField `json:"advancedCustomField,omitempty" xml:"advancedCustomField,omitempty" type:"Struct"`
 	Choices             []*SearchOranizationCustomfieldResponseBodyResultChoices           `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
 	Created             *string                                                            `json:"created,omitempty" xml:"created,omitempty"`
 	CreatorId           *string                                                            `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CustomfieldsId      *string                                                            `json:"customfieldsId,omitempty" xml:"customfieldsId,omitempty"`
+	CustomFieldsId      *string                                                            `json:"customFieldsId,omitempty" xml:"customFieldsId,omitempty"`
 	Name                *string                                                            `json:"name,omitempty" xml:"name,omitempty"`
 	Payload             map[string]interface{}                                             `json:"payload,omitempty" xml:"payload,omitempty"`
 	Type                *string                                                            `json:"type,omitempty" xml:"type,omitempty"`
@@ -5370,8 +5346,8 @@ func (s SearchOranizationCustomfieldResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *SearchOranizationCustomfieldResponseBodyResult) SetAdvancedCustomfield(v *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) *SearchOranizationCustomfieldResponseBodyResult {
-	s.AdvancedCustomfield = v
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetAdvancedCustomField(v *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField) *SearchOranizationCustomfieldResponseBodyResult {
+	s.AdvancedCustomField = v
 	return s
 }
 
@@ -5390,8 +5366,8 @@ func (s *SearchOranizationCustomfieldResponseBodyResult) SetCreatorId(v string) 
 	return s
 }
 
-func (s *SearchOranizationCustomfieldResponseBodyResult) SetCustomfieldsId(v string) *SearchOranizationCustomfieldResponseBodyResult {
-	s.CustomfieldsId = &v
+func (s *SearchOranizationCustomfieldResponseBodyResult) SetCustomFieldsId(v string) *SearchOranizationCustomfieldResponseBodyResult {
+	s.CustomFieldsId = &v
 	return s
 }
 
@@ -5410,31 +5386,31 @@ func (s *SearchOranizationCustomfieldResponseBodyResult) SetType(v string) *Sear
 	return s
 }
 
-type SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield struct {
-	AdvancedCustomfieldId *string `json:"advancedCustomfieldId,omitempty" xml:"advancedCustomfieldId,omitempty"`
+type SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField struct {
+	AdvancedCustomFieldId *string `json:"advancedCustomFieldId,omitempty" xml:"advancedCustomFieldId,omitempty"`
 	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
 	ObjectType            *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
 }
 
-func (s SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) String() string {
+func (s SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) GoString() string {
+func (s SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField) GoString() string {
 	return s.String()
 }
 
-func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) SetAdvancedCustomfieldId(v string) *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield {
-	s.AdvancedCustomfieldId = &v
+func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField) SetAdvancedCustomFieldId(v string) *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField {
+	s.AdvancedCustomFieldId = &v
 	return s
 }
 
-func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) SetName(v string) *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield {
+func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField) SetName(v string) *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField {
 	s.Name = &v
 	return s
 }
 
-func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield) SetObjectType(v string) *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomfield {
+func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField) SetObjectType(v string) *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField {
 	s.ObjectType = &v
 	return s
 }
@@ -5515,13 +5491,12 @@ func (s *SearchProjectCustomfieldHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type SearchProjectCustomfieldRequest struct {
-	CustomfieldIds        *string `json:"customfieldIds,omitempty" xml:"customfieldIds,omitempty"`
+	CustomFieldIds        *string `json:"customFieldIds,omitempty" xml:"customFieldIds,omitempty"`
 	InstanceIds           *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
 	MaxResults            *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken             *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Query                 *string `json:"query,omitempty" xml:"query,omitempty"`
-	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
-	Scope                 *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	ScenarioFieldConfigId *string `json:"scenarioFieldConfigId,omitempty" xml:"scenarioFieldConfigId,omitempty"`
 }
 
 func (s SearchProjectCustomfieldRequest) String() string {
@@ -5532,8 +5507,8 @@ func (s SearchProjectCustomfieldRequest) GoString() string {
 	return s.String()
 }
 
-func (s *SearchProjectCustomfieldRequest) SetCustomfieldIds(v string) *SearchProjectCustomfieldRequest {
-	s.CustomfieldIds = &v
+func (s *SearchProjectCustomfieldRequest) SetCustomFieldIds(v string) *SearchProjectCustomfieldRequest {
+	s.CustomFieldIds = &v
 	return s
 }
 
@@ -5557,20 +5532,14 @@ func (s *SearchProjectCustomfieldRequest) SetQuery(v string) *SearchProjectCusto
 	return s
 }
 
-func (s *SearchProjectCustomfieldRequest) SetScenariofieldconfigId(v string) *SearchProjectCustomfieldRequest {
-	s.ScenariofieldconfigId = &v
-	return s
-}
-
-func (s *SearchProjectCustomfieldRequest) SetScope(v string) *SearchProjectCustomfieldRequest {
-	s.Scope = &v
+func (s *SearchProjectCustomfieldRequest) SetScenarioFieldConfigId(v string) *SearchProjectCustomfieldRequest {
+	s.ScenarioFieldConfigId = &v
 	return s
 }
 
 type SearchProjectCustomfieldResponseBody struct {
-	NextToken  *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Result     []*SearchProjectCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalCount *int32                                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*SearchProjectCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
 func (s SearchProjectCustomfieldResponseBody) String() string {
@@ -5591,18 +5560,13 @@ func (s *SearchProjectCustomfieldResponseBody) SetResult(v []*SearchProjectCusto
 	return s
 }
 
-func (s *SearchProjectCustomfieldResponseBody) SetTotalCount(v int32) *SearchProjectCustomfieldResponseBody {
-	s.TotalCount = &v
-	return s
-}
-
 type SearchProjectCustomfieldResponseBodyResult struct {
-	AdvancedCustomfield *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield `json:"advancedCustomfield,omitempty" xml:"advancedCustomfield,omitempty" type:"Struct"`
+	AdvancedCustomField *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField `json:"advancedCustomField,omitempty" xml:"advancedCustomField,omitempty" type:"Struct"`
 	BoundToObjectId     *string                                                        `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
 	Choices             []*SearchProjectCustomfieldResponseBodyResultChoices           `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
 	Created             *string                                                        `json:"created,omitempty" xml:"created,omitempty"`
 	CreatorId           *string                                                        `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CustomfiledId       *string                                                        `json:"customfiledId,omitempty" xml:"customfiledId,omitempty"`
+	CustomFieldId       *string                                                        `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
 	Name                *string                                                        `json:"name,omitempty" xml:"name,omitempty"`
 	OriginalId          *string                                                        `json:"originalId,omitempty" xml:"originalId,omitempty"`
 	Payload             map[string]interface{}                                         `json:"payload,omitempty" xml:"payload,omitempty"`
@@ -5617,8 +5581,8 @@ func (s SearchProjectCustomfieldResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *SearchProjectCustomfieldResponseBodyResult) SetAdvancedCustomfield(v *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) *SearchProjectCustomfieldResponseBodyResult {
-	s.AdvancedCustomfield = v
+func (s *SearchProjectCustomfieldResponseBodyResult) SetAdvancedCustomField(v *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField) *SearchProjectCustomfieldResponseBodyResult {
+	s.AdvancedCustomField = v
 	return s
 }
 
@@ -5642,8 +5606,8 @@ func (s *SearchProjectCustomfieldResponseBodyResult) SetCreatorId(v string) *Sea
 	return s
 }
 
-func (s *SearchProjectCustomfieldResponseBodyResult) SetCustomfiledId(v string) *SearchProjectCustomfieldResponseBodyResult {
-	s.CustomfiledId = &v
+func (s *SearchProjectCustomfieldResponseBodyResult) SetCustomFieldId(v string) *SearchProjectCustomfieldResponseBodyResult {
+	s.CustomFieldId = &v
 	return s
 }
 
@@ -5667,31 +5631,31 @@ func (s *SearchProjectCustomfieldResponseBodyResult) SetType(v string) *SearchPr
 	return s
 }
 
-type SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield struct {
-	AdvancedCustomfieldId *string `json:"advancedCustomfieldId,omitempty" xml:"advancedCustomfieldId,omitempty"`
+type SearchProjectCustomfieldResponseBodyResultAdvancedCustomField struct {
+	AdvancedCustomFieldId *string `json:"advancedCustomFieldId,omitempty" xml:"advancedCustomFieldId,omitempty"`
 	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
 	ObjectType            *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
 }
 
-func (s SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) String() string {
+func (s SearchProjectCustomfieldResponseBodyResultAdvancedCustomField) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) GoString() string {
+func (s SearchProjectCustomfieldResponseBodyResultAdvancedCustomField) GoString() string {
 	return s.String()
 }
 
-func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) SetAdvancedCustomfieldId(v string) *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield {
-	s.AdvancedCustomfieldId = &v
+func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField) SetAdvancedCustomFieldId(v string) *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField {
+	s.AdvancedCustomFieldId = &v
 	return s
 }
 
-func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) SetName(v string) *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield {
+func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField) SetName(v string) *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField {
 	s.Name = &v
 	return s
 }
 
-func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield) SetObjectType(v string) *SearchProjectCustomfieldResponseBodyResultAdvancedCustomfield {
+func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField) SetObjectType(v string) *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField {
 	s.ObjectType = &v
 	return s
 }
@@ -6121,9 +6085,8 @@ func (s *SearchTaskListRequest) SetTaskListIds(v string) *SearchTaskListRequest 
 }
 
 type SearchTaskListResponseBody struct {
-	NextToken  *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Result     []*SearchTaskListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalCount *int32                              `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*SearchTaskListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
 func (s SearchTaskListResponseBody) String() string {
@@ -6141,11 +6104,6 @@ func (s *SearchTaskListResponseBody) SetNextToken(v string) *SearchTaskListRespo
 
 func (s *SearchTaskListResponseBody) SetResult(v []*SearchTaskListResponseBodyResult) *SearchTaskListResponseBody {
 	s.Result = v
-	return s
-}
-
-func (s *SearchTaskListResponseBody) SetTotalCount(v int32) *SearchTaskListResponseBody {
-	s.TotalCount = &v
 	return s
 }
 
@@ -6442,8 +6400,9 @@ func (s *SearchUserTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SearchUser
 }
 
 type SearchUserTaskRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MaxResults *string `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	RoleTypes  *string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty"`
 	Tql        *string `json:"tql,omitempty" xml:"tql,omitempty"`
 }
 
@@ -6455,7 +6414,7 @@ func (s SearchUserTaskRequest) GoString() string {
 	return s.String()
 }
 
-func (s *SearchUserTaskRequest) SetMaxResults(v int32) *SearchUserTaskRequest {
+func (s *SearchUserTaskRequest) SetMaxResults(v string) *SearchUserTaskRequest {
 	s.MaxResults = &v
 	return s
 }
@@ -6465,16 +6424,19 @@ func (s *SearchUserTaskRequest) SetNextToken(v string) *SearchUserTaskRequest {
 	return s
 }
 
+func (s *SearchUserTaskRequest) SetRoleTypes(v string) *SearchUserTaskRequest {
+	s.RoleTypes = &v
+	return s
+}
+
 func (s *SearchUserTaskRequest) SetTql(v string) *SearchUserTaskRequest {
 	s.Tql = &v
 	return s
 }
 
 type SearchUserTaskResponseBody struct {
-	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	RequestId *string                             `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    []*SearchUserTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalSize *int32                              `json:"totalSize,omitempty" xml:"totalSize,omitempty"`
 }
 
 func (s SearchUserTaskResponseBody) String() string {
@@ -6483,11 +6445,6 @@ func (s SearchUserTaskResponseBody) String() string {
 
 func (s SearchUserTaskResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *SearchUserTaskResponseBody) SetNextToken(v string) *SearchUserTaskResponseBody {
-	s.NextToken = &v
-	return s
 }
 
 func (s *SearchUserTaskResponseBody) SetRequestId(v string) *SearchUserTaskResponseBody {
@@ -6500,40 +6457,35 @@ func (s *SearchUserTaskResponseBody) SetResult(v []*SearchUserTaskResponseBodyRe
 	return s
 }
 
-func (s *SearchUserTaskResponseBody) SetTotalSize(v int32) *SearchUserTaskResponseBody {
-	s.TotalSize = &v
-	return s
-}
-
 type SearchUserTaskResponseBodyResult struct {
-	AccomplishTime   *string                                         `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
-	AncestorIds      []*string                                       `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	Content          *string                                         `json:"content,omitempty" xml:"content,omitempty"`
-	Created          *string                                         `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId        *string                                         `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Customfields     []*SearchUserTaskResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	DueDate          *string                                         `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	ExecutorId       *string                                         `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	InvolveMembers   []*string                                       `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	IsArchived       *bool                                           `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	IsDone           *bool                                           `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	Note             *string                                         `json:"note,omitempty" xml:"note,omitempty"`
-	ParentTaskId     *string                                         `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
-	Priority         *int32                                          `json:"priority,omitempty" xml:"priority,omitempty"`
-	ProjectId        *string                                         `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	Recurrence       []*string                                       `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
-	SfcId            *string                                         `json:"sfcId,omitempty" xml:"sfcId,omitempty"`
-	SprintId         *string                                         `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
-	StartDate        *string                                         `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	StoryPoint       *string                                         `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
-	TagIds           []*string                                       `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
-	TaskId           *string                                         `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	TaskListId       *string                                         `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	TaskflowstatusId *string                                         `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
-	TaskstageId      *string                                         `json:"taskstageId,omitempty" xml:"taskstageId,omitempty"`
-	UniqueId         *string                                         `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
-	Updated          *string                                         `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visible          *string                                         `json:"visible,omitempty" xml:"visible,omitempty"`
+	AccomplishTime        *string                                         `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
+	AncestorIds           []*string                                       `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	Content               *string                                         `json:"content,omitempty" xml:"content,omitempty"`
+	Created               *string                                         `json:"created,omitempty" xml:"created,omitempty"`
+	CreatorId             *string                                         `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CustomFields          []*SearchUserTaskResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
+	DueDate               *string                                         `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	ExecutorId            *string                                         `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers        []*string                                       `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	IsArchived            *bool                                           `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	IsDone                *bool                                           `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Note                  *string                                         `json:"note,omitempty" xml:"note,omitempty"`
+	ParentTaskId          *string                                         `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	Priority              *int32                                          `json:"priority,omitempty" xml:"priority,omitempty"`
+	ProjectId             *string                                         `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	Recurrence            []*string                                       `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
+	ScenarioFieldConfigId *string                                         `json:"scenarioFieldConfigId,omitempty" xml:"scenarioFieldConfigId,omitempty"`
+	SprintId              *string                                         `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	StartDate             *string                                         `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	StoryPoint            *string                                         `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	TagIds                []*string                                       `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	TaskId                *string                                         `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskListId            *string                                         `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	TaskStageId           *string                                         `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
+	TaskflowStatusId      *string                                         `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
+	UniqueId              *string                                         `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
+	Updated               *string                                         `json:"updated,omitempty" xml:"updated,omitempty"`
+	Visible               *string                                         `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s SearchUserTaskResponseBodyResult) String() string {
@@ -6569,8 +6521,8 @@ func (s *SearchUserTaskResponseBodyResult) SetCreatorId(v string) *SearchUserTas
 	return s
 }
 
-func (s *SearchUserTaskResponseBodyResult) SetCustomfields(v []*SearchUserTaskResponseBodyResultCustomfields) *SearchUserTaskResponseBodyResult {
-	s.Customfields = v
+func (s *SearchUserTaskResponseBodyResult) SetCustomFields(v []*SearchUserTaskResponseBodyResultCustomFields) *SearchUserTaskResponseBodyResult {
+	s.CustomFields = v
 	return s
 }
 
@@ -6624,8 +6576,8 @@ func (s *SearchUserTaskResponseBodyResult) SetRecurrence(v []*string) *SearchUse
 	return s
 }
 
-func (s *SearchUserTaskResponseBodyResult) SetSfcId(v string) *SearchUserTaskResponseBodyResult {
-	s.SfcId = &v
+func (s *SearchUserTaskResponseBodyResult) SetScenarioFieldConfigId(v string) *SearchUserTaskResponseBodyResult {
+	s.ScenarioFieldConfigId = &v
 	return s
 }
 
@@ -6659,13 +6611,13 @@ func (s *SearchUserTaskResponseBodyResult) SetTaskListId(v string) *SearchUserTa
 	return s
 }
 
-func (s *SearchUserTaskResponseBodyResult) SetTaskflowstatusId(v string) *SearchUserTaskResponseBodyResult {
-	s.TaskflowstatusId = &v
+func (s *SearchUserTaskResponseBodyResult) SetTaskStageId(v string) *SearchUserTaskResponseBodyResult {
+	s.TaskStageId = &v
 	return s
 }
 
-func (s *SearchUserTaskResponseBodyResult) SetTaskstageId(v string) *SearchUserTaskResponseBodyResult {
-	s.TaskstageId = &v
+func (s *SearchUserTaskResponseBodyResult) SetTaskflowStatusId(v string) *SearchUserTaskResponseBodyResult {
+	s.TaskflowStatusId = &v
 	return s
 }
 
@@ -6684,67 +6636,61 @@ func (s *SearchUserTaskResponseBodyResult) SetVisible(v string) *SearchUserTaskR
 	return s
 }
 
-type SearchUserTaskResponseBodyResultCustomfields struct {
-	CustomfieldId *string                                              `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+type SearchUserTaskResponseBodyResultCustomFields struct {
+	CustomFieldId *string                                              `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
 	Type          *string                                              `json:"type,omitempty" xml:"type,omitempty"`
-	Value         []*SearchUserTaskResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	Value         []*SearchUserTaskResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
-func (s SearchUserTaskResponseBodyResultCustomfields) String() string {
+func (s SearchUserTaskResponseBodyResultCustomFields) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SearchUserTaskResponseBodyResultCustomfields) GoString() string {
+func (s SearchUserTaskResponseBodyResultCustomFields) GoString() string {
 	return s.String()
 }
 
-func (s *SearchUserTaskResponseBodyResultCustomfields) SetCustomfieldId(v string) *SearchUserTaskResponseBodyResultCustomfields {
-	s.CustomfieldId = &v
+func (s *SearchUserTaskResponseBodyResultCustomFields) SetCustomFieldId(v string) *SearchUserTaskResponseBodyResultCustomFields {
+	s.CustomFieldId = &v
 	return s
 }
 
-func (s *SearchUserTaskResponseBodyResultCustomfields) SetType(v string) *SearchUserTaskResponseBodyResultCustomfields {
+func (s *SearchUserTaskResponseBodyResultCustomFields) SetType(v string) *SearchUserTaskResponseBodyResultCustomFields {
 	s.Type = &v
 	return s
 }
 
-func (s *SearchUserTaskResponseBodyResultCustomfields) SetValue(v []*SearchUserTaskResponseBodyResultCustomfieldsValue) *SearchUserTaskResponseBodyResultCustomfields {
+func (s *SearchUserTaskResponseBodyResultCustomFields) SetValue(v []*SearchUserTaskResponseBodyResultCustomFieldsValue) *SearchUserTaskResponseBodyResultCustomFields {
 	s.Value = v
 	return s
 }
 
-type SearchUserTaskResponseBodyResultCustomfieldsValue struct {
-	FieldvalueId *string `json:"fieldvalueId,omitempty" xml:"fieldvalueId,omitempty"`
-	MetaString   *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
-	TotalCount   *int32  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+type SearchUserTaskResponseBodyResultCustomFieldsValue struct {
+	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
+	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
-func (s SearchUserTaskResponseBodyResultCustomfieldsValue) String() string {
+func (s SearchUserTaskResponseBodyResultCustomFieldsValue) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SearchUserTaskResponseBodyResultCustomfieldsValue) GoString() string {
+func (s SearchUserTaskResponseBodyResultCustomFieldsValue) GoString() string {
 	return s.String()
 }
 
-func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetFieldvalueId(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
-	s.FieldvalueId = &v
+func (s *SearchUserTaskResponseBodyResultCustomFieldsValue) SetCustomFieldValueId(v string) *SearchUserTaskResponseBodyResultCustomFieldsValue {
+	s.CustomFieldValueId = &v
 	return s
 }
 
-func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetMetaString(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
+func (s *SearchUserTaskResponseBodyResultCustomFieldsValue) SetMetaString(v string) *SearchUserTaskResponseBodyResultCustomFieldsValue {
 	s.MetaString = &v
 	return s
 }
 
-func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetTitle(v string) *SearchUserTaskResponseBodyResultCustomfieldsValue {
+func (s *SearchUserTaskResponseBodyResultCustomFieldsValue) SetTitle(v string) *SearchUserTaskResponseBodyResultCustomFieldsValue {
 	s.Title = &v
-	return s
-}
-
-func (s *SearchUserTaskResponseBodyResultCustomfieldsValue) SetTotalCount(v int32) *SearchUserTaskResponseBodyResultCustomfieldsValue {
-	s.TotalCount = &v
 	return s
 }
 
@@ -6973,8 +6919,8 @@ func (s *UpdateCustomfieldValueHeaders) SetXAcsDingtalkAccessToken(v string) *Up
 }
 
 type UpdateCustomfieldValueRequest struct {
-	CustomfieldId   *string                               `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	CustomfieldName *string                               `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
+	CustomFieldId   *string                               `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	CustomFieldName *string                               `json:"customFieldName,omitempty" xml:"customFieldName,omitempty"`
 	Value           []*UpdateCustomfieldValueRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
@@ -6986,13 +6932,13 @@ func (s UpdateCustomfieldValueRequest) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateCustomfieldValueRequest) SetCustomfieldId(v string) *UpdateCustomfieldValueRequest {
-	s.CustomfieldId = &v
+func (s *UpdateCustomfieldValueRequest) SetCustomFieldId(v string) *UpdateCustomfieldValueRequest {
+	s.CustomFieldId = &v
 	return s
 }
 
-func (s *UpdateCustomfieldValueRequest) SetCustomfieldName(v string) *UpdateCustomfieldValueRequest {
-	s.CustomfieldName = &v
+func (s *UpdateCustomfieldValueRequest) SetCustomFieldName(v string) *UpdateCustomfieldValueRequest {
+	s.CustomFieldName = &v
 	return s
 }
 
@@ -7036,7 +6982,7 @@ func (s *UpdateCustomfieldValueResponseBody) SetResult(v *UpdateCustomfieldValue
 }
 
 type UpdateCustomfieldValueResponseBodyResult struct {
-	Customfields []*UpdateCustomfieldValueResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	CustomFields []*UpdateCustomfieldValueResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
 }
 
 func (s UpdateCustomfieldValueResponseBodyResult) String() string {
@@ -7047,47 +6993,47 @@ func (s UpdateCustomfieldValueResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateCustomfieldValueResponseBodyResult) SetCustomfields(v []*UpdateCustomfieldValueResponseBodyResultCustomfields) *UpdateCustomfieldValueResponseBodyResult {
-	s.Customfields = v
+func (s *UpdateCustomfieldValueResponseBodyResult) SetCustomFields(v []*UpdateCustomfieldValueResponseBodyResultCustomFields) *UpdateCustomfieldValueResponseBodyResult {
+	s.CustomFields = v
 	return s
 }
 
-type UpdateCustomfieldValueResponseBodyResultCustomfields struct {
-	CustomfieldId *string                                                      `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
-	Value         []*UpdateCustomfieldValueResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+type UpdateCustomfieldValueResponseBodyResultCustomFields struct {
+	CustomFieldId *string                                                      `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	Value         []*UpdateCustomfieldValueResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
-func (s UpdateCustomfieldValueResponseBodyResultCustomfields) String() string {
+func (s UpdateCustomfieldValueResponseBodyResultCustomFields) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateCustomfieldValueResponseBodyResultCustomfields) GoString() string {
+func (s UpdateCustomfieldValueResponseBodyResultCustomFields) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateCustomfieldValueResponseBodyResultCustomfields) SetCustomfieldId(v string) *UpdateCustomfieldValueResponseBodyResultCustomfields {
-	s.CustomfieldId = &v
+func (s *UpdateCustomfieldValueResponseBodyResultCustomFields) SetCustomFieldId(v string) *UpdateCustomfieldValueResponseBodyResultCustomFields {
+	s.CustomFieldId = &v
 	return s
 }
 
-func (s *UpdateCustomfieldValueResponseBodyResultCustomfields) SetValue(v []*UpdateCustomfieldValueResponseBodyResultCustomfieldsValue) *UpdateCustomfieldValueResponseBodyResultCustomfields {
+func (s *UpdateCustomfieldValueResponseBodyResultCustomFields) SetValue(v []*UpdateCustomfieldValueResponseBodyResultCustomFieldsValue) *UpdateCustomfieldValueResponseBodyResultCustomFields {
 	s.Value = v
 	return s
 }
 
-type UpdateCustomfieldValueResponseBodyResultCustomfieldsValue struct {
+type UpdateCustomfieldValueResponseBodyResultCustomFieldsValue struct {
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
-func (s UpdateCustomfieldValueResponseBodyResultCustomfieldsValue) String() string {
+func (s UpdateCustomfieldValueResponseBodyResultCustomFieldsValue) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateCustomfieldValueResponseBodyResultCustomfieldsValue) GoString() string {
+func (s UpdateCustomfieldValueResponseBodyResultCustomFieldsValue) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateCustomfieldValueResponseBodyResultCustomfieldsValue) SetTitle(v string) *UpdateCustomfieldValueResponseBodyResultCustomfieldsValue {
+func (s *UpdateCustomfieldValueResponseBodyResultCustomFieldsValue) SetTitle(v string) *UpdateCustomfieldValueResponseBodyResultCustomFieldsValue {
 	s.Title = &v
 	return s
 }
@@ -8915,9 +8861,9 @@ type UpdateTaskStageResponseBodyResult struct {
 	AccomplishTime *string `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
 	IsDone         *bool   `json:"isDone,omitempty" xml:"isDone,omitempty"`
 	ProjectId      *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	StageId        *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
 	TaskId         *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 	TaskListId     *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	TaskStageId    *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
 	Updated        *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -8944,11 +8890,6 @@ func (s *UpdateTaskStageResponseBodyResult) SetProjectId(v string) *UpdateTaskSt
 	return s
 }
 
-func (s *UpdateTaskStageResponseBodyResult) SetStageId(v string) *UpdateTaskStageResponseBodyResult {
-	s.StageId = &v
-	return s
-}
-
 func (s *UpdateTaskStageResponseBodyResult) SetTaskId(v string) *UpdateTaskStageResponseBodyResult {
 	s.TaskId = &v
 	return s
@@ -8956,6 +8897,11 @@ func (s *UpdateTaskStageResponseBodyResult) SetTaskId(v string) *UpdateTaskStage
 
 func (s *UpdateTaskStageResponseBodyResult) SetTaskListId(v string) *UpdateTaskStageResponseBodyResult {
 	s.TaskListId = &v
+	return s
+}
+
+func (s *UpdateTaskStageResponseBodyResult) SetTaskStageId(v string) *UpdateTaskStageResponseBodyResult {
+	s.TaskStageId = &v
 	return s
 }
 
@@ -9126,8 +9072,8 @@ func (s *UpdateTaskTaskflowstatusHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdateTaskTaskflowstatusRequest struct {
-	TaskflowStatusId *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
-	TfsUpdateNote    *string `json:"tfsUpdateNote,omitempty" xml:"tfsUpdateNote,omitempty"`
+	TaskflowStatusId         *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
+	TaskflowStatusUpdateNote *string `json:"taskflowStatusUpdateNote,omitempty" xml:"taskflowStatusUpdateNote,omitempty"`
 }
 
 func (s UpdateTaskTaskflowstatusRequest) String() string {
@@ -9143,8 +9089,8 @@ func (s *UpdateTaskTaskflowstatusRequest) SetTaskflowStatusId(v string) *UpdateT
 	return s
 }
 
-func (s *UpdateTaskTaskflowstatusRequest) SetTfsUpdateNote(v string) *UpdateTaskTaskflowstatusRequest {
-	s.TfsUpdateNote = &v
+func (s *UpdateTaskTaskflowstatusRequest) SetTaskflowStatusUpdateNote(v string) *UpdateTaskTaskflowstatusRequest {
+	s.TaskflowStatusUpdateNote = &v
 	return s
 }
 
@@ -9918,16 +9864,16 @@ func (client *Client) CreateProjectCustomfieldStatusWithOptions(userId *string, 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CustomfieldId)) {
-		body["customfieldId"] = request.CustomfieldId
+	if !tea.BoolValue(util.IsUnset(request.CustomFieldId)) {
+		body["customFieldId"] = request.CustomFieldId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CustomfieldInstanceId)) {
-		body["customfieldInstanceId"] = request.CustomfieldInstanceId
+	if !tea.BoolValue(util.IsUnset(request.CustomFieldInstanceId)) {
+		body["customFieldInstanceId"] = request.CustomFieldInstanceId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CustomfieldName)) {
-		body["customfieldName"] = request.CustomfieldName
+	if !tea.BoolValue(util.IsUnset(request.CustomFieldName)) {
+		body["customFieldName"] = request.CustomFieldName
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Value)) {
@@ -11359,12 +11305,12 @@ func (client *Client) SeachTaskStageWithOptions(userId *string, projectId *strin
 		query["query"] = request.Query
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.StageIds)) {
-		query["stageIds"] = request.StageIds
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.TaskListId)) {
 		query["taskListId"] = request.TaskListId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskStageIds)) {
+		query["taskStageIds"] = request.TaskStageIds
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11418,8 +11364,8 @@ func (client *Client) SearchOranizationCustomfieldWithOptions(userId *string, re
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CustomfieldIds)) {
-		query["customfieldIds"] = request.CustomfieldIds
+	if !tea.BoolValue(util.IsUnset(request.CustomFieldIds)) {
+		query["customFieldIds"] = request.CustomFieldIds
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.InstanceIds)) {
@@ -11440,10 +11386,6 @@ func (client *Client) SearchOranizationCustomfieldWithOptions(userId *string, re
 
 	if !tea.BoolValue(util.IsUnset(request.Query)) {
 		query["query"] = request.Query
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Scope)) {
-		query["scope"] = request.Scope
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11497,8 +11439,8 @@ func (client *Client) SearchProjectCustomfieldWithOptions(userId *string, projec
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CustomfieldIds)) {
-		query["customfieldIds"] = request.CustomfieldIds
+	if !tea.BoolValue(util.IsUnset(request.CustomFieldIds)) {
+		query["customFieldIds"] = request.CustomFieldIds
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.InstanceIds)) {
@@ -11517,12 +11459,8 @@ func (client *Client) SearchProjectCustomfieldWithOptions(userId *string, projec
 		query["query"] = request.Query
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ScenariofieldconfigId)) {
-		query["scenariofieldconfigId"] = request.ScenariofieldconfigId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Scope)) {
-		query["scope"] = request.Scope
+	if !tea.BoolValue(util.IsUnset(request.ScenarioFieldConfigId)) {
+		query["scenarioFieldConfigId"] = request.ScenarioFieldConfigId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11844,6 +11782,10 @@ func (client *Client) SearchUserTaskWithOptions(userId *string, request *SearchU
 		query["nextToken"] = request.NextToken
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.RoleTypes)) {
+		query["roleTypes"] = request.RoleTypes
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Tql)) {
 		query["tql"] = request.Tql
 	}
@@ -11989,12 +11931,12 @@ func (client *Client) UpdateCustomfieldValueWithOptions(userId *string, taskId *
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CustomfieldId)) {
-		body["customfieldId"] = request.CustomfieldId
+	if !tea.BoolValue(util.IsUnset(request.CustomFieldId)) {
+		body["customFieldId"] = request.CustomFieldId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CustomfieldName)) {
-		body["customfieldName"] = request.CustomfieldName
+	if !tea.BoolValue(util.IsUnset(request.CustomFieldName)) {
+		body["customFieldName"] = request.CustomFieldName
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Value)) {
@@ -13012,8 +12954,8 @@ func (client *Client) UpdateTaskTaskflowstatusWithOptions(userId *string, taskId
 		body["taskflowStatusId"] = request.TaskflowStatusId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TfsUpdateNote)) {
-		body["tfsUpdateNote"] = request.TfsUpdateNote
+	if !tea.BoolValue(util.IsUnset(request.TaskflowStatusUpdateNote)) {
+		body["taskflowStatusUpdateNote"] = request.TaskflowStatusUpdateNote
 	}
 
 	realHeaders := make(map[string]*string)

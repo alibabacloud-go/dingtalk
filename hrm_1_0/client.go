@@ -368,6 +368,92 @@ func (s *ECertQueryResponse) SetBody(v *ECertQueryResponseBody) *ECertQueryRespo
 	return s
 }
 
+type EsignRollbackHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EsignRollbackHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EsignRollbackHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EsignRollbackHeaders) SetCommonHeaders(v map[string]*string) *EsignRollbackHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EsignRollbackHeaders) SetXAcsDingtalkAccessToken(v string) *EsignRollbackHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EsignRollbackRequest struct {
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+}
+
+func (s EsignRollbackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EsignRollbackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EsignRollbackRequest) SetOptUserId(v string) *EsignRollbackRequest {
+	s.OptUserId = &v
+	return s
+}
+
+type EsignRollbackResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s EsignRollbackResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EsignRollbackResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EsignRollbackResponseBody) SetResult(v bool) *EsignRollbackResponseBody {
+	s.Result = &v
+	return s
+}
+
+type EsignRollbackResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EsignRollbackResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s EsignRollbackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EsignRollbackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EsignRollbackResponse) SetHeaders(v map[string]*string) *EsignRollbackResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EsignRollbackResponse) SetStatusCode(v int32) *EsignRollbackResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EsignRollbackResponse) SetBody(v *EsignRollbackResponseBody) *EsignRollbackResponse {
+	s.Body = v
+	return s
+}
+
 type HrmProcessRegularHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3157,6 +3243,61 @@ func (client *Client) ECertQuery(request *ECertQueryRequest) (_result *ECertQuer
 	headers := &ECertQueryHeaders{}
 	_result = &ECertQueryResponse{}
 	_body, _err := client.ECertQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) EsignRollbackWithOptions(request *EsignRollbackRequest, headers *EsignRollbackHeaders, runtime *util.RuntimeOptions) (_result *EsignRollbackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		query["optUserId"] = request.OptUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EsignRollback"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/contracts/esign/rollback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EsignRollbackResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) EsignRollback(request *EsignRollbackRequest) (_result *EsignRollbackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EsignRollbackHeaders{}
+	_result = &EsignRollbackResponse{}
+	_body, _err := client.EsignRollbackWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

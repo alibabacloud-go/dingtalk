@@ -8437,6 +8437,110 @@ func (s *SaveAndSubmitAuthInfoResponse) SetBody(v *SaveAndSubmitAuthInfoResponse
 	return s
 }
 
+type SaveOpenTerminalInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveOpenTerminalInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveOpenTerminalInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveOpenTerminalInfoHeaders) SetCommonHeaders(v map[string]*string) *SaveOpenTerminalInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveOpenTerminalInfoHeaders) SetXAcsDingtalkAccessToken(v string) *SaveOpenTerminalInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveOpenTerminalInfoRequest struct {
+	CorpId    *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	LogSource *string `json:"logSource,omitempty" xml:"logSource,omitempty"`
+	LogType   *string `json:"logType,omitempty" xml:"logType,omitempty"`
+	OpenExt   *string `json:"openExt,omitempty" xml:"openExt,omitempty"`
+}
+
+func (s SaveOpenTerminalInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveOpenTerminalInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveOpenTerminalInfoRequest) SetCorpId(v string) *SaveOpenTerminalInfoRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SaveOpenTerminalInfoRequest) SetLogSource(v string) *SaveOpenTerminalInfoRequest {
+	s.LogSource = &v
+	return s
+}
+
+func (s *SaveOpenTerminalInfoRequest) SetLogType(v string) *SaveOpenTerminalInfoRequest {
+	s.LogType = &v
+	return s
+}
+
+func (s *SaveOpenTerminalInfoRequest) SetOpenExt(v string) *SaveOpenTerminalInfoRequest {
+	s.OpenExt = &v
+	return s
+}
+
+type SaveOpenTerminalInfoResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SaveOpenTerminalInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveOpenTerminalInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveOpenTerminalInfoResponseBody) SetSuccess(v bool) *SaveOpenTerminalInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SaveOpenTerminalInfoResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SaveOpenTerminalInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveOpenTerminalInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveOpenTerminalInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveOpenTerminalInfoResponse) SetHeaders(v map[string]*string) *SaveOpenTerminalInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveOpenTerminalInfoResponse) SetStatusCode(v int32) *SaveOpenTerminalInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SaveOpenTerminalInfoResponse) SetBody(v *SaveOpenTerminalInfoResponseBody) *SaveOpenTerminalInfoResponse {
+	s.Body = v
+	return s
+}
+
 type SaveWhiteAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13320,6 +13424,73 @@ func (client *Client) SaveAndSubmitAuthInfo(request *SaveAndSubmitAuthInfoReques
 	headers := &SaveAndSubmitAuthInfoHeaders{}
 	_result = &SaveAndSubmitAuthInfoResponse{}
 	_body, _err := client.SaveAndSubmitAuthInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveOpenTerminalInfoWithOptions(request *SaveOpenTerminalInfoRequest, headers *SaveOpenTerminalInfoHeaders, runtime *util.RuntimeOptions) (_result *SaveOpenTerminalInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LogSource)) {
+		body["logSource"] = request.LogSource
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LogType)) {
+		body["logType"] = request.LogType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenExt)) {
+		body["openExt"] = request.OpenExt
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveOpenTerminalInfo"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/externalLogs/terminalInfos/save"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SaveOpenTerminalInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveOpenTerminalInfo(request *SaveOpenTerminalInfoRequest) (_result *SaveOpenTerminalInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveOpenTerminalInfoHeaders{}
+	_result = &SaveOpenTerminalInfoResponse{}
+	_body, _err := client.SaveOpenTerminalInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

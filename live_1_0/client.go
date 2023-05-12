@@ -665,6 +665,115 @@ func (s *EditFeedReplayResponse) SetBody(v *EditFeedReplayResponseBody) *EditFee
 	return s
 }
 
+type GetLiveReplayUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetLiveReplayUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLiveReplayUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetLiveReplayUrlHeaders) SetCommonHeaders(v map[string]*string) *GetLiveReplayUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetLiveReplayUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetLiveReplayUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetLiveReplayUrlRequest struct {
+	LiveId  *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetLiveReplayUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLiveReplayUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetLiveReplayUrlRequest) SetLiveId(v string) *GetLiveReplayUrlRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *GetLiveReplayUrlRequest) SetUnionId(v string) *GetLiveReplayUrlRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetLiveReplayUrlResponseBody struct {
+	Result *GetLiveReplayUrlResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetLiveReplayUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLiveReplayUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetLiveReplayUrlResponseBody) SetResult(v *GetLiveReplayUrlResponseBodyResult) *GetLiveReplayUrlResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetLiveReplayUrlResponseBodyResult struct {
+	ReplayUrl *string `json:"replayUrl,omitempty" xml:"replayUrl,omitempty"`
+}
+
+func (s GetLiveReplayUrlResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLiveReplayUrlResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetLiveReplayUrlResponseBodyResult) SetReplayUrl(v string) *GetLiveReplayUrlResponseBodyResult {
+	s.ReplayUrl = &v
+	return s
+}
+
+type GetLiveReplayUrlResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetLiveReplayUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetLiveReplayUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLiveReplayUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetLiveReplayUrlResponse) SetHeaders(v map[string]*string) *GetLiveReplayUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetLiveReplayUrlResponse) SetStatusCode(v int32) *GetLiveReplayUrlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetLiveReplayUrlResponse) SetBody(v *GetLiveReplayUrlResponseBody) *GetLiveReplayUrlResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserAllLiveListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3412,6 +3521,65 @@ func (client *Client) EditFeedReplay(feedId *string, request *EditFeedReplayRequ
 	headers := &EditFeedReplayHeaders{}
 	_result = &EditFeedReplayResponse{}
 	_body, _err := client.EditFeedReplayWithOptions(feedId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetLiveReplayUrlWithOptions(request *GetLiveReplayUrlRequest, headers *GetLiveReplayUrlHeaders, runtime *util.RuntimeOptions) (_result *GetLiveReplayUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetLiveReplayUrl"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/lives/replayUrls"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetLiveReplayUrlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetLiveReplayUrl(request *GetLiveReplayUrlRequest) (_result *GetLiveReplayUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetLiveReplayUrlHeaders{}
+	_result = &GetLiveReplayUrlResponse{}
+	_body, _err := client.GetLiveReplayUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
