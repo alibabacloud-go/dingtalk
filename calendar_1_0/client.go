@@ -6034,17 +6034,18 @@ func (s *PatchEventHeaders) SetXAcsDingtalkAccessToken(v string) *PatchEventHead
 }
 
 type PatchEventRequest struct {
-	Attendees   []*PatchEventRequestAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Description *string                       `json:"description,omitempty" xml:"description,omitempty"`
-	End         *PatchEventRequestEnd         `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
-	Extra       map[string]*string            `json:"extra,omitempty" xml:"extra,omitempty"`
-	Id          *string                       `json:"id,omitempty" xml:"id,omitempty"`
-	IsAllDay    *bool                         `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
-	Location    *PatchEventRequestLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	Recurrence  *PatchEventRequestRecurrence  `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
-	Reminders   []*PatchEventRequestReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
-	Start       *PatchEventRequestStart       `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Summary     *string                       `json:"summary,omitempty" xml:"summary,omitempty"`
+	Attendees         []*PatchEventRequestAttendees       `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Description       *string                             `json:"description,omitempty" xml:"description,omitempty"`
+	End               *PatchEventRequestEnd               `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	Extra             map[string]*string                  `json:"extra,omitempty" xml:"extra,omitempty"`
+	Id                *string                             `json:"id,omitempty" xml:"id,omitempty"`
+	IsAllDay          *bool                               `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	Location          *PatchEventRequestLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	OnlineMeetingInfo *PatchEventRequestOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	Recurrence        *PatchEventRequestRecurrence        `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	Reminders         []*PatchEventRequestReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	Start             *PatchEventRequestStart             `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	Summary           *string                             `json:"summary,omitempty" xml:"summary,omitempty"`
 }
 
 func (s PatchEventRequest) String() string {
@@ -6087,6 +6088,11 @@ func (s *PatchEventRequest) SetIsAllDay(v bool) *PatchEventRequest {
 
 func (s *PatchEventRequest) SetLocation(v *PatchEventRequestLocation) *PatchEventRequest {
 	s.Location = v
+	return s
+}
+
+func (s *PatchEventRequest) SetOnlineMeetingInfo(v *PatchEventRequestOnlineMeetingInfo) *PatchEventRequest {
+	s.OnlineMeetingInfo = v
 	return s
 }
 
@@ -6176,6 +6182,23 @@ func (s PatchEventRequestLocation) GoString() string {
 
 func (s *PatchEventRequestLocation) SetDisplayName(v string) *PatchEventRequestLocation {
 	s.DisplayName = &v
+	return s
+}
+
+type PatchEventRequestOnlineMeetingInfo struct {
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s PatchEventRequestOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventRequestOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventRequestOnlineMeetingInfo) SetType(v string) *PatchEventRequestOnlineMeetingInfo {
+	s.Type = &v
 	return s
 }
 
@@ -6325,19 +6348,20 @@ func (s *PatchEventRequestStart) SetTimeZone(v string) *PatchEventRequestStart {
 }
 
 type PatchEventResponseBody struct {
-	Attendees   []*PatchEventResponseBodyAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	CreateTime  *string                            `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Description *string                            `json:"description,omitempty" xml:"description,omitempty"`
-	End         *PatchEventResponseBodyEnd         `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
-	Id          *string                            `json:"id,omitempty" xml:"id,omitempty"`
-	IsAllDay    *bool                              `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
-	Location    *PatchEventResponseBodyLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	Organizer   *PatchEventResponseBodyOrganizer   `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
-	Recurrence  *PatchEventResponseBodyRecurrence  `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
-	Reminders   []*PatchEventResponseBodyReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
-	Start       *PatchEventResponseBodyStart       `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Summary     *string                            `json:"summary,omitempty" xml:"summary,omitempty"`
-	UpdateTime  *string                            `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	Attendees         []*PatchEventResponseBodyAttendees       `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	CreateTime        *string                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description       *string                                  `json:"description,omitempty" xml:"description,omitempty"`
+	End               *PatchEventResponseBodyEnd               `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	Id                *string                                  `json:"id,omitempty" xml:"id,omitempty"`
+	IsAllDay          *bool                                    `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	Location          *PatchEventResponseBodyLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	OnlineMeetingInfo *PatchEventResponseBodyOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	Organizer         *PatchEventResponseBodyOrganizer         `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	Recurrence        *PatchEventResponseBodyRecurrence        `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	Reminders         []*PatchEventResponseBodyReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	Start             *PatchEventResponseBodyStart             `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	Summary           *string                                  `json:"summary,omitempty" xml:"summary,omitempty"`
+	UpdateTime        *string                                  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s PatchEventResponseBody) String() string {
@@ -6380,6 +6404,11 @@ func (s *PatchEventResponseBody) SetIsAllDay(v bool) *PatchEventResponseBody {
 
 func (s *PatchEventResponseBody) SetLocation(v *PatchEventResponseBodyLocation) *PatchEventResponseBody {
 	s.Location = v
+	return s
+}
+
+func (s *PatchEventResponseBody) SetOnlineMeetingInfo(v *PatchEventResponseBodyOnlineMeetingInfo) *PatchEventResponseBody {
+	s.OnlineMeetingInfo = v
 	return s
 }
 
@@ -6503,6 +6532,35 @@ func (s *PatchEventResponseBodyLocation) SetDisplayName(v string) *PatchEventRes
 
 func (s *PatchEventResponseBodyLocation) SetMeetingRooms(v []*string) *PatchEventResponseBodyLocation {
 	s.MeetingRooms = v
+	return s
+}
+
+type PatchEventResponseBodyOnlineMeetingInfo struct {
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	Type         *string `json:"type,omitempty" xml:"type,omitempty"`
+	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s PatchEventResponseBodyOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventResponseBodyOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventResponseBodyOnlineMeetingInfo) SetConferenceId(v string) *PatchEventResponseBodyOnlineMeetingInfo {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyOnlineMeetingInfo) SetType(v string) *PatchEventResponseBodyOnlineMeetingInfo {
+	s.Type = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyOnlineMeetingInfo) SetUrl(v string) *PatchEventResponseBodyOnlineMeetingInfo {
+	s.Url = &v
 	return s
 }
 
@@ -8834,6 +8892,10 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 
 	if !tea.BoolValue(util.IsUnset(request.Location)) {
 		body["location"] = request.Location
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OnlineMeetingInfo)) {
+		body["onlineMeetingInfo"] = request.OnlineMeetingInfo
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Recurrence)) {

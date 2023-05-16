@@ -117,11 +117,13 @@ type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
 	AmountWithTax                  *string                                                                     `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
 	CheckCode                      *string                                                                     `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
 	CheckTime                      *string                                                                     `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrawerName                     *string                                                                     `json:"drawerName,omitempty" xml:"drawerName,omitempty"`
 	DrewDate                       *string                                                                     `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
 	ElectronicUrl                  *string                                                                     `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
 	FinanceType                    *string                                                                     `json:"financeType,omitempty" xml:"financeType,omitempty"`
 	FundType                       *string                                                                     `json:"fundType,omitempty" xml:"fundType,omitempty"`
 	GeneralInvoiceDetailVOList     []*BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	ImageUrl                       *string                                                                     `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
 	InvoiceCode                    *string                                                                     `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	InvoiceNo                      *string                                                                     `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 	InvoiceStatus                  *string                                                                     `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
@@ -187,6 +189,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetCheckTime(v string) *Bat
 	return s
 }
 
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetDrawerName(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.DrawerName = &v
+	return s
+}
+
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetDrewDate(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.DrewDate = &v
 	return s
@@ -209,6 +216,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetFundType(v string) *Batc
 
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetGeneralInvoiceDetailVOList(v []*BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetImageUrl(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.ImageUrl = &v
 	return s
 }
 
@@ -6651,11 +6663,13 @@ type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList struct {
 	AmountWithTax                  *string                                                                                         `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
 	CheckCode                      *string                                                                                         `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
 	CheckTime                      *string                                                                                         `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrawerName                     *string                                                                                         `json:"drawerName,omitempty" xml:"drawerName,omitempty"`
 	DrewDate                       *string                                                                                         `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
 	ElectronicUrl                  *string                                                                                         `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
 	FinanceType                    *string                                                                                         `json:"financeType,omitempty" xml:"financeType,omitempty"`
 	FundType                       *string                                                                                         `json:"fundType,omitempty" xml:"fundType,omitempty"`
 	GeneralInvoiceDetailVOList     []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	ImageUrl                       *string                                                                                         `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
 	InvoiceCode                    *string                                                                                         `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	InvoiceNo                      *string                                                                                         `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 	InvoiceStatus                  *string                                                                                         `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
@@ -6721,6 +6735,11 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetChec
 	return s
 }
 
+func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetDrawerName(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
+	s.DrawerName = &v
+	return s
+}
+
 func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetDrewDate(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
 	s.DrewDate = &v
 	return s
@@ -6743,6 +6762,11 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetFund
 
 func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetGeneralInvoiceDetailVOList(v []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
 	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetImageUrl(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
+	s.ImageUrl = &v
 	return s
 }
 
@@ -7658,11 +7682,13 @@ type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO struct {
 	AmountWithTax                  *string                                                                                `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
 	CheckCode                      *string                                                                                `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
 	CheckTime                      *string                                                                                `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrawerName                     *string                                                                                `json:"drawerName,omitempty" xml:"drawerName,omitempty"`
 	DrewDate                       *string                                                                                `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
 	ElectronicUrl                  *string                                                                                `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
 	FinanceType                    *string                                                                                `json:"financeType,omitempty" xml:"financeType,omitempty"`
 	FundType                       *string                                                                                `json:"fundType,omitempty" xml:"fundType,omitempty"`
 	GeneralInvoiceDetailVOList     []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	ImageUrl                       *string                                                                                `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
 	InvoiceCode                    *string                                                                                `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	InvoiceNo                      *string                                                                                `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 	InvoiceStatus                  *string                                                                                `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
@@ -7728,6 +7754,11 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetCheckTime(v s
 	return s
 }
 
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetDrawerName(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.DrawerName = &v
+	return s
+}
+
 func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetDrewDate(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
 	s.DrewDate = &v
 	return s
@@ -7750,6 +7781,11 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetFundType(v st
 
 func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetGeneralInvoiceDetailVOList(v []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
 	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetImageUrl(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.ImageUrl = &v
 	return s
 }
 
@@ -8271,11 +8307,13 @@ type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO struct {
 	AmountWithTax                  *string                                                                               `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
 	CheckCode                      *string                                                                               `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
 	CheckTime                      *string                                                                               `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrawerName                     *string                                                                               `json:"drawerName,omitempty" xml:"drawerName,omitempty"`
 	DrewDate                       *string                                                                               `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
 	ElectronicUrl                  *string                                                                               `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
 	FinanceType                    *string                                                                               `json:"financeType,omitempty" xml:"financeType,omitempty"`
 	FundType                       *string                                                                               `json:"fundType,omitempty" xml:"fundType,omitempty"`
 	GeneralInvoiceDetailVOList     []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	ImageUrl                       *string                                                                               `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
 	InvoiceCode                    *string                                                                               `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	InvoiceNo                      *string                                                                               `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 	InvoiceStatus                  *string                                                                               `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
@@ -8341,6 +8379,11 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetCheckTime(v st
 	return s
 }
 
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetDrawerName(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.DrawerName = &v
+	return s
+}
+
 func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetDrewDate(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
 	s.DrewDate = &v
 	return s
@@ -8363,6 +8406,11 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetFundType(v str
 
 func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetGeneralInvoiceDetailVOList(v []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
 	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetImageUrl(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.ImageUrl = &v
 	return s
 }
 
@@ -8988,11 +9036,13 @@ type UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList struct {
 	AmountWithTax                  *string                                                                                `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
 	CheckCode                      *string                                                                                `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
 	CheckTime                      *string                                                                                `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrawerName                     *string                                                                                `json:"drawerName,omitempty" xml:"drawerName,omitempty"`
 	DrewDate                       *string                                                                                `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
 	ElectronicUrl                  *string                                                                                `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
 	FinanceType                    *string                                                                                `json:"financeType,omitempty" xml:"financeType,omitempty"`
 	FundType                       *string                                                                                `json:"fundType,omitempty" xml:"fundType,omitempty"`
 	GeneralInvoiceDetailVOList     []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	ImageUrl                       *string                                                                                `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
 	InvoiceCode                    *string                                                                                `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	InvoiceNo                      *string                                                                                `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 	InvoiceStatus                  *string                                                                                `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
@@ -9058,6 +9108,11 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetCheckTime(v s
 	return s
 }
 
+func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetDrawerName(v string) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList {
+	s.DrawerName = &v
+	return s
+}
+
 func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetDrewDate(v string) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList {
 	s.DrewDate = &v
 	return s
@@ -9080,6 +9135,11 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetFundType(v st
 
 func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetGeneralInvoiceDetailVOList(v []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList {
 	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetImageUrl(v string) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList {
+	s.ImageUrl = &v
 	return s
 }
 
@@ -10168,11 +10228,13 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
 	AmountWithTax                  *string                                                                                `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
 	CheckCode                      *string                                                                                `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
 	CheckTime                      *string                                                                                `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrawerName                     *string                                                                                `json:"drawerName,omitempty" xml:"drawerName,omitempty"`
 	DrewDate                       *string                                                                                `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
 	ElectronicUrl                  *string                                                                                `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
 	FinanceType                    *string                                                                                `json:"financeType,omitempty" xml:"financeType,omitempty"`
 	FundType                       *string                                                                                `json:"fundType,omitempty" xml:"fundType,omitempty"`
 	GeneralInvoiceDetailVOList     []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	ImageUrl                       *string                                                                                `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
 	InvoiceCode                    *string                                                                                `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	InvoiceNo                      *string                                                                                `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 	InvoiceStatus                  *string                                                                                `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
@@ -10238,6 +10300,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetCheckTime(v s
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetDrawerName(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.DrawerName = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetDrewDate(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.DrewDate = &v
 	return s
@@ -10260,6 +10327,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetFundType(v st
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetGeneralInvoiceDetailVOList(v []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetImageUrl(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.ImageUrl = &v
 	return s
 }
 
@@ -10989,11 +11061,13 @@ type UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList struct {
 	AmountWithTax                  *string                                                                               `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
 	CheckCode                      *string                                                                               `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
 	CheckTime                      *string                                                                               `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrawerName                     *string                                                                               `json:"drawerName,omitempty" xml:"drawerName,omitempty"`
 	DrewDate                       *string                                                                               `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
 	ElectronicUrl                  *string                                                                               `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
 	FinanceType                    *string                                                                               `json:"financeType,omitempty" xml:"financeType,omitempty"`
 	FundType                       *string                                                                               `json:"fundType,omitempty" xml:"fundType,omitempty"`
 	GeneralInvoiceDetailVOList     []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	ImageUrl                       *string                                                                               `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
 	InvoiceCode                    *string                                                                               `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	InvoiceNo                      *string                                                                               `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 	InvoiceStatus                  *string                                                                               `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
@@ -11059,6 +11133,11 @@ func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetCheckTime(v st
 	return s
 }
 
+func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetDrawerName(v string) *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList {
+	s.DrawerName = &v
+	return s
+}
+
 func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetDrewDate(v string) *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList {
 	s.DrewDate = &v
 	return s
@@ -11081,6 +11160,11 @@ func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetFundType(v str
 
 func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetGeneralInvoiceDetailVOList(v []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList {
 	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetImageUrl(v string) *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList {
+	s.ImageUrl = &v
 	return s
 }
 

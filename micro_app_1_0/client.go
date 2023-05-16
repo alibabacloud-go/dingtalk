@@ -383,6 +383,52 @@ func (s *AddMemberToAppRoleResponse) SetBody(v *AddMemberToAppRoleResponseBody) 
 	return s
 }
 
+type AnheiTest888ResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s AnheiTest888ResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnheiTest888ResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AnheiTest888ResponseBody) SetRequestId(v string) *AnheiTest888ResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type AnheiTest888Response struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AnheiTest888ResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AnheiTest888Response) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnheiTest888Response) GoString() string {
+	return s.String()
+}
+
+func (s *AnheiTest888Response) SetHeaders(v map[string]*string) *AnheiTest888Response {
+	s.Headers = v
+	return s
+}
+
+func (s *AnheiTest888Response) SetStatusCode(v int32) *AnheiTest888Response {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AnheiTest888Response) SetBody(v *AnheiTest888ResponseBody) *AnheiTest888Response {
+	s.Body = v
+	return s
+}
+
 type CreateApaasAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3623,6 +3669,7 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3821,6 +3868,42 @@ func (client *Client) AddMemberToAppRole(agentId *string, roleId *string, reques
 	headers := &AddMemberToAppRoleHeaders{}
 	_result = &AddMemberToAppRoleResponse{}
 	_body, _err := client.AddMemberToAppRoleWithOptions(agentId, roleId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AnheiTest888WithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AnheiTest888Response, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AnheiTest888"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/anheiTest888"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AnheiTest888Response{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AnheiTest888() (_result *AnheiTest888Response, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &AnheiTest888Response{}
+	_body, _err := client.AnheiTest888WithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

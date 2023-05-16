@@ -5519,6 +5519,316 @@ func (s *ProcessApproveCreateResponse) SetBody(v *ProcessApproveCreateResponseBo
 	return s
 }
 
+type RetainLeaveTypesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RetainLeaveTypesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetainLeaveTypesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RetainLeaveTypesHeaders) SetCommonHeaders(v map[string]*string) *RetainLeaveTypesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RetainLeaveTypesHeaders) SetXAcsDingtalkAccessToken(v string) *RetainLeaveTypesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RetainLeaveTypesRequest struct {
+	LeaveCodes []*string `json:"leaveCodes,omitempty" xml:"leaveCodes,omitempty" type:"Repeated"`
+	OpUserId   *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	Source     *int64    `json:"source,omitempty" xml:"source,omitempty"`
+}
+
+func (s RetainLeaveTypesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetainLeaveTypesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RetainLeaveTypesRequest) SetLeaveCodes(v []*string) *RetainLeaveTypesRequest {
+	s.LeaveCodes = v
+	return s
+}
+
+func (s *RetainLeaveTypesRequest) SetOpUserId(v string) *RetainLeaveTypesRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *RetainLeaveTypesRequest) SetSource(v int64) *RetainLeaveTypesRequest {
+	s.Source = &v
+	return s
+}
+
+type RetainLeaveTypesResponseBody struct {
+	Result []*RetainLeaveTypesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s RetainLeaveTypesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetainLeaveTypesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RetainLeaveTypesResponseBody) SetResult(v []*RetainLeaveTypesResponseBodyResult) *RetainLeaveTypesResponseBody {
+	s.Result = v
+	return s
+}
+
+type RetainLeaveTypesResponseBodyResult struct {
+	BizType              *string                                              `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	HoursInPerDay        *int64                                               `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate     *RetainLeaveTypesResponseBodyResultLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	LeaveCode            *string                                              `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	LeaveHourCeil        *string                                              `json:"leaveHourCeil,omitempty" xml:"leaveHourCeil,omitempty"`
+	LeaveName            *string                                              `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	LeaveTimeCeil        *bool                                                `json:"leaveTimeCeil,omitempty" xml:"leaveTimeCeil,omitempty"`
+	LeaveTimeCeilMinUnit *string                                              `json:"leaveTimeCeilMinUnit,omitempty" xml:"leaveTimeCeilMinUnit,omitempty"`
+	LeaveViewUnit        *string                                              `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	LieuDelayNum         *int64                                               `json:"lieuDelayNum,omitempty" xml:"lieuDelayNum,omitempty"`
+	LieuDelayUnit        *string                                              `json:"lieuDelayUnit,omitempty" xml:"lieuDelayUnit,omitempty"`
+	MaxLeaveTime         *int64                                               `json:"maxLeaveTime,omitempty" xml:"maxLeaveTime,omitempty"`
+	MinLeaveHour         *float64                                             `json:"minLeaveHour,omitempty" xml:"minLeaveHour,omitempty"`
+	NaturalDayLeave      *bool                                                `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	PaidLeave            *bool                                                `json:"paidLeave,omitempty" xml:"paidLeave,omitempty"`
+	SubmitTimeRule       *RetainLeaveTypesResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules      []*RetainLeaveTypesResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	WhenCanLeave         *string                                              `json:"whenCanLeave,omitempty" xml:"whenCanLeave,omitempty"`
+}
+
+func (s RetainLeaveTypesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetainLeaveTypesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetBizType(v string) *RetainLeaveTypesResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetHoursInPerDay(v int64) *RetainLeaveTypesResponseBodyResult {
+	s.HoursInPerDay = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetLeaveCertificate(v *RetainLeaveTypesResponseBodyResultLeaveCertificate) *RetainLeaveTypesResponseBodyResult {
+	s.LeaveCertificate = v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetLeaveCode(v string) *RetainLeaveTypesResponseBodyResult {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetLeaveHourCeil(v string) *RetainLeaveTypesResponseBodyResult {
+	s.LeaveHourCeil = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetLeaveName(v string) *RetainLeaveTypesResponseBodyResult {
+	s.LeaveName = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetLeaveTimeCeil(v bool) *RetainLeaveTypesResponseBodyResult {
+	s.LeaveTimeCeil = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetLeaveTimeCeilMinUnit(v string) *RetainLeaveTypesResponseBodyResult {
+	s.LeaveTimeCeilMinUnit = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetLeaveViewUnit(v string) *RetainLeaveTypesResponseBodyResult {
+	s.LeaveViewUnit = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetLieuDelayNum(v int64) *RetainLeaveTypesResponseBodyResult {
+	s.LieuDelayNum = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetLieuDelayUnit(v string) *RetainLeaveTypesResponseBodyResult {
+	s.LieuDelayUnit = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetMaxLeaveTime(v int64) *RetainLeaveTypesResponseBodyResult {
+	s.MaxLeaveTime = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetMinLeaveHour(v float64) *RetainLeaveTypesResponseBodyResult {
+	s.MinLeaveHour = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetNaturalDayLeave(v bool) *RetainLeaveTypesResponseBodyResult {
+	s.NaturalDayLeave = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetPaidLeave(v bool) *RetainLeaveTypesResponseBodyResult {
+	s.PaidLeave = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetSubmitTimeRule(v *RetainLeaveTypesResponseBodyResultSubmitTimeRule) *RetainLeaveTypesResponseBodyResult {
+	s.SubmitTimeRule = v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetVisibilityRules(v []*RetainLeaveTypesResponseBodyResultVisibilityRules) *RetainLeaveTypesResponseBodyResult {
+	s.VisibilityRules = v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResult) SetWhenCanLeave(v string) *RetainLeaveTypesResponseBodyResult {
+	s.WhenCanLeave = &v
+	return s
+}
+
+type RetainLeaveTypesResponseBodyResultLeaveCertificate struct {
+	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
+	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s RetainLeaveTypesResponseBodyResultLeaveCertificate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetainLeaveTypesResponseBodyResultLeaveCertificate) GoString() string {
+	return s.String()
+}
+
+func (s *RetainLeaveTypesResponseBodyResultLeaveCertificate) SetDuration(v float64) *RetainLeaveTypesResponseBodyResultLeaveCertificate {
+	s.Duration = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResultLeaveCertificate) SetEnable(v bool) *RetainLeaveTypesResponseBodyResultLeaveCertificate {
+	s.Enable = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResultLeaveCertificate) SetPromptInformation(v string) *RetainLeaveTypesResponseBodyResultLeaveCertificate {
+	s.PromptInformation = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResultLeaveCertificate) SetUnit(v string) *RetainLeaveTypesResponseBodyResultLeaveCertificate {
+	s.Unit = &v
+	return s
+}
+
+type RetainLeaveTypesResponseBodyResultSubmitTimeRule struct {
+	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+}
+
+func (s RetainLeaveTypesResponseBodyResultSubmitTimeRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetainLeaveTypesResponseBodyResultSubmitTimeRule) GoString() string {
+	return s.String()
+}
+
+func (s *RetainLeaveTypesResponseBodyResultSubmitTimeRule) SetEnableTimeLimit(v bool) *RetainLeaveTypesResponseBodyResultSubmitTimeRule {
+	s.EnableTimeLimit = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResultSubmitTimeRule) SetTimeType(v string) *RetainLeaveTypesResponseBodyResultSubmitTimeRule {
+	s.TimeType = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResultSubmitTimeRule) SetTimeUnit(v string) *RetainLeaveTypesResponseBodyResultSubmitTimeRule {
+	s.TimeUnit = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *RetainLeaveTypesResponseBodyResultSubmitTimeRule {
+	s.TimeValue = &v
+	return s
+}
+
+type RetainLeaveTypesResponseBodyResultVisibilityRules struct {
+	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
+	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
+}
+
+func (s RetainLeaveTypesResponseBodyResultVisibilityRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetainLeaveTypesResponseBodyResultVisibilityRules) GoString() string {
+	return s.String()
+}
+
+func (s *RetainLeaveTypesResponseBodyResultVisibilityRules) SetType(v string) *RetainLeaveTypesResponseBodyResultVisibilityRules {
+	s.Type = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponseBodyResultVisibilityRules) SetVisible(v []*string) *RetainLeaveTypesResponseBodyResultVisibilityRules {
+	s.Visible = v
+	return s
+}
+
+type RetainLeaveTypesResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RetainLeaveTypesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RetainLeaveTypesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetainLeaveTypesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RetainLeaveTypesResponse) SetHeaders(v map[string]*string) *RetainLeaveTypesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RetainLeaveTypesResponse) SetStatusCode(v int32) *RetainLeaveTypesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RetainLeaveTypesResponse) SetBody(v *RetainLeaveTypesResponseBody) *RetainLeaveTypesResponse {
+	s.Body = v
+	return s
+}
+
 type SaveCustomWaterMarkTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8236,6 +8546,69 @@ func (client *Client) ProcessApproveCreate(request *ProcessApproveCreateRequest)
 	headers := &ProcessApproveCreateHeaders{}
 	_result = &ProcessApproveCreateResponse{}
 	_body, _err := client.ProcessApproveCreateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RetainLeaveTypesWithOptions(request *RetainLeaveTypesRequest, headers *RetainLeaveTypesHeaders, runtime *util.RuntimeOptions) (_result *RetainLeaveTypesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LeaveCodes)) {
+		body["leaveCodes"] = request.LeaveCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RetainLeaveTypes"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/vacations/types/change"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RetainLeaveTypesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RetainLeaveTypes(request *RetainLeaveTypesRequest) (_result *RetainLeaveTypesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RetainLeaveTypesHeaders{}
+	_result = &RetainLeaveTypesResponse{}
+	_body, _err := client.RetainLeaveTypesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
