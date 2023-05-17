@@ -2184,6 +2184,7 @@ type QueryOrgTodoByUserResponseBodyTodoCards struct {
 	IsDone       *bool                                             `json:"isDone,omitempty" xml:"isDone,omitempty"`
 	ModifiedTime *int64                                            `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
 	Priority     *int32                                            `json:"priority,omitempty" xml:"priority,omitempty"`
+	SourceExt    *string                                           `json:"sourceExt,omitempty" xml:"sourceExt,omitempty"`
 	SourceId     *string                                           `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 	Subject      *string                                           `json:"subject,omitempty" xml:"subject,omitempty"`
 	TaskId       *string                                           `json:"taskId,omitempty" xml:"taskId,omitempty"`
@@ -2234,6 +2235,11 @@ func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetModifiedTime(v int64) *Quer
 
 func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetPriority(v int32) *QueryOrgTodoByUserResponseBodyTodoCards {
 	s.Priority = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetSourceExt(v string) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.SourceExt = &v
 	return s
 }
 
