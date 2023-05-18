@@ -588,6 +588,92 @@ func (s *DeleteTeamResponse) SetBody(v *DeleteTeamResponseBody) *DeleteTeamRespo
 	return s
 }
 
+type GetDefaultHandOverUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDefaultHandOverUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDefaultHandOverUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDefaultHandOverUserHeaders) SetCommonHeaders(v map[string]*string) *GetDefaultHandOverUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDefaultHandOverUserHeaders) SetXAcsDingtalkAccessToken(v string) *GetDefaultHandOverUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDefaultHandOverUserRequest struct {
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetDefaultHandOverUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDefaultHandOverUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDefaultHandOverUserRequest) SetOperatorId(v string) *GetDefaultHandOverUserRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetDefaultHandOverUserResponseBody struct {
+	DefaultHandoverUserId *string `json:"defaultHandoverUserId,omitempty" xml:"defaultHandoverUserId,omitempty"`
+}
+
+func (s GetDefaultHandOverUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDefaultHandOverUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDefaultHandOverUserResponseBody) SetDefaultHandoverUserId(v string) *GetDefaultHandOverUserResponseBody {
+	s.DefaultHandoverUserId = &v
+	return s
+}
+
+type GetDefaultHandOverUserResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetDefaultHandOverUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDefaultHandOverUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDefaultHandOverUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDefaultHandOverUserResponse) SetHeaders(v map[string]*string) *GetDefaultHandOverUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDefaultHandOverUserResponse) SetStatusCode(v int32) *GetDefaultHandOverUserResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetDefaultHandOverUserResponse) SetBody(v *GetDefaultHandOverUserResponseBody) *GetDefaultHandOverUserResponse {
+	s.Body = v
+	return s
+}
+
 type GetMineWorkspaceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2127,6 +2213,110 @@ func (s *GetWorkspacesResponse) SetBody(v *GetWorkspacesResponseBody) *GetWorksp
 	return s
 }
 
+type HandOverWorkspaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HandOverWorkspaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HandOverWorkspaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HandOverWorkspaceHeaders) SetCommonHeaders(v map[string]*string) *HandOverWorkspaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HandOverWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *HandOverWorkspaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HandOverWorkspaceRequest struct {
+	SourceOwnerId *string `json:"sourceOwnerId,omitempty" xml:"sourceOwnerId,omitempty"`
+	TargetOwnerId *string `json:"targetOwnerId,omitempty" xml:"targetOwnerId,omitempty"`
+	WorkspaceId   *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	OperatorId    *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s HandOverWorkspaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HandOverWorkspaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HandOverWorkspaceRequest) SetSourceOwnerId(v string) *HandOverWorkspaceRequest {
+	s.SourceOwnerId = &v
+	return s
+}
+
+func (s *HandOverWorkspaceRequest) SetTargetOwnerId(v string) *HandOverWorkspaceRequest {
+	s.TargetOwnerId = &v
+	return s
+}
+
+func (s *HandOverWorkspaceRequest) SetWorkspaceId(v string) *HandOverWorkspaceRequest {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *HandOverWorkspaceRequest) SetOperatorId(v string) *HandOverWorkspaceRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type HandOverWorkspaceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HandOverWorkspaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HandOverWorkspaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HandOverWorkspaceResponseBody) SetSuccess(v bool) *HandOverWorkspaceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HandOverWorkspaceResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *HandOverWorkspaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s HandOverWorkspaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HandOverWorkspaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HandOverWorkspaceResponse) SetHeaders(v map[string]*string) *HandOverWorkspaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HandOverWorkspaceResponse) SetStatusCode(v int32) *HandOverWorkspaceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HandOverWorkspaceResponse) SetBody(v *HandOverWorkspaceResponseBody) *HandOverWorkspaceResponse {
+	s.Body = v
+	return s
+}
+
 type ListNodesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2805,6 +2995,98 @@ func (s *ListWorkspacesResponse) SetBody(v *ListWorkspacesResponseBody) *ListWor
 	return s
 }
 
+type SetDefaultHandOverUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetDefaultHandOverUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetDefaultHandOverUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetDefaultHandOverUserHeaders) SetCommonHeaders(v map[string]*string) *SetDefaultHandOverUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetDefaultHandOverUserHeaders) SetXAcsDingtalkAccessToken(v string) *SetDefaultHandOverUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetDefaultHandOverUserRequest struct {
+	DefaultHandoverUserId *string `json:"defaultHandoverUserId,omitempty" xml:"defaultHandoverUserId,omitempty"`
+	OperatorId            *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SetDefaultHandOverUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetDefaultHandOverUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetDefaultHandOverUserRequest) SetDefaultHandoverUserId(v string) *SetDefaultHandOverUserRequest {
+	s.DefaultHandoverUserId = &v
+	return s
+}
+
+func (s *SetDefaultHandOverUserRequest) SetOperatorId(v string) *SetDefaultHandOverUserRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SetDefaultHandOverUserResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SetDefaultHandOverUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetDefaultHandOverUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetDefaultHandOverUserResponseBody) SetSuccess(v bool) *SetDefaultHandOverUserResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SetDefaultHandOverUserResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SetDefaultHandOverUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SetDefaultHandOverUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetDefaultHandOverUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetDefaultHandOverUserResponse) SetHeaders(v map[string]*string) *SetDefaultHandOverUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetDefaultHandOverUserResponse) SetStatusCode(v int32) *SetDefaultHandOverUserResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetDefaultHandOverUserResponse) SetBody(v *SetDefaultHandOverUserResponseBody) *SetDefaultHandOverUserResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -3012,6 +3294,61 @@ func (client *Client) DeleteTeam(teamId *string, request *DeleteTeamRequest) (_r
 	headers := &DeleteTeamHeaders{}
 	_result = &DeleteTeamResponse{}
 	_body, _err := client.DeleteTeamWithOptions(teamId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDefaultHandOverUserWithOptions(request *GetDefaultHandOverUserRequest, headers *GetDefaultHandOverUserHeaders, runtime *util.RuntimeOptions) (_result *GetDefaultHandOverUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDefaultHandOverUser"),
+		Version:     tea.String("wiki_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/wiki/managementSettings/defaultHandOverUsers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetDefaultHandOverUserResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDefaultHandOverUser(request *GetDefaultHandOverUserRequest) (_result *GetDefaultHandOverUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDefaultHandOverUserHeaders{}
+	_result = &GetDefaultHandOverUserResponse{}
+	_body, _err := client.GetDefaultHandOverUserWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3446,6 +3783,75 @@ func (client *Client) GetWorkspaces(request *GetWorkspacesRequest) (_result *Get
 	return _result, _err
 }
 
+func (client *Client) HandOverWorkspaceWithOptions(request *HandOverWorkspaceRequest, headers *HandOverWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *HandOverWorkspaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SourceOwnerId)) {
+		body["sourceOwnerId"] = request.SourceOwnerId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetOwnerId)) {
+		body["targetOwnerId"] = request.TargetOwnerId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkspaceId)) {
+		body["workspaceId"] = request.WorkspaceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HandOverWorkspace"),
+		Version:     tea.String("wiki_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/wiki/managementOperations/workspaces/handOver"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HandOverWorkspaceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) HandOverWorkspace(request *HandOverWorkspaceRequest) (_result *HandOverWorkspaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HandOverWorkspaceHeaders{}
+	_result = &HandOverWorkspaceResponse{}
+	_body, _err := client.HandOverWorkspaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) ListNodesWithOptions(request *ListNodesRequest, headers *ListNodesHeaders, runtime *util.RuntimeOptions) (_result *ListNodesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3648,6 +4054,67 @@ func (client *Client) ListWorkspaces(request *ListWorkspacesRequest) (_result *L
 	headers := &ListWorkspacesHeaders{}
 	_result = &ListWorkspacesResponse{}
 	_body, _err := client.ListWorkspacesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SetDefaultHandOverUserWithOptions(request *SetDefaultHandOverUserRequest, headers *SetDefaultHandOverUserHeaders, runtime *util.RuntimeOptions) (_result *SetDefaultHandOverUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DefaultHandoverUserId)) {
+		body["defaultHandoverUserId"] = request.DefaultHandoverUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetDefaultHandOverUser"),
+		Version:     tea.String("wiki_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/wiki/managementSettings/defaultHandOverUsers/set"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetDefaultHandOverUserResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SetDefaultHandOverUser(request *SetDefaultHandOverUserRequest) (_result *SetDefaultHandOverUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetDefaultHandOverUserHeaders{}
+	_result = &SetDefaultHandOverUserResponse{}
+	_body, _err := client.SetDefaultHandOverUserWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

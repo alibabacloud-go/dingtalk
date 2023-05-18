@@ -3646,6 +3646,391 @@ func (s *GetOvertimeSettingResponse) SetBody(v *GetOvertimeSettingResponseBody) 
 	return s
 }
 
+type GetShiftHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetShiftHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftHeaders) SetCommonHeaders(v map[string]*string) *GetShiftHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetShiftHeaders) SetXAcsDingtalkAccessToken(v string) *GetShiftHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetShiftRequest struct {
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	ShiftId  *int64  `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
+}
+
+func (s GetShiftRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftRequest) SetOpUserId(v string) *GetShiftRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *GetShiftRequest) SetShiftId(v int64) *GetShiftRequest {
+	s.ShiftId = &v
+	return s
+}
+
+type GetShiftResponseBody struct {
+	Result *GetShiftResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetShiftResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftResponseBody) SetResult(v *GetShiftResponseBodyResult) *GetShiftResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetShiftResponseBodyResult struct {
+	CorpId         *string                                 `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Id             *int64                                  `json:"id,omitempty" xml:"id,omitempty"`
+	Name           *string                                 `json:"name,omitempty" xml:"name,omitempty"`
+	Owner          *string                                 `json:"owner,omitempty" xml:"owner,omitempty"`
+	Sections       []*GetShiftResponseBodyResultSections   `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
+	ShiftGroupId   *int64                                  `json:"shiftGroupId,omitempty" xml:"shiftGroupId,omitempty"`
+	ShiftGroupName *string                                 `json:"shiftGroupName,omitempty" xml:"shiftGroupName,omitempty"`
+	ShiftSetting   *GetShiftResponseBodyResultShiftSetting `json:"shiftSetting,omitempty" xml:"shiftSetting,omitempty" type:"Struct"`
+}
+
+func (s GetShiftResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftResponseBodyResult) SetCorpId(v string) *GetShiftResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResult) SetId(v int64) *GetShiftResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResult) SetName(v string) *GetShiftResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResult) SetOwner(v string) *GetShiftResponseBodyResult {
+	s.Owner = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResult) SetSections(v []*GetShiftResponseBodyResultSections) *GetShiftResponseBodyResult {
+	s.Sections = v
+	return s
+}
+
+func (s *GetShiftResponseBodyResult) SetShiftGroupId(v int64) *GetShiftResponseBodyResult {
+	s.ShiftGroupId = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResult) SetShiftGroupName(v string) *GetShiftResponseBodyResult {
+	s.ShiftGroupName = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResult) SetShiftSetting(v *GetShiftResponseBodyResultShiftSetting) *GetShiftResponseBodyResult {
+	s.ShiftSetting = v
+	return s
+}
+
+type GetShiftResponseBodyResultSections struct {
+	Punches   []*GetShiftResponseBodyResultSectionsPunches `json:"punches,omitempty" xml:"punches,omitempty" type:"Repeated"`
+	Rests     []*GetShiftResponseBodyResultSectionsRests   `json:"rests,omitempty" xml:"rests,omitempty" type:"Repeated"`
+	SectionId *int64                                       `json:"sectionId,omitempty" xml:"sectionId,omitempty"`
+}
+
+func (s GetShiftResponseBodyResultSections) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftResponseBodyResultSections) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftResponseBodyResultSections) SetPunches(v []*GetShiftResponseBodyResultSectionsPunches) *GetShiftResponseBodyResultSections {
+	s.Punches = v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSections) SetRests(v []*GetShiftResponseBodyResultSectionsRests) *GetShiftResponseBodyResultSections {
+	s.Rests = v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSections) SetSectionId(v int64) *GetShiftResponseBodyResultSections {
+	s.SectionId = &v
+	return s
+}
+
+type GetShiftResponseBodyResultSectionsPunches struct {
+	AbsenteeismLateMinutes *int64                                                    `json:"absenteeismLateMinutes,omitempty" xml:"absenteeismLateMinutes,omitempty"`
+	Across                 *int64                                                    `json:"across,omitempty" xml:"across,omitempty"`
+	BeginMin               *int64                                                    `json:"beginMin,omitempty" xml:"beginMin,omitempty"`
+	CheckTime              *string                                                   `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	CheckType              *string                                                   `json:"checkType,omitempty" xml:"checkType,omitempty"`
+	EndMin                 *int64                                                    `json:"end_min,omitempty" xml:"end_min,omitempty"`
+	FreeCheck              *bool                                                     `json:"freeCheck,omitempty" xml:"freeCheck,omitempty"`
+	LateBackSetting        *GetShiftResponseBodyResultSectionsPunchesLateBackSetting `json:"lateBackSetting,omitempty" xml:"lateBackSetting,omitempty" type:"Struct"`
+	PermitMinutes          *int64                                                    `json:"permitMinutes,omitempty" xml:"permitMinutes,omitempty"`
+	PuncheId               *int64                                                    `json:"puncheId,omitempty" xml:"puncheId,omitempty"`
+	SeriousLateMinutes     *int64                                                    `json:"seriousLateMinutes,omitempty" xml:"seriousLateMinutes,omitempty"`
+}
+
+func (s GetShiftResponseBodyResultSectionsPunches) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftResponseBodyResultSectionsPunches) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetAbsenteeismLateMinutes(v int64) *GetShiftResponseBodyResultSectionsPunches {
+	s.AbsenteeismLateMinutes = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetAcross(v int64) *GetShiftResponseBodyResultSectionsPunches {
+	s.Across = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetBeginMin(v int64) *GetShiftResponseBodyResultSectionsPunches {
+	s.BeginMin = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetCheckTime(v string) *GetShiftResponseBodyResultSectionsPunches {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetCheckType(v string) *GetShiftResponseBodyResultSectionsPunches {
+	s.CheckType = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetEndMin(v int64) *GetShiftResponseBodyResultSectionsPunches {
+	s.EndMin = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetFreeCheck(v bool) *GetShiftResponseBodyResultSectionsPunches {
+	s.FreeCheck = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetLateBackSetting(v *GetShiftResponseBodyResultSectionsPunchesLateBackSetting) *GetShiftResponseBodyResultSectionsPunches {
+	s.LateBackSetting = v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetPermitMinutes(v int64) *GetShiftResponseBodyResultSectionsPunches {
+	s.PermitMinutes = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetPuncheId(v int64) *GetShiftResponseBodyResultSectionsPunches {
+	s.PuncheId = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetSeriousLateMinutes(v int64) *GetShiftResponseBodyResultSectionsPunches {
+	s.SeriousLateMinutes = &v
+	return s
+}
+
+type GetShiftResponseBodyResultSectionsPunchesLateBackSetting struct {
+	LateBackPairs []*GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs `json:"lateBackPairs,omitempty" xml:"lateBackPairs,omitempty" type:"Repeated"`
+}
+
+func (s GetShiftResponseBodyResultSectionsPunchesLateBackSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftResponseBodyResultSectionsPunchesLateBackSetting) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunchesLateBackSetting) SetLateBackPairs(v []*GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs) *GetShiftResponseBodyResultSectionsPunchesLateBackSetting {
+	s.LateBackPairs = v
+	return s
+}
+
+type GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs struct {
+	Extra *int64 `json:"extra,omitempty" xml:"extra,omitempty"`
+	Late  *int64 `json:"late,omitempty" xml:"late,omitempty"`
+}
+
+func (s GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs) SetExtra(v int64) *GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs {
+	s.Extra = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs) SetLate(v int64) *GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs {
+	s.Late = &v
+	return s
+}
+
+type GetShiftResponseBodyResultSectionsRests struct {
+	Across    *int64  `json:"across,omitempty" xml:"across,omitempty"`
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	CheckType *string `json:"check_type,omitempty" xml:"check_type,omitempty"`
+	RestId    *int64  `json:"restId,omitempty" xml:"restId,omitempty"`
+}
+
+func (s GetShiftResponseBodyResultSectionsRests) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftResponseBodyResultSectionsRests) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftResponseBodyResultSectionsRests) SetAcross(v int64) *GetShiftResponseBodyResultSectionsRests {
+	s.Across = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsRests) SetCheckTime(v string) *GetShiftResponseBodyResultSectionsRests {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsRests) SetCheckType(v string) *GetShiftResponseBodyResultSectionsRests {
+	s.CheckType = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsRests) SetRestId(v int64) *GetShiftResponseBodyResultSectionsRests {
+	s.RestId = &v
+	return s
+}
+
+type GetShiftResponseBodyResultShiftSetting struct {
+	AttendDays      *string `json:"attendDays,omitempty" xml:"attendDays,omitempty"`
+	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	GmtCreate       *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified     *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	ShiftId         *int64  `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
+	ShiftSettingId  *int64  `json:"shiftSettingId,omitempty" xml:"shiftSettingId,omitempty"`
+	WorkTimeMinutes *int64  `json:"workTimeMinutes,omitempty" xml:"workTimeMinutes,omitempty"`
+}
+
+func (s GetShiftResponseBodyResultShiftSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftResponseBodyResultShiftSetting) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetAttendDays(v string) *GetShiftResponseBodyResultShiftSetting {
+	s.AttendDays = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetCorpId(v string) *GetShiftResponseBodyResultShiftSetting {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetGmtCreate(v string) *GetShiftResponseBodyResultShiftSetting {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetGmtModified(v string) *GetShiftResponseBodyResultShiftSetting {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetShiftId(v int64) *GetShiftResponseBodyResultShiftSetting {
+	s.ShiftId = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetShiftSettingId(v int64) *GetShiftResponseBodyResultShiftSetting {
+	s.ShiftSettingId = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetWorkTimeMinutes(v int64) *GetShiftResponseBodyResultShiftSetting {
+	s.WorkTimeMinutes = &v
+	return s
+}
+
+type GetShiftResponse struct {
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetShiftResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetShiftResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShiftResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetShiftResponse) SetHeaders(v map[string]*string) *GetShiftResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetShiftResponse) SetStatusCode(v int32) *GetShiftResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetShiftResponse) SetBody(v *GetShiftResponseBody) *GetShiftResponse {
+	s.Body = v
+	return s
+}
+
 type GetSimpleOvertimeSettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7736,6 +8121,65 @@ func (client *Client) GetOvertimeSetting(request *GetOvertimeSettingRequest) (_r
 	headers := &GetOvertimeSettingHeaders{}
 	_result = &GetOvertimeSettingResponse{}
 	_body, _err := client.GetOvertimeSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetShiftWithOptions(request *GetShiftRequest, headers *GetShiftHeaders, runtime *util.RuntimeOptions) (_result *GetShiftResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShiftId)) {
+		query["shiftId"] = request.ShiftId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetShift"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/shifts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetShiftResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetShift(request *GetShiftRequest) (_result *GetShiftResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetShiftHeaders{}
+	_result = &GetShiftResponse{}
+	_body, _err := client.GetShiftWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -384,6 +384,29 @@ func (s *SelectOption) SetValue(v string) *SelectOption {
 	return s
 }
 
+type ResultValue struct {
+	Result  *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+}
+
+func (s ResultValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultValue) GoString() string {
+	return s.String()
+}
+
+func (s *ResultValue) SetResult(v bool) *ResultValue {
+	s.Result = &v
+	return s
+}
+
+func (s *ResultValue) SetMessage(v string) *ResultValue {
+	s.Message = &v
+	return s
+}
+
 type AddApproveDentryAuthHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -675,6 +698,139 @@ func (s *AddProcessInstanceCommentResponse) SetStatusCode(v int32) *AddProcessIn
 }
 
 func (s *AddProcessInstanceCommentResponse) SetBody(v *AddProcessInstanceCommentResponseBody) *AddProcessInstanceCommentResponse {
+	s.Body = v
+	return s
+}
+
+type BatchExecuteProcessInstancesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchExecuteProcessInstancesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchExecuteProcessInstancesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchExecuteProcessInstancesHeaders) SetCommonHeaders(v map[string]*string) *BatchExecuteProcessInstancesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchExecuteProcessInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *BatchExecuteProcessInstancesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchExecuteProcessInstancesRequest struct {
+	ActionerUserId *string                                            `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
+	Remark         *string                                            `json:"remark,omitempty" xml:"remark,omitempty"`
+	Result         *string                                            `json:"result,omitempty" xml:"result,omitempty"`
+	TaskInfoList   []*BatchExecuteProcessInstancesRequestTaskInfoList `json:"taskInfoList,omitempty" xml:"taskInfoList,omitempty" type:"Repeated"`
+}
+
+func (s BatchExecuteProcessInstancesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchExecuteProcessInstancesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchExecuteProcessInstancesRequest) SetActionerUserId(v string) *BatchExecuteProcessInstancesRequest {
+	s.ActionerUserId = &v
+	return s
+}
+
+func (s *BatchExecuteProcessInstancesRequest) SetRemark(v string) *BatchExecuteProcessInstancesRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *BatchExecuteProcessInstancesRequest) SetResult(v string) *BatchExecuteProcessInstancesRequest {
+	s.Result = &v
+	return s
+}
+
+func (s *BatchExecuteProcessInstancesRequest) SetTaskInfoList(v []*BatchExecuteProcessInstancesRequestTaskInfoList) *BatchExecuteProcessInstancesRequest {
+	s.TaskInfoList = v
+	return s
+}
+
+type BatchExecuteProcessInstancesRequestTaskInfoList struct {
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	TaskId            *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s BatchExecuteProcessInstancesRequestTaskInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchExecuteProcessInstancesRequestTaskInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchExecuteProcessInstancesRequestTaskInfoList) SetProcessInstanceId(v string) *BatchExecuteProcessInstancesRequestTaskInfoList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *BatchExecuteProcessInstancesRequestTaskInfoList) SetTaskId(v int64) *BatchExecuteProcessInstancesRequestTaskInfoList {
+	s.TaskId = &v
+	return s
+}
+
+type BatchExecuteProcessInstancesResponseBody struct {
+	Result  map[string]*ResultValue `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchExecuteProcessInstancesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchExecuteProcessInstancesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchExecuteProcessInstancesResponseBody) SetResult(v map[string]*ResultValue) *BatchExecuteProcessInstancesResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *BatchExecuteProcessInstancesResponseBody) SetSuccess(v bool) *BatchExecuteProcessInstancesResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchExecuteProcessInstancesResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchExecuteProcessInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchExecuteProcessInstancesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchExecuteProcessInstancesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchExecuteProcessInstancesResponse) SetHeaders(v map[string]*string) *BatchExecuteProcessInstancesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchExecuteProcessInstancesResponse) SetStatusCode(v int32) *BatchExecuteProcessInstancesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchExecuteProcessInstancesResponse) SetBody(v *BatchExecuteProcessInstancesResponseBody) *BatchExecuteProcessInstancesResponse {
 	s.Body = v
 	return s
 }
@@ -8319,6 +8475,73 @@ func (client *Client) AddProcessInstanceComment(request *AddProcessInstanceComme
 	headers := &AddProcessInstanceCommentHeaders{}
 	_result = &AddProcessInstanceCommentResponse{}
 	_body, _err := client.AddProcessInstanceCommentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchExecuteProcessInstancesWithOptions(request *BatchExecuteProcessInstancesRequest, headers *BatchExecuteProcessInstancesHeaders, runtime *util.RuntimeOptions) (_result *BatchExecuteProcessInstancesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionerUserId)) {
+		body["actionerUserId"] = request.ActionerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Result)) {
+		body["result"] = request.Result
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskInfoList)) {
+		body["taskInfoList"] = request.TaskInfoList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchExecuteProcessInstances"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processInstances/batchExecute"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchExecuteProcessInstancesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchExecuteProcessInstances(request *BatchExecuteProcessInstancesRequest) (_result *BatchExecuteProcessInstancesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchExecuteProcessInstancesHeaders{}
+	_result = &BatchExecuteProcessInstancesResponse{}
+	_body, _err := client.BatchExecuteProcessInstancesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
