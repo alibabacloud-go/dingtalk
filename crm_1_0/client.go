@@ -9965,6 +9965,109 @@ func (s *QueryCrmPersonalCustomerResponse) SetBody(v *QueryCrmPersonalCustomerRe
 	return s
 }
 
+type QueryGlobalInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGlobalInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGlobalInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGlobalInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryGlobalInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGlobalInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGlobalInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGlobalInfoRequest struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryGlobalInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGlobalInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGlobalInfoRequest) SetUserId(v string) *QueryGlobalInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryGlobalInfoResponseBody struct {
+	Result *QueryGlobalInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryGlobalInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGlobalInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGlobalInfoResponseBody) SetResult(v *QueryGlobalInfoResponseBodyResult) *QueryGlobalInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryGlobalInfoResponseBodyResult struct {
+	OemEnable *bool `json:"oemEnable,omitempty" xml:"oemEnable,omitempty"`
+}
+
+func (s QueryGlobalInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGlobalInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGlobalInfoResponseBodyResult) SetOemEnable(v bool) *QueryGlobalInfoResponseBodyResult {
+	s.OemEnable = &v
+	return s
+}
+
+type QueryGlobalInfoResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryGlobalInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryGlobalInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGlobalInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGlobalInfoResponse) SetHeaders(v map[string]*string) *QueryGlobalInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGlobalInfoResponse) SetStatusCode(v int32) *QueryGlobalInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryGlobalInfoResponse) SetBody(v *QueryGlobalInfoResponseBody) *QueryGlobalInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryOfficialAccountUserBasicInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -14607,6 +14710,61 @@ func (client *Client) QueryCrmPersonalCustomer(request *QueryCrmPersonalCustomer
 	headers := &QueryCrmPersonalCustomerHeaders{}
 	_result = &QueryCrmPersonalCustomerResponse{}
 	_body, _err := client.QueryCrmPersonalCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryGlobalInfoWithOptions(request *QueryGlobalInfoRequest, headers *QueryGlobalInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryGlobalInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryGlobalInfo"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/globalInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryGlobalInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryGlobalInfo(request *QueryGlobalInfoRequest) (_result *QueryGlobalInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGlobalInfoHeaders{}
+	_result = &QueryGlobalInfoResponse{}
+	_body, _err := client.QueryGlobalInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -128,8 +128,6 @@ type GetCheckinRecordByUserResponseBodyResultPageList struct {
 	CustomDataList []*GetCheckinRecordByUserResponseBodyResultPageListCustomDataList `json:"customDataList,omitempty" xml:"customDataList,omitempty" type:"Repeated"`
 	DetailPlace    *string                                                           `json:"detailPlace,omitempty" xml:"detailPlace,omitempty"`
 	ImageList      []*string                                                         `json:"imageList,omitempty" xml:"imageList,omitempty" type:"Repeated"`
-	Latitude       *string                                                           `json:"latitude,omitempty" xml:"latitude,omitempty"`
-	Longitude      *string                                                           `json:"longitude,omitempty" xml:"longitude,omitempty"`
 	Place          *string                                                           `json:"place,omitempty" xml:"place,omitempty"`
 	Remark         *string                                                           `json:"remark,omitempty" xml:"remark,omitempty"`
 	UserId         *string                                                           `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -161,16 +159,6 @@ func (s *GetCheckinRecordByUserResponseBodyResultPageList) SetDetailPlace(v stri
 
 func (s *GetCheckinRecordByUserResponseBodyResultPageList) SetImageList(v []*string) *GetCheckinRecordByUserResponseBodyResultPageList {
 	s.ImageList = v
-	return s
-}
-
-func (s *GetCheckinRecordByUserResponseBodyResultPageList) SetLatitude(v string) *GetCheckinRecordByUserResponseBodyResultPageList {
-	s.Latitude = &v
-	return s
-}
-
-func (s *GetCheckinRecordByUserResponseBodyResultPageList) SetLongitude(v string) *GetCheckinRecordByUserResponseBodyResultPageList {
-	s.Longitude = &v
 	return s
 }
 

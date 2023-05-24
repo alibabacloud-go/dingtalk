@@ -984,6 +984,133 @@ func (s *AttendanceBleDevicesRemoveResponse) SetBody(v *AttendanceBleDevicesRemo
 	return s
 }
 
+type BatchBossCheckHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchBossCheckHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchBossCheckHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchBossCheckHeaders) SetCommonHeaders(v map[string]*string) *BatchBossCheckHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchBossCheckHeaders) SetXAcsDingtalkAccessToken(v string) *BatchBossCheckHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchBossCheckRequest struct {
+	Models   []*BatchBossCheckRequestModels `json:"models,omitempty" xml:"models,omitempty" type:"Repeated"`
+	OpUserId *string                        `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s BatchBossCheckRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchBossCheckRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchBossCheckRequest) SetModels(v []*BatchBossCheckRequestModels) *BatchBossCheckRequest {
+	s.Models = v
+	return s
+}
+
+func (s *BatchBossCheckRequest) SetOpUserId(v string) *BatchBossCheckRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type BatchBossCheckRequestModels struct {
+	AbsentMin  *int64  `json:"absentMin,omitempty" xml:"absentMin,omitempty"`
+	PlanId     *int64  `json:"planId,omitempty" xml:"planId,omitempty"`
+	Remark     *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	TimeResult *string `json:"timeResult,omitempty" xml:"timeResult,omitempty"`
+}
+
+func (s BatchBossCheckRequestModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchBossCheckRequestModels) GoString() string {
+	return s.String()
+}
+
+func (s *BatchBossCheckRequestModels) SetAbsentMin(v int64) *BatchBossCheckRequestModels {
+	s.AbsentMin = &v
+	return s
+}
+
+func (s *BatchBossCheckRequestModels) SetPlanId(v int64) *BatchBossCheckRequestModels {
+	s.PlanId = &v
+	return s
+}
+
+func (s *BatchBossCheckRequestModels) SetRemark(v string) *BatchBossCheckRequestModels {
+	s.Remark = &v
+	return s
+}
+
+func (s *BatchBossCheckRequestModels) SetTimeResult(v string) *BatchBossCheckRequestModels {
+	s.TimeResult = &v
+	return s
+}
+
+type BatchBossCheckResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s BatchBossCheckResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchBossCheckResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchBossCheckResponseBody) SetResult(v bool) *BatchBossCheckResponseBody {
+	s.Result = &v
+	return s
+}
+
+type BatchBossCheckResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchBossCheckResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchBossCheckResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchBossCheckResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchBossCheckResponse) SetHeaders(v map[string]*string) *BatchBossCheckResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchBossCheckResponse) SetStatusCode(v int32) *BatchBossCheckResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchBossCheckResponse) SetBody(v *BatchBossCheckResponseBody) *BatchBossCheckResponse {
+	s.Body = v
+	return s
+}
+
 type CheckClosingAccountHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7166,6 +7293,67 @@ func (client *Client) AttendanceBleDevicesRemove(request *AttendanceBleDevicesRe
 	headers := &AttendanceBleDevicesRemoveHeaders{}
 	_result = &AttendanceBleDevicesRemoveResponse{}
 	_body, _err := client.AttendanceBleDevicesRemoveWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchBossCheckWithOptions(request *BatchBossCheckRequest, headers *BatchBossCheckHeaders, runtime *util.RuntimeOptions) (_result *BatchBossCheckResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Models)) {
+		body["models"] = request.Models
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchBossCheck"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/results/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchBossCheckResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchBossCheck(request *BatchBossCheckRequest) (_result *BatchBossCheckResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchBossCheckHeaders{}
+	_result = &BatchBossCheckResponse{}
+	_body, _err := client.BatchBossCheckWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
