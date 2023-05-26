@@ -2948,6 +2948,7 @@ type GetProcessInstanceResponseBodyResult struct {
 	ApproverUserIds            []*string                                                  `json:"approverUserIds,omitempty" xml:"approverUserIds,omitempty" type:"Repeated"`
 	AttachedProcessInstanceIds []*string                                                  `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty" type:"Repeated"`
 	BizAction                  *string                                                    `json:"bizAction,omitempty" xml:"bizAction,omitempty"`
+	BizData                    *string                                                    `json:"bizData,omitempty" xml:"bizData,omitempty"`
 	BusinessId                 *string                                                    `json:"businessId,omitempty" xml:"businessId,omitempty"`
 	CcUserIds                  []*string                                                  `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
 	CreateTime                 *string                                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
@@ -2984,6 +2985,11 @@ func (s *GetProcessInstanceResponseBodyResult) SetAttachedProcessInstanceIds(v [
 
 func (s *GetProcessInstanceResponseBodyResult) SetBizAction(v string) *GetProcessInstanceResponseBodyResult {
 	s.BizAction = &v
+	return s
+}
+
+func (s *GetProcessInstanceResponseBodyResult) SetBizData(v string) *GetProcessInstanceResponseBodyResult {
+	s.BizData = &v
 	return s
 }
 

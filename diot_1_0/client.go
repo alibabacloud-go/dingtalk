@@ -1530,6 +1530,52 @@ func (s *RegisterDeviceResponse) SetBody(v *RegisterDeviceResponseBody) *Registe
 	return s
 }
 
+type WorkbenchTransformInfoResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s WorkbenchTransformInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WorkbenchTransformInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *WorkbenchTransformInfoResponseBody) SetRequestId(v string) *WorkbenchTransformInfoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type WorkbenchTransformInfoResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *WorkbenchTransformInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s WorkbenchTransformInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WorkbenchTransformInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *WorkbenchTransformInfoResponse) SetHeaders(v map[string]*string) *WorkbenchTransformInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *WorkbenchTransformInfoResponse) SetStatusCode(v int32) *WorkbenchTransformInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *WorkbenchTransformInfoResponse) SetBody(v *WorkbenchTransformInfoResponseBody) *WorkbenchTransformInfoResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1551,6 +1597,7 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -2262,6 +2309,42 @@ func (client *Client) RegisterDevice(request *RegisterDeviceRequest) (_result *R
 	headers := &RegisterDeviceHeaders{}
 	_result = &RegisterDeviceResponse{}
 	_body, _err := client.RegisterDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) WorkbenchTransformInfoWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *WorkbenchTransformInfoResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("WorkbenchTransformInfo"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/workbench/transform"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &WorkbenchTransformInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) WorkbenchTransformInfo() (_result *WorkbenchTransformInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &WorkbenchTransformInfoResponse{}
+	_body, _err := client.WorkbenchTransformInfoWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

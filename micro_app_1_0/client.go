@@ -429,6 +429,161 @@ func (s *AnheiTest888Response) SetBody(v *AnheiTest888ResponseBody) *AnheiTest88
 	return s
 }
 
+type AnheiTestBResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s AnheiTestBResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnheiTestBResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AnheiTestBResponseBody) SetRequestId(v string) *AnheiTestBResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type AnheiTestBResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AnheiTestBResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AnheiTestBResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnheiTestBResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AnheiTestBResponse) SetHeaders(v map[string]*string) *AnheiTestBResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AnheiTestBResponse) SetStatusCode(v int32) *AnheiTestBResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AnheiTestBResponse) SetBody(v *AnheiTestBResponseBody) *AnheiTestBResponse {
+	s.Body = v
+	return s
+}
+
+type AppStatusManagerTestRequest struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s AppStatusManagerTestRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppStatusManagerTestRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AppStatusManagerTestRequest) SetRequestId(v string) *AppStatusManagerTestRequest {
+	s.RequestId = &v
+	return s
+}
+
+type AppStatusManagerTestResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s AppStatusManagerTestResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppStatusManagerTestResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AppStatusManagerTestResponseBody) SetRequestId(v string) *AppStatusManagerTestResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type AppStatusManagerTestResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AppStatusManagerTestResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AppStatusManagerTestResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppStatusManagerTestResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AppStatusManagerTestResponse) SetHeaders(v map[string]*string) *AppStatusManagerTestResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AppStatusManagerTestResponse) SetStatusCode(v int32) *AppStatusManagerTestResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AppStatusManagerTestResponse) SetBody(v *AppStatusManagerTestResponseBody) *AppStatusManagerTestResponse {
+	s.Body = v
+	return s
+}
+
+type AyunTestResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s AyunTestResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AyunTestResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AyunTestResponseBody) SetRequestId(v string) *AyunTestResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type AyunTestResponse struct {
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AyunTestResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AyunTestResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AyunTestResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AyunTestResponse) SetHeaders(v map[string]*string) *AyunTestResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AyunTestResponse) SetStatusCode(v int32) *AyunTestResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AyunTestResponse) SetBody(v *AyunTestResponseBody) *AyunTestResponse {
+	s.Body = v
+	return s
+}
+
 type CreateApaasAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3904,6 +4059,124 @@ func (client *Client) AnheiTest888() (_result *AnheiTest888Response, _err error)
 	headers := make(map[string]*string)
 	_result = &AnheiTest888Response{}
 	_body, _err := client.AnheiTest888WithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AnheiTestBWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AnheiTestBResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AnheiTestB"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/anheiTestB"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AnheiTestBResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AnheiTestB() (_result *AnheiTestBResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &AnheiTestBResponse{}
+	_body, _err := client.AnheiTestBWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AppStatusManagerTestWithOptions(request *AppStatusManagerTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *AppStatusManagerTestResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		query["requestId"] = request.RequestId
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AppStatusManagerTest"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/manager/test"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AppStatusManagerTestResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AppStatusManagerTest(request *AppStatusManagerTestRequest) (_result *AppStatusManagerTestResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &AppStatusManagerTestResponse{}
+	_body, _err := client.AppStatusManagerTestWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AyunTestWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AyunTestResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AyunTest"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/ayun/test"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AyunTestResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AyunTest() (_result *AyunTestResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &AyunTestResponse{}
+	_body, _err := client.AyunTestWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
