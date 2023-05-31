@@ -135,6 +135,174 @@ func (s *CreateFlashMeetingResponse) SetBody(v *CreateFlashMeetingResponseBody) 
 	return s
 }
 
+type GetShanhuiByCalendarHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetShanhuiByCalendarHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiByCalendarHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiByCalendarHeaders) SetCommonHeaders(v map[string]*string) *GetShanhuiByCalendarHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetShanhuiByCalendarHeaders) SetXAcsDingtalkAccessToken(v string) *GetShanhuiByCalendarHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetShanhuiByCalendarRequest struct {
+	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetShanhuiByCalendarRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiByCalendarRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiByCalendarRequest) SetEventId(v string) *GetShanhuiByCalendarRequest {
+	s.EventId = &v
+	return s
+}
+
+func (s *GetShanhuiByCalendarRequest) SetUserId(v string) *GetShanhuiByCalendarRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetShanhuiByCalendarResponseBody struct {
+	Result  *GetShanhuiByCalendarResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetShanhuiByCalendarResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiByCalendarResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiByCalendarResponseBody) SetResult(v *GetShanhuiByCalendarResponseBodyResult) *GetShanhuiByCalendarResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponseBody) SetSuccess(v bool) *GetShanhuiByCalendarResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetShanhuiByCalendarResponseBodyResult struct {
+	EndTime         *int64                                          `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	FlashmeetingKey *string                                         `json:"flashmeetingKey,omitempty" xml:"flashmeetingKey,omitempty"`
+	StartTime       *int64                                          `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	SummaryDocKey   *string                                         `json:"summaryDocKey,omitempty" xml:"summaryDocKey,omitempty"`
+	Title           *string                                         `json:"title,omitempty" xml:"title,omitempty"`
+	Topics          []*GetShanhuiByCalendarResponseBodyResultTopics `json:"topics,omitempty" xml:"topics,omitempty" type:"Repeated"`
+}
+
+func (s GetShanhuiByCalendarResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiByCalendarResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiByCalendarResponseBodyResult) SetEndTime(v int64) *GetShanhuiByCalendarResponseBodyResult {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponseBodyResult) SetFlashmeetingKey(v string) *GetShanhuiByCalendarResponseBodyResult {
+	s.FlashmeetingKey = &v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponseBodyResult) SetStartTime(v int64) *GetShanhuiByCalendarResponseBodyResult {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponseBodyResult) SetSummaryDocKey(v string) *GetShanhuiByCalendarResponseBodyResult {
+	s.SummaryDocKey = &v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponseBodyResult) SetTitle(v string) *GetShanhuiByCalendarResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponseBodyResult) SetTopics(v []*GetShanhuiByCalendarResponseBodyResultTopics) *GetShanhuiByCalendarResponseBodyResult {
+	s.Topics = v
+	return s
+}
+
+type GetShanhuiByCalendarResponseBodyResultTopics struct {
+	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
+	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetShanhuiByCalendarResponseBodyResultTopics) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiByCalendarResponseBodyResultTopics) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiByCalendarResponseBodyResultTopics) SetDocKey(v string) *GetShanhuiByCalendarResponseBodyResultTopics {
+	s.DocKey = &v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponseBodyResultTopics) SetTitle(v string) *GetShanhuiByCalendarResponseBodyResultTopics {
+	s.Title = &v
+	return s
+}
+
+type GetShanhuiByCalendarResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetShanhuiByCalendarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetShanhuiByCalendarResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiByCalendarResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiByCalendarResponse) SetHeaders(v map[string]*string) *GetShanhuiByCalendarResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponse) SetStatusCode(v int32) *GetShanhuiByCalendarResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponse) SetBody(v *GetShanhuiByCalendarResponseBody) *GetShanhuiByCalendarResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -220,6 +388,65 @@ func (client *Client) CreateFlashMeeting(request *CreateFlashMeetingRequest) (_r
 	headers := &CreateFlashMeetingHeaders{}
 	_result = &CreateFlashMeetingResponse{}
 	_body, _err := client.CreateFlashMeetingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetShanhuiByCalendarWithOptions(request *GetShanhuiByCalendarRequest, headers *GetShanhuiByCalendarHeaders, runtime *util.RuntimeOptions) (_result *GetShanhuiByCalendarResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EventId)) {
+		query["eventId"] = request.EventId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetShanhuiByCalendar"),
+		Version:     tea.String("flashmeeting_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/flashmeeting/calendars/meeting"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetShanhuiByCalendarResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetShanhuiByCalendar(request *GetShanhuiByCalendarRequest) (_result *GetShanhuiByCalendarResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetShanhuiByCalendarHeaders{}
+	_result = &GetShanhuiByCalendarResponse{}
+	_body, _err := client.GetShanhuiByCalendarWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

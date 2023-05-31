@@ -175,6 +175,308 @@ func (s *CloseTopboxResponse) SetBody(v *CloseTopboxResponseBody) *CloseTopboxRe
 	return s
 }
 
+type CreateCoupleGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCoupleGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCoupleGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCoupleGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateCoupleGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCoupleGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCoupleGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCoupleGroupRequest struct {
+	GroupTemplateId *string                          `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	OperatorId      *string                          `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Users           []*CreateCoupleGroupRequestUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
+}
+
+func (s CreateCoupleGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCoupleGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCoupleGroupRequest) SetGroupTemplateId(v string) *CreateCoupleGroupRequest {
+	s.GroupTemplateId = &v
+	return s
+}
+
+func (s *CreateCoupleGroupRequest) SetOperatorId(v string) *CreateCoupleGroupRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CreateCoupleGroupRequest) SetUsers(v []*CreateCoupleGroupRequestUsers) *CreateCoupleGroupRequest {
+	s.Users = v
+	return s
+}
+
+type CreateCoupleGroupRequestUsers struct {
+	AppUserId  *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	GroupOwner *bool   `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateCoupleGroupRequestUsers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCoupleGroupRequestUsers) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCoupleGroupRequestUsers) SetAppUserId(v string) *CreateCoupleGroupRequestUsers {
+	s.AppUserId = &v
+	return s
+}
+
+func (s *CreateCoupleGroupRequestUsers) SetGroupOwner(v bool) *CreateCoupleGroupRequestUsers {
+	s.GroupOwner = &v
+	return s
+}
+
+func (s *CreateCoupleGroupRequestUsers) SetUserId(v string) *CreateCoupleGroupRequestUsers {
+	s.UserId = &v
+	return s
+}
+
+type CreateCoupleGroupResponseBody struct {
+	AppUserIds         []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	ConversationId     *string   `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateCoupleGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCoupleGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCoupleGroupResponseBody) SetAppUserIds(v []*string) *CreateCoupleGroupResponseBody {
+	s.AppUserIds = v
+	return s
+}
+
+func (s *CreateCoupleGroupResponseBody) SetConversationId(v string) *CreateCoupleGroupResponseBody {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *CreateCoupleGroupResponseBody) SetOpenConversationId(v string) *CreateCoupleGroupResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CreateCoupleGroupResponseBody) SetUserIds(v []*string) *CreateCoupleGroupResponseBody {
+	s.UserIds = v
+	return s
+}
+
+type CreateCoupleGroupResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateCoupleGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateCoupleGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCoupleGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCoupleGroupResponse) SetHeaders(v map[string]*string) *CreateCoupleGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCoupleGroupResponse) SetStatusCode(v int32) *CreateCoupleGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateCoupleGroupResponse) SetBody(v *CreateCoupleGroupResponseBody) *CreateCoupleGroupResponse {
+	s.Body = v
+	return s
+}
+
+type CreateGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateGroupRequest struct {
+	GroupAvatar     *string                    `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
+	GroupName       *string                    `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	GroupTemplateId *string                    `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	OperatorId      *string                    `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Users           []*CreateGroupRequestUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
+}
+
+func (s CreateGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupRequest) SetGroupAvatar(v string) *CreateGroupRequest {
+	s.GroupAvatar = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetGroupName(v string) *CreateGroupRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetGroupTemplateId(v string) *CreateGroupRequest {
+	s.GroupTemplateId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetOperatorId(v string) *CreateGroupRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetUsers(v []*CreateGroupRequestUsers) *CreateGroupRequest {
+	s.Users = v
+	return s
+}
+
+type CreateGroupRequestUsers struct {
+	AppUserId  *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	GroupOwner *bool   `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateGroupRequestUsers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupRequestUsers) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupRequestUsers) SetAppUserId(v string) *CreateGroupRequestUsers {
+	s.AppUserId = &v
+	return s
+}
+
+func (s *CreateGroupRequestUsers) SetGroupOwner(v bool) *CreateGroupRequestUsers {
+	s.GroupOwner = &v
+	return s
+}
+
+func (s *CreateGroupRequestUsers) SetUserId(v string) *CreateGroupRequestUsers {
+	s.UserId = &v
+	return s
+}
+
+type CreateGroupResponseBody struct {
+	AppUserIds         []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	ConversationId     *string   `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponseBody) SetAppUserIds(v []*string) *CreateGroupResponseBody {
+	s.AppUserIds = v
+	return s
+}
+
+func (s *CreateGroupResponseBody) SetConversationId(v string) *CreateGroupResponseBody {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *CreateGroupResponseBody) SetOpenConversationId(v string) *CreateGroupResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CreateGroupResponseBody) SetUserIds(v []*string) *CreateGroupResponseBody {
+	s.UserIds = v
+	return s
+}
+
+type CreateGroupResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponse) SetHeaders(v map[string]*string) *CreateGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupResponse) SetStatusCode(v int32) *CreateGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupResponse {
+	s.Body = v
+	return s
+}
+
 type CreateTopboxHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -502,6 +804,140 @@ func (client *Client) CloseTopbox(request *CloseTopboxRequest) (_result *CloseTo
 	headers := &CloseTopboxHeaders{}
 	_result = &CloseTopboxResponse{}
 	_body, _err := client.CloseTopboxWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateCoupleGroupWithOptions(request *CreateCoupleGroupRequest, headers *CreateCoupleGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateCoupleGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupTemplateId)) {
+		body["groupTemplateId"] = request.GroupTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Users)) {
+		body["users"] = request.Users
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateCoupleGroup"),
+		Version:     tea.String("im_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/im/interconnections/couples/groups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateCoupleGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateCoupleGroup(request *CreateCoupleGroupRequest) (_result *CreateCoupleGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCoupleGroupHeaders{}
+	_result = &CreateCoupleGroupResponse{}
+	_body, _err := client.CreateCoupleGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupAvatar)) {
+		body["groupAvatar"] = request.GroupAvatar
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTemplateId)) {
+		body["groupTemplateId"] = request.GroupTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Users)) {
+		body["users"] = request.Users
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateGroup"),
+		Version:     tea.String("im_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/im/interconnections/groups"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateGroupHeaders{}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.CreateGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

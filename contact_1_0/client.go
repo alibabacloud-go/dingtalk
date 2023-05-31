@@ -6188,6 +6188,134 @@ func (s *QueryUserManagementResourcesResponse) SetBody(v *QueryUserManagementRes
 	return s
 }
 
+type QueryVerifyResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryVerifyResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryVerifyResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryVerifyResultHeaders) SetCommonHeaders(v map[string]*string) *QueryVerifyResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryVerifyResultHeaders) SetXAcsDingtalkAccessToken(v string) *QueryVerifyResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryVerifyResultRequest struct {
+	VerifyId *string `json:"verifyId,omitempty" xml:"verifyId,omitempty"`
+}
+
+func (s QueryVerifyResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryVerifyResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryVerifyResultRequest) SetVerifyId(v string) *QueryVerifyResultRequest {
+	s.VerifyId = &v
+	return s
+}
+
+type QueryVerifyResultResponseBody struct {
+	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	FactorCode      *string `json:"factorCode,omitempty" xml:"factorCode,omitempty"`
+	FactorDesc      *string `json:"factorDesc,omitempty" xml:"factorDesc,omitempty"`
+	ResultCode      *string `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
+	ResultDesc      *string `json:"resultDesc,omitempty" xml:"resultDesc,omitempty"`
+	State           *string `json:"state,omitempty" xml:"state,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	VerifyTimestamp *int64  `json:"verifyTimestamp,omitempty" xml:"verifyTimestamp,omitempty"`
+}
+
+func (s QueryVerifyResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryVerifyResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryVerifyResultResponseBody) SetCorpId(v string) *QueryVerifyResultResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryVerifyResultResponseBody) SetFactorCode(v string) *QueryVerifyResultResponseBody {
+	s.FactorCode = &v
+	return s
+}
+
+func (s *QueryVerifyResultResponseBody) SetFactorDesc(v string) *QueryVerifyResultResponseBody {
+	s.FactorDesc = &v
+	return s
+}
+
+func (s *QueryVerifyResultResponseBody) SetResultCode(v string) *QueryVerifyResultResponseBody {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryVerifyResultResponseBody) SetResultDesc(v string) *QueryVerifyResultResponseBody {
+	s.ResultDesc = &v
+	return s
+}
+
+func (s *QueryVerifyResultResponseBody) SetState(v string) *QueryVerifyResultResponseBody {
+	s.State = &v
+	return s
+}
+
+func (s *QueryVerifyResultResponseBody) SetUserId(v string) *QueryVerifyResultResponseBody {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryVerifyResultResponseBody) SetVerifyTimestamp(v int64) *QueryVerifyResultResponseBody {
+	s.VerifyTimestamp = &v
+	return s
+}
+
+type QueryVerifyResultResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryVerifyResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryVerifyResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryVerifyResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryVerifyResultResponse) SetHeaders(v map[string]*string) *QueryVerifyResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryVerifyResultResponse) SetStatusCode(v int32) *QueryVerifyResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryVerifyResultResponse) SetBody(v *QueryVerifyResultResponseBody) *QueryVerifyResultResponse {
+	s.Body = v
+	return s
+}
+
 type SearchDepartmentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11449,6 +11577,61 @@ func (client *Client) QueryUserManagementResources(userId *string) (_result *Que
 	headers := &QueryUserManagementResourcesHeaders{}
 	_result = &QueryUserManagementResourcesResponse{}
 	_body, _err := client.QueryUserManagementResourcesWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryVerifyResultWithOptions(request *QueryVerifyResultRequest, headers *QueryVerifyResultHeaders, runtime *util.RuntimeOptions) (_result *QueryVerifyResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.VerifyId)) {
+		query["verifyId"] = request.VerifyId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryVerifyResult"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/verifyIdentitys/verifyResults"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryVerifyResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryVerifyResult(request *QueryVerifyResultRequest) (_result *QueryVerifyResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryVerifyResultHeaders{}
+	_result = &QueryVerifyResultResponse{}
+	_body, _err := client.QueryVerifyResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

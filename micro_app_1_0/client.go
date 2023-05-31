@@ -475,6 +475,52 @@ func (s *AnheiTestBResponse) SetBody(v *AnheiTestBResponseBody) *AnheiTestBRespo
 	return s
 }
 
+type AnheiTestNineResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s AnheiTestNineResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnheiTestNineResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AnheiTestNineResponseBody) SetRequestId(v string) *AnheiTestNineResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type AnheiTestNineResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AnheiTestNineResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AnheiTestNineResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnheiTestNineResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AnheiTestNineResponse) SetHeaders(v map[string]*string) *AnheiTestNineResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AnheiTestNineResponse) SetStatusCode(v int32) *AnheiTestNineResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AnheiTestNineResponse) SetBody(v *AnheiTestNineResponseBody) *AnheiTestNineResponse {
+	s.Body = v
+	return s
+}
+
 type AppStatusManagerTestRequest struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
@@ -1144,6 +1190,122 @@ func (s *GetApaasAppResponse) SetStatusCode(v int32) *GetApaasAppResponse {
 
 func (s *GetApaasAppResponse) SetBody(v *GetApaasAppResponseBody) *GetApaasAppResponse {
 	s.Body = v
+	return s
+}
+
+type GetAppResourceUseInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAppResourceUseInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppResourceUseInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppResourceUseInfoHeaders) SetCommonHeaders(v map[string]*string) *GetAppResourceUseInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAppResourceUseInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetAppResourceUseInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAppResourceUseInfoRequest struct {
+	BenefitCode *string `json:"benefitCode,omitempty" xml:"benefitCode,omitempty"`
+	EndTime     *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	PeriodType  *string `json:"periodType,omitempty" xml:"periodType,omitempty"`
+	StartTime   *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s GetAppResourceUseInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppResourceUseInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppResourceUseInfoRequest) SetBenefitCode(v string) *GetAppResourceUseInfoRequest {
+	s.BenefitCode = &v
+	return s
+}
+
+func (s *GetAppResourceUseInfoRequest) SetEndTime(v string) *GetAppResourceUseInfoRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetAppResourceUseInfoRequest) SetPeriodType(v string) *GetAppResourceUseInfoRequest {
+	s.PeriodType = &v
+	return s
+}
+
+func (s *GetAppResourceUseInfoRequest) SetStartTime(v string) *GetAppResourceUseInfoRequest {
+	s.StartTime = &v
+	return s
+}
+
+type GetAppResourceUseInfoResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       []*GetAppResourceUseInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true" type:"Repeated"`
+}
+
+func (s GetAppResourceUseInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppResourceUseInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppResourceUseInfoResponse) SetHeaders(v map[string]*string) *GetAppResourceUseInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAppResourceUseInfoResponse) SetStatusCode(v int32) *GetAppResourceUseInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetAppResourceUseInfoResponse) SetBody(v []*GetAppResourceUseInfoResponseBody) *GetAppResourceUseInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetAppResourceUseInfoResponseBody struct {
+	Period   *string `json:"period,omitempty" xml:"period,omitempty"`
+	UsedNum  *int64  `json:"usedNum,omitempty" xml:"usedNum,omitempty"`
+	QuotaNum *int64  `json:"quotaNum,omitempty" xml:"quotaNum,omitempty"`
+}
+
+func (s GetAppResourceUseInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppResourceUseInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppResourceUseInfoResponseBody) SetPeriod(v string) *GetAppResourceUseInfoResponseBody {
+	s.Period = &v
+	return s
+}
+
+func (s *GetAppResourceUseInfoResponseBody) SetUsedNum(v int64) *GetAppResourceUseInfoResponseBody {
+	s.UsedNum = &v
+	return s
+}
+
+func (s *GetAppResourceUseInfoResponseBody) SetQuotaNum(v int64) *GetAppResourceUseInfoResponseBody {
+	s.QuotaNum = &v
 	return s
 }
 
@@ -4102,6 +4264,42 @@ func (client *Client) AnheiTestB() (_result *AnheiTestBResponse, _err error) {
 	return _result, _err
 }
 
+func (client *Client) AnheiTestNineWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AnheiTestNineResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AnheiTestNine"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/anheiTestNine"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AnheiTestNineResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AnheiTestNine() (_result *AnheiTestNineResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &AnheiTestNineResponse{}
+	_body, _err := client.AnheiTestNineWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) AppStatusManagerTestWithOptions(request *AppStatusManagerTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *AppStatusManagerTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4522,6 +4720,73 @@ func (client *Client) GetApaasApp(bizAppId *string) (_result *GetApaasAppRespons
 	headers := &GetApaasAppHeaders{}
 	_result = &GetApaasAppResponse{}
 	_body, _err := client.GetApaasAppWithOptions(bizAppId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAppResourceUseInfoWithOptions(request *GetAppResourceUseInfoRequest, headers *GetAppResourceUseInfoHeaders, runtime *util.RuntimeOptions) (_result *GetAppResourceUseInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BenefitCode)) {
+		query["benefitCode"] = request.BenefitCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PeriodType)) {
+		query["periodType"] = request.PeriodType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAppResourceUseInfo"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/resources/useInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("array"),
+	}
+	_result = &GetAppResourceUseInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAppResourceUseInfo(request *GetAppResourceUseInfoRequest) (_result *GetAppResourceUseInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAppResourceUseInfoHeaders{}
+	_result = &GetAppResourceUseInfoResponse{}
+	_body, _err := client.GetAppResourceUseInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
