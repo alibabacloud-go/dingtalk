@@ -4288,6 +4288,138 @@ func (s *GetOaOperatorLogListResponse) SetBody(v *GetOaOperatorLogListResponseBo
 	return s
 }
 
+type GetOutGroupsByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOutGroupsByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutGroupsByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutGroupsByPageHeaders) SetCommonHeaders(v map[string]*string) *GetOutGroupsByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOutGroupsByPageHeaders) SetXAcsDingtalkAccessToken(v string) *GetOutGroupsByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOutGroupsByPageRequest struct {
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s GetOutGroupsByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutGroupsByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutGroupsByPageRequest) SetPageNumber(v int32) *GetOutGroupsByPageRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetOutGroupsByPageRequest) SetPageSize(v int32) *GetOutGroupsByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+type GetOutGroupsByPageResponseBody struct {
+	ResponseBody *GetOutGroupsByPageResponseBodyResponseBody `json:"responseBody,omitempty" xml:"responseBody,omitempty" type:"Struct"`
+}
+
+func (s GetOutGroupsByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutGroupsByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutGroupsByPageResponseBody) SetResponseBody(v *GetOutGroupsByPageResponseBodyResponseBody) *GetOutGroupsByPageResponseBody {
+	s.ResponseBody = v
+	return s
+}
+
+type GetOutGroupsByPageResponseBodyResponseBody struct {
+	GroupList []*GetOutGroupsByPageResponseBodyResponseBodyGroupList `json:"groupList,omitempty" xml:"groupList,omitempty" type:"Repeated"`
+	Total     *int32                                                 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetOutGroupsByPageResponseBodyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutGroupsByPageResponseBodyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutGroupsByPageResponseBodyResponseBody) SetGroupList(v []*GetOutGroupsByPageResponseBodyResponseBodyGroupList) *GetOutGroupsByPageResponseBodyResponseBody {
+	s.GroupList = v
+	return s
+}
+
+func (s *GetOutGroupsByPageResponseBodyResponseBody) SetTotal(v int32) *GetOutGroupsByPageResponseBodyResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetOutGroupsByPageResponseBodyResponseBodyGroupList struct {
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetOutGroupsByPageResponseBodyResponseBodyGroupList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutGroupsByPageResponseBodyResponseBodyGroupList) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutGroupsByPageResponseBodyResponseBodyGroupList) SetOpenConversationId(v string) *GetOutGroupsByPageResponseBodyResponseBodyGroupList {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetOutGroupsByPageResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetOutGroupsByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOutGroupsByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOutGroupsByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOutGroupsByPageResponse) SetHeaders(v map[string]*string) *GetOutGroupsByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOutGroupsByPageResponse) SetStatusCode(v int32) *GetOutGroupsByPageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetOutGroupsByPageResponse) SetBody(v *GetOutGroupsByPageResponseBody) *GetOutGroupsByPageResponse {
+	s.Body = v
+	return s
+}
+
 type GetOutsideAuditGroupMessageByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11716,6 +11848,65 @@ func (client *Client) GetOaOperatorLogList(request *GetOaOperatorLogListRequest)
 	headers := &GetOaOperatorLogListHeaders{}
 	_result = &GetOaOperatorLogListResponse{}
 	_body, _err := client.GetOaOperatorLogListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOutGroupsByPageWithOptions(request *GetOutGroupsByPageRequest, headers *GetOutGroupsByPageHeaders, runtime *util.RuntimeOptions) (_result *GetOutGroupsByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetOutGroupsByPage"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/audits/outsideGroups/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetOutGroupsByPageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOutGroupsByPage(request *GetOutGroupsByPageRequest) (_result *GetOutGroupsByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOutGroupsByPageHeaders{}
+	_result = &GetOutGroupsByPageResponse{}
+	_body, _err := client.GetOutGroupsByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

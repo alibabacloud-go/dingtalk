@@ -383,6 +383,52 @@ func (s *AddMemberToAppRoleResponse) SetBody(v *AddMemberToAppRoleResponseBody) 
 	return s
 }
 
+type AnheiPResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s AnheiPResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnheiPResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AnheiPResponseBody) SetRequestId(v string) *AnheiPResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type AnheiPResponse struct {
+	Headers    map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AnheiPResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AnheiPResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnheiPResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AnheiPResponse) SetHeaders(v map[string]*string) *AnheiPResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AnheiPResponse) SetStatusCode(v int32) *AnheiPResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AnheiPResponse) SetBody(v *AnheiPResponseBody) *AnheiPResponse {
+	s.Body = v
+	return s
+}
+
 type AnheiTest888ResponseBody struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
@@ -4185,6 +4231,42 @@ func (client *Client) AddMemberToAppRole(agentId *string, roleId *string, reques
 	headers := &AddMemberToAppRoleHeaders{}
 	_result = &AddMemberToAppRoleResponse{}
 	_body, _err := client.AddMemberToAppRoleWithOptions(agentId, roleId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AnheiPWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AnheiPResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AnheiP"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/anheiP"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AnheiPResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AnheiP() (_result *AnheiPResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &AnheiPResponse{}
+	_body, _err := client.AnheiPWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

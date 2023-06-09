@@ -3930,7 +3930,8 @@ type GetShiftResponseBodyResultSectionsPunches struct {
 	BeginMin               *int64                                                    `json:"beginMin,omitempty" xml:"beginMin,omitempty"`
 	CheckTime              *string                                                   `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
 	CheckType              *string                                                   `json:"checkType,omitempty" xml:"checkType,omitempty"`
-	EndMin                 *int64                                                    `json:"end_min,omitempty" xml:"end_min,omitempty"`
+	EndMin                 *int64                                                    `json:"endMin,omitempty" xml:"endMin,omitempty"`
+	FlexMinutes            []*int64                                                  `json:"flexMinutes,omitempty" xml:"flexMinutes,omitempty" type:"Repeated"`
 	FreeCheck              *bool                                                     `json:"freeCheck,omitempty" xml:"freeCheck,omitempty"`
 	LateBackSetting        *GetShiftResponseBodyResultSectionsPunchesLateBackSetting `json:"lateBackSetting,omitempty" xml:"lateBackSetting,omitempty" type:"Struct"`
 	PermitMinutes          *int64                                                    `json:"permitMinutes,omitempty" xml:"permitMinutes,omitempty"`
@@ -3973,6 +3974,11 @@ func (s *GetShiftResponseBodyResultSectionsPunches) SetCheckType(v string) *GetS
 
 func (s *GetShiftResponseBodyResultSectionsPunches) SetEndMin(v int64) *GetShiftResponseBodyResultSectionsPunches {
 	s.EndMin = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultSectionsPunches) SetFlexMinutes(v []*int64) *GetShiftResponseBodyResultSectionsPunches {
+	s.FlexMinutes = v
 	return s
 }
 
@@ -4044,7 +4050,7 @@ func (s *GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs) 
 type GetShiftResponseBodyResultSectionsRests struct {
 	Across    *int64  `json:"across,omitempty" xml:"across,omitempty"`
 	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	CheckType *string `json:"check_type,omitempty" xml:"check_type,omitempty"`
+	CheckType *string `json:"checkType,omitempty" xml:"checkType,omitempty"`
 	RestId    *int64  `json:"restId,omitempty" xml:"restId,omitempty"`
 }
 

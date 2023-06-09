@@ -209,6 +209,110 @@ func (s *GetCoolAppAccessStatusResponse) SetBody(v *GetCoolAppAccessStatusRespon
 	return s
 }
 
+type GetInAppSkuUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInAppSkuUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppSkuUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppSkuUrlHeaders) SetCommonHeaders(v map[string]*string) *GetInAppSkuUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInAppSkuUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetInAppSkuUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInAppSkuUrlRequest struct {
+	CallbackPage *string `json:"callbackPage,omitempty" xml:"callbackPage,omitempty"`
+	ExtendParam  *string `json:"extendParam,omitempty" xml:"extendParam,omitempty"`
+	GoodsCode    *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	ItemCode     *string `json:"itemCode,omitempty" xml:"itemCode,omitempty"`
+}
+
+func (s GetInAppSkuUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppSkuUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppSkuUrlRequest) SetCallbackPage(v string) *GetInAppSkuUrlRequest {
+	s.CallbackPage = &v
+	return s
+}
+
+func (s *GetInAppSkuUrlRequest) SetExtendParam(v string) *GetInAppSkuUrlRequest {
+	s.ExtendParam = &v
+	return s
+}
+
+func (s *GetInAppSkuUrlRequest) SetGoodsCode(v string) *GetInAppSkuUrlRequest {
+	s.GoodsCode = &v
+	return s
+}
+
+func (s *GetInAppSkuUrlRequest) SetItemCode(v string) *GetInAppSkuUrlRequest {
+	s.ItemCode = &v
+	return s
+}
+
+type GetInAppSkuUrlResponseBody struct {
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetInAppSkuUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppSkuUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppSkuUrlResponseBody) SetUrl(v string) *GetInAppSkuUrlResponseBody {
+	s.Url = &v
+	return s
+}
+
+type GetInAppSkuUrlResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetInAppSkuUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInAppSkuUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppSkuUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppSkuUrlResponse) SetHeaders(v map[string]*string) *GetInAppSkuUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInAppSkuUrlResponse) SetStatusCode(v int32) *GetInAppSkuUrlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetInAppSkuUrlResponse) SetBody(v *GetInAppSkuUrlResponseBody) *GetInAppSkuUrlResponse {
+	s.Body = v
+	return s
+}
+
 type GetPersonalExperienceInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -690,6 +794,73 @@ func (client *Client) GetCoolAppAccessStatus(request *GetCoolAppAccessStatusRequ
 	headers := &GetCoolAppAccessStatusHeaders{}
 	_result = &GetCoolAppAccessStatusResponse{}
 	_body, _err := client.GetCoolAppAccessStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInAppSkuUrlWithOptions(request *GetInAppSkuUrlRequest, headers *GetInAppSkuUrlHeaders, runtime *util.RuntimeOptions) (_result *GetInAppSkuUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CallbackPage)) {
+		body["callbackPage"] = request.CallbackPage
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtendParam)) {
+		body["extendParam"] = request.ExtendParam
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GoodsCode)) {
+		body["goodsCode"] = request.GoodsCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ItemCode)) {
+		body["itemCode"] = request.ItemCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetInAppSkuUrl"),
+		Version:     tea.String("appMarket_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/appMarket/internals/skuPages/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetInAppSkuUrlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetInAppSkuUrl(request *GetInAppSkuUrlRequest) (_result *GetInAppSkuUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInAppSkuUrlHeaders{}
+	_result = &GetInAppSkuUrlResponse{}
+	_body, _err := client.GetInAppSkuUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -800,6 +800,52 @@ func (s *DeviceConferenceResponse) SetBody(v *DeviceConferenceResponseBody) *Dev
 	return s
 }
 
+type DiotSystemMarkTestResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s DiotSystemMarkTestResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DiotSystemMarkTestResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DiotSystemMarkTestResponseBody) SetRequestId(v string) *DiotSystemMarkTestResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type DiotSystemMarkTestResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DiotSystemMarkTestResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DiotSystemMarkTestResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DiotSystemMarkTestResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DiotSystemMarkTestResponse) SetHeaders(v map[string]*string) *DiotSystemMarkTestResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DiotSystemMarkTestResponse) SetStatusCode(v int32) *DiotSystemMarkTestResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DiotSystemMarkTestResponse) SetBody(v *DiotSystemMarkTestResponseBody) *DiotSystemMarkTestResponse {
+	s.Body = v
+	return s
+}
+
 type PushEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1973,6 +2019,42 @@ func (client *Client) DeviceConference(request *DeviceConferenceRequest) (_resul
 	headers := &DeviceConferenceHeaders{}
 	_result = &DeviceConferenceResponse{}
 	_body, _err := client.DeviceConferenceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DiotSystemMarkTestWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DiotSystemMarkTestResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DiotSystemMarkTest"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/sys/mark/test"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DiotSystemMarkTestResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DiotSystemMarkTest() (_result *DiotSystemMarkTestResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &DiotSystemMarkTestResponse{}
+	_body, _err := client.DiotSystemMarkTestWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
