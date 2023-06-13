@@ -13,6 +13,69 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AyunOnlienTestRequest struct {
+	ReqId *string `json:"reqId,omitempty" xml:"reqId,omitempty"`
+}
+
+func (s AyunOnlienTestRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AyunOnlienTestRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AyunOnlienTestRequest) SetReqId(v string) *AyunOnlienTestRequest {
+	s.ReqId = &v
+	return s
+}
+
+type AyunOnlienTestResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s AyunOnlienTestResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AyunOnlienTestResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AyunOnlienTestResponseBody) SetRequestId(v string) *AyunOnlienTestResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type AyunOnlienTestResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AyunOnlienTestResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AyunOnlienTestResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AyunOnlienTestResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AyunOnlienTestResponse) SetHeaders(v map[string]*string) *AyunOnlienTestResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AyunOnlienTestResponse) SetStatusCode(v int32) *AyunOnlienTestResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AyunOnlienTestResponse) SetBody(v *AyunOnlienTestResponseBody) *AyunOnlienTestResponse {
+	s.Body = v
+	return s
+}
+
 type BatchDeleteDeviceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1650,6 +1713,52 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) AyunOnlienTestWithOptions(request *AyunOnlienTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *AyunOnlienTestResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ReqId)) {
+		query["reqId"] = request.ReqId
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AyunOnlienTest"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/ayunTest"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AyunOnlienTestResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AyunOnlienTest(request *AyunOnlienTestRequest) (_result *AyunOnlienTestResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &AyunOnlienTestResponse{}
+	_body, _err := client.AyunOnlienTestWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) BatchDeleteDeviceWithOptions(request *BatchDeleteDeviceRequest, headers *BatchDeleteDeviceHeaders, runtime *util.RuntimeOptions) (_result *BatchDeleteDeviceResponse, _err error) {

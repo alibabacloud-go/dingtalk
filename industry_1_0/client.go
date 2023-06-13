@@ -17565,6 +17565,110 @@ func (s *SupplyChainUpdateDeptInfoResponse) SetBody(v *SupplyChainUpdateDeptInfo
 	return s
 }
 
+type SupplyDeleteMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SupplyDeleteMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyDeleteMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyDeleteMemberHeaders) SetCommonHeaders(v map[string]*string) *SupplyDeleteMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SupplyDeleteMemberHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyDeleteMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SupplyDeleteMemberRequest struct {
+	DeptId  *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	Mobile  *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SupplyDeleteMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyDeleteMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyDeleteMemberRequest) SetDeptId(v int64) *SupplyDeleteMemberRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *SupplyDeleteMemberRequest) SetMobile(v string) *SupplyDeleteMemberRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *SupplyDeleteMemberRequest) SetUnionId(v string) *SupplyDeleteMemberRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *SupplyDeleteMemberRequest) SetUserId(v string) *SupplyDeleteMemberRequest {
+	s.UserId = &v
+	return s
+}
+
+type SupplyDeleteMemberResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SupplyDeleteMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyDeleteMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyDeleteMemberResponseBody) SetResult(v bool) *SupplyDeleteMemberResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SupplyDeleteMemberResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SupplyDeleteMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SupplyDeleteMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SupplyDeleteMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SupplyDeleteMemberResponse) SetHeaders(v map[string]*string) *SupplyDeleteMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SupplyDeleteMemberResponse) SetStatusCode(v int32) *SupplyDeleteMemberResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SupplyDeleteMemberResponse) SetBody(v *SupplyDeleteMemberResponseBody) *SupplyDeleteMemberResponse {
+	s.Body = v
+	return s
+}
+
 type SupplyDeletePartnerAdminsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -27427,6 +27531,73 @@ func (client *Client) SupplyChainUpdateDeptInfo(request *SupplyChainUpdateDeptIn
 	headers := &SupplyChainUpdateDeptInfoHeaders{}
 	_result = &SupplyChainUpdateDeptInfoResponse{}
 	_body, _err := client.SupplyChainUpdateDeptInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SupplyDeleteMemberWithOptions(request *SupplyDeleteMemberRequest, headers *SupplyDeleteMemberHeaders, runtime *util.RuntimeOptions) (_result *SupplyDeleteMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
+		query["mobile"] = request.Mobile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SupplyDeleteMember"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/supplyChains/members"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SupplyDeleteMemberResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SupplyDeleteMember(request *SupplyDeleteMemberRequest) (_result *SupplyDeleteMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SupplyDeleteMemberHeaders{}
+	_result = &SupplyDeleteMemberResponse{}
+	_body, _err := client.SupplyDeleteMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
