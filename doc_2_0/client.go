@@ -5551,6 +5551,7 @@ type SearchRequestDentryRequest struct {
 	SearchField    *int32                                    `json:"searchField,omitempty" xml:"searchField,omitempty"`
 	SearchFileType *int32                                    `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
 	SpaceId        *string                                   `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceIds       []*string                                 `json:"spaceIds,omitempty" xml:"spaceIds,omitempty" type:"Repeated"`
 	SummaryLength  *int32                                    `json:"summaryLength,omitempty" xml:"summaryLength,omitempty"`
 	VisitTimeRange *SearchRequestDentryRequestVisitTimeRange `json:"visitTimeRange,omitempty" xml:"visitTimeRange,omitempty" type:"Struct"`
 }
@@ -5585,6 +5586,11 @@ func (s *SearchRequestDentryRequest) SetSearchFileType(v int32) *SearchRequestDe
 
 func (s *SearchRequestDentryRequest) SetSpaceId(v string) *SearchRequestDentryRequest {
 	s.SpaceId = &v
+	return s
+}
+
+func (s *SearchRequestDentryRequest) SetSpaceIds(v []*string) *SearchRequestDentryRequest {
+	s.SpaceIds = v
 	return s
 }
 

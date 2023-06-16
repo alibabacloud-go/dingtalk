@@ -303,6 +303,216 @@ func (s *GetShanhuiByCalendarResponse) SetBody(v *GetShanhuiByCalendarResponseBo
 	return s
 }
 
+type GetTaskFromShanhuiDocHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTaskFromShanhuiDocHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskFromShanhuiDocHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskFromShanhuiDocHeaders) SetCommonHeaders(v map[string]*string) *GetTaskFromShanhuiDocHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskFromShanhuiDocHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTaskFromShanhuiDocRequest struct {
+	DocKey     *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetTaskFromShanhuiDocRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskFromShanhuiDocRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskFromShanhuiDocRequest) SetDocKey(v string) *GetTaskFromShanhuiDocRequest {
+	s.DocKey = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocRequest) SetMaxResults(v int64) *GetTaskFromShanhuiDocRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocRequest) SetNextToken(v int64) *GetTaskFromShanhuiDocRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocRequest) SetUnionId(v string) *GetTaskFromShanhuiDocRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetTaskFromShanhuiDocResponseBody struct {
+	Result  *GetTaskFromShanhuiDocResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetTaskFromShanhuiDocResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskFromShanhuiDocResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskFromShanhuiDocResponseBody) SetResult(v *GetTaskFromShanhuiDocResponseBodyResult) *GetTaskFromShanhuiDocResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBody) SetSuccess(v bool) *GetTaskFromShanhuiDocResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetTaskFromShanhuiDocResponseBodyResult struct {
+	HasMore   *bool                                           `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Items     []*GetTaskFromShanhuiDocResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NextToken *string                                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Total     *int64                                          `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetTaskFromShanhuiDocResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskFromShanhuiDocResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResult) SetHasMore(v bool) *GetTaskFromShanhuiDocResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResult) SetItems(v []*GetTaskFromShanhuiDocResponseBodyResultItems) *GetTaskFromShanhuiDocResponseBodyResult {
+	s.Items = v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResult) SetNextToken(v string) *GetTaskFromShanhuiDocResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResult) SetTotal(v int64) *GetTaskFromShanhuiDocResponseBodyResult {
+	s.Total = &v
+	return s
+}
+
+type GetTaskFromShanhuiDocResponseBodyResultItems struct {
+	CreateTime *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Deadline   *int64  `json:"deadline,omitempty" xml:"deadline,omitempty"`
+	Deleted    *bool   `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	Priority   *int64  `json:"priority,omitempty" xml:"priority,omitempty"`
+	TaskKey    *string `json:"taskKey,omitempty" xml:"taskKey,omitempty"`
+	TaskStatus *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+	TaskType   *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
+	UpdateTime *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+}
+
+func (s GetTaskFromShanhuiDocResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskFromShanhuiDocResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetCreateTime(v int64) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetDeadline(v int64) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.Deadline = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetDeleted(v bool) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.Deleted = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetPriority(v int64) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.Priority = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetTaskKey(v string) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.TaskKey = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetTaskStatus(v string) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.TaskStatus = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetTaskType(v string) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.TaskType = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetTitle(v string) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.Title = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetUpdateTime(v int64) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.UpdateTime = &v
+	return s
+}
+
+type GetTaskFromShanhuiDocResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTaskFromShanhuiDocResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTaskFromShanhuiDocResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskFromShanhuiDocResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskFromShanhuiDocResponse) SetHeaders(v map[string]*string) *GetTaskFromShanhuiDocResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponse) SetStatusCode(v int32) *GetTaskFromShanhuiDocResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponse) SetBody(v *GetTaskFromShanhuiDocResponseBody) *GetTaskFromShanhuiDocResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -447,6 +657,73 @@ func (client *Client) GetShanhuiByCalendar(request *GetShanhuiByCalendarRequest)
 	headers := &GetShanhuiByCalendarHeaders{}
 	_result = &GetShanhuiByCalendarResponse{}
 	_body, _err := client.GetShanhuiByCalendarWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTaskFromShanhuiDocWithOptions(request *GetTaskFromShanhuiDocRequest, headers *GetTaskFromShanhuiDocHeaders, runtime *util.RuntimeOptions) (_result *GetTaskFromShanhuiDocResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DocKey)) {
+		query["docKey"] = request.DocKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTaskFromShanhuiDoc"),
+		Version:     tea.String("flashmeeting_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/flashmeeting/meetings/tasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTaskFromShanhuiDocResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTaskFromShanhuiDoc(request *GetTaskFromShanhuiDocRequest) (_result *GetTaskFromShanhuiDocResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTaskFromShanhuiDocHeaders{}
+	_result = &GetTaskFromShanhuiDocResponse{}
+	_body, _err := client.GetTaskFromShanhuiDocWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

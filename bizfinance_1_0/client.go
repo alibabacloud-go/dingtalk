@@ -140,6 +140,7 @@ type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
 	PurchaserTaxNo                 *string                                                                     `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
 	PurchaserTel                   *string                                                                     `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	Remark                         *string                                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
+	Reviewer                       *string                                                                     `json:"reviewer,omitempty" xml:"reviewer,omitempty"`
 	SecondHandCarInvoiceDetailList []*BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
 	SellerAddress                  *string                                                                     `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
 	SellerBankAccount              *string                                                                     `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
@@ -301,6 +302,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserTel(v string) *
 
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetRemark(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.Remark = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetReviewer(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.Reviewer = &v
 	return s
 }
 
@@ -5009,6 +5015,7 @@ func (s *QueryReceiptDetailForInvoiceResponseBody) SetResult(v *QueryReceiptDeta
 type QueryReceiptDetailForInvoiceResponseBodyResult struct {
 	Amount            *string                                                          `json:"amount,omitempty" xml:"amount,omitempty"`
 	ApplyStatus       *string                                                          `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
+	BizStatus         *string                                                          `json:"bizStatus,omitempty" xml:"bizStatus,omitempty"`
 	CreateTime        *string                                                          `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator           *QueryReceiptDetailForInvoiceResponseBodyResultCreator           `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	Customer          *QueryReceiptDetailForInvoiceResponseBodyResultCustomer          `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
@@ -5046,6 +5053,11 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetAmount(v string) *Qu
 
 func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetApplyStatus(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
 	s.ApplyStatus = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetBizStatus(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.BizStatus = &v
 	return s
 }
 
@@ -5202,13 +5214,16 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResultCustomer) SetName(v strin
 }
 
 type QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList struct {
-	AmountWithTax    *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
-	Quantity         *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	Specification    *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	TaxRate          *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	Unit             *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	UnitPriceWithTax *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
+	AmountWithTax       *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	AmountWithoutTax    *string `json:"amountWithoutTax,omitempty" xml:"amountWithoutTax,omitempty"`
+	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
+	Quantity            *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	Specification       *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit                *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPriceWithTax    *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
+	UnitPriceWithoutTax *string `json:"unitPriceWithoutTax,omitempty" xml:"unitPriceWithoutTax,omitempty"`
+	WithTax             *bool   `json:"withTax,omitempty" xml:"withTax,omitempty"`
 }
 
 func (s QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) String() string {
@@ -5221,6 +5236,11 @@ func (s QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) GoString(
 
 func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetAmountWithTax(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
 	s.AmountWithTax = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetAmountWithoutTax(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.AmountWithoutTax = &v
 	return s
 }
 
@@ -5251,6 +5271,16 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetUnit(
 
 func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetUnitPriceWithTax(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
 	s.UnitPriceWithTax = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetUnitPriceWithoutTax(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.UnitPriceWithoutTax = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetWithTax(v bool) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.WithTax = &v
 	return s
 }
 
@@ -5308,6 +5338,7 @@ func (s *QueryReceiptForInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 
 type QueryReceiptForInvoiceRequest struct {
 	ApplyStatusList   []*string `json:"applyStatusList,omitempty" xml:"applyStatusList,omitempty" type:"Repeated"`
+	BizStatusList     []*string `json:"bizStatusList,omitempty" xml:"bizStatusList,omitempty" type:"Repeated"`
 	EndTime           *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	PageNumber        *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	PageSize          *int64    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
@@ -5326,6 +5357,11 @@ func (s QueryReceiptForInvoiceRequest) GoString() string {
 
 func (s *QueryReceiptForInvoiceRequest) SetApplyStatusList(v []*string) *QueryReceiptForInvoiceRequest {
 	s.ApplyStatusList = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetBizStatusList(v []*string) *QueryReceiptForInvoiceRequest {
+	s.BizStatusList = v
 	return s
 }
 
@@ -5391,6 +5427,7 @@ func (s *QueryReceiptForInvoiceResponseBody) SetTotalCount(v int64) *QueryReceip
 type QueryReceiptForInvoiceResponseBodyList struct {
 	Amount            *string                                                  `json:"amount,omitempty" xml:"amount,omitempty"`
 	ApplyStatus       *string                                                  `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
+	BizStatus         *string                                                  `json:"bizStatus,omitempty" xml:"bizStatus,omitempty"`
 	CreateTime        *string                                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator           *QueryReceiptForInvoiceResponseBodyListCreator           `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	Customer          *QueryReceiptForInvoiceResponseBodyListCustomer          `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
@@ -5428,6 +5465,11 @@ func (s *QueryReceiptForInvoiceResponseBodyList) SetAmount(v string) *QueryRecei
 
 func (s *QueryReceiptForInvoiceResponseBodyList) SetApplyStatus(v string) *QueryReceiptForInvoiceResponseBodyList {
 	s.ApplyStatus = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetBizStatus(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.BizStatus = &v
 	return s
 }
 
@@ -5584,13 +5626,16 @@ func (s *QueryReceiptForInvoiceResponseBodyListCustomer) SetName(v string) *Quer
 }
 
 type QueryReceiptForInvoiceResponseBodyListProductInfoList struct {
-	AmountWithTax    *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
-	Quantity         *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	Specification    *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	TaxRate          *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	Unit             *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	UnitPriceWithTax *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
+	AmountWithTax       *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	AmountWithoutTax    *string `json:"amountWithoutTax,omitempty" xml:"amountWithoutTax,omitempty"`
+	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
+	Quantity            *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	Specification       *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit                *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPriceWithTax    *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
+	UnitPriceWithoutTax *string `json:"unitPriceWithoutTax,omitempty" xml:"unitPriceWithoutTax,omitempty"`
+	WithTax             *bool   `json:"withTax,omitempty" xml:"withTax,omitempty"`
 }
 
 func (s QueryReceiptForInvoiceResponseBodyListProductInfoList) String() string {
@@ -5603,6 +5648,11 @@ func (s QueryReceiptForInvoiceResponseBodyListProductInfoList) GoString() string
 
 func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetAmountWithTax(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
 	s.AmountWithTax = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetAmountWithoutTax(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.AmountWithoutTax = &v
 	return s
 }
 
@@ -5633,6 +5683,16 @@ func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetUnit(v string
 
 func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetUnitPriceWithTax(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
 	s.UnitPriceWithTax = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetUnitPriceWithoutTax(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.UnitPriceWithoutTax = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetWithTax(v bool) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.WithTax = &v
 	return s
 }
 
@@ -13864,6 +13924,10 @@ func (client *Client) QueryReceiptForInvoiceWithOptions(request *QueryReceiptFor
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ApplyStatusList)) {
 		body["applyStatusList"] = request.ApplyStatusList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizStatusList)) {
+		body["bizStatusList"] = request.BizStatusList
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.EndTime)) {

@@ -5234,6 +5234,122 @@ func (s *SeachTaskStageResponse) SetBody(v *SeachTaskStageResponseBody) *SeachTa
 	return s
 }
 
+type SearchAllTasksByTqlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchAllTasksByTqlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchAllTasksByTqlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchAllTasksByTqlHeaders) SetCommonHeaders(v map[string]*string) *SearchAllTasksByTqlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchAllTasksByTqlHeaders) SetXAcsDingtalkAccessToken(v string) *SearchAllTasksByTqlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchAllTasksByTqlRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Tql        *string `json:"tql,omitempty" xml:"tql,omitempty"`
+}
+
+func (s SearchAllTasksByTqlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchAllTasksByTqlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchAllTasksByTqlRequest) SetMaxResults(v int32) *SearchAllTasksByTqlRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchAllTasksByTqlRequest) SetNextToken(v string) *SearchAllTasksByTqlRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchAllTasksByTqlRequest) SetTql(v string) *SearchAllTasksByTqlRequest {
+	s.Tql = &v
+	return s
+}
+
+type SearchAllTasksByTqlResponseBody struct {
+	NextToken *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	RequestId *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalSize *int32    `json:"totalSize,omitempty" xml:"totalSize,omitempty"`
+}
+
+func (s SearchAllTasksByTqlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchAllTasksByTqlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchAllTasksByTqlResponseBody) SetNextToken(v string) *SearchAllTasksByTqlResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchAllTasksByTqlResponseBody) SetRequestId(v string) *SearchAllTasksByTqlResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SearchAllTasksByTqlResponseBody) SetResult(v []*string) *SearchAllTasksByTqlResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SearchAllTasksByTqlResponseBody) SetTotalSize(v int32) *SearchAllTasksByTqlResponseBody {
+	s.TotalSize = &v
+	return s
+}
+
+type SearchAllTasksByTqlResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchAllTasksByTqlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchAllTasksByTqlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchAllTasksByTqlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchAllTasksByTqlResponse) SetHeaders(v map[string]*string) *SearchAllTasksByTqlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchAllTasksByTqlResponse) SetStatusCode(v int32) *SearchAllTasksByTqlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SearchAllTasksByTqlResponse) SetBody(v *SearchAllTasksByTqlResponseBody) *SearchAllTasksByTqlResponse {
+	s.Body = v
+	return s
+}
+
 type SearchOranizationCustomfieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11351,6 +11467,69 @@ func (client *Client) SeachTaskStage(userId *string, projectId *string, request 
 	headers := &SeachTaskStageHeaders{}
 	_result = &SeachTaskStageResponse{}
 	_body, _err := client.SeachTaskStageWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchAllTasksByTqlWithOptions(userId *string, request *SearchAllTasksByTqlRequest, headers *SearchAllTasksByTqlHeaders, runtime *util.RuntimeOptions) (_result *SearchAllTasksByTqlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tql)) {
+		query["tql"] = request.Tql
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchAllTasksByTql"),
+		Version:     tea.String("project_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/project/users/" + tea.StringValue(userId) + "/tql/tasks/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SearchAllTasksByTqlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchAllTasksByTql(userId *string, request *SearchAllTasksByTqlRequest) (_result *SearchAllTasksByTqlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchAllTasksByTqlHeaders{}
+	_result = &SearchAllTasksByTqlResponse{}
+	_body, _err := client.SearchAllTasksByTqlWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

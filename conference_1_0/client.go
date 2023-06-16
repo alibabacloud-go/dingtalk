@@ -440,6 +440,797 @@ func (s *FocusResponse) SetBody(v *FocusResponseBody) *FocusResponse {
 	return s
 }
 
+type GetConfDataByConferenceIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetConfDataByConferenceIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfDataByConferenceIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfDataByConferenceIdHeaders) SetCommonHeaders(v map[string]*string) *GetConfDataByConferenceIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetConfDataByConferenceIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetConfDataByConferenceIdRequest struct {
+	RealData *bool `json:"realData,omitempty" xml:"realData,omitempty"`
+}
+
+func (s GetConfDataByConferenceIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfDataByConferenceIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfDataByConferenceIdRequest) SetRealData(v bool) *GetConfDataByConferenceIdRequest {
+	s.RealData = &v
+	return s
+}
+
+type GetConfDataByConferenceIdResponseBody struct {
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	CreatorId    *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CreatorNick  *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	DeptName     *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	FreeType     *string `json:"freeType,omitempty" xml:"freeType,omitempty"`
+	Scene        *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TimeLength   *int64  `json:"timeLength,omitempty" xml:"timeLength,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserCount    *int32  `json:"userCount,omitempty" xml:"userCount,omitempty"`
+}
+
+func (s GetConfDataByConferenceIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfDataByConferenceIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetConferenceId(v string) *GetConfDataByConferenceIdResponseBody {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetCreatorId(v string) *GetConfDataByConferenceIdResponseBody {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetCreatorNick(v string) *GetConfDataByConferenceIdResponseBody {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetDeptName(v string) *GetConfDataByConferenceIdResponseBody {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetEndTime(v int64) *GetConfDataByConferenceIdResponseBody {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetFreeType(v string) *GetConfDataByConferenceIdResponseBody {
+	s.FreeType = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetScene(v string) *GetConfDataByConferenceIdResponseBody {
+	s.Scene = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetStartTime(v int64) *GetConfDataByConferenceIdResponseBody {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetTimeLength(v int64) *GetConfDataByConferenceIdResponseBody {
+	s.TimeLength = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetTitle(v string) *GetConfDataByConferenceIdResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponseBody) SetUserCount(v int32) *GetConfDataByConferenceIdResponseBody {
+	s.UserCount = &v
+	return s
+}
+
+type GetConfDataByConferenceIdResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetConfDataByConferenceIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetConfDataByConferenceIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfDataByConferenceIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfDataByConferenceIdResponse) SetHeaders(v map[string]*string) *GetConfDataByConferenceIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponse) SetStatusCode(v int32) *GetConfDataByConferenceIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetConfDataByConferenceIdResponse) SetBody(v *GetConfDataByConferenceIdResponseBody) *GetConfDataByConferenceIdResponse {
+	s.Body = v
+	return s
+}
+
+type GetConfDetailDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetConfDetailDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfDetailDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfDetailDataHeaders) SetCommonHeaders(v map[string]*string) *GetConfDetailDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetConfDetailDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetConfDetailDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetConfDetailDataRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Nick       *string `json:"nick,omitempty" xml:"nick,omitempty"`
+}
+
+func (s GetConfDetailDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfDetailDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfDetailDataRequest) SetMaxResults(v int32) *GetConfDetailDataRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetConfDetailDataRequest) SetNextToken(v string) *GetConfDetailDataRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetConfDetailDataRequest) SetNick(v string) *GetConfDetailDataRequest {
+	s.Nick = &v
+	return s
+}
+
+type GetConfDetailDataResponseBody struct {
+	List      []*GetConfDetailDataResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *string                              `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetConfDetailDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfDetailDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfDetailDataResponseBody) SetList(v []*GetConfDetailDataResponseBodyList) *GetConfDetailDataResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBody) SetNextToken(v string) *GetConfDetailDataResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type GetConfDetailDataResponseBodyList struct {
+	BelongOrg      *string `json:"belongOrg,omitempty" xml:"belongOrg,omitempty"`
+	ConferenceId   *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	DeviceType     *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	Duration       *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
+	JoinTime       *int64  `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
+	LeaveTime      *int64  `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
+	NetworkQuality *string `json:"networkQuality,omitempty" xml:"networkQuality,omitempty"`
+	Nick           *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	Role           *string `json:"role,omitempty" xml:"role,omitempty"`
+	SessionId      *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
+	UnionId        *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Version        *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s GetConfDetailDataResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfDetailDataResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetBelongOrg(v string) *GetConfDetailDataResponseBodyList {
+	s.BelongOrg = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetConferenceId(v string) *GetConfDetailDataResponseBodyList {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetDeviceType(v string) *GetConfDetailDataResponseBodyList {
+	s.DeviceType = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetDuration(v int64) *GetConfDetailDataResponseBodyList {
+	s.Duration = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetJoinTime(v int64) *GetConfDetailDataResponseBodyList {
+	s.JoinTime = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetLeaveTime(v int64) *GetConfDetailDataResponseBodyList {
+	s.LeaveTime = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetNetworkQuality(v string) *GetConfDetailDataResponseBodyList {
+	s.NetworkQuality = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetNick(v string) *GetConfDetailDataResponseBodyList {
+	s.Nick = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetRole(v string) *GetConfDetailDataResponseBodyList {
+	s.Role = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetSessionId(v string) *GetConfDetailDataResponseBodyList {
+	s.SessionId = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetStatus(v string) *GetConfDetailDataResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetUnionId(v string) *GetConfDetailDataResponseBodyList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponseBodyList) SetVersion(v string) *GetConfDetailDataResponseBodyList {
+	s.Version = &v
+	return s
+}
+
+type GetConfDetailDataResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetConfDetailDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetConfDetailDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfDetailDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfDetailDataResponse) SetHeaders(v map[string]*string) *GetConfDetailDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetConfDetailDataResponse) SetStatusCode(v int32) *GetConfDetailDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetConfDetailDataResponse) SetBody(v *GetConfDetailDataResponseBody) *GetConfDetailDataResponse {
+	s.Body = v
+	return s
+}
+
+type GetHistoryConfDataListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetHistoryConfDataListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHistoryConfDataListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetHistoryConfDataListHeaders) SetCommonHeaders(v map[string]*string) *GetHistoryConfDataListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetHistoryConfDataListHeaders) SetXAcsDingtalkAccessToken(v string) *GetHistoryConfDataListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetHistoryConfDataListRequest struct {
+	CreatorNike *string `json:"creatorNike,omitempty" xml:"creatorNike,omitempty"`
+	EndTime     *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	FreeType    *string `json:"freeType,omitempty" xml:"freeType,omitempty"`
+	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	RealData    *bool   `json:"realData,omitempty" xml:"realData,omitempty"`
+	Scene       *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	StartTime   *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetHistoryConfDataListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHistoryConfDataListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetHistoryConfDataListRequest) SetCreatorNike(v string) *GetHistoryConfDataListRequest {
+	s.CreatorNike = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListRequest) SetEndTime(v int64) *GetHistoryConfDataListRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListRequest) SetFreeType(v string) *GetHistoryConfDataListRequest {
+	s.FreeType = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListRequest) SetMaxResults(v int32) *GetHistoryConfDataListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListRequest) SetNextToken(v string) *GetHistoryConfDataListRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListRequest) SetRealData(v bool) *GetHistoryConfDataListRequest {
+	s.RealData = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListRequest) SetScene(v string) *GetHistoryConfDataListRequest {
+	s.Scene = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListRequest) SetStartTime(v int64) *GetHistoryConfDataListRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListRequest) SetTitle(v string) *GetHistoryConfDataListRequest {
+	s.Title = &v
+	return s
+}
+
+type GetHistoryConfDataListResponseBody struct {
+	List      []*GetHistoryConfDataListResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *string                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetHistoryConfDataListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHistoryConfDataListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetHistoryConfDataListResponseBody) SetList(v []*GetHistoryConfDataListResponseBodyList) *GetHistoryConfDataListResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBody) SetNextToken(v string) *GetHistoryConfDataListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type GetHistoryConfDataListResponseBodyList struct {
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	CreatorId    *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CreatorNick  *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	DeptName     *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	FreeType     *string `json:"freeType,omitempty" xml:"freeType,omitempty"`
+	Scene        *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TimeLength   *int64  `json:"timeLength,omitempty" xml:"timeLength,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserCount    *int32  `json:"userCount,omitempty" xml:"userCount,omitempty"`
+}
+
+func (s GetHistoryConfDataListResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHistoryConfDataListResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetConferenceId(v string) *GetHistoryConfDataListResponseBodyList {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetCreatorId(v string) *GetHistoryConfDataListResponseBodyList {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetCreatorNick(v string) *GetHistoryConfDataListResponseBodyList {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetDeptName(v string) *GetHistoryConfDataListResponseBodyList {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetEndTime(v int64) *GetHistoryConfDataListResponseBodyList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetFreeType(v string) *GetHistoryConfDataListResponseBodyList {
+	s.FreeType = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetScene(v string) *GetHistoryConfDataListResponseBodyList {
+	s.Scene = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetStartTime(v int64) *GetHistoryConfDataListResponseBodyList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetTimeLength(v int64) *GetHistoryConfDataListResponseBodyList {
+	s.TimeLength = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetTitle(v string) *GetHistoryConfDataListResponseBodyList {
+	s.Title = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponseBodyList) SetUserCount(v int32) *GetHistoryConfDataListResponseBodyList {
+	s.UserCount = &v
+	return s
+}
+
+type GetHistoryConfDataListResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetHistoryConfDataListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetHistoryConfDataListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHistoryConfDataListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetHistoryConfDataListResponse) SetHeaders(v map[string]*string) *GetHistoryConfDataListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponse) SetStatusCode(v int32) *GetHistoryConfDataListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetHistoryConfDataListResponse) SetBody(v *GetHistoryConfDataListResponseBody) *GetHistoryConfDataListResponse {
+	s.Body = v
+	return s
+}
+
+type GetUserMetricDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserMetricDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserMetricDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserMetricDataHeaders) SetCommonHeaders(v map[string]*string) *GetUserMetricDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserMetricDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserMetricDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserMetricDataRequest struct {
+	BeginTime *int64  `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	EndTime   *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetUserMetricDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserMetricDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserMetricDataRequest) SetBeginTime(v int64) *GetUserMetricDataRequest {
+	s.BeginTime = &v
+	return s
+}
+
+func (s *GetUserMetricDataRequest) SetEndTime(v int64) *GetUserMetricDataRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetUserMetricDataRequest) SetUnionId(v string) *GetUserMetricDataRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetUserMetricDataResponseBody struct {
+	MetricDataList []*GetUserMetricDataResponseBodyMetricDataList `json:"metricDataList,omitempty" xml:"metricDataList,omitempty" type:"Repeated"`
+}
+
+func (s GetUserMetricDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserMetricDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserMetricDataResponseBody) SetMetricDataList(v []*GetUserMetricDataResponseBodyMetricDataList) *GetUserMetricDataResponseBody {
+	s.MetricDataList = v
+	return s
+}
+
+type GetUserMetricDataResponseBodyMetricDataList struct {
+	AudioPlayLevel             *string `json:"audioPlayLevel,omitempty" xml:"audioPlayLevel,omitempty"`
+	AudioRecLevel              *string `json:"audioRecLevel,omitempty" xml:"audioRecLevel,omitempty"`
+	AudioRecvBitRate           *string `json:"audioRecvBitRate,omitempty" xml:"audioRecvBitRate,omitempty"`
+	AudioSendBitRate           *string `json:"audioSendBitRate,omitempty" xml:"audioSendBitRate,omitempty"`
+	CameraRecvBitRate          *string `json:"cameraRecvBitRate,omitempty" xml:"cameraRecvBitRate,omitempty"`
+	CameraRecvFrame            *string `json:"cameraRecvFrame,omitempty" xml:"cameraRecvFrame,omitempty"`
+	CameraRecvResolutionActual *string `json:"cameraRecvResolutionActual,omitempty" xml:"cameraRecvResolutionActual,omitempty"`
+	CameraSendBitRate          *string `json:"cameraSendBitRate,omitempty" xml:"cameraSendBitRate,omitempty"`
+	CameraSendFrame            *string `json:"cameraSendFrame,omitempty" xml:"cameraSendFrame,omitempty"`
+	CameraSendResolutionActual *string `json:"cameraSendResolutionActual,omitempty" xml:"cameraSendResolutionActual,omitempty"`
+	LostRate                   *string `json:"lostRate,omitempty" xml:"lostRate,omitempty"`
+	RecvBitRate                *string `json:"recvBitRate,omitempty" xml:"recvBitRate,omitempty"`
+	RoundTripTime              *string `json:"roundTripTime,omitempty" xml:"roundTripTime,omitempty"`
+	ScreenRecvBitRate          *string `json:"screenRecvBitRate,omitempty" xml:"screenRecvBitRate,omitempty"`
+	ScreenRecvFrame            *string `json:"screenRecvFrame,omitempty" xml:"screenRecvFrame,omitempty"`
+	ScreenRecvResolutionActual *string `json:"screenRecvResolutionActual,omitempty" xml:"screenRecvResolutionActual,omitempty"`
+	ScreenSendBitRate          *string `json:"screenSendBitRate,omitempty" xml:"screenSendBitRate,omitempty"`
+	ScreenSendFrame            *string `json:"screenSendFrame,omitempty" xml:"screenSendFrame,omitempty"`
+	ScreenSendResolutionActual *string `json:"screenSendResolutionActual,omitempty" xml:"screenSendResolutionActual,omitempty"`
+	SendBitRate                *string `json:"sendBitRate,omitempty" xml:"sendBitRate,omitempty"`
+	Timestamp                  *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+}
+
+func (s GetUserMetricDataResponseBodyMetricDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserMetricDataResponseBodyMetricDataList) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetAudioPlayLevel(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.AudioPlayLevel = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetAudioRecLevel(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.AudioRecLevel = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetAudioRecvBitRate(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.AudioRecvBitRate = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetAudioSendBitRate(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.AudioSendBitRate = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetCameraRecvBitRate(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.CameraRecvBitRate = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetCameraRecvFrame(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.CameraRecvFrame = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetCameraRecvResolutionActual(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.CameraRecvResolutionActual = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetCameraSendBitRate(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.CameraSendBitRate = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetCameraSendFrame(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.CameraSendFrame = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetCameraSendResolutionActual(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.CameraSendResolutionActual = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetLostRate(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.LostRate = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetRecvBitRate(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.RecvBitRate = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetRoundTripTime(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.RoundTripTime = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetScreenRecvBitRate(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.ScreenRecvBitRate = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetScreenRecvFrame(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.ScreenRecvFrame = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetScreenRecvResolutionActual(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.ScreenRecvResolutionActual = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetScreenSendBitRate(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.ScreenSendBitRate = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetScreenSendFrame(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.ScreenSendFrame = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetScreenSendResolutionActual(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.ScreenSendResolutionActual = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetSendBitRate(v string) *GetUserMetricDataResponseBodyMetricDataList {
+	s.SendBitRate = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponseBodyMetricDataList) SetTimestamp(v int64) *GetUserMetricDataResponseBodyMetricDataList {
+	s.Timestamp = &v
+	return s
+}
+
+type GetUserMetricDataResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetUserMetricDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserMetricDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserMetricDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserMetricDataResponse) SetHeaders(v map[string]*string) *GetUserMetricDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserMetricDataResponse) SetStatusCode(v int32) *GetUserMetricDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetUserMetricDataResponse) SetBody(v *GetUserMetricDataResponseBody) *GetUserMetricDataResponse {
+	s.Body = v
+	return s
+}
+
 type InviteUsersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2940,6 +3731,274 @@ func (client *Client) Focus(conferenceId *string, request *FocusRequest) (_resul
 	headers := &FocusHeaders{}
 	_result = &FocusResponse{}
 	_body, _err := client.FocusWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetConfDataByConferenceIdWithOptions(conferenceId *string, request *GetConfDataByConferenceIdRequest, headers *GetConfDataByConferenceIdHeaders, runtime *util.RuntimeOptions) (_result *GetConfDataByConferenceIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RealData)) {
+		query["realData"] = request.RealData
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetConfDataByConferenceId"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetConfDataByConferenceIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetConfDataByConferenceId(conferenceId *string, request *GetConfDataByConferenceIdRequest) (_result *GetConfDataByConferenceIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetConfDataByConferenceIdHeaders{}
+	_result = &GetConfDataByConferenceIdResponse{}
+	_body, _err := client.GetConfDataByConferenceIdWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetConfDetailDataWithOptions(conferenceId *string, request *GetConfDetailDataRequest, headers *GetConfDetailDataHeaders, runtime *util.RuntimeOptions) (_result *GetConfDetailDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Nick)) {
+		query["nick"] = request.Nick
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetConfDetailData"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetConfDetailDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetConfDetailData(conferenceId *string, request *GetConfDetailDataRequest) (_result *GetConfDetailDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetConfDetailDataHeaders{}
+	_result = &GetConfDetailDataResponse{}
+	_body, _err := client.GetConfDetailDataWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetHistoryConfDataListWithOptions(request *GetHistoryConfDataListRequest, headers *GetHistoryConfDataListHeaders, runtime *util.RuntimeOptions) (_result *GetHistoryConfDataListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorNike)) {
+		query["creatorNike"] = request.CreatorNike
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FreeType)) {
+		query["freeType"] = request.FreeType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RealData)) {
+		query["realData"] = request.RealData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		query["scene"] = request.Scene
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		query["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetHistoryConfDataList"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/histories/dataLists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetHistoryConfDataListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetHistoryConfDataList(request *GetHistoryConfDataListRequest) (_result *GetHistoryConfDataListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetHistoryConfDataListHeaders{}
+	_result = &GetHistoryConfDataListResponse{}
+	_body, _err := client.GetHistoryConfDataListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserMetricDataWithOptions(conferenceId *string, request *GetUserMetricDataRequest, headers *GetUserMetricDataHeaders, runtime *util.RuntimeOptions) (_result *GetUserMetricDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BeginTime)) {
+		query["beginTime"] = request.BeginTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserMetricData"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/metricDatas"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetUserMetricDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserMetricData(conferenceId *string, request *GetUserMetricDataRequest) (_result *GetUserMetricDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserMetricDataHeaders{}
+	_result = &GetUserMetricDataResponse{}
+	_body, _err := client.GetUserMetricDataWithOptions(conferenceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

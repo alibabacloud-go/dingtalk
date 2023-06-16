@@ -5091,6 +5091,122 @@ func (s *DeactivateDeviceResponse) SetBody(v *DeactivateDeviceResponseBody) *Dea
 	return s
 }
 
+type DeductPointHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeductPointHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeductPointHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeductPointHeaders) SetCommonHeaders(v map[string]*string) *DeductPointHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeductPointHeaders) SetXAcsDingtalkAccessToken(v string) *DeductPointHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeductPointRequest struct {
+	BizId           *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DeductDesc      *string `json:"deductDesc,omitempty" xml:"deductDesc,omitempty"`
+	DeductDetailUrl *string `json:"deductDetailUrl,omitempty" xml:"deductDetailUrl,omitempty"`
+	DeductNum       *int32  `json:"deductNum,omitempty" xml:"deductNum,omitempty"`
+	PointType       *string `json:"pointType,omitempty" xml:"pointType,omitempty"`
+}
+
+func (s DeductPointRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeductPointRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeductPointRequest) SetBizId(v string) *DeductPointRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *DeductPointRequest) SetDeductDesc(v string) *DeductPointRequest {
+	s.DeductDesc = &v
+	return s
+}
+
+func (s *DeductPointRequest) SetDeductDetailUrl(v string) *DeductPointRequest {
+	s.DeductDetailUrl = &v
+	return s
+}
+
+func (s *DeductPointRequest) SetDeductNum(v int32) *DeductPointRequest {
+	s.DeductNum = &v
+	return s
+}
+
+func (s *DeductPointRequest) SetPointType(v string) *DeductPointRequest {
+	s.PointType = &v
+	return s
+}
+
+type DeductPointResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeductPointResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeductPointResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeductPointResponseBody) SetResult(v bool) *DeductPointResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *DeductPointResponseBody) SetSuccess(v bool) *DeductPointResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeductPointResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeductPointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeductPointResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeductPointResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeductPointResponse) SetHeaders(v map[string]*string) *DeductPointResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeductPointResponse) SetStatusCode(v int32) *DeductPointResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeductPointResponse) SetBody(v *DeductPointResponseBody) *DeductPointResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteDeptHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7267,6 +7383,254 @@ func (s *GetOpenCoursesResponse) SetBody(v *GetOpenCoursesResponseBody) *GetOpen
 	return s
 }
 
+type GetPointActionRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPointActionRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointActionRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointActionRecordHeaders) SetCommonHeaders(v map[string]*string) *GetPointActionRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPointActionRecordHeaders) SetXAcsDingtalkAccessToken(v string) *GetPointActionRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPointActionRecordRequest struct {
+	BizId     *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	PointType *string `json:"pointType,omitempty" xml:"pointType,omitempty"`
+}
+
+func (s GetPointActionRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointActionRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointActionRecordRequest) SetBizId(v string) *GetPointActionRecordRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *GetPointActionRecordRequest) SetPointType(v string) *GetPointActionRecordRequest {
+	s.PointType = &v
+	return s
+}
+
+type GetPointActionRecordResponseBody struct {
+	Result  *GetPointActionRecordResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetPointActionRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointActionRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointActionRecordResponseBody) SetResult(v *GetPointActionRecordResponseBodyResult) *GetPointActionRecordResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetPointActionRecordResponseBody) SetSuccess(v bool) *GetPointActionRecordResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetPointActionRecordResponseBodyResult struct {
+	ActionTime *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
+	Quantity   *int64  `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetPointActionRecordResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointActionRecordResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointActionRecordResponseBodyResult) SetActionTime(v string) *GetPointActionRecordResponseBodyResult {
+	s.ActionTime = &v
+	return s
+}
+
+func (s *GetPointActionRecordResponseBodyResult) SetQuantity(v int64) *GetPointActionRecordResponseBodyResult {
+	s.Quantity = &v
+	return s
+}
+
+func (s *GetPointActionRecordResponseBodyResult) SetStatus(v string) *GetPointActionRecordResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type GetPointActionRecordResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPointActionRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPointActionRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointActionRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointActionRecordResponse) SetHeaders(v map[string]*string) *GetPointActionRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPointActionRecordResponse) SetStatusCode(v int32) *GetPointActionRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetPointActionRecordResponse) SetBody(v *GetPointActionRecordResponseBody) *GetPointActionRecordResponse {
+	s.Body = v
+	return s
+}
+
+type GetPointInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPointInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointInfoHeaders) SetCommonHeaders(v map[string]*string) *GetPointInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPointInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPointInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPointInfoRequest struct {
+	PointType *string `json:"pointType,omitempty" xml:"pointType,omitempty"`
+}
+
+func (s GetPointInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointInfoRequest) SetPointType(v string) *GetPointInfoRequest {
+	s.PointType = &v
+	return s
+}
+
+type GetPointInfoResponseBody struct {
+	Result  *GetPointInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetPointInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointInfoResponseBody) SetResult(v *GetPointInfoResponseBodyResult) *GetPointInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetPointInfoResponseBody) SetSuccess(v bool) *GetPointInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetPointInfoResponseBodyResult struct {
+	AvailableQuota *int64  `json:"availableQuota,omitempty" xml:"availableQuota,omitempty"`
+	EndTime        *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	StartTime      *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s GetPointInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointInfoResponseBodyResult) SetAvailableQuota(v int64) *GetPointInfoResponseBodyResult {
+	s.AvailableQuota = &v
+	return s
+}
+
+func (s *GetPointInfoResponseBodyResult) SetEndTime(v string) *GetPointInfoResponseBodyResult {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetPointInfoResponseBodyResult) SetStartTime(v string) *GetPointInfoResponseBodyResult {
+	s.StartTime = &v
+	return s
+}
+
+type GetPointInfoResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetPointInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPointInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointInfoResponse) SetHeaders(v map[string]*string) *GetPointInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPointInfoResponse) SetStatusCode(v int32) *GetPointInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetPointInfoResponse) SetBody(v *GetPointInfoResponseBody) *GetPointInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetRemoteClassCourseHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9427,6 +9791,139 @@ func (s *PreDialResponse) SetStatusCode(v int32) *PreDialResponse {
 }
 
 func (s *PreDialResponse) SetBody(v *PreDialResponseBody) *PreDialResponse {
+	s.Body = v
+	return s
+}
+
+type ProvidePointHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ProvidePointHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProvidePointHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ProvidePointHeaders) SetCommonHeaders(v map[string]*string) *ProvidePointHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ProvidePointHeaders) SetXAcsDingtalkAccessToken(v string) *ProvidePointHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ProvidePointRequest struct {
+	ActionCode *string `json:"actionCode,omitempty" xml:"actionCode,omitempty"`
+	BizId      *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	PointType  *string `json:"pointType,omitempty" xml:"pointType,omitempty"`
+}
+
+func (s ProvidePointRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProvidePointRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ProvidePointRequest) SetActionCode(v string) *ProvidePointRequest {
+	s.ActionCode = &v
+	return s
+}
+
+func (s *ProvidePointRequest) SetBizId(v string) *ProvidePointRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ProvidePointRequest) SetPointType(v string) *ProvidePointRequest {
+	s.PointType = &v
+	return s
+}
+
+type ProvidePointResponseBody struct {
+	Result  *ProvidePointResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ProvidePointResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProvidePointResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ProvidePointResponseBody) SetResult(v *ProvidePointResponseBodyResult) *ProvidePointResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ProvidePointResponseBody) SetSuccess(v bool) *ProvidePointResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ProvidePointResponseBodyResult struct {
+	AvailableQuota *int64 `json:"availableQuota,omitempty" xml:"availableQuota,omitempty"`
+	ProvideNum     *int64 `json:"provideNum,omitempty" xml:"provideNum,omitempty"`
+	ProvideSuccess *bool  `json:"provideSuccess,omitempty" xml:"provideSuccess,omitempty"`
+}
+
+func (s ProvidePointResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProvidePointResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ProvidePointResponseBodyResult) SetAvailableQuota(v int64) *ProvidePointResponseBodyResult {
+	s.AvailableQuota = &v
+	return s
+}
+
+func (s *ProvidePointResponseBodyResult) SetProvideNum(v int64) *ProvidePointResponseBodyResult {
+	s.ProvideNum = &v
+	return s
+}
+
+func (s *ProvidePointResponseBodyResult) SetProvideSuccess(v bool) *ProvidePointResponseBodyResult {
+	s.ProvideSuccess = &v
+	return s
+}
+
+type ProvidePointResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ProvidePointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ProvidePointResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProvidePointResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ProvidePointResponse) SetHeaders(v map[string]*string) *ProvidePointResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ProvidePointResponse) SetStatusCode(v int32) *ProvidePointResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ProvidePointResponse) SetBody(v *ProvidePointResponseBody) *ProvidePointResponse {
 	s.Body = v
 	return s
 }
@@ -14102,6 +14599,104 @@ func (s *ReportDeviceUseLogResponse) SetBody(v *ReportDeviceUseLogResponseBody) 
 	return s
 }
 
+type RollbackDeductPointHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RollbackDeductPointHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollbackDeductPointHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RollbackDeductPointHeaders) SetCommonHeaders(v map[string]*string) *RollbackDeductPointHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RollbackDeductPointHeaders) SetXAcsDingtalkAccessToken(v string) *RollbackDeductPointHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RollbackDeductPointRequest struct {
+	BizId     *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	PointType *string `json:"pointType,omitempty" xml:"pointType,omitempty"`
+}
+
+func (s RollbackDeductPointRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollbackDeductPointRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RollbackDeductPointRequest) SetBizId(v string) *RollbackDeductPointRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *RollbackDeductPointRequest) SetPointType(v string) *RollbackDeductPointRequest {
+	s.PointType = &v
+	return s
+}
+
+type RollbackDeductPointResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RollbackDeductPointResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollbackDeductPointResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RollbackDeductPointResponseBody) SetResult(v bool) *RollbackDeductPointResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *RollbackDeductPointResponseBody) SetSuccess(v bool) *RollbackDeductPointResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RollbackDeductPointResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RollbackDeductPointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RollbackDeductPointResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollbackDeductPointResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RollbackDeductPointResponse) SetHeaders(v map[string]*string) *RollbackDeductPointResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RollbackDeductPointResponse) SetStatusCode(v int32) *RollbackDeductPointResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RollbackDeductPointResponse) SetBody(v *RollbackDeductPointResponseBody) *RollbackDeductPointResponse {
+	s.Body = v
+	return s
+}
+
 type SearchTeachersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -18418,6 +19013,77 @@ func (client *Client) DeactivateDevice(request *DeactivateDeviceRequest) (_resul
 	return _result, _err
 }
 
+func (client *Client) DeductPointWithOptions(request *DeductPointRequest, headers *DeductPointHeaders, runtime *util.RuntimeOptions) (_result *DeductPointResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeductDesc)) {
+		body["deductDesc"] = request.DeductDesc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeductDetailUrl)) {
+		body["deductDetailUrl"] = request.DeductDetailUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeductNum)) {
+		body["deductNum"] = request.DeductNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PointType)) {
+		body["pointType"] = request.PointType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeductPoint"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/points/deduct"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeductPointResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeductPoint(request *DeductPointRequest) (_result *DeductPointResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeductPointHeaders{}
+	_result = &DeductPointResponse{}
+	_body, _err := client.DeductPointWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) DeleteDeptWithOptions(deptId *string, request *DeleteDeptRequest, headers *DeleteDeptHeaders, runtime *util.RuntimeOptions) (_result *DeleteDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19576,6 +20242,120 @@ func (client *Client) GetOpenCourses(request *GetOpenCoursesRequest) (_result *G
 	return _result, _err
 }
 
+func (client *Client) GetPointActionRecordWithOptions(request *GetPointActionRecordRequest, headers *GetPointActionRecordHeaders, runtime *util.RuntimeOptions) (_result *GetPointActionRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		query["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PointType)) {
+		query["pointType"] = request.PointType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPointActionRecord"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/points/actionRecords"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetPointActionRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPointActionRecord(request *GetPointActionRecordRequest) (_result *GetPointActionRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPointActionRecordHeaders{}
+	_result = &GetPointActionRecordResponse{}
+	_body, _err := client.GetPointActionRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPointInfoWithOptions(request *GetPointInfoRequest, headers *GetPointInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPointInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PointType)) {
+		query["pointType"] = request.PointType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPointInfo"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/points/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetPointInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPointInfo(request *GetPointInfoRequest) (_result *GetPointInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPointInfoHeaders{}
+	_result = &GetPointInfoResponse{}
+	_body, _err := client.GetPointInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetRemoteClassCourseWithOptions(courseCode *string, request *GetRemoteClassCourseRequest, headers *GetRemoteClassCourseHeaders, runtime *util.RuntimeOptions) (_result *GetRemoteClassCourseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20420,6 +21200,69 @@ func (client *Client) PreDial(request *PreDialRequest) (_result *PreDialResponse
 	headers := &PreDialHeaders{}
 	_result = &PreDialResponse{}
 	_body, _err := client.PreDialWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ProvidePointWithOptions(request *ProvidePointRequest, headers *ProvidePointHeaders, runtime *util.RuntimeOptions) (_result *ProvidePointResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionCode)) {
+		body["actionCode"] = request.ActionCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PointType)) {
+		body["pointType"] = request.PointType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ProvidePoint"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/points/provide"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ProvidePointResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ProvidePoint(request *ProvidePointRequest) (_result *ProvidePointResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ProvidePointHeaders{}
+	_result = &ProvidePointResponse{}
+	_body, _err := client.ProvidePointWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -22123,6 +22966,65 @@ func (client *Client) ReportDeviceUseLog(request *ReportDeviceUseLogRequest) (_r
 	headers := &ReportDeviceUseLogHeaders{}
 	_result = &ReportDeviceUseLogResponse{}
 	_body, _err := client.ReportDeviceUseLogWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RollbackDeductPointWithOptions(request *RollbackDeductPointRequest, headers *RollbackDeductPointHeaders, runtime *util.RuntimeOptions) (_result *RollbackDeductPointResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PointType)) {
+		body["pointType"] = request.PointType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RollbackDeductPoint"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/deductPoints/rollback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RollbackDeductPointResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RollbackDeductPoint(request *RollbackDeductPointRequest) (_result *RollbackDeductPointResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RollbackDeductPointHeaders{}
+	_result = &RollbackDeductPointResponse{}
+	_body, _err := client.RollbackDeductPointWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
