@@ -146,6 +146,75 @@ func (s *GetCallBackFaileResultResponse) SetBody(v *GetCallBackFaileResultRespon
 	return s
 }
 
+type RePushSuiteTicketRequest struct {
+	SuiteId     *int64  `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
+	SuiteSecret *string `json:"suiteSecret,omitempty" xml:"suiteSecret,omitempty"`
+}
+
+func (s RePushSuiteTicketRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RePushSuiteTicketRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RePushSuiteTicketRequest) SetSuiteId(v int64) *RePushSuiteTicketRequest {
+	s.SuiteId = &v
+	return s
+}
+
+func (s *RePushSuiteTicketRequest) SetSuiteSecret(v string) *RePushSuiteTicketRequest {
+	s.SuiteSecret = &v
+	return s
+}
+
+type RePushSuiteTicketResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RePushSuiteTicketResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RePushSuiteTicketResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RePushSuiteTicketResponseBody) SetResult(v string) *RePushSuiteTicketResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RePushSuiteTicketResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RePushSuiteTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RePushSuiteTicketResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RePushSuiteTicketResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RePushSuiteTicketResponse) SetHeaders(v map[string]*string) *RePushSuiteTicketResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RePushSuiteTicketResponse) SetStatusCode(v int32) *RePushSuiteTicketResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RePushSuiteTicketResponse) SetBody(v *RePushSuiteTicketResponseBody) *RePushSuiteTicketResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -167,6 +236,7 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -227,6 +297,56 @@ func (client *Client) GetCallBackFaileResult(request *GetCallBackFaileResultRequ
 	headers := &GetCallBackFaileResultHeaders{}
 	_result = &GetCallBackFaileResultResponse{}
 	_body, _err := client.GetCallBackFaileResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RePushSuiteTicketWithOptions(request *RePushSuiteTicketRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RePushSuiteTicketResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SuiteId)) {
+		query["suiteId"] = request.SuiteId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuiteSecret)) {
+		query["suiteSecret"] = request.SuiteSecret
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RePushSuiteTicket"),
+		Version:     tea.String("event_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/event/suiteTicket/rePush"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RePushSuiteTicketResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RePushSuiteTicket(request *RePushSuiteTicketRequest) (_result *RePushSuiteTicketResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &RePushSuiteTicketResponse{}
+	_body, _err := client.RePushSuiteTicketWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

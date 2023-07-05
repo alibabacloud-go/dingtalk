@@ -207,6 +207,7 @@ func (s *GetShanhuiByCalendarResponseBody) SetSuccess(v bool) *GetShanhuiByCalen
 type GetShanhuiByCalendarResponseBodyResult struct {
 	EndTime         *int64                                          `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	FlashmeetingKey *string                                         `json:"flashmeetingKey,omitempty" xml:"flashmeetingKey,omitempty"`
+	HasSummary      *bool                                           `json:"hasSummary,omitempty" xml:"hasSummary,omitempty"`
 	StartTime       *int64                                          `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	SummaryDocKey   *string                                         `json:"summaryDocKey,omitempty" xml:"summaryDocKey,omitempty"`
 	Title           *string                                         `json:"title,omitempty" xml:"title,omitempty"`
@@ -228,6 +229,11 @@ func (s *GetShanhuiByCalendarResponseBodyResult) SetEndTime(v int64) *GetShanhui
 
 func (s *GetShanhuiByCalendarResponseBodyResult) SetFlashmeetingKey(v string) *GetShanhuiByCalendarResponseBodyResult {
 	s.FlashmeetingKey = &v
+	return s
+}
+
+func (s *GetShanhuiByCalendarResponseBodyResult) SetHasSummary(v bool) *GetShanhuiByCalendarResponseBodyResult {
+	s.HasSummary = &v
 	return s
 }
 

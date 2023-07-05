@@ -2042,6 +2042,7 @@ func (s *GetConversationUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetCon
 type GetConversationUrlRequest struct {
 	AppUserId          *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
 	ChannelCode        *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
+	DeviceId           *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -2061,6 +2062,11 @@ func (s *GetConversationUrlRequest) SetAppUserId(v string) *GetConversationUrlRe
 
 func (s *GetConversationUrlRequest) SetChannelCode(v string) *GetConversationUrlRequest {
 	s.ChannelCode = &v
+	return s
+}
+
+func (s *GetConversationUrlRequest) SetDeviceId(v string) *GetConversationUrlRequest {
+	s.DeviceId = &v
 	return s
 }
 
@@ -9514,6 +9520,10 @@ func (client *Client) GetConversationUrlWithOptions(request *GetConversationUrlR
 
 	if !tea.BoolValue(util.IsUnset(request.ChannelCode)) {
 		body["channelCode"] = request.ChannelCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceId)) {
+		body["deviceId"] = request.DeviceId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {

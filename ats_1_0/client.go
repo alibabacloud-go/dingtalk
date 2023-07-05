@@ -1399,6 +1399,7 @@ type CollectResumeMailRequest struct {
 	ChannelCode        *string                             `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
 	DeliverJobId       *string                             `json:"deliverJobId,omitempty" xml:"deliverJobId,omitempty"`
 	FromMailAddress    *string                             `json:"fromMailAddress,omitempty" xml:"fromMailAddress,omitempty"`
+	HistoryMailImport  *bool                               `json:"historyMailImport,omitempty" xml:"historyMailImport,omitempty"`
 	MailId             *string                             `json:"mailId,omitempty" xml:"mailId,omitempty"`
 	MailTitle          *string                             `json:"mailTitle,omitempty" xml:"mailTitle,omitempty"`
 	OptUserId          *string                             `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
@@ -1434,6 +1435,11 @@ func (s *CollectResumeMailRequest) SetDeliverJobId(v string) *CollectResumeMailR
 
 func (s *CollectResumeMailRequest) SetFromMailAddress(v string) *CollectResumeMailRequest {
 	s.FromMailAddress = &v
+	return s
+}
+
+func (s *CollectResumeMailRequest) SetHistoryMailImport(v bool) *CollectResumeMailRequest {
+	s.HistoryMailImport = &v
 	return s
 }
 
@@ -3596,6 +3602,10 @@ func (client *Client) CollectResumeMailWithOptions(request *CollectResumeMailReq
 
 	if !tea.BoolValue(util.IsUnset(request.FromMailAddress)) {
 		body["fromMailAddress"] = request.FromMailAddress
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HistoryMailImport)) {
+		body["historyMailImport"] = request.HistoryMailImport
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MailId)) {

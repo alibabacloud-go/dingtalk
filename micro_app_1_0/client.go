@@ -384,7 +384,7 @@ func (s *AddMemberToAppRoleResponse) SetBody(v *AddMemberToAppRoleResponseBody) 
 }
 
 type AnheiPResponseBody struct {
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
 func (s AnheiPResponseBody) String() string {
@@ -395,8 +395,8 @@ func (s AnheiPResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *AnheiPResponseBody) SetRequestId(v string) *AnheiPResponseBody {
-	s.RequestId = &v
+func (s *AnheiPResponseBody) SetResult(v string) *AnheiPResponseBody {
+	s.Result = &v
 	return s
 }
 
@@ -672,6 +672,52 @@ func (s *AyunTestResponse) SetStatusCode(v int32) *AyunTestResponse {
 }
 
 func (s *AyunTestResponse) SetBody(v *AyunTestResponseBody) *AyunTestResponse {
+	s.Body = v
+	return s
+}
+
+type AyunTestOnlineResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s AyunTestOnlineResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AyunTestOnlineResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AyunTestOnlineResponseBody) SetRequestId(v string) *AyunTestOnlineResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type AyunTestOnlineResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AyunTestOnlineResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AyunTestOnlineResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AyunTestOnlineResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AyunTestOnlineResponse) SetHeaders(v map[string]*string) *AyunTestOnlineResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AyunTestOnlineResponse) SetStatusCode(v int32) *AyunTestOnlineResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AyunTestOnlineResponse) SetBody(v *AyunTestOnlineResponseBody) *AyunTestOnlineResponse {
 	s.Body = v
 	return s
 }
@@ -4457,6 +4503,42 @@ func (client *Client) AyunTest() (_result *AyunTestResponse, _err error) {
 	headers := make(map[string]*string)
 	_result = &AyunTestResponse{}
 	_body, _err := client.AyunTestWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AyunTestOnlineWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AyunTestOnlineResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AyunTestOnline"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/ayunTest"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AyunTestOnlineResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AyunTestOnline() (_result *AyunTestOnlineResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &AyunTestOnlineResponse{}
+	_body, _err := client.AyunTestOnlineWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

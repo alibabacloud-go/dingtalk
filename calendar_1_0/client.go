@@ -15,6 +15,7 @@ import (
 
 type AddAttendeeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -28,6 +29,11 @@ func (s AddAttendeeHeaders) GoString() string {
 
 func (s *AddAttendeeHeaders) SetCommonHeaders(v map[string]*string) *AddAttendeeHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddAttendeeHeaders) SetXClientToken(v string) *AddAttendeeHeaders {
+	s.XClientToken = &v
 	return s
 }
 
@@ -101,6 +107,7 @@ func (s *AddAttendeeResponse) SetStatusCode(v int32) *AddAttendeeResponse {
 
 type AddMeetingRoomsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -114,6 +121,11 @@ func (s AddMeetingRoomsHeaders) GoString() string {
 
 func (s *AddMeetingRoomsHeaders) SetCommonHeaders(v map[string]*string) *AddMeetingRoomsHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddMeetingRoomsHeaders) SetXClientToken(v string) *AddMeetingRoomsHeaders {
+	s.XClientToken = &v
 	return s
 }
 
@@ -515,6 +527,7 @@ func (s *CreateAclsResponse) SetBody(v *CreateAclsResponseBody) *CreateAclsRespo
 
 type CreateEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -528,6 +541,11 @@ func (s CreateEventHeaders) GoString() string {
 
 func (s *CreateEventHeaders) SetCommonHeaders(v map[string]*string) *CreateEventHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateEventHeaders) SetXClientToken(v string) *CreateEventHeaders {
+	s.XClientToken = &v
 	return s
 }
 
@@ -1555,6 +1573,7 @@ func (s *DeleteAclResponse) SetStatusCode(v int32) *DeleteAclResponse {
 
 type DeleteEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -1568,6 +1587,11 @@ func (s DeleteEventHeaders) GoString() string {
 
 func (s *DeleteEventHeaders) SetCommonHeaders(v map[string]*string) *DeleteEventHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteEventHeaders) SetXClientToken(v string) *DeleteEventHeaders {
+	s.XClientToken = &v
 	return s
 }
 
@@ -6162,6 +6186,7 @@ func (s *ListInstancesResponse) SetBody(v *ListInstancesResponseBody) *ListInsta
 
 type PatchEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -6175,6 +6200,11 @@ func (s PatchEventHeaders) GoString() string {
 
 func (s *PatchEventHeaders) SetCommonHeaders(v map[string]*string) *PatchEventHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *PatchEventHeaders) SetXClientToken(v string) *PatchEventHeaders {
+	s.XClientToken = &v
 	return s
 }
 
@@ -6197,6 +6227,7 @@ type PatchEventRequest struct {
 	RichTextDescription *PatchEventRequestRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
 	Start               *PatchEventRequestStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
 	Summary             *string                               `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs           []*PatchEventRequestUiConfigs         `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
 }
 
 func (s PatchEventRequest) String() string {
@@ -6272,7 +6303,13 @@ func (s *PatchEventRequest) SetSummary(v string) *PatchEventRequest {
 	return s
 }
 
+func (s *PatchEventRequest) SetUiConfigs(v []*PatchEventRequestUiConfigs) *PatchEventRequest {
+	s.UiConfigs = v
+	return s
+}
+
 type PatchEventRequestAttendees struct {
+	Email      *string `json:"email,omitempty" xml:"email,omitempty"`
 	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
 	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 }
@@ -6283,6 +6320,11 @@ func (s PatchEventRequestAttendees) String() string {
 
 func (s PatchEventRequestAttendees) GoString() string {
 	return s.String()
+}
+
+func (s *PatchEventRequestAttendees) SetEmail(v string) *PatchEventRequestAttendees {
+	s.Email = &v
+	return s
 }
 
 func (s *PatchEventRequestAttendees) SetId(v string) *PatchEventRequestAttendees {
@@ -6520,6 +6562,29 @@ func (s *PatchEventRequestStart) SetTimeZone(v string) *PatchEventRequestStart {
 	return s
 }
 
+type PatchEventRequestUiConfigs struct {
+	UiName   *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	UiStatus *string `json:"uiStatus,omitempty" xml:"uiStatus,omitempty"`
+}
+
+func (s PatchEventRequestUiConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventRequestUiConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventRequestUiConfigs) SetUiName(v string) *PatchEventRequestUiConfigs {
+	s.UiName = &v
+	return s
+}
+
+func (s *PatchEventRequestUiConfigs) SetUiStatus(v string) *PatchEventRequestUiConfigs {
+	s.UiStatus = &v
+	return s
+}
+
 type PatchEventResponseBody struct {
 	Attendees           []*PatchEventResponseBodyAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
 	CreateTime          *string                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
@@ -6535,6 +6600,7 @@ type PatchEventResponseBody struct {
 	RichTextDescription *PatchEventResponseBodyRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
 	Start               *PatchEventResponseBodyStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
 	Summary             *string                                    `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs           []*PatchEventResponseBodyUiConfigs         `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
 	UpdateTime          *string                                    `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
@@ -6613,6 +6679,11 @@ func (s *PatchEventResponseBody) SetStart(v *PatchEventResponseBodyStart) *Patch
 
 func (s *PatchEventResponseBody) SetSummary(v string) *PatchEventResponseBody {
 	s.Summary = &v
+	return s
+}
+
+func (s *PatchEventResponseBody) SetUiConfigs(v []*PatchEventResponseBodyUiConfigs) *PatchEventResponseBody {
+	s.UiConfigs = v
 	return s
 }
 
@@ -6940,6 +7011,29 @@ func (s *PatchEventResponseBodyStart) SetTimeZone(v string) *PatchEventResponseB
 	return s
 }
 
+type PatchEventResponseBodyUiConfigs struct {
+	UiName   *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	UiStatus *string `json:"uiStatus,omitempty" xml:"uiStatus,omitempty"`
+}
+
+func (s PatchEventResponseBodyUiConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventResponseBodyUiConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventResponseBodyUiConfigs) SetUiName(v string) *PatchEventResponseBodyUiConfigs {
+	s.UiName = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyUiConfigs) SetUiStatus(v string) *PatchEventResponseBodyUiConfigs {
+	s.UiStatus = &v
+	return s
+}
+
 type PatchEventResponse struct {
 	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
@@ -6971,6 +7065,7 @@ func (s *PatchEventResponse) SetBody(v *PatchEventResponseBody) *PatchEventRespo
 
 type RemoveAttendeeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -6984,6 +7079,11 @@ func (s RemoveAttendeeHeaders) GoString() string {
 
 func (s *RemoveAttendeeHeaders) SetCommonHeaders(v map[string]*string) *RemoveAttendeeHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveAttendeeHeaders) SetXClientToken(v string) *RemoveAttendeeHeaders {
+	s.XClientToken = &v
 	return s
 }
 
@@ -7051,6 +7151,7 @@ func (s *RemoveAttendeeResponse) SetStatusCode(v int32) *RemoveAttendeeResponse 
 
 type RemoveMeetingRoomsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -7064,6 +7165,11 @@ func (s RemoveMeetingRoomsHeaders) GoString() string {
 
 func (s *RemoveMeetingRoomsHeaders) SetCommonHeaders(v map[string]*string) *RemoveMeetingRoomsHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveMeetingRoomsHeaders) SetXClientToken(v string) *RemoveMeetingRoomsHeaders {
+	s.XClientToken = &v
 	return s
 }
 
@@ -7154,6 +7260,7 @@ func (s *RemoveMeetingRoomsResponse) SetBody(v *RemoveMeetingRoomsResponseBody) 
 
 type RespondEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -7167,6 +7274,11 @@ func (s RespondEventHeaders) GoString() string {
 
 func (s *RespondEventHeaders) SetCommonHeaders(v map[string]*string) *RespondEventHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *RespondEventHeaders) SetXClientToken(v string) *RespondEventHeaders {
+	s.XClientToken = &v
 	return s
 }
 
@@ -7645,6 +7757,10 @@ func (client *Client) AddAttendeeWithOptions(userId *string, calendarId *string,
 		realHeaders = headers.CommonHeaders
 	}
 
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
@@ -7698,6 +7814,10 @@ func (client *Client) AddMeetingRoomsWithOptions(userId *string, calendarId *str
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -7966,6 +8086,10 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 		realHeaders = headers.CommonHeaders
 	}
 
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
@@ -8122,6 +8246,10 @@ func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string,
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -9118,9 +9246,17 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 		body["summary"] = request.Summary
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UiConfigs)) {
+		body["uiConfigs"] = request.UiConfigs
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -9178,6 +9314,10 @@ func (client *Client) RemoveAttendeeWithOptions(userId *string, calendarId *stri
 		realHeaders = headers.CommonHeaders
 	}
 
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
@@ -9233,6 +9373,10 @@ func (client *Client) RemoveMeetingRoomsWithOptions(userId *string, calendarId *
 		realHeaders = headers.CommonHeaders
 	}
 
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
@@ -9286,6 +9430,10 @@ func (client *Client) RespondEventWithOptions(userId *string, calendarId *string
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {

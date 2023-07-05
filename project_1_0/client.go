@@ -4549,7 +4549,9 @@ func (s *QueryProjectRequest) SetSourceId(v string) *QueryProjectRequest {
 }
 
 type QueryProjectResponseBody struct {
-	Result []*QueryProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	NextToken *string                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	RequestId *string                           `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    []*QueryProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
 func (s QueryProjectResponseBody) String() string {
@@ -4558,6 +4560,16 @@ func (s QueryProjectResponseBody) String() string {
 
 func (s QueryProjectResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *QueryProjectResponseBody) SetNextToken(v string) *QueryProjectResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryProjectResponseBody) SetRequestId(v string) *QueryProjectResponseBody {
+	s.RequestId = &v
+	return s
 }
 
 func (s *QueryProjectResponseBody) SetResult(v []*QueryProjectResponseBodyResult) *QueryProjectResponseBody {

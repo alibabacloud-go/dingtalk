@@ -13,6 +13,121 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddRecentUserAppListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddRecentUserAppListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRecentUserAppListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddRecentUserAppListHeaders) SetCommonHeaders(v map[string]*string) *AddRecentUserAppListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddRecentUserAppListHeaders) SetXAcsDingtalkAccessToken(v string) *AddRecentUserAppListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddRecentUserAppListRequest struct {
+	CorpId            *string                                         `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	UsedAppDetailList []*AddRecentUserAppListRequestUsedAppDetailList `json:"usedAppDetailList,omitempty" xml:"usedAppDetailList,omitempty" type:"Repeated"`
+	UserId            *string                                         `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AddRecentUserAppListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRecentUserAppListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddRecentUserAppListRequest) SetCorpId(v string) *AddRecentUserAppListRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *AddRecentUserAppListRequest) SetUsedAppDetailList(v []*AddRecentUserAppListRequestUsedAppDetailList) *AddRecentUserAppListRequest {
+	s.UsedAppDetailList = v
+	return s
+}
+
+func (s *AddRecentUserAppListRequest) SetUserId(v string) *AddRecentUserAppListRequest {
+	s.UserId = &v
+	return s
+}
+
+type AddRecentUserAppListRequestUsedAppDetailList struct {
+	AgentId *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+}
+
+func (s AddRecentUserAppListRequestUsedAppDetailList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRecentUserAppListRequestUsedAppDetailList) GoString() string {
+	return s.String()
+}
+
+func (s *AddRecentUserAppListRequestUsedAppDetailList) SetAgentId(v string) *AddRecentUserAppListRequestUsedAppDetailList {
+	s.AgentId = &v
+	return s
+}
+
+type AddRecentUserAppListResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AddRecentUserAppListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRecentUserAppListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddRecentUserAppListResponseBody) SetResult(v bool) *AddRecentUserAppListResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AddRecentUserAppListResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddRecentUserAppListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddRecentUserAppListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRecentUserAppListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddRecentUserAppListResponse) SetHeaders(v map[string]*string) *AddRecentUserAppListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddRecentUserAppListResponse) SetStatusCode(v int32) *AddRecentUserAppListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddRecentUserAppListResponse) SetBody(v *AddRecentUserAppListResponseBody) *AddRecentUserAppListResponse {
+	s.Body = v
+	return s
+}
+
 type GetDingPortalDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -698,6 +813,69 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) AddRecentUserAppListWithOptions(request *AddRecentUserAppListRequest, headers *AddRecentUserAppListHeaders, runtime *util.RuntimeOptions) (_result *AddRecentUserAppListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UsedAppDetailList)) {
+		body["usedAppDetailList"] = request.UsedAppDetailList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddRecentUserAppList"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/components/recentUsed/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddRecentUserAppListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddRecentUserAppList(request *AddRecentUserAppListRequest) (_result *AddRecentUserAppListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddRecentUserAppListHeaders{}
+	_result = &AddRecentUserAppListResponse{}
+	_body, _err := client.AddRecentUserAppListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) GetDingPortalDetailWithOptions(appUuid *string, headers *GetDingPortalDetailHeaders, runtime *util.RuntimeOptions) (_result *GetDingPortalDetailResponse, _err error) {

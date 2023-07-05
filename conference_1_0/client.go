@@ -13,6 +13,98 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CancelScheduleConferenceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelScheduleConferenceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelScheduleConferenceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelScheduleConferenceHeaders) SetCommonHeaders(v map[string]*string) *CancelScheduleConferenceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelScheduleConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *CancelScheduleConferenceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelScheduleConferenceRequest struct {
+	CreatorUnionId       *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+}
+
+func (s CancelScheduleConferenceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelScheduleConferenceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelScheduleConferenceRequest) SetCreatorUnionId(v string) *CancelScheduleConferenceRequest {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *CancelScheduleConferenceRequest) SetScheduleConferenceId(v string) *CancelScheduleConferenceRequest {
+	s.ScheduleConferenceId = &v
+	return s
+}
+
+type CancelScheduleConferenceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CancelScheduleConferenceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelScheduleConferenceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CancelScheduleConferenceResponseBody) SetSuccess(v bool) *CancelScheduleConferenceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CancelScheduleConferenceResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CancelScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CancelScheduleConferenceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelScheduleConferenceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelScheduleConferenceResponse) SetHeaders(v map[string]*string) *CancelScheduleConferenceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CancelScheduleConferenceResponse) SetStatusCode(v int32) *CancelScheduleConferenceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CancelScheduleConferenceResponse) SetBody(v *CancelScheduleConferenceResponseBody) *CancelScheduleConferenceResponse {
+	s.Body = v
+	return s
+}
+
 type CloseVideoConferenceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -210,6 +302,134 @@ func (s *CohostsResponse) SetStatusCode(v int32) *CohostsResponse {
 }
 
 func (s *CohostsResponse) SetBody(v *CohostsResponseBody) *CohostsResponse {
+	s.Body = v
+	return s
+}
+
+type CreateScheduleConferenceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateScheduleConferenceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScheduleConferenceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScheduleConferenceHeaders) SetCommonHeaders(v map[string]*string) *CreateScheduleConferenceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateScheduleConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateScheduleConferenceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateScheduleConferenceRequest struct {
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	EndTime        *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	StartTime      *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Title          *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CreateScheduleConferenceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScheduleConferenceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScheduleConferenceRequest) SetCreatorUnionId(v string) *CreateScheduleConferenceRequest {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequest) SetEndTime(v int64) *CreateScheduleConferenceRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequest) SetStartTime(v int64) *CreateScheduleConferenceRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequest) SetTitle(v string) *CreateScheduleConferenceRequest {
+	s.Title = &v
+	return s
+}
+
+type CreateScheduleConferenceResponseBody struct {
+	Phones               []*string `json:"phones,omitempty" xml:"phones,omitempty" type:"Repeated"`
+	RequestId            *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	RoomCode             *string   `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	ScheduleConferenceId *string   `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	Url                  *string   `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CreateScheduleConferenceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScheduleConferenceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScheduleConferenceResponseBody) SetPhones(v []*string) *CreateScheduleConferenceResponseBody {
+	s.Phones = v
+	return s
+}
+
+func (s *CreateScheduleConferenceResponseBody) SetRequestId(v string) *CreateScheduleConferenceResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceResponseBody) SetRoomCode(v string) *CreateScheduleConferenceResponseBody {
+	s.RoomCode = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceResponseBody) SetScheduleConferenceId(v string) *CreateScheduleConferenceResponseBody {
+	s.ScheduleConferenceId = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceResponseBody) SetUrl(v string) *CreateScheduleConferenceResponseBody {
+	s.Url = &v
+	return s
+}
+
+type CreateScheduleConferenceResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateScheduleConferenceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScheduleConferenceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScheduleConferenceResponse) SetHeaders(v map[string]*string) *CreateScheduleConferenceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateScheduleConferenceResponse) SetStatusCode(v int32) *CreateScheduleConferenceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceResponse) SetBody(v *CreateScheduleConferenceResponseBody) *CreateScheduleConferenceResponse {
 	s.Body = v
 	return s
 }
@@ -2717,6 +2937,134 @@ func (s *QueryConferenceMembersResponse) SetBody(v *QueryConferenceMembersRespon
 	return s
 }
 
+type QueryScheduleConferenceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryScheduleConferenceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConferenceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConferenceHeaders) SetCommonHeaders(v map[string]*string) *QueryScheduleConferenceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryScheduleConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryScheduleConferenceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryScheduleConferenceRequest struct {
+	RequestUnionId *string `json:"requestUnionId,omitempty" xml:"requestUnionId,omitempty"`
+}
+
+func (s QueryScheduleConferenceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConferenceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConferenceRequest) SetRequestUnionId(v string) *QueryScheduleConferenceRequest {
+	s.RequestUnionId = &v
+	return s
+}
+
+type QueryScheduleConferenceResponseBody struct {
+	EndTime              *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Phones               []*string `json:"phones,omitempty" xml:"phones,omitempty" type:"Repeated"`
+	RequestId            *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	RoomCode             *string   `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	ScheduleConferenceId *string   `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	StartTime            *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Title                *string   `json:"title,omitempty" xml:"title,omitempty"`
+	Url                  *string   `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s QueryScheduleConferenceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConferenceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConferenceResponseBody) SetEndTime(v int64) *QueryScheduleConferenceResponseBody {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryScheduleConferenceResponseBody) SetPhones(v []*string) *QueryScheduleConferenceResponseBody {
+	s.Phones = v
+	return s
+}
+
+func (s *QueryScheduleConferenceResponseBody) SetRequestId(v string) *QueryScheduleConferenceResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryScheduleConferenceResponseBody) SetRoomCode(v string) *QueryScheduleConferenceResponseBody {
+	s.RoomCode = &v
+	return s
+}
+
+func (s *QueryScheduleConferenceResponseBody) SetScheduleConferenceId(v string) *QueryScheduleConferenceResponseBody {
+	s.ScheduleConferenceId = &v
+	return s
+}
+
+func (s *QueryScheduleConferenceResponseBody) SetStartTime(v int64) *QueryScheduleConferenceResponseBody {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryScheduleConferenceResponseBody) SetTitle(v string) *QueryScheduleConferenceResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *QueryScheduleConferenceResponseBody) SetUrl(v string) *QueryScheduleConferenceResponseBody {
+	s.Url = &v
+	return s
+}
+
+type QueryScheduleConferenceResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryScheduleConferenceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConferenceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConferenceResponse) SetHeaders(v map[string]*string) *QueryScheduleConferenceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryScheduleConferenceResponse) SetStatusCode(v int32) *QueryScheduleConferenceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryScheduleConferenceResponse) SetBody(v *QueryScheduleConferenceResponseBody) *QueryScheduleConferenceResponse {
+	s.Body = v
+	return s
+}
+
 type QueryScheduleConferenceInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3272,6 +3620,116 @@ func (s *StopStreamOutResponse) SetBody(v *StopStreamOutResponseBody) *StopStrea
 	return s
 }
 
+type UpdateScheduleConferenceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateScheduleConferenceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConferenceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConferenceHeaders) SetCommonHeaders(v map[string]*string) *UpdateScheduleConferenceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateScheduleConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateScheduleConferenceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateScheduleConferenceRequest struct {
+	CreatorUnionId       *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	EndTime              *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	StartTime            *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Title                *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s UpdateScheduleConferenceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConferenceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConferenceRequest) SetCreatorUnionId(v string) *UpdateScheduleConferenceRequest {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *UpdateScheduleConferenceRequest) SetEndTime(v int64) *UpdateScheduleConferenceRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *UpdateScheduleConferenceRequest) SetScheduleConferenceId(v string) *UpdateScheduleConferenceRequest {
+	s.ScheduleConferenceId = &v
+	return s
+}
+
+func (s *UpdateScheduleConferenceRequest) SetStartTime(v int64) *UpdateScheduleConferenceRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *UpdateScheduleConferenceRequest) SetTitle(v string) *UpdateScheduleConferenceRequest {
+	s.Title = &v
+	return s
+}
+
+type UpdateScheduleConferenceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateScheduleConferenceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConferenceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConferenceResponseBody) SetSuccess(v bool) *UpdateScheduleConferenceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateScheduleConferenceResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateScheduleConferenceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConferenceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConferenceResponse) SetHeaders(v map[string]*string) *UpdateScheduleConferenceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateScheduleConferenceResponse) SetStatusCode(v int32) *UpdateScheduleConferenceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateScheduleConferenceResponse) SetBody(v *UpdateScheduleConferenceResponseBody) *UpdateScheduleConferenceResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateVideoConferenceExtInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3498,6 +3956,65 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) CancelScheduleConferenceWithOptions(request *CancelScheduleConferenceRequest, headers *CancelScheduleConferenceHeaders, runtime *util.RuntimeOptions) (_result *CancelScheduleConferenceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScheduleConferenceId)) {
+		body["scheduleConferenceId"] = request.ScheduleConferenceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CancelScheduleConference"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/scheduleConferences/cancel"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CancelScheduleConferenceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CancelScheduleConference(request *CancelScheduleConferenceRequest) (_result *CancelScheduleConferenceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelScheduleConferenceHeaders{}
+	_result = &CancelScheduleConferenceResponse{}
+	_body, _err := client.CancelScheduleConferenceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) CloseVideoConferenceWithOptions(conferenceId *string, request *CloseVideoConferenceRequest, headers *CloseVideoConferenceHeaders, runtime *util.RuntimeOptions) (_result *CloseVideoConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3605,6 +4122,73 @@ func (client *Client) Cohosts(conferenceId *string, request *CohostsRequest) (_r
 	headers := &CohostsHeaders{}
 	_result = &CohostsResponse{}
 	_body, _err := client.CohostsWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateScheduleConferenceWithOptions(request *CreateScheduleConferenceRequest, headers *CreateScheduleConferenceHeaders, runtime *util.RuntimeOptions) (_result *CreateScheduleConferenceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateScheduleConference"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/scheduleConferences"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateScheduleConferenceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateScheduleConference(request *CreateScheduleConferenceRequest) (_result *CreateScheduleConferenceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateScheduleConferenceHeaders{}
+	_result = &CreateScheduleConferenceResponse{}
+	_body, _err := client.CreateScheduleConferenceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4590,6 +5174,61 @@ func (client *Client) QueryConferenceMembers(conferenceId *string, request *Quer
 	return _result, _err
 }
 
+func (client *Client) QueryScheduleConferenceWithOptions(scheduleConferenceId *string, request *QueryScheduleConferenceRequest, headers *QueryScheduleConferenceHeaders, runtime *util.RuntimeOptions) (_result *QueryScheduleConferenceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RequestUnionId)) {
+		query["requestUnionId"] = request.RequestUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryScheduleConference"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/scheduleConferences/" + tea.StringValue(scheduleConferenceId) + "/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryScheduleConferenceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryScheduleConference(scheduleConferenceId *string, request *QueryScheduleConferenceRequest) (_result *QueryScheduleConferenceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryScheduleConferenceHeaders{}
+	_result = &QueryScheduleConferenceResponse{}
+	_body, _err := client.QueryScheduleConferenceWithOptions(scheduleConferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) QueryScheduleConferenceInfoWithOptions(scheduleConferenceId *string, request *QueryScheduleConferenceInfoRequest, headers *QueryScheduleConferenceInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryScheduleConferenceInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4898,6 +5537,77 @@ func (client *Client) StopStreamOut(conferenceId *string, request *StopStreamOut
 	headers := &StopStreamOutHeaders{}
 	_result = &StopStreamOutResponse{}
 	_body, _err := client.StopStreamOutWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateScheduleConferenceWithOptions(request *UpdateScheduleConferenceRequest, headers *UpdateScheduleConferenceHeaders, runtime *util.RuntimeOptions) (_result *UpdateScheduleConferenceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScheduleConferenceId)) {
+		body["scheduleConferenceId"] = request.ScheduleConferenceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateScheduleConference"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/scheduleConferences"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateScheduleConferenceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateScheduleConference(request *UpdateScheduleConferenceRequest) (_result *UpdateScheduleConferenceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateScheduleConferenceHeaders{}
+	_result = &UpdateScheduleConferenceResponse{}
+	_body, _err := client.UpdateScheduleConferenceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

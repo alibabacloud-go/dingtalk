@@ -31,7 +31,7 @@ func (s *AyunOnlienTestRequest) SetReqId(v string) *AyunOnlienTestRequest {
 }
 
 type AyunOnlienTestResponseBody struct {
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
 func (s AyunOnlienTestResponseBody) String() string {
@@ -42,8 +42,8 @@ func (s AyunOnlienTestResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *AyunOnlienTestResponseBody) SetRequestId(v string) *AyunOnlienTestResponseBody {
-	s.RequestId = &v
+func (s *AyunOnlienTestResponseBody) SetResult(v string) *AyunOnlienTestResponseBody {
+	s.Result = &v
 	return s
 }
 

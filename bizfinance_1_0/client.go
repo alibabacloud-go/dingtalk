@@ -6575,6 +6575,7 @@ func (s *UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList) SetInvoiceN
 
 type UnbindApplyReceiptAndInvoiceRelatedResponseBody struct {
 	BatchUpdateInvoiceResponse *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse `json:"batchUpdateInvoiceResponse,omitempty" xml:"batchUpdateInvoiceResponse,omitempty" type:"Struct"`
+	ErrorInvoiceKeyVOList      []*UnbindApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList    `json:"errorInvoiceKeyVOList,omitempty" xml:"errorInvoiceKeyVOList,omitempty" type:"Repeated"`
 	Success                    *bool                                                                      `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -6588,6 +6589,11 @@ func (s UnbindApplyReceiptAndInvoiceRelatedResponseBody) GoString() string {
 
 func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBody) SetBatchUpdateInvoiceResponse(v *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) *UnbindApplyReceiptAndInvoiceRelatedResponseBody {
 	s.BatchUpdateInvoiceResponse = v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBody) SetErrorInvoiceKeyVOList(v []*UnbindApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) *UnbindApplyReceiptAndInvoiceRelatedResponseBody {
+	s.ErrorInvoiceKeyVOList = v
 	return s
 }
 
@@ -6632,6 +6638,29 @@ func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceRespon
 }
 
 func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) SetInvoiceNo(v string) *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList {
+	s.InvoiceNo = &v
+	return s
+}
+
+type UnbindApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList struct {
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) SetInvoiceCode(v string) *UnbindApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) SetInvoiceNo(v string) *UnbindApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList {
 	s.InvoiceNo = &v
 	return s
 }
@@ -7344,6 +7373,7 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListVehicleSa
 
 type UpdateApplyReceiptAndInvoiceRelatedResponseBody struct {
 	BatchUpdateInvoiceResponse *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse `json:"batchUpdateInvoiceResponse,omitempty" xml:"batchUpdateInvoiceResponse,omitempty" type:"Struct"`
+	ErrorInvoiceKeyVOList      []*UpdateApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList    `json:"errorInvoiceKeyVOList,omitempty" xml:"errorInvoiceKeyVOList,omitempty" type:"Repeated"`
 	Success                    *bool                                                                      `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7357,6 +7387,11 @@ func (s UpdateApplyReceiptAndInvoiceRelatedResponseBody) GoString() string {
 
 func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBody) SetBatchUpdateInvoiceResponse(v *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) *UpdateApplyReceiptAndInvoiceRelatedResponseBody {
 	s.BatchUpdateInvoiceResponse = v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBody) SetErrorInvoiceKeyVOList(v []*UpdateApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) *UpdateApplyReceiptAndInvoiceRelatedResponseBody {
+	s.ErrorInvoiceKeyVOList = v
 	return s
 }
 
@@ -7401,6 +7436,29 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceRespon
 }
 
 func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) SetInvoiceNo(v string) *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList {
+	s.InvoiceNo = &v
+	return s
+}
+
+type UpdateApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList struct {
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+}
+
+func (s UpdateApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) SetInvoiceCode(v string) *UpdateApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList) SetInvoiceNo(v string) *UpdateApplyReceiptAndInvoiceRelatedResponseBodyErrorInvoiceKeyVOList {
 	s.InvoiceNo = &v
 	return s
 }

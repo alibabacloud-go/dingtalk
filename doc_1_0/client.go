@@ -13,6 +13,162 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AttachmentsMapValue struct {
+	UploadKey *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	MediaType *string `json:"mediaType,omitempty" xml:"mediaType,omitempty"`
+}
+
+func (s AttachmentsMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttachmentsMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *AttachmentsMapValue) SetUploadKey(v string) *AttachmentsMapValue {
+	s.UploadKey = &v
+	return s
+}
+
+func (s *AttachmentsMapValue) SetName(v string) *AttachmentsMapValue {
+	s.Name = &v
+	return s
+}
+
+func (s *AttachmentsMapValue) SetMediaType(v string) *AttachmentsMapValue {
+	s.MediaType = &v
+	return s
+}
+
+type AddCommentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddCommentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCommentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddCommentHeaders) SetCommonHeaders(v map[string]*string) *AddCommentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddCommentHeaders) SetXAcsDingtalkAccessToken(v string) *AddCommentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddCommentRequest struct {
+	CommentContent *string                  `json:"commentContent,omitempty" xml:"commentContent,omitempty"`
+	CommentType    *string                  `json:"commentType,omitempty" xml:"commentType,omitempty"`
+	Option         *AddCommentRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	OperatorId     *string                  `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s AddCommentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCommentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddCommentRequest) SetCommentContent(v string) *AddCommentRequest {
+	s.CommentContent = &v
+	return s
+}
+
+func (s *AddCommentRequest) SetCommentType(v string) *AddCommentRequest {
+	s.CommentType = &v
+	return s
+}
+
+func (s *AddCommentRequest) SetOption(v *AddCommentRequestOption) *AddCommentRequest {
+	s.Option = v
+	return s
+}
+
+func (s *AddCommentRequest) SetOperatorId(v string) *AddCommentRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type AddCommentRequestOption struct {
+	CreateTime *string            `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Extra      map[string]*string `json:"extra,omitempty" xml:"extra,omitempty"`
+}
+
+func (s AddCommentRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCommentRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *AddCommentRequestOption) SetCreateTime(v string) *AddCommentRequestOption {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *AddCommentRequestOption) SetExtra(v map[string]*string) *AddCommentRequestOption {
+	s.Extra = v
+	return s
+}
+
+type AddCommentResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddCommentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCommentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddCommentResponseBody) SetSuccess(v bool) *AddCommentResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddCommentResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddCommentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddCommentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCommentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddCommentResponse) SetHeaders(v map[string]*string) *AddCommentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddCommentResponse) SetStatusCode(v int32) *AddCommentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddCommentResponse) SetBody(v *AddCommentResponseBody) *AddCommentResponse {
+	s.Body = v
+	return s
+}
+
 type AddWorkspaceDocMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3978,6 +4134,110 @@ func (s *GetWorkspaceNodeResponse) SetBody(v *GetWorkspaceNodeResponseBody) *Get
 	return s
 }
 
+type InitDocumentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InitDocumentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitDocumentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InitDocumentHeaders) SetCommonHeaders(v map[string]*string) *InitDocumentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InitDocumentHeaders) SetXAcsDingtalkAccessToken(v string) *InitDocumentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InitDocumentRequest struct {
+	AttachmentsMap map[string]*AttachmentsMapValue `json:"attachmentsMap,omitempty" xml:"attachmentsMap,omitempty"`
+	ImportType     *int32                          `json:"importType,omitempty" xml:"importType,omitempty"`
+	LinksKey       *string                         `json:"linksKey,omitempty" xml:"linksKey,omitempty"`
+	OperatorId     *string                         `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s InitDocumentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitDocumentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InitDocumentRequest) SetAttachmentsMap(v map[string]*AttachmentsMapValue) *InitDocumentRequest {
+	s.AttachmentsMap = v
+	return s
+}
+
+func (s *InitDocumentRequest) SetImportType(v int32) *InitDocumentRequest {
+	s.ImportType = &v
+	return s
+}
+
+func (s *InitDocumentRequest) SetLinksKey(v string) *InitDocumentRequest {
+	s.LinksKey = &v
+	return s
+}
+
+func (s *InitDocumentRequest) SetOperatorId(v string) *InitDocumentRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type InitDocumentResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s InitDocumentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitDocumentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InitDocumentResponseBody) SetSuccess(v bool) *InitDocumentResponseBody {
+	s.Success = &v
+	return s
+}
+
+type InitDocumentResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *InitDocumentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InitDocumentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitDocumentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InitDocumentResponse) SetHeaders(v map[string]*string) *InitDocumentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InitDocumentResponse) SetStatusCode(v int32) *InitDocumentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *InitDocumentResponse) SetBody(v *InitDocumentResponseBody) *InitDocumentResponse {
+	s.Body = v
+	return s
+}
+
 type InsertBlocksHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6175,6 +6435,75 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) AddCommentWithOptions(docId *string, request *AddCommentRequest, headers *AddCommentHeaders, runtime *util.RuntimeOptions) (_result *AddCommentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CommentContent)) {
+		body["commentContent"] = request.CommentContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommentType)) {
+		body["commentType"] = request.CommentType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddComment"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/docs/" + tea.StringValue(docId) + "/comments"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddCommentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddComment(docId *string, request *AddCommentRequest) (_result *AddCommentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddCommentHeaders{}
+	_result = &AddCommentResponse{}
+	_body, _err := client.AddCommentWithOptions(docId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) AddWorkspaceDocMembersWithOptions(workspaceId *string, nodeId *string, request *AddWorkspaceDocMembersRequest, headers *AddWorkspaceDocMembersHeaders, runtime *util.RuntimeOptions) (_result *AddWorkspaceDocMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8078,6 +8407,75 @@ func (client *Client) GetWorkspaceNode(workspaceId *string, nodeId *string, requ
 	headers := &GetWorkspaceNodeHeaders{}
 	_result = &GetWorkspaceNodeResponse{}
 	_body, _err := client.GetWorkspaceNodeWithOptions(workspaceId, nodeId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InitDocumentWithOptions(docId *string, request *InitDocumentRequest, headers *InitDocumentHeaders, runtime *util.RuntimeOptions) (_result *InitDocumentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AttachmentsMap)) {
+		body["attachmentsMap"] = request.AttachmentsMap
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImportType)) {
+		body["importType"] = request.ImportType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LinksKey)) {
+		body["linksKey"] = request.LinksKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("InitDocument"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/docs/" + tea.StringValue(docId) + "/init"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &InitDocumentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) InitDocument(docId *string, request *InitDocumentRequest) (_result *InitDocumentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InitDocumentHeaders{}
+	_result = &InitDocumentResponse{}
+	_body, _err := client.InitDocumentWithOptions(docId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

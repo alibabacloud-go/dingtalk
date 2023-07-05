@@ -3445,7 +3445,9 @@ func (s *ListStarsRequest) SetOperatorId(v string) *ListStarsRequest {
 }
 
 type ListStarsRequestOption struct {
+	ContentTypeList          []*string `json:"contentTypeList,omitempty" xml:"contentTypeList,omitempty" type:"Repeated"`
 	FilterDocTypes           []*string `json:"filterDocTypes,omitempty" xml:"filterDocTypes,omitempty" type:"Repeated"`
+	ListV2                   *bool     `json:"listV2,omitempty" xml:"listV2,omitempty"`
 	MaxResults               *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken                *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Order                    *string   `json:"order,omitempty" xml:"order,omitempty"`
@@ -3466,8 +3468,18 @@ func (s ListStarsRequestOption) GoString() string {
 	return s.String()
 }
 
+func (s *ListStarsRequestOption) SetContentTypeList(v []*string) *ListStarsRequestOption {
+	s.ContentTypeList = v
+	return s
+}
+
 func (s *ListStarsRequestOption) SetFilterDocTypes(v []*string) *ListStarsRequestOption {
 	s.FilterDocTypes = v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetListV2(v bool) *ListStarsRequestOption {
+	s.ListV2 = &v
 	return s
 }
 
