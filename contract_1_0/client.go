@@ -418,6 +418,133 @@ func (s *EsignSyncEventResponse) SetBody(v *EsignSyncEventResponseBody) *EsignSy
 	return s
 }
 
+type QueryAdvancedContractVersionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryAdvancedContractVersionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAdvancedContractVersionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAdvancedContractVersionHeaders) SetCommonHeaders(v map[string]*string) *QueryAdvancedContractVersionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryAdvancedContractVersionHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAdvancedContractVersionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryAdvancedContractVersionRequest struct {
+	CorpId    *string            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+}
+
+func (s QueryAdvancedContractVersionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAdvancedContractVersionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAdvancedContractVersionRequest) SetCorpId(v string) *QueryAdvancedContractVersionRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryAdvancedContractVersionRequest) SetExtension(v map[string]*string) *QueryAdvancedContractVersionRequest {
+	s.Extension = v
+	return s
+}
+
+type QueryAdvancedContractVersionResponseBody struct {
+	Result  *QueryAdvancedContractVersionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryAdvancedContractVersionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAdvancedContractVersionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAdvancedContractVersionResponseBody) SetResult(v *QueryAdvancedContractVersionResponseBodyResult) *QueryAdvancedContractVersionResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryAdvancedContractVersionResponseBody) SetSuccess(v bool) *QueryAdvancedContractVersionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryAdvancedContractVersionResponseBodyResult struct {
+	EnableEsignAttachmentSign *bool              `json:"enableEsignAttachmentSign,omitempty" xml:"enableEsignAttachmentSign,omitempty"`
+	Extension                 map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Version                   *string            `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s QueryAdvancedContractVersionResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAdvancedContractVersionResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAdvancedContractVersionResponseBodyResult) SetEnableEsignAttachmentSign(v bool) *QueryAdvancedContractVersionResponseBodyResult {
+	s.EnableEsignAttachmentSign = &v
+	return s
+}
+
+func (s *QueryAdvancedContractVersionResponseBodyResult) SetExtension(v map[string]*string) *QueryAdvancedContractVersionResponseBodyResult {
+	s.Extension = v
+	return s
+}
+
+func (s *QueryAdvancedContractVersionResponseBodyResult) SetVersion(v string) *QueryAdvancedContractVersionResponseBodyResult {
+	s.Version = &v
+	return s
+}
+
+type QueryAdvancedContractVersionResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryAdvancedContractVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryAdvancedContractVersionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAdvancedContractVersionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAdvancedContractVersionResponse) SetHeaders(v map[string]*string) *QueryAdvancedContractVersionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryAdvancedContractVersionResponse) SetStatusCode(v int32) *QueryAdvancedContractVersionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryAdvancedContractVersionResponse) SetBody(v *QueryAdvancedContractVersionResponseBody) *QueryAdvancedContractVersionResponse {
+	s.Body = v
+	return s
+}
+
 type SendContractCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -864,6 +991,65 @@ func (client *Client) EsignSyncEvent(request *EsignSyncEventRequest) (_result *E
 	headers := &EsignSyncEventHeaders{}
 	_result = &EsignSyncEventResponse{}
 	_body, _err := client.EsignSyncEventWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryAdvancedContractVersionWithOptions(request *QueryAdvancedContractVersionRequest, headers *QueryAdvancedContractVersionHeaders, runtime *util.RuntimeOptions) (_result *QueryAdvancedContractVersionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryAdvancedContractVersion"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/versions/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryAdvancedContractVersionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryAdvancedContractVersion(request *QueryAdvancedContractVersionRequest) (_result *QueryAdvancedContractVersionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryAdvancedContractVersionHeaders{}
+	_result = &QueryAdvancedContractVersionResponse{}
+	_body, _err := client.QueryAdvancedContractVersionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

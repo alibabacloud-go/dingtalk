@@ -909,6 +909,52 @@ func (s *DiotSystemMarkTestResponse) SetBody(v *DiotSystemMarkTestResponseBody) 
 	return s
 }
 
+type DiotMarketManagerResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s DiotMarketManagerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DiotMarketManagerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DiotMarketManagerResponseBody) SetRequestId(v string) *DiotMarketManagerResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type DiotMarketManagerResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DiotMarketManagerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DiotMarketManagerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DiotMarketManagerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DiotMarketManagerResponse) SetHeaders(v map[string]*string) *DiotMarketManagerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DiotMarketManagerResponse) SetStatusCode(v int32) *DiotMarketManagerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DiotMarketManagerResponse) SetBody(v *DiotMarketManagerResponseBody) *DiotMarketManagerResponse {
+	s.Body = v
+	return s
+}
+
 type PushEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1639,6 +1685,52 @@ func (s *RegisterDeviceResponse) SetBody(v *RegisterDeviceResponseBody) *Registe
 	return s
 }
 
+type UpgradeDeviceResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s UpgradeDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeDeviceResponseBody) SetRequestId(v string) *UpgradeDeviceResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type UpgradeDeviceResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpgradeDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpgradeDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeDeviceResponse) SetHeaders(v map[string]*string) *UpgradeDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpgradeDeviceResponse) SetStatusCode(v int32) *UpgradeDeviceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpgradeDeviceResponse) SetBody(v *UpgradeDeviceResponseBody) *UpgradeDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type WorkbenchTransformInfoResponseBody struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
@@ -2171,6 +2263,42 @@ func (client *Client) DiotSystemMarkTest() (_result *DiotSystemMarkTestResponse,
 	return _result, _err
 }
 
+func (client *Client) Diot_Market_ManagerWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DiotMarketManagerResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("Diot_Market_Manager"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/market/manager"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DiotMarketManagerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) Diot_Market_Manager() (_result *DiotMarketManagerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &DiotMarketManagerResponse{}
+	_body, _err := client.Diot_Market_ManagerWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) PushEventWithOptions(request *PushEventRequest, headers *PushEventHeaders, runtime *util.RuntimeOptions) (_result *PushEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2500,6 +2628,42 @@ func (client *Client) RegisterDevice(request *RegisterDeviceRequest) (_result *R
 	headers := &RegisterDeviceHeaders{}
 	_result = &RegisterDeviceResponse{}
 	_body, _err := client.RegisterDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpgradeDeviceWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpgradeDeviceResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpgradeDevice"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/upgrade/device"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpgradeDeviceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpgradeDevice() (_result *UpgradeDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &UpgradeDeviceResponse{}
+	_body, _err := client.UpgradeDeviceWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -13,6 +13,162 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type PushLiveActivityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PushLiveActivityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushLiveActivityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PushLiveActivityHeaders) SetCommonHeaders(v map[string]*string) *PushLiveActivityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PushLiveActivityHeaders) SetXAcsDingtalkAccessToken(v string) *PushLiveActivityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PushLiveActivityRequest struct {
+	ActivityEventData   *PushLiveActivityRequestActivityEventData   `json:"activityEventData,omitempty" xml:"activityEventData,omitempty" type:"Struct"`
+	ActivityEventOption *PushLiveActivityRequestActivityEventOption `json:"activityEventOption,omitempty" xml:"activityEventOption,omitempty" type:"Struct"`
+	ActivityId          *string                                     `json:"activityId,omitempty" xml:"activityId,omitempty"`
+}
+
+func (s PushLiveActivityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushLiveActivityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PushLiveActivityRequest) SetActivityEventData(v *PushLiveActivityRequestActivityEventData) *PushLiveActivityRequest {
+	s.ActivityEventData = v
+	return s
+}
+
+func (s *PushLiveActivityRequest) SetActivityEventOption(v *PushLiveActivityRequestActivityEventOption) *PushLiveActivityRequest {
+	s.ActivityEventOption = v
+	return s
+}
+
+func (s *PushLiveActivityRequest) SetActivityId(v string) *PushLiveActivityRequest {
+	s.ActivityId = &v
+	return s
+}
+
+type PushLiveActivityRequestActivityEventData struct {
+	I18nContentState interface{} `json:"i18nContentState,omitempty" xml:"i18nContentState,omitempty"`
+	TemplateId       *string     `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s PushLiveActivityRequestActivityEventData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushLiveActivityRequestActivityEventData) GoString() string {
+	return s.String()
+}
+
+func (s *PushLiveActivityRequestActivityEventData) SetI18nContentState(v interface{}) *PushLiveActivityRequestActivityEventData {
+	s.I18nContentState = v
+	return s
+}
+
+func (s *PushLiveActivityRequestActivityEventData) SetTemplateId(v string) *PushLiveActivityRequestActivityEventData {
+	s.TemplateId = &v
+	return s
+}
+
+type PushLiveActivityRequestActivityEventOption struct {
+	DismissalDate *int64  `json:"dismissalDate,omitempty" xml:"dismissalDate,omitempty"`
+	PushType      *string `json:"pushType,omitempty" xml:"pushType,omitempty"`
+	SendDate      *int64  `json:"sendDate,omitempty" xml:"sendDate,omitempty"`
+	StaleDate     *int64  `json:"staleDate,omitempty" xml:"staleDate,omitempty"`
+}
+
+func (s PushLiveActivityRequestActivityEventOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushLiveActivityRequestActivityEventOption) GoString() string {
+	return s.String()
+}
+
+func (s *PushLiveActivityRequestActivityEventOption) SetDismissalDate(v int64) *PushLiveActivityRequestActivityEventOption {
+	s.DismissalDate = &v
+	return s
+}
+
+func (s *PushLiveActivityRequestActivityEventOption) SetPushType(v string) *PushLiveActivityRequestActivityEventOption {
+	s.PushType = &v
+	return s
+}
+
+func (s *PushLiveActivityRequestActivityEventOption) SetSendDate(v int64) *PushLiveActivityRequestActivityEventOption {
+	s.SendDate = &v
+	return s
+}
+
+func (s *PushLiveActivityRequestActivityEventOption) SetStaleDate(v int64) *PushLiveActivityRequestActivityEventOption {
+	s.StaleDate = &v
+	return s
+}
+
+type PushLiveActivityResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s PushLiveActivityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushLiveActivityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PushLiveActivityResponseBody) SetResult(v string) *PushLiveActivityResponseBody {
+	s.Result = &v
+	return s
+}
+
+type PushLiveActivityResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PushLiveActivityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PushLiveActivityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushLiveActivityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PushLiveActivityResponse) SetHeaders(v map[string]*string) *PushLiveActivityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PushLiveActivityResponse) SetStatusCode(v int32) *PushLiveActivityResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PushLiveActivityResponse) SetBody(v *PushLiveActivityResponseBody) *PushLiveActivityResponse {
+	s.Body = v
+	return s
+}
+
 type SendLiveActivityHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -196,6 +352,69 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) PushLiveActivityWithOptions(request *PushLiveActivityRequest, headers *PushLiveActivityHeaders, runtime *util.RuntimeOptions) (_result *PushLiveActivityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActivityEventData)) {
+		body["activityEventData"] = request.ActivityEventData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ActivityEventOption)) {
+		body["activityEventOption"] = request.ActivityEventOption
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ActivityId)) {
+		body["activityId"] = request.ActivityId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PushLiveActivity"),
+		Version:     tea.String("liveActivities_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/liveActivities/push"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PushLiveActivityResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PushLiveActivity(request *PushLiveActivityRequest) (_result *PushLiveActivityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PushLiveActivityHeaders{}
+	_result = &PushLiveActivityResponse{}
+	_body, _err := client.PushLiveActivityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) SendLiveActivityWithOptions(request *SendLiveActivityRequest, headers *SendLiveActivityHeaders, runtime *util.RuntimeOptions) (_result *SendLiveActivityResponse, _err error) {

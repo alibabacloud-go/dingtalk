@@ -340,6 +340,8 @@ type SyncTripOrderRequest struct {
 	RefundAmount    *string                             `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
 	RelativeOrderNo *string                             `json:"relativeOrderNo,omitempty" xml:"relativeOrderNo,omitempty"`
 	Source          *string                             `json:"source,omitempty" xml:"source,omitempty"`
+	SupplyLogo      *string                             `json:"supplyLogo,omitempty" xml:"supplyLogo,omitempty"`
+	SupplyName      *string                             `json:"supplyName,omitempty" xml:"supplyName,omitempty"`
 	TargetCorpId    *string                             `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
 	TotalAmount     *string                             `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
 	Type            *string                             `json:"type,omitempty" xml:"type,omitempty"`
@@ -440,6 +442,16 @@ func (s *SyncTripOrderRequest) SetRelativeOrderNo(v string) *SyncTripOrderReques
 
 func (s *SyncTripOrderRequest) SetSource(v string) *SyncTripOrderRequest {
 	s.Source = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetSupplyLogo(v string) *SyncTripOrderRequest {
+	s.SupplyLogo = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetSupplyName(v string) *SyncTripOrderRequest {
+	s.SupplyName = &v
 	return s
 }
 
@@ -996,6 +1008,14 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.Source)) {
 		body["source"] = request.Source
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SupplyLogo)) {
+		body["supplyLogo"] = request.SupplyLogo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SupplyName)) {
+		body["supplyName"] = request.SupplyName
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
