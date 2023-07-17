@@ -13319,7 +13319,7 @@ func (client *Client) DeleteCrmFormInstanceWithOptions(instanceId *string, reque
 		Method:      tea.String("DELETE"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &DeleteCrmFormInstanceResponse{}

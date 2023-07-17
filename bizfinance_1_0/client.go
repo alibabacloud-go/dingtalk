@@ -5016,6 +5016,7 @@ type QueryReceiptDetailForInvoiceResponseBodyResult struct {
 	Amount            *string                                                          `json:"amount,omitempty" xml:"amount,omitempty"`
 	ApplyStatus       *string                                                          `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
 	BizStatus         *string                                                          `json:"bizStatus,omitempty" xml:"bizStatus,omitempty"`
+	BusinessId        *string                                                          `json:"businessId,omitempty" xml:"businessId,omitempty"`
 	CreateTime        *string                                                          `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator           *QueryReceiptDetailForInvoiceResponseBodyResultCreator           `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	Customer          *QueryReceiptDetailForInvoiceResponseBodyResultCustomer          `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
@@ -5058,6 +5059,11 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetApplyStatus(v string
 
 func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetBizStatus(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
 	s.BizStatus = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetBusinessId(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.BusinessId = &v
 	return s
 }
 
@@ -5428,6 +5434,7 @@ type QueryReceiptForInvoiceResponseBodyList struct {
 	Amount            *string                                                  `json:"amount,omitempty" xml:"amount,omitempty"`
 	ApplyStatus       *string                                                  `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
 	BizStatus         *string                                                  `json:"bizStatus,omitempty" xml:"bizStatus,omitempty"`
+	BusinessId        *string                                                  `json:"businessId,omitempty" xml:"businessId,omitempty"`
 	CreateTime        *string                                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator           *QueryReceiptForInvoiceResponseBodyListCreator           `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	Customer          *QueryReceiptForInvoiceResponseBodyListCustomer          `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
@@ -5470,6 +5477,11 @@ func (s *QueryReceiptForInvoiceResponseBodyList) SetApplyStatus(v string) *Query
 
 func (s *QueryReceiptForInvoiceResponseBodyList) SetBizStatus(v string) *QueryReceiptForInvoiceResponseBodyList {
 	s.BizStatus = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetBusinessId(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.BusinessId = &v
 	return s
 }
 
@@ -5832,6 +5844,7 @@ func (s *QueryReceiptsBaseInfoResponseBody) SetTotalCount(v int64) *QueryReceipt
 
 type QueryReceiptsBaseInfoResponseBodyList struct {
 	Amount        *string                                         `json:"amount,omitempty" xml:"amount,omitempty"`
+	BusinessId    *string                                         `json:"businessId,omitempty" xml:"businessId,omitempty"`
 	CreateTime    *string                                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator       *QueryReceiptsBaseInfoResponseBodyListCreator   `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	Customer      *QueryReceiptsBaseInfoResponseBodyListCustomer  `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
@@ -5858,6 +5871,11 @@ func (s QueryReceiptsBaseInfoResponseBodyList) GoString() string {
 
 func (s *QueryReceiptsBaseInfoResponseBodyList) SetAmount(v string) *QueryReceiptsBaseInfoResponseBodyList {
 	s.Amount = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetBusinessId(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.BusinessId = &v
 	return s
 }
 

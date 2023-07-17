@@ -1776,6 +1776,208 @@ func (s *RobotMessageFileDownloadResponse) SetBody(v *RobotMessageFileDownloadRe
 	return s
 }
 
+type RobotRecallDingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RobotRecallDingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotRecallDingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RobotRecallDingHeaders) SetCommonHeaders(v map[string]*string) *RobotRecallDingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RobotRecallDingHeaders) SetXAcsDingtalkAccessToken(v string) *RobotRecallDingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RobotRecallDingRequest struct {
+	OpenDingId *string `json:"openDingId,omitempty" xml:"openDingId,omitempty"`
+	RobotCode  *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s RobotRecallDingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotRecallDingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RobotRecallDingRequest) SetOpenDingId(v string) *RobotRecallDingRequest {
+	s.OpenDingId = &v
+	return s
+}
+
+func (s *RobotRecallDingRequest) SetRobotCode(v string) *RobotRecallDingRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type RobotRecallDingResponseBody struct {
+	OpenDingId *string `json:"openDingId,omitempty" xml:"openDingId,omitempty"`
+}
+
+func (s RobotRecallDingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotRecallDingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RobotRecallDingResponseBody) SetOpenDingId(v string) *RobotRecallDingResponseBody {
+	s.OpenDingId = &v
+	return s
+}
+
+type RobotRecallDingResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RobotRecallDingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RobotRecallDingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotRecallDingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RobotRecallDingResponse) SetHeaders(v map[string]*string) *RobotRecallDingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RobotRecallDingResponse) SetStatusCode(v int32) *RobotRecallDingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RobotRecallDingResponse) SetBody(v *RobotRecallDingResponseBody) *RobotRecallDingResponse {
+	s.Body = v
+	return s
+}
+
+type RobotSendDingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RobotSendDingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotSendDingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RobotSendDingHeaders) SetCommonHeaders(v map[string]*string) *RobotSendDingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RobotSendDingHeaders) SetXAcsDingtalkAccessToken(v string) *RobotSendDingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RobotSendDingRequest struct {
+	Content            *string   `json:"content,omitempty" xml:"content,omitempty"`
+	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	RemindType         *int32    `json:"remindType,omitempty" xml:"remindType,omitempty"`
+	RobotCode          *string   `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s RobotSendDingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotSendDingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RobotSendDingRequest) SetContent(v string) *RobotSendDingRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *RobotSendDingRequest) SetReceiverUserIdList(v []*string) *RobotSendDingRequest {
+	s.ReceiverUserIdList = v
+	return s
+}
+
+func (s *RobotSendDingRequest) SetRemindType(v int32) *RobotSendDingRequest {
+	s.RemindType = &v
+	return s
+}
+
+func (s *RobotSendDingRequest) SetRobotCode(v string) *RobotSendDingRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type RobotSendDingResponseBody struct {
+	FailedList map[string]interface{} `json:"failedList,omitempty" xml:"failedList,omitempty"`
+	OpenDingId *string                `json:"openDingId,omitempty" xml:"openDingId,omitempty"`
+}
+
+func (s RobotSendDingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotSendDingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RobotSendDingResponseBody) SetFailedList(v map[string]interface{}) *RobotSendDingResponseBody {
+	s.FailedList = v
+	return s
+}
+
+func (s *RobotSendDingResponseBody) SetOpenDingId(v string) *RobotSendDingResponseBody {
+	s.OpenDingId = &v
+	return s
+}
+
+type RobotSendDingResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RobotSendDingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RobotSendDingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotSendDingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RobotSendDingResponse) SetHeaders(v map[string]*string) *RobotSendDingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RobotSendDingResponse) SetStatusCode(v int32) *RobotSendDingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RobotSendDingResponse) SetBody(v *RobotSendDingResponseBody) *RobotSendDingResponse {
+	s.Body = v
+	return s
+}
+
 type SendRobotDingMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3163,6 +3365,132 @@ func (client *Client) RobotMessageFileDownload(request *RobotMessageFileDownload
 	headers := &RobotMessageFileDownloadHeaders{}
 	_result = &RobotMessageFileDownloadResponse{}
 	_body, _err := client.RobotMessageFileDownloadWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RobotRecallDingWithOptions(request *RobotRecallDingRequest, headers *RobotRecallDingHeaders, runtime *util.RuntimeOptions) (_result *RobotRecallDingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenDingId)) {
+		body["openDingId"] = request.OpenDingId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RobotRecallDing"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/ding/recall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RobotRecallDingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RobotRecallDing(request *RobotRecallDingRequest) (_result *RobotRecallDingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RobotRecallDingHeaders{}
+	_result = &RobotRecallDingResponse{}
+	_body, _err := client.RobotRecallDingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RobotSendDingWithOptions(request *RobotSendDingRequest, headers *RobotSendDingHeaders, runtime *util.RuntimeOptions) (_result *RobotSendDingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIdList)) {
+		body["receiverUserIdList"] = request.ReceiverUserIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RemindType)) {
+		body["remindType"] = request.RemindType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RobotSendDing"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/ding/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RobotSendDingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RobotSendDing(request *RobotSendDingRequest) (_result *RobotSendDingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RobotSendDingHeaders{}
+	_result = &RobotSendDingResponse{}
+	_body, _err := client.RobotSendDingWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

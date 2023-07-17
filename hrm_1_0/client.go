@@ -198,6 +198,52 @@ func (s *AddHrmPreentryResponse) SetBody(v *AddHrmPreentryResponseBody) *AddHrmP
 	return s
 }
 
+type DeviceMarketManagerResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s DeviceMarketManagerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceMarketManagerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceMarketManagerResponseBody) SetRequestId(v string) *DeviceMarketManagerResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type DeviceMarketManagerResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeviceMarketManagerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeviceMarketManagerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceMarketManagerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceMarketManagerResponse) SetHeaders(v map[string]*string) *DeviceMarketManagerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeviceMarketManagerResponse) SetStatusCode(v int32) *DeviceMarketManagerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeviceMarketManagerResponse) SetBody(v *DeviceMarketManagerResponseBody) *DeviceMarketManagerResponse {
+	s.Body = v
+	return s
+}
+
 type ECertQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3112,6 +3158,7 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3188,6 +3235,42 @@ func (client *Client) AddHrmPreentry(request *AddHrmPreentryRequest) (_result *A
 	headers := &AddHrmPreentryHeaders{}
 	_result = &AddHrmPreentryResponse{}
 	_body, _err := client.AddHrmPreentryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeviceMarketManagerWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DeviceMarketManagerResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeviceMarketManager"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/device/market/manager"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeviceMarketManagerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeviceMarketManager() (_result *DeviceMarketManagerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &DeviceMarketManagerResponse{}
+	_body, _err := client.DeviceMarketManagerWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
