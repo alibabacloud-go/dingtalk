@@ -654,6 +654,110 @@ func (s *ClearRobotPluginResponse) SetBody(v *ClearRobotPluginResponseBody) *Cle
 	return s
 }
 
+type ExecuteRobotAiSkillHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExecuteRobotAiSkillHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteRobotAiSkillHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteRobotAiSkillHeaders) SetCommonHeaders(v map[string]*string) *ExecuteRobotAiSkillHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExecuteRobotAiSkillHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteRobotAiSkillHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExecuteRobotAiSkillRequest struct {
+	Context   map[string]interface{} `json:"context,omitempty" xml:"context,omitempty"`
+	Input     *string                `json:"input,omitempty" xml:"input,omitempty"`
+	RobotCode *string                `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	SkillId   *string                `json:"skillId,omitempty" xml:"skillId,omitempty"`
+}
+
+func (s ExecuteRobotAiSkillRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteRobotAiSkillRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteRobotAiSkillRequest) SetContext(v map[string]interface{}) *ExecuteRobotAiSkillRequest {
+	s.Context = v
+	return s
+}
+
+func (s *ExecuteRobotAiSkillRequest) SetInput(v string) *ExecuteRobotAiSkillRequest {
+	s.Input = &v
+	return s
+}
+
+func (s *ExecuteRobotAiSkillRequest) SetRobotCode(v string) *ExecuteRobotAiSkillRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *ExecuteRobotAiSkillRequest) SetSkillId(v string) *ExecuteRobotAiSkillRequest {
+	s.SkillId = &v
+	return s
+}
+
+type ExecuteRobotAiSkillResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ExecuteRobotAiSkillResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteRobotAiSkillResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteRobotAiSkillResponseBody) SetResult(v string) *ExecuteRobotAiSkillResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ExecuteRobotAiSkillResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ExecuteRobotAiSkillResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ExecuteRobotAiSkillResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteRobotAiSkillResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteRobotAiSkillResponse) SetHeaders(v map[string]*string) *ExecuteRobotAiSkillResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExecuteRobotAiSkillResponse) SetStatusCode(v int32) *ExecuteRobotAiSkillResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ExecuteRobotAiSkillResponse) SetBody(v *ExecuteRobotAiSkillResponseBody) *ExecuteRobotAiSkillResponse {
+	s.Body = v
+	return s
+}
+
 type GetBotListInGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2719,6 +2823,73 @@ func (client *Client) ClearRobotPlugin(request *ClearRobotPluginRequest) (_resul
 	headers := &ClearRobotPluginHeaders{}
 	_result = &ClearRobotPluginResponse{}
 	_body, _err := client.ClearRobotPluginWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ExecuteRobotAiSkillWithOptions(request *ExecuteRobotAiSkillRequest, headers *ExecuteRobotAiSkillHeaders, runtime *util.RuntimeOptions) (_result *ExecuteRobotAiSkillResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Context)) {
+		body["context"] = request.Context
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Input)) {
+		body["input"] = request.Input
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SkillId)) {
+		body["skillId"] = request.SkillId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ExecuteRobotAiSkill"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/aiSkill/execute"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ExecuteRobotAiSkillResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ExecuteRobotAiSkill(request *ExecuteRobotAiSkillRequest) (_result *ExecuteRobotAiSkillResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExecuteRobotAiSkillHeaders{}
+	_result = &ExecuteRobotAiSkillResponse{}
+	_body, _err := client.ExecuteRobotAiSkillWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
