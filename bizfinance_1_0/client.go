@@ -3492,6 +3492,140 @@ func (s *GetSupplierResponse) SetBody(v *GetSupplierResponseBody) *GetSupplierRe
 	return s
 }
 
+type GetYongYouOpenApiTokenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetYongYouOpenApiTokenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetYongYouOpenApiTokenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetYongYouOpenApiTokenHeaders) SetCommonHeaders(v map[string]*string) *GetYongYouOpenApiTokenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenHeaders) SetXAcsDingtalkAccessToken(v string) *GetYongYouOpenApiTokenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetYongYouOpenApiTokenRequest struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetYongYouOpenApiTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetYongYouOpenApiTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetYongYouOpenApiTokenRequest) SetUserId(v string) *GetYongYouOpenApiTokenRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetYongYouOpenApiTokenResponseBody struct {
+	AccessToken      *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
+	AppName          *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	ExpiresIn        *string `json:"expiresIn,omitempty" xml:"expiresIn,omitempty"`
+	RefreshExpiresIn *string `json:"refreshExpiresIn,omitempty" xml:"refreshExpiresIn,omitempty"`
+	RefreshToken     *string `json:"refreshToken,omitempty" xml:"refreshToken,omitempty"`
+	Scope            *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	Sid              *string `json:"sid,omitempty" xml:"sid,omitempty"`
+	YongyouOrgId     *string `json:"yongyouOrgId,omitempty" xml:"yongyouOrgId,omitempty"`
+	YongyouUserId    *string `json:"yongyouUserId,omitempty" xml:"yongyouUserId,omitempty"`
+}
+
+func (s GetYongYouOpenApiTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetYongYouOpenApiTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetYongYouOpenApiTokenResponseBody) SetAccessToken(v string) *GetYongYouOpenApiTokenResponseBody {
+	s.AccessToken = &v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponseBody) SetAppName(v string) *GetYongYouOpenApiTokenResponseBody {
+	s.AppName = &v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponseBody) SetExpiresIn(v string) *GetYongYouOpenApiTokenResponseBody {
+	s.ExpiresIn = &v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponseBody) SetRefreshExpiresIn(v string) *GetYongYouOpenApiTokenResponseBody {
+	s.RefreshExpiresIn = &v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponseBody) SetRefreshToken(v string) *GetYongYouOpenApiTokenResponseBody {
+	s.RefreshToken = &v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponseBody) SetScope(v string) *GetYongYouOpenApiTokenResponseBody {
+	s.Scope = &v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponseBody) SetSid(v string) *GetYongYouOpenApiTokenResponseBody {
+	s.Sid = &v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponseBody) SetYongyouOrgId(v string) *GetYongYouOpenApiTokenResponseBody {
+	s.YongyouOrgId = &v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponseBody) SetYongyouUserId(v string) *GetYongYouOpenApiTokenResponseBody {
+	s.YongyouUserId = &v
+	return s
+}
+
+type GetYongYouOpenApiTokenResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetYongYouOpenApiTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetYongYouOpenApiTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetYongYouOpenApiTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetYongYouOpenApiTokenResponse) SetHeaders(v map[string]*string) *GetYongYouOpenApiTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponse) SetStatusCode(v int32) *GetYongYouOpenApiTokenResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetYongYouOpenApiTokenResponse) SetBody(v *GetYongYouOpenApiTokenResponseBody) *GetYongYouOpenApiTokenResponse {
+	s.Body = v
+	return s
+}
+
 type ProfessionBenefitConsumeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10360,24 +10494,40 @@ func (s *UpdateInvoiceAndReceiptRelatedRequest) SetReceiptCode(v string) *Update
 
 type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
 	AccountPeriod                  *string                                                                                `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	AgentCode                      *string                                                                                `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
 	Amount                         *string                                                                                `json:"amount,omitempty" xml:"amount,omitempty"`
 	AmountWithTax                  *string                                                                                `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CaacDevelopmentFund            *string                                                                                `json:"caacDevelopmentFund,omitempty" xml:"caacDevelopmentFund,omitempty"`
 	CheckCode                      *string                                                                                `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
 	CheckTime                      *string                                                                                `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	City                           *string                                                                                `json:"city,omitempty" xml:"city,omitempty"`
+	Destination                    *string                                                                                `json:"destination,omitempty" xml:"destination,omitempty"`
+	Distance                       *string                                                                                `json:"distance,omitempty" xml:"distance,omitempty"`
 	DrawerName                     *string                                                                                `json:"drawerName,omitempty" xml:"drawerName,omitempty"`
 	DrewDate                       *string                                                                                `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
 	ElectronicUrl                  *string                                                                                `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	Entrance                       *string                                                                                `json:"entrance,omitempty" xml:"entrance,omitempty"`
+	Exit                           *string                                                                                `json:"exit,omitempty" xml:"exit,omitempty"`
 	FinanceType                    *string                                                                                `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FlightItineraryDetails         []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails         `json:"flightItineraryDetails,omitempty" xml:"flightItineraryDetails,omitempty" type:"Repeated"`
+	FuelSurcharge                  *string                                                                                `json:"fuelSurcharge,omitempty" xml:"fuelSurcharge,omitempty"`
 	FundType                       *string                                                                                `json:"fundType,omitempty" xml:"fundType,omitempty"`
 	GeneralInvoiceDetailVOList     []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList     `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	GetOffTime                     *string                                                                                `json:"getOffTime,omitempty" xml:"getOffTime,omitempty"`
+	GetOnTime                      *string                                                                                `json:"getOnTime,omitempty" xml:"getOnTime,omitempty"`
 	ImageUrl                       *string                                                                                `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
 	InvoiceCode                    *string                                                                                `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	InvoiceNo                      *string                                                                                `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 	InvoiceStatus                  *string                                                                                `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	InvoiceType                    *string                                                                                `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	IssueBy                        *string                                                                                `json:"issueBy,omitempty" xml:"issueBy,omitempty"`
 	MachineCode                    *string                                                                                `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
 	OilFlag                        *string                                                                                `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	Origin                         *string                                                                                `json:"origin,omitempty" xml:"origin,omitempty"`
+	Passenger                      *string                                                                                `json:"passenger,omitempty" xml:"passenger,omitempty"`
+	PassengerUserId                *string                                                                                `json:"passengerUserId,omitempty" xml:"passengerUserId,omitempty"`
 	Payee                          *string                                                                                `json:"payee,omitempty" xml:"payee,omitempty"`
+	PrintSerialNumber              *string                                                                                `json:"printSerialNumber,omitempty" xml:"printSerialNumber,omitempty"`
 	ProcessInstCode                *string                                                                                `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
 	ProcessInstType                *string                                                                                `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
 	PurchaserAddress               *string                                                                                `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
@@ -10387,6 +10537,7 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
 	PurchaserTaxNo                 *string                                                                                `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
 	PurchaserTel                   *string                                                                                `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	Remark                         *string                                                                                `json:"remark,omitempty" xml:"remark,omitempty"`
+	SeatClass                      *string                                                                                `json:"seatClass,omitempty" xml:"seatClass,omitempty"`
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
 	SellerAddress                  *string                                                                                `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
 	SellerBankAccount              *string                                                                                `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
@@ -10394,8 +10545,13 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
 	SellerName                     *string                                                                                `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
 	SellerTaxNo                    *string                                                                                `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
 	SellerTel                      *string                                                                                `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	SerialNo                       *string                                                                                `json:"serialNo,omitempty" xml:"serialNo,omitempty"`
+	StartTime                      *string                                                                                `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	SupplySign                     *string                                                                                `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	Surcharge                      *string                                                                                `json:"surcharge,omitempty" xml:"surcharge,omitempty"`
 	TaxAmount                      *string                                                                                `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TrainNo                        *string                                                                                `json:"trainNo,omitempty" xml:"trainNo,omitempty"`
+	TravelDate                     *string                                                                                `json:"travelDate,omitempty" xml:"travelDate,omitempty"`
 	UsedVehicleSaleDetailVOList    []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList    `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
 	VehicleSaleDetailVOList        []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOList        `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
 	VerifyStatus                   *string                                                                                `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
@@ -10416,6 +10572,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetAccountPeriod
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetAgentCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.AgentCode = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetAmount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.Amount = &v
 	return s
@@ -10426,6 +10587,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetAmountWithTax
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetCaacDevelopmentFund(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.CaacDevelopmentFund = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetCheckCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.CheckCode = &v
 	return s
@@ -10433,6 +10599,21 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetCheckCode(v s
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetCheckTime(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.CheckTime = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetCity(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.City = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetDestination(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Destination = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetDistance(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Distance = &v
 	return s
 }
 
@@ -10451,8 +10632,28 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetElectronicUrl
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetEntrance(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Entrance = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetExit(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Exit = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetFinanceType(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.FinanceType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetFlightItineraryDetails(v []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.FlightItineraryDetails = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetFuelSurcharge(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.FuelSurcharge = &v
 	return s
 }
 
@@ -10463,6 +10664,16 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetFundType(v st
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetGeneralInvoiceDetailVOList(v []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetGetOffTime(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.GetOffTime = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetGetOnTime(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.GetOnTime = &v
 	return s
 }
 
@@ -10491,6 +10702,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetInvoiceType(v
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetIssueBy(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.IssueBy = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetMachineCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.MachineCode = &v
 	return s
@@ -10501,8 +10717,28 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetOilFlag(v str
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetOrigin(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Origin = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPassenger(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Passenger = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPassengerUserId(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.PassengerUserId = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPayee(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.Payee = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPrintSerialNumber(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.PrintSerialNumber = &v
 	return s
 }
 
@@ -10551,6 +10787,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetRemark(v stri
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSeatClass(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SeatClass = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSecondHandCarInvoiceDetailList(v []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.SecondHandCarInvoiceDetailList = v
 	return s
@@ -10586,13 +10827,38 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerTel(v s
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSerialNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SerialNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetStartTime(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.StartTime = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSupplySign(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.SupplySign = &v
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSurcharge(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Surcharge = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetTaxAmount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetTrainNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.TrainNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetTravelDate(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.TravelDate = &v
 	return s
 }
 
@@ -10618,6 +10884,59 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetVoucherCode(v
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetVoucherStatus(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.VoucherStatus = &v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails struct {
+	Carrier      *string `json:"carrier,omitempty" xml:"carrier,omitempty"`
+	FlightNumber *string `json:"flightNumber,omitempty" xml:"flightNumber,omitempty"`
+	FlyDate      *string `json:"flyDate,omitempty" xml:"flyDate,omitempty"`
+	FlyFrom      *string `json:"flyFrom,omitempty" xml:"flyFrom,omitempty"`
+	FlyTime      *string `json:"flyTime,omitempty" xml:"flyTime,omitempty"`
+	FlyTo        *string `json:"flyTo,omitempty" xml:"flyTo,omitempty"`
+	Seat         *string `json:"seat,omitempty" xml:"seat,omitempty"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) SetCarrier(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails {
+	s.Carrier = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) SetFlightNumber(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails {
+	s.FlightNumber = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) SetFlyDate(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails {
+	s.FlyDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) SetFlyFrom(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails {
+	s.FlyFrom = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) SetFlyTime(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails {
+	s.FlyTime = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) SetFlyTo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails {
+	s.FlyTo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails) SetSeat(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOFlightItineraryDetails {
+	s.Seat = &v
 	return s
 }
 
@@ -13305,6 +13624,61 @@ func (client *Client) GetSupplier(request *GetSupplierRequest) (_result *GetSupp
 	headers := &GetSupplierHeaders{}
 	_result = &GetSupplierResponse{}
 	_body, _err := client.GetSupplierWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetYongYouOpenApiTokenWithOptions(request *GetYongYouOpenApiTokenRequest, headers *GetYongYouOpenApiTokenHeaders, runtime *util.RuntimeOptions) (_result *GetYongYouOpenApiTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetYongYouOpenApiToken"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/yongyou/token"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetYongYouOpenApiTokenResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetYongYouOpenApiToken(request *GetYongYouOpenApiTokenRequest) (_result *GetYongYouOpenApiTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetYongYouOpenApiTokenHeaders{}
+	_result = &GetYongYouOpenApiTokenResponse{}
+	_body, _err := client.GetYongYouOpenApiTokenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
