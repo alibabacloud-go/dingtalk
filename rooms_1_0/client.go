@@ -1659,6 +1659,202 @@ func (s *QueryMeetingRoomListResponse) SetBody(v *QueryMeetingRoomListResponseBo
 	return s
 }
 
+type RemoveSuperUserMeetingRoomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveSuperUserMeetingRoomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveSuperUserMeetingRoomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveSuperUserMeetingRoomHeaders) SetCommonHeaders(v map[string]*string) *RemoveSuperUserMeetingRoomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveSuperUserMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveSuperUserMeetingRoomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveSuperUserMeetingRoomRequest struct {
+	RoomId  *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s RemoveSuperUserMeetingRoomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveSuperUserMeetingRoomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveSuperUserMeetingRoomRequest) SetRoomId(v string) *RemoveSuperUserMeetingRoomRequest {
+	s.RoomId = &v
+	return s
+}
+
+func (s *RemoveSuperUserMeetingRoomRequest) SetUnionId(v string) *RemoveSuperUserMeetingRoomRequest {
+	s.UnionId = &v
+	return s
+}
+
+type RemoveSuperUserMeetingRoomResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RemoveSuperUserMeetingRoomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveSuperUserMeetingRoomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveSuperUserMeetingRoomResponseBody) SetResult(v bool) *RemoveSuperUserMeetingRoomResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RemoveSuperUserMeetingRoomResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RemoveSuperUserMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveSuperUserMeetingRoomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveSuperUserMeetingRoomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveSuperUserMeetingRoomResponse) SetHeaders(v map[string]*string) *RemoveSuperUserMeetingRoomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveSuperUserMeetingRoomResponse) SetStatusCode(v int32) *RemoveSuperUserMeetingRoomResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RemoveSuperUserMeetingRoomResponse) SetBody(v *RemoveSuperUserMeetingRoomResponseBody) *RemoveSuperUserMeetingRoomResponse {
+	s.Body = v
+	return s
+}
+
+type SetSuperUserMeetingRoomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetSuperUserMeetingRoomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetSuperUserMeetingRoomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetSuperUserMeetingRoomHeaders) SetCommonHeaders(v map[string]*string) *SetSuperUserMeetingRoomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetSuperUserMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *SetSuperUserMeetingRoomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetSuperUserMeetingRoomRequest struct {
+	DeptIdWhiteList []*int64  `json:"deptIdWhiteList,omitempty" xml:"deptIdWhiteList,omitempty" type:"Repeated"`
+	RoomId          *string   `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	UnionId         *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserIdWhiteList []*string `json:"userIdWhiteList,omitempty" xml:"userIdWhiteList,omitempty" type:"Repeated"`
+}
+
+func (s SetSuperUserMeetingRoomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetSuperUserMeetingRoomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetSuperUserMeetingRoomRequest) SetDeptIdWhiteList(v []*int64) *SetSuperUserMeetingRoomRequest {
+	s.DeptIdWhiteList = v
+	return s
+}
+
+func (s *SetSuperUserMeetingRoomRequest) SetRoomId(v string) *SetSuperUserMeetingRoomRequest {
+	s.RoomId = &v
+	return s
+}
+
+func (s *SetSuperUserMeetingRoomRequest) SetUnionId(v string) *SetSuperUserMeetingRoomRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *SetSuperUserMeetingRoomRequest) SetUserIdWhiteList(v []*string) *SetSuperUserMeetingRoomRequest {
+	s.UserIdWhiteList = v
+	return s
+}
+
+type SetSuperUserMeetingRoomResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SetSuperUserMeetingRoomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetSuperUserMeetingRoomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetSuperUserMeetingRoomResponseBody) SetResult(v bool) *SetSuperUserMeetingRoomResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SetSuperUserMeetingRoomResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SetSuperUserMeetingRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SetSuperUserMeetingRoomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetSuperUserMeetingRoomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetSuperUserMeetingRoomResponse) SetHeaders(v map[string]*string) *SetSuperUserMeetingRoomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetSuperUserMeetingRoomResponse) SetStatusCode(v int32) *SetSuperUserMeetingRoomResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetSuperUserMeetingRoomResponse) SetBody(v *SetSuperUserMeetingRoomResponseBody) *SetSuperUserMeetingRoomResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateMeetingRoomHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2617,6 +2813,132 @@ func (client *Client) QueryMeetingRoomList(request *QueryMeetingRoomListRequest)
 	headers := &QueryMeetingRoomListHeaders{}
 	_result = &QueryMeetingRoomListResponse{}
 	_body, _err := client.QueryMeetingRoomListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveSuperUserMeetingRoomWithOptions(request *RemoveSuperUserMeetingRoomRequest, headers *RemoveSuperUserMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *RemoveSuperUserMeetingRoomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RoomId)) {
+		query["roomId"] = request.RoomId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveSuperUserMeetingRoom"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/meetingRooms/superUsers/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RemoveSuperUserMeetingRoomResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RemoveSuperUserMeetingRoom(request *RemoveSuperUserMeetingRoomRequest) (_result *RemoveSuperUserMeetingRoomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveSuperUserMeetingRoomHeaders{}
+	_result = &RemoveSuperUserMeetingRoomResponse{}
+	_body, _err := client.RemoveSuperUserMeetingRoomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SetSuperUserMeetingRoomWithOptions(request *SetSuperUserMeetingRoomRequest, headers *SetSuperUserMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *SetSuperUserMeetingRoomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptIdWhiteList)) {
+		body["deptIdWhiteList"] = request.DeptIdWhiteList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomId)) {
+		body["roomId"] = request.RoomId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdWhiteList)) {
+		body["userIdWhiteList"] = request.UserIdWhiteList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetSuperUserMeetingRoom"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/meetingRooms/superUsers/set"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetSuperUserMeetingRoomResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SetSuperUserMeetingRoom(request *SetSuperUserMeetingRoomRequest) (_result *SetSuperUserMeetingRoomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetSuperUserMeetingRoomHeaders{}
+	_result = &SetSuperUserMeetingRoomResponse{}
+	_body, _err := client.SetSuperUserMeetingRoomWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

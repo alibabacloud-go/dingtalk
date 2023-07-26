@@ -1639,6 +1639,229 @@ func (s *BatchGetGroupSetConfigResponse) SetBody(v *BatchGetGroupSetConfigRespon
 	return s
 }
 
+type BatchQueryCustomerSendTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchQueryCustomerSendTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryCustomerSendTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryCustomerSendTaskHeaders) SetCommonHeaders(v map[string]*string) *BatchQueryCustomerSendTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQueryCustomerSendTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchQueryCustomerSendTaskRequest struct {
+	GmtCreateEnd       *string   `json:"gmtCreateEnd,omitempty" xml:"gmtCreateEnd,omitempty"`
+	GmtCreateStart     *string   `json:"gmtCreateStart,omitempty" xml:"gmtCreateStart,omitempty"`
+	MaxResults         *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NeedRichStatistics *bool     `json:"needRichStatistics,omitempty" xml:"needRichStatistics,omitempty"`
+	NextToken          *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OpenBatchTaskIds   []*string `json:"openBatchTaskIds,omitempty" xml:"openBatchTaskIds,omitempty" type:"Repeated"`
+	OpenTeamId         *string   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	TaskName           *string   `json:"taskName,omitempty" xml:"taskName,omitempty"`
+}
+
+func (s BatchQueryCustomerSendTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryCustomerSendTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryCustomerSendTaskRequest) SetGmtCreateEnd(v string) *BatchQueryCustomerSendTaskRequest {
+	s.GmtCreateEnd = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskRequest) SetGmtCreateStart(v string) *BatchQueryCustomerSendTaskRequest {
+	s.GmtCreateStart = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskRequest) SetMaxResults(v int64) *BatchQueryCustomerSendTaskRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskRequest) SetNeedRichStatistics(v bool) *BatchQueryCustomerSendTaskRequest {
+	s.NeedRichStatistics = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskRequest) SetNextToken(v string) *BatchQueryCustomerSendTaskRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskRequest) SetOpenBatchTaskIds(v []*string) *BatchQueryCustomerSendTaskRequest {
+	s.OpenBatchTaskIds = v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskRequest) SetOpenTeamId(v string) *BatchQueryCustomerSendTaskRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskRequest) SetTaskName(v string) *BatchQueryCustomerSendTaskRequest {
+	s.TaskName = &v
+	return s
+}
+
+type BatchQueryCustomerSendTaskResponseBody struct {
+	MaxResults *int64                                           `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Records    []*BatchQueryCustomerSendTaskResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	TotalCount *int64                                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s BatchQueryCustomerSendTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryCustomerSendTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBody) SetMaxResults(v int64) *BatchQueryCustomerSendTaskResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBody) SetNextToken(v string) *BatchQueryCustomerSendTaskResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBody) SetRecords(v []*BatchQueryCustomerSendTaskResponseBodyRecords) *BatchQueryCustomerSendTaskResponseBody {
+	s.Records = v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBody) SetTotalCount(v int64) *BatchQueryCustomerSendTaskResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type BatchQueryCustomerSendTaskResponseBodyRecords struct {
+	CreateName        *string `json:"createName,omitempty" xml:"createName,omitempty"`
+	CreateTimeStr     *string `json:"createTimeStr,omitempty" xml:"createTimeStr,omitempty"`
+	CreateUnionId     *string `json:"createUnionId,omitempty" xml:"createUnionId,omitempty"`
+	OpenBatchTaskId   *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	ReadCustomerInc   *int64  `json:"readCustomerInc,omitempty" xml:"readCustomerInc,omitempty"`
+	ReadUserInc       *int64  `json:"readUserInc,omitempty" xml:"readUserInc,omitempty"`
+	SendCustomerInc   *int64  `json:"sendCustomerInc,omitempty" xml:"sendCustomerInc,omitempty"`
+	SendMessageStatus *string `json:"sendMessageStatus,omitempty" xml:"sendMessageStatus,omitempty"`
+	SendTaskTimeStr   *string `json:"sendTaskTimeStr,omitempty" xml:"sendTaskTimeStr,omitempty"`
+	SendUserInc       *int64  `json:"sendUserInc,omitempty" xml:"sendUserInc,omitempty"`
+	TaskName          *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+}
+
+func (s BatchQueryCustomerSendTaskResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryCustomerSendTaskResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetCreateName(v string) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.CreateName = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetCreateTimeStr(v string) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.CreateTimeStr = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetCreateUnionId(v string) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.CreateUnionId = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetOpenBatchTaskId(v string) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetReadCustomerInc(v int64) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.ReadCustomerInc = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetReadUserInc(v int64) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.ReadUserInc = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetSendCustomerInc(v int64) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.SendCustomerInc = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetSendMessageStatus(v string) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.SendMessageStatus = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetSendTaskTimeStr(v string) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.SendTaskTimeStr = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetSendUserInc(v int64) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.SendUserInc = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponseBodyRecords) SetTaskName(v string) *BatchQueryCustomerSendTaskResponseBodyRecords {
+	s.TaskName = &v
+	return s
+}
+
+type BatchQueryCustomerSendTaskResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchQueryCustomerSendTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchQueryCustomerSendTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryCustomerSendTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryCustomerSendTaskResponse) SetHeaders(v map[string]*string) *BatchQueryCustomerSendTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponse) SetStatusCode(v int32) *BatchQueryCustomerSendTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchQueryCustomerSendTaskResponse) SetBody(v *BatchQueryCustomerSendTaskResponseBody) *BatchQueryCustomerSendTaskResponse {
+	s.Body = v
+	return s
+}
+
 type BatchQueryGroupMemberHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3920,6 +4143,273 @@ func (s *CreateTicketResponse) SetStatusCode(v int32) *CreateTicketResponse {
 }
 
 func (s *CreateTicketResponse) SetBody(v *CreateTicketResponseBody) *CreateTicketResponse {
+	s.Body = v
+	return s
+}
+
+type CustomerSendMsgTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomerSendMsgTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomerSendMsgTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomerSendMsgTaskHeaders) SetCommonHeaders(v map[string]*string) *CustomerSendMsgTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomerSendMsgTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CustomerSendMsgTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomerSendMsgTaskRequest struct {
+	MessageContent *CustomerSendMsgTaskRequestMessageContent `json:"messageContent,omitempty" xml:"messageContent,omitempty" type:"Struct"`
+	OpenTeamId     *string                                   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	QueryCustomer  *CustomerSendMsgTaskRequestQueryCustomer  `json:"queryCustomer,omitempty" xml:"queryCustomer,omitempty" type:"Struct"`
+	SendConfig     *CustomerSendMsgTaskRequestSendConfig     `json:"sendConfig,omitempty" xml:"sendConfig,omitempty" type:"Struct"`
+	TaskName       *string                                   `json:"taskName,omitempty" xml:"taskName,omitempty"`
+}
+
+func (s CustomerSendMsgTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomerSendMsgTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomerSendMsgTaskRequest) SetMessageContent(v *CustomerSendMsgTaskRequestMessageContent) *CustomerSendMsgTaskRequest {
+	s.MessageContent = v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequest) SetOpenTeamId(v string) *CustomerSendMsgTaskRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequest) SetQueryCustomer(v *CustomerSendMsgTaskRequestQueryCustomer) *CustomerSendMsgTaskRequest {
+	s.QueryCustomer = v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequest) SetSendConfig(v *CustomerSendMsgTaskRequestSendConfig) *CustomerSendMsgTaskRequest {
+	s.SendConfig = v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequest) SetTaskName(v string) *CustomerSendMsgTaskRequest {
+	s.TaskName = &v
+	return s
+}
+
+type CustomerSendMsgTaskRequestMessageContent struct {
+	Btns        []*CustomerSendMsgTaskRequestMessageContentBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
+	Content     *string                                         `json:"content,omitempty" xml:"content,omitempty"`
+	MessageType *string                                         `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	Title       *string                                         `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CustomerSendMsgTaskRequestMessageContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomerSendMsgTaskRequestMessageContent) GoString() string {
+	return s.String()
+}
+
+func (s *CustomerSendMsgTaskRequestMessageContent) SetBtns(v []*CustomerSendMsgTaskRequestMessageContentBtns) *CustomerSendMsgTaskRequestMessageContent {
+	s.Btns = v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestMessageContent) SetContent(v string) *CustomerSendMsgTaskRequestMessageContent {
+	s.Content = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestMessageContent) SetMessageType(v string) *CustomerSendMsgTaskRequestMessageContent {
+	s.MessageType = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestMessageContent) SetTitle(v string) *CustomerSendMsgTaskRequestMessageContent {
+	s.Title = &v
+	return s
+}
+
+type CustomerSendMsgTaskRequestMessageContentBtns struct {
+	ActionURL *string `json:"actionURL,omitempty" xml:"actionURL,omitempty"`
+	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CustomerSendMsgTaskRequestMessageContentBtns) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomerSendMsgTaskRequestMessageContentBtns) GoString() string {
+	return s.String()
+}
+
+func (s *CustomerSendMsgTaskRequestMessageContentBtns) SetActionURL(v string) *CustomerSendMsgTaskRequestMessageContentBtns {
+	s.ActionURL = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestMessageContentBtns) SetTitle(v string) *CustomerSendMsgTaskRequestMessageContentBtns {
+	s.Title = &v
+	return s
+}
+
+type CustomerSendMsgTaskRequestQueryCustomer struct {
+	OpenContactIds           []*string `json:"openContactIds,omitempty" xml:"openContactIds,omitempty" type:"Repeated"`
+	QueryType                *string   `json:"queryType,omitempty" xml:"queryType,omitempty"`
+	SearchContactConditions  *string   `json:"searchContactConditions,omitempty" xml:"searchContactConditions,omitempty"`
+	SearchCustomerConditions *string   `json:"searchCustomerConditions,omitempty" xml:"searchCustomerConditions,omitempty"`
+}
+
+func (s CustomerSendMsgTaskRequestQueryCustomer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomerSendMsgTaskRequestQueryCustomer) GoString() string {
+	return s.String()
+}
+
+func (s *CustomerSendMsgTaskRequestQueryCustomer) SetOpenContactIds(v []*string) *CustomerSendMsgTaskRequestQueryCustomer {
+	s.OpenContactIds = v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestQueryCustomer) SetQueryType(v string) *CustomerSendMsgTaskRequestQueryCustomer {
+	s.QueryType = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestQueryCustomer) SetSearchContactConditions(v string) *CustomerSendMsgTaskRequestQueryCustomer {
+	s.SearchContactConditions = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestQueryCustomer) SetSearchCustomerConditions(v string) *CustomerSendMsgTaskRequestQueryCustomer {
+	s.SearchCustomerConditions = &v
+	return s
+}
+
+type CustomerSendMsgTaskRequestSendConfig struct {
+	NeedUrlTrack   *bool                                                 `json:"needUrlTrack,omitempty" xml:"needUrlTrack,omitempty"`
+	SendTime       *string                                               `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	SendType       *string                                               `json:"sendType,omitempty" xml:"sendType,omitempty"`
+	UrlTrackConfig []*CustomerSendMsgTaskRequestSendConfigUrlTrackConfig `json:"urlTrackConfig,omitempty" xml:"urlTrackConfig,omitempty" type:"Repeated"`
+}
+
+func (s CustomerSendMsgTaskRequestSendConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomerSendMsgTaskRequestSendConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CustomerSendMsgTaskRequestSendConfig) SetNeedUrlTrack(v bool) *CustomerSendMsgTaskRequestSendConfig {
+	s.NeedUrlTrack = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestSendConfig) SetSendTime(v string) *CustomerSendMsgTaskRequestSendConfig {
+	s.SendTime = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestSendConfig) SetSendType(v string) *CustomerSendMsgTaskRequestSendConfig {
+	s.SendType = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestSendConfig) SetUrlTrackConfig(v []*CustomerSendMsgTaskRequestSendConfigUrlTrackConfig) *CustomerSendMsgTaskRequestSendConfig {
+	s.UrlTrackConfig = v
+	return s
+}
+
+type CustomerSendMsgTaskRequestSendConfigUrlTrackConfig struct {
+	Title    *string `json:"title,omitempty" xml:"title,omitempty"`
+	TrackId  *string `json:"trackId,omitempty" xml:"trackId,omitempty"`
+	TrackUrl *string `json:"trackUrl,omitempty" xml:"trackUrl,omitempty"`
+}
+
+func (s CustomerSendMsgTaskRequestSendConfigUrlTrackConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomerSendMsgTaskRequestSendConfigUrlTrackConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CustomerSendMsgTaskRequestSendConfigUrlTrackConfig) SetTitle(v string) *CustomerSendMsgTaskRequestSendConfigUrlTrackConfig {
+	s.Title = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestSendConfigUrlTrackConfig) SetTrackId(v string) *CustomerSendMsgTaskRequestSendConfigUrlTrackConfig {
+	s.TrackId = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskRequestSendConfigUrlTrackConfig) SetTrackUrl(v string) *CustomerSendMsgTaskRequestSendConfigUrlTrackConfig {
+	s.TrackUrl = &v
+	return s
+}
+
+type CustomerSendMsgTaskResponseBody struct {
+	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+}
+
+func (s CustomerSendMsgTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomerSendMsgTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomerSendMsgTaskResponseBody) SetOpenBatchTaskId(v string) *CustomerSendMsgTaskResponseBody {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+type CustomerSendMsgTaskResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CustomerSendMsgTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomerSendMsgTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomerSendMsgTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomerSendMsgTaskResponse) SetHeaders(v map[string]*string) *CustomerSendMsgTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomerSendMsgTaskResponse) SetStatusCode(v int32) *CustomerSendMsgTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CustomerSendMsgTaskResponse) SetBody(v *CustomerSendMsgTaskResponseBody) *CustomerSendMsgTaskResponse {
 	s.Body = v
 	return s
 }
@@ -6769,6 +7259,246 @@ func (s *QueryCustomerCardResponse) SetBody(v *QueryCustomerCardResponseBody) *Q
 	return s
 }
 
+type QueryCustomerTaskUserDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCustomerTaskUserDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerTaskUserDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerTaskUserDetailHeaders) SetCommonHeaders(v map[string]*string) *QueryCustomerTaskUserDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCustomerTaskUserDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCustomerTaskUserDetailRequest struct {
+	MaxResults       *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken        *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OpenBatchTaskId  *string   `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	OpenTeamId       *string   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	ReceiverUnionIds []*string `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryCustomerTaskUserDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerTaskUserDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerTaskUserDetailRequest) SetMaxResults(v int64) *QueryCustomerTaskUserDetailRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailRequest) SetNextToken(v string) *QueryCustomerTaskUserDetailRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailRequest) SetOpenBatchTaskId(v string) *QueryCustomerTaskUserDetailRequest {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailRequest) SetOpenTeamId(v string) *QueryCustomerTaskUserDetailRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailRequest) SetReceiverUnionIds(v []*string) *QueryCustomerTaskUserDetailRequest {
+	s.ReceiverUnionIds = v
+	return s
+}
+
+type QueryCustomerTaskUserDetailResponseBody struct {
+	MaxResults *int64                                            `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Records    []*QueryCustomerTaskUserDetailResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	TotalCount *int64                                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryCustomerTaskUserDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerTaskUserDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBody) SetMaxResults(v int64) *QueryCustomerTaskUserDetailResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBody) SetNextToken(v string) *QueryCustomerTaskUserDetailResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBody) SetRecords(v []*QueryCustomerTaskUserDetailResponseBodyRecords) *QueryCustomerTaskUserDetailResponseBody {
+	s.Records = v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBody) SetTotalCount(v int64) *QueryCustomerTaskUserDetailResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryCustomerTaskUserDetailResponseBodyRecords struct {
+	CustomerNames       *string                                                              `json:"customerNames,omitempty" xml:"customerNames,omitempty"`
+	ErrorCode           *string                                                              `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorDetail         *string                                                              `json:"errorDetail,omitempty" xml:"errorDetail,omitempty"`
+	EventTrackResponses []*QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses `json:"eventTrackResponses,omitempty" xml:"eventTrackResponses,omitempty" type:"Repeated"`
+	OpenBatchTaskId     *string                                                              `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	ReadStatus          *int64                                                               `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
+	ReadTime            *string                                                              `json:"readTime,omitempty" xml:"readTime,omitempty"`
+	ReceiverName        *string                                                              `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	ReceiverUnionId     *string                                                              `json:"receiverUnionId,omitempty" xml:"receiverUnionId,omitempty"`
+	SendTime            *string                                                              `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	Status              *string                                                              `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryCustomerTaskUserDetailResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerTaskUserDetailResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetCustomerNames(v string) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.CustomerNames = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetErrorCode(v string) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetErrorDetail(v string) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.ErrorDetail = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetEventTrackResponses(v []*QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.EventTrackResponses = v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetOpenBatchTaskId(v string) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetReadStatus(v int64) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.ReadStatus = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetReadTime(v string) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.ReadTime = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetReceiverName(v string) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.ReceiverName = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetReceiverUnionId(v string) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.ReceiverUnionId = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetSendTime(v string) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.SendTime = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetStatus(v string) *QueryCustomerTaskUserDetailResponseBodyRecords {
+	s.Status = &v
+	return s
+}
+
+type QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses struct {
+	ClickTime    *string `json:"clickTime,omitempty" xml:"clickTime,omitempty"`
+	EventTrackId *string `json:"eventTrackId,omitempty" xml:"eventTrackId,omitempty"`
+	OnClick      *bool   `json:"onClick,omitempty" xml:"onClick,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses) SetClickTime(v string) *QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses {
+	s.ClickTime = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses) SetEventTrackId(v string) *QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses {
+	s.EventTrackId = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses) SetOnClick(v bool) *QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses {
+	s.OnClick = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses) SetTitle(v string) *QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses {
+	s.Title = &v
+	return s
+}
+
+type QueryCustomerTaskUserDetailResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryCustomerTaskUserDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCustomerTaskUserDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerTaskUserDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerTaskUserDetailResponse) SetHeaders(v map[string]*string) *QueryCustomerTaskUserDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponse) SetStatusCode(v int32) *QueryCustomerTaskUserDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryCustomerTaskUserDetailResponse) SetBody(v *QueryCustomerTaskUserDetailResponseBody) *QueryCustomerTaskUserDetailResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9217,6 +9947,116 @@ func (s *RobotMessageRecallResponse) SetStatusCode(v int32) *RobotMessageRecallR
 }
 
 func (s *RobotMessageRecallResponse) SetBody(v *RobotMessageRecallResponseBody) *RobotMessageRecallResponse {
+	s.Body = v
+	return s
+}
+
+type SaveFormInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveFormInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveFormInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveFormInstanceHeaders) SetCommonHeaders(v map[string]*string) *SaveFormInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *SaveFormInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveFormInstanceRequest struct {
+	FormDataList    *string `json:"formDataList,omitempty" xml:"formDataList,omitempty"`
+	OpenTeamId      *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	OwnerUnionId    *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+}
+
+func (s SaveFormInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveFormInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveFormInstanceRequest) SetFormDataList(v string) *SaveFormInstanceRequest {
+	s.FormDataList = &v
+	return s
+}
+
+func (s *SaveFormInstanceRequest) SetOpenTeamId(v string) *SaveFormInstanceRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *SaveFormInstanceRequest) SetOperatorUnionId(v string) *SaveFormInstanceRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+func (s *SaveFormInstanceRequest) SetOwnerUnionId(v string) *SaveFormInstanceRequest {
+	s.OwnerUnionId = &v
+	return s
+}
+
+type SaveFormInstanceResponseBody struct {
+	OpenContactId  *string `json:"openContactId,omitempty" xml:"openContactId,omitempty"`
+	OpenCustomerId *string `json:"openCustomerId,omitempty" xml:"openCustomerId,omitempty"`
+}
+
+func (s SaveFormInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveFormInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveFormInstanceResponseBody) SetOpenContactId(v string) *SaveFormInstanceResponseBody {
+	s.OpenContactId = &v
+	return s
+}
+
+func (s *SaveFormInstanceResponseBody) SetOpenCustomerId(v string) *SaveFormInstanceResponseBody {
+	s.OpenCustomerId = &v
+	return s
+}
+
+type SaveFormInstanceResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SaveFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveFormInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveFormInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveFormInstanceResponse) SetHeaders(v map[string]*string) *SaveFormInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveFormInstanceResponse) SetStatusCode(v int32) *SaveFormInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SaveFormInstanceResponse) SetBody(v *SaveFormInstanceResponseBody) *SaveFormInstanceResponse {
 	s.Body = v
 	return s
 }
@@ -12048,6 +12888,89 @@ func (client *Client) BatchGetGroupSetConfig(request *BatchGetGroupSetConfigRequ
 	return _result, _err
 }
 
+func (client *Client) BatchQueryCustomerSendTaskWithOptions(request *BatchQueryCustomerSendTaskRequest, headers *BatchQueryCustomerSendTaskHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryCustomerSendTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GmtCreateEnd)) {
+		body["gmtCreateEnd"] = request.GmtCreateEnd
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtCreateStart)) {
+		body["gmtCreateStart"] = request.GmtCreateStart
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedRichStatistics)) {
+		body["needRichStatistics"] = request.NeedRichStatistics
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenBatchTaskIds)) {
+		body["openBatchTaskIds"] = request.OpenBatchTaskIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskName)) {
+		body["taskName"] = request.TaskName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchQueryCustomerSendTask"),
+		Version:     tea.String("serviceGroup_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/serviceGroup/customers/tasks/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchQueryCustomerSendTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchQueryCustomerSendTask(request *BatchQueryCustomerSendTaskRequest) (_result *BatchQueryCustomerSendTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchQueryCustomerSendTaskHeaders{}
+	_result = &BatchQueryCustomerSendTaskResponse{}
+	_body, _err := client.BatchQueryCustomerSendTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) BatchQueryGroupMemberWithOptions(request *BatchQueryGroupMemberRequest, headers *BatchQueryGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryGroupMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13233,6 +14156,77 @@ func (client *Client) CreateTicket(request *CreateTicketRequest) (_result *Creat
 	headers := &CreateTicketHeaders{}
 	_result = &CreateTicketResponse{}
 	_body, _err := client.CreateTicketWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomerSendMsgTaskWithOptions(request *CustomerSendMsgTaskRequest, headers *CustomerSendMsgTaskHeaders, runtime *util.RuntimeOptions) (_result *CustomerSendMsgTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MessageContent)) {
+		body["messageContent"] = request.MessageContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryCustomer)) {
+		body["queryCustomer"] = request.QueryCustomer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SendConfig)) {
+		body["sendConfig"] = request.SendConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskName)) {
+		body["taskName"] = request.TaskName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CustomerSendMsgTask"),
+		Version:     tea.String("serviceGroup_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/serviceGroup/customers/tasks/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CustomerSendMsgTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomerSendMsgTask(request *CustomerSendMsgTaskRequest) (_result *CustomerSendMsgTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomerSendMsgTaskHeaders{}
+	_result = &CustomerSendMsgTaskResponse{}
+	_body, _err := client.CustomerSendMsgTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14518,6 +15512,77 @@ func (client *Client) QueryCustomerCard(request *QueryCustomerCardRequest) (_res
 	return _result, _err
 }
 
+func (client *Client) QueryCustomerTaskUserDetailWithOptions(request *QueryCustomerTaskUserDetailRequest, headers *QueryCustomerTaskUserDetailHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomerTaskUserDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenBatchTaskId)) {
+		body["openBatchTaskId"] = request.OpenBatchTaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUnionIds)) {
+		body["receiverUnionIds"] = request.ReceiverUnionIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCustomerTaskUserDetail"),
+		Version:     tea.String("serviceGroup_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/serviceGroup/customers/tasks/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryCustomerTaskUserDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCustomerTaskUserDetail(request *QueryCustomerTaskUserDetailRequest) (_result *QueryCustomerTaskUserDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCustomerTaskUserDetailHeaders{}
+	_result = &QueryCustomerTaskUserDetailResponse{}
+	_body, _err := client.QueryCustomerTaskUserDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) QueryGroupWithOptions(request *QueryGroupRequest, headers *QueryGroupHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15513,6 +16578,73 @@ func (client *Client) RobotMessageRecall(request *RobotMessageRecallRequest) (_r
 	headers := &RobotMessageRecallHeaders{}
 	_result = &RobotMessageRecallResponse{}
 	_body, _err := client.RobotMessageRecallWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveFormInstanceWithOptions(request *SaveFormInstanceRequest, headers *SaveFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *SaveFormInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormDataList)) {
+		body["formDataList"] = request.FormDataList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		body["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUnionId)) {
+		body["ownerUnionId"] = request.OwnerUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveFormInstance"),
+		Version:     tea.String("serviceGroup_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/serviceGroup/forms/instances"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SaveFormInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveFormInstance(request *SaveFormInstanceRequest) (_result *SaveFormInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveFormInstanceHeaders{}
+	_result = &SaveFormInstanceResponse{}
+	_body, _err := client.SaveFormInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

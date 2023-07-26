@@ -699,6 +699,52 @@ func (s *CreateTopboxResponse) SetBody(v *CreateTopboxResponseBody) *CreateTopbo
 	return s
 }
 
+type GroupManagerDeviceMarketResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GroupManagerDeviceMarketResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManagerDeviceMarketResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManagerDeviceMarketResponseBody) SetRequestId(v string) *GroupManagerDeviceMarketResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type GroupManagerDeviceMarketResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GroupManagerDeviceMarketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GroupManagerDeviceMarketResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManagerDeviceMarketResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManagerDeviceMarketResponse) SetHeaders(v map[string]*string) *GroupManagerDeviceMarketResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GroupManagerDeviceMarketResponse) SetStatusCode(v int32) *GroupManagerDeviceMarketResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GroupManagerDeviceMarketResponse) SetBody(v *GroupManagerDeviceMarketResponseBody) *GroupManagerDeviceMarketResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -720,6 +766,7 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	client.Spi = interfaceSPI
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1061,6 +1108,42 @@ func (client *Client) CreateTopbox(request *CreateTopboxRequest) (_result *Creat
 	headers := &CreateTopboxHeaders{}
 	_result = &CreateTopboxResponse{}
 	_body, _err := client.CreateTopboxWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupManagerDeviceMarketWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *GroupManagerDeviceMarketResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GroupManagerDeviceMarket"),
+		Version:     tea.String("im_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/im/group/device/market/manager"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GroupManagerDeviceMarketResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GroupManagerDeviceMarket() (_result *GroupManagerDeviceMarketResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &GroupManagerDeviceMarketResponse{}
+	_body, _err := client.GroupManagerDeviceMarketWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

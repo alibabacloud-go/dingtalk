@@ -244,6 +244,52 @@ func (s *DeviceMarketManagerResponse) SetBody(v *DeviceMarketManagerResponseBody
 	return s
 }
 
+type DeviceMarketOrderManagerResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s DeviceMarketOrderManagerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceMarketOrderManagerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceMarketOrderManagerResponseBody) SetRequestId(v string) *DeviceMarketOrderManagerResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type DeviceMarketOrderManagerResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeviceMarketOrderManagerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeviceMarketOrderManagerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceMarketOrderManagerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceMarketOrderManagerResponse) SetHeaders(v map[string]*string) *DeviceMarketOrderManagerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeviceMarketOrderManagerResponse) SetStatusCode(v int32) *DeviceMarketOrderManagerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeviceMarketOrderManagerResponse) SetBody(v *DeviceMarketOrderManagerResponseBody) *DeviceMarketOrderManagerResponse {
+	s.Body = v
+	return s
+}
+
 type ECertQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3271,6 +3317,42 @@ func (client *Client) DeviceMarketManager() (_result *DeviceMarketManagerRespons
 	headers := make(map[string]*string)
 	_result = &DeviceMarketManagerResponse{}
 	_body, _err := client.DeviceMarketManagerWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeviceMarketOrderManagerWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DeviceMarketOrderManagerResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeviceMarketOrderManager"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/device/market/order/manager"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeviceMarketOrderManagerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeviceMarketOrderManager() (_result *DeviceMarketOrderManagerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &DeviceMarketOrderManagerResponse{}
+	_body, _err := client.DeviceMarketOrderManagerWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
