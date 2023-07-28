@@ -367,6 +367,116 @@ func (s *AddSchoolConfigResponse) SetBody(v *AddSchoolConfigResponseBody) *AddSc
 	return s
 }
 
+type AssignClassHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AssignClassHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AssignClassHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AssignClassHeaders) SetCommonHeaders(v map[string]*string) *AssignClassHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AssignClassHeaders) SetXAcsDingtalkAccessToken(v string) *AssignClassHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AssignClassRequest struct {
+	ClassId   *int64  `json:"classId,omitempty" xml:"classId,omitempty"`
+	IsFinish  *bool   `json:"isFinish,omitempty" xml:"isFinish,omitempty"`
+	Operator  *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	StudentId *int64  `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	TaskId    *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s AssignClassRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AssignClassRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AssignClassRequest) SetClassId(v int64) *AssignClassRequest {
+	s.ClassId = &v
+	return s
+}
+
+func (s *AssignClassRequest) SetIsFinish(v bool) *AssignClassRequest {
+	s.IsFinish = &v
+	return s
+}
+
+func (s *AssignClassRequest) SetOperator(v string) *AssignClassRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *AssignClassRequest) SetStudentId(v int64) *AssignClassRequest {
+	s.StudentId = &v
+	return s
+}
+
+func (s *AssignClassRequest) SetTaskId(v int64) *AssignClassRequest {
+	s.TaskId = &v
+	return s
+}
+
+type AssignClassResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AssignClassResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AssignClassResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AssignClassResponseBody) SetSuccess(v bool) *AssignClassResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AssignClassResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AssignClassResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AssignClassResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AssignClassResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AssignClassResponse) SetHeaders(v map[string]*string) *AssignClassResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AssignClassResponse) SetStatusCode(v int32) *AssignClassResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AssignClassResponse) SetBody(v *AssignClassResponseBody) *AssignClassResponse {
+	s.Body = v
+	return s
+}
+
 type BatchCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8079,6 +8189,290 @@ func (s *GetShareRolesResponse) SetStatusCode(v int32) *GetShareRolesResponse {
 }
 
 func (s *GetShareRolesResponse) SetBody(v *GetShareRolesResponseBody) *GetShareRolesResponse {
+	s.Body = v
+	return s
+}
+
+type GetTaskListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTaskListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskListHeaders) SetCommonHeaders(v map[string]*string) *GetTaskListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTaskListHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTaskListRequest struct {
+	Operator   *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TaskYear   *int64  `json:"taskYear,omitempty" xml:"taskYear,omitempty"`
+}
+
+func (s GetTaskListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskListRequest) SetOperator(v string) *GetTaskListRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *GetTaskListRequest) SetPageNumber(v int64) *GetTaskListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetTaskListRequest) SetPageSize(v int64) *GetTaskListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetTaskListRequest) SetTaskYear(v int64) *GetTaskListRequest {
+	s.TaskYear = &v
+	return s
+}
+
+type GetTaskListResponseBody struct {
+	Count    *int64                             `json:"count,omitempty" xml:"count,omitempty"`
+	TaskList []*GetTaskListResponseBodyTaskList `json:"taskList,omitempty" xml:"taskList,omitempty" type:"Repeated"`
+}
+
+func (s GetTaskListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskListResponseBody) SetCount(v int64) *GetTaskListResponseBody {
+	s.Count = &v
+	return s
+}
+
+func (s *GetTaskListResponseBody) SetTaskList(v []*GetTaskListResponseBodyTaskList) *GetTaskListResponseBody {
+	s.TaskList = v
+	return s
+}
+
+type GetTaskListResponseBodyTaskList struct {
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	TaskId   *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskYear *int64  `json:"taskYear,omitempty" xml:"taskYear,omitempty"`
+}
+
+func (s GetTaskListResponseBodyTaskList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskListResponseBodyTaskList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskListResponseBodyTaskList) SetName(v string) *GetTaskListResponseBodyTaskList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTaskListResponseBodyTaskList) SetTaskId(v int64) *GetTaskListResponseBodyTaskList {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetTaskListResponseBodyTaskList) SetTaskYear(v int64) *GetTaskListResponseBodyTaskList {
+	s.TaskYear = &v
+	return s
+}
+
+type GetTaskListResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTaskListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTaskListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskListResponse) SetHeaders(v map[string]*string) *GetTaskListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTaskListResponse) SetStatusCode(v int32) *GetTaskListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTaskListResponse) SetBody(v *GetTaskListResponseBody) *GetTaskListResponse {
+	s.Body = v
+	return s
+}
+
+type GetTaskStudentListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTaskStudentListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskStudentListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskStudentListHeaders) SetCommonHeaders(v map[string]*string) *GetTaskStudentListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTaskStudentListHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskStudentListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTaskStudentListRequest struct {
+	Operator   *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TaskId     *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetTaskStudentListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskStudentListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskStudentListRequest) SetOperator(v string) *GetTaskStudentListRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *GetTaskStudentListRequest) SetPageNumber(v int64) *GetTaskStudentListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetTaskStudentListRequest) SetPageSize(v int64) *GetTaskStudentListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetTaskStudentListRequest) SetTaskId(v int64) *GetTaskStudentListRequest {
+	s.TaskId = &v
+	return s
+}
+
+type GetTaskStudentListResponseBody struct {
+	Count       *int64                                       `json:"count,omitempty" xml:"count,omitempty"`
+	StudentList []*GetTaskStudentListResponseBodyStudentList `json:"studentList,omitempty" xml:"studentList,omitempty" type:"Repeated"`
+	TaskId      *int64                                       `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetTaskStudentListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskStudentListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskStudentListResponseBody) SetCount(v int64) *GetTaskStudentListResponseBody {
+	s.Count = &v
+	return s
+}
+
+func (s *GetTaskStudentListResponseBody) SetStudentList(v []*GetTaskStudentListResponseBodyStudentList) *GetTaskStudentListResponseBody {
+	s.StudentList = v
+	return s
+}
+
+func (s *GetTaskStudentListResponseBody) SetTaskId(v int64) *GetTaskStudentListResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type GetTaskStudentListResponseBodyStudentList struct {
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	Sexuality *string `json:"sexuality,omitempty" xml:"sexuality,omitempty"`
+	StudentId *int64  `json:"studentId,omitempty" xml:"studentId,omitempty"`
+}
+
+func (s GetTaskStudentListResponseBodyStudentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskStudentListResponseBodyStudentList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskStudentListResponseBodyStudentList) SetName(v string) *GetTaskStudentListResponseBodyStudentList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTaskStudentListResponseBodyStudentList) SetSexuality(v string) *GetTaskStudentListResponseBodyStudentList {
+	s.Sexuality = &v
+	return s
+}
+
+func (s *GetTaskStudentListResponseBodyStudentList) SetStudentId(v int64) *GetTaskStudentListResponseBodyStudentList {
+	s.StudentId = &v
+	return s
+}
+
+type GetTaskStudentListResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTaskStudentListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTaskStudentListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskStudentListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskStudentListResponse) SetHeaders(v map[string]*string) *GetTaskStudentListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTaskStudentListResponse) SetStatusCode(v int32) *GetTaskStudentListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTaskStudentListResponse) SetBody(v *GetTaskStudentListResponseBody) *GetTaskStudentListResponse {
 	s.Body = v
 	return s
 }
@@ -16845,6 +17239,77 @@ func (client *Client) AddSchoolConfig(request *AddSchoolConfigRequest) (_result 
 	return _result, _err
 }
 
+func (client *Client) AssignClassWithOptions(request *AssignClassRequest, headers *AssignClassHeaders, runtime *util.RuntimeOptions) (_result *AssignClassResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClassId)) {
+		body["classId"] = request.ClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsFinish)) {
+		body["isFinish"] = request.IsFinish
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StudentId)) {
+		body["studentId"] = request.StudentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AssignClass"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/newGrades/tasks/students/classes/assign"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AssignClassResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AssignClass(request *AssignClassRequest) (_result *AssignClassResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AssignClassHeaders{}
+	_result = &AssignClassResponse{}
+	_body, _err := client.AssignClassWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) BatchCreateWithOptions(request *BatchCreateRequest, headers *BatchCreateHeaders, runtime *util.RuntimeOptions) (_result *BatchCreateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20494,6 +20959,140 @@ func (client *Client) GetShareRoles() (_result *GetShareRolesResponse, _err erro
 	headers := &GetShareRolesHeaders{}
 	_result = &GetShareRolesResponse{}
 	_body, _err := client.GetShareRolesWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTaskListWithOptions(request *GetTaskListRequest, headers *GetTaskListHeaders, runtime *util.RuntimeOptions) (_result *GetTaskListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskYear)) {
+		query["taskYear"] = request.TaskYear
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTaskList"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/newGrades/tasks/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTaskListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTaskList(request *GetTaskListRequest) (_result *GetTaskListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTaskListHeaders{}
+	_result = &GetTaskListResponse{}
+	_body, _err := client.GetTaskListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTaskStudentListWithOptions(request *GetTaskStudentListRequest, headers *GetTaskStudentListHeaders, runtime *util.RuntimeOptions) (_result *GetTaskStudentListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		query["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTaskStudentList"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/newGrades/tasks/students/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTaskStudentListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTaskStudentList(request *GetTaskStudentListRequest) (_result *GetTaskStudentListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTaskStudentListHeaders{}
+	_result = &GetTaskStudentListResponse{}
+	_body, _err := client.GetTaskStudentListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
