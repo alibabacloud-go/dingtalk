@@ -89,6 +89,7 @@ func (s *BatchAddInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAddI
 }
 
 type BatchAddInvoiceRequest struct {
+	CompanyCode          *string                                       `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	GeneralInvoiceVOList []*BatchAddInvoiceRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
 	Operator             *string                                       `json:"operator,omitempty" xml:"operator,omitempty"`
 }
@@ -99,6 +100,11 @@ func (s BatchAddInvoiceRequest) String() string {
 
 func (s BatchAddInvoiceRequest) GoString() string {
 	return s.String()
+}
+
+func (s *BatchAddInvoiceRequest) SetCompanyCode(v string) *BatchAddInvoiceRequest {
+	s.CompanyCode = &v
+	return s
 }
 
 func (s *BatchAddInvoiceRequest) SetGeneralInvoiceVOList(v []*BatchAddInvoiceRequestGeneralInvoiceVOList) *BatchAddInvoiceRequest {
@@ -1056,6 +1062,7 @@ func (s *CheckVoucherStatusHeaders) SetXAcsDingtalkAccessToken(v string) *CheckV
 }
 
 type CheckVoucherStatusRequest struct {
+	CompanyCode  *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	FinanceType  *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
 	InvoiceCode  *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
@@ -1073,6 +1080,11 @@ func (s CheckVoucherStatusRequest) String() string {
 
 func (s CheckVoucherStatusRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CheckVoucherStatusRequest) SetCompanyCode(v string) *CheckVoucherStatusRequest {
+	s.CompanyCode = &v
+	return s
 }
 
 func (s *CheckVoucherStatusRequest) SetEndTime(v int64) *CheckVoucherStatusRequest {
@@ -2166,13 +2178,15 @@ func (s *GetInvoiceByPageRequest) SetRequest(v *GetInvoiceByPageRequestRequest) 
 }
 
 type GetInvoiceByPageRequestRequest struct {
-	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	FinanceType  *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	PageNumber   *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize     *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	TaxNo        *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	AccountantBookId *string `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
+	CompanyCode      *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	EndTime          *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	FinanceType      *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	PageNumber       *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize         *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime        *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TaxNo            *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	VerifyStatus     *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
 }
 
 func (s GetInvoiceByPageRequestRequest) String() string {
@@ -2181,6 +2195,16 @@ func (s GetInvoiceByPageRequestRequest) String() string {
 
 func (s GetInvoiceByPageRequestRequest) GoString() string {
 	return s.String()
+}
+
+func (s *GetInvoiceByPageRequestRequest) SetAccountantBookId(v string) *GetInvoiceByPageRequestRequest {
+	s.AccountantBookId = &v
+	return s
+}
+
+func (s *GetInvoiceByPageRequestRequest) SetCompanyCode(v string) *GetInvoiceByPageRequestRequest {
+	s.CompanyCode = &v
+	return s
 }
 
 func (s *GetInvoiceByPageRequestRequest) SetEndTime(v int64) *GetInvoiceByPageRequestRequest {
@@ -3626,6 +3650,93 @@ func (s *GetYongYouOpenApiTokenResponse) SetBody(v *GetYongYouOpenApiTokenRespon
 	return s
 }
 
+type GetYongYouOrgRelationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetYongYouOrgRelationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetYongYouOrgRelationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetYongYouOrgRelationHeaders) SetCommonHeaders(v map[string]*string) *GetYongYouOrgRelationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetYongYouOrgRelationHeaders) SetXAcsDingtalkAccessToken(v string) *GetYongYouOrgRelationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetYongYouOrgRelationResponseBody struct {
+	ChanjetCorpId *string `json:"chanjetCorpId,omitempty" xml:"chanjetCorpId,omitempty"`
+	ChanjetUserId *string `json:"chanjetUserId,omitempty" xml:"chanjetUserId,omitempty"`
+	CorpId        *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetYongYouOrgRelationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetYongYouOrgRelationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetYongYouOrgRelationResponseBody) SetChanjetCorpId(v string) *GetYongYouOrgRelationResponseBody {
+	s.ChanjetCorpId = &v
+	return s
+}
+
+func (s *GetYongYouOrgRelationResponseBody) SetChanjetUserId(v string) *GetYongYouOrgRelationResponseBody {
+	s.ChanjetUserId = &v
+	return s
+}
+
+func (s *GetYongYouOrgRelationResponseBody) SetCorpId(v string) *GetYongYouOrgRelationResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetYongYouOrgRelationResponseBody) SetUserId(v string) *GetYongYouOrgRelationResponseBody {
+	s.UserId = &v
+	return s
+}
+
+type GetYongYouOrgRelationResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetYongYouOrgRelationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetYongYouOrgRelationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetYongYouOrgRelationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetYongYouOrgRelationResponse) SetHeaders(v map[string]*string) *GetYongYouOrgRelationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetYongYouOrgRelationResponse) SetStatusCode(v int32) *GetYongYouOrgRelationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetYongYouOrgRelationResponse) SetBody(v *GetYongYouOrgRelationResponseBody) *GetYongYouOrgRelationResponse {
+	s.Body = v
+	return s
+}
+
 type ProfessionBenefitConsumeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3871,6 +3982,92 @@ func (s *QueryCategoryByPageResponse) SetStatusCode(v int32) *QueryCategoryByPag
 }
 
 func (s *QueryCategoryByPageResponse) SetBody(v *QueryCategoryByPageResponseBody) *QueryCategoryByPageResponse {
+	s.Body = v
+	return s
+}
+
+type QueryCompanyInvoiceRelationCountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCompanyInvoiceRelationCountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCompanyInvoiceRelationCountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCompanyInvoiceRelationCountHeaders) SetCommonHeaders(v map[string]*string) *QueryCompanyInvoiceRelationCountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCompanyInvoiceRelationCountHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCompanyInvoiceRelationCountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCompanyInvoiceRelationCountRequest struct {
+	CompanyCode *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+}
+
+func (s QueryCompanyInvoiceRelationCountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCompanyInvoiceRelationCountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCompanyInvoiceRelationCountRequest) SetCompanyCode(v string) *QueryCompanyInvoiceRelationCountRequest {
+	s.CompanyCode = &v
+	return s
+}
+
+type QueryCompanyInvoiceRelationCountResponseBody struct {
+	RelationCountMap map[string]*int64 `json:"relationCountMap,omitempty" xml:"relationCountMap,omitempty"`
+}
+
+func (s QueryCompanyInvoiceRelationCountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCompanyInvoiceRelationCountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCompanyInvoiceRelationCountResponseBody) SetRelationCountMap(v map[string]*int64) *QueryCompanyInvoiceRelationCountResponseBody {
+	s.RelationCountMap = v
+	return s
+}
+
+type QueryCompanyInvoiceRelationCountResponse struct {
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryCompanyInvoiceRelationCountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCompanyInvoiceRelationCountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCompanyInvoiceRelationCountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCompanyInvoiceRelationCountResponse) SetHeaders(v map[string]*string) *QueryCompanyInvoiceRelationCountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCompanyInvoiceRelationCountResponse) SetStatusCode(v int32) *QueryCompanyInvoiceRelationCountResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryCompanyInvoiceRelationCountResponse) SetBody(v *QueryCompanyInvoiceRelationCountResponseBody) *QueryCompanyInvoiceRelationCountResponse {
 	s.Body = v
 	return s
 }
@@ -7880,6 +8077,7 @@ type UpdateInvoiceAbandonStatusRequest struct {
 	BlueInvoiceCode      *string                                                `json:"blueInvoiceCode,omitempty" xml:"blueInvoiceCode,omitempty"`
 	BlueInvoiceNo        *string                                                `json:"blueInvoiceNo,omitempty" xml:"blueInvoiceNo,omitempty"`
 	BlueInvoiceStatus    *string                                                `json:"blueInvoiceStatus,omitempty" xml:"blueInvoiceStatus,omitempty"`
+	CompanyCode          *string                                                `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	Operator             *string                                                `json:"operator,omitempty" xml:"operator,omitempty"`
 	RedGeneralInvoiceVO  *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO  `json:"redGeneralInvoiceVO,omitempty" xml:"redGeneralInvoiceVO,omitempty" type:"Struct"`
 	RedInvoiceCode       *string                                                `json:"redInvoiceCode,omitempty" xml:"redInvoiceCode,omitempty"`
@@ -7913,6 +8111,11 @@ func (s *UpdateInvoiceAbandonStatusRequest) SetBlueInvoiceNo(v string) *UpdateIn
 
 func (s *UpdateInvoiceAbandonStatusRequest) SetBlueInvoiceStatus(v string) *UpdateInvoiceAbandonStatusRequest {
 	s.BlueInvoiceStatus = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetCompanyCode(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.CompanyCode = &v
 	return s
 }
 
@@ -9267,6 +9470,7 @@ func (s *UpdateInvoiceAccountPeriodHeaders) SetXAcsDingtalkAccessToken(v string)
 
 type UpdateInvoiceAccountPeriodRequest struct {
 	AccountPeriod        *string                                                  `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	CompanyCode          *string                                                  `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	GeneralInvoiceVOList []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
 	InvoiceKeyVOList     []*UpdateInvoiceAccountPeriodRequestInvoiceKeyVOList     `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
 	Operator             *string                                                  `json:"operator,omitempty" xml:"operator,omitempty"`
@@ -9282,6 +9486,11 @@ func (s UpdateInvoiceAccountPeriodRequest) GoString() string {
 
 func (s *UpdateInvoiceAccountPeriodRequest) SetAccountPeriod(v string) *UpdateInvoiceAccountPeriodRequest {
 	s.AccountPeriod = &v
+	return s
+}
+
+func (s *UpdateInvoiceAccountPeriodRequest) SetCompanyCode(v string) *UpdateInvoiceAccountPeriodRequest {
+	s.CompanyCode = &v
 	return s
 }
 
@@ -10070,6 +10279,7 @@ func (s *UpdateInvoiceAccountingPeriodDateHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type UpdateInvoiceAccountingPeriodDateRequest struct {
+	CompanyCode              *string                                                             `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	InvoiceFinanceInfoVOList []*UpdateInvoiceAccountingPeriodDateRequestInvoiceFinanceInfoVOList `json:"invoiceFinanceInfoVOList,omitempty" xml:"invoiceFinanceInfoVOList,omitempty" type:"Repeated"`
 	Operator                 *string                                                             `json:"operator,omitempty" xml:"operator,omitempty"`
 }
@@ -10080,6 +10290,11 @@ func (s UpdateInvoiceAccountingPeriodDateRequest) String() string {
 
 func (s UpdateInvoiceAccountingPeriodDateRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateInvoiceAccountingPeriodDateRequest) SetCompanyCode(v string) *UpdateInvoiceAccountingPeriodDateRequest {
+	s.CompanyCode = &v
+	return s
 }
 
 func (s *UpdateInvoiceAccountingPeriodDateRequest) SetInvoiceFinanceInfoVOList(v []*UpdateInvoiceAccountingPeriodDateRequestInvoiceFinanceInfoVOList) *UpdateInvoiceAccountingPeriodDateRequest {
@@ -10261,6 +10476,7 @@ func (s *UpdateInvoiceAccountingStatusHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type UpdateInvoiceAccountingStatusRequest struct {
+	CompanyCode              *string                                                         `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	InvoiceFinanceInfoVOList []*UpdateInvoiceAccountingStatusRequestInvoiceFinanceInfoVOList `json:"invoiceFinanceInfoVOList,omitempty" xml:"invoiceFinanceInfoVOList,omitempty" type:"Repeated"`
 	Operator                 *string                                                         `json:"operator,omitempty" xml:"operator,omitempty"`
 }
@@ -10271,6 +10487,11 @@ func (s UpdateInvoiceAccountingStatusRequest) String() string {
 
 func (s UpdateInvoiceAccountingStatusRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateInvoiceAccountingStatusRequest) SetCompanyCode(v string) *UpdateInvoiceAccountingStatusRequest {
+	s.CompanyCode = &v
+	return s
 }
 
 func (s *UpdateInvoiceAccountingStatusRequest) SetInvoiceFinanceInfoVOList(v []*UpdateInvoiceAccountingStatusRequestInvoiceFinanceInfoVOList) *UpdateInvoiceAccountingStatusRequest {
@@ -11470,6 +11691,7 @@ func (s *UpdateInvoiceVerifyStatusHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateInvoiceVerifyStatusRequest struct {
+	CompanyCode          *string                                                 `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	DeductStatus         *string                                                 `json:"deductStatus,omitempty" xml:"deductStatus,omitempty"`
 	GeneralInvoiceVOList []*UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
 	InvoiceKeyVOList     []*UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList     `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
@@ -11483,6 +11705,11 @@ func (s UpdateInvoiceVerifyStatusRequest) String() string {
 
 func (s UpdateInvoiceVerifyStatusRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetCompanyCode(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.CompanyCode = &v
+	return s
 }
 
 func (s *UpdateInvoiceVerifyStatusRequest) SetDeductStatus(v string) *UpdateInvoiceVerifyStatusRequest {
@@ -12228,11 +12455,12 @@ func (s *UpdateInvoiceVoucherStatusHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateInvoiceVoucherStatusRequest struct {
-	ActionType  *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	Operator    *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	VoucherId   *string `json:"voucherId,omitempty" xml:"voucherId,omitempty"`
+	AccountantBookId *string `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
+	ActionType       *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	InvoiceCode      *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo        *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	Operator         *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	VoucherId        *string `json:"voucherId,omitempty" xml:"voucherId,omitempty"`
 }
 
 func (s UpdateInvoiceVoucherStatusRequest) String() string {
@@ -12241,6 +12469,11 @@ func (s UpdateInvoiceVoucherStatusRequest) String() string {
 
 func (s UpdateInvoiceVoucherStatusRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateInvoiceVoucherStatusRequest) SetAccountantBookId(v string) *UpdateInvoiceVoucherStatusRequest {
+	s.AccountantBookId = &v
+	return s
 }
 
 func (s *UpdateInvoiceVoucherStatusRequest) SetActionType(v string) *UpdateInvoiceVoucherStatusRequest {
@@ -12687,6 +12920,10 @@ func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		body["companyCode"] = request.CompanyCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.GeneralInvoiceVOList)) {
 		body["generalInvoiceVOList"] = request.GeneralInvoiceVOList
 	}
@@ -12805,6 +13042,10 @@ func (client *Client) CheckVoucherStatusWithOptions(request *CheckVoucherStatusR
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		body["companyCode"] = request.CompanyCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
 		body["endTime"] = request.EndTime
 	}
@@ -13686,6 +13927,51 @@ func (client *Client) GetYongYouOpenApiToken(request *GetYongYouOpenApiTokenRequ
 	return _result, _err
 }
 
+func (client *Client) GetYongYouOrgRelationWithOptions(headers *GetYongYouOrgRelationHeaders, runtime *util.RuntimeOptions) (_result *GetYongYouOrgRelationResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetYongYouOrgRelation"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/yongyou/relations"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetYongYouOrgRelationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetYongYouOrgRelation() (_result *GetYongYouOrgRelationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetYongYouOrgRelationHeaders{}
+	_result = &GetYongYouOrgRelationResponse{}
+	_body, _err := client.GetYongYouOrgRelationWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) ProfessionBenefitConsumeWithOptions(request *ProfessionBenefitConsumeRequest, headers *ProfessionBenefitConsumeHeaders, runtime *util.RuntimeOptions) (_result *ProfessionBenefitConsumeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13805,6 +14091,61 @@ func (client *Client) QueryCategoryByPage(request *QueryCategoryByPageRequest) (
 	headers := &QueryCategoryByPageHeaders{}
 	_result = &QueryCategoryByPageResponse{}
 	_body, _err := client.QueryCategoryByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCompanyInvoiceRelationCountWithOptions(request *QueryCompanyInvoiceRelationCountRequest, headers *QueryCompanyInvoiceRelationCountHeaders, runtime *util.RuntimeOptions) (_result *QueryCompanyInvoiceRelationCountResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		query["companyCode"] = request.CompanyCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCompanyInvoiceRelationCount"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/invoices/companyRelationReceipts/counts"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryCompanyInvoiceRelationCountResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCompanyInvoiceRelationCount(request *QueryCompanyInvoiceRelationCountRequest) (_result *QueryCompanyInvoiceRelationCountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCompanyInvoiceRelationCountHeaders{}
+	_result = &QueryCompanyInvoiceRelationCountResponse{}
+	_body, _err := client.QueryCompanyInvoiceRelationCountWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14999,6 +15340,10 @@ func (client *Client) UpdateInvoiceAbandonStatusWithOptions(request *UpdateInvoi
 		body["blueInvoiceStatus"] = request.BlueInvoiceStatus
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		body["companyCode"] = request.CompanyCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Operator)) {
 		body["operator"] = request.Operator
 	}
@@ -15078,6 +15423,10 @@ func (client *Client) UpdateInvoiceAccountPeriodWithOptions(request *UpdateInvoi
 		body["accountPeriod"] = request.AccountPeriod
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		body["companyCode"] = request.CompanyCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.GeneralInvoiceVOList)) {
 		body["generalInvoiceVOList"] = request.GeneralInvoiceVOList
 	}
@@ -15141,6 +15490,10 @@ func (client *Client) UpdateInvoiceAccountingPeriodDateWithOptions(request *Upda
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		body["companyCode"] = request.CompanyCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.InvoiceFinanceInfoVOList)) {
 		body["invoiceFinanceInfoVOList"] = request.InvoiceFinanceInfoVOList
 	}
@@ -15200,6 +15553,10 @@ func (client *Client) UpdateInvoiceAccountingStatusWithOptions(request *UpdateIn
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		body["companyCode"] = request.CompanyCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.InvoiceFinanceInfoVOList)) {
 		body["invoiceFinanceInfoVOList"] = request.InvoiceFinanceInfoVOList
 	}
@@ -15393,6 +15750,10 @@ func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoic
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		body["companyCode"] = request.CompanyCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.DeductStatus)) {
 		body["deductStatus"] = request.DeductStatus
 	}
@@ -15464,6 +15825,10 @@ func (client *Client) UpdateInvoiceVoucherStatusWithOptions(request *UpdateInvoi
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountantBookId)) {
+		body["accountantBookId"] = request.AccountantBookId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ActionType)) {
 		body["actionType"] = request.ActionType
 	}

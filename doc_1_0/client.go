@@ -457,6 +457,127 @@ func (s *AppendRowsResponse) SetStatusCode(v int32) *AppendRowsResponse {
 	return s
 }
 
+type BatchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchHeaders) SetCommonHeaders(v map[string]*string) *BatchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchHeaders) SetXAcsDingtalkAccessToken(v string) *BatchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchRequest struct {
+	Requests   []*BatchRequestRequests `json:"requests,omitempty" xml:"requests,omitempty" type:"Repeated"`
+	OperatorId *string                 `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s BatchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRequest) SetRequests(v []*BatchRequestRequests) *BatchRequest {
+	s.Requests = v
+	return s
+}
+
+func (s *BatchRequest) SetOperatorId(v string) *BatchRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type BatchRequestRequests struct {
+	Body   interface{} `json:"body,omitempty" xml:"body,omitempty"`
+	Method *string     `json:"method,omitempty" xml:"method,omitempty"`
+	Path   *string     `json:"path,omitempty" xml:"path,omitempty"`
+}
+
+func (s BatchRequestRequests) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRequestRequests) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRequestRequests) SetBody(v interface{}) *BatchRequestRequests {
+	s.Body = v
+	return s
+}
+
+func (s *BatchRequestRequests) SetMethod(v string) *BatchRequestRequests {
+	s.Method = &v
+	return s
+}
+
+func (s *BatchRequestRequests) SetPath(v string) *BatchRequestRequests {
+	s.Path = &v
+	return s
+}
+
+type BatchResponseBody struct {
+	Responses []interface{} `json:"responses,omitempty" xml:"responses,omitempty" type:"Repeated"`
+}
+
+func (s BatchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchResponseBody) SetResponses(v []interface{}) *BatchResponseBody {
+	s.Responses = v
+	return s
+}
+
+type BatchResponse struct {
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchResponse) SetHeaders(v map[string]*string) *BatchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchResponse) SetStatusCode(v int32) *BatchResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchResponse) SetBody(v *BatchResponseBody) *BatchResponse {
+	s.Body = v
+	return s
+}
+
 type BatchGetWorkspaceDocsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2915,10 +3036,13 @@ func (s *GetRangeRequest) SetSelect(v string) *GetRangeRequest {
 }
 
 type GetRangeResponseBody struct {
-	BackgroundColors [][]*GetRangeResponseBodyBackgroundColors `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
-	DisplayValues    [][]*string                               `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
-	Formulas         [][]*string                               `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
-	Values           [][]interface{}                           `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	BackgroundColors     [][]*GetRangeResponseBodyBackgroundColors `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
+	DisplayValues        [][]*string                               `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
+	FontSizes            [][]*int32                                `json:"fontSizes,omitempty" xml:"fontSizes,omitempty" type:"Repeated"`
+	Formulas             [][]*string                               `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
+	HorizontalAlignments [][]*string                               `json:"horizontalAlignments,omitempty" xml:"horizontalAlignments,omitempty" type:"Repeated"`
+	Values               [][]interface{}                           `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	VerticalAlignments   [][]*string                               `json:"verticalAlignments,omitempty" xml:"verticalAlignments,omitempty" type:"Repeated"`
 }
 
 func (s GetRangeResponseBody) String() string {
@@ -2939,13 +3063,28 @@ func (s *GetRangeResponseBody) SetDisplayValues(v [][]*string) *GetRangeResponse
 	return s
 }
 
+func (s *GetRangeResponseBody) SetFontSizes(v [][]*int32) *GetRangeResponseBody {
+	s.FontSizes = v
+	return s
+}
+
 func (s *GetRangeResponseBody) SetFormulas(v [][]*string) *GetRangeResponseBody {
 	s.Formulas = v
 	return s
 }
 
+func (s *GetRangeResponseBody) SetHorizontalAlignments(v [][]*string) *GetRangeResponseBody {
+	s.HorizontalAlignments = v
+	return s
+}
+
 func (s *GetRangeResponseBody) SetValues(v [][]interface{}) *GetRangeResponseBody {
 	s.Values = v
+	return s
+}
+
+func (s *GetRangeResponseBody) SetVerticalAlignments(v [][]*string) *GetRangeResponseBody {
+	s.VerticalAlignments = v
 	return s
 }
 
@@ -6020,11 +6159,14 @@ func (s *UpdateRangeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRangeHe
 }
 
 type UpdateRangeRequest struct {
-	BackgroundColors [][]*string                       `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
-	Hyperlinks       [][]*UpdateRangeRequestHyperlinks `json:"hyperlinks,omitempty" xml:"hyperlinks,omitempty" type:"Repeated"`
-	NumberFormat     *string                           `json:"numberFormat,omitempty" xml:"numberFormat,omitempty"`
-	Values           [][]*string                       `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
-	OperatorId       *string                           `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	BackgroundColors     [][]*string                       `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
+	FontSizes            [][]*int32                        `json:"fontSizes,omitempty" xml:"fontSizes,omitempty" type:"Repeated"`
+	HorizontalAlignments [][]*string                       `json:"horizontalAlignments,omitempty" xml:"horizontalAlignments,omitempty" type:"Repeated"`
+	Hyperlinks           [][]*UpdateRangeRequestHyperlinks `json:"hyperlinks,omitempty" xml:"hyperlinks,omitempty" type:"Repeated"`
+	NumberFormat         *string                           `json:"numberFormat,omitempty" xml:"numberFormat,omitempty"`
+	Values               [][]*string                       `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	VerticalAlignments   [][]*string                       `json:"verticalAlignments,omitempty" xml:"verticalAlignments,omitempty" type:"Repeated"`
+	OperatorId           *string                           `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s UpdateRangeRequest) String() string {
@@ -6040,6 +6182,16 @@ func (s *UpdateRangeRequest) SetBackgroundColors(v [][]*string) *UpdateRangeRequ
 	return s
 }
 
+func (s *UpdateRangeRequest) SetFontSizes(v [][]*int32) *UpdateRangeRequest {
+	s.FontSizes = v
+	return s
+}
+
+func (s *UpdateRangeRequest) SetHorizontalAlignments(v [][]*string) *UpdateRangeRequest {
+	s.HorizontalAlignments = v
+	return s
+}
+
 func (s *UpdateRangeRequest) SetHyperlinks(v [][]*UpdateRangeRequestHyperlinks) *UpdateRangeRequest {
 	s.Hyperlinks = v
 	return s
@@ -6052,6 +6204,11 @@ func (s *UpdateRangeRequest) SetNumberFormat(v string) *UpdateRangeRequest {
 
 func (s *UpdateRangeRequest) SetValues(v [][]*string) *UpdateRangeRequest {
 	s.Values = v
+	return s
+}
+
+func (s *UpdateRangeRequest) SetVerticalAlignments(v [][]*string) *UpdateRangeRequest {
+	s.VerticalAlignments = v
 	return s
 }
 
@@ -6676,6 +6833,67 @@ func (client *Client) AppendRows(workbookId *string, sheetId *string, request *A
 	headers := &AppendRowsHeaders{}
 	_result = &AppendRowsResponse{}
 	_body, _err := client.AppendRowsWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchWithOptions(workbookId *string, request *BatchRequest, headers *BatchHeaders, runtime *util.RuntimeOptions) (_result *BatchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Requests)) {
+		body["requests"] = request.Requests
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("Batch"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) Batch(workbookId *string, request *BatchRequest) (_result *BatchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchHeaders{}
+	_result = &BatchResponse{}
+	_body, _err := client.BatchWithOptions(workbookId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9349,6 +9567,14 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 		body["backgroundColors"] = request.BackgroundColors
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.FontSizes)) {
+		body["fontSizes"] = request.FontSizes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HorizontalAlignments)) {
+		body["horizontalAlignments"] = request.HorizontalAlignments
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Hyperlinks)) {
 		body["hyperlinks"] = request.Hyperlinks
 	}
@@ -9359,6 +9585,10 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 
 	if !tea.BoolValue(util.IsUnset(request.Values)) {
 		body["values"] = request.Values
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerticalAlignments)) {
+		body["verticalAlignments"] = request.VerticalAlignments
 	}
 
 	realHeaders := make(map[string]*string)

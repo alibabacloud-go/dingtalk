@@ -6347,6 +6347,104 @@ func (s *RetainLeaveTypesResponse) SetBody(v *RetainLeaveTypesResponseBody) *Ret
 	return s
 }
 
+type ReverseTrialAdvancedLeaveHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ReverseTrialAdvancedLeaveHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReverseTrialAdvancedLeaveHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ReverseTrialAdvancedLeaveHeaders) SetCommonHeaders(v map[string]*string) *ReverseTrialAdvancedLeaveHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ReverseTrialAdvancedLeaveHeaders) SetXAcsDingtalkAccessToken(v string) *ReverseTrialAdvancedLeaveHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ReverseTrialAdvancedLeaveRequest struct {
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	ServCode *int64  `json:"servCode,omitempty" xml:"servCode,omitempty"`
+}
+
+func (s ReverseTrialAdvancedLeaveRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReverseTrialAdvancedLeaveRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ReverseTrialAdvancedLeaveRequest) SetOpUserId(v string) *ReverseTrialAdvancedLeaveRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *ReverseTrialAdvancedLeaveRequest) SetServCode(v int64) *ReverseTrialAdvancedLeaveRequest {
+	s.ServCode = &v
+	return s
+}
+
+type ReverseTrialAdvancedLeaveResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ReverseTrialAdvancedLeaveResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReverseTrialAdvancedLeaveResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ReverseTrialAdvancedLeaveResponseBody) SetResult(v bool) *ReverseTrialAdvancedLeaveResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ReverseTrialAdvancedLeaveResponseBody) SetSuccess(v bool) *ReverseTrialAdvancedLeaveResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ReverseTrialAdvancedLeaveResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ReverseTrialAdvancedLeaveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ReverseTrialAdvancedLeaveResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReverseTrialAdvancedLeaveResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ReverseTrialAdvancedLeaveResponse) SetHeaders(v map[string]*string) *ReverseTrialAdvancedLeaveResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ReverseTrialAdvancedLeaveResponse) SetStatusCode(v int32) *ReverseTrialAdvancedLeaveResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ReverseTrialAdvancedLeaveResponse) SetBody(v *ReverseTrialAdvancedLeaveResponseBody) *ReverseTrialAdvancedLeaveResponse {
+	s.Body = v
+	return s
+}
+
 type SaveCustomWaterMarkTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8009,7 +8107,7 @@ func (client *Client) GetClosingAccountsWithOptions(request *GetClosingAccountsR
 		Method:      tea.String("POST"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &GetClosingAccountsResponse{}
@@ -9247,6 +9345,65 @@ func (client *Client) RetainLeaveTypes(request *RetainLeaveTypesRequest) (_resul
 	headers := &RetainLeaveTypesHeaders{}
 	_result = &RetainLeaveTypesResponse{}
 	_body, _err := client.RetainLeaveTypesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ReverseTrialAdvancedLeaveWithOptions(request *ReverseTrialAdvancedLeaveRequest, headers *ReverseTrialAdvancedLeaveHeaders, runtime *util.RuntimeOptions) (_result *ReverseTrialAdvancedLeaveResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServCode)) {
+		query["servCode"] = request.ServCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ReverseTrialAdvancedLeave"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/leaves/reverse"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ReverseTrialAdvancedLeaveResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ReverseTrialAdvancedLeave(request *ReverseTrialAdvancedLeaveRequest) (_result *ReverseTrialAdvancedLeaveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ReverseTrialAdvancedLeaveHeaders{}
+	_result = &ReverseTrialAdvancedLeaveResponse{}
+	_body, _err := client.ReverseTrialAdvancedLeaveWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

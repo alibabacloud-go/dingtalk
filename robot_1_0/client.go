@@ -713,7 +713,8 @@ func (s *ExecuteRobotAiSkillRequest) SetSkillId(v string) *ExecuteRobotAiSkillRe
 }
 
 type ExecuteRobotAiSkillResponseBody struct {
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	Result         *string `json:"result,omitempty" xml:"result,omitempty"`
+	SkillExecuteId *string `json:"skillExecuteId,omitempty" xml:"skillExecuteId,omitempty"`
 }
 
 func (s ExecuteRobotAiSkillResponseBody) String() string {
@@ -726,6 +727,11 @@ func (s ExecuteRobotAiSkillResponseBody) GoString() string {
 
 func (s *ExecuteRobotAiSkillResponseBody) SetResult(v string) *ExecuteRobotAiSkillResponseBody {
 	s.Result = &v
+	return s
+}
+
+func (s *ExecuteRobotAiSkillResponseBody) SetSkillExecuteId(v string) *ExecuteRobotAiSkillResponseBody {
+	s.SkillExecuteId = &v
 	return s
 }
 

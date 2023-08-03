@@ -1763,6 +1763,186 @@ func (s *CreateTeamResponse) SetBody(v *TeamVO) *CreateTeamResponse {
 	return s
 }
 
+type CrossOrgMigrateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CrossOrgMigrateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CrossOrgMigrateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CrossOrgMigrateHeaders) SetCommonHeaders(v map[string]*string) *CrossOrgMigrateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CrossOrgMigrateHeaders) SetXAcsDingtalkAccessToken(v string) *CrossOrgMigrateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CrossOrgMigrateRequest struct {
+	Option     *CrossOrgMigrateRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	Param      *CrossOrgMigrateRequestParam  `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+	OperatorId *string                       `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CrossOrgMigrateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CrossOrgMigrateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CrossOrgMigrateRequest) SetOption(v *CrossOrgMigrateRequestOption) *CrossOrgMigrateRequest {
+	s.Option = v
+	return s
+}
+
+func (s *CrossOrgMigrateRequest) SetParam(v *CrossOrgMigrateRequestParam) *CrossOrgMigrateRequest {
+	s.Param = v
+	return s
+}
+
+func (s *CrossOrgMigrateRequest) SetOperatorId(v string) *CrossOrgMigrateRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CrossOrgMigrateRequestOption struct {
+	CheckOperatorSourceRole      *bool     `json:"checkOperatorSourceRole,omitempty" xml:"checkOperatorSourceRole,omitempty"`
+	DeleteSource                 *bool     `json:"deleteSource,omitempty" xml:"deleteSource,omitempty"`
+	NeedRecycleFailedWorkspaceId *bool     `json:"needRecycleFailedWorkspaceId,omitempty" xml:"needRecycleFailedWorkspaceId,omitempty"`
+	RelateTeamId                 *int64    `json:"relateTeamId,omitempty" xml:"relateTeamId,omitempty"`
+	RelateTeamIdStr              *string   `json:"relateTeamIdStr,omitempty" xml:"relateTeamIdStr,omitempty"`
+	RetainOrgGroup               *bool     `json:"retainOrgGroup,omitempty" xml:"retainOrgGroup,omitempty"`
+	SkipRole                     *bool     `json:"skipRole,omitempty" xml:"skipRole,omitempty"`
+	WorkspaceIdStrs              []*string `json:"workspaceIdStrs,omitempty" xml:"workspaceIdStrs,omitempty" type:"Repeated"`
+	WorkspaceIds                 []*int64  `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
+}
+
+func (s CrossOrgMigrateRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CrossOrgMigrateRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *CrossOrgMigrateRequestOption) SetCheckOperatorSourceRole(v bool) *CrossOrgMigrateRequestOption {
+	s.CheckOperatorSourceRole = &v
+	return s
+}
+
+func (s *CrossOrgMigrateRequestOption) SetDeleteSource(v bool) *CrossOrgMigrateRequestOption {
+	s.DeleteSource = &v
+	return s
+}
+
+func (s *CrossOrgMigrateRequestOption) SetNeedRecycleFailedWorkspaceId(v bool) *CrossOrgMigrateRequestOption {
+	s.NeedRecycleFailedWorkspaceId = &v
+	return s
+}
+
+func (s *CrossOrgMigrateRequestOption) SetRelateTeamId(v int64) *CrossOrgMigrateRequestOption {
+	s.RelateTeamId = &v
+	return s
+}
+
+func (s *CrossOrgMigrateRequestOption) SetRelateTeamIdStr(v string) *CrossOrgMigrateRequestOption {
+	s.RelateTeamIdStr = &v
+	return s
+}
+
+func (s *CrossOrgMigrateRequestOption) SetRetainOrgGroup(v bool) *CrossOrgMigrateRequestOption {
+	s.RetainOrgGroup = &v
+	return s
+}
+
+func (s *CrossOrgMigrateRequestOption) SetSkipRole(v bool) *CrossOrgMigrateRequestOption {
+	s.SkipRole = &v
+	return s
+}
+
+func (s *CrossOrgMigrateRequestOption) SetWorkspaceIdStrs(v []*string) *CrossOrgMigrateRequestOption {
+	s.WorkspaceIdStrs = v
+	return s
+}
+
+func (s *CrossOrgMigrateRequestOption) SetWorkspaceIds(v []*int64) *CrossOrgMigrateRequestOption {
+	s.WorkspaceIds = v
+	return s
+}
+
+type CrossOrgMigrateRequestParam struct {
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s CrossOrgMigrateRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CrossOrgMigrateRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *CrossOrgMigrateRequestParam) SetCorpId(v string) *CrossOrgMigrateRequestParam {
+	s.CorpId = &v
+	return s
+}
+
+type CrossOrgMigrateResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CrossOrgMigrateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CrossOrgMigrateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CrossOrgMigrateResponseBody) SetSuccess(v bool) *CrossOrgMigrateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CrossOrgMigrateResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CrossOrgMigrateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CrossOrgMigrateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CrossOrgMigrateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CrossOrgMigrateResponse) SetHeaders(v map[string]*string) *CrossOrgMigrateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CrossOrgMigrateResponse) SetStatusCode(v int32) *CrossOrgMigrateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CrossOrgMigrateResponse) SetBody(v *CrossOrgMigrateResponseBody) *CrossOrgMigrateResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteTeamHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6641,6 +6821,71 @@ func (client *Client) CreateTeam(request *CreateTeamRequest) (_result *CreateTea
 	headers := &CreateTeamHeaders{}
 	_result = &CreateTeamResponse{}
 	_body, _err := client.CreateTeamWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CrossOrgMigrateWithOptions(request *CrossOrgMigrateRequest, headers *CrossOrgMigrateHeaders, runtime *util.RuntimeOptions) (_result *CrossOrgMigrateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CrossOrgMigrate"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/crossOrganizations/spaces/migrate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CrossOrgMigrateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CrossOrgMigrate(request *CrossOrgMigrateRequest) (_result *CrossOrgMigrateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CrossOrgMigrateHeaders{}
+	_result = &CrossOrgMigrateResponse{}
+	_body, _err := client.CrossOrgMigrateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
