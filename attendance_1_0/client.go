@@ -4523,6 +4523,7 @@ type GroupAddRequest struct {
 	Members                        []*GroupAddRequestMembers        `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 	ModifyMember                   *bool                            `json:"modifyMember,omitempty" xml:"modifyMember,omitempty"`
 	Offset                         *int32                           `json:"offset,omitempty" xml:"offset,omitempty"`
+	OpenCameraCheck                *bool                            `json:"openCameraCheck,omitempty" xml:"openCameraCheck,omitempty"`
 	OpenFaceCheck                  *bool                            `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
 	OutsideCheckApproveModeId      *int32                           `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
 	OvertimeSettingId              *int64                           `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
@@ -4689,6 +4690,11 @@ func (s *GroupAddRequest) SetModifyMember(v bool) *GroupAddRequest {
 
 func (s *GroupAddRequest) SetOffset(v int32) *GroupAddRequest {
 	s.Offset = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetOpenCameraCheck(v bool) *GroupAddRequest {
+	s.OpenCameraCheck = &v
 	return s
 }
 
@@ -5053,6 +5059,7 @@ type GroupUpdateRequest struct {
 	GroupName                      *string                             `json:"groupName,omitempty" xml:"groupName,omitempty"`
 	ManagerList                    []*string                           `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
 	Offset                         *int32                              `json:"offset,omitempty" xml:"offset,omitempty"`
+	OpenCameraCheck                *bool                               `json:"openCameraCheck,omitempty" xml:"openCameraCheck,omitempty"`
 	OpenFaceCheck                  *bool                               `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
 	OutsideCheckApproveModeId      *int32                              `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
 	OvertimeSettingId              *int64                              `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
@@ -5166,6 +5173,11 @@ func (s *GroupUpdateRequest) SetManagerList(v []*string) *GroupUpdateRequest {
 
 func (s *GroupUpdateRequest) SetOffset(v int32) *GroupUpdateRequest {
 	s.Offset = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetOpenCameraCheck(v bool) *GroupUpdateRequest {
+	s.OpenCameraCheck = &v
 	return s
 }
 
@@ -8728,6 +8740,10 @@ func (client *Client) GroupAddWithOptions(request *GroupAddRequest, headers *Gro
 		body["offset"] = request.Offset
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.OpenCameraCheck)) {
+		body["openCameraCheck"] = request.OpenCameraCheck
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OpenFaceCheck)) {
 		body["openFaceCheck"] = request.OpenFaceCheck
 	}
@@ -8911,6 +8927,10 @@ func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.Offset)) {
 		body["offset"] = request.Offset
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenCameraCheck)) {
+		body["openCameraCheck"] = request.OpenCameraCheck
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenFaceCheck)) {

@@ -3028,6 +3028,146 @@ func (s *GetIsNewVersionResponse) SetBody(v *GetIsNewVersionResponseBody) *GetIs
 	return s
 }
 
+type GetMultiCompanyInfoByCodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMultiCompanyInfoByCodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultiCompanyInfoByCodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultiCompanyInfoByCodeHeaders) SetCommonHeaders(v map[string]*string) *GetMultiCompanyInfoByCodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeHeaders) SetXAcsDingtalkAccessToken(v string) *GetMultiCompanyInfoByCodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMultiCompanyInfoByCodeResponseBody struct {
+	AdvancedSettingList []*GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList `json:"advancedSettingList,omitempty" xml:"advancedSettingList,omitempty" type:"Repeated"`
+	CompanyCode         *string                                                     `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	CompanyName         *string                                                     `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	Remark              *string                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
+	Status              *string                                                     `json:"status,omitempty" xml:"status,omitempty"`
+	TaxNature           *string                                                     `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	TaxNo               *string                                                     `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+}
+
+func (s GetMultiCompanyInfoByCodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultiCompanyInfoByCodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBody) SetAdvancedSettingList(v []*GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList) *GetMultiCompanyInfoByCodeResponseBody {
+	s.AdvancedSettingList = v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBody) SetCompanyCode(v string) *GetMultiCompanyInfoByCodeResponseBody {
+	s.CompanyCode = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBody) SetCompanyName(v string) *GetMultiCompanyInfoByCodeResponseBody {
+	s.CompanyName = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBody) SetRemark(v string) *GetMultiCompanyInfoByCodeResponseBody {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBody) SetStatus(v string) *GetMultiCompanyInfoByCodeResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBody) SetTaxNature(v string) *GetMultiCompanyInfoByCodeResponseBody {
+	s.TaxNature = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBody) SetTaxNo(v string) *GetMultiCompanyInfoByCodeResponseBody {
+	s.TaxNo = &v
+	return s
+}
+
+type GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList struct {
+	AdvancedSettingKey  *string `json:"advancedSettingKey,omitempty" xml:"advancedSettingKey,omitempty"`
+	AdvancedSettingName *string `json:"advancedSettingName,omitempty" xml:"advancedSettingName,omitempty"`
+	EndDate             *int64  `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	Value               *bool   `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList) SetAdvancedSettingKey(v string) *GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList {
+	s.AdvancedSettingKey = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList) SetAdvancedSettingName(v string) *GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList {
+	s.AdvancedSettingName = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList) SetEndDate(v int64) *GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList {
+	s.EndDate = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList) SetValue(v bool) *GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList {
+	s.Value = &v
+	return s
+}
+
+type GetMultiCompanyInfoByCodeResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetMultiCompanyInfoByCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMultiCompanyInfoByCodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultiCompanyInfoByCodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultiCompanyInfoByCodeResponse) SetHeaders(v map[string]*string) *GetMultiCompanyInfoByCodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponse) SetStatusCode(v int32) *GetMultiCompanyInfoByCodeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponse) SetBody(v *GetMultiCompanyInfoByCodeResponseBody) *GetMultiCompanyInfoByCodeResponse {
+	s.Body = v
+	return s
+}
+
 type GetProductHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4761,6 +4901,169 @@ func (s *QueryInvoiceRelationCountResponse) SetStatusCode(v int32) *QueryInvoice
 }
 
 func (s *QueryInvoiceRelationCountResponse) SetBody(v *QueryInvoiceRelationCountResponseBody) *QueryInvoiceRelationCountResponse {
+	s.Body = v
+	return s
+}
+
+type QueryMultiCompanyInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMultiCompanyInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMultiCompanyInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMultiCompanyInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryMultiCompanyInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMultiCompanyInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMultiCompanyInfoResponseBody struct {
+	List []*QueryMultiCompanyInfoResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s QueryMultiCompanyInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMultiCompanyInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMultiCompanyInfoResponseBody) SetList(v []*QueryMultiCompanyInfoResponseBodyList) *QueryMultiCompanyInfoResponseBody {
+	s.List = v
+	return s
+}
+
+type QueryMultiCompanyInfoResponseBodyList struct {
+	AdvancedSettingList []*QueryMultiCompanyInfoResponseBodyListAdvancedSettingList `json:"advancedSettingList,omitempty" xml:"advancedSettingList,omitempty" type:"Repeated"`
+	CompanyCode         *string                                                     `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	CompanyName         *string                                                     `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	CreateTime          *string                                                     `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Remark              *string                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
+	Status              *string                                                     `json:"status,omitempty" xml:"status,omitempty"`
+	TaxNature           *string                                                     `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	TaxNo               *string                                                     `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+}
+
+func (s QueryMultiCompanyInfoResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMultiCompanyInfoResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetAdvancedSettingList(v []*QueryMultiCompanyInfoResponseBodyListAdvancedSettingList) *QueryMultiCompanyInfoResponseBodyList {
+	s.AdvancedSettingList = v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetCompanyCode(v string) *QueryMultiCompanyInfoResponseBodyList {
+	s.CompanyCode = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetCompanyName(v string) *QueryMultiCompanyInfoResponseBodyList {
+	s.CompanyName = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetCreateTime(v string) *QueryMultiCompanyInfoResponseBodyList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetRemark(v string) *QueryMultiCompanyInfoResponseBodyList {
+	s.Remark = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetStatus(v string) *QueryMultiCompanyInfoResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetTaxNature(v string) *QueryMultiCompanyInfoResponseBodyList {
+	s.TaxNature = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetTaxNo(v string) *QueryMultiCompanyInfoResponseBodyList {
+	s.TaxNo = &v
+	return s
+}
+
+type QueryMultiCompanyInfoResponseBodyListAdvancedSettingList struct {
+	AdvancedSettingKey  *string `json:"advancedSettingKey,omitempty" xml:"advancedSettingKey,omitempty"`
+	AdvancedSettingName *string `json:"advancedSettingName,omitempty" xml:"advancedSettingName,omitempty"`
+	EndDate             *int64  `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	Value               *bool   `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s QueryMultiCompanyInfoResponseBodyListAdvancedSettingList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMultiCompanyInfoResponseBodyListAdvancedSettingList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyListAdvancedSettingList) SetAdvancedSettingKey(v string) *QueryMultiCompanyInfoResponseBodyListAdvancedSettingList {
+	s.AdvancedSettingKey = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyListAdvancedSettingList) SetAdvancedSettingName(v string) *QueryMultiCompanyInfoResponseBodyListAdvancedSettingList {
+	s.AdvancedSettingName = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyListAdvancedSettingList) SetEndDate(v int64) *QueryMultiCompanyInfoResponseBodyListAdvancedSettingList {
+	s.EndDate = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyListAdvancedSettingList) SetValue(v bool) *QueryMultiCompanyInfoResponseBodyListAdvancedSettingList {
+	s.Value = &v
+	return s
+}
+
+type QueryMultiCompanyInfoResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryMultiCompanyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryMultiCompanyInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMultiCompanyInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMultiCompanyInfoResponse) SetHeaders(v map[string]*string) *QueryMultiCompanyInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponse) SetStatusCode(v int32) *QueryMultiCompanyInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponse) SetBody(v *QueryMultiCompanyInfoResponseBody) *QueryMultiCompanyInfoResponse {
 	s.Body = v
 	return s
 }
@@ -8045,6 +8348,116 @@ func (s *UpdateFinanceCompanyInfoResponse) SetStatusCode(v int32) *UpdateFinance
 }
 
 func (s *UpdateFinanceCompanyInfoResponse) SetBody(v *UpdateFinanceCompanyInfoResponseBody) *UpdateFinanceCompanyInfoResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateFinanceMultiCompanyInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateFinanceMultiCompanyInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFinanceMultiCompanyInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFinanceMultiCompanyInfoHeaders) SetCommonHeaders(v map[string]*string) *UpdateFinanceMultiCompanyInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateFinanceMultiCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateFinanceMultiCompanyInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateFinanceMultiCompanyInfoRequest struct {
+	CompanyCode *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	TaxNature   *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	TaxNo       *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateFinanceMultiCompanyInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFinanceMultiCompanyInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFinanceMultiCompanyInfoRequest) SetCompanyCode(v string) *UpdateFinanceMultiCompanyInfoRequest {
+	s.CompanyCode = &v
+	return s
+}
+
+func (s *UpdateFinanceMultiCompanyInfoRequest) SetCompanyName(v string) *UpdateFinanceMultiCompanyInfoRequest {
+	s.CompanyName = &v
+	return s
+}
+
+func (s *UpdateFinanceMultiCompanyInfoRequest) SetTaxNature(v string) *UpdateFinanceMultiCompanyInfoRequest {
+	s.TaxNature = &v
+	return s
+}
+
+func (s *UpdateFinanceMultiCompanyInfoRequest) SetTaxNo(v string) *UpdateFinanceMultiCompanyInfoRequest {
+	s.TaxNo = &v
+	return s
+}
+
+func (s *UpdateFinanceMultiCompanyInfoRequest) SetUserId(v string) *UpdateFinanceMultiCompanyInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateFinanceMultiCompanyInfoResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateFinanceMultiCompanyInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFinanceMultiCompanyInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFinanceMultiCompanyInfoResponseBody) SetResult(v bool) *UpdateFinanceMultiCompanyInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateFinanceMultiCompanyInfoResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateFinanceMultiCompanyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateFinanceMultiCompanyInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFinanceMultiCompanyInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFinanceMultiCompanyInfoResponse) SetHeaders(v map[string]*string) *UpdateFinanceMultiCompanyInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateFinanceMultiCompanyInfoResponse) SetStatusCode(v int32) *UpdateFinanceMultiCompanyInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateFinanceMultiCompanyInfoResponse) SetBody(v *UpdateFinanceMultiCompanyInfoResponseBody) *UpdateFinanceMultiCompanyInfoResponse {
 	s.Body = v
 	return s
 }
@@ -13648,6 +14061,51 @@ func (client *Client) GetIsNewVersion() (_result *GetIsNewVersionResponse, _err 
 	return _result, _err
 }
 
+func (client *Client) GetMultiCompanyInfoByCodeWithOptions(companyCode *string, headers *GetMultiCompanyInfoByCodeHeaders, runtime *util.RuntimeOptions) (_result *GetMultiCompanyInfoByCodeResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMultiCompanyInfoByCode"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/multiCompanies/" + tea.StringValue(companyCode)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetMultiCompanyInfoByCodeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetMultiCompanyInfoByCode(companyCode *string) (_result *GetMultiCompanyInfoByCodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMultiCompanyInfoByCodeHeaders{}
+	_result = &GetMultiCompanyInfoByCodeResponse{}
+	_body, _err := client.GetMultiCompanyInfoByCodeWithOptions(companyCode, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetProductWithOptions(request *GetProductRequest, headers *GetProductHeaders, runtime *util.RuntimeOptions) (_result *GetProductResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14417,6 +14875,51 @@ func (client *Client) QueryInvoiceRelationCount() (_result *QueryInvoiceRelation
 	headers := &QueryInvoiceRelationCountHeaders{}
 	_result = &QueryInvoiceRelationCountResponse{}
 	_body, _err := client.QueryInvoiceRelationCountWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryMultiCompanyInfoWithOptions(headers *QueryMultiCompanyInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryMultiCompanyInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMultiCompanyInfo"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/multiCompanies"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMultiCompanyInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryMultiCompanyInfo() (_result *QueryMultiCompanyInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMultiCompanyInfoHeaders{}
+	_result = &QueryMultiCompanyInfoResponse{}
+	_body, _err := client.QueryMultiCompanyInfoWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15311,6 +15814,77 @@ func (client *Client) UpdateFinanceCompanyInfo(request *UpdateFinanceCompanyInfo
 	headers := &UpdateFinanceCompanyInfoHeaders{}
 	_result = &UpdateFinanceCompanyInfoResponse{}
 	_body, _err := client.UpdateFinanceCompanyInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateFinanceMultiCompanyInfoWithOptions(request *UpdateFinanceMultiCompanyInfoRequest, headers *UpdateFinanceMultiCompanyInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateFinanceMultiCompanyInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		query["companyCode"] = request.CompanyCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CompanyName)) {
+		query["companyName"] = request.CompanyName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaxNature)) {
+		query["taxNature"] = request.TaxNature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaxNo)) {
+		query["taxNo"] = request.TaxNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateFinanceMultiCompanyInfo"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/multiCompanies"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateFinanceMultiCompanyInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateFinanceMultiCompanyInfo(request *UpdateFinanceMultiCompanyInfoRequest) (_result *UpdateFinanceMultiCompanyInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateFinanceMultiCompanyInfoHeaders{}
+	_result = &UpdateFinanceMultiCompanyInfoResponse{}
+	_body, _err := client.UpdateFinanceMultiCompanyInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

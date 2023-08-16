@@ -1223,6 +1223,95 @@ func (s *TeamVOVisitInfo) SetRoleCode(v string) *TeamVOVisitInfo {
 	return s
 }
 
+type MapValue struct {
+	TemplateId         *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	Type               *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	CoverDownloadUrl   *string `json:"coverDownloadUrl,omitempty" xml:"coverDownloadUrl,omitempty"`
+	Description        *string `json:"description,omitempty" xml:"description,omitempty"`
+	AuthorName         *string `json:"authorName,omitempty" xml:"authorName,omitempty"`
+	CreateTime         *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	ModifiedTime       *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	WorkspaceId        *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	WorkspaceName      *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
+	UsedCount          *int64  `json:"usedCount,omitempty" xml:"usedCount,omitempty"`
+	Belong             *string `json:"belong,omitempty" xml:"belong,omitempty"`
+	ContentDownloadUrl *string `json:"contentDownloadUrl,omitempty" xml:"contentDownloadUrl,omitempty"`
+}
+
+func (s MapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MapValue) GoString() string {
+	return s.String()
+}
+
+func (s *MapValue) SetTemplateId(v string) *MapValue {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *MapValue) SetTitle(v string) *MapValue {
+	s.Title = &v
+	return s
+}
+
+func (s *MapValue) SetType(v int32) *MapValue {
+	s.Type = &v
+	return s
+}
+
+func (s *MapValue) SetCoverDownloadUrl(v string) *MapValue {
+	s.CoverDownloadUrl = &v
+	return s
+}
+
+func (s *MapValue) SetDescription(v string) *MapValue {
+	s.Description = &v
+	return s
+}
+
+func (s *MapValue) SetAuthorName(v string) *MapValue {
+	s.AuthorName = &v
+	return s
+}
+
+func (s *MapValue) SetCreateTime(v string) *MapValue {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *MapValue) SetModifiedTime(v string) *MapValue {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *MapValue) SetWorkspaceId(v string) *MapValue {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *MapValue) SetWorkspaceName(v string) *MapValue {
+	s.WorkspaceName = &v
+	return s
+}
+
+func (s *MapValue) SetUsedCount(v int64) *MapValue {
+	s.UsedCount = &v
+	return s
+}
+
+func (s *MapValue) SetBelong(v string) *MapValue {
+	s.Belong = &v
+	return s
+}
+
+func (s *MapValue) SetContentDownloadUrl(v string) *MapValue {
+	s.ContentDownloadUrl = &v
+	return s
+}
+
 type BatchDeleteRecentsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1311,6 +1400,383 @@ func (s *BatchDeleteRecentsResponse) SetStatusCode(v int32) *BatchDeleteRecentsR
 }
 
 func (s *BatchDeleteRecentsResponse) SetBody(v *BatchDeleteRecentsResponseBody) *BatchDeleteRecentsResponse {
+	s.Body = v
+	return s
+}
+
+type CategoriesTemplatesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CategoriesTemplatesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoriesTemplatesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CategoriesTemplatesHeaders) SetCommonHeaders(v map[string]*string) *CategoriesTemplatesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CategoriesTemplatesHeaders) SetXAcsDingtalkAccessToken(v string) *CategoriesTemplatesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CategoriesTemplatesRequest struct {
+	Option     *CategoriesTemplatesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	Param      *CategoriesTemplatesRequestParam  `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+	OperatorId *string                           `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CategoriesTemplatesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoriesTemplatesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CategoriesTemplatesRequest) SetOption(v *CategoriesTemplatesRequestOption) *CategoriesTemplatesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *CategoriesTemplatesRequest) SetParam(v *CategoriesTemplatesRequestParam) *CategoriesTemplatesRequest {
+	s.Param = v
+	return s
+}
+
+func (s *CategoriesTemplatesRequest) SetOperatorId(v string) *CategoriesTemplatesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CategoriesTemplatesRequestOption struct {
+	CategoryStatus *int32  `json:"categoryStatus,omitempty" xml:"categoryStatus,omitempty"`
+	QueryPlatform  *string `json:"queryPlatform,omitempty" xml:"queryPlatform,omitempty"`
+	Size           *int32  `json:"size,omitempty" xml:"size,omitempty"`
+	TemplateStatus *int32  `json:"templateStatus,omitempty" xml:"templateStatus,omitempty"`
+}
+
+func (s CategoriesTemplatesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoriesTemplatesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *CategoriesTemplatesRequestOption) SetCategoryStatus(v int32) *CategoriesTemplatesRequestOption {
+	s.CategoryStatus = &v
+	return s
+}
+
+func (s *CategoriesTemplatesRequestOption) SetQueryPlatform(v string) *CategoriesTemplatesRequestOption {
+	s.QueryPlatform = &v
+	return s
+}
+
+func (s *CategoriesTemplatesRequestOption) SetSize(v int32) *CategoriesTemplatesRequestOption {
+	s.Size = &v
+	return s
+}
+
+func (s *CategoriesTemplatesRequestOption) SetTemplateStatus(v int32) *CategoriesTemplatesRequestOption {
+	s.TemplateStatus = &v
+	return s
+}
+
+type CategoriesTemplatesRequestParam struct {
+	CategoryIds []*string `json:"categoryIds,omitempty" xml:"categoryIds,omitempty" type:"Repeated"`
+}
+
+func (s CategoriesTemplatesRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoriesTemplatesRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *CategoriesTemplatesRequestParam) SetCategoryIds(v []*string) *CategoriesTemplatesRequestParam {
+	s.CategoryIds = v
+	return s
+}
+
+type CategoriesTemplatesResponseBody struct {
+	Map map[string][]*MapValue `json:"map,omitempty" xml:"map,omitempty"`
+}
+
+func (s CategoriesTemplatesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoriesTemplatesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CategoriesTemplatesResponseBody) SetMap(v map[string][]*MapValue) *CategoriesTemplatesResponseBody {
+	s.Map = v
+	return s
+}
+
+type CategoriesTemplatesResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CategoriesTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CategoriesTemplatesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoriesTemplatesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CategoriesTemplatesResponse) SetHeaders(v map[string]*string) *CategoriesTemplatesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CategoriesTemplatesResponse) SetStatusCode(v int32) *CategoriesTemplatesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CategoriesTemplatesResponse) SetBody(v *CategoriesTemplatesResponseBody) *CategoriesTemplatesResponse {
+	s.Body = v
+	return s
+}
+
+type CategoryTemplatesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CategoryTemplatesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryTemplatesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryTemplatesHeaders) SetCommonHeaders(v map[string]*string) *CategoryTemplatesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CategoryTemplatesHeaders) SetXAcsDingtalkAccessToken(v string) *CategoryTemplatesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CategoryTemplatesRequest struct {
+	Option     *CategoryTemplatesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	Param      *CategoryTemplatesRequestParam  `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+	OperatorId *string                         `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CategoryTemplatesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryTemplatesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryTemplatesRequest) SetOption(v *CategoryTemplatesRequestOption) *CategoryTemplatesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *CategoryTemplatesRequest) SetParam(v *CategoryTemplatesRequestParam) *CategoryTemplatesRequest {
+	s.Param = v
+	return s
+}
+
+func (s *CategoryTemplatesRequest) SetOperatorId(v string) *CategoryTemplatesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CategoryTemplatesRequestOption struct {
+	CategoryStatus *int32 `json:"categoryStatus,omitempty" xml:"categoryStatus,omitempty"`
+	TemplateStatus *int32 `json:"templateStatus,omitempty" xml:"templateStatus,omitempty"`
+}
+
+func (s CategoryTemplatesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryTemplatesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryTemplatesRequestOption) SetCategoryStatus(v int32) *CategoryTemplatesRequestOption {
+	s.CategoryStatus = &v
+	return s
+}
+
+func (s *CategoryTemplatesRequestOption) SetTemplateStatus(v int32) *CategoryTemplatesRequestOption {
+	s.TemplateStatus = &v
+	return s
+}
+
+type CategoryTemplatesRequestParam struct {
+	CategoryId *string `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
+}
+
+func (s CategoryTemplatesRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryTemplatesRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryTemplatesRequestParam) SetCategoryId(v string) *CategoryTemplatesRequestParam {
+	s.CategoryId = &v
+	return s
+}
+
+type CategoryTemplatesResponseBody struct {
+	List []*CategoryTemplatesResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s CategoryTemplatesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryTemplatesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryTemplatesResponseBody) SetList(v []*CategoryTemplatesResponseBodyList) *CategoryTemplatesResponseBody {
+	s.List = v
+	return s
+}
+
+type CategoryTemplatesResponseBodyList struct {
+	AuthorName         *string `json:"authorName,omitempty" xml:"authorName,omitempty"`
+	Belong             *string `json:"belong,omitempty" xml:"belong,omitempty"`
+	ContentDownloadUrl *string `json:"contentDownloadUrl,omitempty" xml:"contentDownloadUrl,omitempty"`
+	CoverDownloadUrl   *string `json:"coverDownloadUrl,omitempty" xml:"coverDownloadUrl,omitempty"`
+	CreateTime         *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description        *string `json:"description,omitempty" xml:"description,omitempty"`
+	ModifiedTime       *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	TemplateId         *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	Type               *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	UsedCount          *int64  `json:"usedCount,omitempty" xml:"usedCount,omitempty"`
+	WorkspaceId        *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	WorkspaceName      *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
+}
+
+func (s CategoryTemplatesResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryTemplatesResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetAuthorName(v string) *CategoryTemplatesResponseBodyList {
+	s.AuthorName = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetBelong(v string) *CategoryTemplatesResponseBodyList {
+	s.Belong = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetContentDownloadUrl(v string) *CategoryTemplatesResponseBodyList {
+	s.ContentDownloadUrl = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetCoverDownloadUrl(v string) *CategoryTemplatesResponseBodyList {
+	s.CoverDownloadUrl = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetCreateTime(v string) *CategoryTemplatesResponseBodyList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetDescription(v string) *CategoryTemplatesResponseBodyList {
+	s.Description = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetModifiedTime(v string) *CategoryTemplatesResponseBodyList {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetTemplateId(v string) *CategoryTemplatesResponseBodyList {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetTitle(v string) *CategoryTemplatesResponseBodyList {
+	s.Title = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetType(v int32) *CategoryTemplatesResponseBodyList {
+	s.Type = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetUsedCount(v int64) *CategoryTemplatesResponseBodyList {
+	s.UsedCount = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetWorkspaceId(v string) *CategoryTemplatesResponseBodyList {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponseBodyList) SetWorkspaceName(v string) *CategoryTemplatesResponseBodyList {
+	s.WorkspaceName = &v
+	return s
+}
+
+type CategoryTemplatesResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CategoryTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CategoryTemplatesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryTemplatesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryTemplatesResponse) SetHeaders(v map[string]*string) *CategoryTemplatesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CategoryTemplatesResponse) SetStatusCode(v int32) *CategoryTemplatesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CategoryTemplatesResponse) SetBody(v *CategoryTemplatesResponseBody) *CategoryTemplatesResponse {
 	s.Body = v
 	return s
 }
@@ -6181,6 +6647,682 @@ func (s *SearchResponse) SetBody(v *SearchResponseBody) *SearchResponse {
 	return s
 }
 
+type SearchTemplatesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchTemplatesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTemplatesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTemplatesHeaders) SetCommonHeaders(v map[string]*string) *SearchTemplatesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchTemplatesHeaders) SetXAcsDingtalkAccessToken(v string) *SearchTemplatesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchTemplatesRequest struct {
+	Option     *SearchTemplatesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	Param      *SearchTemplatesRequestParam  `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+	OperatorId *string                       `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SearchTemplatesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTemplatesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTemplatesRequest) SetOption(v *SearchTemplatesRequestOption) *SearchTemplatesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *SearchTemplatesRequest) SetParam(v *SearchTemplatesRequestParam) *SearchTemplatesRequest {
+	s.Param = v
+	return s
+}
+
+func (s *SearchTemplatesRequest) SetOperatorId(v string) *SearchTemplatesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SearchTemplatesRequestOption struct {
+	ExcludeWorkspaceIds []*string `json:"excludeWorkspaceIds,omitempty" xml:"excludeWorkspaceIds,omitempty" type:"Repeated"`
+	MaxResults          *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken           *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Platform            *string   `json:"platform,omitempty" xml:"platform,omitempty"`
+	TemplateTypes       []*int32  `json:"templateTypes,omitempty" xml:"templateTypes,omitempty" type:"Repeated"`
+	Version             *int32    `json:"version,omitempty" xml:"version,omitempty"`
+	WorkspaceIds        []*string `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
+}
+
+func (s SearchTemplatesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTemplatesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTemplatesRequestOption) SetExcludeWorkspaceIds(v []*string) *SearchTemplatesRequestOption {
+	s.ExcludeWorkspaceIds = v
+	return s
+}
+
+func (s *SearchTemplatesRequestOption) SetMaxResults(v int32) *SearchTemplatesRequestOption {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchTemplatesRequestOption) SetNextToken(v string) *SearchTemplatesRequestOption {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchTemplatesRequestOption) SetPlatform(v string) *SearchTemplatesRequestOption {
+	s.Platform = &v
+	return s
+}
+
+func (s *SearchTemplatesRequestOption) SetTemplateTypes(v []*int32) *SearchTemplatesRequestOption {
+	s.TemplateTypes = v
+	return s
+}
+
+func (s *SearchTemplatesRequestOption) SetVersion(v int32) *SearchTemplatesRequestOption {
+	s.Version = &v
+	return s
+}
+
+func (s *SearchTemplatesRequestOption) SetWorkspaceIds(v []*string) *SearchTemplatesRequestOption {
+	s.WorkspaceIds = v
+	return s
+}
+
+type SearchTemplatesRequestParam struct {
+	Belong     *string `json:"belong,omitempty" xml:"belong,omitempty"`
+	SearchName *string `json:"searchName,omitempty" xml:"searchName,omitempty"`
+}
+
+func (s SearchTemplatesRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTemplatesRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTemplatesRequestParam) SetBelong(v string) *SearchTemplatesRequestParam {
+	s.Belong = &v
+	return s
+}
+
+func (s *SearchTemplatesRequestParam) SetSearchName(v string) *SearchTemplatesRequestParam {
+	s.SearchName = &v
+	return s
+}
+
+type SearchTemplatesResponseBody struct {
+	NextToken    *string                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TemplateList []*SearchTemplatesResponseBodyTemplateList `json:"templateList,omitempty" xml:"templateList,omitempty" type:"Repeated"`
+}
+
+func (s SearchTemplatesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTemplatesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTemplatesResponseBody) SetNextToken(v string) *SearchTemplatesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBody) SetTemplateList(v []*SearchTemplatesResponseBodyTemplateList) *SearchTemplatesResponseBody {
+	s.TemplateList = v
+	return s
+}
+
+type SearchTemplatesResponseBodyTemplateList struct {
+	AuthorName         *string `json:"authorName,omitempty" xml:"authorName,omitempty"`
+	Belong             *string `json:"belong,omitempty" xml:"belong,omitempty"`
+	ContentDownloadUrl *string `json:"contentDownloadUrl,omitempty" xml:"contentDownloadUrl,omitempty"`
+	CoverDownloadUrl   *string `json:"coverDownloadUrl,omitempty" xml:"coverDownloadUrl,omitempty"`
+	CreateTime         *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description        *string `json:"description,omitempty" xml:"description,omitempty"`
+	ModifiedTime       *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	TemplateId         *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	Type               *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	UsedCount          *int64  `json:"usedCount,omitempty" xml:"usedCount,omitempty"`
+	WorkspaceId        *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	WorkspaceName      *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
+}
+
+func (s SearchTemplatesResponseBodyTemplateList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTemplatesResponseBodyTemplateList) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetAuthorName(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.AuthorName = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetBelong(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.Belong = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetContentDownloadUrl(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.ContentDownloadUrl = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetCoverDownloadUrl(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.CoverDownloadUrl = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetCreateTime(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetDescription(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.Description = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetModifiedTime(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetTemplateId(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetTitle(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.Title = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetType(v int32) *SearchTemplatesResponseBodyTemplateList {
+	s.Type = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetUsedCount(v int64) *SearchTemplatesResponseBodyTemplateList {
+	s.UsedCount = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetWorkspaceId(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *SearchTemplatesResponseBodyTemplateList) SetWorkspaceName(v string) *SearchTemplatesResponseBodyTemplateList {
+	s.WorkspaceName = &v
+	return s
+}
+
+type SearchTemplatesResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SearchTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchTemplatesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTemplatesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTemplatesResponse) SetHeaders(v map[string]*string) *SearchTemplatesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchTemplatesResponse) SetStatusCode(v int32) *SearchTemplatesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SearchTemplatesResponse) SetBody(v *SearchTemplatesResponseBody) *SearchTemplatesResponse {
+	s.Body = v
+	return s
+}
+
+type TeamTemplatesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TeamTemplatesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TeamTemplatesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TeamTemplatesHeaders) SetCommonHeaders(v map[string]*string) *TeamTemplatesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TeamTemplatesHeaders) SetXAcsDingtalkAccessToken(v string) *TeamTemplatesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TeamTemplatesRequest struct {
+	Option     *TeamTemplatesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	OperatorId *string                     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s TeamTemplatesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TeamTemplatesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TeamTemplatesRequest) SetOption(v *TeamTemplatesRequestOption) *TeamTemplatesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *TeamTemplatesRequest) SetOperatorId(v string) *TeamTemplatesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type TeamTemplatesRequestOption struct {
+	ExcludeWorkspaceIds []*string `json:"excludeWorkspaceIds,omitempty" xml:"excludeWorkspaceIds,omitempty" type:"Repeated"`
+	MaxResults          *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken           *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Platform            *string   `json:"platform,omitempty" xml:"platform,omitempty"`
+	TemplateTypes       []*int32  `json:"templateTypes,omitempty" xml:"templateTypes,omitempty" type:"Repeated"`
+	Version             *int32    `json:"version,omitempty" xml:"version,omitempty"`
+	WorkspaceIds        []*string `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
+}
+
+func (s TeamTemplatesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TeamTemplatesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *TeamTemplatesRequestOption) SetExcludeWorkspaceIds(v []*string) *TeamTemplatesRequestOption {
+	s.ExcludeWorkspaceIds = v
+	return s
+}
+
+func (s *TeamTemplatesRequestOption) SetMaxResults(v int32) *TeamTemplatesRequestOption {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *TeamTemplatesRequestOption) SetNextToken(v string) *TeamTemplatesRequestOption {
+	s.NextToken = &v
+	return s
+}
+
+func (s *TeamTemplatesRequestOption) SetPlatform(v string) *TeamTemplatesRequestOption {
+	s.Platform = &v
+	return s
+}
+
+func (s *TeamTemplatesRequestOption) SetTemplateTypes(v []*int32) *TeamTemplatesRequestOption {
+	s.TemplateTypes = v
+	return s
+}
+
+func (s *TeamTemplatesRequestOption) SetVersion(v int32) *TeamTemplatesRequestOption {
+	s.Version = &v
+	return s
+}
+
+func (s *TeamTemplatesRequestOption) SetWorkspaceIds(v []*string) *TeamTemplatesRequestOption {
+	s.WorkspaceIds = v
+	return s
+}
+
+type TeamTemplatesResponseBody struct {
+	NextToken    *string                                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TemplateList []*TeamTemplatesResponseBodyTemplateList `json:"templateList,omitempty" xml:"templateList,omitempty" type:"Repeated"`
+}
+
+func (s TeamTemplatesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TeamTemplatesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TeamTemplatesResponseBody) SetNextToken(v string) *TeamTemplatesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBody) SetTemplateList(v []*TeamTemplatesResponseBodyTemplateList) *TeamTemplatesResponseBody {
+	s.TemplateList = v
+	return s
+}
+
+type TeamTemplatesResponseBodyTemplateList struct {
+	AuthorName         *string `json:"authorName,omitempty" xml:"authorName,omitempty"`
+	Belong             *string `json:"belong,omitempty" xml:"belong,omitempty"`
+	ContentDownloadUrl *string `json:"contentDownloadUrl,omitempty" xml:"contentDownloadUrl,omitempty"`
+	CoverDownloadUrl   *string `json:"coverDownloadUrl,omitempty" xml:"coverDownloadUrl,omitempty"`
+	CreateTime         *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description        *string `json:"description,omitempty" xml:"description,omitempty"`
+	ModifiedTime       *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	TemplateId         *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	Type               *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	UsedCount          *int64  `json:"usedCount,omitempty" xml:"usedCount,omitempty"`
+	WorkspaceId        *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	WorkspaceName      *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
+}
+
+func (s TeamTemplatesResponseBodyTemplateList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TeamTemplatesResponseBodyTemplateList) GoString() string {
+	return s.String()
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetAuthorName(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.AuthorName = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetBelong(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.Belong = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetContentDownloadUrl(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.ContentDownloadUrl = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetCoverDownloadUrl(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.CoverDownloadUrl = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetCreateTime(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetDescription(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.Description = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetModifiedTime(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetTemplateId(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetTitle(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.Title = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetType(v int32) *TeamTemplatesResponseBodyTemplateList {
+	s.Type = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetUsedCount(v int64) *TeamTemplatesResponseBodyTemplateList {
+	s.UsedCount = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetWorkspaceId(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *TeamTemplatesResponseBodyTemplateList) SetWorkspaceName(v string) *TeamTemplatesResponseBodyTemplateList {
+	s.WorkspaceName = &v
+	return s
+}
+
+type TeamTemplatesResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *TeamTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s TeamTemplatesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TeamTemplatesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TeamTemplatesResponse) SetHeaders(v map[string]*string) *TeamTemplatesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TeamTemplatesResponse) SetStatusCode(v int32) *TeamTemplatesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TeamTemplatesResponse) SetBody(v *TeamTemplatesResponseBody) *TeamTemplatesResponse {
+	s.Body = v
+	return s
+}
+
+type TemplateCategoriesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TemplateCategoriesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TemplateCategoriesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TemplateCategoriesHeaders) SetCommonHeaders(v map[string]*string) *TemplateCategoriesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TemplateCategoriesHeaders) SetXAcsDingtalkAccessToken(v string) *TemplateCategoriesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TemplateCategoriesRequest struct {
+	Option     *TemplateCategoriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	Param      *TemplateCategoriesRequestParam  `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+	OperatorId *string                          `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s TemplateCategoriesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TemplateCategoriesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TemplateCategoriesRequest) SetOption(v *TemplateCategoriesRequestOption) *TemplateCategoriesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *TemplateCategoriesRequest) SetParam(v *TemplateCategoriesRequestParam) *TemplateCategoriesRequest {
+	s.Param = v
+	return s
+}
+
+func (s *TemplateCategoriesRequest) SetOperatorId(v string) *TemplateCategoriesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type TemplateCategoriesRequestOption struct {
+	CategoryStatus *int32 `json:"categoryStatus,omitempty" xml:"categoryStatus,omitempty"`
+	IndustryId     *int32 `json:"industryId,omitempty" xml:"industryId,omitempty"`
+}
+
+func (s TemplateCategoriesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TemplateCategoriesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *TemplateCategoriesRequestOption) SetCategoryStatus(v int32) *TemplateCategoriesRequestOption {
+	s.CategoryStatus = &v
+	return s
+}
+
+func (s *TemplateCategoriesRequestOption) SetIndustryId(v int32) *TemplateCategoriesRequestOption {
+	s.IndustryId = &v
+	return s
+}
+
+type TemplateCategoriesRequestParam struct {
+	TenantId *string `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+}
+
+func (s TemplateCategoriesRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TemplateCategoriesRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *TemplateCategoriesRequestParam) SetTenantId(v string) *TemplateCategoriesRequestParam {
+	s.TenantId = &v
+	return s
+}
+
+type TemplateCategoriesResponseBody struct {
+	List []*TemplateCategoriesResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s TemplateCategoriesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TemplateCategoriesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TemplateCategoriesResponseBody) SetList(v []*TemplateCategoriesResponseBodyList) *TemplateCategoriesResponseBody {
+	s.List = v
+	return s
+}
+
+type TemplateCategoriesResponseBodyList struct {
+	CategoryId   *string `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
+	CategoryName *string `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	Sort         *string `json:"sort,omitempty" xml:"sort,omitempty"`
+}
+
+func (s TemplateCategoriesResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TemplateCategoriesResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *TemplateCategoriesResponseBodyList) SetCategoryId(v string) *TemplateCategoriesResponseBodyList {
+	s.CategoryId = &v
+	return s
+}
+
+func (s *TemplateCategoriesResponseBodyList) SetCategoryName(v string) *TemplateCategoriesResponseBodyList {
+	s.CategoryName = &v
+	return s
+}
+
+func (s *TemplateCategoriesResponseBodyList) SetSort(v string) *TemplateCategoriesResponseBodyList {
+	s.Sort = &v
+	return s
+}
+
+type TemplateCategoriesResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *TemplateCategoriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s TemplateCategoriesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TemplateCategoriesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TemplateCategoriesResponse) SetHeaders(v map[string]*string) *TemplateCategoriesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TemplateCategoriesResponse) SetStatusCode(v int32) *TemplateCategoriesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TemplateCategoriesResponse) SetBody(v *TemplateCategoriesResponseBody) *TemplateCategoriesResponse {
+	s.Body = v
+	return s
+}
+
 type UnmarkStarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6434,6 +7576,234 @@ func (s *UpdateTeamResponse) SetBody(v *TeamVO) *UpdateTeamResponse {
 	return s
 }
 
+type UserTemplatesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UserTemplatesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserTemplatesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UserTemplatesHeaders) SetCommonHeaders(v map[string]*string) *UserTemplatesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UserTemplatesHeaders) SetXAcsDingtalkAccessToken(v string) *UserTemplatesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UserTemplatesRequest struct {
+	Option     *UserTemplatesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	OperatorId *string                     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UserTemplatesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserTemplatesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UserTemplatesRequest) SetOption(v *UserTemplatesRequestOption) *UserTemplatesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *UserTemplatesRequest) SetOperatorId(v string) *UserTemplatesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UserTemplatesRequestOption struct {
+	MaxResults    *int32   `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken     *string  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Platform      *string  `json:"platform,omitempty" xml:"platform,omitempty"`
+	TemplateTypes []*int32 `json:"templateTypes,omitempty" xml:"templateTypes,omitempty" type:"Repeated"`
+	Version       *int32   `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s UserTemplatesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserTemplatesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *UserTemplatesRequestOption) SetMaxResults(v int32) *UserTemplatesRequestOption {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *UserTemplatesRequestOption) SetNextToken(v string) *UserTemplatesRequestOption {
+	s.NextToken = &v
+	return s
+}
+
+func (s *UserTemplatesRequestOption) SetPlatform(v string) *UserTemplatesRequestOption {
+	s.Platform = &v
+	return s
+}
+
+func (s *UserTemplatesRequestOption) SetTemplateTypes(v []*int32) *UserTemplatesRequestOption {
+	s.TemplateTypes = v
+	return s
+}
+
+func (s *UserTemplatesRequestOption) SetVersion(v int32) *UserTemplatesRequestOption {
+	s.Version = &v
+	return s
+}
+
+type UserTemplatesResponseBody struct {
+	NextToken    *string                                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TemplateList []*UserTemplatesResponseBodyTemplateList `json:"templateList,omitempty" xml:"templateList,omitempty" type:"Repeated"`
+}
+
+func (s UserTemplatesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserTemplatesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UserTemplatesResponseBody) SetNextToken(v string) *UserTemplatesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBody) SetTemplateList(v []*UserTemplatesResponseBodyTemplateList) *UserTemplatesResponseBody {
+	s.TemplateList = v
+	return s
+}
+
+type UserTemplatesResponseBodyTemplateList struct {
+	AuthorName         *string `json:"authorName,omitempty" xml:"authorName,omitempty"`
+	Belong             *string `json:"belong,omitempty" xml:"belong,omitempty"`
+	ContentDownloadUrl *string `json:"contentDownloadUrl,omitempty" xml:"contentDownloadUrl,omitempty"`
+	CoverDownloadUrl   *string `json:"coverDownloadUrl,omitempty" xml:"coverDownloadUrl,omitempty"`
+	CreateTime         *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description        *string `json:"description,omitempty" xml:"description,omitempty"`
+	ModifiedTime       *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	TemplateId         *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	Type               *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	UsedCount          *int64  `json:"usedCount,omitempty" xml:"usedCount,omitempty"`
+	WorkspaceId        *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	WorkspaceName      *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
+}
+
+func (s UserTemplatesResponseBodyTemplateList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserTemplatesResponseBodyTemplateList) GoString() string {
+	return s.String()
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetAuthorName(v string) *UserTemplatesResponseBodyTemplateList {
+	s.AuthorName = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetBelong(v string) *UserTemplatesResponseBodyTemplateList {
+	s.Belong = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetContentDownloadUrl(v string) *UserTemplatesResponseBodyTemplateList {
+	s.ContentDownloadUrl = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetCoverDownloadUrl(v string) *UserTemplatesResponseBodyTemplateList {
+	s.CoverDownloadUrl = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetCreateTime(v string) *UserTemplatesResponseBodyTemplateList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetDescription(v string) *UserTemplatesResponseBodyTemplateList {
+	s.Description = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetModifiedTime(v string) *UserTemplatesResponseBodyTemplateList {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetTemplateId(v string) *UserTemplatesResponseBodyTemplateList {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetTitle(v string) *UserTemplatesResponseBodyTemplateList {
+	s.Title = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetType(v int32) *UserTemplatesResponseBodyTemplateList {
+	s.Type = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetUsedCount(v int64) *UserTemplatesResponseBodyTemplateList {
+	s.UsedCount = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetWorkspaceId(v string) *UserTemplatesResponseBodyTemplateList {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *UserTemplatesResponseBodyTemplateList) SetWorkspaceName(v string) *UserTemplatesResponseBodyTemplateList {
+	s.WorkspaceName = &v
+	return s
+}
+
+type UserTemplatesResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UserTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UserTemplatesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserTemplatesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UserTemplatesResponse) SetHeaders(v map[string]*string) *UserTemplatesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UserTemplatesResponse) SetStatusCode(v int32) *UserTemplatesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UserTemplatesResponse) SetBody(v *UserTemplatesResponseBody) *UserTemplatesResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -6517,6 +7887,136 @@ func (client *Client) BatchDeleteRecents(request *BatchDeleteRecentsRequest) (_r
 	headers := &BatchDeleteRecentsHeaders{}
 	_result = &BatchDeleteRecentsResponse{}
 	_body, _err := client.BatchDeleteRecentsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CategoriesTemplatesWithOptions(request *CategoriesTemplatesRequest, headers *CategoriesTemplatesHeaders, runtime *util.RuntimeOptions) (_result *CategoriesTemplatesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CategoriesTemplates"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/categoryLists/templates/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CategoriesTemplatesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CategoriesTemplates(request *CategoriesTemplatesRequest) (_result *CategoriesTemplatesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CategoriesTemplatesHeaders{}
+	_result = &CategoriesTemplatesResponse{}
+	_body, _err := client.CategoriesTemplatesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CategoryTemplatesWithOptions(request *CategoryTemplatesRequest, headers *CategoryTemplatesHeaders, runtime *util.RuntimeOptions) (_result *CategoryTemplatesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CategoryTemplates"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/categories/templates/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CategoryTemplatesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CategoryTemplates(request *CategoryTemplatesRequest) (_result *CategoryTemplatesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CategoryTemplatesHeaders{}
+	_result = &CategoryTemplatesResponse{}
+	_body, _err := client.CategoryTemplatesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8634,6 +10134,197 @@ func (client *Client) Search(request *SearchRequest) (_result *SearchResponse, _
 	return _result, _err
 }
 
+func (client *Client) SearchTemplatesWithOptions(request *SearchTemplatesRequest, headers *SearchTemplatesHeaders, runtime *util.RuntimeOptions) (_result *SearchTemplatesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchTemplates"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/templates/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SearchTemplatesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchTemplates(request *SearchTemplatesRequest) (_result *SearchTemplatesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchTemplatesHeaders{}
+	_result = &SearchTemplatesResponse{}
+	_body, _err := client.SearchTemplatesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TeamTemplatesWithOptions(request *TeamTemplatesRequest, headers *TeamTemplatesHeaders, runtime *util.RuntimeOptions) (_result *TeamTemplatesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TeamTemplates"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/workspaces/templates/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TeamTemplatesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TeamTemplates(request *TeamTemplatesRequest) (_result *TeamTemplatesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TeamTemplatesHeaders{}
+	_result = &TeamTemplatesResponse{}
+	_body, _err := client.TeamTemplatesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TemplateCategoriesWithOptions(request *TemplateCategoriesRequest, headers *TemplateCategoriesHeaders, runtime *util.RuntimeOptions) (_result *TemplateCategoriesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TemplateCategories"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/templates/categories/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TemplateCategoriesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TemplateCategories(request *TemplateCategoriesRequest) (_result *TemplateCategoriesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TemplateCategoriesHeaders{}
+	_result = &TemplateCategoriesResponse{}
+	_body, _err := client.TemplateCategoriesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) UnmarkStarWithOptions(dentryUuid *string, request *UnmarkStarRequest, headers *UnmarkStarHeaders, runtime *util.RuntimeOptions) (_result *UnmarkStarResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8800,6 +10491,67 @@ func (client *Client) UpdateTeam(teamId *string, request *UpdateTeamRequest) (_r
 	headers := &UpdateTeamHeaders{}
 	_result = &UpdateTeamResponse{}
 	_body, _err := client.UpdateTeamWithOptions(teamId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UserTemplatesWithOptions(request *UserTemplatesRequest, headers *UserTemplatesHeaders, runtime *util.RuntimeOptions) (_result *UserTemplatesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UserTemplates"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/users/templates/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UserTemplatesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UserTemplates(request *UserTemplatesRequest) (_result *UserTemplatesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UserTemplatesHeaders{}
+	_result = &UserTemplatesResponse{}
+	_body, _err := client.UserTemplatesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
