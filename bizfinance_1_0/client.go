@@ -5977,8 +5977,10 @@ func (s *QueryReceiptForInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryReceiptForInvoiceRequest struct {
+	AccountantBookId  *string   `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
 	ApplyStatusList   []*string `json:"applyStatusList,omitempty" xml:"applyStatusList,omitempty" type:"Repeated"`
 	BizStatusList     []*string `json:"bizStatusList,omitempty" xml:"bizStatusList,omitempty" type:"Repeated"`
+	CompanyCode       *string   `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	EndTime           *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	PageNumber        *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	PageSize          *int64    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
@@ -5995,6 +5997,11 @@ func (s QueryReceiptForInvoiceRequest) GoString() string {
 	return s.String()
 }
 
+func (s *QueryReceiptForInvoiceRequest) SetAccountantBookId(v string) *QueryReceiptForInvoiceRequest {
+	s.AccountantBookId = &v
+	return s
+}
+
 func (s *QueryReceiptForInvoiceRequest) SetApplyStatusList(v []*string) *QueryReceiptForInvoiceRequest {
 	s.ApplyStatusList = v
 	return s
@@ -6002,6 +6009,11 @@ func (s *QueryReceiptForInvoiceRequest) SetApplyStatusList(v []*string) *QueryRe
 
 func (s *QueryReceiptForInvoiceRequest) SetBizStatusList(v []*string) *QueryReceiptForInvoiceRequest {
 	s.BizStatusList = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetCompanyCode(v string) *QueryReceiptForInvoiceRequest {
+	s.CompanyCode = &v
 	return s
 }
 
@@ -6395,13 +6407,15 @@ func (s *QueryReceiptsBaseInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryReceiptsBaseInfoRequest struct {
-	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	PageNumber      *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize        *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	TimeFilterField *string `json:"timeFilterField,omitempty" xml:"timeFilterField,omitempty"`
-	Title           *string `json:"title,omitempty" xml:"title,omitempty"`
-	VoucherStatus   *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	AccountantBookId *string `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
+	CompanyCode      *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	EndTime          *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	PageNumber       *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize         *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime        *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TimeFilterField  *string `json:"timeFilterField,omitempty" xml:"timeFilterField,omitempty"`
+	Title            *string `json:"title,omitempty" xml:"title,omitempty"`
+	VoucherStatus    *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s QueryReceiptsBaseInfoRequest) String() string {
@@ -6410,6 +6424,16 @@ func (s QueryReceiptsBaseInfoRequest) String() string {
 
 func (s QueryReceiptsBaseInfoRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoRequest) SetAccountantBookId(v string) *QueryReceiptsBaseInfoRequest {
+	s.AccountantBookId = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoRequest) SetCompanyCode(v string) *QueryReceiptsBaseInfoRequest {
+	s.CompanyCode = &v
+	return s
 }
 
 func (s *QueryReceiptsBaseInfoRequest) SetEndTime(v int64) *QueryReceiptsBaseInfoRequest {
@@ -15216,12 +15240,20 @@ func (client *Client) QueryReceiptForInvoiceWithOptions(request *QueryReceiptFor
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountantBookId)) {
+		body["accountantBookId"] = request.AccountantBookId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ApplyStatusList)) {
 		body["applyStatusList"] = request.ApplyStatusList
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.BizStatusList)) {
 		body["bizStatusList"] = request.BizStatusList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		body["companyCode"] = request.CompanyCode
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
@@ -15299,6 +15331,14 @@ func (client *Client) QueryReceiptsBaseInfoWithOptions(request *QueryReceiptsBas
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountantBookId)) {
+		query["accountantBookId"] = request.AccountantBookId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		query["companyCode"] = request.CompanyCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
 		query["endTime"] = request.EndTime
 	}

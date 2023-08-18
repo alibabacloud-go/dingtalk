@@ -555,6 +555,116 @@ func (s *ListWorkBenchGroupResponse) SetBody(v *ListWorkBenchGroupResponseBody) 
 	return s
 }
 
+type ModifyWorkbenchBadgeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ModifyWorkbenchBadgeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyWorkbenchBadgeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyWorkbenchBadgeHeaders) SetCommonHeaders(v map[string]*string) *ModifyWorkbenchBadgeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ModifyWorkbenchBadgeHeaders) SetXAcsDingtalkAccessToken(v string) *ModifyWorkbenchBadgeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ModifyWorkbenchBadgeRequest struct {
+	BizIdList        []*string `json:"bizIdList,omitempty" xml:"bizIdList,omitempty" type:"Repeated"`
+	IsAdded          *bool     `json:"isAdded,omitempty" xml:"isAdded,omitempty"`
+	RedDotRelationId *string   `json:"redDotRelationId,omitempty" xml:"redDotRelationId,omitempty"`
+	RedDotType       *string   `json:"redDotType,omitempty" xml:"redDotType,omitempty"`
+	UserId           *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ModifyWorkbenchBadgeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyWorkbenchBadgeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyWorkbenchBadgeRequest) SetBizIdList(v []*string) *ModifyWorkbenchBadgeRequest {
+	s.BizIdList = v
+	return s
+}
+
+func (s *ModifyWorkbenchBadgeRequest) SetIsAdded(v bool) *ModifyWorkbenchBadgeRequest {
+	s.IsAdded = &v
+	return s
+}
+
+func (s *ModifyWorkbenchBadgeRequest) SetRedDotRelationId(v string) *ModifyWorkbenchBadgeRequest {
+	s.RedDotRelationId = &v
+	return s
+}
+
+func (s *ModifyWorkbenchBadgeRequest) SetRedDotType(v string) *ModifyWorkbenchBadgeRequest {
+	s.RedDotType = &v
+	return s
+}
+
+func (s *ModifyWorkbenchBadgeRequest) SetUserId(v string) *ModifyWorkbenchBadgeRequest {
+	s.UserId = &v
+	return s
+}
+
+type ModifyWorkbenchBadgeResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ModifyWorkbenchBadgeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyWorkbenchBadgeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyWorkbenchBadgeResponseBody) SetResult(v bool) *ModifyWorkbenchBadgeResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ModifyWorkbenchBadgeResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ModifyWorkbenchBadgeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ModifyWorkbenchBadgeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyWorkbenchBadgeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyWorkbenchBadgeResponse) SetHeaders(v map[string]*string) *ModifyWorkbenchBadgeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ModifyWorkbenchBadgeResponse) SetStatusCode(v int32) *ModifyWorkbenchBadgeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ModifyWorkbenchBadgeResponse) SetBody(v *ModifyWorkbenchBadgeResponseBody) *ModifyWorkbenchBadgeResponse {
+	s.Body = v
+	return s
+}
+
 type QueryComponentScopesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1089,6 +1199,77 @@ func (client *Client) ListWorkBenchGroup(request *ListWorkBenchGroupRequest) (_r
 	headers := &ListWorkBenchGroupHeaders{}
 	_result = &ListWorkBenchGroupResponse{}
 	_body, _err := client.ListWorkBenchGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ModifyWorkbenchBadgeWithOptions(request *ModifyWorkbenchBadgeRequest, headers *ModifyWorkbenchBadgeHeaders, runtime *util.RuntimeOptions) (_result *ModifyWorkbenchBadgeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizIdList)) {
+		body["bizIdList"] = request.BizIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsAdded)) {
+		body["isAdded"] = request.IsAdded
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RedDotRelationId)) {
+		body["redDotRelationId"] = request.RedDotRelationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RedDotType)) {
+		body["redDotType"] = request.RedDotType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ModifyWorkbenchBadge"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/badges/modify"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ModifyWorkbenchBadgeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ModifyWorkbenchBadge(request *ModifyWorkbenchBadgeRequest) (_result *ModifyWorkbenchBadgeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ModifyWorkbenchBadgeHeaders{}
+	_result = &ModifyWorkbenchBadgeResponse{}
+	_body, _err := client.ModifyWorkbenchBadgeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

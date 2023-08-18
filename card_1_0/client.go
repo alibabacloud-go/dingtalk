@@ -584,6 +584,7 @@ func (s *CreateAndDeliverRequestDocOpenDeliverModel) SetUserId(v string) *Create
 
 type CreateAndDeliverRequestImGroupOpenDeliverModel struct {
 	AtUserIds  map[string]*string `json:"atUserIds,omitempty" xml:"atUserIds,omitempty"`
+	Extension  map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
 	Recipients []*string          `json:"recipients,omitempty" xml:"recipients,omitempty" type:"Repeated"`
 	RobotCode  *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
@@ -598,6 +599,11 @@ func (s CreateAndDeliverRequestImGroupOpenDeliverModel) GoString() string {
 
 func (s *CreateAndDeliverRequestImGroupOpenDeliverModel) SetAtUserIds(v map[string]*string) *CreateAndDeliverRequestImGroupOpenDeliverModel {
 	s.AtUserIds = v
+	return s
+}
+
+func (s *CreateAndDeliverRequestImGroupOpenDeliverModel) SetExtension(v map[string]*string) *CreateAndDeliverRequestImGroupOpenDeliverModel {
+	s.Extension = v
 	return s
 }
 
@@ -699,7 +705,8 @@ func (s *CreateAndDeliverRequestImGroupOpenSpaceModelSearchSupport) SetSearchTyp
 }
 
 type CreateAndDeliverRequestImRobotOpenDeliverModel struct {
-	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
 func (s CreateAndDeliverRequestImRobotOpenDeliverModel) String() string {
@@ -708,6 +715,11 @@ func (s CreateAndDeliverRequestImRobotOpenDeliverModel) String() string {
 
 func (s CreateAndDeliverRequestImRobotOpenDeliverModel) GoString() string {
 	return s.String()
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenDeliverModel) SetExtension(v map[string]*string) *CreateAndDeliverRequestImRobotOpenDeliverModel {
+	s.Extension = v
+	return s
 }
 
 func (s *CreateAndDeliverRequestImRobotOpenDeliverModel) SetSpaceType(v string) *CreateAndDeliverRequestImRobotOpenDeliverModel {
@@ -1621,6 +1633,7 @@ func (s *DeliverCardRequestDocOpenDeliverModel) SetUserId(v string) *DeliverCard
 
 type DeliverCardRequestImGroupOpenDeliverModel struct {
 	AtUserIds  map[string]*string `json:"atUserIds,omitempty" xml:"atUserIds,omitempty"`
+	Extension  map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
 	Recipients []*string          `json:"recipients,omitempty" xml:"recipients,omitempty" type:"Repeated"`
 	RobotCode  *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
@@ -1638,6 +1651,11 @@ func (s *DeliverCardRequestImGroupOpenDeliverModel) SetAtUserIds(v map[string]*s
 	return s
 }
 
+func (s *DeliverCardRequestImGroupOpenDeliverModel) SetExtension(v map[string]*string) *DeliverCardRequestImGroupOpenDeliverModel {
+	s.Extension = v
+	return s
+}
+
 func (s *DeliverCardRequestImGroupOpenDeliverModel) SetRecipients(v []*string) *DeliverCardRequestImGroupOpenDeliverModel {
 	s.Recipients = v
 	return s
@@ -1649,7 +1667,8 @@ func (s *DeliverCardRequestImGroupOpenDeliverModel) SetRobotCode(v string) *Deli
 }
 
 type DeliverCardRequestImRobotOpenDeliverModel struct {
-	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
 func (s DeliverCardRequestImRobotOpenDeliverModel) String() string {
@@ -1658,6 +1677,11 @@ func (s DeliverCardRequestImRobotOpenDeliverModel) String() string {
 
 func (s DeliverCardRequestImRobotOpenDeliverModel) GoString() string {
 	return s.String()
+}
+
+func (s *DeliverCardRequestImRobotOpenDeliverModel) SetExtension(v map[string]*string) *DeliverCardRequestImRobotOpenDeliverModel {
+	s.Extension = v
+	return s
 }
 
 func (s *DeliverCardRequestImRobotOpenDeliverModel) SetSpaceType(v string) *DeliverCardRequestImRobotOpenDeliverModel {
