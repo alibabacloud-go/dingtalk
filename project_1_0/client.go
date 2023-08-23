@@ -1926,6 +1926,7 @@ func (s *CreateWorkTimeHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWork
 }
 
 type CreateWorkTimeRequest struct {
+	Description      *string `json:"description,omitempty" xml:"description,omitempty"`
 	EndDate          *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	ExecutorId       *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	IncludesHolidays *bool   `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
@@ -1944,6 +1945,11 @@ func (s CreateWorkTimeRequest) String() string {
 
 func (s CreateWorkTimeRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CreateWorkTimeRequest) SetDescription(v string) *CreateWorkTimeRequest {
+	s.Description = &v
+	return s
 }
 
 func (s *CreateWorkTimeRequest) SetEndDate(v string) *CreateWorkTimeRequest {
@@ -10218,6 +10224,10 @@ func (client *Client) CreateWorkTimeWithOptions(userId *string, request *CreateW
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.EndDate)) {
 		body["endDate"] = request.EndDate
 	}

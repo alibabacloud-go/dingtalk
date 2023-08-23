@@ -7476,6 +7476,98 @@ func (s *ListPunchScheduleByConditionWithPagingResponse) SetBody(v *ListPunchSch
 	return s
 }
 
+type LogoutHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s LogoutHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LogoutHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *LogoutHeaders) SetCommonHeaders(v map[string]*string) *LogoutHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *LogoutHeaders) SetXAcsDingtalkAccessToken(v string) *LogoutHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type LogoutRequest struct {
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s LogoutRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LogoutRequest) GoString() string {
+	return s.String()
+}
+
+func (s *LogoutRequest) SetDeviceType(v string) *LogoutRequest {
+	s.DeviceType = &v
+	return s
+}
+
+func (s *LogoutRequest) SetUserId(v string) *LogoutRequest {
+	s.UserId = &v
+	return s
+}
+
+type LogoutResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s LogoutResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LogoutResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *LogoutResponseBody) SetSuccess(v bool) *LogoutResponseBody {
+	s.Success = &v
+	return s
+}
+
+type LogoutResponse struct {
+	Headers    map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *LogoutResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s LogoutResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LogoutResponse) GoString() string {
+	return s.String()
+}
+
+func (s *LogoutResponse) SetHeaders(v map[string]*string) *LogoutResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *LogoutResponse) SetStatusCode(v int32) *LogoutResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *LogoutResponse) SetBody(v *LogoutResponseBody) *LogoutResponse {
+	s.Body = v
+	return s
+}
+
 type PublishFileChangeNoticeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13041,6 +13133,65 @@ func (client *Client) ListPunchScheduleByConditionWithPaging(request *ListPunchS
 	headers := &ListPunchScheduleByConditionWithPagingHeaders{}
 	_result = &ListPunchScheduleByConditionWithPagingResponse{}
 	_body, _err := client.ListPunchScheduleByConditionWithPagingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) LogoutWithOptions(request *LogoutRequest, headers *LogoutHeaders, runtime *util.RuntimeOptions) (_result *LogoutResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceType)) {
+		body["deviceType"] = request.DeviceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("Logout"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/users/logout"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &LogoutResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) Logout(request *LogoutRequest) (_result *LogoutResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &LogoutHeaders{}
+	_result = &LogoutResponse{}
+	_body, _err := client.LogoutWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -172,16 +172,24 @@ func (s *AddLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *AddLeaveType
 }
 
 type AddLeaveTypeRequest struct {
-	BizType          *string                               `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Extras           *string                               `json:"extras,omitempty" xml:"extras,omitempty"`
-	HoursInPerDay    *int64                                `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	LeaveCertificate *AddLeaveTypeRequestLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	LeaveName        *string                               `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	LeaveViewUnit    *string                               `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	NaturalDayLeave  *bool                                 `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	SubmitTimeRule   *AddLeaveTypeRequestSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	VisibilityRules  []*AddLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
-	OpUserId         *string                               `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	BizType              *string                               `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Extras               *string                               `json:"extras,omitempty" xml:"extras,omitempty"`
+	FreedomLeave         *bool                                 `json:"freedomLeave,omitempty" xml:"freedomLeave,omitempty"`
+	HoursInPerDay        *int64                                `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate     *AddLeaveTypeRequestLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	LeaveHourCeil        *string                               `json:"leaveHourCeil,omitempty" xml:"leaveHourCeil,omitempty"`
+	LeaveName            *string                               `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	LeaveTimeCeil        *bool                                 `json:"leaveTimeCeil,omitempty" xml:"leaveTimeCeil,omitempty"`
+	LeaveTimeCeilMinUnit *string                               `json:"leaveTimeCeilMinUnit,omitempty" xml:"leaveTimeCeilMinUnit,omitempty"`
+	LeaveViewUnit        *string                               `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	MaxLeaveTime         *int64                                `json:"maxLeaveTime,omitempty" xml:"maxLeaveTime,omitempty"`
+	MinLeaveHour         *float64                              `json:"minLeaveHour,omitempty" xml:"minLeaveHour,omitempty"`
+	NaturalDayLeave      *bool                                 `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	PaidLeave            *bool                                 `json:"paidLeave,omitempty" xml:"paidLeave,omitempty"`
+	SubmitTimeRule       *AddLeaveTypeRequestSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules      []*AddLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	WhenCanLeave         *string                               `json:"whenCanLeave,omitempty" xml:"whenCanLeave,omitempty"`
+	OpUserId             *string                               `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s AddLeaveTypeRequest) String() string {
@@ -202,6 +210,11 @@ func (s *AddLeaveTypeRequest) SetExtras(v string) *AddLeaveTypeRequest {
 	return s
 }
 
+func (s *AddLeaveTypeRequest) SetFreedomLeave(v bool) *AddLeaveTypeRequest {
+	s.FreedomLeave = &v
+	return s
+}
+
 func (s *AddLeaveTypeRequest) SetHoursInPerDay(v int64) *AddLeaveTypeRequest {
 	s.HoursInPerDay = &v
 	return s
@@ -212,8 +225,23 @@ func (s *AddLeaveTypeRequest) SetLeaveCertificate(v *AddLeaveTypeRequestLeaveCer
 	return s
 }
 
+func (s *AddLeaveTypeRequest) SetLeaveHourCeil(v string) *AddLeaveTypeRequest {
+	s.LeaveHourCeil = &v
+	return s
+}
+
 func (s *AddLeaveTypeRequest) SetLeaveName(v string) *AddLeaveTypeRequest {
 	s.LeaveName = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetLeaveTimeCeil(v bool) *AddLeaveTypeRequest {
+	s.LeaveTimeCeil = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetLeaveTimeCeilMinUnit(v string) *AddLeaveTypeRequest {
+	s.LeaveTimeCeilMinUnit = &v
 	return s
 }
 
@@ -222,8 +250,23 @@ func (s *AddLeaveTypeRequest) SetLeaveViewUnit(v string) *AddLeaveTypeRequest {
 	return s
 }
 
+func (s *AddLeaveTypeRequest) SetMaxLeaveTime(v int64) *AddLeaveTypeRequest {
+	s.MaxLeaveTime = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetMinLeaveHour(v float64) *AddLeaveTypeRequest {
+	s.MinLeaveHour = &v
+	return s
+}
+
 func (s *AddLeaveTypeRequest) SetNaturalDayLeave(v bool) *AddLeaveTypeRequest {
 	s.NaturalDayLeave = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetPaidLeave(v bool) *AddLeaveTypeRequest {
+	s.PaidLeave = &v
 	return s
 }
 
@@ -234,6 +277,11 @@ func (s *AddLeaveTypeRequest) SetSubmitTimeRule(v *AddLeaveTypeRequestSubmitTime
 
 func (s *AddLeaveTypeRequest) SetVisibilityRules(v []*AddLeaveTypeRequestVisibilityRules) *AddLeaveTypeRequest {
 	s.VisibilityRules = v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetWhenCanLeave(v string) *AddLeaveTypeRequest {
+	s.WhenCanLeave = &v
 	return s
 }
 
@@ -7157,6 +7205,10 @@ func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, head
 		body["extras"] = request.Extras
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.FreedomLeave)) {
+		body["freedomLeave"] = request.FreedomLeave
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.HoursInPerDay)) {
 		body["hoursInPerDay"] = request.HoursInPerDay
 	}
@@ -7165,16 +7217,40 @@ func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, head
 		body["leaveCertificate"] = request.LeaveCertificate
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.LeaveHourCeil)) {
+		body["leaveHourCeil"] = request.LeaveHourCeil
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.LeaveName)) {
 		body["leaveName"] = request.LeaveName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LeaveTimeCeil)) {
+		body["leaveTimeCeil"] = request.LeaveTimeCeil
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LeaveTimeCeilMinUnit)) {
+		body["leaveTimeCeilMinUnit"] = request.LeaveTimeCeilMinUnit
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.LeaveViewUnit)) {
 		body["leaveViewUnit"] = request.LeaveViewUnit
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.MaxLeaveTime)) {
+		body["maxLeaveTime"] = request.MaxLeaveTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinLeaveHour)) {
+		body["minLeaveHour"] = request.MinLeaveHour
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.NaturalDayLeave)) {
 		body["naturalDayLeave"] = request.NaturalDayLeave
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PaidLeave)) {
+		body["paidLeave"] = request.PaidLeave
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.SubmitTimeRule)) {
@@ -7183,6 +7259,10 @@ func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, head
 
 	if !tea.BoolValue(util.IsUnset(request.VisibilityRules)) {
 		body["visibilityRules"] = request.VisibilityRules
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WhenCanLeave)) {
+		body["whenCanLeave"] = request.WhenCanLeave
 	}
 
 	realHeaders := make(map[string]*string)

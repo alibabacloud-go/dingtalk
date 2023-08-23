@@ -16899,6 +16899,92 @@ func (s *VPaasProxyResponse) SetBody(v *VPaasProxyResponseBody) *VPaasProxyRespo
 	return s
 }
 
+type ValidateNewGradeManagerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ValidateNewGradeManagerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateNewGradeManagerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateNewGradeManagerHeaders) SetCommonHeaders(v map[string]*string) *ValidateNewGradeManagerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ValidateNewGradeManagerHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateNewGradeManagerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ValidateNewGradeManagerRequest struct {
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ValidateNewGradeManagerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateNewGradeManagerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateNewGradeManagerRequest) SetUnionId(v string) *ValidateNewGradeManagerRequest {
+	s.UnionId = &v
+	return s
+}
+
+type ValidateNewGradeManagerResponseBody struct {
+	MatchRule *bool `json:"matchRule,omitempty" xml:"matchRule,omitempty"`
+}
+
+func (s ValidateNewGradeManagerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateNewGradeManagerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateNewGradeManagerResponseBody) SetMatchRule(v bool) *ValidateNewGradeManagerResponseBody {
+	s.MatchRule = &v
+	return s
+}
+
+type ValidateNewGradeManagerResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ValidateNewGradeManagerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ValidateNewGradeManagerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateNewGradeManagerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateNewGradeManagerResponse) SetHeaders(v map[string]*string) *ValidateNewGradeManagerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ValidateNewGradeManagerResponse) SetStatusCode(v int32) *ValidateNewGradeManagerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ValidateNewGradeManagerResponse) SetBody(v *ValidateNewGradeManagerResponseBody) *ValidateNewGradeManagerResponse {
+	s.Body = v
+	return s
+}
+
 type ValidateUserRoleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -24474,6 +24560,61 @@ func (client *Client) VPaasProxy(request *VPaasProxyRequest) (_result *VPaasProx
 	headers := &VPaasProxyHeaders{}
 	_result = &VPaasProxyResponse{}
 	_body, _err := client.VPaasProxyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ValidateNewGradeManagerWithOptions(request *ValidateNewGradeManagerRequest, headers *ValidateNewGradeManagerHeaders, runtime *util.RuntimeOptions) (_result *ValidateNewGradeManagerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ValidateNewGradeManager"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/newGrades/tasks/validate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ValidateNewGradeManagerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ValidateNewGradeManager(request *ValidateNewGradeManagerRequest) (_result *ValidateNewGradeManagerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ValidateNewGradeManagerHeaders{}
+	_result = &ValidateNewGradeManagerResponse{}
+	_body, _err := client.ValidateNewGradeManagerWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

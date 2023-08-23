@@ -5647,10 +5647,12 @@ func (s *QueryReceiptDetailForInvoiceResponseBody) SetResult(v *QueryReceiptDeta
 }
 
 type QueryReceiptDetailForInvoiceResponseBodyResult struct {
+	AccountantBookId  *string                                                          `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
 	Amount            *string                                                          `json:"amount,omitempty" xml:"amount,omitempty"`
 	ApplyStatus       *string                                                          `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
 	BizStatus         *string                                                          `json:"bizStatus,omitempty" xml:"bizStatus,omitempty"`
 	BusinessId        *string                                                          `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CompanyCode       *string                                                          `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	CreateTime        *string                                                          `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator           *QueryReceiptDetailForInvoiceResponseBodyResultCreator           `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	Customer          *QueryReceiptDetailForInvoiceResponseBodyResultCustomer          `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
@@ -5681,6 +5683,11 @@ func (s QueryReceiptDetailForInvoiceResponseBodyResult) GoString() string {
 	return s.String()
 }
 
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetAccountantBookId(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.AccountantBookId = &v
+	return s
+}
+
 func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetAmount(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
 	s.Amount = &v
 	return s
@@ -5698,6 +5705,11 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetBizStatus(v string) 
 
 func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetBusinessId(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
 	s.BusinessId = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetCompanyCode(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.CompanyCode = &v
 	return s
 }
 
@@ -6077,10 +6089,12 @@ func (s *QueryReceiptForInvoiceResponseBody) SetTotalCount(v int64) *QueryReceip
 }
 
 type QueryReceiptForInvoiceResponseBodyList struct {
+	AccountantBookId  *string                                                  `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
 	Amount            *string                                                  `json:"amount,omitempty" xml:"amount,omitempty"`
 	ApplyStatus       *string                                                  `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
 	BizStatus         *string                                                  `json:"bizStatus,omitempty" xml:"bizStatus,omitempty"`
 	BusinessId        *string                                                  `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CompanyCode       *string                                                  `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	CreateTime        *string                                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator           *QueryReceiptForInvoiceResponseBodyListCreator           `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	Customer          *QueryReceiptForInvoiceResponseBodyListCustomer          `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
@@ -6111,6 +6125,11 @@ func (s QueryReceiptForInvoiceResponseBodyList) GoString() string {
 	return s.String()
 }
 
+func (s *QueryReceiptForInvoiceResponseBodyList) SetAccountantBookId(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.AccountantBookId = &v
+	return s
+}
+
 func (s *QueryReceiptForInvoiceResponseBodyList) SetAmount(v string) *QueryReceiptForInvoiceResponseBodyList {
 	s.Amount = &v
 	return s
@@ -6128,6 +6147,11 @@ func (s *QueryReceiptForInvoiceResponseBodyList) SetBizStatus(v string) *QueryRe
 
 func (s *QueryReceiptForInvoiceResponseBodyList) SetBusinessId(v string) *QueryReceiptForInvoiceResponseBodyList {
 	s.BusinessId = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetCompanyCode(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.CompanyCode = &v
 	return s
 }
 
@@ -6501,22 +6525,24 @@ func (s *QueryReceiptsBaseInfoResponseBody) SetTotalCount(v int64) *QueryReceipt
 }
 
 type QueryReceiptsBaseInfoResponseBodyList struct {
-	Amount        *string                                         `json:"amount,omitempty" xml:"amount,omitempty"`
-	BusinessId    *string                                         `json:"businessId,omitempty" xml:"businessId,omitempty"`
-	CreateTime    *string                                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Creator       *QueryReceiptsBaseInfoResponseBodyListCreator   `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	Customer      *QueryReceiptsBaseInfoResponseBodyListCustomer  `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
-	ModelId       *string                                         `json:"modelId,omitempty" xml:"modelId,omitempty"`
-	Principal     *QueryReceiptsBaseInfoResponseBodyListPrincipal `json:"principal,omitempty" xml:"principal,omitempty" type:"Struct"`
-	Project       *QueryReceiptsBaseInfoResponseBodyListProject   `json:"project,omitempty" xml:"project,omitempty" type:"Struct"`
-	ReceiptId     *string                                         `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
-	RecordTime    *string                                         `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
-	Remark        *string                                         `json:"remark,omitempty" xml:"remark,omitempty"`
-	Source        *string                                         `json:"source,omitempty" xml:"source,omitempty"`
-	Status        *string                                         `json:"status,omitempty" xml:"status,omitempty"`
-	Supplier      *QueryReceiptsBaseInfoResponseBodyListSupplier  `json:"supplier,omitempty" xml:"supplier,omitempty" type:"Struct"`
-	Title         *string                                         `json:"title,omitempty" xml:"title,omitempty"`
-	VoucherStatus *string                                         `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	AccountantBookId *string                                         `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
+	Amount           *string                                         `json:"amount,omitempty" xml:"amount,omitempty"`
+	BusinessId       *string                                         `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CompanyCode      *string                                         `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	CreateTime       *string                                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator          *QueryReceiptsBaseInfoResponseBodyListCreator   `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Customer         *QueryReceiptsBaseInfoResponseBodyListCustomer  `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
+	ModelId          *string                                         `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	Principal        *QueryReceiptsBaseInfoResponseBodyListPrincipal `json:"principal,omitempty" xml:"principal,omitempty" type:"Struct"`
+	Project          *QueryReceiptsBaseInfoResponseBodyListProject   `json:"project,omitempty" xml:"project,omitempty" type:"Struct"`
+	ReceiptId        *string                                         `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
+	RecordTime       *string                                         `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
+	Remark           *string                                         `json:"remark,omitempty" xml:"remark,omitempty"`
+	Source           *string                                         `json:"source,omitempty" xml:"source,omitempty"`
+	Status           *string                                         `json:"status,omitempty" xml:"status,omitempty"`
+	Supplier         *QueryReceiptsBaseInfoResponseBodyListSupplier  `json:"supplier,omitempty" xml:"supplier,omitempty" type:"Struct"`
+	Title            *string                                         `json:"title,omitempty" xml:"title,omitempty"`
+	VoucherStatus    *string                                         `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s QueryReceiptsBaseInfoResponseBodyList) String() string {
@@ -6527,6 +6553,11 @@ func (s QueryReceiptsBaseInfoResponseBodyList) GoString() string {
 	return s.String()
 }
 
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetAccountantBookId(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.AccountantBookId = &v
+	return s
+}
+
 func (s *QueryReceiptsBaseInfoResponseBodyList) SetAmount(v string) *QueryReceiptsBaseInfoResponseBodyList {
 	s.Amount = &v
 	return s
@@ -6534,6 +6565,11 @@ func (s *QueryReceiptsBaseInfoResponseBodyList) SetAmount(v string) *QueryReceip
 
 func (s *QueryReceiptsBaseInfoResponseBodyList) SetBusinessId(v string) *QueryReceiptsBaseInfoResponseBodyList {
 	s.BusinessId = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetCompanyCode(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.CompanyCode = &v
 	return s
 }
 
