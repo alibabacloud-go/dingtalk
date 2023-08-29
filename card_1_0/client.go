@@ -706,6 +706,7 @@ func (s *CreateAndDeliverRequestImGroupOpenSpaceModelSearchSupport) SetSearchTyp
 
 type CreateAndDeliverRequestImRobotOpenDeliverModel struct {
 	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	RobotCode *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
@@ -719,6 +720,11 @@ func (s CreateAndDeliverRequestImRobotOpenDeliverModel) GoString() string {
 
 func (s *CreateAndDeliverRequestImRobotOpenDeliverModel) SetExtension(v map[string]*string) *CreateAndDeliverRequestImRobotOpenDeliverModel {
 	s.Extension = v
+	return s
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenDeliverModel) SetRobotCode(v string) *CreateAndDeliverRequestImRobotOpenDeliverModel {
+	s.RobotCode = &v
 	return s
 }
 
@@ -1668,6 +1674,7 @@ func (s *DeliverCardRequestImGroupOpenDeliverModel) SetRobotCode(v string) *Deli
 
 type DeliverCardRequestImRobotOpenDeliverModel struct {
 	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	RobotCode *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
@@ -1681,6 +1688,11 @@ func (s DeliverCardRequestImRobotOpenDeliverModel) GoString() string {
 
 func (s *DeliverCardRequestImRobotOpenDeliverModel) SetExtension(v map[string]*string) *DeliverCardRequestImRobotOpenDeliverModel {
 	s.Extension = v
+	return s
+}
+
+func (s *DeliverCardRequestImRobotOpenDeliverModel) SetRobotCode(v string) *DeliverCardRequestImRobotOpenDeliverModel {
+	s.RobotCode = &v
 	return s
 }
 

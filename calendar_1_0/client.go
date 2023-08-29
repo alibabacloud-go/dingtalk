@@ -753,11 +753,12 @@ func (s *CreateEventRequestRecurrence) SetRange(v *CreateEventRequestRecurrenceR
 }
 
 type CreateEventRequestRecurrencePattern struct {
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CreateEventRequestRecurrencePattern) String() string {
@@ -775,6 +776,11 @@ func (s *CreateEventRequestRecurrencePattern) SetDayOfMonth(v int32) *CreateEven
 
 func (s *CreateEventRequestRecurrencePattern) SetDaysOfWeek(v string) *CreateEventRequestRecurrencePattern {
 	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *CreateEventRequestRecurrencePattern) SetFirstDayOfWeek(v string) *CreateEventRequestRecurrencePattern {
+	s.FirstDayOfWeek = &v
 	return s
 }
 
@@ -1202,11 +1208,12 @@ func (s *CreateEventResponseBodyRecurrence) SetRange(v *CreateEventResponseBodyR
 }
 
 type CreateEventResponseBodyRecurrencePattern struct {
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CreateEventResponseBodyRecurrencePattern) String() string {
@@ -1224,6 +1231,11 @@ func (s *CreateEventResponseBodyRecurrencePattern) SetDayOfMonth(v int32) *Creat
 
 func (s *CreateEventResponseBodyRecurrencePattern) SetDaysOfWeek(v string) *CreateEventResponseBodyRecurrencePattern {
 	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyRecurrencePattern) SetFirstDayOfWeek(v string) *CreateEventResponseBodyRecurrencePattern {
+	s.FirstDayOfWeek = &v
 	return s
 }
 
@@ -2263,11 +2275,12 @@ func (s *GetEventResponseBodyRecurrence) SetRange(v *GetEventResponseBodyRecurre
 }
 
 type GetEventResponseBodyRecurrencePattern struct {
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetEventResponseBodyRecurrencePattern) String() string {
@@ -2285,6 +2298,11 @@ func (s *GetEventResponseBodyRecurrencePattern) SetDayOfMonth(v int32) *GetEvent
 
 func (s *GetEventResponseBodyRecurrencePattern) SetDaysOfWeek(v string) *GetEventResponseBodyRecurrencePattern {
 	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *GetEventResponseBodyRecurrencePattern) SetFirstDayOfWeek(v string) *GetEventResponseBodyRecurrencePattern {
+	s.FirstDayOfWeek = &v
 	return s
 }
 
@@ -4206,11 +4224,12 @@ func (s *ListEventsResponseBodyEventsRecurrence) SetRange(v *ListEventsResponseB
 }
 
 type ListEventsResponseBodyEventsRecurrencePattern struct {
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListEventsResponseBodyEventsRecurrencePattern) String() string {
@@ -4228,6 +4247,11 @@ func (s *ListEventsResponseBodyEventsRecurrencePattern) SetDayOfMonth(v int32) *
 
 func (s *ListEventsResponseBodyEventsRecurrencePattern) SetDaysOfWeek(v string) *ListEventsResponseBodyEventsRecurrencePattern {
 	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *ListEventsResponseBodyEventsRecurrencePattern) SetFirstDayOfWeek(v string) *ListEventsResponseBodyEventsRecurrencePattern {
+	s.FirstDayOfWeek = &v
 	return s
 }
 
@@ -5434,11 +5458,12 @@ func (s *ListEventsViewResponseBodyEventsRecurrence) SetRange(v *ListEventsViewR
 }
 
 type ListEventsViewResponseBodyEventsRecurrencePattern struct {
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListEventsViewResponseBodyEventsRecurrencePattern) String() string {
@@ -5456,6 +5481,11 @@ func (s *ListEventsViewResponseBodyEventsRecurrencePattern) SetDayOfMonth(v int3
 
 func (s *ListEventsViewResponseBodyEventsRecurrencePattern) SetDaysOfWeek(v string) *ListEventsViewResponseBodyEventsRecurrencePattern {
 	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *ListEventsViewResponseBodyEventsRecurrencePattern) SetFirstDayOfWeek(v string) *ListEventsViewResponseBodyEventsRecurrencePattern {
+	s.FirstDayOfWeek = &v
 	return s
 }
 
@@ -6424,11 +6454,12 @@ func (s *PatchEventRequestRecurrence) SetRange(v *PatchEventRequestRecurrenceRan
 }
 
 type PatchEventRequestRecurrencePattern struct {
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s PatchEventRequestRecurrencePattern) String() string {
@@ -6446,6 +6477,11 @@ func (s *PatchEventRequestRecurrencePattern) SetDayOfMonth(v int32) *PatchEventR
 
 func (s *PatchEventRequestRecurrencePattern) SetDaysOfWeek(v string) *PatchEventRequestRecurrencePattern {
 	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *PatchEventRequestRecurrencePattern) SetFirstDayOfWeek(v string) *PatchEventRequestRecurrencePattern {
+	s.FirstDayOfWeek = &v
 	return s
 }
 
@@ -6873,11 +6909,12 @@ func (s *PatchEventResponseBodyRecurrence) SetRange(v *PatchEventResponseBodyRec
 }
 
 type PatchEventResponseBodyRecurrencePattern struct {
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s PatchEventResponseBodyRecurrencePattern) String() string {
@@ -6895,6 +6932,11 @@ func (s *PatchEventResponseBodyRecurrencePattern) SetDayOfMonth(v int32) *PatchE
 
 func (s *PatchEventResponseBodyRecurrencePattern) SetDaysOfWeek(v string) *PatchEventResponseBodyRecurrencePattern {
 	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyRecurrencePattern) SetFirstDayOfWeek(v string) *PatchEventResponseBodyRecurrencePattern {
+	s.FirstDayOfWeek = &v
 	return s
 }
 

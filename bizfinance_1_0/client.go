@@ -65,6 +65,167 @@ func (s *RoleMemberMapValueMemberList) SetAvatarUrl(v string) *RoleMemberMapValu
 	return s
 }
 
+type AppendRolePermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AppendRolePermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRolePermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRolePermissionHeaders) SetCommonHeaders(v map[string]*string) *AppendRolePermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AppendRolePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *AppendRolePermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AppendRolePermissionRequest struct {
+	RolePermissionItemList []*AppendRolePermissionRequestRolePermissionItemList `json:"rolePermissionItemList,omitempty" xml:"rolePermissionItemList,omitempty" type:"Repeated"`
+	UserId                 *string                                              `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AppendRolePermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRolePermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRolePermissionRequest) SetRolePermissionItemList(v []*AppendRolePermissionRequestRolePermissionItemList) *AppendRolePermissionRequest {
+	s.RolePermissionItemList = v
+	return s
+}
+
+func (s *AppendRolePermissionRequest) SetUserId(v string) *AppendRolePermissionRequest {
+	s.UserId = &v
+	return s
+}
+
+type AppendRolePermissionRequestRolePermissionItemList struct {
+	PermissionList []*AppendRolePermissionRequestRolePermissionItemListPermissionList `json:"permissionList,omitempty" xml:"permissionList,omitempty" type:"Repeated"`
+	RoleCode       *string                                                            `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+}
+
+func (s AppendRolePermissionRequestRolePermissionItemList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRolePermissionRequestRolePermissionItemList) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRolePermissionRequestRolePermissionItemList) SetPermissionList(v []*AppendRolePermissionRequestRolePermissionItemListPermissionList) *AppendRolePermissionRequestRolePermissionItemList {
+	s.PermissionList = v
+	return s
+}
+
+func (s *AppendRolePermissionRequestRolePermissionItemList) SetRoleCode(v string) *AppendRolePermissionRequestRolePermissionItemList {
+	s.RoleCode = &v
+	return s
+}
+
+type AppendRolePermissionRequestRolePermissionItemListPermissionList struct {
+	ActionIdList     []*string `json:"actionIdList,omitempty" xml:"actionIdList,omitempty" type:"Repeated"`
+	ResourceIdentity *string   `json:"resourceIdentity,omitempty" xml:"resourceIdentity,omitempty"`
+}
+
+func (s AppendRolePermissionRequestRolePermissionItemListPermissionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRolePermissionRequestRolePermissionItemListPermissionList) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRolePermissionRequestRolePermissionItemListPermissionList) SetActionIdList(v []*string) *AppendRolePermissionRequestRolePermissionItemListPermissionList {
+	s.ActionIdList = v
+	return s
+}
+
+func (s *AppendRolePermissionRequestRolePermissionItemListPermissionList) SetResourceIdentity(v string) *AppendRolePermissionRequestRolePermissionItemListPermissionList {
+	s.ResourceIdentity = &v
+	return s
+}
+
+type AppendRolePermissionShrinkRequest struct {
+	RolePermissionItemListShrink *string `json:"rolePermissionItemList,omitempty" xml:"rolePermissionItemList,omitempty"`
+	UserId                       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AppendRolePermissionShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRolePermissionShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRolePermissionShrinkRequest) SetRolePermissionItemListShrink(v string) *AppendRolePermissionShrinkRequest {
+	s.RolePermissionItemListShrink = &v
+	return s
+}
+
+func (s *AppendRolePermissionShrinkRequest) SetUserId(v string) *AppendRolePermissionShrinkRequest {
+	s.UserId = &v
+	return s
+}
+
+type AppendRolePermissionResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AppendRolePermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRolePermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRolePermissionResponseBody) SetResult(v bool) *AppendRolePermissionResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AppendRolePermissionResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AppendRolePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AppendRolePermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRolePermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRolePermissionResponse) SetHeaders(v map[string]*string) *AppendRolePermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AppendRolePermissionResponse) SetStatusCode(v int32) *AppendRolePermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AppendRolePermissionResponse) SetBody(v *AppendRolePermissionResponseBody) *AppendRolePermissionResponse {
+	s.Body = v
+	return s
+}
+
 type BatchAddInvoiceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13385,6 +13546,71 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) AppendRolePermissionWithOptions(tmpReq *AppendRolePermissionRequest, headers *AppendRolePermissionHeaders, runtime *util.RuntimeOptions) (_result *AppendRolePermissionResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &AppendRolePermissionShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.RolePermissionItemList)) {
+		request.RolePermissionItemListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.RolePermissionItemList, tea.String("rolePermissionItemList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RolePermissionItemListShrink)) {
+		query["rolePermissionItemList"] = request.RolePermissionItemListShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AppendRolePermission"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/roles/permissions"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AppendRolePermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AppendRolePermission(request *AppendRolePermissionRequest) (_result *AppendRolePermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AppendRolePermissionHeaders{}
+	_result = &AppendRolePermissionResponse{}
+	_body, _err := client.AppendRolePermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest, headers *BatchAddInvoiceHeaders, runtime *util.RuntimeOptions) (_result *BatchAddInvoiceResponse, _err error) {
