@@ -1312,6 +1312,150 @@ func (s *MapValue) SetContentDownloadUrl(v string) *MapValue {
 	return s
 }
 
+type BatchCreateTeamHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchCreateTeamHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateTeamHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateTeamHeaders) SetCommonHeaders(v map[string]*string) *BatchCreateTeamHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchCreateTeamHeaders) SetXAcsDingtalkAccessToken(v string) *BatchCreateTeamHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchCreateTeamRequest struct {
+	Param      *BatchCreateTeamRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+	OperatorId *string                      `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s BatchCreateTeamRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateTeamRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateTeamRequest) SetParam(v *BatchCreateTeamRequestParam) *BatchCreateTeamRequest {
+	s.Param = v
+	return s
+}
+
+func (s *BatchCreateTeamRequest) SetOperatorId(v string) *BatchCreateTeamRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type BatchCreateTeamRequestParam struct {
+	CreateTeamParamList []*BatchCreateTeamRequestParamCreateTeamParamList `json:"createTeamParamList,omitempty" xml:"createTeamParamList,omitempty" type:"Repeated"`
+}
+
+func (s BatchCreateTeamRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateTeamRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateTeamRequestParam) SetCreateTeamParamList(v []*BatchCreateTeamRequestParamCreateTeamParamList) *BatchCreateTeamRequestParam {
+	s.CreateTeamParamList = v
+	return s
+}
+
+type BatchCreateTeamRequestParamCreateTeamParamList struct {
+	AdminUnionIdList []*string `json:"adminUnionIdList,omitempty" xml:"adminUnionIdList,omitempty" type:"Repeated"`
+	CreatorUnionId   *string   `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	DeptId           *string   `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	TeamName         *string   `json:"teamName,omitempty" xml:"teamName,omitempty"`
+}
+
+func (s BatchCreateTeamRequestParamCreateTeamParamList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateTeamRequestParamCreateTeamParamList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateTeamRequestParamCreateTeamParamList) SetAdminUnionIdList(v []*string) *BatchCreateTeamRequestParamCreateTeamParamList {
+	s.AdminUnionIdList = v
+	return s
+}
+
+func (s *BatchCreateTeamRequestParamCreateTeamParamList) SetCreatorUnionId(v string) *BatchCreateTeamRequestParamCreateTeamParamList {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *BatchCreateTeamRequestParamCreateTeamParamList) SetDeptId(v string) *BatchCreateTeamRequestParamCreateTeamParamList {
+	s.DeptId = &v
+	return s
+}
+
+func (s *BatchCreateTeamRequestParamCreateTeamParamList) SetTeamName(v string) *BatchCreateTeamRequestParamCreateTeamParamList {
+	s.TeamName = &v
+	return s
+}
+
+type BatchCreateTeamResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchCreateTeamResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateTeamResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateTeamResponseBody) SetSuccess(v bool) *BatchCreateTeamResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchCreateTeamResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchCreateTeamResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchCreateTeamResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateTeamResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateTeamResponse) SetHeaders(v map[string]*string) *BatchCreateTeamResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchCreateTeamResponse) SetStatusCode(v int32) *BatchCreateTeamResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchCreateTeamResponse) SetBody(v *BatchCreateTeamResponseBody) *BatchCreateTeamResponse {
+	s.Body = v
+	return s
+}
+
 type BatchDeleteRecentsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7831,6 +7975,67 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) BatchCreateTeamWithOptions(request *BatchCreateTeamRequest, headers *BatchCreateTeamHeaders, runtime *util.RuntimeOptions) (_result *BatchCreateTeamResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchCreateTeam"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/teams/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchCreateTeamResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchCreateTeam(request *BatchCreateTeamRequest) (_result *BatchCreateTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchCreateTeamHeaders{}
+	_result = &BatchCreateTeamResponse{}
+	_body, _err := client.BatchCreateTeamWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) BatchDeleteRecentsWithOptions(request *BatchDeleteRecentsRequest, headers *BatchDeleteRecentsHeaders, runtime *util.RuntimeOptions) (_result *BatchDeleteRecentsResponse, _err error) {
