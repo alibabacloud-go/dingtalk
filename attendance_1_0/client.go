@@ -6097,6 +6097,128 @@ func (s *ProcessApproveCreateResponse) SetBody(v *ProcessApproveCreateResponseBo
 	return s
 }
 
+type ReduceQuotaWithLeaveRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ReduceQuotaWithLeaveRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReduceQuotaWithLeaveRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ReduceQuotaWithLeaveRecordHeaders) SetCommonHeaders(v map[string]*string) *ReduceQuotaWithLeaveRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ReduceQuotaWithLeaveRecordHeaders) SetXAcsDingtalkAccessToken(v string) *ReduceQuotaWithLeaveRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ReduceQuotaWithLeaveRecordRequest struct {
+	EndTime   *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	OuterId   *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	QuotaNum  *int32  `json:"quotaNum,omitempty" xml:"quotaNum,omitempty"`
+	Reason    *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	StartTime *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s ReduceQuotaWithLeaveRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReduceQuotaWithLeaveRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ReduceQuotaWithLeaveRecordRequest) SetEndTime(v int64) *ReduceQuotaWithLeaveRecordRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ReduceQuotaWithLeaveRecordRequest) SetLeaveCode(v string) *ReduceQuotaWithLeaveRecordRequest {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *ReduceQuotaWithLeaveRecordRequest) SetOuterId(v string) *ReduceQuotaWithLeaveRecordRequest {
+	s.OuterId = &v
+	return s
+}
+
+func (s *ReduceQuotaWithLeaveRecordRequest) SetQuotaNum(v int32) *ReduceQuotaWithLeaveRecordRequest {
+	s.QuotaNum = &v
+	return s
+}
+
+func (s *ReduceQuotaWithLeaveRecordRequest) SetReason(v string) *ReduceQuotaWithLeaveRecordRequest {
+	s.Reason = &v
+	return s
+}
+
+func (s *ReduceQuotaWithLeaveRecordRequest) SetStartTime(v int64) *ReduceQuotaWithLeaveRecordRequest {
+	s.StartTime = &v
+	return s
+}
+
+type ReduceQuotaWithLeaveRecordResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ReduceQuotaWithLeaveRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReduceQuotaWithLeaveRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ReduceQuotaWithLeaveRecordResponseBody) SetResult(v bool) *ReduceQuotaWithLeaveRecordResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ReduceQuotaWithLeaveRecordResponseBody) SetSuccess(v bool) *ReduceQuotaWithLeaveRecordResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ReduceQuotaWithLeaveRecordResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ReduceQuotaWithLeaveRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ReduceQuotaWithLeaveRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReduceQuotaWithLeaveRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ReduceQuotaWithLeaveRecordResponse) SetHeaders(v map[string]*string) *ReduceQuotaWithLeaveRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ReduceQuotaWithLeaveRecordResponse) SetStatusCode(v int32) *ReduceQuotaWithLeaveRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ReduceQuotaWithLeaveRecordResponse) SetBody(v *ReduceQuotaWithLeaveRecordResponseBody) *ReduceQuotaWithLeaveRecordResponse {
+	s.Body = v
+	return s
+}
+
 type RetainLeaveTypesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9382,6 +9504,81 @@ func (client *Client) ProcessApproveCreate(request *ProcessApproveCreateRequest)
 	headers := &ProcessApproveCreateHeaders{}
 	_result = &ProcessApproveCreateResponse{}
 	_body, _err := client.ProcessApproveCreateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ReduceQuotaWithLeaveRecordWithOptions(unionId *string, request *ReduceQuotaWithLeaveRecordRequest, headers *ReduceQuotaWithLeaveRecordHeaders, runtime *util.RuntimeOptions) (_result *ReduceQuotaWithLeaveRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LeaveCode)) {
+		body["leaveCode"] = request.LeaveCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OuterId)) {
+		body["outerId"] = request.OuterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QuotaNum)) {
+		body["quotaNum"] = request.QuotaNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Reason)) {
+		body["reason"] = request.Reason
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ReduceQuotaWithLeaveRecord"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/users/" + tea.StringValue(unionId) + "vacations/records/modify"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ReduceQuotaWithLeaveRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ReduceQuotaWithLeaveRecord(unionId *string, request *ReduceQuotaWithLeaveRecordRequest) (_result *ReduceQuotaWithLeaveRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ReduceQuotaWithLeaveRecordHeaders{}
+	_result = &ReduceQuotaWithLeaveRecordResponse{}
+	_body, _err := client.ReduceQuotaWithLeaveRecordWithOptions(unionId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

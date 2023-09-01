@@ -10563,6 +10563,180 @@ func (s *SendMsgByTaskResponse) SetBody(v *SendMsgByTaskResponseBody) *SendMsgBy
 	return s
 }
 
+type SendMsgByTaskSupportInviteJoinOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgHeaders) SetCommonHeaders(v map[string]*string) *SendMsgByTaskSupportInviteJoinOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgHeaders) SetXAcsDingtalkAccessToken(v string) *SendMsgByTaskSupportInviteJoinOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendMsgByTaskSupportInviteJoinOrgRequest struct {
+	MessageContent *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent `json:"messageContent,omitempty" xml:"messageContent,omitempty" type:"Struct"`
+	MobilePhones   []*string                                               `json:"mobilePhones,omitempty" xml:"mobilePhones,omitempty" type:"Repeated"`
+	NeedUrlTrack   *bool                                                   `json:"needUrlTrack,omitempty" xml:"needUrlTrack,omitempty"`
+	OpenTeamId     *string                                                 `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	SendChannel    *string                                                 `json:"sendChannel,omitempty" xml:"sendChannel,omitempty"`
+	TaskName       *string                                                 `json:"taskName,omitempty" xml:"taskName,omitempty"`
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequest) SetMessageContent(v *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent) *SendMsgByTaskSupportInviteJoinOrgRequest {
+	s.MessageContent = v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequest) SetMobilePhones(v []*string) *SendMsgByTaskSupportInviteJoinOrgRequest {
+	s.MobilePhones = v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequest) SetNeedUrlTrack(v bool) *SendMsgByTaskSupportInviteJoinOrgRequest {
+	s.NeedUrlTrack = &v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequest) SetOpenTeamId(v string) *SendMsgByTaskSupportInviteJoinOrgRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequest) SetSendChannel(v string) *SendMsgByTaskSupportInviteJoinOrgRequest {
+	s.SendChannel = &v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequest) SetTaskName(v string) *SendMsgByTaskSupportInviteJoinOrgRequest {
+	s.TaskName = &v
+	return s
+}
+
+type SendMsgByTaskSupportInviteJoinOrgRequestMessageContent struct {
+	Btns        []*SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
+	Content     *string                                                       `json:"content,omitempty" xml:"content,omitempty"`
+	MessageType *string                                                       `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	Title       *string                                                       `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgRequestMessageContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgRequestMessageContent) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent) SetBtns(v []*SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns) *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent {
+	s.Btns = v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent) SetContent(v string) *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent {
+	s.Content = &v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent) SetMessageType(v string) *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent {
+	s.MessageType = &v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent) SetTitle(v string) *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent {
+	s.Title = &v
+	return s
+}
+
+type SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns struct {
+	ActionURL *string `json:"actionURL,omitempty" xml:"actionURL,omitempty"`
+	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns) SetActionURL(v string) *SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns {
+	s.ActionURL = &v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns) SetTitle(v string) *SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns {
+	s.Title = &v
+	return s
+}
+
+type SendMsgByTaskSupportInviteJoinOrgResponseBody struct {
+	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgResponseBody) SetOpenBatchTaskId(v string) *SendMsgByTaskSupportInviteJoinOrgResponseBody {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+type SendMsgByTaskSupportInviteJoinOrgResponse struct {
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendMsgByTaskSupportInviteJoinOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskSupportInviteJoinOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgResponse) SetHeaders(v map[string]*string) *SendMsgByTaskSupportInviteJoinOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgResponse) SetStatusCode(v int32) *SendMsgByTaskSupportInviteJoinOrgResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SendMsgByTaskSupportInviteJoinOrgResponse) SetBody(v *SendMsgByTaskSupportInviteJoinOrgResponseBody) *SendMsgByTaskSupportInviteJoinOrgResponse {
+	s.Body = v
+	return s
+}
+
 type SendServiceGroupMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -16795,6 +16969,81 @@ func (client *Client) SendMsgByTask(request *SendMsgByTaskRequest) (_result *Sen
 	headers := &SendMsgByTaskHeaders{}
 	_result = &SendMsgByTaskResponse{}
 	_body, _err := client.SendMsgByTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendMsgByTaskSupportInviteJoinOrgWithOptions(request *SendMsgByTaskSupportInviteJoinOrgRequest, headers *SendMsgByTaskSupportInviteJoinOrgHeaders, runtime *util.RuntimeOptions) (_result *SendMsgByTaskSupportInviteJoinOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MessageContent)) {
+		body["messageContent"] = request.MessageContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MobilePhones)) {
+		body["mobilePhones"] = request.MobilePhones
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedUrlTrack)) {
+		body["needUrlTrack"] = request.NeedUrlTrack
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SendChannel)) {
+		body["sendChannel"] = request.SendChannel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskName)) {
+		body["taskName"] = request.TaskName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SendMsgByTaskSupportInviteJoinOrg"),
+		Version:     tea.String("serviceGroup_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/serviceGroup/customers/tasks/groupSend"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendMsgByTaskSupportInviteJoinOrgResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendMsgByTaskSupportInviteJoinOrg(request *SendMsgByTaskSupportInviteJoinOrgRequest) (_result *SendMsgByTaskSupportInviteJoinOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendMsgByTaskSupportInviteJoinOrgHeaders{}
+	_result = &SendMsgByTaskSupportInviteJoinOrgResponse{}
+	_body, _err := client.SendMsgByTaskSupportInviteJoinOrgWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2738,6 +2738,449 @@ func (s *GetActivityListResponse) SetBody(v *GetActivityListResponseBody) *GetAc
 	return s
 }
 
+type GetAllAuthCubesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAllAuthCubesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllAuthCubesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllAuthCubesHeaders) SetCommonHeaders(v map[string]*string) *GetAllAuthCubesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAllAuthCubesHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllAuthCubesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAllAuthCubesRequest struct {
+	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Keywords    *string `json:"keywords,omitempty" xml:"keywords,omitempty"`
+	PageNumber  *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize    *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetAllAuthCubesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllAuthCubesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllAuthCubesRequest) SetAppType(v string) *GetAllAuthCubesRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetAllAuthCubesRequest) SetCorpId(v string) *GetAllAuthCubesRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetAllAuthCubesRequest) SetKeywords(v string) *GetAllAuthCubesRequest {
+	s.Keywords = &v
+	return s
+}
+
+func (s *GetAllAuthCubesRequest) SetPageNumber(v int32) *GetAllAuthCubesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAllAuthCubesRequest) SetPageSize(v int32) *GetAllAuthCubesRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetAllAuthCubesRequest) SetSystemToken(v string) *GetAllAuthCubesRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetAllAuthCubesRequest) SetUserId(v string) *GetAllAuthCubesRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetAllAuthCubesResponseBody struct {
+	Result []*GetAllAuthCubesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetAllAuthCubesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllAuthCubesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllAuthCubesResponseBody) SetResult(v []*GetAllAuthCubesResponseBodyResult) *GetAllAuthCubesResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetAllAuthCubesResponseBodyResult struct {
+	ApappliedCount             *int32                                             `json:"apappliedCount,omitempty" xml:"apappliedCount,omitempty"`
+	AppCode                    *string                                            `json:"appCode,omitempty" xml:"appCode,omitempty"`
+	AppInstanceCode            *string                                            `json:"appInstanceCode,omitempty" xml:"appInstanceCode,omitempty"`
+	AppStoreCode               *string                                            `json:"appStoreCode,omitempty" xml:"appStoreCode,omitempty"`
+	AuthMode                   *string                                            `json:"authMode,omitempty" xml:"authMode,omitempty"`
+	AuthorizationType          *int32                                             `json:"authorizationType,omitempty" xml:"authorizationType,omitempty"`
+	BusinessProcessCode        *string                                            `json:"businessProcessCode,omitempty" xml:"businessProcessCode,omitempty"`
+	CategoriesFirst            *string                                            `json:"categoriesFirst,omitempty" xml:"categoriesFirst,omitempty"`
+	CategoriesSecond           *string                                            `json:"categoriesSecond,omitempty" xml:"categoriesSecond,omitempty"`
+	CreateTimeGMT              *string                                            `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	CreatorUserId              *string                                            `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	CubeAuthType               *string                                            `json:"cubeAuthType,omitempty" xml:"cubeAuthType,omitempty"`
+	CubeCode                   *string                                            `json:"cubeCode,omitempty" xml:"cubeCode,omitempty"`
+	CubeDataRange              *string                                            `json:"cubeDataRange,omitempty" xml:"cubeDataRange,omitempty"`
+	CubeDataRanges             []*GetAllAuthCubesResponseBodyResultCubeDataRanges `json:"cubeDataRanges,omitempty" xml:"cubeDataRanges,omitempty" type:"Repeated"`
+	CubeSource                 *string                                            `json:"cubeSource,omitempty" xml:"cubeSource,omitempty"`
+	DataCacheTimeConfiguration *string                                            `json:"dataCacheTimeConfiguration,omitempty" xml:"dataCacheTimeConfiguration,omitempty"`
+	DataflowCode               *string                                            `json:"dataflowCode,omitempty" xml:"dataflowCode,omitempty"`
+	Description                *string                                            `json:"description,omitempty" xml:"description,omitempty"`
+	DomainCode                 *string                                            `json:"domainCode,omitempty" xml:"domainCode,omitempty"`
+	EnableCache                *bool                                              `json:"enableCache,omitempty" xml:"enableCache,omitempty"`
+	Id                         *int64                                             `json:"id,omitempty" xml:"id,omitempty"`
+	IsNeedApplication          *string                                            `json:"isNeedApplication,omitempty" xml:"isNeedApplication,omitempty"`
+	IsTrend                    *string                                            `json:"isTrend,omitempty" xml:"isTrend,omitempty"`
+	ModifiedTimeGMT            *string                                            `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	Modifier                   *string                                            `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	Name                       *string                                            `json:"name,omitempty" xml:"name,omitempty"`
+	NamespaceCode              *string                                            `json:"namespaceCode,omitempty" xml:"namespaceCode,omitempty"`
+	Owner                      *string                                            `json:"owner,omitempty" xml:"owner,omitempty"`
+	SharedDataSet              *bool                                              `json:"sharedDataSet,omitempty" xml:"sharedDataSet,omitempty"`
+	TenantCorpId               *string                                            `json:"tenantCorpId,omitempty" xml:"tenantCorpId,omitempty"`
+	Type                       *string                                            `json:"type,omitempty" xml:"type,omitempty"`
+	UserInformation            *GetAllAuthCubesResponseBodyResultUserInformation  `json:"userInformation,omitempty" xml:"userInformation,omitempty" type:"Struct"`
+}
+
+func (s GetAllAuthCubesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllAuthCubesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetApappliedCount(v int32) *GetAllAuthCubesResponseBodyResult {
+	s.ApappliedCount = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetAppCode(v string) *GetAllAuthCubesResponseBodyResult {
+	s.AppCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetAppInstanceCode(v string) *GetAllAuthCubesResponseBodyResult {
+	s.AppInstanceCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetAppStoreCode(v string) *GetAllAuthCubesResponseBodyResult {
+	s.AppStoreCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetAuthMode(v string) *GetAllAuthCubesResponseBodyResult {
+	s.AuthMode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetAuthorizationType(v int32) *GetAllAuthCubesResponseBodyResult {
+	s.AuthorizationType = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetBusinessProcessCode(v string) *GetAllAuthCubesResponseBodyResult {
+	s.BusinessProcessCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetCategoriesFirst(v string) *GetAllAuthCubesResponseBodyResult {
+	s.CategoriesFirst = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetCategoriesSecond(v string) *GetAllAuthCubesResponseBodyResult {
+	s.CategoriesSecond = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetCreateTimeGMT(v string) *GetAllAuthCubesResponseBodyResult {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetCreatorUserId(v string) *GetAllAuthCubesResponseBodyResult {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetCubeAuthType(v string) *GetAllAuthCubesResponseBodyResult {
+	s.CubeAuthType = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetCubeCode(v string) *GetAllAuthCubesResponseBodyResult {
+	s.CubeCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetCubeDataRange(v string) *GetAllAuthCubesResponseBodyResult {
+	s.CubeDataRange = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetCubeDataRanges(v []*GetAllAuthCubesResponseBodyResultCubeDataRanges) *GetAllAuthCubesResponseBodyResult {
+	s.CubeDataRanges = v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetCubeSource(v string) *GetAllAuthCubesResponseBodyResult {
+	s.CubeSource = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetDataCacheTimeConfiguration(v string) *GetAllAuthCubesResponseBodyResult {
+	s.DataCacheTimeConfiguration = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetDataflowCode(v string) *GetAllAuthCubesResponseBodyResult {
+	s.DataflowCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetDescription(v string) *GetAllAuthCubesResponseBodyResult {
+	s.Description = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetDomainCode(v string) *GetAllAuthCubesResponseBodyResult {
+	s.DomainCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetEnableCache(v bool) *GetAllAuthCubesResponseBodyResult {
+	s.EnableCache = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetId(v int64) *GetAllAuthCubesResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetIsNeedApplication(v string) *GetAllAuthCubesResponseBodyResult {
+	s.IsNeedApplication = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetIsTrend(v string) *GetAllAuthCubesResponseBodyResult {
+	s.IsTrend = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetModifiedTimeGMT(v string) *GetAllAuthCubesResponseBodyResult {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetModifier(v string) *GetAllAuthCubesResponseBodyResult {
+	s.Modifier = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetName(v string) *GetAllAuthCubesResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetNamespaceCode(v string) *GetAllAuthCubesResponseBodyResult {
+	s.NamespaceCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetOwner(v string) *GetAllAuthCubesResponseBodyResult {
+	s.Owner = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetSharedDataSet(v bool) *GetAllAuthCubesResponseBodyResult {
+	s.SharedDataSet = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetTenantCorpId(v string) *GetAllAuthCubesResponseBodyResult {
+	s.TenantCorpId = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetType(v string) *GetAllAuthCubesResponseBodyResult {
+	s.Type = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResult) SetUserInformation(v *GetAllAuthCubesResponseBodyResultUserInformation) *GetAllAuthCubesResponseBodyResult {
+	s.UserInformation = v
+	return s
+}
+
+type GetAllAuthCubesResponseBodyResultCubeDataRanges struct {
+	ClassifiedCode *string       `json:"classifiedCode,omitempty" xml:"classifiedCode,omitempty"`
+	ConditionKey   *string       `json:"conditionKey,omitempty" xml:"conditionKey,omitempty"`
+	ConditionValue []interface{} `json:"conditionValue,omitempty" xml:"conditionValue,omitempty" type:"Repeated"`
+	ElementCode    *string       `json:"elementCode,omitempty" xml:"elementCode,omitempty"`
+	ElementType    *string       `json:"elementType,omitempty" xml:"elementType,omitempty"`
+	Operator       *string       `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s GetAllAuthCubesResponseBodyResultCubeDataRanges) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllAuthCubesResponseBodyResultCubeDataRanges) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllAuthCubesResponseBodyResultCubeDataRanges) SetClassifiedCode(v string) *GetAllAuthCubesResponseBodyResultCubeDataRanges {
+	s.ClassifiedCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultCubeDataRanges) SetConditionKey(v string) *GetAllAuthCubesResponseBodyResultCubeDataRanges {
+	s.ConditionKey = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultCubeDataRanges) SetConditionValue(v []interface{}) *GetAllAuthCubesResponseBodyResultCubeDataRanges {
+	s.ConditionValue = v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultCubeDataRanges) SetElementCode(v string) *GetAllAuthCubesResponseBodyResultCubeDataRanges {
+	s.ElementCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultCubeDataRanges) SetElementType(v string) *GetAllAuthCubesResponseBodyResultCubeDataRanges {
+	s.ElementType = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultCubeDataRanges) SetOperator(v string) *GetAllAuthCubesResponseBodyResultCubeDataRanges {
+	s.Operator = &v
+	return s
+}
+
+type GetAllAuthCubesResponseBodyResultUserInformation struct {
+	AuthProvider         *string `json:"authProvider,omitempty" xml:"authProvider,omitempty"`
+	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DepartmentName       *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	Name                 *string `json:"name,omitempty" xml:"name,omitempty"`
+	NickName             *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	RealmId              *int64  `json:"realmId,omitempty" xml:"realmId,omitempty"`
+	RefererNamespaceCode *string `json:"refererNamespaceCode,omitempty" xml:"refererNamespaceCode,omitempty"`
+	ShowName             *string `json:"showName,omitempty" xml:"showName,omitempty"`
+	WorkNo               *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s GetAllAuthCubesResponseBodyResultUserInformation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllAuthCubesResponseBodyResultUserInformation) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllAuthCubesResponseBodyResultUserInformation) SetAuthProvider(v string) *GetAllAuthCubesResponseBodyResultUserInformation {
+	s.AuthProvider = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultUserInformation) SetCorpId(v string) *GetAllAuthCubesResponseBodyResultUserInformation {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultUserInformation) SetDepartmentName(v string) *GetAllAuthCubesResponseBodyResultUserInformation {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultUserInformation) SetName(v string) *GetAllAuthCubesResponseBodyResultUserInformation {
+	s.Name = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultUserInformation) SetNickName(v string) *GetAllAuthCubesResponseBodyResultUserInformation {
+	s.NickName = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultUserInformation) SetRealmId(v int64) *GetAllAuthCubesResponseBodyResultUserInformation {
+	s.RealmId = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultUserInformation) SetRefererNamespaceCode(v string) *GetAllAuthCubesResponseBodyResultUserInformation {
+	s.RefererNamespaceCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultUserInformation) SetShowName(v string) *GetAllAuthCubesResponseBodyResultUserInformation {
+	s.ShowName = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponseBodyResultUserInformation) SetWorkNo(v string) *GetAllAuthCubesResponseBodyResultUserInformation {
+	s.WorkNo = &v
+	return s
+}
+
+type GetAllAuthCubesResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAllAuthCubesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAllAuthCubesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllAuthCubesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllAuthCubesResponse) SetHeaders(v map[string]*string) *GetAllAuthCubesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAllAuthCubesResponse) SetStatusCode(v int32) *GetAllAuthCubesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetAllAuthCubesResponse) SetBody(v *GetAllAuthCubesResponseBody) *GetAllAuthCubesResponse {
+	s.Body = v
+	return s
+}
+
 type GetApplicationAuthorizationServicePlatformResourceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3532,6 +3975,158 @@ func (s *GetCorpTasksResponse) SetStatusCode(v int32) *GetCorpTasksResponse {
 }
 
 func (s *GetCorpTasksResponse) SetBody(v *GetCorpTasksResponseBody) *GetCorpTasksResponse {
+	s.Body = v
+	return s
+}
+
+type GetDbConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDbConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDbConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDbConfigHeaders) SetCommonHeaders(v map[string]*string) *GetDbConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDbConfigHeaders) SetXAcsDingtalkAccessToken(v string) *GetDbConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDbConfigRequest struct {
+	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetDbConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDbConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDbConfigRequest) SetAppType(v string) *GetDbConfigRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetDbConfigRequest) SetCorpId(v string) *GetDbConfigRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetDbConfigRequest) SetSystemToken(v string) *GetDbConfigRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetDbConfigRequest) SetUserId(v string) *GetDbConfigRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetDbConfigResponseBody struct {
+	Config          *string `json:"config,omitempty" xml:"config,omitempty"`
+	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreateTimeGMT   *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	Creator         *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	Exclusive       *string `json:"exclusive,omitempty" xml:"exclusive,omitempty"`
+	Id              *string `json:"id,omitempty" xml:"id,omitempty"`
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	Modifier        *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	Type            *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetDbConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDbConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDbConfigResponseBody) SetConfig(v string) *GetDbConfigResponseBody {
+	s.Config = &v
+	return s
+}
+
+func (s *GetDbConfigResponseBody) SetCorpId(v string) *GetDbConfigResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetDbConfigResponseBody) SetCreateTimeGMT(v string) *GetDbConfigResponseBody {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *GetDbConfigResponseBody) SetCreator(v string) *GetDbConfigResponseBody {
+	s.Creator = &v
+	return s
+}
+
+func (s *GetDbConfigResponseBody) SetExclusive(v string) *GetDbConfigResponseBody {
+	s.Exclusive = &v
+	return s
+}
+
+func (s *GetDbConfigResponseBody) SetId(v string) *GetDbConfigResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *GetDbConfigResponseBody) SetModifiedTimeGMT(v string) *GetDbConfigResponseBody {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *GetDbConfigResponseBody) SetModifier(v string) *GetDbConfigResponseBody {
+	s.Modifier = &v
+	return s
+}
+
+func (s *GetDbConfigResponseBody) SetType(v string) *GetDbConfigResponseBody {
+	s.Type = &v
+	return s
+}
+
+type GetDbConfigResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetDbConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDbConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDbConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDbConfigResponse) SetHeaders(v map[string]*string) *GetDbConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDbConfigResponse) SetStatusCode(v int32) *GetDbConfigResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetDbConfigResponse) SetBody(v *GetDbConfigResponseBody) *GetDbConfigResponse {
 	s.Body = v
 	return s
 }
@@ -8027,6 +8622,240 @@ func (s *GetSaleUserInfoByUserIdResponse) SetStatusCode(v int32) *GetSaleUserInf
 }
 
 func (s *GetSaleUserInfoByUserIdResponse) SetBody(v *GetSaleUserInfoByUserIdResponseBody) *GetSaleUserInfoByUserIdResponse {
+	s.Body = v
+	return s
+}
+
+type GetSimpleCubeModelListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSimpleCubeModelListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleCubeModelListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleCubeModelListHeaders) SetCommonHeaders(v map[string]*string) *GetSimpleCubeModelListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSimpleCubeModelListHeaders) SetXAcsDingtalkAccessToken(v string) *GetSimpleCubeModelListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSimpleCubeModelListRequest struct {
+	AppType      *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CubeCode     *string `json:"cubeCode,omitempty" xml:"cubeCode,omitempty"`
+	CubeTenantId *string `json:"cubeTenantId,omitempty" xml:"cubeTenantId,omitempty"`
+	SystemToken  *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetSimpleCubeModelListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleCubeModelListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleCubeModelListRequest) SetAppType(v string) *GetSimpleCubeModelListRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListRequest) SetCorpId(v string) *GetSimpleCubeModelListRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListRequest) SetCubeCode(v string) *GetSimpleCubeModelListRequest {
+	s.CubeCode = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListRequest) SetCubeTenantId(v string) *GetSimpleCubeModelListRequest {
+	s.CubeTenantId = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListRequest) SetSystemToken(v string) *GetSimpleCubeModelListRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListRequest) SetUserId(v string) *GetSimpleCubeModelListRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetSimpleCubeModelListResponseBody struct {
+	Result []*GetSimpleCubeModelListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetSimpleCubeModelListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleCubeModelListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleCubeModelListResponseBody) SetResult(v []*GetSimpleCubeModelListResponseBodyResult) *GetSimpleCubeModelListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetSimpleCubeModelListResponseBodyResult struct {
+	Children    []*GetSimpleCubeModelListResponseBodyResultChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	Id          *string                                             `json:"id,omitempty" xml:"id,omitempty"`
+	IsDimension *string                                             `json:"isDimension,omitempty" xml:"isDimension,omitempty"`
+	Text        *string                                             `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s GetSimpleCubeModelListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleCubeModelListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResult) SetChildren(v []*GetSimpleCubeModelListResponseBodyResultChildren) *GetSimpleCubeModelListResponseBodyResult {
+	s.Children = v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResult) SetId(v string) *GetSimpleCubeModelListResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResult) SetIsDimension(v string) *GetSimpleCubeModelListResponseBodyResult {
+	s.IsDimension = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResult) SetText(v string) *GetSimpleCubeModelListResponseBodyResult {
+	s.Text = &v
+	return s
+}
+
+type GetSimpleCubeModelListResponseBodyResultChildren struct {
+	ClassifiedCode      *string `json:"classifiedCode,omitempty" xml:"classifiedCode,omitempty"`
+	CubeCode            *string `json:"cubeCode,omitempty" xml:"cubeCode,omitempty"`
+	DataType            *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	DimensionType       *string `json:"dimensionType,omitempty" xml:"dimensionType,omitempty"`
+	FieldCode           *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	Id                  *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsDimension         *string `json:"isDimension,omitempty" xml:"isDimension,omitempty"`
+	IsVisible           *string `json:"isVisible,omitempty" xml:"isVisible,omitempty"`
+	MeasureType         *string `json:"measureType,omitempty" xml:"measureType,omitempty"`
+	Text                *string `json:"text,omitempty" xml:"text,omitempty"`
+	TimeFormat          *string `json:"timeFormat,omitempty" xml:"timeFormat,omitempty"`
+	TimeGranularityType *string `json:"timeGranularityType,omitempty" xml:"timeGranularityType,omitempty"`
+}
+
+func (s GetSimpleCubeModelListResponseBodyResultChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleCubeModelListResponseBodyResultChildren) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetClassifiedCode(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.ClassifiedCode = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetCubeCode(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.CubeCode = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetDataType(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.DataType = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetDimensionType(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.DimensionType = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetFieldCode(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetId(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.Id = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetIsDimension(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.IsDimension = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetIsVisible(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.IsVisible = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetMeasureType(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.MeasureType = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetText(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.Text = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetTimeFormat(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.TimeFormat = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponseBodyResultChildren) SetTimeGranularityType(v string) *GetSimpleCubeModelListResponseBodyResultChildren {
+	s.TimeGranularityType = &v
+	return s
+}
+
+type GetSimpleCubeModelListResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSimpleCubeModelListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSimpleCubeModelListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleCubeModelListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleCubeModelListResponse) SetHeaders(v map[string]*string) *GetSimpleCubeModelListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponse) SetStatusCode(v int32) *GetSimpleCubeModelListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSimpleCubeModelListResponse) SetBody(v *GetSimpleCubeModelListResponseBody) *GetSimpleCubeModelListResponse {
 	s.Body = v
 	return s
 }
@@ -17048,6 +17877,85 @@ func (client *Client) GetActivityList(request *GetActivityListRequest) (_result 
 	return _result, _err
 }
 
+func (client *Client) GetAllAuthCubesWithOptions(request *GetAllAuthCubesRequest, headers *GetAllAuthCubesHeaders, runtime *util.RuntimeOptions) (_result *GetAllAuthCubesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keywords)) {
+		body["keywords"] = request.Keywords
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAllAuthCubes"),
+		Version:     tea.String("yida_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/yida/metadata/allAuthCubes/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetAllAuthCubesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAllAuthCubes(request *GetAllAuthCubesRequest) (_result *GetAllAuthCubesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAllAuthCubesHeaders{}
+	_result = &GetAllAuthCubesResponse{}
+	_body, _err := client.GetAllAuthCubesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetApplicationAuthorizationServicePlatformResourceWithOptions(request *GetApplicationAuthorizationServicePlatformResourceRequest, headers *GetApplicationAuthorizationServicePlatformResourceHeaders, runtime *util.RuntimeOptions) (_result *GetApplicationAuthorizationServicePlatformResourceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17341,6 +18249,73 @@ func (client *Client) GetCorpTasks(request *GetCorpTasksRequest) (_result *GetCo
 	headers := &GetCorpTasksHeaders{}
 	_result = &GetCorpTasksResponse{}
 	_body, _err := client.GetCorpTasksWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDbConfigWithOptions(request *GetDbConfigRequest, headers *GetDbConfigHeaders, runtime *util.RuntimeOptions) (_result *GetDbConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDbConfig"),
+		Version:     tea.String("yida_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/yida/metadata/dbConfigs"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetDbConfigResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDbConfig(request *GetDbConfigRequest) (_result *GetDbConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDbConfigHeaders{}
+	_result = &GetDbConfigResponse{}
+	_body, _err := client.GetDbConfigWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -18806,6 +19781,81 @@ func (client *Client) GetSaleUserInfoByUserId(request *GetSaleUserInfoByUserIdRe
 	headers := &GetSaleUserInfoByUserIdHeaders{}
 	_result = &GetSaleUserInfoByUserIdResponse{}
 	_body, _err := client.GetSaleUserInfoByUserIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSimpleCubeModelListWithOptions(request *GetSimpleCubeModelListRequest, headers *GetSimpleCubeModelListHeaders, runtime *util.RuntimeOptions) (_result *GetSimpleCubeModelListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CubeCode)) {
+		query["cubeCode"] = request.CubeCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CubeTenantId)) {
+		query["cubeTenantId"] = request.CubeTenantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSimpleCubeModelList"),
+		Version:     tea.String("yida_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/yida/metadata/simpleCubeModelLists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSimpleCubeModelListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSimpleCubeModelList(request *GetSimpleCubeModelListRequest) (_result *GetSimpleCubeModelListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSimpleCubeModelListHeaders{}
+	_result = &GetSimpleCubeModelListResponse{}
+	_body, _err := client.GetSimpleCubeModelListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
