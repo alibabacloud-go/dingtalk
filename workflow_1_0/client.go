@@ -7210,6 +7210,7 @@ func (s *SaveIntegratedInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Sa
 }
 
 type SaveIntegratedInstanceRequest struct {
+	BizData                *string                                                `json:"bizData,omitempty" xml:"bizData,omitempty"`
 	FormComponentValueList []*SaveIntegratedInstanceRequestFormComponentValueList `json:"formComponentValueList,omitempty" xml:"formComponentValueList,omitempty" type:"Repeated"`
 	Notifiers              []*SaveIntegratedInstanceRequestNotifiers              `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
 	OriginatorUserId       *string                                                `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
@@ -7224,6 +7225,11 @@ func (s SaveIntegratedInstanceRequest) String() string {
 
 func (s SaveIntegratedInstanceRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SaveIntegratedInstanceRequest) SetBizData(v string) *SaveIntegratedInstanceRequest {
+	s.BizData = &v
+	return s
 }
 
 func (s *SaveIntegratedInstanceRequest) SetFormComponentValueList(v []*SaveIntegratedInstanceRequestFormComponentValueList) *SaveIntegratedInstanceRequest {
@@ -10567,6 +10573,10 @@ func (client *Client) SaveIntegratedInstanceWithOptions(request *SaveIntegratedI
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizData)) {
+		body["bizData"] = request.BizData
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormComponentValueList)) {
 		body["formComponentValueList"] = request.FormComponentValueList
 	}

@@ -6534,7 +6534,7 @@ func (s *SearchUserTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SearchUser
 }
 
 type SearchUserTaskRequest struct {
-	MaxResults *string `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	RoleTypes  *string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty"`
 	Tql        *string `json:"tql,omitempty" xml:"tql,omitempty"`
@@ -6548,7 +6548,7 @@ func (s SearchUserTaskRequest) GoString() string {
 	return s.String()
 }
 
-func (s *SearchUserTaskRequest) SetMaxResults(v string) *SearchUserTaskRequest {
+func (s *SearchUserTaskRequest) SetMaxResults(v int32) *SearchUserTaskRequest {
 	s.MaxResults = &v
 	return s
 }
@@ -6569,6 +6569,7 @@ func (s *SearchUserTaskRequest) SetTql(v string) *SearchUserTaskRequest {
 }
 
 type SearchUserTaskResponseBody struct {
+	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	RequestId *string                             `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    []*SearchUserTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -6579,6 +6580,11 @@ func (s SearchUserTaskResponseBody) String() string {
 
 func (s SearchUserTaskResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *SearchUserTaskResponseBody) SetNextToken(v string) *SearchUserTaskResponseBody {
+	s.NextToken = &v
+	return s
 }
 
 func (s *SearchUserTaskResponseBody) SetRequestId(v string) *SearchUserTaskResponseBody {
