@@ -54,6 +54,231 @@ func (s *PrivateFieldMapValue) SetExtension(v map[string]*string) *PrivateFieldM
 	return s
 }
 
+type AddPluginRuleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddPluginRuleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPluginRuleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddPluginRuleHeaders) SetCommonHeaders(v map[string]*string) *AddPluginRuleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddPluginRuleHeaders) SetXAcsDingtalkAccessToken(v string) *AddPluginRuleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddPluginRuleRequest struct {
+	ChatType *string                      `json:"chatType,omitempty" xml:"chatType,omitempty"`
+	Code     *string                      `json:"code,omitempty" xml:"code,omitempty"`
+	ItemType *string                      `json:"itemType,omitempty" xml:"itemType,omitempty"`
+	Rules    []*AddPluginRuleRequestRules `json:"rules,omitempty" xml:"rules,omitempty" type:"Repeated"`
+	UserId   *string                      `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AddPluginRuleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPluginRuleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddPluginRuleRequest) SetChatType(v string) *AddPluginRuleRequest {
+	s.ChatType = &v
+	return s
+}
+
+func (s *AddPluginRuleRequest) SetCode(v string) *AddPluginRuleRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *AddPluginRuleRequest) SetItemType(v string) *AddPluginRuleRequest {
+	s.ItemType = &v
+	return s
+}
+
+func (s *AddPluginRuleRequest) SetRules(v []*AddPluginRuleRequestRules) *AddPluginRuleRequest {
+	s.Rules = v
+	return s
+}
+
+func (s *AddPluginRuleRequest) SetUserId(v string) *AddPluginRuleRequest {
+	s.UserId = &v
+	return s
+}
+
+type AddPluginRuleRequestRules struct {
+	ItemId   *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+}
+
+func (s AddPluginRuleRequestRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPluginRuleRequestRules) GoString() string {
+	return s.String()
+}
+
+func (s *AddPluginRuleRequestRules) SetItemId(v string) *AddPluginRuleRequestRules {
+	s.ItemId = &v
+	return s
+}
+
+func (s *AddPluginRuleRequestRules) SetItemName(v string) *AddPluginRuleRequestRules {
+	s.ItemName = &v
+	return s
+}
+
+type AddPluginRuleResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddPluginRuleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPluginRuleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddPluginRuleResponseBody) SetSuccess(v bool) *AddPluginRuleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddPluginRuleResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddPluginRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddPluginRuleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPluginRuleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddPluginRuleResponse) SetHeaders(v map[string]*string) *AddPluginRuleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddPluginRuleResponse) SetStatusCode(v int32) *AddPluginRuleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddPluginRuleResponse) SetBody(v *AddPluginRuleResponseBody) *AddPluginRuleResponse {
+	s.Body = v
+	return s
+}
+
+type DeletePlguinRuleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeletePlguinRuleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePlguinRuleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePlguinRuleHeaders) SetCommonHeaders(v map[string]*string) *DeletePlguinRuleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeletePlguinRuleHeaders) SetXAcsDingtalkAccessToken(v string) *DeletePlguinRuleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeletePlguinRuleRequest struct {
+	BizIdList []*string `json:"bizIdList,omitempty" xml:"bizIdList,omitempty" type:"Repeated"`
+	UserId    *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeletePlguinRuleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePlguinRuleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePlguinRuleRequest) SetBizIdList(v []*string) *DeletePlguinRuleRequest {
+	s.BizIdList = v
+	return s
+}
+
+func (s *DeletePlguinRuleRequest) SetUserId(v string) *DeletePlguinRuleRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeletePlguinRuleResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeletePlguinRuleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePlguinRuleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePlguinRuleResponseBody) SetSuccess(v bool) *DeletePlguinRuleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeletePlguinRuleResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeletePlguinRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeletePlguinRuleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePlguinRuleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePlguinRuleResponse) SetHeaders(v map[string]*string) *DeletePlguinRuleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeletePlguinRuleResponse) SetStatusCode(v int32) *DeletePlguinRuleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeletePlguinRuleResponse) SetBody(v *DeletePlguinRuleResponseBody) *DeletePlguinRuleResponse {
+	s.Body = v
+	return s
+}
+
 type GetBaseProfileListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -206,6 +431,7 @@ func (s *GetConversationHeaders) SetXAcsDingtalkAccessToken(v string) *GetConver
 
 type GetConversationRequest struct {
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetConversationRequest) String() string {
@@ -218,6 +444,11 @@ func (s GetConversationRequest) GoString() string {
 
 func (s *GetConversationRequest) SetOpenConversationId(v string) *GetConversationRequest {
 	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetConversationRequest) SetUserId(v string) *GetConversationRequest {
+	s.UserId = &v
 	return s
 }
 
@@ -329,6 +560,7 @@ type GetMemberListRequest struct {
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	PageNumber         *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	PageSize           *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetMemberListRequest) String() string {
@@ -351,6 +583,11 @@ func (s *GetMemberListRequest) SetPageNumber(v int32) *GetMemberListRequest {
 
 func (s *GetMemberListRequest) SetPageSize(v int32) *GetMemberListRequest {
 	s.PageSize = &v
+	return s
+}
+
+func (s *GetMemberListRequest) SetUserId(v string) *GetMemberListRequest {
+	s.UserId = &v
 	return s
 }
 
@@ -400,6 +637,204 @@ func (s *GetMemberListResponse) SetBody(v *GetMemberListResponseBody) *GetMember
 	return s
 }
 
+type QueryPluginRuleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPluginRuleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPluginRuleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPluginRuleHeaders) SetCommonHeaders(v map[string]*string) *QueryPluginRuleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPluginRuleHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPluginRuleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPluginRuleRequest struct {
+	ChatType   *string `json:"chatType,omitempty" xml:"chatType,omitempty"`
+	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
+	ItemId     *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	ItemType   *string `json:"itemType,omitempty" xml:"itemType,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QueryPluginRuleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPluginRuleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPluginRuleRequest) SetChatType(v string) *QueryPluginRuleRequest {
+	s.ChatType = &v
+	return s
+}
+
+func (s *QueryPluginRuleRequest) SetCode(v string) *QueryPluginRuleRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryPluginRuleRequest) SetItemId(v string) *QueryPluginRuleRequest {
+	s.ItemId = &v
+	return s
+}
+
+func (s *QueryPluginRuleRequest) SetItemType(v string) *QueryPluginRuleRequest {
+	s.ItemType = &v
+	return s
+}
+
+func (s *QueryPluginRuleRequest) SetPageNumber(v int32) *QueryPluginRuleRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryPluginRuleRequest) SetPageSize(v int32) *QueryPluginRuleRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QueryPluginRuleResponseBody struct {
+	Result  *QueryPluginRuleResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryPluginRuleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPluginRuleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPluginRuleResponseBody) SetResult(v *QueryPluginRuleResponseBodyResult) *QueryPluginRuleResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryPluginRuleResponseBody) SetSuccess(v bool) *QueryPluginRuleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryPluginRuleResponseBodyResult struct {
+	Data  []*QueryPluginRuleResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	Total *int64                                   `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s QueryPluginRuleResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPluginRuleResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPluginRuleResponseBodyResult) SetData(v []*QueryPluginRuleResponseBodyResultData) *QueryPluginRuleResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *QueryPluginRuleResponseBodyResult) SetTotal(v int64) *QueryPluginRuleResponseBodyResult {
+	s.Total = &v
+	return s
+}
+
+type QueryPluginRuleResponseBodyResultData struct {
+	BizId     *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	ChatType  *string `json:"chatType,omitempty" xml:"chatType,omitempty"`
+	Code      *string `json:"code,omitempty" xml:"code,omitempty"`
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	ItemId    *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	ItemName  *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	ItemType  *string `json:"itemType,omitempty" xml:"itemType,omitempty"`
+}
+
+func (s QueryPluginRuleResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPluginRuleResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPluginRuleResponseBodyResultData) SetBizId(v string) *QueryPluginRuleResponseBodyResultData {
+	s.BizId = &v
+	return s
+}
+
+func (s *QueryPluginRuleResponseBodyResultData) SetChatType(v string) *QueryPluginRuleResponseBodyResultData {
+	s.ChatType = &v
+	return s
+}
+
+func (s *QueryPluginRuleResponseBodyResultData) SetCode(v string) *QueryPluginRuleResponseBodyResultData {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryPluginRuleResponseBodyResultData) SetGmtCreate(v string) *QueryPluginRuleResponseBodyResultData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryPluginRuleResponseBodyResultData) SetItemId(v string) *QueryPluginRuleResponseBodyResultData {
+	s.ItemId = &v
+	return s
+}
+
+func (s *QueryPluginRuleResponseBodyResultData) SetItemName(v string) *QueryPluginRuleResponseBodyResultData {
+	s.ItemName = &v
+	return s
+}
+
+func (s *QueryPluginRuleResponseBodyResultData) SetItemType(v string) *QueryPluginRuleResponseBodyResultData {
+	s.ItemType = &v
+	return s
+}
+
+type QueryPluginRuleResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryPluginRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryPluginRuleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPluginRuleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPluginRuleResponse) SetHeaders(v map[string]*string) *QueryPluginRuleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPluginRuleResponse) SetStatusCode(v int32) *QueryPluginRuleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryPluginRuleResponse) SetBody(v *QueryPluginRuleResponseBody) *QueryPluginRuleResponse {
+	s.Body = v
+	return s
+}
+
 type SendDingTipHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -428,6 +863,7 @@ type SendDingTipRequest struct {
 	Link           *SendDingTipRequestLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
 	MessageId      *string                 `json:"messageId,omitempty" xml:"messageId,omitempty"`
 	ReceiverUserId []*string               `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty" type:"Repeated"`
+	SenderUserId   *string                 `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
 	TextContent    *string                 `json:"textContent,omitempty" xml:"textContent,omitempty"`
 }
 
@@ -456,6 +892,11 @@ func (s *SendDingTipRequest) SetMessageId(v string) *SendDingTipRequest {
 
 func (s *SendDingTipRequest) SetReceiverUserId(v []*string) *SendDingTipRequest {
 	s.ReceiverUserId = v
+	return s
+}
+
+func (s *SendDingTipRequest) SetSenderUserId(v string) *SendDingTipRequest {
+	s.SenderUserId = &v
 	return s
 }
 
@@ -575,6 +1016,7 @@ type SendMessageTipRequest struct {
 	PrivateFieldMap    map[string]*PrivateFieldMapValue  `json:"privateFieldMap,omitempty" xml:"privateFieldMap,omitempty"`
 	PublicField        *SendMessageTipRequestPublicField `json:"publicField,omitempty" xml:"publicField,omitempty" type:"Struct"`
 	ReceiverUserId     []*string                         `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty" type:"Repeated"`
+	SenderUserId       *string                           `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
 }
 
 func (s SendMessageTipRequest) String() string {
@@ -612,6 +1054,11 @@ func (s *SendMessageTipRequest) SetPublicField(v *SendMessageTipRequestPublicFie
 
 func (s *SendMessageTipRequest) SetReceiverUserId(v []*string) *SendMessageTipRequest {
 	s.ReceiverUserId = v
+	return s
+}
+
+func (s *SendMessageTipRequest) SetSenderUserId(v string) *SendMessageTipRequest {
+	s.SenderUserId = &v
 	return s
 }
 
@@ -843,6 +1290,136 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) AddPluginRuleWithOptions(request *AddPluginRuleRequest, headers *AddPluginRuleHeaders, runtime *util.RuntimeOptions) (_result *AddPluginRuleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatType)) {
+		body["chatType"] = request.ChatType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ItemType)) {
+		body["itemType"] = request.ItemType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Rules)) {
+		body["rules"] = request.Rules
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddPluginRule"),
+		Version:     tea.String("flashmsg_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/flashmsg/plugins"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddPluginRuleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddPluginRule(request *AddPluginRuleRequest) (_result *AddPluginRuleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddPluginRuleHeaders{}
+	_result = &AddPluginRuleResponse{}
+	_body, _err := client.AddPluginRuleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeletePlguinRuleWithOptions(request *DeletePlguinRuleRequest, headers *DeletePlguinRuleHeaders, runtime *util.RuntimeOptions) (_result *DeletePlguinRuleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizIdList)) {
+		body["bizIdList"] = request.BizIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeletePlguinRule"),
+		Version:     tea.String("flashmsg_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/flashmsg/plugins/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeletePlguinRuleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeletePlguinRule(request *DeletePlguinRuleRequest) (_result *DeletePlguinRuleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeletePlguinRuleHeaders{}
+	_result = &DeletePlguinRuleResponse{}
+	_body, _err := client.DeletePlguinRuleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetBaseProfileListWithOptions(request *GetBaseProfileListRequest, headers *GetBaseProfileListHeaders, runtime *util.RuntimeOptions) (_result *GetBaseProfileListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -901,6 +1478,10 @@ func (client *Client) GetConversationWithOptions(request *GetConversationRequest
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -966,6 +1547,10 @@ func (client *Client) GetMemberListWithOptions(request *GetMemberListRequest, he
 		query["pageSize"] = request.PageSize
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1011,6 +1596,81 @@ func (client *Client) GetMemberList(request *GetMemberListRequest) (_result *Get
 	return _result, _err
 }
 
+func (client *Client) QueryPluginRuleWithOptions(request *QueryPluginRuleRequest, headers *QueryPluginRuleHeaders, runtime *util.RuntimeOptions) (_result *QueryPluginRuleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatType)) {
+		query["chatType"] = request.ChatType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ItemId)) {
+		query["itemId"] = request.ItemId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ItemType)) {
+		query["itemType"] = request.ItemType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPluginRule"),
+		Version:     tea.String("flashmsg_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/flashmsg/plugins"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryPluginRuleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryPluginRule(request *QueryPluginRuleRequest) (_result *QueryPluginRuleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPluginRuleHeaders{}
+	_result = &QueryPluginRuleResponse{}
+	_body, _err := client.QueryPluginRuleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) SendDingTipWithOptions(request *SendDingTipRequest, headers *SendDingTipHeaders, runtime *util.RuntimeOptions) (_result *SendDingTipResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1031,6 +1691,10 @@ func (client *Client) SendDingTipWithOptions(request *SendDingTipRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.ReceiverUserId)) {
 		body["receiverUserId"] = request.ReceiverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderUserId)) {
+		body["senderUserId"] = request.SenderUserId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TextContent)) {
@@ -1110,6 +1774,10 @@ func (client *Client) SendMessageTipWithOptions(request *SendMessageTipRequest, 
 
 	if !tea.BoolValue(util.IsUnset(request.ReceiverUserId)) {
 		body["receiverUserId"] = request.ReceiverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderUserId)) {
+		body["senderUserId"] = request.SenderUserId
 	}
 
 	realHeaders := make(map[string]*string)

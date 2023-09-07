@@ -9558,7 +9558,7 @@ func (client *Client) ReduceQuotaWithLeaveRecordWithOptions(unionId *string, req
 		Action:      tea.String("ReduceQuotaWithLeaveRecord"),
 		Version:     tea.String("attendance_1.0"),
 		Protocol:    tea.String("HTTP"),
-		Pathname:    tea.String("/v1.0/attendance/users/" + tea.StringValue(unionId) + "vacations/records/modify"),
+		Pathname:    tea.String("/v1.0/attendance/users/" + tea.StringValue(unionId) + "/vacations/records/modify"),
 		Method:      tea.String("POST"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),

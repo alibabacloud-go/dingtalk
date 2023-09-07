@@ -1199,6 +1199,98 @@ func (s *BatchCreateCustomerResponse) SetBody(v *BatchCreateCustomerResponseBody
 	return s
 }
 
+type BindCompanyAccountantBookHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BindCompanyAccountantBookHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BindCompanyAccountantBookHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BindCompanyAccountantBookHeaders) SetCommonHeaders(v map[string]*string) *BindCompanyAccountantBookHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BindCompanyAccountantBookHeaders) SetXAcsDingtalkAccessToken(v string) *BindCompanyAccountantBookHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BindCompanyAccountantBookRequest struct {
+	AccountantBookId *string `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
+	CompanyCode      *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+}
+
+func (s BindCompanyAccountantBookRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BindCompanyAccountantBookRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BindCompanyAccountantBookRequest) SetAccountantBookId(v string) *BindCompanyAccountantBookRequest {
+	s.AccountantBookId = &v
+	return s
+}
+
+func (s *BindCompanyAccountantBookRequest) SetCompanyCode(v string) *BindCompanyAccountantBookRequest {
+	s.CompanyCode = &v
+	return s
+}
+
+type BindCompanyAccountantBookResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s BindCompanyAccountantBookResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BindCompanyAccountantBookResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BindCompanyAccountantBookResponseBody) SetResult(v bool) *BindCompanyAccountantBookResponseBody {
+	s.Result = &v
+	return s
+}
+
+type BindCompanyAccountantBookResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BindCompanyAccountantBookResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BindCompanyAccountantBookResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BindCompanyAccountantBookResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BindCompanyAccountantBookResponse) SetHeaders(v map[string]*string) *BindCompanyAccountantBookResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BindCompanyAccountantBookResponse) SetStatusCode(v int32) *BindCompanyAccountantBookResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BindCompanyAccountantBookResponse) SetBody(v *BindCompanyAccountantBookResponseBody) *BindCompanyAccountantBookResponse {
+	s.Body = v
+	return s
+}
+
 type CheckVoucherStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1967,12 +2059,13 @@ func (s *GetCategoryRequest) SetCode(v string) *GetCategoryRequest {
 }
 
 type GetCategoryResponseBody struct {
-	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
-	IsDir      *bool   `json:"isDir,omitempty" xml:"isDir,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	ParentCode *string `json:"parentCode,omitempty" xml:"parentCode,omitempty"`
-	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	AccountantBookIdList []*string `json:"accountantBookIdList,omitempty" xml:"accountantBookIdList,omitempty" type:"Repeated"`
+	Code                 *string   `json:"code,omitempty" xml:"code,omitempty"`
+	IsDir                *bool     `json:"isDir,omitempty" xml:"isDir,omitempty"`
+	Name                 *string   `json:"name,omitempty" xml:"name,omitempty"`
+	ParentCode           *string   `json:"parentCode,omitempty" xml:"parentCode,omitempty"`
+	Status               *string   `json:"status,omitempty" xml:"status,omitempty"`
+	Type                 *string   `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetCategoryResponseBody) String() string {
@@ -1981,6 +2074,11 @@ func (s GetCategoryResponseBody) String() string {
 
 func (s GetCategoryResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetCategoryResponseBody) SetAccountantBookIdList(v []*string) *GetCategoryResponseBody {
+	s.AccountantBookIdList = v
+	return s
 }
 
 func (s *GetCategoryResponseBody) SetCode(v string) *GetCategoryResponseBody {
@@ -2083,12 +2181,13 @@ func (s *GetCustomerRequest) SetCode(v string) *GetCustomerRequest {
 }
 
 type GetCustomerResponseBody struct {
-	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
-	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
-	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
+	AccountantBookIdList []*string `json:"accountantBookIdList,omitempty" xml:"accountantBookIdList,omitempty" type:"Repeated"`
+	Code                 *string   `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime           *int64    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description          *string   `json:"description,omitempty" xml:"description,omitempty"`
+	Name                 *string   `json:"name,omitempty" xml:"name,omitempty"`
+	Status               *string   `json:"status,omitempty" xml:"status,omitempty"`
+	UserDefineCode       *string   `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
 func (s GetCustomerResponseBody) String() string {
@@ -2097,6 +2196,11 @@ func (s GetCustomerResponseBody) String() string {
 
 func (s GetCustomerResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetCustomerResponseBody) SetAccountantBookIdList(v []*string) *GetCustomerResponseBody {
+	s.AccountantBookIdList = v
+	return s
 }
 
 func (s *GetCustomerResponseBody) SetCode(v string) *GetCustomerResponseBody {
@@ -3370,14 +3474,15 @@ func (s *GetProductRequest) SetCode(v string) *GetProductRequest {
 }
 
 type GetProductResponseBody struct {
-	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
-	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	Specification  *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
-	Unit           *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
+	AccountantBookIdList []*string `json:"accountantBookIdList,omitempty" xml:"accountantBookIdList,omitempty" type:"Repeated"`
+	Code                 *string   `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime           *int64    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description          *string   `json:"description,omitempty" xml:"description,omitempty"`
+	Name                 *string   `json:"name,omitempty" xml:"name,omitempty"`
+	Specification        *string   `json:"specification,omitempty" xml:"specification,omitempty"`
+	Status               *string   `json:"status,omitempty" xml:"status,omitempty"`
+	Unit                 *string   `json:"unit,omitempty" xml:"unit,omitempty"`
+	UserDefineCode       *string   `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
 func (s GetProductResponseBody) String() string {
@@ -3386,6 +3491,11 @@ func (s GetProductResponseBody) String() string {
 
 func (s GetProductResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetProductResponseBody) SetAccountantBookIdList(v []*string) *GetProductResponseBody {
+	s.AccountantBookIdList = v
+	return s
 }
 
 func (s *GetProductResponseBody) SetCode(v string) *GetProductResponseBody {
@@ -3498,15 +3608,16 @@ func (s *GetProjectRequest) SetCode(v string) *GetProjectRequest {
 }
 
 type GetProjectResponseBody struct {
-	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
-	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Creator        *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	ProjectCode    *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	ProjectName    *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
-	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
-	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
+	AccountantBookIdList []*string `json:"accountantBookIdList,omitempty" xml:"accountantBookIdList,omitempty" type:"Repeated"`
+	Code                 *string   `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime           *int64    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator              *string   `json:"creator,omitempty" xml:"creator,omitempty"`
+	Description          *string   `json:"description,omitempty" xml:"description,omitempty"`
+	Name                 *string   `json:"name,omitempty" xml:"name,omitempty"`
+	ProjectCode          *string   `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ProjectName          *string   `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	Status               *string   `json:"status,omitempty" xml:"status,omitempty"`
+	UserDefineCode       *string   `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
 func (s GetProjectResponseBody) String() string {
@@ -3515,6 +3626,11 @@ func (s GetProjectResponseBody) String() string {
 
 func (s GetProjectResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetProjectResponseBody) SetAccountantBookIdList(v []*string) *GetProjectResponseBody {
+	s.AccountantBookIdList = v
+	return s
 }
 
 func (s *GetProjectResponseBody) SetCode(v string) *GetProjectResponseBody {
@@ -3742,12 +3858,13 @@ func (s *GetSupplierRequest) SetCode(v string) *GetSupplierRequest {
 }
 
 type GetSupplierResponseBody struct {
-	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
-	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
-	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
+	AccountantBookIdList []*string `json:"accountantBookIdList,omitempty" xml:"accountantBookIdList,omitempty" type:"Repeated"`
+	Code                 *string   `json:"code,omitempty" xml:"code,omitempty"`
+	CreateTime           *int64    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description          *string   `json:"description,omitempty" xml:"description,omitempty"`
+	Name                 *string   `json:"name,omitempty" xml:"name,omitempty"`
+	Status               *string   `json:"status,omitempty" xml:"status,omitempty"`
+	UserDefineCode       *string   `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
 }
 
 func (s GetSupplierResponseBody) String() string {
@@ -3756,6 +3873,11 @@ func (s GetSupplierResponseBody) String() string {
 
 func (s GetSupplierResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetSupplierResponseBody) SetAccountantBookIdList(v []*string) *GetSupplierResponseBody {
+	s.AccountantBookIdList = v
+	return s
 }
 
 func (s *GetSupplierResponseBody) SetCode(v string) *GetSupplierResponseBody {
@@ -13735,6 +13857,65 @@ func (client *Client) BatchCreateCustomer(request *BatchCreateCustomerRequest) (
 	return _result, _err
 }
 
+func (client *Client) BindCompanyAccountantBookWithOptions(request *BindCompanyAccountantBookRequest, headers *BindCompanyAccountantBookHeaders, runtime *util.RuntimeOptions) (_result *BindCompanyAccountantBookResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountantBookId)) {
+		query["accountantBookId"] = request.AccountantBookId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		query["companyCode"] = request.CompanyCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BindCompanyAccountantBook"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/companies/accountantBooks/bind"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BindCompanyAccountantBookResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BindCompanyAccountantBook(request *BindCompanyAccountantBookRequest) (_result *BindCompanyAccountantBookResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BindCompanyAccountantBookHeaders{}
+	_result = &BindCompanyAccountantBookResponse{}
+	_body, _err := client.BindCompanyAccountantBookWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) CheckVoucherStatusWithOptions(request *CheckVoucherStatusRequest, headers *CheckVoucherStatusHeaders, runtime *util.RuntimeOptions) (_result *CheckVoucherStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14107,7 +14288,7 @@ func (client *Client) GetCategoryWithOptions(request *GetCategoryRequest, header
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &GetCategoryResponse{}

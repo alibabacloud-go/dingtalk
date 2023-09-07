@@ -3039,6 +3039,7 @@ type GetRangeResponseBody struct {
 	BackgroundColors     [][]*GetRangeResponseBodyBackgroundColors `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
 	DisplayValues        [][]*string                               `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
 	FontSizes            [][]*int32                                `json:"fontSizes,omitempty" xml:"fontSizes,omitempty" type:"Repeated"`
+	FontWeights          [][]*string                               `json:"fontWeights,omitempty" xml:"fontWeights,omitempty" type:"Repeated"`
 	Formulas             [][]*string                               `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
 	HorizontalAlignments [][]*string                               `json:"horizontalAlignments,omitempty" xml:"horizontalAlignments,omitempty" type:"Repeated"`
 	Values               [][]interface{}                           `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
@@ -3065,6 +3066,11 @@ func (s *GetRangeResponseBody) SetDisplayValues(v [][]*string) *GetRangeResponse
 
 func (s *GetRangeResponseBody) SetFontSizes(v [][]*int32) *GetRangeResponseBody {
 	s.FontSizes = v
+	return s
+}
+
+func (s *GetRangeResponseBody) SetFontWeights(v [][]*string) *GetRangeResponseBody {
+	s.FontWeights = v
 	return s
 }
 
@@ -5551,6 +5557,110 @@ func (s *SearchWorkspaceDocsResponse) SetBody(v *SearchWorkspaceDocsResponseBody
 	return s
 }
 
+type SetColumnWidthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetColumnWidthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetColumnWidthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetColumnWidthHeaders) SetCommonHeaders(v map[string]*string) *SetColumnWidthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetColumnWidthHeaders) SetXAcsDingtalkAccessToken(v string) *SetColumnWidthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetColumnWidthRequest struct {
+	Column     *int32  `json:"column,omitempty" xml:"column,omitempty"`
+	Width      *int32  `json:"width,omitempty" xml:"width,omitempty"`
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SetColumnWidthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetColumnWidthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetColumnWidthRequest) SetColumn(v int32) *SetColumnWidthRequest {
+	s.Column = &v
+	return s
+}
+
+func (s *SetColumnWidthRequest) SetWidth(v int32) *SetColumnWidthRequest {
+	s.Width = &v
+	return s
+}
+
+func (s *SetColumnWidthRequest) SetOperatorId(v string) *SetColumnWidthRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SetColumnWidthResponseBody struct {
+	SheetId   *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+	SheetName *string `json:"sheetName,omitempty" xml:"sheetName,omitempty"`
+}
+
+func (s SetColumnWidthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetColumnWidthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetColumnWidthResponseBody) SetSheetId(v string) *SetColumnWidthResponseBody {
+	s.SheetId = &v
+	return s
+}
+
+func (s *SetColumnWidthResponseBody) SetSheetName(v string) *SetColumnWidthResponseBody {
+	s.SheetName = &v
+	return s
+}
+
+type SetColumnWidthResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SetColumnWidthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SetColumnWidthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetColumnWidthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetColumnWidthResponse) SetHeaders(v map[string]*string) *SetColumnWidthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetColumnWidthResponse) SetStatusCode(v int32) *SetColumnWidthResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetColumnWidthResponse) SetBody(v *SetColumnWidthResponseBody) *SetColumnWidthResponse {
+	s.Body = v
+	return s
+}
+
 type SetColumnsVisibilityHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5651,6 +5761,110 @@ func (s *SetColumnsVisibilityResponse) SetStatusCode(v int32) *SetColumnsVisibil
 }
 
 func (s *SetColumnsVisibilityResponse) SetBody(v *SetColumnsVisibilityResponseBody) *SetColumnsVisibilityResponse {
+	s.Body = v
+	return s
+}
+
+type SetRowHeightHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetRowHeightHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRowHeightHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetRowHeightHeaders) SetCommonHeaders(v map[string]*string) *SetRowHeightHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetRowHeightHeaders) SetXAcsDingtalkAccessToken(v string) *SetRowHeightHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetRowHeightRequest struct {
+	Height     *int32  `json:"height,omitempty" xml:"height,omitempty"`
+	Row        *int32  `json:"row,omitempty" xml:"row,omitempty"`
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SetRowHeightRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRowHeightRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetRowHeightRequest) SetHeight(v int32) *SetRowHeightRequest {
+	s.Height = &v
+	return s
+}
+
+func (s *SetRowHeightRequest) SetRow(v int32) *SetRowHeightRequest {
+	s.Row = &v
+	return s
+}
+
+func (s *SetRowHeightRequest) SetOperatorId(v string) *SetRowHeightRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SetRowHeightResponseBody struct {
+	SheetId   *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+	SheetName *string `json:"sheetName,omitempty" xml:"sheetName,omitempty"`
+}
+
+func (s SetRowHeightResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRowHeightResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetRowHeightResponseBody) SetSheetId(v string) *SetRowHeightResponseBody {
+	s.SheetId = &v
+	return s
+}
+
+func (s *SetRowHeightResponseBody) SetSheetName(v string) *SetRowHeightResponseBody {
+	s.SheetName = &v
+	return s
+}
+
+type SetRowHeightResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SetRowHeightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SetRowHeightResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRowHeightResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetRowHeightResponse) SetHeaders(v map[string]*string) *SetRowHeightResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetRowHeightResponse) SetStatusCode(v int32) *SetRowHeightResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetRowHeightResponse) SetBody(v *SetRowHeightResponseBody) *SetRowHeightResponse {
 	s.Body = v
 	return s
 }
@@ -6161,6 +6375,7 @@ func (s *UpdateRangeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRangeHe
 type UpdateRangeRequest struct {
 	BackgroundColors     [][]*string                       `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
 	FontSizes            [][]*int32                        `json:"fontSizes,omitempty" xml:"fontSizes,omitempty" type:"Repeated"`
+	FontWeights          [][]*string                       `json:"fontWeights,omitempty" xml:"fontWeights,omitempty" type:"Repeated"`
 	HorizontalAlignments [][]*string                       `json:"horizontalAlignments,omitempty" xml:"horizontalAlignments,omitempty" type:"Repeated"`
 	Hyperlinks           [][]*UpdateRangeRequestHyperlinks `json:"hyperlinks,omitempty" xml:"hyperlinks,omitempty" type:"Repeated"`
 	NumberFormat         *string                           `json:"numberFormat,omitempty" xml:"numberFormat,omitempty"`
@@ -6184,6 +6399,11 @@ func (s *UpdateRangeRequest) SetBackgroundColors(v [][]*string) *UpdateRangeRequ
 
 func (s *UpdateRangeRequest) SetFontSizes(v [][]*int32) *UpdateRangeRequest {
 	s.FontSizes = v
+	return s
+}
+
+func (s *UpdateRangeRequest) SetFontWeights(v [][]*string) *UpdateRangeRequest {
+	s.FontWeights = v
 	return s
 }
 
@@ -9217,6 +9437,71 @@ func (client *Client) SearchWorkspaceDocs(request *SearchWorkspaceDocsRequest) (
 	return _result, _err
 }
 
+func (client *Client) SetColumnWidthWithOptions(workbookId *string, sheetId *string, request *SetColumnWidthRequest, headers *SetColumnWidthHeaders, runtime *util.RuntimeOptions) (_result *SetColumnWidthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Column)) {
+		body["column"] = request.Column
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Width)) {
+		body["width"] = request.Width
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetColumnWidth"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/setColumnWidth"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetColumnWidthResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SetColumnWidth(workbookId *string, sheetId *string, request *SetColumnWidthRequest) (_result *SetColumnWidthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetColumnWidthHeaders{}
+	_result = &SetColumnWidthResponse{}
+	_body, _err := client.SetColumnWidthWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) SetColumnsVisibilityWithOptions(workbookId *string, sheetId *string, request *SetColumnsVisibilityRequest, headers *SetColumnsVisibilityHeaders, runtime *util.RuntimeOptions) (_result *SetColumnsVisibilityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9279,6 +9564,71 @@ func (client *Client) SetColumnsVisibility(workbookId *string, sheetId *string, 
 	headers := &SetColumnsVisibilityHeaders{}
 	_result = &SetColumnsVisibilityResponse{}
 	_body, _err := client.SetColumnsVisibilityWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SetRowHeightWithOptions(workbookId *string, sheetId *string, request *SetRowHeightRequest, headers *SetRowHeightHeaders, runtime *util.RuntimeOptions) (_result *SetRowHeightResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Height)) {
+		body["height"] = request.Height
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Row)) {
+		body["row"] = request.Row
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetRowHeight"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/setRowHeight"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetRowHeightResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SetRowHeight(workbookId *string, sheetId *string, request *SetRowHeightRequest) (_result *SetRowHeightResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetRowHeightHeaders{}
+	_result = &SetRowHeightResponse{}
+	_body, _err := client.SetRowHeightWithOptions(workbookId, sheetId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9569,6 +9919,10 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 
 	if !tea.BoolValue(util.IsUnset(request.FontSizes)) {
 		body["fontSizes"] = request.FontSizes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FontWeights)) {
+		body["fontWeights"] = request.FontWeights
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.HorizontalAlignments)) {

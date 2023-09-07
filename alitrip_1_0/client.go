@@ -471,6 +471,7 @@ type BillSettementBtripTrainResponseBodyModuleDataList struct {
 	CapitalDirection   *string  `json:"capitalDirection,omitempty" xml:"capitalDirection,omitempty"`
 	CascadeDepartment  *string  `json:"cascadeDepartment,omitempty" xml:"cascadeDepartment,omitempty"`
 	ChangeFee          *float64 `json:"changeFee,omitempty" xml:"changeFee,omitempty"`
+	CoachNo            *string  `json:"coachNo,omitempty" xml:"coachNo,omitempty"`
 	CostCenter         *string  `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
 	CostCenterNumber   *string  `json:"costCenterNumber,omitempty" xml:"costCenterNumber,omitempty"`
 	Coupon             *float64 `json:"coupon,omitempty" xml:"coupon,omitempty"`
@@ -498,6 +499,7 @@ type BillSettementBtripTrainResponseBodyModuleDataList struct {
 	SettlementGrantFee *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
 	SettlementTime     *string  `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
 	SettlementType     *string  `json:"settlementType,omitempty" xml:"settlementType,omitempty"`
+	ShortTicketNo      *string  `json:"shortTicketNo,omitempty" xml:"shortTicketNo,omitempty"`
 	Status             *int64   `json:"status,omitempty" xml:"status,omitempty"`
 	TicketNo           *string  `json:"ticketNo,omitempty" xml:"ticketNo,omitempty"`
 	TicketPrice        *float64 `json:"ticketPrice,omitempty" xml:"ticketPrice,omitempty"`
@@ -579,6 +581,11 @@ func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetCascadeDepartment
 
 func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetChangeFee(v float64) *BillSettementBtripTrainResponseBodyModuleDataList {
 	s.ChangeFee = &v
+	return s
+}
+
+func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetCoachNo(v string) *BillSettementBtripTrainResponseBodyModuleDataList {
+	s.CoachNo = &v
 	return s
 }
 
@@ -714,6 +721,11 @@ func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetSettlementTime(v 
 
 func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetSettlementType(v string) *BillSettementBtripTrainResponseBodyModuleDataList {
 	s.SettlementType = &v
+	return s
+}
+
+func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetShortTicketNo(v string) *BillSettementBtripTrainResponseBodyModuleDataList {
+	s.ShortTicketNo = &v
 	return s
 }
 

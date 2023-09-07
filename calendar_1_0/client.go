@@ -1404,6 +1404,885 @@ func (s *CreateEventResponse) SetBody(v *CreateEventResponseBody) *CreateEventRe
 	return s
 }
 
+type CreateEventByMeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateEventByMeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeHeaders) SetCommonHeaders(v map[string]*string) *CreateEventByMeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateEventByMeHeaders) SetXClientToken(v string) *CreateEventByMeHeaders {
+	s.XClientToken = &v
+	return s
+}
+
+func (s *CreateEventByMeHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEventByMeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateEventByMeRequest struct {
+	Attendees           []*CreateEventByMeRequestAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Description         *string                                    `json:"description,omitempty" xml:"description,omitempty"`
+	End                 *CreateEventByMeRequestEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	Extra               map[string]*string                         `json:"extra,omitempty" xml:"extra,omitempty"`
+	IsAllDay            *bool                                      `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	Location            *CreateEventByMeRequestLocation            `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	OnlineMeetingInfo   *CreateEventByMeRequestOnlineMeetingInfo   `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	Recurrence          *CreateEventByMeRequestRecurrence          `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	Reminders           []*CreateEventByMeRequestReminders         `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	RichTextDescription *CreateEventByMeRequestRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
+	Start               *CreateEventByMeRequestStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	Summary             *string                                    `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs           []*CreateEventByMeRequestUiConfigs         `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
+}
+
+func (s CreateEventByMeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequest) SetAttendees(v []*CreateEventByMeRequestAttendees) *CreateEventByMeRequest {
+	s.Attendees = v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetDescription(v string) *CreateEventByMeRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetEnd(v *CreateEventByMeRequestEnd) *CreateEventByMeRequest {
+	s.End = v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetExtra(v map[string]*string) *CreateEventByMeRequest {
+	s.Extra = v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetIsAllDay(v bool) *CreateEventByMeRequest {
+	s.IsAllDay = &v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetLocation(v *CreateEventByMeRequestLocation) *CreateEventByMeRequest {
+	s.Location = v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetOnlineMeetingInfo(v *CreateEventByMeRequestOnlineMeetingInfo) *CreateEventByMeRequest {
+	s.OnlineMeetingInfo = v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetRecurrence(v *CreateEventByMeRequestRecurrence) *CreateEventByMeRequest {
+	s.Recurrence = v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetReminders(v []*CreateEventByMeRequestReminders) *CreateEventByMeRequest {
+	s.Reminders = v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetRichTextDescription(v *CreateEventByMeRequestRichTextDescription) *CreateEventByMeRequest {
+	s.RichTextDescription = v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetStart(v *CreateEventByMeRequestStart) *CreateEventByMeRequest {
+	s.Start = v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetSummary(v string) *CreateEventByMeRequest {
+	s.Summary = &v
+	return s
+}
+
+func (s *CreateEventByMeRequest) SetUiConfigs(v []*CreateEventByMeRequestUiConfigs) *CreateEventByMeRequest {
+	s.UiConfigs = v
+	return s
+}
+
+type CreateEventByMeRequestAttendees struct {
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
+}
+
+func (s CreateEventByMeRequestAttendees) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestAttendees) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestAttendees) SetId(v string) *CreateEventByMeRequestAttendees {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestAttendees) SetIsOptional(v bool) *CreateEventByMeRequestAttendees {
+	s.IsOptional = &v
+	return s
+}
+
+type CreateEventByMeRequestEnd struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s CreateEventByMeRequestEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestEnd) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestEnd) SetDate(v string) *CreateEventByMeRequestEnd {
+	s.Date = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestEnd) SetDateTime(v string) *CreateEventByMeRequestEnd {
+	s.DateTime = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestEnd) SetTimeZone(v string) *CreateEventByMeRequestEnd {
+	s.TimeZone = &v
+	return s
+}
+
+type CreateEventByMeRequestLocation struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s CreateEventByMeRequestLocation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestLocation) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestLocation) SetDisplayName(v string) *CreateEventByMeRequestLocation {
+	s.DisplayName = &v
+	return s
+}
+
+type CreateEventByMeRequestOnlineMeetingInfo struct {
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateEventByMeRequestOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestOnlineMeetingInfo) SetType(v string) *CreateEventByMeRequestOnlineMeetingInfo {
+	s.Type = &v
+	return s
+}
+
+type CreateEventByMeRequestRecurrence struct {
+	Pattern *CreateEventByMeRequestRecurrencePattern `json:"pattern,omitempty" xml:"pattern,omitempty" type:"Struct"`
+	Range   *CreateEventByMeRequestRecurrenceRange   `json:"range,omitempty" xml:"range,omitempty" type:"Struct"`
+}
+
+func (s CreateEventByMeRequestRecurrence) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestRecurrence) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestRecurrence) SetPattern(v *CreateEventByMeRequestRecurrencePattern) *CreateEventByMeRequestRecurrence {
+	s.Pattern = v
+	return s
+}
+
+func (s *CreateEventByMeRequestRecurrence) SetRange(v *CreateEventByMeRequestRecurrenceRange) *CreateEventByMeRequestRecurrence {
+	s.Range = v
+	return s
+}
+
+type CreateEventByMeRequestRecurrencePattern struct {
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateEventByMeRequestRecurrencePattern) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestRecurrencePattern) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestRecurrencePattern) SetDayOfMonth(v int32) *CreateEventByMeRequestRecurrencePattern {
+	s.DayOfMonth = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestRecurrencePattern) SetDaysOfWeek(v string) *CreateEventByMeRequestRecurrencePattern {
+	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestRecurrencePattern) SetFirstDayOfWeek(v string) *CreateEventByMeRequestRecurrencePattern {
+	s.FirstDayOfWeek = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestRecurrencePattern) SetIndex(v string) *CreateEventByMeRequestRecurrencePattern {
+	s.Index = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestRecurrencePattern) SetInterval(v int32) *CreateEventByMeRequestRecurrencePattern {
+	s.Interval = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestRecurrencePattern) SetType(v string) *CreateEventByMeRequestRecurrencePattern {
+	s.Type = &v
+	return s
+}
+
+type CreateEventByMeRequestRecurrenceRange struct {
+	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
+	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateEventByMeRequestRecurrenceRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestRecurrenceRange) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestRecurrenceRange) SetEndDate(v string) *CreateEventByMeRequestRecurrenceRange {
+	s.EndDate = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestRecurrenceRange) SetNumberOfOccurrences(v int32) *CreateEventByMeRequestRecurrenceRange {
+	s.NumberOfOccurrences = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestRecurrenceRange) SetType(v string) *CreateEventByMeRequestRecurrenceRange {
+	s.Type = &v
+	return s
+}
+
+type CreateEventByMeRequestReminders struct {
+	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	Minutes *int32  `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s CreateEventByMeRequestReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestReminders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestReminders) SetMethod(v string) *CreateEventByMeRequestReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestReminders) SetMinutes(v int32) *CreateEventByMeRequestReminders {
+	s.Minutes = &v
+	return s
+}
+
+type CreateEventByMeRequestRichTextDescription struct {
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s CreateEventByMeRequestRichTextDescription) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestRichTextDescription) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestRichTextDescription) SetText(v string) *CreateEventByMeRequestRichTextDescription {
+	s.Text = &v
+	return s
+}
+
+type CreateEventByMeRequestStart struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s CreateEventByMeRequestStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestStart) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestStart) SetDate(v string) *CreateEventByMeRequestStart {
+	s.Date = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestStart) SetDateTime(v string) *CreateEventByMeRequestStart {
+	s.DateTime = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestStart) SetTimeZone(v string) *CreateEventByMeRequestStart {
+	s.TimeZone = &v
+	return s
+}
+
+type CreateEventByMeRequestUiConfigs struct {
+	UiName   *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	UiStatus *string `json:"uiStatus,omitempty" xml:"uiStatus,omitempty"`
+}
+
+func (s CreateEventByMeRequestUiConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeRequestUiConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeRequestUiConfigs) SetUiName(v string) *CreateEventByMeRequestUiConfigs {
+	s.UiName = &v
+	return s
+}
+
+func (s *CreateEventByMeRequestUiConfigs) SetUiStatus(v string) *CreateEventByMeRequestUiConfigs {
+	s.UiStatus = &v
+	return s
+}
+
+type CreateEventByMeResponseBody struct {
+	Attendees           []*CreateEventByMeResponseBodyAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	CreateTime          *string                                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description         *string                                         `json:"description,omitempty" xml:"description,omitempty"`
+	End                 *CreateEventByMeResponseBodyEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	Id                  *string                                         `json:"id,omitempty" xml:"id,omitempty"`
+	IsAllDay            *bool                                           `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	Location            *CreateEventByMeResponseBodyLocation            `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	OnlineMeetingInfo   *CreateEventByMeResponseBodyOnlineMeetingInfo   `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	Organizer           *CreateEventByMeResponseBodyOrganizer           `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	Recurrence          *CreateEventByMeResponseBodyRecurrence          `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	Reminders           []*CreateEventByMeResponseBodyReminders         `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	RichTextDescription *CreateEventByMeResponseBodyRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
+	Start               *CreateEventByMeResponseBodyStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	Summary             *string                                         `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs           []*CreateEventByMeResponseBodyUiConfigs         `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
+	UpdateTime          *string                                         `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+}
+
+func (s CreateEventByMeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBody) SetAttendees(v []*CreateEventByMeResponseBodyAttendees) *CreateEventByMeResponseBody {
+	s.Attendees = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetCreateTime(v string) *CreateEventByMeResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetDescription(v string) *CreateEventByMeResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetEnd(v *CreateEventByMeResponseBodyEnd) *CreateEventByMeResponseBody {
+	s.End = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetId(v string) *CreateEventByMeResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetIsAllDay(v bool) *CreateEventByMeResponseBody {
+	s.IsAllDay = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetLocation(v *CreateEventByMeResponseBodyLocation) *CreateEventByMeResponseBody {
+	s.Location = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetOnlineMeetingInfo(v *CreateEventByMeResponseBodyOnlineMeetingInfo) *CreateEventByMeResponseBody {
+	s.OnlineMeetingInfo = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetOrganizer(v *CreateEventByMeResponseBodyOrganizer) *CreateEventByMeResponseBody {
+	s.Organizer = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetRecurrence(v *CreateEventByMeResponseBodyRecurrence) *CreateEventByMeResponseBody {
+	s.Recurrence = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetReminders(v []*CreateEventByMeResponseBodyReminders) *CreateEventByMeResponseBody {
+	s.Reminders = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetRichTextDescription(v *CreateEventByMeResponseBodyRichTextDescription) *CreateEventByMeResponseBody {
+	s.RichTextDescription = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetStart(v *CreateEventByMeResponseBodyStart) *CreateEventByMeResponseBody {
+	s.Start = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetSummary(v string) *CreateEventByMeResponseBody {
+	s.Summary = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetUiConfigs(v []*CreateEventByMeResponseBodyUiConfigs) *CreateEventByMeResponseBody {
+	s.UiConfigs = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBody) SetUpdateTime(v string) *CreateEventByMeResponseBody {
+	s.UpdateTime = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyAttendees struct {
+	DisplayName    *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional     *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyAttendees) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyAttendees) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyAttendees) SetDisplayName(v string) *CreateEventByMeResponseBodyAttendees {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyAttendees) SetId(v string) *CreateEventByMeResponseBodyAttendees {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyAttendees) SetIsOptional(v bool) *CreateEventByMeResponseBodyAttendees {
+	s.IsOptional = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyAttendees) SetResponseStatus(v string) *CreateEventByMeResponseBodyAttendees {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyAttendees) SetSelf(v bool) *CreateEventByMeResponseBodyAttendees {
+	s.Self = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyEnd struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyEnd) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyEnd) SetDate(v string) *CreateEventByMeResponseBodyEnd {
+	s.Date = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyEnd) SetDateTime(v string) *CreateEventByMeResponseBodyEnd {
+	s.DateTime = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyEnd) SetTimeZone(v string) *CreateEventByMeResponseBodyEnd {
+	s.TimeZone = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyLocation struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyLocation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyLocation) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyLocation) SetDisplayName(v string) *CreateEventByMeResponseBodyLocation {
+	s.DisplayName = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyOnlineMeetingInfo struct {
+	ConferenceId *string                `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	ExtraInfo    map[string]interface{} `json:"extraInfo,omitempty" xml:"extraInfo,omitempty"`
+	Type         *string                `json:"type,omitempty" xml:"type,omitempty"`
+	Url          *string                `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyOnlineMeetingInfo) SetConferenceId(v string) *CreateEventByMeResponseBodyOnlineMeetingInfo {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyOnlineMeetingInfo) SetExtraInfo(v map[string]interface{}) *CreateEventByMeResponseBodyOnlineMeetingInfo {
+	s.ExtraInfo = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyOnlineMeetingInfo) SetType(v string) *CreateEventByMeResponseBodyOnlineMeetingInfo {
+	s.Type = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyOnlineMeetingInfo) SetUrl(v string) *CreateEventByMeResponseBodyOnlineMeetingInfo {
+	s.Url = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyOrganizer struct {
+	DisplayName    *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyOrganizer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyOrganizer) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyOrganizer) SetDisplayName(v string) *CreateEventByMeResponseBodyOrganizer {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyOrganizer) SetId(v string) *CreateEventByMeResponseBodyOrganizer {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyOrganizer) SetResponseStatus(v string) *CreateEventByMeResponseBodyOrganizer {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyOrganizer) SetSelf(v bool) *CreateEventByMeResponseBodyOrganizer {
+	s.Self = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyRecurrence struct {
+	Pattern *CreateEventByMeResponseBodyRecurrencePattern `json:"pattern,omitempty" xml:"pattern,omitempty" type:"Struct"`
+	Range   *CreateEventByMeResponseBodyRecurrenceRange   `json:"range,omitempty" xml:"range,omitempty" type:"Struct"`
+}
+
+func (s CreateEventByMeResponseBodyRecurrence) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyRecurrence) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyRecurrence) SetPattern(v *CreateEventByMeResponseBodyRecurrencePattern) *CreateEventByMeResponseBodyRecurrence {
+	s.Pattern = v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyRecurrence) SetRange(v *CreateEventByMeResponseBodyRecurrenceRange) *CreateEventByMeResponseBodyRecurrence {
+	s.Range = v
+	return s
+}
+
+type CreateEventByMeResponseBodyRecurrencePattern struct {
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyRecurrencePattern) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyRecurrencePattern) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyRecurrencePattern) SetDayOfMonth(v int32) *CreateEventByMeResponseBodyRecurrencePattern {
+	s.DayOfMonth = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyRecurrencePattern) SetDaysOfWeek(v string) *CreateEventByMeResponseBodyRecurrencePattern {
+	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyRecurrencePattern) SetFirstDayOfWeek(v string) *CreateEventByMeResponseBodyRecurrencePattern {
+	s.FirstDayOfWeek = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyRecurrencePattern) SetIndex(v string) *CreateEventByMeResponseBodyRecurrencePattern {
+	s.Index = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyRecurrencePattern) SetInterval(v int32) *CreateEventByMeResponseBodyRecurrencePattern {
+	s.Interval = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyRecurrencePattern) SetType(v string) *CreateEventByMeResponseBodyRecurrencePattern {
+	s.Type = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyRecurrenceRange struct {
+	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
+	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyRecurrenceRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyRecurrenceRange) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyRecurrenceRange) SetEndDate(v string) *CreateEventByMeResponseBodyRecurrenceRange {
+	s.EndDate = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyRecurrenceRange) SetNumberOfOccurrences(v int32) *CreateEventByMeResponseBodyRecurrenceRange {
+	s.NumberOfOccurrences = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyRecurrenceRange) SetType(v string) *CreateEventByMeResponseBodyRecurrenceRange {
+	s.Type = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyReminders struct {
+	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyReminders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyReminders) SetMethod(v string) *CreateEventByMeResponseBodyReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyReminders) SetMinutes(v string) *CreateEventByMeResponseBodyReminders {
+	s.Minutes = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyRichTextDescription struct {
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyRichTextDescription) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyRichTextDescription) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyRichTextDescription) SetText(v string) *CreateEventByMeResponseBodyRichTextDescription {
+	s.Text = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyStart struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyStart) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyStart) SetDate(v string) *CreateEventByMeResponseBodyStart {
+	s.Date = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyStart) SetDateTime(v string) *CreateEventByMeResponseBodyStart {
+	s.DateTime = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyStart) SetTimeZone(v string) *CreateEventByMeResponseBodyStart {
+	s.TimeZone = &v
+	return s
+}
+
+type CreateEventByMeResponseBodyUiConfigs struct {
+	UiName   *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	UiStatus *string `json:"uiStatus,omitempty" xml:"uiStatus,omitempty"`
+}
+
+func (s CreateEventByMeResponseBodyUiConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponseBodyUiConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponseBodyUiConfigs) SetUiName(v string) *CreateEventByMeResponseBodyUiConfigs {
+	s.UiName = &v
+	return s
+}
+
+func (s *CreateEventByMeResponseBodyUiConfigs) SetUiStatus(v string) *CreateEventByMeResponseBodyUiConfigs {
+	s.UiStatus = &v
+	return s
+}
+
+type CreateEventByMeResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateEventByMeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateEventByMeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventByMeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventByMeResponse) SetHeaders(v map[string]*string) *CreateEventByMeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateEventByMeResponse) SetStatusCode(v int32) *CreateEventByMeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateEventByMeResponse) SetBody(v *CreateEventByMeResponseBody) *CreateEventByMeResponse {
+	s.Body = v
+	return s
+}
+
 type CreateSubscribedCalendarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8165,6 +9044,113 @@ func (client *Client) CreateEvent(userId *string, calendarId *string, request *C
 	headers := &CreateEventHeaders{}
 	_result = &CreateEventResponse{}
 	_body, _err := client.CreateEventWithOptions(userId, calendarId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateEventByMeWithOptions(calendarId *string, request *CreateEventByMeRequest, headers *CreateEventByMeHeaders, runtime *util.RuntimeOptions) (_result *CreateEventByMeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Attendees)) {
+		body["attendees"] = request.Attendees
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.End)) {
+		body["end"] = request.End
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extra)) {
+		body["extra"] = request.Extra
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsAllDay)) {
+		body["isAllDay"] = request.IsAllDay
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Location)) {
+		body["location"] = request.Location
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OnlineMeetingInfo)) {
+		body["onlineMeetingInfo"] = request.OnlineMeetingInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Recurrence)) {
+		body["recurrence"] = request.Recurrence
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Reminders)) {
+		body["reminders"] = request.Reminders
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RichTextDescription)) {
+		body["richTextDescription"] = request.RichTextDescription
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Start)) {
+		body["start"] = request.Start
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Summary)) {
+		body["summary"] = request.Summary
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UiConfigs)) {
+		body["uiConfigs"] = request.UiConfigs
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateEventByMe"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/me/calendars/" + tea.StringValue(calendarId) + "/events"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateEventByMeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateEventByMe(calendarId *string, request *CreateEventByMeRequest) (_result *CreateEventByMeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateEventByMeHeaders{}
+	_result = &CreateEventByMeResponse{}
+	_body, _err := client.CreateEventByMeWithOptions(calendarId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
