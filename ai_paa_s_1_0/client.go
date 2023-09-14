@@ -1,0 +1,828 @@
+// This file is auto-generated, don't edit it. Thanks.
+/**
+ *
+ */
+package ai_paa_s_1_0
+
+import (
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
+
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
+	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	"github.com/alibabacloud-go/tea/tea"
+)
+
+type QueryConversationMessageForAIHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryConversationMessageForAIHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConversationMessageForAIHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConversationMessageForAIHeaders) SetCommonHeaders(v map[string]*string) *QueryConversationMessageForAIHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryConversationMessageForAIHeaders) SetXAcsDingtalkAccessToken(v string) *QueryConversationMessageForAIHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryConversationMessageForAIRequest struct {
+	OpenMsgIds  []*string `json:"openMsgIds,omitempty" xml:"openMsgIds,omitempty" type:"Repeated"`
+	RecentDays  *int32    `json:"recentDays,omitempty" xml:"recentDays,omitempty"`
+	RecentHours *int32    `json:"recentHours,omitempty" xml:"recentHours,omitempty"`
+	RecentN     *int32    `json:"recentN,omitempty" xml:"recentN,omitempty"`
+}
+
+func (s QueryConversationMessageForAIRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConversationMessageForAIRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConversationMessageForAIRequest) SetOpenMsgIds(v []*string) *QueryConversationMessageForAIRequest {
+	s.OpenMsgIds = v
+	return s
+}
+
+func (s *QueryConversationMessageForAIRequest) SetRecentDays(v int32) *QueryConversationMessageForAIRequest {
+	s.RecentDays = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIRequest) SetRecentHours(v int32) *QueryConversationMessageForAIRequest {
+	s.RecentHours = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIRequest) SetRecentN(v int32) *QueryConversationMessageForAIRequest {
+	s.RecentN = &v
+	return s
+}
+
+type QueryConversationMessageForAIShrinkRequest struct {
+	OpenMsgIdsShrink *string `json:"openMsgIds,omitempty" xml:"openMsgIds,omitempty"`
+	RecentDays       *int32  `json:"recentDays,omitempty" xml:"recentDays,omitempty"`
+	RecentHours      *int32  `json:"recentHours,omitempty" xml:"recentHours,omitempty"`
+	RecentN          *int32  `json:"recentN,omitempty" xml:"recentN,omitempty"`
+}
+
+func (s QueryConversationMessageForAIShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConversationMessageForAIShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConversationMessageForAIShrinkRequest) SetOpenMsgIdsShrink(v string) *QueryConversationMessageForAIShrinkRequest {
+	s.OpenMsgIdsShrink = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIShrinkRequest) SetRecentDays(v int32) *QueryConversationMessageForAIShrinkRequest {
+	s.RecentDays = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIShrinkRequest) SetRecentHours(v int32) *QueryConversationMessageForAIShrinkRequest {
+	s.RecentHours = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIShrinkRequest) SetRecentN(v int32) *QueryConversationMessageForAIShrinkRequest {
+	s.RecentN = &v
+	return s
+}
+
+type QueryConversationMessageForAIResponseBody struct {
+	Messages []*QueryConversationMessageForAIResponseBodyMessages `json:"messages,omitempty" xml:"messages,omitempty" type:"Repeated"`
+}
+
+func (s QueryConversationMessageForAIResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConversationMessageForAIResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConversationMessageForAIResponseBody) SetMessages(v []*QueryConversationMessageForAIResponseBodyMessages) *QueryConversationMessageForAIResponseBody {
+	s.Messages = v
+	return s
+}
+
+type QueryConversationMessageForAIResponseBodyMessages struct {
+	AtAll      *bool                                                       `json:"atAll,omitempty" xml:"atAll,omitempty"`
+	AtUsers    []*QueryConversationMessageForAIResponseBodyMessagesAtUsers `json:"atUsers,omitempty" xml:"atUsers,omitempty" type:"Repeated"`
+	MsgContent *string                                                     `json:"msgContent,omitempty" xml:"msgContent,omitempty"`
+	MsgType    *string                                                     `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	SendTime   *string                                                     `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	Sender     *QueryConversationMessageForAIResponseBodyMessagesSender    `json:"sender,omitempty" xml:"sender,omitempty" type:"Struct"`
+	Summary    *string                                                     `json:"summary,omitempty" xml:"summary,omitempty"`
+}
+
+func (s QueryConversationMessageForAIResponseBodyMessages) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConversationMessageForAIResponseBodyMessages) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessages) SetAtAll(v bool) *QueryConversationMessageForAIResponseBodyMessages {
+	s.AtAll = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessages) SetAtUsers(v []*QueryConversationMessageForAIResponseBodyMessagesAtUsers) *QueryConversationMessageForAIResponseBodyMessages {
+	s.AtUsers = v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessages) SetMsgContent(v string) *QueryConversationMessageForAIResponseBodyMessages {
+	s.MsgContent = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessages) SetMsgType(v string) *QueryConversationMessageForAIResponseBodyMessages {
+	s.MsgType = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessages) SetSendTime(v string) *QueryConversationMessageForAIResponseBodyMessages {
+	s.SendTime = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessages) SetSender(v *QueryConversationMessageForAIResponseBodyMessagesSender) *QueryConversationMessageForAIResponseBodyMessages {
+	s.Sender = v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessages) SetSummary(v string) *QueryConversationMessageForAIResponseBodyMessages {
+	s.Summary = &v
+	return s
+}
+
+type QueryConversationMessageForAIResponseBodyMessagesAtUsers struct {
+	AgentCode *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	Type      *string `json:"type,omitempty" xml:"type,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryConversationMessageForAIResponseBodyMessagesAtUsers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConversationMessageForAIResponseBodyMessagesAtUsers) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesAtUsers) SetAgentCode(v string) *QueryConversationMessageForAIResponseBodyMessagesAtUsers {
+	s.AgentCode = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesAtUsers) SetNick(v string) *QueryConversationMessageForAIResponseBodyMessagesAtUsers {
+	s.Nick = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesAtUsers) SetType(v string) *QueryConversationMessageForAIResponseBodyMessagesAtUsers {
+	s.Type = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesAtUsers) SetUnionId(v string) *QueryConversationMessageForAIResponseBodyMessagesAtUsers {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesAtUsers) SetUserId(v string) *QueryConversationMessageForAIResponseBodyMessagesAtUsers {
+	s.UserId = &v
+	return s
+}
+
+type QueryConversationMessageForAIResponseBodyMessagesSender struct {
+	AgentCode *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	Type      *string `json:"type,omitempty" xml:"type,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryConversationMessageForAIResponseBodyMessagesSender) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConversationMessageForAIResponseBodyMessagesSender) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesSender) SetAgentCode(v string) *QueryConversationMessageForAIResponseBodyMessagesSender {
+	s.AgentCode = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesSender) SetNick(v string) *QueryConversationMessageForAIResponseBodyMessagesSender {
+	s.Nick = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesSender) SetType(v string) *QueryConversationMessageForAIResponseBodyMessagesSender {
+	s.Type = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesSender) SetUnionId(v string) *QueryConversationMessageForAIResponseBodyMessagesSender {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponseBodyMessagesSender) SetUserId(v string) *QueryConversationMessageForAIResponseBodyMessagesSender {
+	s.UserId = &v
+	return s
+}
+
+type QueryConversationMessageForAIResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryConversationMessageForAIResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryConversationMessageForAIResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConversationMessageForAIResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConversationMessageForAIResponse) SetHeaders(v map[string]*string) *QueryConversationMessageForAIResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponse) SetStatusCode(v int32) *QueryConversationMessageForAIResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryConversationMessageForAIResponse) SetBody(v *QueryConversationMessageForAIResponseBody) *QueryConversationMessageForAIResponse {
+	s.Body = v
+	return s
+}
+
+type QueryMemoryLearningTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMemoryLearningTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMemoryLearningTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMemoryLearningTaskHeaders) SetCommonHeaders(v map[string]*string) *QueryMemoryLearningTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMemoryLearningTaskHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMemoryLearningTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMemoryLearningTaskRequest struct {
+	AgentCode    *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	LearningCode *string `json:"learningCode,omitempty" xml:"learningCode,omitempty"`
+}
+
+func (s QueryMemoryLearningTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMemoryLearningTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMemoryLearningTaskRequest) SetAgentCode(v string) *QueryMemoryLearningTaskRequest {
+	s.AgentCode = &v
+	return s
+}
+
+func (s *QueryMemoryLearningTaskRequest) SetLearningCode(v string) *QueryMemoryLearningTaskRequest {
+	s.LearningCode = &v
+	return s
+}
+
+type QueryMemoryLearningTaskResponseBody struct {
+	Result *QueryMemoryLearningTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryMemoryLearningTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMemoryLearningTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMemoryLearningTaskResponseBody) SetResult(v *QueryMemoryLearningTaskResponseBodyResult) *QueryMemoryLearningTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryMemoryLearningTaskResponseBodyResult struct {
+	Status  *string `json:"status,omitempty" xml:"status,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryMemoryLearningTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMemoryLearningTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMemoryLearningTaskResponseBodyResult) SetStatus(v string) *QueryMemoryLearningTaskResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryMemoryLearningTaskResponseBodyResult) SetSuccess(v bool) *QueryMemoryLearningTaskResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type QueryMemoryLearningTaskResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryMemoryLearningTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryMemoryLearningTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMemoryLearningTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMemoryLearningTaskResponse) SetHeaders(v map[string]*string) *QueryMemoryLearningTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMemoryLearningTaskResponse) SetStatusCode(v int32) *QueryMemoryLearningTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMemoryLearningTaskResponse) SetBody(v *QueryMemoryLearningTaskResponseBody) *QueryMemoryLearningTaskResponse {
+	s.Body = v
+	return s
+}
+
+type SubmitMemoryLearningTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubmitMemoryLearningTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitMemoryLearningTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitMemoryLearningTaskHeaders) SetCommonHeaders(v map[string]*string) *SubmitMemoryLearningTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SubmitMemoryLearningTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubmitMemoryLearningTaskRequest struct {
+	AgentCode    *string                                 `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	Content      *SubmitMemoryLearningTaskRequestContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	LearningMode *string                                 `json:"learningMode,omitempty" xml:"learningMode,omitempty"`
+	MemoryKey    *string                                 `json:"memoryKey,omitempty" xml:"memoryKey,omitempty"`
+}
+
+func (s SubmitMemoryLearningTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitMemoryLearningTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitMemoryLearningTaskRequest) SetAgentCode(v string) *SubmitMemoryLearningTaskRequest {
+	s.AgentCode = &v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskRequest) SetContent(v *SubmitMemoryLearningTaskRequestContent) *SubmitMemoryLearningTaskRequest {
+	s.Content = v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskRequest) SetLearningMode(v string) *SubmitMemoryLearningTaskRequest {
+	s.LearningMode = &v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskRequest) SetMemoryKey(v string) *SubmitMemoryLearningTaskRequest {
+	s.MemoryKey = &v
+	return s
+}
+
+type SubmitMemoryLearningTaskRequestContent struct {
+	KnowledgeBaseUrl *string `json:"knowledgeBaseUrl,omitempty" xml:"knowledgeBaseUrl,omitempty"`
+	Type             *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SubmitMemoryLearningTaskRequestContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitMemoryLearningTaskRequestContent) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitMemoryLearningTaskRequestContent) SetKnowledgeBaseUrl(v string) *SubmitMemoryLearningTaskRequestContent {
+	s.KnowledgeBaseUrl = &v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskRequestContent) SetType(v string) *SubmitMemoryLearningTaskRequestContent {
+	s.Type = &v
+	return s
+}
+
+type SubmitMemoryLearningTaskShrinkRequest struct {
+	AgentCode     *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	ContentShrink *string `json:"content,omitempty" xml:"content,omitempty"`
+	LearningMode  *string `json:"learningMode,omitempty" xml:"learningMode,omitempty"`
+	MemoryKey     *string `json:"memoryKey,omitempty" xml:"memoryKey,omitempty"`
+}
+
+func (s SubmitMemoryLearningTaskShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitMemoryLearningTaskShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitMemoryLearningTaskShrinkRequest) SetAgentCode(v string) *SubmitMemoryLearningTaskShrinkRequest {
+	s.AgentCode = &v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskShrinkRequest) SetContentShrink(v string) *SubmitMemoryLearningTaskShrinkRequest {
+	s.ContentShrink = &v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskShrinkRequest) SetLearningMode(v string) *SubmitMemoryLearningTaskShrinkRequest {
+	s.LearningMode = &v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskShrinkRequest) SetMemoryKey(v string) *SubmitMemoryLearningTaskShrinkRequest {
+	s.MemoryKey = &v
+	return s
+}
+
+type SubmitMemoryLearningTaskResponseBody struct {
+	Result *SubmitMemoryLearningTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SubmitMemoryLearningTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitMemoryLearningTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitMemoryLearningTaskResponseBody) SetResult(v *SubmitMemoryLearningTaskResponseBodyResult) *SubmitMemoryLearningTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+type SubmitMemoryLearningTaskResponseBodyResult struct {
+	LearningCode *string `json:"learningCode,omitempty" xml:"learningCode,omitempty"`
+	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
+	Success      *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SubmitMemoryLearningTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitMemoryLearningTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitMemoryLearningTaskResponseBodyResult) SetLearningCode(v string) *SubmitMemoryLearningTaskResponseBodyResult {
+	s.LearningCode = &v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskResponseBodyResult) SetStatus(v string) *SubmitMemoryLearningTaskResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskResponseBodyResult) SetSuccess(v bool) *SubmitMemoryLearningTaskResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type SubmitMemoryLearningTaskResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SubmitMemoryLearningTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SubmitMemoryLearningTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitMemoryLearningTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitMemoryLearningTaskResponse) SetHeaders(v map[string]*string) *SubmitMemoryLearningTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskResponse) SetStatusCode(v int32) *SubmitMemoryLearningTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SubmitMemoryLearningTaskResponse) SetBody(v *SubmitMemoryLearningTaskResponseBody) *SubmitMemoryLearningTaskResponse {
+	s.Body = v
+	return s
+}
+
+type Client struct {
+	openapi.Client
+}
+
+func NewClient(config *openapi.Config) (*Client, error) {
+	client := new(Client)
+	err := client.Init(config)
+	return client, err
+}
+
+func (client *Client) Init(config *openapi.Config) (_err error) {
+	_err = client.Client.Init(config)
+	if _err != nil {
+		return _err
+	}
+	interfaceSPI, _err := gatewayclient.NewClient()
+	if _err != nil {
+		return _err
+	}
+
+	client.Spi = interfaceSPI
+	client.EndpointRule = tea.String("")
+	if tea.BoolValue(util.Empty(client.Endpoint)) {
+		client.Endpoint = tea.String("api.dingtalk.com")
+	}
+
+	return nil
+}
+
+func (client *Client) QueryConversationMessageForAIWithOptions(cid *string, tmpReq *QueryConversationMessageForAIRequest, headers *QueryConversationMessageForAIHeaders, runtime *util.RuntimeOptions) (_result *QueryConversationMessageForAIResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &QueryConversationMessageForAIShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.OpenMsgIds)) {
+		request.OpenMsgIdsShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.OpenMsgIds, tea.String("openMsgIds"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenMsgIdsShrink)) {
+		query["openMsgIds"] = request.OpenMsgIdsShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecentDays)) {
+		query["recentDays"] = request.RecentDays
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecentHours)) {
+		query["recentHours"] = request.RecentHours
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecentN)) {
+		query["recentN"] = request.RecentN
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryConversationMessageForAI"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/me/memory/im/" + tea.StringValue(cid) + "/messages"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryConversationMessageForAIResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryConversationMessageForAI(cid *string, request *QueryConversationMessageForAIRequest) (_result *QueryConversationMessageForAIResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryConversationMessageForAIHeaders{}
+	_result = &QueryConversationMessageForAIResponse{}
+	_body, _err := client.QueryConversationMessageForAIWithOptions(cid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryMemoryLearningTaskWithOptions(request *QueryMemoryLearningTaskRequest, headers *QueryMemoryLearningTaskHeaders, runtime *util.RuntimeOptions) (_result *QueryMemoryLearningTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentCode)) {
+		query["agentCode"] = request.AgentCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LearningCode)) {
+		query["learningCode"] = request.LearningCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMemoryLearningTask"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/me/memory/learningTask/get"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMemoryLearningTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryMemoryLearningTask(request *QueryMemoryLearningTaskRequest) (_result *QueryMemoryLearningTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMemoryLearningTaskHeaders{}
+	_result = &QueryMemoryLearningTaskResponse{}
+	_body, _err := client.QueryMemoryLearningTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SubmitMemoryLearningTaskWithOptions(tmpReq *SubmitMemoryLearningTaskRequest, headers *SubmitMemoryLearningTaskHeaders, runtime *util.RuntimeOptions) (_result *SubmitMemoryLearningTaskResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &SubmitMemoryLearningTaskShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.Content)) {
+		request.ContentShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Content, tea.String("content"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentCode)) {
+		query["agentCode"] = request.AgentCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContentShrink)) {
+		query["content"] = request.ContentShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LearningMode)) {
+		query["learningMode"] = request.LearningMode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemoryKey)) {
+		query["memoryKey"] = request.MemoryKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SubmitMemoryLearningTask"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/me/memory/learningTask/put"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SubmitMemoryLearningTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SubmitMemoryLearningTask(request *SubmitMemoryLearningTaskRequest) (_result *SubmitMemoryLearningTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubmitMemoryLearningTaskHeaders{}
+	_result = &SubmitMemoryLearningTaskResponse{}
+	_body, _err := client.SubmitMemoryLearningTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
