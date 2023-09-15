@@ -2094,13 +2094,15 @@ func (s *QueryOrgTodoByUserHeaders) SetXAcsDingtalkAccessToken(v string) *QueryO
 }
 
 type QueryOrgTodoByUserRequest struct {
-	FromDueTime *int64      `json:"fromDueTime,omitempty" xml:"fromDueTime,omitempty"`
-	IsDone      *bool       `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	MaxResults  *int32      `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken   *string     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	RoleTypes   [][]*string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty" type:"Repeated"`
-	Subject     *string     `json:"subject,omitempty" xml:"subject,omitempty"`
-	ToDueTime   *int64      `json:"toDueTime,omitempty" xml:"toDueTime,omitempty"`
+	FromDueTime    *int64      `json:"fromDueTime,omitempty" xml:"fromDueTime,omitempty"`
+	IsDone         *bool       `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	MaxResults     *int32      `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *string     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OrderBy        *string     `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	OrderDirection *string     `json:"orderDirection,omitempty" xml:"orderDirection,omitempty"`
+	RoleTypes      [][]*string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty" type:"Repeated"`
+	Subject        *string     `json:"subject,omitempty" xml:"subject,omitempty"`
+	ToDueTime      *int64      `json:"toDueTime,omitempty" xml:"toDueTime,omitempty"`
 }
 
 func (s QueryOrgTodoByUserRequest) String() string {
@@ -2128,6 +2130,16 @@ func (s *QueryOrgTodoByUserRequest) SetMaxResults(v int32) *QueryOrgTodoByUserRe
 
 func (s *QueryOrgTodoByUserRequest) SetNextToken(v string) *QueryOrgTodoByUserRequest {
 	s.NextToken = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserRequest) SetOrderBy(v string) *QueryOrgTodoByUserRequest {
+	s.OrderBy = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserRequest) SetOrderDirection(v string) *QueryOrgTodoByUserRequest {
+	s.OrderDirection = &v
 	return s
 }
 
@@ -3882,6 +3894,14 @@ func (client *Client) QueryOrgTodoByUserWithOptions(unionId *string, request *Qu
 
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderBy)) {
+		body["orderBy"] = request.OrderBy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderDirection)) {
+		body["orderDirection"] = request.OrderDirection
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RoleTypes)) {

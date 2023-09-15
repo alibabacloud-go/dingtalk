@@ -2815,6 +2815,7 @@ func (s *GetAllAuthCubesRequest) SetUserId(v string) *GetAllAuthCubesRequest {
 }
 
 type GetAllAuthCubesResponseBody struct {
+	Count  *int64                               `json:"count,omitempty" xml:"count,omitempty"`
 	Result []*GetAllAuthCubesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2824,6 +2825,11 @@ func (s GetAllAuthCubesResponseBody) String() string {
 
 func (s GetAllAuthCubesResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetAllAuthCubesResponseBody) SetCount(v int64) *GetAllAuthCubesResponseBody {
+	s.Count = &v
+	return s
 }
 
 func (s *GetAllAuthCubesResponseBody) SetResult(v []*GetAllAuthCubesResponseBodyResult) *GetAllAuthCubesResponseBody {
