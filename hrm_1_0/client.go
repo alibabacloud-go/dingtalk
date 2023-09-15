@@ -2728,6 +2728,187 @@ func (s *RosterMetaFieldOptionsUpdateResponse) SetBody(v *RosterMetaFieldOptions
 	return s
 }
 
+type SendIsvCardMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendIsvCardMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendIsvCardMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendIsvCardMessageHeaders) SetCommonHeaders(v map[string]*string) *SendIsvCardMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendIsvCardMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendIsvCardMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendIsvCardMessageRequest struct {
+	AgentId         *int64             `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	BizId           *string            `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	MessageType     *string            `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	ReceiverUserIds []*string          `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
+	SceneType       *string            `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+	Scope           *string            `json:"scope,omitempty" xml:"scope,omitempty"`
+	SenderUserId    *string            `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	ValueMap        map[string]*string `json:"valueMap,omitempty" xml:"valueMap,omitempty"`
+}
+
+func (s SendIsvCardMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendIsvCardMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendIsvCardMessageRequest) SetAgentId(v int64) *SendIsvCardMessageRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *SendIsvCardMessageRequest) SetBizId(v string) *SendIsvCardMessageRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *SendIsvCardMessageRequest) SetMessageType(v string) *SendIsvCardMessageRequest {
+	s.MessageType = &v
+	return s
+}
+
+func (s *SendIsvCardMessageRequest) SetReceiverUserIds(v []*string) *SendIsvCardMessageRequest {
+	s.ReceiverUserIds = v
+	return s
+}
+
+func (s *SendIsvCardMessageRequest) SetSceneType(v string) *SendIsvCardMessageRequest {
+	s.SceneType = &v
+	return s
+}
+
+func (s *SendIsvCardMessageRequest) SetScope(v string) *SendIsvCardMessageRequest {
+	s.Scope = &v
+	return s
+}
+
+func (s *SendIsvCardMessageRequest) SetSenderUserId(v string) *SendIsvCardMessageRequest {
+	s.SenderUserId = &v
+	return s
+}
+
+func (s *SendIsvCardMessageRequest) SetValueMap(v map[string]*string) *SendIsvCardMessageRequest {
+	s.ValueMap = v
+	return s
+}
+
+type SendIsvCardMessageResponseBody struct {
+	ErrorCode                    *string                                                     `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg                     *string                                                     `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	HrmInteractiveCardSendResult *SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult `json:"hrmInteractiveCardSendResult,omitempty" xml:"hrmInteractiveCardSendResult,omitempty" type:"Struct"`
+	RequestId                    *string                                                     `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success                      *bool                                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendIsvCardMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendIsvCardMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendIsvCardMessageResponseBody) SetErrorCode(v string) *SendIsvCardMessageResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *SendIsvCardMessageResponseBody) SetErrorMsg(v string) *SendIsvCardMessageResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *SendIsvCardMessageResponseBody) SetHrmInteractiveCardSendResult(v *SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult) *SendIsvCardMessageResponseBody {
+	s.HrmInteractiveCardSendResult = v
+	return s
+}
+
+func (s *SendIsvCardMessageResponseBody) SetRequestId(v string) *SendIsvCardMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SendIsvCardMessageResponseBody) SetSuccess(v bool) *SendIsvCardMessageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult struct {
+	BizId     *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+}
+
+func (s SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult) GoString() string {
+	return s.String()
+}
+
+func (s *SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult) SetBizId(v string) *SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult {
+	s.BizId = &v
+	return s
+}
+
+func (s *SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult) SetErrorCode(v string) *SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult) SetErrorMsg(v string) *SendIsvCardMessageResponseBodyHrmInteractiveCardSendResult {
+	s.ErrorMsg = &v
+	return s
+}
+
+type SendIsvCardMessageResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SendIsvCardMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendIsvCardMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendIsvCardMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendIsvCardMessageResponse) SetHeaders(v map[string]*string) *SendIsvCardMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendIsvCardMessageResponse) SetStatusCode(v int32) *SendIsvCardMessageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SendIsvCardMessageResponse) SetBody(v *SendIsvCardMessageResponseBody) *SendIsvCardMessageResponse {
+	s.Body = v
+	return s
+}
+
 type SolutionTaskInitHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3179,6 +3360,140 @@ func (s *SyncTaskTemplateResponse) SetStatusCode(v int32) *SyncTaskTemplateRespo
 }
 
 func (s *SyncTaskTemplateResponse) SetBody(v *SyncTaskTemplateResponseBody) *SyncTaskTemplateResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateIsvCardMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateIsvCardMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateIsvCardMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateIsvCardMessageHeaders) SetCommonHeaders(v map[string]*string) *UpdateIsvCardMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateIsvCardMessageHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateIsvCardMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateIsvCardMessageRequest struct {
+	AgentId     *int64             `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	BizId       *string            `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	MessageType *string            `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	SceneType   *string            `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+	Scope       *string            `json:"scope,omitempty" xml:"scope,omitempty"`
+	ValueMap    map[string]*string `json:"valueMap,omitempty" xml:"valueMap,omitempty"`
+}
+
+func (s UpdateIsvCardMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateIsvCardMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateIsvCardMessageRequest) SetAgentId(v int64) *UpdateIsvCardMessageRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *UpdateIsvCardMessageRequest) SetBizId(v string) *UpdateIsvCardMessageRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *UpdateIsvCardMessageRequest) SetMessageType(v string) *UpdateIsvCardMessageRequest {
+	s.MessageType = &v
+	return s
+}
+
+func (s *UpdateIsvCardMessageRequest) SetSceneType(v string) *UpdateIsvCardMessageRequest {
+	s.SceneType = &v
+	return s
+}
+
+func (s *UpdateIsvCardMessageRequest) SetScope(v string) *UpdateIsvCardMessageRequest {
+	s.Scope = &v
+	return s
+}
+
+func (s *UpdateIsvCardMessageRequest) SetValueMap(v map[string]*string) *UpdateIsvCardMessageRequest {
+	s.ValueMap = v
+	return s
+}
+
+type UpdateIsvCardMessageResponseBody struct {
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateIsvCardMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateIsvCardMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateIsvCardMessageResponseBody) SetErrorCode(v string) *UpdateIsvCardMessageResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *UpdateIsvCardMessageResponseBody) SetErrorMsg(v string) *UpdateIsvCardMessageResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *UpdateIsvCardMessageResponseBody) SetRequestId(v string) *UpdateIsvCardMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *UpdateIsvCardMessageResponseBody) SetSuccess(v bool) *UpdateIsvCardMessageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateIsvCardMessageResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateIsvCardMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateIsvCardMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateIsvCardMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateIsvCardMessageResponse) SetHeaders(v map[string]*string) *UpdateIsvCardMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateIsvCardMessageResponse) SetStatusCode(v int32) *UpdateIsvCardMessageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateIsvCardMessageResponse) SetBody(v *UpdateIsvCardMessageResponseBody) *UpdateIsvCardMessageResponse {
 	s.Body = v
 	return s
 }
@@ -4411,6 +4726,91 @@ func (client *Client) RosterMetaFieldOptionsUpdate(request *RosterMetaFieldOptio
 	return _result, _err
 }
 
+func (client *Client) SendIsvCardMessageWithOptions(request *SendIsvCardMessageRequest, headers *SendIsvCardMessageHeaders, runtime *util.RuntimeOptions) (_result *SendIsvCardMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		query["agentId"] = request.AgentId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MessageType)) {
+		body["messageType"] = request.MessageType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIds)) {
+		body["receiverUserIds"] = request.ReceiverUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SceneType)) {
+		body["sceneType"] = request.SceneType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		body["scope"] = request.Scope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderUserId)) {
+		body["senderUserId"] = request.SenderUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ValueMap)) {
+		body["valueMap"] = request.ValueMap
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SendIsvCardMessage"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/cardMessages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendIsvCardMessageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendIsvCardMessage(request *SendIsvCardMessageRequest) (_result *SendIsvCardMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendIsvCardMessageHeaders{}
+	_result = &SendIsvCardMessageResponse{}
+	_body, _err := client.SendIsvCardMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) SolutionTaskInitWithOptions(request *SolutionTaskInitRequest, headers *SolutionTaskInitHeaders, runtime *util.RuntimeOptions) (_result *SolutionTaskInitResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4683,6 +5083,83 @@ func (client *Client) SyncTaskTemplate(request *SyncTaskTemplateRequest) (_resul
 	headers := &SyncTaskTemplateHeaders{}
 	_result = &SyncTaskTemplateResponse{}
 	_body, _err := client.SyncTaskTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateIsvCardMessageWithOptions(request *UpdateIsvCardMessageRequest, headers *UpdateIsvCardMessageHeaders, runtime *util.RuntimeOptions) (_result *UpdateIsvCardMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		query["agentId"] = request.AgentId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MessageType)) {
+		body["messageType"] = request.MessageType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SceneType)) {
+		body["sceneType"] = request.SceneType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		body["scope"] = request.Scope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ValueMap)) {
+		body["valueMap"] = request.ValueMap
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateIsvCardMessage"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/cardMessages"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateIsvCardMessageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateIsvCardMessage(request *UpdateIsvCardMessageRequest) (_result *UpdateIsvCardMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateIsvCardMessageHeaders{}
+	_result = &UpdateIsvCardMessageResponse{}
+	_body, _err := client.UpdateIsvCardMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
