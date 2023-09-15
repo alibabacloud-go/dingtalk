@@ -2303,16 +2303,17 @@ func (s *GetFinanceAccountRequest) SetAccountCode(v string) *GetFinanceAccountRe
 }
 
 type GetFinanceAccountResponseBody struct {
-	AccountCode   *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
-	AccountId     *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	AccountName   *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
-	AccountType   *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	BankCode      *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
-	BankName      *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	CreateTime    *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	AccountCode          *string   `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+	AccountId            *string   `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	AccountName          *string   `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	AccountRemark        *string   `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
+	AccountType          *string   `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	AccountantBookIdList []*string `json:"accountantBookIdList,omitempty" xml:"accountantBookIdList,omitempty" type:"Repeated"`
+	Amount               *string   `json:"amount,omitempty" xml:"amount,omitempty"`
+	BankCode             *string   `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	BankName             *string   `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	CreateTime           *int64    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator              *string   `json:"creator,omitempty" xml:"creator,omitempty"`
 }
 
 func (s GetFinanceAccountResponseBody) String() string {
@@ -2345,6 +2346,11 @@ func (s *GetFinanceAccountResponseBody) SetAccountRemark(v string) *GetFinanceAc
 
 func (s *GetFinanceAccountResponseBody) SetAccountType(v string) *GetFinanceAccountResponseBody {
 	s.AccountType = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetAccountantBookIdList(v []*string) *GetFinanceAccountResponseBody {
+	s.AccountantBookIdList = v
 	return s
 }
 

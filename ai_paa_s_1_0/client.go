@@ -13,6 +13,168 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ExecuteAgentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExecuteAgentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteAgentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteAgentHeaders) SetCommonHeaders(v map[string]*string) *ExecuteAgentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExecuteAgentHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteAgentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExecuteAgentRequest struct {
+	AgentCode          *string                    `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	Inputs             *ExecuteAgentRequestInputs `json:"inputs,omitempty" xml:"inputs,omitempty" type:"Struct"`
+	ScenarioCode       *string                    `json:"scenarioCode,omitempty" xml:"scenarioCode,omitempty"`
+	ScenarioInstanceId *string                    `json:"scenarioInstanceId,omitempty" xml:"scenarioInstanceId,omitempty"`
+	SkillId            *string                    `json:"skillId,omitempty" xml:"skillId,omitempty"`
+}
+
+func (s ExecuteAgentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteAgentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteAgentRequest) SetAgentCode(v string) *ExecuteAgentRequest {
+	s.AgentCode = &v
+	return s
+}
+
+func (s *ExecuteAgentRequest) SetInputs(v *ExecuteAgentRequestInputs) *ExecuteAgentRequest {
+	s.Inputs = v
+	return s
+}
+
+func (s *ExecuteAgentRequest) SetScenarioCode(v string) *ExecuteAgentRequest {
+	s.ScenarioCode = &v
+	return s
+}
+
+func (s *ExecuteAgentRequest) SetScenarioInstanceId(v string) *ExecuteAgentRequest {
+	s.ScenarioInstanceId = &v
+	return s
+}
+
+func (s *ExecuteAgentRequest) SetSkillId(v string) *ExecuteAgentRequest {
+	s.SkillId = &v
+	return s
+}
+
+type ExecuteAgentRequestInputs struct {
+	CardData       interface{} `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	CardTemplateId *string     `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	Input          *string     `json:"input,omitempty" xml:"input,omitempty"`
+}
+
+func (s ExecuteAgentRequestInputs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteAgentRequestInputs) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteAgentRequestInputs) SetCardData(v interface{}) *ExecuteAgentRequestInputs {
+	s.CardData = v
+	return s
+}
+
+func (s *ExecuteAgentRequestInputs) SetCardTemplateId(v string) *ExecuteAgentRequestInputs {
+	s.CardTemplateId = &v
+	return s
+}
+
+func (s *ExecuteAgentRequestInputs) SetInput(v string) *ExecuteAgentRequestInputs {
+	s.Input = &v
+	return s
+}
+
+type ExecuteAgentResponseBody struct {
+	Result *ExecuteAgentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ExecuteAgentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteAgentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteAgentResponseBody) SetResult(v *ExecuteAgentResponseBodyResult) *ExecuteAgentResponseBody {
+	s.Result = v
+	return s
+}
+
+type ExecuteAgentResponseBodyResult struct {
+	ExecuteResult *string `json:"executeResult,omitempty" xml:"executeResult,omitempty"`
+	SkillId       *string `json:"skillId,omitempty" xml:"skillId,omitempty"`
+}
+
+func (s ExecuteAgentResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteAgentResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteAgentResponseBodyResult) SetExecuteResult(v string) *ExecuteAgentResponseBodyResult {
+	s.ExecuteResult = &v
+	return s
+}
+
+func (s *ExecuteAgentResponseBodyResult) SetSkillId(v string) *ExecuteAgentResponseBodyResult {
+	s.SkillId = &v
+	return s
+}
+
+type ExecuteAgentResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ExecuteAgentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ExecuteAgentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteAgentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteAgentResponse) SetHeaders(v map[string]*string) *ExecuteAgentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExecuteAgentResponse) SetStatusCode(v int32) *ExecuteAgentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ExecuteAgentResponse) SetBody(v *ExecuteAgentResponseBody) *ExecuteAgentResponse {
+	s.Body = v
+	return s
+}
+
 type QueryConversationMessageForAIHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -620,6 +782,77 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) ExecuteAgentWithOptions(request *ExecuteAgentRequest, headers *ExecuteAgentHeaders, runtime *util.RuntimeOptions) (_result *ExecuteAgentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentCode)) {
+		body["agentCode"] = request.AgentCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Inputs)) {
+		body["inputs"] = request.Inputs
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScenarioCode)) {
+		body["scenarioCode"] = request.ScenarioCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScenarioInstanceId)) {
+		body["scenarioInstanceId"] = request.ScenarioInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SkillId)) {
+		body["skillId"] = request.SkillId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ExecuteAgent"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/me/agents/execute"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ExecuteAgentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ExecuteAgent(request *ExecuteAgentRequest) (_result *ExecuteAgentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExecuteAgentHeaders{}
+	_result = &ExecuteAgentResponse{}
+	_body, _err := client.ExecuteAgentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) QueryConversationMessageForAIWithOptions(cid *string, tmpReq *QueryConversationMessageForAIRequest, headers *QueryConversationMessageForAIHeaders, runtime *util.RuntimeOptions) (_result *QueryConversationMessageForAIResponse, _err error) {
