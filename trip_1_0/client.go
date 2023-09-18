@@ -336,6 +336,7 @@ type SyncTripOrderRequest struct {
 	OrderDetails    []*SyncTripOrderRequestOrderDetails `json:"orderDetails,omitempty" xml:"orderDetails,omitempty" type:"Repeated"`
 	OrderNo         *string                             `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
 	OrderUrl        *string                             `json:"orderUrl,omitempty" xml:"orderUrl,omitempty"`
+	ProcessId       *string                             `json:"processId,omitempty" xml:"processId,omitempty"`
 	RealAmount      *string                             `json:"realAmount,omitempty" xml:"realAmount,omitempty"`
 	RefundAmount    *string                             `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
 	RelativeOrderNo *string                             `json:"relativeOrderNo,omitempty" xml:"relativeOrderNo,omitempty"`
@@ -343,6 +344,7 @@ type SyncTripOrderRequest struct {
 	SupplyLogo      *string                             `json:"supplyLogo,omitempty" xml:"supplyLogo,omitempty"`
 	SupplyName      *string                             `json:"supplyName,omitempty" xml:"supplyName,omitempty"`
 	TargetCorpId    *string                             `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	TmcCorpId       *string                             `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
 	TotalAmount     *string                             `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
 	Type            *string                             `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -425,6 +427,11 @@ func (s *SyncTripOrderRequest) SetOrderUrl(v string) *SyncTripOrderRequest {
 	return s
 }
 
+func (s *SyncTripOrderRequest) SetProcessId(v string) *SyncTripOrderRequest {
+	s.ProcessId = &v
+	return s
+}
+
 func (s *SyncTripOrderRequest) SetRealAmount(v string) *SyncTripOrderRequest {
 	s.RealAmount = &v
 	return s
@@ -457,6 +464,11 @@ func (s *SyncTripOrderRequest) SetSupplyName(v string) *SyncTripOrderRequest {
 
 func (s *SyncTripOrderRequest) SetTargetCorpId(v string) *SyncTripOrderRequest {
 	s.TargetCorpId = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetTmcCorpId(v string) *SyncTripOrderRequest {
+	s.TmcCorpId = &v
 	return s
 }
 
@@ -494,33 +506,35 @@ func (s *SyncTripOrderRequestEvent) SetGmtAction(v string) *SyncTripOrderRequest
 }
 
 type SyncTripOrderRequestOrderDetails struct {
-	ArrivalTime         *string                                        `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
-	CarColor            *string                                        `json:"carColor,omitempty" xml:"carColor,omitempty"`
-	CarModel            *string                                        `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	CarNumber           *string                                        `json:"carNumber,omitempty" xml:"carNumber,omitempty"`
-	CateringType        *string                                        `json:"cateringType,omitempty" xml:"cateringType,omitempty"`
-	CheckInTime         *string                                        `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
-	CheckOutTime        *string                                        `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
-	DepartTime          *string                                        `json:"departTime,omitempty" xml:"departTime,omitempty"`
-	DestinationCity     *string                                        `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
-	DestinationCityCode *string                                        `json:"destinationCityCode,omitempty" xml:"destinationCityCode,omitempty"`
-	DestinationStation  *string                                        `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
-	HotelAddress        *string                                        `json:"hotelAddress,omitempty" xml:"hotelAddress,omitempty"`
-	HotelCity           *string                                        `json:"hotelCity,omitempty" xml:"hotelCity,omitempty"`
-	HotelLocation       *SyncTripOrderRequestOrderDetailsHotelLocation `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
-	HotelName           *string                                        `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
-	OriginCity          *string                                        `json:"originCity,omitempty" xml:"originCity,omitempty"`
-	OriginCityCode      *string                                        `json:"originCityCode,omitempty" xml:"originCityCode,omitempty"`
-	OriginStation       *string                                        `json:"originStation,omitempty" xml:"originStation,omitempty"`
-	RoomCount           *int32                                         `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
-	SeatInfo            *string                                        `json:"seatInfo,omitempty" xml:"seatInfo,omitempty"`
-	ServiceType         *string                                        `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
-	SubSupplyLogo       *string                                        `json:"subSupplyLogo,omitempty" xml:"subSupplyLogo,omitempty"`
-	SubSupplyName       *string                                        `json:"subSupplyName,omitempty" xml:"subSupplyName,omitempty"`
-	TaxiType            *string                                        `json:"taxiType,omitempty" xml:"taxiType,omitempty"`
-	Telephone           *string                                        `json:"telephone,omitempty" xml:"telephone,omitempty"`
-	TransportNumber     *string                                        `json:"transportNumber,omitempty" xml:"transportNumber,omitempty"`
-	TypeDescription     *string                                        `json:"typeDescription,omitempty" xml:"typeDescription,omitempty"`
+	ArrivalTime         *string                                             `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
+	CarColor            *string                                             `json:"carColor,omitempty" xml:"carColor,omitempty"`
+	CarModel            *string                                             `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CarNumber           *string                                             `json:"carNumber,omitempty" xml:"carNumber,omitempty"`
+	CateringType        *string                                             `json:"cateringType,omitempty" xml:"cateringType,omitempty"`
+	CheckInTime         *string                                             `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
+	CheckOutTime        *string                                             `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
+	DepartTime          *string                                             `json:"departTime,omitempty" xml:"departTime,omitempty"`
+	DestinationCity     *string                                             `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
+	DestinationCityCode *string                                             `json:"destinationCityCode,omitempty" xml:"destinationCityCode,omitempty"`
+	DestinationStation  *string                                             `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
+	DetailAmount        *string                                             `json:"detailAmount,omitempty" xml:"detailAmount,omitempty"`
+	HotelAddress        *string                                             `json:"hotelAddress,omitempty" xml:"hotelAddress,omitempty"`
+	HotelCity           *string                                             `json:"hotelCity,omitempty" xml:"hotelCity,omitempty"`
+	HotelLocation       *SyncTripOrderRequestOrderDetailsHotelLocation      `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
+	HotelName           *string                                             `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
+	OpenConsumerInfo    []*SyncTripOrderRequestOrderDetailsOpenConsumerInfo `json:"openConsumerInfo,omitempty" xml:"openConsumerInfo,omitempty" type:"Repeated"`
+	OriginCity          *string                                             `json:"originCity,omitempty" xml:"originCity,omitempty"`
+	OriginCityCode      *string                                             `json:"originCityCode,omitempty" xml:"originCityCode,omitempty"`
+	OriginStation       *string                                             `json:"originStation,omitempty" xml:"originStation,omitempty"`
+	RoomCount           *int32                                              `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
+	SeatInfo            *string                                             `json:"seatInfo,omitempty" xml:"seatInfo,omitempty"`
+	ServiceType         *string                                             `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
+	SubSupplyLogo       *string                                             `json:"subSupplyLogo,omitempty" xml:"subSupplyLogo,omitempty"`
+	SubSupplyName       *string                                             `json:"subSupplyName,omitempty" xml:"subSupplyName,omitempty"`
+	TaxiType            *string                                             `json:"taxiType,omitempty" xml:"taxiType,omitempty"`
+	Telephone           *string                                             `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	TransportNumber     *string                                             `json:"transportNumber,omitempty" xml:"transportNumber,omitempty"`
+	TypeDescription     *string                                             `json:"typeDescription,omitempty" xml:"typeDescription,omitempty"`
 }
 
 func (s SyncTripOrderRequestOrderDetails) String() string {
@@ -586,6 +600,11 @@ func (s *SyncTripOrderRequestOrderDetails) SetDestinationStation(v string) *Sync
 	return s
 }
 
+func (s *SyncTripOrderRequestOrderDetails) SetDetailAmount(v string) *SyncTripOrderRequestOrderDetails {
+	s.DetailAmount = &v
+	return s
+}
+
 func (s *SyncTripOrderRequestOrderDetails) SetHotelAddress(v string) *SyncTripOrderRequestOrderDetails {
 	s.HotelAddress = &v
 	return s
@@ -603,6 +622,11 @@ func (s *SyncTripOrderRequestOrderDetails) SetHotelLocation(v *SyncTripOrderRequ
 
 func (s *SyncTripOrderRequestOrderDetails) SetHotelName(v string) *SyncTripOrderRequestOrderDetails {
 	s.HotelName = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetOpenConsumerInfo(v []*SyncTripOrderRequestOrderDetailsOpenConsumerInfo) *SyncTripOrderRequestOrderDetails {
+	s.OpenConsumerInfo = v
 	return s
 }
 
@@ -698,6 +722,59 @@ func (s *SyncTripOrderRequestOrderDetailsHotelLocation) SetSource(v string) *Syn
 
 func (s *SyncTripOrderRequestOrderDetailsHotelLocation) SetUrl(v string) *SyncTripOrderRequestOrderDetailsHotelLocation {
 	s.Url = &v
+	return s
+}
+
+type SyncTripOrderRequestOrderDetailsOpenConsumerInfo struct {
+	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	StaffFlag    *bool   `json:"staffFlag,omitempty" xml:"staffFlag,omitempty"`
+	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
+	TicketAmount *string `json:"ticketAmount,omitempty" xml:"ticketAmount,omitempty"`
+	TicketNo     *string `json:"ticketNo,omitempty" xml:"ticketNo,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SyncTripOrderRequestOrderDetailsOpenConsumerInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripOrderRequestOrderDetailsOpenConsumerInfo) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetCorpId(v string) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetName(v string) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
+	s.Name = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetStaffFlag(v bool) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
+	s.StaffFlag = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetStatus(v string) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
+	s.Status = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetTicketAmount(v string) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
+	s.TicketAmount = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetTicketNo(v string) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
+	s.TicketNo = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetUserId(v string) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
+	s.UserId = &v
 	return s
 }
 
@@ -994,6 +1071,10 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 		body["orderUrl"] = request.OrderUrl
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ProcessId)) {
+		body["processId"] = request.ProcessId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.RealAmount)) {
 		body["realAmount"] = request.RealAmount
 	}
@@ -1020,6 +1101,10 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
 		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TmcCorpId)) {
+		body["tmcCorpId"] = request.TmcCorpId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TotalAmount)) {

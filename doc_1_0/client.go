@@ -2736,6 +2736,732 @@ func (s *DeleteWorkspaceMembersResponse) SetStatusCode(v int32) *DeleteWorkspace
 	return s
 }
 
+type DocAppendParagraphHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocAppendParagraphHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendParagraphHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendParagraphHeaders) SetCommonHeaders(v map[string]*string) *DocAppendParagraphHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocAppendParagraphHeaders) SetXAcsDingtalkAccessToken(v string) *DocAppendParagraphHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocAppendParagraphRequest struct {
+	ElementType *string                `json:"elementType,omitempty" xml:"elementType,omitempty"`
+	Properties  map[string]interface{} `json:"properties,omitempty" xml:"properties,omitempty"`
+	OperatorId  *string                `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocAppendParagraphRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendParagraphRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendParagraphRequest) SetElementType(v string) *DocAppendParagraphRequest {
+	s.ElementType = &v
+	return s
+}
+
+func (s *DocAppendParagraphRequest) SetProperties(v map[string]interface{}) *DocAppendParagraphRequest {
+	s.Properties = v
+	return s
+}
+
+func (s *DocAppendParagraphRequest) SetOperatorId(v string) *DocAppendParagraphRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocAppendParagraphResponseBody struct {
+	Result  *DocAppendParagraphResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocAppendParagraphResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendParagraphResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendParagraphResponseBody) SetResult(v *DocAppendParagraphResponseBodyResult) *DocAppendParagraphResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocAppendParagraphResponseBody) SetSuccess(v bool) *DocAppendParagraphResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocAppendParagraphResponseBodyResult struct {
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s DocAppendParagraphResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendParagraphResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendParagraphResponseBodyResult) SetData(v map[string]interface{}) *DocAppendParagraphResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type DocAppendParagraphResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DocAppendParagraphResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DocAppendParagraphResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendParagraphResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendParagraphResponse) SetHeaders(v map[string]*string) *DocAppendParagraphResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocAppendParagraphResponse) SetStatusCode(v int32) *DocAppendParagraphResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocAppendParagraphResponse) SetBody(v *DocAppendParagraphResponseBody) *DocAppendParagraphResponse {
+	s.Body = v
+	return s
+}
+
+type DocAppendTextHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocAppendTextHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendTextHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendTextHeaders) SetCommonHeaders(v map[string]*string) *DocAppendTextHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocAppendTextHeaders) SetXAcsDingtalkAccessToken(v string) *DocAppendTextHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocAppendTextRequest struct {
+	Text       *string `json:"text,omitempty" xml:"text,omitempty"`
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocAppendTextRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendTextRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendTextRequest) SetText(v string) *DocAppendTextRequest {
+	s.Text = &v
+	return s
+}
+
+func (s *DocAppendTextRequest) SetOperatorId(v string) *DocAppendTextRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocAppendTextResponseBody struct {
+	Result  *DocAppendTextResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocAppendTextResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendTextResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendTextResponseBody) SetResult(v *DocAppendTextResponseBodyResult) *DocAppendTextResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocAppendTextResponseBody) SetSuccess(v bool) *DocAppendTextResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocAppendTextResponseBodyResult struct {
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s DocAppendTextResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendTextResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendTextResponseBodyResult) SetData(v map[string]interface{}) *DocAppendTextResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type DocAppendTextResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DocAppendTextResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DocAppendTextResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocAppendTextResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocAppendTextResponse) SetHeaders(v map[string]*string) *DocAppendTextResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocAppendTextResponse) SetStatusCode(v int32) *DocAppendTextResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocAppendTextResponse) SetBody(v *DocAppendTextResponseBody) *DocAppendTextResponse {
+	s.Body = v
+	return s
+}
+
+type DocBlocksQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocBlocksQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksQueryHeaders) SetCommonHeaders(v map[string]*string) *DocBlocksQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocBlocksQueryHeaders) SetXAcsDingtalkAccessToken(v string) *DocBlocksQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocBlocksQueryRequest struct {
+	BlockType  *string `json:"blockType,omitempty" xml:"blockType,omitempty"`
+	EndIndex   *int32  `json:"endIndex,omitempty" xml:"endIndex,omitempty"`
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	StartIndex *int32  `json:"startIndex,omitempty" xml:"startIndex,omitempty"`
+}
+
+func (s DocBlocksQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksQueryRequest) SetBlockType(v string) *DocBlocksQueryRequest {
+	s.BlockType = &v
+	return s
+}
+
+func (s *DocBlocksQueryRequest) SetEndIndex(v int32) *DocBlocksQueryRequest {
+	s.EndIndex = &v
+	return s
+}
+
+func (s *DocBlocksQueryRequest) SetOperatorId(v string) *DocBlocksQueryRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *DocBlocksQueryRequest) SetStartIndex(v int32) *DocBlocksQueryRequest {
+	s.StartIndex = &v
+	return s
+}
+
+type DocBlocksQueryResponseBody struct {
+	Result  *DocBlocksQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocBlocksQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksQueryResponseBody) SetResult(v *DocBlocksQueryResponseBodyResult) *DocBlocksQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocBlocksQueryResponseBody) SetSuccess(v bool) *DocBlocksQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocBlocksQueryResponseBodyResult struct {
+	Data []interface{} `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s DocBlocksQueryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksQueryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksQueryResponseBodyResult) SetData(v []interface{}) *DocBlocksQueryResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type DocBlocksQueryResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DocBlocksQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DocBlocksQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksQueryResponse) SetHeaders(v map[string]*string) *DocBlocksQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocBlocksQueryResponse) SetStatusCode(v int32) *DocBlocksQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocBlocksQueryResponse) SetBody(v *DocBlocksQueryResponseBody) *DocBlocksQueryResponse {
+	s.Body = v
+	return s
+}
+
+type DocDeleteBlockHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocDeleteBlockHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocDeleteBlockHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocDeleteBlockHeaders) SetCommonHeaders(v map[string]*string) *DocDeleteBlockHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocDeleteBlockHeaders) SetXAcsDingtalkAccessToken(v string) *DocDeleteBlockHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocDeleteBlockRequest struct {
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocDeleteBlockRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocDeleteBlockRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocDeleteBlockRequest) SetOperatorId(v string) *DocDeleteBlockRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocDeleteBlockResponseBody struct {
+	Result  *DocDeleteBlockResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocDeleteBlockResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocDeleteBlockResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocDeleteBlockResponseBody) SetResult(v *DocDeleteBlockResponseBodyResult) *DocDeleteBlockResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocDeleteBlockResponseBody) SetSuccess(v bool) *DocDeleteBlockResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocDeleteBlockResponseBodyResult struct {
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s DocDeleteBlockResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocDeleteBlockResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocDeleteBlockResponseBodyResult) SetData(v map[string]interface{}) *DocDeleteBlockResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type DocDeleteBlockResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DocDeleteBlockResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DocDeleteBlockResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocDeleteBlockResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocDeleteBlockResponse) SetHeaders(v map[string]*string) *DocDeleteBlockResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocDeleteBlockResponse) SetStatusCode(v int32) *DocDeleteBlockResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocDeleteBlockResponse) SetBody(v *DocDeleteBlockResponseBody) *DocDeleteBlockResponse {
+	s.Body = v
+	return s
+}
+
+type DocInsertBlocksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocInsertBlocksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocInsertBlocksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocInsertBlocksHeaders) SetCommonHeaders(v map[string]*string) *DocInsertBlocksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocInsertBlocksHeaders) SetXAcsDingtalkAccessToken(v string) *DocInsertBlocksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocInsertBlocksRequest struct {
+	BlockId    *string                `json:"blockId,omitempty" xml:"blockId,omitempty"`
+	Element    map[string]interface{} `json:"element,omitempty" xml:"element,omitempty"`
+	Index      *int32                 `json:"index,omitempty" xml:"index,omitempty"`
+	Where      *string                `json:"where,omitempty" xml:"where,omitempty"`
+	OperatorId *string                `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocInsertBlocksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocInsertBlocksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocInsertBlocksRequest) SetBlockId(v string) *DocInsertBlocksRequest {
+	s.BlockId = &v
+	return s
+}
+
+func (s *DocInsertBlocksRequest) SetElement(v map[string]interface{}) *DocInsertBlocksRequest {
+	s.Element = v
+	return s
+}
+
+func (s *DocInsertBlocksRequest) SetIndex(v int32) *DocInsertBlocksRequest {
+	s.Index = &v
+	return s
+}
+
+func (s *DocInsertBlocksRequest) SetWhere(v string) *DocInsertBlocksRequest {
+	s.Where = &v
+	return s
+}
+
+func (s *DocInsertBlocksRequest) SetOperatorId(v string) *DocInsertBlocksRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocInsertBlocksResponseBody struct {
+	Result  *DocInsertBlocksResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocInsertBlocksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocInsertBlocksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocInsertBlocksResponseBody) SetResult(v *DocInsertBlocksResponseBodyResult) *DocInsertBlocksResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocInsertBlocksResponseBody) SetSuccess(v bool) *DocInsertBlocksResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocInsertBlocksResponseBodyResult struct {
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s DocInsertBlocksResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocInsertBlocksResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocInsertBlocksResponseBodyResult) SetData(v map[string]interface{}) *DocInsertBlocksResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type DocInsertBlocksResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DocInsertBlocksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DocInsertBlocksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocInsertBlocksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocInsertBlocksResponse) SetHeaders(v map[string]*string) *DocInsertBlocksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocInsertBlocksResponse) SetStatusCode(v int32) *DocInsertBlocksResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocInsertBlocksResponse) SetBody(v *DocInsertBlocksResponseBody) *DocInsertBlocksResponse {
+	s.Body = v
+	return s
+}
+
+type DocUpdateContentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocUpdateContentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocUpdateContentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocUpdateContentHeaders) SetCommonHeaders(v map[string]*string) *DocUpdateContentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocUpdateContentHeaders) SetXAcsDingtalkAccessToken(v string) *DocUpdateContentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocUpdateContentRequest struct {
+	Content    *string `json:"content,omitempty" xml:"content,omitempty"`
+	DataType   *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocUpdateContentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocUpdateContentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocUpdateContentRequest) SetContent(v string) *DocUpdateContentRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *DocUpdateContentRequest) SetDataType(v string) *DocUpdateContentRequest {
+	s.DataType = &v
+	return s
+}
+
+func (s *DocUpdateContentRequest) SetOperatorId(v string) *DocUpdateContentRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocUpdateContentResponseBody struct {
+	Result  *DocUpdateContentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocUpdateContentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocUpdateContentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocUpdateContentResponseBody) SetResult(v *DocUpdateContentResponseBodyResult) *DocUpdateContentResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocUpdateContentResponseBody) SetSuccess(v bool) *DocUpdateContentResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocUpdateContentResponseBodyResult struct {
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s DocUpdateContentResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocUpdateContentResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocUpdateContentResponseBodyResult) SetData(v map[string]interface{}) *DocUpdateContentResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type DocUpdateContentResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DocUpdateContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DocUpdateContentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocUpdateContentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocUpdateContentResponse) SetHeaders(v map[string]*string) *DocUpdateContentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocUpdateContentResponse) SetStatusCode(v int32) *DocUpdateContentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocUpdateContentResponse) SetBody(v *DocUpdateContentResponseBody) *DocUpdateContentResponse {
+	s.Body = v
+	return s
+}
+
 type GetAllSheetsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8277,6 +9003,392 @@ func (client *Client) DeleteWorkspaceMembers(workspaceId *string, request *Delet
 	headers := &DeleteWorkspaceMembersHeaders{}
 	_result = &DeleteWorkspaceMembersResponse{}
 	_body, _err := client.DeleteWorkspaceMembersWithOptions(workspaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DocAppendParagraphWithOptions(docKey *string, blockId *string, request *DocAppendParagraphRequest, headers *DocAppendParagraphHeaders, runtime *util.RuntimeOptions) (_result *DocAppendParagraphResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ElementType)) {
+		body["elementType"] = request.ElementType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Properties)) {
+		body["properties"] = request.Properties
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocAppendParagraph"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(docKey) + "/blocks/" + tea.StringValue(blockId) + "/paragraph/appendElement"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocAppendParagraphResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DocAppendParagraph(docKey *string, blockId *string, request *DocAppendParagraphRequest) (_result *DocAppendParagraphResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocAppendParagraphHeaders{}
+	_result = &DocAppendParagraphResponse{}
+	_body, _err := client.DocAppendParagraphWithOptions(docKey, blockId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DocAppendTextWithOptions(docKey *string, blockId *string, request *DocAppendTextRequest, headers *DocAppendTextHeaders, runtime *util.RuntimeOptions) (_result *DocAppendTextResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Text)) {
+		body["text"] = request.Text
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocAppendText"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(docKey) + "/blocks/" + tea.StringValue(blockId) + "/paragraph/appendText"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocAppendTextResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DocAppendText(docKey *string, blockId *string, request *DocAppendTextRequest) (_result *DocAppendTextResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocAppendTextHeaders{}
+	_result = &DocAppendTextResponse{}
+	_body, _err := client.DocAppendTextWithOptions(docKey, blockId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DocBlocksQueryWithOptions(docKey *string, request *DocBlocksQueryRequest, headers *DocBlocksQueryHeaders, runtime *util.RuntimeOptions) (_result *DocBlocksQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BlockType)) {
+		query["blockType"] = request.BlockType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndIndex)) {
+		query["endIndex"] = request.EndIndex
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartIndex)) {
+		query["startIndex"] = request.StartIndex
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocBlocksQuery"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(docKey) + "/blocks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocBlocksQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DocBlocksQuery(docKey *string, request *DocBlocksQueryRequest) (_result *DocBlocksQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocBlocksQueryHeaders{}
+	_result = &DocBlocksQueryResponse{}
+	_body, _err := client.DocBlocksQueryWithOptions(docKey, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DocDeleteBlockWithOptions(docKey *string, blockId *string, request *DocDeleteBlockRequest, headers *DocDeleteBlockHeaders, runtime *util.RuntimeOptions) (_result *DocDeleteBlockResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocDeleteBlock"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(docKey) + "/blocks/" + tea.StringValue(blockId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocDeleteBlockResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DocDeleteBlock(docKey *string, blockId *string, request *DocDeleteBlockRequest) (_result *DocDeleteBlockResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocDeleteBlockHeaders{}
+	_result = &DocDeleteBlockResponse{}
+	_body, _err := client.DocDeleteBlockWithOptions(docKey, blockId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DocInsertBlocksWithOptions(docKey *string, request *DocInsertBlocksRequest, headers *DocInsertBlocksHeaders, runtime *util.RuntimeOptions) (_result *DocInsertBlocksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BlockId)) {
+		body["blockId"] = request.BlockId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Element)) {
+		body["element"] = request.Element
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Index)) {
+		body["index"] = request.Index
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Where)) {
+		body["where"] = request.Where
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocInsertBlocks"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(docKey) + "/blocks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocInsertBlocksResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DocInsertBlocks(docKey *string, request *DocInsertBlocksRequest) (_result *DocInsertBlocksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocInsertBlocksHeaders{}
+	_result = &DocInsertBlocksResponse{}
+	_body, _err := client.DocInsertBlocksWithOptions(docKey, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DocUpdateContentWithOptions(docKey *string, request *DocUpdateContentRequest, headers *DocUpdateContentHeaders, runtime *util.RuntimeOptions) (_result *DocUpdateContentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DataType)) {
+		body["dataType"] = request.DataType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocUpdateContent"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(docKey) + "/overwriteContent"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocUpdateContentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DocUpdateContent(docKey *string, request *DocUpdateContentRequest) (_result *DocUpdateContentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocUpdateContentHeaders{}
+	_result = &DocUpdateContentResponse{}
+	_body, _err := client.DocUpdateContentWithOptions(docKey, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
