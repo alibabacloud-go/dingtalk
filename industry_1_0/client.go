@@ -6643,9 +6643,10 @@ func (s *DigitalStoreConversationsResponseBody) SetContent(v []*DigitalStoreConv
 }
 
 type DigitalStoreConversationsResponseBodyContent struct {
-	ConversationTitle *string `json:"conversationTitle,omitempty" xml:"conversationTitle,omitempty"`
-	ConversationType  *string `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
-	Id                *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	ConversationTitle  *string `json:"conversationTitle,omitempty" xml:"conversationTitle,omitempty"`
+	ConversationType   *string `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	Id                 *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
 func (s DigitalStoreConversationsResponseBodyContent) String() string {
@@ -6668,6 +6669,11 @@ func (s *DigitalStoreConversationsResponseBodyContent) SetConversationType(v str
 
 func (s *DigitalStoreConversationsResponseBodyContent) SetId(v int64) *DigitalStoreConversationsResponseBodyContent {
 	s.Id = &v
+	return s
+}
+
+func (s *DigitalStoreConversationsResponseBodyContent) SetOpenConversationId(v string) *DigitalStoreConversationsResponseBodyContent {
+	s.OpenConversationId = &v
 	return s
 }
 
