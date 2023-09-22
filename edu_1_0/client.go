@@ -15091,6 +15091,456 @@ func (s *RollbackDeductPointResponse) SetBody(v *RollbackDeductPointResponseBody
 	return s
 }
 
+type SaveClassLearningDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveClassLearningDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveClassLearningDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveClassLearningDataHeaders) SetCommonHeaders(v map[string]*string) *SaveClassLearningDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveClassLearningDataHeaders) SetXAcsDingtalkAccessToken(v string) *SaveClassLearningDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveClassLearningDataRequest struct {
+	AssignNum                *int32    `json:"assignNum,omitempty" xml:"assignNum,omitempty"`
+	AssignStudentUserIds     []*string `json:"assignStudentUserIds,omitempty" xml:"assignStudentUserIds,omitempty" type:"Repeated"`
+	BizId                    *string   `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	BizType                  *string   `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CorpId                   *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeptId                   *int64    `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	FileSuffix               *string   `json:"fileSuffix,omitempty" xml:"fileSuffix,omitempty"`
+	GeneratedTime            *int64    `json:"generatedTime,omitempty" xml:"generatedTime,omitempty"`
+	QuestionNum              *int32    `json:"questionNum,omitempty" xml:"questionNum,omitempty"`
+	QuestionPictureNum       *int32    `json:"questionPictureNum,omitempty" xml:"questionPictureNum,omitempty"`
+	StandardAnswerPictureNum *int32    `json:"standardAnswerPictureNum,omitempty" xml:"standardAnswerPictureNum,omitempty"`
+	SubjectCode              *string   `json:"subjectCode,omitempty" xml:"subjectCode,omitempty"`
+	TeacherUserId            *string   `json:"teacherUserId,omitempty" xml:"teacherUserId,omitempty"`
+}
+
+func (s SaveClassLearningDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveClassLearningDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveClassLearningDataRequest) SetAssignNum(v int32) *SaveClassLearningDataRequest {
+	s.AssignNum = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetAssignStudentUserIds(v []*string) *SaveClassLearningDataRequest {
+	s.AssignStudentUserIds = v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetBizId(v string) *SaveClassLearningDataRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetBizType(v string) *SaveClassLearningDataRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetCorpId(v string) *SaveClassLearningDataRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetDeptId(v int64) *SaveClassLearningDataRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetFileSuffix(v string) *SaveClassLearningDataRequest {
+	s.FileSuffix = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetGeneratedTime(v int64) *SaveClassLearningDataRequest {
+	s.GeneratedTime = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetQuestionNum(v int32) *SaveClassLearningDataRequest {
+	s.QuestionNum = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetQuestionPictureNum(v int32) *SaveClassLearningDataRequest {
+	s.QuestionPictureNum = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetStandardAnswerPictureNum(v int32) *SaveClassLearningDataRequest {
+	s.StandardAnswerPictureNum = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetSubjectCode(v string) *SaveClassLearningDataRequest {
+	s.SubjectCode = &v
+	return s
+}
+
+func (s *SaveClassLearningDataRequest) SetTeacherUserId(v string) *SaveClassLearningDataRequest {
+	s.TeacherUserId = &v
+	return s
+}
+
+type SaveClassLearningDataResponseBody struct {
+	Result  *SaveClassLearningDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SaveClassLearningDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveClassLearningDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveClassLearningDataResponseBody) SetResult(v *SaveClassLearningDataResponseBodyResult) *SaveClassLearningDataResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SaveClassLearningDataResponseBody) SetSuccess(v bool) *SaveClassLearningDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SaveClassLearningDataResponseBodyResult struct {
+	QuestionUploadUrlList       []*string `json:"questionUploadUrlList,omitempty" xml:"questionUploadUrlList,omitempty" type:"Repeated"`
+	StandardAnswerUploadUrlList []*string `json:"standardAnswerUploadUrlList,omitempty" xml:"standardAnswerUploadUrlList,omitempty" type:"Repeated"`
+}
+
+func (s SaveClassLearningDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveClassLearningDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SaveClassLearningDataResponseBodyResult) SetQuestionUploadUrlList(v []*string) *SaveClassLearningDataResponseBodyResult {
+	s.QuestionUploadUrlList = v
+	return s
+}
+
+func (s *SaveClassLearningDataResponseBodyResult) SetStandardAnswerUploadUrlList(v []*string) *SaveClassLearningDataResponseBodyResult {
+	s.StandardAnswerUploadUrlList = v
+	return s
+}
+
+type SaveClassLearningDataResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SaveClassLearningDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveClassLearningDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveClassLearningDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveClassLearningDataResponse) SetHeaders(v map[string]*string) *SaveClassLearningDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveClassLearningDataResponse) SetStatusCode(v int32) *SaveClassLearningDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SaveClassLearningDataResponse) SetBody(v *SaveClassLearningDataResponseBody) *SaveClassLearningDataResponse {
+	s.Body = v
+	return s
+}
+
+type SaveStudentLearningDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveStudentLearningDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveStudentLearningDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveStudentLearningDataHeaders) SetCommonHeaders(v map[string]*string) *SaveStudentLearningDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveStudentLearningDataHeaders) SetXAcsDingtalkAccessToken(v string) *SaveStudentLearningDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveStudentLearningDataRequest struct {
+	AssignNum      *int32                                          `json:"assignNum,omitempty" xml:"assignNum,omitempty"`
+	BizId          *string                                         `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	BizType        *string                                         `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CorpId         *string                                         `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CorrectNum     *int32                                          `json:"correctNum,omitempty" xml:"correctNum,omitempty"`
+	DeptId         *int64                                          `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	FileSuffix     *string                                         `json:"fileSuffix,omitempty" xml:"fileSuffix,omitempty"`
+	GeneratedTime  *int64                                          `json:"generatedTime,omitempty" xml:"generatedTime,omitempty"`
+	QuestionNum    *int32                                          `json:"questionNum,omitempty" xml:"questionNum,omitempty"`
+	StudentUserId  *string                                         `json:"studentUserId,omitempty" xml:"studentUserId,omitempty"`
+	SubjectCode    *string                                         `json:"subjectCode,omitempty" xml:"subjectCode,omitempty"`
+	SubmitNum      *int32                                          `json:"submitNum,omitempty" xml:"submitNum,omitempty"`
+	WrongQuestions []*SaveStudentLearningDataRequestWrongQuestions `json:"wrongQuestions,omitempty" xml:"wrongQuestions,omitempty" type:"Repeated"`
+}
+
+func (s SaveStudentLearningDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveStudentLearningDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveStudentLearningDataRequest) SetAssignNum(v int32) *SaveStudentLearningDataRequest {
+	s.AssignNum = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetBizId(v string) *SaveStudentLearningDataRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetBizType(v string) *SaveStudentLearningDataRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetCorpId(v string) *SaveStudentLearningDataRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetCorrectNum(v int32) *SaveStudentLearningDataRequest {
+	s.CorrectNum = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetDeptId(v int64) *SaveStudentLearningDataRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetFileSuffix(v string) *SaveStudentLearningDataRequest {
+	s.FileSuffix = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetGeneratedTime(v int64) *SaveStudentLearningDataRequest {
+	s.GeneratedTime = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetQuestionNum(v int32) *SaveStudentLearningDataRequest {
+	s.QuestionNum = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetStudentUserId(v string) *SaveStudentLearningDataRequest {
+	s.StudentUserId = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetSubjectCode(v string) *SaveStudentLearningDataRequest {
+	s.SubjectCode = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetSubmitNum(v int32) *SaveStudentLearningDataRequest {
+	s.SubmitNum = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequest) SetWrongQuestions(v []*SaveStudentLearningDataRequestWrongQuestions) *SaveStudentLearningDataRequest {
+	s.WrongQuestions = v
+	return s
+}
+
+type SaveStudentLearningDataRequestWrongQuestions struct {
+	KnowledgePoints          []*string `json:"knowledgePoints,omitempty" xml:"knowledgePoints,omitempty" type:"Repeated"`
+	QuestionNo               *string   `json:"questionNo,omitempty" xml:"questionNo,omitempty"`
+	QuestionPictureNum       *int32    `json:"questionPictureNum,omitempty" xml:"questionPictureNum,omitempty"`
+	StandardAnswerPictureNum *int32    `json:"standardAnswerPictureNum,omitempty" xml:"standardAnswerPictureNum,omitempty"`
+	UserAnswerPictureNum     *int32    `json:"userAnswerPictureNum,omitempty" xml:"userAnswerPictureNum,omitempty"`
+}
+
+func (s SaveStudentLearningDataRequestWrongQuestions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveStudentLearningDataRequestWrongQuestions) GoString() string {
+	return s.String()
+}
+
+func (s *SaveStudentLearningDataRequestWrongQuestions) SetKnowledgePoints(v []*string) *SaveStudentLearningDataRequestWrongQuestions {
+	s.KnowledgePoints = v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequestWrongQuestions) SetQuestionNo(v string) *SaveStudentLearningDataRequestWrongQuestions {
+	s.QuestionNo = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequestWrongQuestions) SetQuestionPictureNum(v int32) *SaveStudentLearningDataRequestWrongQuestions {
+	s.QuestionPictureNum = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequestWrongQuestions) SetStandardAnswerPictureNum(v int32) *SaveStudentLearningDataRequestWrongQuestions {
+	s.StandardAnswerPictureNum = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataRequestWrongQuestions) SetUserAnswerPictureNum(v int32) *SaveStudentLearningDataRequestWrongQuestions {
+	s.UserAnswerPictureNum = &v
+	return s
+}
+
+type SaveStudentLearningDataResponseBody struct {
+	Result  *SaveStudentLearningDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SaveStudentLearningDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveStudentLearningDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveStudentLearningDataResponseBody) SetResult(v *SaveStudentLearningDataResponseBodyResult) *SaveStudentLearningDataResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SaveStudentLearningDataResponseBody) SetSuccess(v bool) *SaveStudentLearningDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SaveStudentLearningDataResponseBodyResult struct {
+	SaveSuccess    *bool                                                      `json:"saveSuccess,omitempty" xml:"saveSuccess,omitempty"`
+	WrongQuestions []*SaveStudentLearningDataResponseBodyResultWrongQuestions `json:"wrongQuestions,omitempty" xml:"wrongQuestions,omitempty" type:"Repeated"`
+}
+
+func (s SaveStudentLearningDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveStudentLearningDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SaveStudentLearningDataResponseBodyResult) SetSaveSuccess(v bool) *SaveStudentLearningDataResponseBodyResult {
+	s.SaveSuccess = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataResponseBodyResult) SetWrongQuestions(v []*SaveStudentLearningDataResponseBodyResultWrongQuestions) *SaveStudentLearningDataResponseBodyResult {
+	s.WrongQuestions = v
+	return s
+}
+
+type SaveStudentLearningDataResponseBodyResultWrongQuestions struct {
+	QuestionNo                  *string   `json:"questionNo,omitempty" xml:"questionNo,omitempty"`
+	QuestionUploadUrlList       []*string `json:"questionUploadUrlList,omitempty" xml:"questionUploadUrlList,omitempty" type:"Repeated"`
+	StandardAnswerUploadUrlList []*string `json:"standardAnswerUploadUrlList,omitempty" xml:"standardAnswerUploadUrlList,omitempty" type:"Repeated"`
+	UserAnswerUploadUrlList     []*string `json:"userAnswerUploadUrlList,omitempty" xml:"userAnswerUploadUrlList,omitempty" type:"Repeated"`
+}
+
+func (s SaveStudentLearningDataResponseBodyResultWrongQuestions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveStudentLearningDataResponseBodyResultWrongQuestions) GoString() string {
+	return s.String()
+}
+
+func (s *SaveStudentLearningDataResponseBodyResultWrongQuestions) SetQuestionNo(v string) *SaveStudentLearningDataResponseBodyResultWrongQuestions {
+	s.QuestionNo = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataResponseBodyResultWrongQuestions) SetQuestionUploadUrlList(v []*string) *SaveStudentLearningDataResponseBodyResultWrongQuestions {
+	s.QuestionUploadUrlList = v
+	return s
+}
+
+func (s *SaveStudentLearningDataResponseBodyResultWrongQuestions) SetStandardAnswerUploadUrlList(v []*string) *SaveStudentLearningDataResponseBodyResultWrongQuestions {
+	s.StandardAnswerUploadUrlList = v
+	return s
+}
+
+func (s *SaveStudentLearningDataResponseBodyResultWrongQuestions) SetUserAnswerUploadUrlList(v []*string) *SaveStudentLearningDataResponseBodyResultWrongQuestions {
+	s.UserAnswerUploadUrlList = v
+	return s
+}
+
+type SaveStudentLearningDataResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SaveStudentLearningDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveStudentLearningDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveStudentLearningDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveStudentLearningDataResponse) SetHeaders(v map[string]*string) *SaveStudentLearningDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveStudentLearningDataResponse) SetStatusCode(v int32) *SaveStudentLearningDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SaveStudentLearningDataResponse) SetBody(v *SaveStudentLearningDataResponseBody) *SaveStudentLearningDataResponse {
+	s.Body = v
+	return s
+}
+
 type SearchTeachersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -16791,6 +17241,134 @@ func (s *UpdateUniversityCourseGroupResponse) SetStatusCode(v int32) *UpdateUniv
 }
 
 func (s *UpdateUniversityCourseGroupResponse) SetBody(v *UpdateUniversityCourseGroupResponseBody) *UpdateUniversityCourseGroupResponse {
+	s.Body = v
+	return s
+}
+
+type UploadLearningDataCallbackHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UploadLearningDataCallbackHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadLearningDataCallbackHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UploadLearningDataCallbackHeaders) SetCommonHeaders(v map[string]*string) *UploadLearningDataCallbackHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UploadLearningDataCallbackHeaders) SetXAcsDingtalkAccessToken(v string) *UploadLearningDataCallbackHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UploadLearningDataCallbackRequest struct {
+	BizId         *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	BizType       *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CorpId        *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeptId        *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	GeneratedTime *int64  `json:"generatedTime,omitempty" xml:"generatedTime,omitempty"`
+	StudentUserId *string `json:"studentUserId,omitempty" xml:"studentUserId,omitempty"`
+	SubjectCode   *string `json:"subjectCode,omitempty" xml:"subjectCode,omitempty"`
+}
+
+func (s UploadLearningDataCallbackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadLearningDataCallbackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UploadLearningDataCallbackRequest) SetBizId(v string) *UploadLearningDataCallbackRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *UploadLearningDataCallbackRequest) SetBizType(v string) *UploadLearningDataCallbackRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *UploadLearningDataCallbackRequest) SetCorpId(v string) *UploadLearningDataCallbackRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UploadLearningDataCallbackRequest) SetDeptId(v int64) *UploadLearningDataCallbackRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *UploadLearningDataCallbackRequest) SetGeneratedTime(v int64) *UploadLearningDataCallbackRequest {
+	s.GeneratedTime = &v
+	return s
+}
+
+func (s *UploadLearningDataCallbackRequest) SetStudentUserId(v string) *UploadLearningDataCallbackRequest {
+	s.StudentUserId = &v
+	return s
+}
+
+func (s *UploadLearningDataCallbackRequest) SetSubjectCode(v string) *UploadLearningDataCallbackRequest {
+	s.SubjectCode = &v
+	return s
+}
+
+type UploadLearningDataCallbackResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UploadLearningDataCallbackResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadLearningDataCallbackResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UploadLearningDataCallbackResponseBody) SetResult(v bool) *UploadLearningDataCallbackResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UploadLearningDataCallbackResponseBody) SetSuccess(v bool) *UploadLearningDataCallbackResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UploadLearningDataCallbackResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UploadLearningDataCallbackResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UploadLearningDataCallbackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadLearningDataCallbackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UploadLearningDataCallbackResponse) SetHeaders(v map[string]*string) *UploadLearningDataCallbackResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UploadLearningDataCallbackResponse) SetStatusCode(v int32) *UploadLearningDataCallbackResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UploadLearningDataCallbackResponse) SetBody(v *UploadLearningDataCallbackResponseBody) *UploadLearningDataCallbackResponse {
 	s.Body = v
 	return s
 }
@@ -23717,6 +24295,212 @@ func (client *Client) RollbackDeductPoint(request *RollbackDeductPointRequest) (
 	return _result, _err
 }
 
+func (client *Client) SaveClassLearningDataWithOptions(request *SaveClassLearningDataRequest, headers *SaveClassLearningDataHeaders, runtime *util.RuntimeOptions) (_result *SaveClassLearningDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AssignNum)) {
+		body["assignNum"] = request.AssignNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AssignStudentUserIds)) {
+		body["assignStudentUserIds"] = request.AssignStudentUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSuffix)) {
+		body["fileSuffix"] = request.FileSuffix
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GeneratedTime)) {
+		body["generatedTime"] = request.GeneratedTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QuestionNum)) {
+		body["questionNum"] = request.QuestionNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QuestionPictureNum)) {
+		body["questionPictureNum"] = request.QuestionPictureNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StandardAnswerPictureNum)) {
+		body["standardAnswerPictureNum"] = request.StandardAnswerPictureNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectCode)) {
+		body["subjectCode"] = request.SubjectCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeacherUserId)) {
+		body["teacherUserId"] = request.TeacherUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveClassLearningData"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/classes/learnings/datas/save"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SaveClassLearningDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveClassLearningData(request *SaveClassLearningDataRequest) (_result *SaveClassLearningDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveClassLearningDataHeaders{}
+	_result = &SaveClassLearningDataResponse{}
+	_body, _err := client.SaveClassLearningDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveStudentLearningDataWithOptions(request *SaveStudentLearningDataRequest, headers *SaveStudentLearningDataHeaders, runtime *util.RuntimeOptions) (_result *SaveStudentLearningDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AssignNum)) {
+		body["assignNum"] = request.AssignNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorrectNum)) {
+		body["correctNum"] = request.CorrectNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSuffix)) {
+		body["fileSuffix"] = request.FileSuffix
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GeneratedTime)) {
+		body["generatedTime"] = request.GeneratedTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QuestionNum)) {
+		body["questionNum"] = request.QuestionNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StudentUserId)) {
+		body["studentUserId"] = request.StudentUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectCode)) {
+		body["subjectCode"] = request.SubjectCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubmitNum)) {
+		body["submitNum"] = request.SubmitNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WrongQuestions)) {
+		body["wrongQuestions"] = request.WrongQuestions
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveStudentLearningData"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/students/learnings/datas/save"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SaveStudentLearningDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveStudentLearningData(request *SaveStudentLearningDataRequest) (_result *SaveStudentLearningDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveStudentLearningDataHeaders{}
+	_result = &SaveStudentLearningDataResponse{}
+	_body, _err := client.SaveStudentLearningDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) SearchTeachersWithOptions(request *SearchTeachersRequest, headers *SearchTeachersHeaders, runtime *util.RuntimeOptions) (_result *SearchTeachersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24497,6 +25281,85 @@ func (client *Client) UpdateUniversityCourseGroup(request *UpdateUniversityCours
 	headers := &UpdateUniversityCourseGroupHeaders{}
 	_result = &UpdateUniversityCourseGroupResponse{}
 	_body, _err := client.UpdateUniversityCourseGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UploadLearningDataCallbackWithOptions(request *UploadLearningDataCallbackRequest, headers *UploadLearningDataCallbackHeaders, runtime *util.RuntimeOptions) (_result *UploadLearningDataCallbackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GeneratedTime)) {
+		body["generatedTime"] = request.GeneratedTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StudentUserId)) {
+		body["studentUserId"] = request.StudentUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectCode)) {
+		body["subjectCode"] = request.SubjectCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UploadLearningDataCallback"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/uploadLearnings/datas/callback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UploadLearningDataCallbackResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UploadLearningDataCallback(request *UploadLearningDataCallbackRequest) (_result *UploadLearningDataCallbackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UploadLearningDataCallbackHeaders{}
+	_result = &UploadLearningDataCallbackResponse{}
+	_body, _err := client.UploadLearningDataCallbackWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

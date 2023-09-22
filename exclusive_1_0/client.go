@@ -203,6 +203,225 @@ func (s *BanOrOpenGroupWordsResponse) SetBody(v *BanOrOpenGroupWordsResponseBody
 	return s
 }
 
+type CreateCategoryAndBindingGroupsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCategoryAndBindingGroupsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCategoryAndBindingGroupsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCategoryAndBindingGroupsHeaders) SetCommonHeaders(v map[string]*string) *CreateCategoryAndBindingGroupsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCategoryAndBindingGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCategoryAndBindingGroupsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCategoryAndBindingGroupsRequest struct {
+	CategoryName *string  `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	GroupIds     []*int64 `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateCategoryAndBindingGroupsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCategoryAndBindingGroupsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCategoryAndBindingGroupsRequest) SetCategoryName(v string) *CreateCategoryAndBindingGroupsRequest {
+	s.CategoryName = &v
+	return s
+}
+
+func (s *CreateCategoryAndBindingGroupsRequest) SetGroupIds(v []*int64) *CreateCategoryAndBindingGroupsRequest {
+	s.GroupIds = v
+	return s
+}
+
+type CreateCategoryAndBindingGroupsResponseBody struct {
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CreateCategoryAndBindingGroupsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCategoryAndBindingGroupsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCategoryAndBindingGroupsResponseBody) SetId(v int64) *CreateCategoryAndBindingGroupsResponseBody {
+	s.Id = &v
+	return s
+}
+
+type CreateCategoryAndBindingGroupsResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateCategoryAndBindingGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateCategoryAndBindingGroupsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCategoryAndBindingGroupsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCategoryAndBindingGroupsResponse) SetHeaders(v map[string]*string) *CreateCategoryAndBindingGroupsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCategoryAndBindingGroupsResponse) SetStatusCode(v int32) *CreateCategoryAndBindingGroupsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateCategoryAndBindingGroupsResponse) SetBody(v *CreateCategoryAndBindingGroupsResponseBody) *CreateCategoryAndBindingGroupsResponse {
+	s.Body = v
+	return s
+}
+
+type CreateRuleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateRuleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRuleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRuleHeaders) SetCommonHeaders(v map[string]*string) *CreateRuleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateRuleHeaders) SetXAcsDingtalkAccessToken(v string) *CreateRuleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateRuleRequest struct {
+	CustomPlan *CreateRuleRequestCustomPlan `json:"customPlan,omitempty" xml:"customPlan,omitempty" type:"Struct"`
+}
+
+func (s CreateRuleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRuleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRuleRequest) SetCustomPlan(v *CreateRuleRequestCustomPlan) *CreateRuleRequest {
+	s.CustomPlan = v
+	return s
+}
+
+type CreateRuleRequestCustomPlan struct {
+	CurrentCategoryList  []*string `json:"currentCategoryList,omitempty" xml:"currentCategoryList,omitempty" type:"Repeated"`
+	DeptIds              []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	PlanName             *string   `json:"planName,omitempty" xml:"planName,omitempty"`
+	UnSelectCategoryList []*string `json:"unSelectCategoryList,omitempty" xml:"unSelectCategoryList,omitempty" type:"Repeated"`
+	UserIds              []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateRuleRequestCustomPlan) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRuleRequestCustomPlan) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRuleRequestCustomPlan) SetCurrentCategoryList(v []*string) *CreateRuleRequestCustomPlan {
+	s.CurrentCategoryList = v
+	return s
+}
+
+func (s *CreateRuleRequestCustomPlan) SetDeptIds(v []*int64) *CreateRuleRequestCustomPlan {
+	s.DeptIds = v
+	return s
+}
+
+func (s *CreateRuleRequestCustomPlan) SetPlanName(v string) *CreateRuleRequestCustomPlan {
+	s.PlanName = &v
+	return s
+}
+
+func (s *CreateRuleRequestCustomPlan) SetUnSelectCategoryList(v []*string) *CreateRuleRequestCustomPlan {
+	s.UnSelectCategoryList = v
+	return s
+}
+
+func (s *CreateRuleRequestCustomPlan) SetUserIds(v []*string) *CreateRuleRequestCustomPlan {
+	s.UserIds = v
+	return s
+}
+
+type CreateRuleResponseBody struct {
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CreateRuleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRuleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRuleResponseBody) SetId(v int64) *CreateRuleResponseBody {
+	s.Id = &v
+	return s
+}
+
+type CreateRuleResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateRuleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRuleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRuleResponse) SetHeaders(v map[string]*string) *CreateRuleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateRuleResponse) SetStatusCode(v int32) *CreateRuleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateRuleResponse) SetBody(v *CreateRuleResponseBody) *CreateRuleResponse {
+	s.Body = v
+	return s
+}
+
 type CreateTrustedDeviceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6706,6 +6925,126 @@ func (s *ListAuditLogResponse) SetBody(v *ListAuditLogResponseBody) *ListAuditLo
 	return s
 }
 
+type ListCategorysHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListCategorysHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategorysHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategorysHeaders) SetCommonHeaders(v map[string]*string) *ListCategorysHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListCategorysHeaders) SetXAcsDingtalkAccessToken(v string) *ListCategorysHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListCategorysRequest struct {
+	Body *ListCategorysRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Struct"`
+}
+
+func (s ListCategorysRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategorysRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategorysRequest) SetBody(v *ListCategorysRequestBody) *ListCategorysRequest {
+	s.Body = v
+	return s
+}
+
+type ListCategorysRequestBody struct {
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ListCategorysRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategorysRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategorysRequestBody) SetStatus(v int64) *ListCategorysRequestBody {
+	s.Status = &v
+	return s
+}
+
+type ListCategorysShrinkRequest struct {
+	BodyShrink *string `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListCategorysShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategorysShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategorysShrinkRequest) SetBodyShrink(v string) *ListCategorysShrinkRequest {
+	s.BodyShrink = &v
+	return s
+}
+
+type ListCategorysResponseBody struct {
+	DetailModelList []map[string]*string `json:"detailModelList,omitempty" xml:"detailModelList,omitempty" type:"Repeated"`
+}
+
+func (s ListCategorysResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategorysResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategorysResponseBody) SetDetailModelList(v []map[string]*string) *ListCategorysResponseBody {
+	s.DetailModelList = v
+	return s
+}
+
+type ListCategorysResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListCategorysResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListCategorysResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategorysResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategorysResponse) SetHeaders(v map[string]*string) *ListCategorysResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListCategorysResponse) SetStatusCode(v int32) *ListCategorysResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListCategorysResponse) SetBody(v *ListCategorysResponseBody) *ListCategorysResponse {
+	s.Body = v
+	return s
+}
+
 type ListJoinOrgInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7476,6 +7815,126 @@ func (s *ListPunchScheduleByConditionWithPagingResponse) SetBody(v *ListPunchSch
 	return s
 }
 
+type ListRulesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListRulesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRulesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListRulesHeaders) SetCommonHeaders(v map[string]*string) *ListRulesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListRulesHeaders) SetXAcsDingtalkAccessToken(v string) *ListRulesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListRulesRequest struct {
+	Body *ListRulesRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Struct"`
+}
+
+func (s ListRulesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRulesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListRulesRequest) SetBody(v *ListRulesRequestBody) *ListRulesRequest {
+	s.Body = v
+	return s
+}
+
+type ListRulesRequestBody struct {
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ListRulesRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRulesRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListRulesRequestBody) SetStatus(v int64) *ListRulesRequestBody {
+	s.Status = &v
+	return s
+}
+
+type ListRulesShrinkRequest struct {
+	BodyShrink *string `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListRulesShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRulesShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListRulesShrinkRequest) SetBodyShrink(v string) *ListRulesShrinkRequest {
+	s.BodyShrink = &v
+	return s
+}
+
+type ListRulesResponseBody struct {
+	DetailModelList []map[string]*string `json:"detailModelList,omitempty" xml:"detailModelList,omitempty" type:"Repeated"`
+}
+
+func (s ListRulesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRulesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListRulesResponseBody) SetDetailModelList(v []map[string]*string) *ListRulesResponseBody {
+	s.DetailModelList = v
+	return s
+}
+
+type ListRulesResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ListRulesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListRulesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRulesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListRulesResponse) SetHeaders(v map[string]*string) *ListRulesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListRulesResponse) SetStatusCode(v int32) *ListRulesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListRulesResponse) SetBody(v *ListRulesResponseBody) *ListRulesResponse {
+	s.Body = v
+	return s
+}
+
 type LogoutHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7646,6 +8105,92 @@ func (s *PublishFileChangeNoticeResponse) SetHeaders(v map[string]*string) *Publ
 
 func (s *PublishFileChangeNoticeResponse) SetStatusCode(v int32) *PublishFileChangeNoticeResponse {
 	s.StatusCode = &v
+	return s
+}
+
+type PublishRuleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PublishRuleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishRuleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PublishRuleHeaders) SetCommonHeaders(v map[string]*string) *PublishRuleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PublishRuleHeaders) SetXAcsDingtalkAccessToken(v string) *PublishRuleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PublishRuleRequest struct {
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s PublishRuleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishRuleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PublishRuleRequest) SetStatus(v int64) *PublishRuleRequest {
+	s.Status = &v
+	return s
+}
+
+type PublishRuleResponseBody struct {
+	IsPublish *bool `json:"isPublish,omitempty" xml:"isPublish,omitempty"`
+}
+
+func (s PublishRuleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishRuleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PublishRuleResponseBody) SetIsPublish(v bool) *PublishRuleResponseBody {
+	s.IsPublish = &v
+	return s
+}
+
+type PublishRuleResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PublishRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PublishRuleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishRuleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PublishRuleResponse) SetHeaders(v map[string]*string) *PublishRuleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PublishRuleResponse) SetStatusCode(v int32) *PublishRuleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PublishRuleResponse) SetBody(v *PublishRuleResponseBody) *PublishRuleResponse {
+	s.Body = v
 	return s
 }
 
@@ -9445,6 +9990,98 @@ func (s *SetDeptPartnerTypeAndNumResponse) SetStatusCode(v int32) *SetDeptPartne
 	return s
 }
 
+type UpdateCategoryNameHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCategoryNameHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCategoryNameHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCategoryNameHeaders) SetCommonHeaders(v map[string]*string) *UpdateCategoryNameHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCategoryNameHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCategoryNameHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCategoryNameRequest struct {
+	CurrentCategoryName *string `json:"currentCategoryName,omitempty" xml:"currentCategoryName,omitempty"`
+	TargetCategoryName  *string `json:"targetCategoryName,omitempty" xml:"targetCategoryName,omitempty"`
+}
+
+func (s UpdateCategoryNameRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCategoryNameRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCategoryNameRequest) SetCurrentCategoryName(v string) *UpdateCategoryNameRequest {
+	s.CurrentCategoryName = &v
+	return s
+}
+
+func (s *UpdateCategoryNameRequest) SetTargetCategoryName(v string) *UpdateCategoryNameRequest {
+	s.TargetCategoryName = &v
+	return s
+}
+
+type UpdateCategoryNameResponseBody struct {
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s UpdateCategoryNameResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCategoryNameResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCategoryNameResponseBody) SetStatus(v int64) *UpdateCategoryNameResponseBody {
+	s.Status = &v
+	return s
+}
+
+type UpdateCategoryNameResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateCategoryNameResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateCategoryNameResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCategoryNameResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCategoryNameResponse) SetHeaders(v map[string]*string) *UpdateCategoryNameResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCategoryNameResponse) SetStatusCode(v int32) *UpdateCategoryNameResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateCategoryNameResponse) SetBody(v *UpdateCategoryNameResponseBody) *UpdateCategoryNameResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateFileStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10035,6 +10672,120 @@ func (client *Client) BanOrOpenGroupWords(request *BanOrOpenGroupWordsRequest) (
 	headers := &BanOrOpenGroupWordsHeaders{}
 	_result = &BanOrOpenGroupWordsResponse{}
 	_body, _err := client.BanOrOpenGroupWordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateCategoryAndBindingGroupsWithOptions(request *CreateCategoryAndBindingGroupsRequest, headers *CreateCategoryAndBindingGroupsHeaders, runtime *util.RuntimeOptions) (_result *CreateCategoryAndBindingGroupsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CategoryName)) {
+		body["categoryName"] = request.CategoryName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupIds)) {
+		body["groupIds"] = request.GroupIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateCategoryAndBindingGroups"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/messageCategories/categories/createAndBind"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateCategoryAndBindingGroupsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateCategoryAndBindingGroups(request *CreateCategoryAndBindingGroupsRequest) (_result *CreateCategoryAndBindingGroupsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCategoryAndBindingGroupsHeaders{}
+	_result = &CreateCategoryAndBindingGroupsResponse{}
+	_body, _err := client.CreateCategoryAndBindingGroupsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateRuleWithOptions(request *CreateRuleRequest, headers *CreateRuleHeaders, runtime *util.RuntimeOptions) (_result *CreateRuleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomPlan)) {
+		body["customPlan"] = request.CustomPlan
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateRule"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/messageCategories/rules"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateRuleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateRule(request *CreateRuleRequest) (_result *CreateRuleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateRuleHeaders{}
+	_result = &CreateRuleResponse{}
+	_body, _err := client.CreateRuleWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12835,6 +13586,67 @@ func (client *Client) ListAuditLog(request *ListAuditLogRequest) (_result *ListA
 	return _result, _err
 }
 
+func (client *Client) ListCategorysWithOptions(tmpReq *ListCategorysRequest, headers *ListCategorysHeaders, runtime *util.RuntimeOptions) (_result *ListCategorysResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &ListCategorysShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.Body)) {
+		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Body, tea.String("body"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BodyShrink)) {
+		query["body"] = request.BodyShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListCategorys"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/messageCategories/categories/listCategories"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListCategorysResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListCategorys(request *ListCategorysRequest) (_result *ListCategorysResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListCategorysHeaders{}
+	_result = &ListCategorysResponse{}
+	_body, _err := client.ListCategorysWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) ListJoinOrgInfoWithOptions(request *ListJoinOrgInfoRequest, headers *ListJoinOrgInfoHeaders, runtime *util.RuntimeOptions) (_result *ListJoinOrgInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13140,6 +13952,67 @@ func (client *Client) ListPunchScheduleByConditionWithPaging(request *ListPunchS
 	return _result, _err
 }
 
+func (client *Client) ListRulesWithOptions(tmpReq *ListRulesRequest, headers *ListRulesHeaders, runtime *util.RuntimeOptions) (_result *ListRulesResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &ListRulesShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.Body)) {
+		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Body, tea.String("body"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BodyShrink)) {
+		query["body"] = request.BodyShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListRules"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/messageCategories/rules/listRules"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListRulesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListRules(request *ListRulesRequest) (_result *ListRulesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListRulesHeaders{}
+	_result = &ListRulesResponse{}
+	_body, _err := client.ListRulesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) LogoutWithOptions(request *LogoutRequest, headers *LogoutHeaders, runtime *util.RuntimeOptions) (_result *LogoutResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13259,6 +14132,61 @@ func (client *Client) PublishFileChangeNotice(request *PublishFileChangeNoticeRe
 	headers := &PublishFileChangeNoticeHeaders{}
 	_result = &PublishFileChangeNoticeResponse{}
 	_body, _err := client.PublishFileChangeNoticeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PublishRuleWithOptions(request *PublishRuleRequest, headers *PublishRuleHeaders, runtime *util.RuntimeOptions) (_result *PublishRuleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PublishRule"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/messageCategories/rules/publish"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PublishRuleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PublishRule(request *PublishRuleRequest) (_result *PublishRuleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PublishRuleHeaders{}
+	_result = &PublishRuleResponse{}
+	_body, _err := client.PublishRuleWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14247,6 +15175,65 @@ func (client *Client) SetDeptPartnerTypeAndNum(request *SetDeptPartnerTypeAndNum
 	headers := &SetDeptPartnerTypeAndNumHeaders{}
 	_result = &SetDeptPartnerTypeAndNumResponse{}
 	_body, _err := client.SetDeptPartnerTypeAndNumWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateCategoryNameWithOptions(request *UpdateCategoryNameRequest, headers *UpdateCategoryNameHeaders, runtime *util.RuntimeOptions) (_result *UpdateCategoryNameResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CurrentCategoryName)) {
+		body["currentCategoryName"] = request.CurrentCategoryName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCategoryName)) {
+		body["targetCategoryName"] = request.TargetCategoryName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateCategoryName"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/messageCategories/categories/names"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateCategoryNameResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateCategoryName(request *UpdateCategoryNameRequest) (_result *UpdateCategoryNameResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCategoryNameHeaders{}
+	_result = &UpdateCategoryNameResponse{}
+	_body, _err := client.UpdateCategoryNameWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
