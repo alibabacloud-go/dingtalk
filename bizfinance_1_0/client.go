@@ -5786,6 +5786,7 @@ func (s *QueryProjectByPageResponseBody) SetList(v []*QueryProjectByPageResponse
 
 type QueryProjectByPageResponseBodyList struct {
 	Caode          *string `json:"caode,omitempty" xml:"caode,omitempty"`
+	Code           *string `json:"code,omitempty" xml:"code,omitempty"`
 	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator        *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
@@ -5806,6 +5807,11 @@ func (s QueryProjectByPageResponseBodyList) GoString() string {
 
 func (s *QueryProjectByPageResponseBodyList) SetCaode(v string) *QueryProjectByPageResponseBodyList {
 	s.Caode = &v
+	return s
+}
+
+func (s *QueryProjectByPageResponseBodyList) SetCode(v string) *QueryProjectByPageResponseBodyList {
+	s.Code = &v
 	return s
 }
 
@@ -7241,6 +7247,151 @@ func (s *QueryReceiptsByPageResponse) SetStatusCode(v int32) *QueryReceiptsByPag
 }
 
 func (s *QueryReceiptsByPageResponse) SetBody(v *QueryReceiptsByPageResponseBody) *QueryReceiptsByPageResponse {
+	s.Body = v
+	return s
+}
+
+type QueryRoleMemberByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryRoleMemberByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRoleMemberByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRoleMemberByPageHeaders) SetCommonHeaders(v map[string]*string) *QueryRoleMemberByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryRoleMemberByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRoleMemberByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryRoleMemberByPageRequest struct {
+	MaxResults *string `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	RoleCode   *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+}
+
+func (s QueryRoleMemberByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRoleMemberByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRoleMemberByPageRequest) SetMaxResults(v string) *QueryRoleMemberByPageRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryRoleMemberByPageRequest) SetNextToken(v string) *QueryRoleMemberByPageRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryRoleMemberByPageRequest) SetRoleCode(v string) *QueryRoleMemberByPageRequest {
+	s.RoleCode = &v
+	return s
+}
+
+type QueryRoleMemberByPageResponseBody struct {
+	HasMore    *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*QueryRoleMemberByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken  *int64                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TotalCount *int64                                   `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryRoleMemberByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRoleMemberByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRoleMemberByPageResponseBody) SetHasMore(v bool) *QueryRoleMemberByPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryRoleMemberByPageResponseBody) SetList(v []*QueryRoleMemberByPageResponseBodyList) *QueryRoleMemberByPageResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryRoleMemberByPageResponseBody) SetNextToken(v int64) *QueryRoleMemberByPageResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryRoleMemberByPageResponseBody) SetTotalCount(v int64) *QueryRoleMemberByPageResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryRoleMemberByPageResponseBodyList struct {
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryRoleMemberByPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRoleMemberByPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRoleMemberByPageResponseBodyList) SetAvatarUrl(v string) *QueryRoleMemberByPageResponseBodyList {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *QueryRoleMemberByPageResponseBodyList) SetNick(v string) *QueryRoleMemberByPageResponseBodyList {
+	s.Nick = &v
+	return s
+}
+
+func (s *QueryRoleMemberByPageResponseBodyList) SetUserId(v string) *QueryRoleMemberByPageResponseBodyList {
+	s.UserId = &v
+	return s
+}
+
+type QueryRoleMemberByPageResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryRoleMemberByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryRoleMemberByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRoleMemberByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRoleMemberByPageResponse) SetHeaders(v map[string]*string) *QueryRoleMemberByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryRoleMemberByPageResponse) SetStatusCode(v int32) *QueryRoleMemberByPageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryRoleMemberByPageResponse) SetBody(v *QueryRoleMemberByPageResponseBody) *QueryRoleMemberByPageResponse {
 	s.Body = v
 	return s
 }
@@ -15929,6 +16080,69 @@ func (client *Client) QueryReceiptsByPage(request *QueryReceiptsByPageRequest) (
 	headers := &QueryReceiptsByPageHeaders{}
 	_result = &QueryReceiptsByPageResponse{}
 	_body, _err := client.QueryReceiptsByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryRoleMemberByPageWithOptions(request *QueryRoleMemberByPageRequest, headers *QueryRoleMemberByPageHeaders, runtime *util.RuntimeOptions) (_result *QueryRoleMemberByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleCode)) {
+		query["roleCode"] = request.RoleCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryRoleMemberByPage"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/roles/members"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryRoleMemberByPageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryRoleMemberByPage(request *QueryRoleMemberByPageRequest) (_result *QueryRoleMemberByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryRoleMemberByPageHeaders{}
+	_result = &QueryRoleMemberByPageResponse{}
+	_body, _err := client.QueryRoleMemberByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -13,6 +13,228 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CreateDeviceCustomTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateDeviceCustomTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceCustomTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceCustomTemplateHeaders) SetCommonHeaders(v map[string]*string) *CreateDeviceCustomTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *CreateDeviceCustomTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateDeviceCustomTemplateRequest struct {
+	Body *CreateDeviceCustomTemplateRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Struct"`
+}
+
+func (s CreateDeviceCustomTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceCustomTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceCustomTemplateRequest) SetBody(v *CreateDeviceCustomTemplateRequestBody) *CreateDeviceCustomTemplateRequest {
+	s.Body = v
+	return s
+}
+
+type CreateDeviceCustomTemplateRequestBody struct {
+	BgImgList                    []*string `json:"bgImgList,omitempty" xml:"bgImgList,omitempty" type:"Repeated"`
+	BgType                       *int32    `json:"bgType,omitempty" xml:"bgType,omitempty"`
+	BgUrl                        *string   `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
+	CustomDoc                    *string   `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
+	DesensitizeUserName          *bool     `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
+	DeviceUnionIds               []*string `json:"deviceUnionIds,omitempty" xml:"deviceUnionIds,omitempty" type:"Repeated"`
+	GroupIds                     []*int64  `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
+	HideServerCodeWhenProjecting *bool     `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
+	Instruction                  *bool     `json:"instruction,omitempty" xml:"instruction,omitempty"`
+	IsPicTop                     *int32    `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
+	Logo                         *string   `json:"logo,omitempty" xml:"logo,omitempty"`
+	OrgName                      *string   `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	PicturePlayInterval          *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
+	RoomIds                      []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
+	ShowCalendarCard             *bool     `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
+	ShowCalendarTitle            *bool     `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
+	ShowFunctionCard             *bool     `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
+	TemplateName                 *string   `json:"templateName,omitempty" xml:"templateName,omitempty"`
+}
+
+func (s CreateDeviceCustomTemplateRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceCustomTemplateRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetBgImgList(v []*string) *CreateDeviceCustomTemplateRequestBody {
+	s.BgImgList = v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetBgType(v int32) *CreateDeviceCustomTemplateRequestBody {
+	s.BgType = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetBgUrl(v string) *CreateDeviceCustomTemplateRequestBody {
+	s.BgUrl = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetCustomDoc(v string) *CreateDeviceCustomTemplateRequestBody {
+	s.CustomDoc = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetDesensitizeUserName(v bool) *CreateDeviceCustomTemplateRequestBody {
+	s.DesensitizeUserName = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetDeviceUnionIds(v []*string) *CreateDeviceCustomTemplateRequestBody {
+	s.DeviceUnionIds = v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetGroupIds(v []*int64) *CreateDeviceCustomTemplateRequestBody {
+	s.GroupIds = v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetHideServerCodeWhenProjecting(v bool) *CreateDeviceCustomTemplateRequestBody {
+	s.HideServerCodeWhenProjecting = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetInstruction(v bool) *CreateDeviceCustomTemplateRequestBody {
+	s.Instruction = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetIsPicTop(v int32) *CreateDeviceCustomTemplateRequestBody {
+	s.IsPicTop = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetLogo(v string) *CreateDeviceCustomTemplateRequestBody {
+	s.Logo = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetOrgName(v string) *CreateDeviceCustomTemplateRequestBody {
+	s.OrgName = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetPicturePlayInterval(v int32) *CreateDeviceCustomTemplateRequestBody {
+	s.PicturePlayInterval = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetRoomIds(v []*string) *CreateDeviceCustomTemplateRequestBody {
+	s.RoomIds = v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetShowCalendarCard(v bool) *CreateDeviceCustomTemplateRequestBody {
+	s.ShowCalendarCard = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetShowCalendarTitle(v bool) *CreateDeviceCustomTemplateRequestBody {
+	s.ShowCalendarTitle = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetShowFunctionCard(v bool) *CreateDeviceCustomTemplateRequestBody {
+	s.ShowFunctionCard = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateRequestBody) SetTemplateName(v string) *CreateDeviceCustomTemplateRequestBody {
+	s.TemplateName = &v
+	return s
+}
+
+type CreateDeviceCustomTemplateShrinkRequest struct {
+	BodyShrink *string `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateDeviceCustomTemplateShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceCustomTemplateShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceCustomTemplateShrinkRequest) SetBodyShrink(v string) *CreateDeviceCustomTemplateShrinkRequest {
+	s.BodyShrink = &v
+	return s
+}
+
+type CreateDeviceCustomTemplateResponseBody struct {
+	TemplateId *int64 `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s CreateDeviceCustomTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceCustomTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceCustomTemplateResponseBody) SetTemplateId(v int64) *CreateDeviceCustomTemplateResponseBody {
+	s.TemplateId = &v
+	return s
+}
+
+type CreateDeviceCustomTemplateResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateDeviceCustomTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateDeviceCustomTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceCustomTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceCustomTemplateResponse) SetHeaders(v map[string]*string) *CreateDeviceCustomTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateResponse) SetStatusCode(v int32) *CreateDeviceCustomTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateDeviceCustomTemplateResponse) SetBody(v *CreateDeviceCustomTemplateResponseBody) *CreateDeviceCustomTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type CreateMeetingRoomHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -268,6 +490,92 @@ func (s *CreateMeetingRoomGroupResponse) SetBody(v *CreateMeetingRoomGroupRespon
 	return s
 }
 
+type DeleteDeviceCustomTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteDeviceCustomTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceCustomTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceCustomTemplateHeaders) SetCommonHeaders(v map[string]*string) *DeleteDeviceCustomTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteDeviceCustomTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteDeviceCustomTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteDeviceCustomTemplateRequest struct {
+	TemplateId *int64 `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s DeleteDeviceCustomTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceCustomTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceCustomTemplateRequest) SetTemplateId(v int64) *DeleteDeviceCustomTemplateRequest {
+	s.TemplateId = &v
+	return s
+}
+
+type DeleteDeviceCustomTemplateResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteDeviceCustomTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceCustomTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceCustomTemplateResponseBody) SetResult(v bool) *DeleteDeviceCustomTemplateResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteDeviceCustomTemplateResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteDeviceCustomTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteDeviceCustomTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceCustomTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceCustomTemplateResponse) SetHeaders(v map[string]*string) *DeleteDeviceCustomTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteDeviceCustomTemplateResponse) SetStatusCode(v int32) *DeleteDeviceCustomTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteDeviceCustomTemplateResponse) SetBody(v *DeleteDeviceCustomTemplateResponseBody) *DeleteDeviceCustomTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteMeetingRoomHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -436,6 +744,464 @@ func (s *DeleteMeetingRoomGroupResponse) SetStatusCode(v int32) *DeleteMeetingRo
 }
 
 func (s *DeleteMeetingRoomGroupResponse) SetBody(v *DeleteMeetingRoomGroupResponseBody) *DeleteMeetingRoomGroupResponse {
+	s.Body = v
+	return s
+}
+
+type QueryDeviceCustomTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDeviceCustomTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateHeaders) SetCommonHeaders(v map[string]*string) *QueryDeviceCustomTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDeviceCustomTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDeviceCustomTemplateResponseBody struct {
+	Result *QueryDeviceCustomTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryDeviceCustomTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateResponseBody) SetResult(v *QueryDeviceCustomTemplateResponseBodyResult) *QueryDeviceCustomTemplateResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryDeviceCustomTemplateResponseBodyResult struct {
+	DeviceCustomTemplate *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate `json:"deviceCustomTemplate,omitempty" xml:"deviceCustomTemplate,omitempty" type:"Struct"`
+	DeviceUnionIds       []*string                                                        `json:"deviceUnionIds,omitempty" xml:"deviceUnionIds,omitempty" type:"Repeated"`
+	GroupIds             []*int64                                                         `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
+	RoomIds              []*string                                                        `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryDeviceCustomTemplateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResult) SetDeviceCustomTemplate(v *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) *QueryDeviceCustomTemplateResponseBodyResult {
+	s.DeviceCustomTemplate = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResult) SetDeviceUnionIds(v []*string) *QueryDeviceCustomTemplateResponseBodyResult {
+	s.DeviceUnionIds = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResult) SetGroupIds(v []*int64) *QueryDeviceCustomTemplateResponseBodyResult {
+	s.GroupIds = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResult) SetRoomIds(v []*string) *QueryDeviceCustomTemplateResponseBodyResult {
+	s.RoomIds = v
+	return s
+}
+
+type QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate struct {
+	BgImageList                  []*string `json:"bgImageList,omitempty" xml:"bgImageList,omitempty" type:"Repeated"`
+	BgType                       *int32    `json:"bgType,omitempty" xml:"bgType,omitempty"`
+	BgUrl                        *string   `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
+	ConfSubType                  *int32    `json:"confSubType,omitempty" xml:"confSubType,omitempty"`
+	ConfType                     *int32    `json:"confType,omitempty" xml:"confType,omitempty"`
+	CorpId                       *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CustomDoc                    *string   `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
+	DesensitizeUserName          *bool     `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
+	HideServerCodeWhenProjecting *bool     `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
+	Instruction                  *bool     `json:"instruction,omitempty" xml:"instruction,omitempty"`
+	IsPicTop                     *int32    `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
+	Logo                         *string   `json:"logo,omitempty" xml:"logo,omitempty"`
+	OrgName                      *string   `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	PicturePlayInterval          *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
+	ShowCalendarCard             *bool     `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
+	ShowCalendarTitle            *bool     `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
+	ShowFunctionCard             *bool     `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
+	TemplateId                   *int64    `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateName                 *string   `json:"templateName,omitempty" xml:"templateName,omitempty"`
+}
+
+func (s QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetBgImageList(v []*string) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.BgImageList = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetBgType(v int32) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.BgType = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetBgUrl(v string) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.BgUrl = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetConfSubType(v int32) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.ConfSubType = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetConfType(v int32) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.ConfType = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetCorpId(v string) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetCustomDoc(v string) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.CustomDoc = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetDesensitizeUserName(v bool) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.DesensitizeUserName = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetHideServerCodeWhenProjecting(v bool) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.HideServerCodeWhenProjecting = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetInstruction(v bool) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.Instruction = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetIsPicTop(v int32) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.IsPicTop = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetLogo(v string) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.Logo = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetOrgName(v string) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.OrgName = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetPicturePlayInterval(v int32) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.PicturePlayInterval = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetShowCalendarCard(v bool) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.ShowCalendarCard = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetShowCalendarTitle(v bool) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.ShowCalendarTitle = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetShowFunctionCard(v bool) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.ShowFunctionCard = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetTemplateId(v int64) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) SetTemplateName(v string) *QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate {
+	s.TemplateName = &v
+	return s
+}
+
+type QueryDeviceCustomTemplateResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryDeviceCustomTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDeviceCustomTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateResponse) SetHeaders(v map[string]*string) *QueryDeviceCustomTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponse) SetStatusCode(v int32) *QueryDeviceCustomTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateResponse) SetBody(v *QueryDeviceCustomTemplateResponseBody) *QueryDeviceCustomTemplateResponse {
+	s.Body = v
+	return s
+}
+
+type QueryDeviceCustomTemplateListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDeviceCustomTemplateListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateListHeaders) SetCommonHeaders(v map[string]*string) *QueryDeviceCustomTemplateListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDeviceCustomTemplateListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDeviceCustomTemplateListResponseBody struct {
+	Result *QueryDeviceCustomTemplateListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryDeviceCustomTemplateListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBody) SetResult(v *QueryDeviceCustomTemplateListResponseBodyResult) *QueryDeviceCustomTemplateListResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryDeviceCustomTemplateListResponseBodyResult struct {
+	DeviceCustomTemplates []*QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates `json:"deviceCustomTemplates,omitempty" xml:"deviceCustomTemplates,omitempty" type:"Repeated"`
+	DeviceTemplateMap     map[string][]*string                                                    `json:"deviceTemplateMap,omitempty" xml:"deviceTemplateMap,omitempty"`
+	GroupIdTemplateMap    map[string][]*int64                                                     `json:"groupIdTemplateMap,omitempty" xml:"groupIdTemplateMap,omitempty"`
+	RoomIdTemplateMap     map[string][]*string                                                    `json:"roomIdTemplateMap,omitempty" xml:"roomIdTemplateMap,omitempty"`
+}
+
+func (s QueryDeviceCustomTemplateListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResult) SetDeviceCustomTemplates(v []*QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) *QueryDeviceCustomTemplateListResponseBodyResult {
+	s.DeviceCustomTemplates = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResult) SetDeviceTemplateMap(v map[string][]*string) *QueryDeviceCustomTemplateListResponseBodyResult {
+	s.DeviceTemplateMap = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResult) SetGroupIdTemplateMap(v map[string][]*int64) *QueryDeviceCustomTemplateListResponseBodyResult {
+	s.GroupIdTemplateMap = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResult) SetRoomIdTemplateMap(v map[string][]*string) *QueryDeviceCustomTemplateListResponseBodyResult {
+	s.RoomIdTemplateMap = v
+	return s
+}
+
+type QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates struct {
+	BgImageList                  []*string `json:"bgImageList,omitempty" xml:"bgImageList,omitempty" type:"Repeated"`
+	BgType                       *int32    `json:"bgType,omitempty" xml:"bgType,omitempty"`
+	BgUrl                        *string   `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
+	ConfSubType                  *int32    `json:"confSubType,omitempty" xml:"confSubType,omitempty"`
+	ConfType                     *int32    `json:"confType,omitempty" xml:"confType,omitempty"`
+	CorpId                       *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CustomDoc                    *string   `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
+	DesensitizeUserName          *bool     `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
+	HideServerCodeWhenProjecting *bool     `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
+	Instruction                  *bool     `json:"instruction,omitempty" xml:"instruction,omitempty"`
+	IsPicTop                     *int32    `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
+	Logo                         *string   `json:"logo,omitempty" xml:"logo,omitempty"`
+	OrgName                      *string   `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	PicturePlayInterval          *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
+	ShowCalendarCard             *bool     `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
+	ShowCalendarTitle            *bool     `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
+	ShowFunctionCard             *bool     `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
+	TemplateId                   *int64    `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateName                 *string   `json:"templateName,omitempty" xml:"templateName,omitempty"`
+}
+
+func (s QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetBgImageList(v []*string) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.BgImageList = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetBgType(v int32) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.BgType = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetBgUrl(v string) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.BgUrl = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetConfSubType(v int32) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.ConfSubType = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetConfType(v int32) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.ConfType = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetCorpId(v string) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetCustomDoc(v string) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.CustomDoc = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetDesensitizeUserName(v bool) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.DesensitizeUserName = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetHideServerCodeWhenProjecting(v bool) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.HideServerCodeWhenProjecting = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetInstruction(v bool) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.Instruction = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetIsPicTop(v int32) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.IsPicTop = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetLogo(v string) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.Logo = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetOrgName(v string) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.OrgName = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetPicturePlayInterval(v int32) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.PicturePlayInterval = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetShowCalendarCard(v bool) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.ShowCalendarCard = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetShowCalendarTitle(v bool) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.ShowCalendarTitle = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetShowFunctionCard(v bool) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.ShowFunctionCard = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetTemplateId(v int64) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) SetTemplateName(v string) *QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates {
+	s.TemplateName = &v
+	return s
+}
+
+type QueryDeviceCustomTemplateListResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryDeviceCustomTemplateListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDeviceCustomTemplateListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceCustomTemplateListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceCustomTemplateListResponse) SetHeaders(v map[string]*string) *QueryDeviceCustomTemplateListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponse) SetStatusCode(v int32) *QueryDeviceCustomTemplateListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryDeviceCustomTemplateListResponse) SetBody(v *QueryDeviceCustomTemplateListResponseBody) *QueryDeviceCustomTemplateListResponse {
 	s.Body = v
 	return s
 }
@@ -1855,6 +2621,200 @@ func (s *SetSuperUserMeetingRoomResponse) SetBody(v *SetSuperUserMeetingRoomResp
 	return s
 }
 
+type UpdateDeviceCustomTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateDeviceCustomTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeviceCustomTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeviceCustomTemplateHeaders) SetCommonHeaders(v map[string]*string) *UpdateDeviceCustomTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateDeviceCustomTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateDeviceCustomTemplateRequest struct {
+	BgImgList                    []*string `json:"bgImgList,omitempty" xml:"bgImgList,omitempty" type:"Repeated"`
+	BgType                       *int32    `json:"bgType,omitempty" xml:"bgType,omitempty"`
+	BgUrl                        *string   `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
+	CustomDoc                    *string   `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
+	DesensitizeUserName          *bool     `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
+	DeviceUnionIds               []*string `json:"deviceUnionIds,omitempty" xml:"deviceUnionIds,omitempty" type:"Repeated"`
+	GroupIds                     []*int64  `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
+	HideServerCodeWhenProjecting *bool     `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
+	Instruction                  *bool     `json:"instruction,omitempty" xml:"instruction,omitempty"`
+	IsPicTop                     *int32    `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
+	Logo                         *string   `json:"logo,omitempty" xml:"logo,omitempty"`
+	OrgName                      *string   `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	PicturePlayInterval          *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
+	RoomIds                      []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
+	ShowCalendarCard             *bool     `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
+	ShowCalendarTitle            *bool     `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
+	ShowFunctionCard             *bool     `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
+	TemplateId                   *int64    `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateName                 *string   `json:"templateName,omitempty" xml:"templateName,omitempty"`
+}
+
+func (s UpdateDeviceCustomTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeviceCustomTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetBgImgList(v []*string) *UpdateDeviceCustomTemplateRequest {
+	s.BgImgList = v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetBgType(v int32) *UpdateDeviceCustomTemplateRequest {
+	s.BgType = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetBgUrl(v string) *UpdateDeviceCustomTemplateRequest {
+	s.BgUrl = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetCustomDoc(v string) *UpdateDeviceCustomTemplateRequest {
+	s.CustomDoc = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetDesensitizeUserName(v bool) *UpdateDeviceCustomTemplateRequest {
+	s.DesensitizeUserName = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetDeviceUnionIds(v []*string) *UpdateDeviceCustomTemplateRequest {
+	s.DeviceUnionIds = v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetGroupIds(v []*int64) *UpdateDeviceCustomTemplateRequest {
+	s.GroupIds = v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetHideServerCodeWhenProjecting(v bool) *UpdateDeviceCustomTemplateRequest {
+	s.HideServerCodeWhenProjecting = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetInstruction(v bool) *UpdateDeviceCustomTemplateRequest {
+	s.Instruction = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetIsPicTop(v int32) *UpdateDeviceCustomTemplateRequest {
+	s.IsPicTop = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetLogo(v string) *UpdateDeviceCustomTemplateRequest {
+	s.Logo = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetOrgName(v string) *UpdateDeviceCustomTemplateRequest {
+	s.OrgName = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetPicturePlayInterval(v int32) *UpdateDeviceCustomTemplateRequest {
+	s.PicturePlayInterval = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetRoomIds(v []*string) *UpdateDeviceCustomTemplateRequest {
+	s.RoomIds = v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetShowCalendarCard(v bool) *UpdateDeviceCustomTemplateRequest {
+	s.ShowCalendarCard = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetShowCalendarTitle(v bool) *UpdateDeviceCustomTemplateRequest {
+	s.ShowCalendarTitle = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetShowFunctionCard(v bool) *UpdateDeviceCustomTemplateRequest {
+	s.ShowFunctionCard = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetTemplateId(v int64) *UpdateDeviceCustomTemplateRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateRequest) SetTemplateName(v string) *UpdateDeviceCustomTemplateRequest {
+	s.TemplateName = &v
+	return s
+}
+
+type UpdateDeviceCustomTemplateResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateDeviceCustomTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeviceCustomTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeviceCustomTemplateResponseBody) SetResult(v bool) *UpdateDeviceCustomTemplateResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateDeviceCustomTemplateResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateDeviceCustomTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateDeviceCustomTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeviceCustomTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeviceCustomTemplateResponse) SetHeaders(v map[string]*string) *UpdateDeviceCustomTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateResponse) SetStatusCode(v int32) *UpdateDeviceCustomTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateDeviceCustomTemplateResponse) SetBody(v *UpdateDeviceCustomTemplateResponseBody) *UpdateDeviceCustomTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateMeetingRoomHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2145,6 +3105,67 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) CreateDeviceCustomTemplateWithOptions(tmpReq *CreateDeviceCustomTemplateRequest, headers *CreateDeviceCustomTemplateHeaders, runtime *util.RuntimeOptions) (_result *CreateDeviceCustomTemplateResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &CreateDeviceCustomTemplateShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.Body)) {
+		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Body, tea.String("body"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BodyShrink)) {
+		query["body"] = request.BodyShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateDeviceCustomTemplate"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/devices/screens/templates"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateDeviceCustomTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateDeviceCustomTemplate(request *CreateDeviceCustomTemplateRequest) (_result *CreateDeviceCustomTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateDeviceCustomTemplateHeaders{}
+	_result = &CreateDeviceCustomTemplateResponse{}
+	_body, _err := client.CreateDeviceCustomTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomRequest, headers *CreateMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *CreateMeetingRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2295,6 +3316,61 @@ func (client *Client) CreateMeetingRoomGroup(request *CreateMeetingRoomGroupRequ
 	return _result, _err
 }
 
+func (client *Client) DeleteDeviceCustomTemplateWithOptions(request *DeleteDeviceCustomTemplateRequest, headers *DeleteDeviceCustomTemplateHeaders, runtime *util.RuntimeOptions) (_result *DeleteDeviceCustomTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteDeviceCustomTemplate"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/devices/screens/templates/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteDeviceCustomTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteDeviceCustomTemplate(request *DeleteDeviceCustomTemplateRequest) (_result *DeleteDeviceCustomTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteDeviceCustomTemplateHeaders{}
+	_result = &DeleteDeviceCustomTemplateResponse{}
+	_body, _err := client.DeleteDeviceCustomTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) DeleteMeetingRoomWithOptions(roomId *string, request *DeleteMeetingRoomRequest, headers *DeleteMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *DeleteMeetingRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2398,6 +3474,96 @@ func (client *Client) DeleteMeetingRoomGroup(groupId *string, request *DeleteMee
 	headers := &DeleteMeetingRoomGroupHeaders{}
 	_result = &DeleteMeetingRoomGroupResponse{}
 	_body, _err := client.DeleteMeetingRoomGroupWithOptions(groupId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceCustomTemplateWithOptions(templateId *string, headers *QueryDeviceCustomTemplateHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceCustomTemplateResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDeviceCustomTemplate"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/devices/screens/templates/" + tea.StringValue(templateId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryDeviceCustomTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceCustomTemplate(templateId *string) (_result *QueryDeviceCustomTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDeviceCustomTemplateHeaders{}
+	_result = &QueryDeviceCustomTemplateResponse{}
+	_body, _err := client.QueryDeviceCustomTemplateWithOptions(templateId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceCustomTemplateListWithOptions(headers *QueryDeviceCustomTemplateListHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceCustomTemplateListResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDeviceCustomTemplateList"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/devices/screens/templateLists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryDeviceCustomTemplateListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceCustomTemplateList() (_result *QueryDeviceCustomTemplateListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDeviceCustomTemplateListHeaders{}
+	_result = &QueryDeviceCustomTemplateListResponse{}
+	_body, _err := client.QueryDeviceCustomTemplateListWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2939,6 +4105,133 @@ func (client *Client) SetSuperUserMeetingRoom(request *SetSuperUserMeetingRoomRe
 	headers := &SetSuperUserMeetingRoomHeaders{}
 	_result = &SetSuperUserMeetingRoomResponse{}
 	_body, _err := client.SetSuperUserMeetingRoomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateDeviceCustomTemplateWithOptions(request *UpdateDeviceCustomTemplateRequest, headers *UpdateDeviceCustomTemplateHeaders, runtime *util.RuntimeOptions) (_result *UpdateDeviceCustomTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BgImgList)) {
+		body["bgImgList"] = request.BgImgList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BgType)) {
+		body["bgType"] = request.BgType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BgUrl)) {
+		body["bgUrl"] = request.BgUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomDoc)) {
+		body["customDoc"] = request.CustomDoc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DesensitizeUserName)) {
+		body["desensitizeUserName"] = request.DesensitizeUserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceUnionIds)) {
+		body["deviceUnionIds"] = request.DeviceUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupIds)) {
+		body["groupIds"] = request.GroupIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HideServerCodeWhenProjecting)) {
+		body["hideServerCodeWhenProjecting"] = request.HideServerCodeWhenProjecting
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Instruction)) {
+		body["instruction"] = request.Instruction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsPicTop)) {
+		body["isPicTop"] = request.IsPicTop
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Logo)) {
+		body["logo"] = request.Logo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgName)) {
+		body["orgName"] = request.OrgName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PicturePlayInterval)) {
+		body["picturePlayInterval"] = request.PicturePlayInterval
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomIds)) {
+		body["roomIds"] = request.RoomIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShowCalendarCard)) {
+		body["showCalendarCard"] = request.ShowCalendarCard
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShowCalendarTitle)) {
+		body["showCalendarTitle"] = request.ShowCalendarTitle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShowFunctionCard)) {
+		body["showFunctionCard"] = request.ShowFunctionCard
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateName)) {
+		body["templateName"] = request.TemplateName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateDeviceCustomTemplate"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/devices/screens/templates"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateDeviceCustomTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateDeviceCustomTemplate(request *UpdateDeviceCustomTemplateRequest) (_result *UpdateDeviceCustomTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateDeviceCustomTemplateHeaders{}
+	_result = &UpdateDeviceCustomTemplateResponse{}
+	_body, _err := client.UpdateDeviceCustomTemplateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
