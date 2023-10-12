@@ -3772,6 +3772,75 @@ func (s *GetScheduleResponse) SetBody(v *GetScheduleResponseBody) *GetScheduleRe
 	return s
 }
 
+type GetSignInLinkHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSignInLinkHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignInLinkHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignInLinkHeaders) SetCommonHeaders(v map[string]*string) *GetSignInLinkHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSignInLinkHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignInLinkHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSignInLinkResponseBody struct {
+	SignInLink *string `json:"signInLink,omitempty" xml:"signInLink,omitempty"`
+}
+
+func (s GetSignInLinkResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignInLinkResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignInLinkResponseBody) SetSignInLink(v string) *GetSignInLinkResponseBody {
+	s.SignInLink = &v
+	return s
+}
+
+type GetSignInLinkResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSignInLinkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSignInLinkResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignInLinkResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignInLinkResponse) SetHeaders(v map[string]*string) *GetSignInLinkResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSignInLinkResponse) SetStatusCode(v int32) *GetSignInLinkResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSignInLinkResponse) SetBody(v *GetSignInLinkResponseBody) *GetSignInLinkResponse {
+	s.Body = v
+	return s
+}
+
 type GetSignInListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3901,6 +3970,75 @@ func (s *GetSignInListResponse) SetStatusCode(v int32) *GetSignInListResponse {
 }
 
 func (s *GetSignInListResponse) SetBody(v *GetSignInListResponseBody) *GetSignInListResponse {
+	s.Body = v
+	return s
+}
+
+type GetSignOutLinkHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSignOutLinkHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignOutLinkHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignOutLinkHeaders) SetCommonHeaders(v map[string]*string) *GetSignOutLinkHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSignOutLinkHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignOutLinkHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSignOutLinkResponseBody struct {
+	SignOutLink *string `json:"signOutLink,omitempty" xml:"signOutLink,omitempty"`
+}
+
+func (s GetSignOutLinkResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignOutLinkResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignOutLinkResponseBody) SetSignOutLink(v string) *GetSignOutLinkResponseBody {
+	s.SignOutLink = &v
+	return s
+}
+
+type GetSignOutLinkResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSignOutLinkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSignOutLinkResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignOutLinkResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignOutLinkResponse) SetHeaders(v map[string]*string) *GetSignOutLinkResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSignOutLinkResponse) SetStatusCode(v int32) *GetSignOutLinkResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSignOutLinkResponse) SetBody(v *GetSignOutLinkResponseBody) *GetSignOutLinkResponse {
 	s.Body = v
 	return s
 }
@@ -8432,6 +8570,110 @@ func (s *SubscribeCalendarResponse) SetStatusCode(v int32) *SubscribeCalendarRes
 	return s
 }
 
+type TransferEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TransferEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TransferEventHeaders) SetCommonHeaders(v map[string]*string) *TransferEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TransferEventHeaders) SetXClientToken(v string) *TransferEventHeaders {
+	s.XClientToken = &v
+	return s
+}
+
+func (s *TransferEventHeaders) SetXAcsDingtalkAccessToken(v string) *TransferEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TransferEventRequest struct {
+	IsExitCalendar   *bool   `json:"isExitCalendar,omitempty" xml:"isExitCalendar,omitempty"`
+	NeedNotifyViaO2O *bool   `json:"needNotifyViaO2O,omitempty" xml:"needNotifyViaO2O,omitempty"`
+	NewOrganizerId   *string `json:"newOrganizerId,omitempty" xml:"newOrganizerId,omitempty"`
+}
+
+func (s TransferEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TransferEventRequest) SetIsExitCalendar(v bool) *TransferEventRequest {
+	s.IsExitCalendar = &v
+	return s
+}
+
+func (s *TransferEventRequest) SetNeedNotifyViaO2O(v bool) *TransferEventRequest {
+	s.NeedNotifyViaO2O = &v
+	return s
+}
+
+func (s *TransferEventRequest) SetNewOrganizerId(v string) *TransferEventRequest {
+	s.NewOrganizerId = &v
+	return s
+}
+
+type TransferEventResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s TransferEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TransferEventResponseBody) SetResult(v bool) *TransferEventResponseBody {
+	s.Result = &v
+	return s
+}
+
+type TransferEventResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *TransferEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s TransferEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TransferEventResponse) SetHeaders(v map[string]*string) *TransferEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TransferEventResponse) SetStatusCode(v int32) *TransferEventResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TransferEventResponse) SetBody(v *TransferEventResponseBody) *TransferEventResponse {
+	s.Body = v
+	return s
+}
+
 type UnsubscribeCalendarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9604,6 +9846,51 @@ func (client *Client) GetSchedule(userId *string, request *GetScheduleRequest) (
 	return _result, _err
 }
 
+func (client *Client) GetSignInLinkWithOptions(calendarId *string, userId *string, eventId *string, headers *GetSignInLinkHeaders, runtime *util.RuntimeOptions) (_result *GetSignInLinkResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSignInLink"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/users/" + tea.StringValue(userId) + "/calendars/" + tea.StringValue(calendarId) + "/events/" + tea.StringValue(eventId) + "/signInLinks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSignInLinkResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSignInLink(calendarId *string, userId *string, eventId *string) (_result *GetSignInLinkResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSignInLinkHeaders{}
+	_result = &GetSignInLinkResponse{}
+	_body, _err := client.GetSignInLinkWithOptions(calendarId, userId, eventId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetSignInListWithOptions(userId *string, calendarId *string, eventId *string, request *GetSignInListRequest, headers *GetSignInListHeaders, runtime *util.RuntimeOptions) (_result *GetSignInListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9660,6 +9947,51 @@ func (client *Client) GetSignInList(userId *string, calendarId *string, eventId 
 	headers := &GetSignInListHeaders{}
 	_result = &GetSignInListResponse{}
 	_body, _err := client.GetSignInListWithOptions(userId, calendarId, eventId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSignOutLinkWithOptions(calendarId *string, userId *string, eventId *string, headers *GetSignOutLinkHeaders, runtime *util.RuntimeOptions) (_result *GetSignOutLinkResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSignOutLink"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/users/" + tea.StringValue(userId) + "/calendars/" + tea.StringValue(calendarId) + "/events/" + tea.StringValue(eventId) + "/signOutLinks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSignOutLinkResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSignOutLink(calendarId *string, userId *string, eventId *string) (_result *GetSignOutLinkResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSignOutLinkHeaders{}
+	_result = &GetSignOutLinkResponse{}
+	_body, _err := client.GetSignOutLinkWithOptions(calendarId, userId, eventId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10632,6 +10964,73 @@ func (client *Client) SubscribeCalendar(userId *string, calendarId *string) (_re
 	headers := &SubscribeCalendarHeaders{}
 	_result = &SubscribeCalendarResponse{}
 	_body, _err := client.SubscribeCalendarWithOptions(userId, calendarId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TransferEventWithOptions(calendarId *string, userId *string, eventId *string, request *TransferEventRequest, headers *TransferEventHeaders, runtime *util.RuntimeOptions) (_result *TransferEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsExitCalendar)) {
+		body["isExitCalendar"] = request.IsExitCalendar
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedNotifyViaO2O)) {
+		body["needNotifyViaO2O"] = request.NeedNotifyViaO2O
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NewOrganizerId)) {
+		body["newOrganizerId"] = request.NewOrganizerId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TransferEvent"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/users/" + tea.StringValue(userId) + "/calendars/" + tea.StringValue(calendarId) + "/events/" + tea.StringValue(eventId) + "/transfer"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TransferEventResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TransferEvent(calendarId *string, userId *string, eventId *string, request *TransferEventRequest) (_result *TransferEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TransferEventHeaders{}
+	_result = &TransferEventResponse{}
+	_body, _err := client.TransferEventWithOptions(calendarId, userId, eventId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

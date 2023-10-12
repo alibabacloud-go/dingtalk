@@ -1885,6 +1885,7 @@ type QueryHrmEmployeeDismissionInfoResponseBodyResult struct {
 	LastWorkDay     *int64                                                      `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
 	MainDeptId      *int64                                                      `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
 	MainDeptName    *string                                                     `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
+	Name            *string                                                     `json:"name,omitempty" xml:"name,omitempty"`
 	PassiveReason   []*string                                                   `json:"passiveReason,omitempty" xml:"passiveReason,omitempty" type:"Repeated"`
 	PreStatus       *int32                                                      `json:"preStatus,omitempty" xml:"preStatus,omitempty"`
 	ReasonMemo      *string                                                     `json:"reasonMemo,omitempty" xml:"reasonMemo,omitempty"`
@@ -1923,6 +1924,11 @@ func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetMainDeptId(v int64
 
 func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetMainDeptName(v string) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
 	s.MainDeptName = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetName(v string) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.Name = &v
 	return s
 }
 

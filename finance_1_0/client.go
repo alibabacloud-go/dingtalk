@@ -3782,6 +3782,198 @@ func (s *NotifyVerifyResultResponse) SetBody(v *NotifyVerifyResultResponseBody) 
 	return s
 }
 
+type PreCreateGroupBillOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PreCreateGroupBillOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCreateGroupBillOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PreCreateGroupBillOrderHeaders) SetCommonHeaders(v map[string]*string) *PreCreateGroupBillOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderHeaders) SetXAcsDingtalkAccessToken(v string) *PreCreateGroupBillOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PreCreateGroupBillOrderRequest struct {
+	BillItemList    []*PreCreateGroupBillOrderRequestBillItemList `json:"billItemList,omitempty" xml:"billItemList,omitempty" type:"Repeated"`
+	ExtParams       map[string]*string                            `json:"extParams,omitempty" xml:"extParams,omitempty"`
+	HeadCount       *int64                                        `json:"headCount,omitempty" xml:"headCount,omitempty"`
+	IsAverageAmount *int32                                        `json:"isAverageAmount,omitempty" xml:"isAverageAmount,omitempty"`
+	MerchantId      *string                                       `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	OpenCid         *string                                       `json:"openCid,omitempty" xml:"openCid,omitempty"`
+	OutBizNo        *string                                       `json:"outBizNo,omitempty" xml:"outBizNo,omitempty"`
+	PayeeCorpId     *string                                       `json:"payeeCorpId,omitempty" xml:"payeeCorpId,omitempty"`
+	PayeeUnionId    *string                                       `json:"payeeUnionId,omitempty" xml:"payeeUnionId,omitempty"`
+	Remark          *string                                       `json:"remark,omitempty" xml:"remark,omitempty"`
+	TotalAmount     *string                                       `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+}
+
+func (s PreCreateGroupBillOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCreateGroupBillOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetBillItemList(v []*PreCreateGroupBillOrderRequestBillItemList) *PreCreateGroupBillOrderRequest {
+	s.BillItemList = v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetExtParams(v map[string]*string) *PreCreateGroupBillOrderRequest {
+	s.ExtParams = v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetHeadCount(v int64) *PreCreateGroupBillOrderRequest {
+	s.HeadCount = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetIsAverageAmount(v int32) *PreCreateGroupBillOrderRequest {
+	s.IsAverageAmount = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetMerchantId(v string) *PreCreateGroupBillOrderRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetOpenCid(v string) *PreCreateGroupBillOrderRequest {
+	s.OpenCid = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetOutBizNo(v string) *PreCreateGroupBillOrderRequest {
+	s.OutBizNo = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetPayeeCorpId(v string) *PreCreateGroupBillOrderRequest {
+	s.PayeeCorpId = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetPayeeUnionId(v string) *PreCreateGroupBillOrderRequest {
+	s.PayeeUnionId = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetRemark(v string) *PreCreateGroupBillOrderRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequest) SetTotalAmount(v string) *PreCreateGroupBillOrderRequest {
+	s.TotalAmount = &v
+	return s
+}
+
+type PreCreateGroupBillOrderRequestBillItemList struct {
+	Amount       *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	PayerUnionId *string `json:"payerUnionId,omitempty" xml:"payerUnionId,omitempty"`
+}
+
+func (s PreCreateGroupBillOrderRequestBillItemList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCreateGroupBillOrderRequestBillItemList) GoString() string {
+	return s.String()
+}
+
+func (s *PreCreateGroupBillOrderRequestBillItemList) SetAmount(v string) *PreCreateGroupBillOrderRequestBillItemList {
+	s.Amount = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderRequestBillItemList) SetPayerUnionId(v string) *PreCreateGroupBillOrderRequestBillItemList {
+	s.PayerUnionId = &v
+	return s
+}
+
+type PreCreateGroupBillOrderResponseBody struct {
+	Result  *PreCreateGroupBillOrderResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PreCreateGroupBillOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCreateGroupBillOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PreCreateGroupBillOrderResponseBody) SetResult(v *PreCreateGroupBillOrderResponseBodyResult) *PreCreateGroupBillOrderResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderResponseBody) SetSuccess(v bool) *PreCreateGroupBillOrderResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PreCreateGroupBillOrderResponseBodyResult struct {
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+}
+
+func (s PreCreateGroupBillOrderResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCreateGroupBillOrderResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PreCreateGroupBillOrderResponseBodyResult) SetOrderNo(v string) *PreCreateGroupBillOrderResponseBodyResult {
+	s.OrderNo = &v
+	return s
+}
+
+type PreCreateGroupBillOrderResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PreCreateGroupBillOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PreCreateGroupBillOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCreateGroupBillOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PreCreateGroupBillOrderResponse) SetHeaders(v map[string]*string) *PreCreateGroupBillOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderResponse) SetStatusCode(v int32) *PreCreateGroupBillOrderResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PreCreateGroupBillOrderResponse) SetBody(v *PreCreateGroupBillOrderResponseBody) *PreCreateGroupBillOrderResponse {
+	s.Body = v
+	return s
+}
+
 type QueryAcquireRefundOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7869,6 +8061,101 @@ func (client *Client) NotifyVerifyResult(request *NotifyVerifyResultRequest) (_r
 	headers := &NotifyVerifyResultHeaders{}
 	_result = &NotifyVerifyResultResponse{}
 	_body, _err := client.NotifyVerifyResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PreCreateGroupBillOrderWithOptions(request *PreCreateGroupBillOrderRequest, headers *PreCreateGroupBillOrderHeaders, runtime *util.RuntimeOptions) (_result *PreCreateGroupBillOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BillItemList)) {
+		body["billItemList"] = request.BillItemList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtParams)) {
+		body["extParams"] = request.ExtParams
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HeadCount)) {
+		body["headCount"] = request.HeadCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsAverageAmount)) {
+		body["isAverageAmount"] = request.IsAverageAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		body["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenCid)) {
+		body["openCid"] = request.OpenCid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutBizNo)) {
+		body["outBizNo"] = request.OutBizNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PayeeCorpId)) {
+		body["payeeCorpId"] = request.PayeeCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PayeeUnionId)) {
+		body["payeeUnionId"] = request.PayeeUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TotalAmount)) {
+		body["totalAmount"] = request.TotalAmount
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PreCreateGroupBillOrder"),
+		Version:     tea.String("finance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/finance/groupbills/preCreate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PreCreateGroupBillOrderResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PreCreateGroupBillOrder(request *PreCreateGroupBillOrderRequest) (_result *PreCreateGroupBillOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PreCreateGroupBillOrderHeaders{}
+	_result = &PreCreateGroupBillOrderResponse{}
+	_body, _err := client.PreCreateGroupBillOrderWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

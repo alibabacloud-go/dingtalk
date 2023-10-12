@@ -815,6 +815,110 @@ func (s *QueryShortcutScopesResponse) SetBody(v *QueryShortcutScopesResponseBody
 	return s
 }
 
+type UndoDeletionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UndoDeletionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UndoDeletionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UndoDeletionHeaders) SetCommonHeaders(v map[string]*string) *UndoDeletionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UndoDeletionHeaders) SetXAcsDingtalkAccessToken(v string) *UndoDeletionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UndoDeletionRequest struct {
+	BizIdList        []*string `json:"bizIdList,omitempty" xml:"bizIdList,omitempty" type:"Repeated"`
+	RedDotRelationId *string   `json:"redDotRelationId,omitempty" xml:"redDotRelationId,omitempty"`
+	RedDotType       *string   `json:"redDotType,omitempty" xml:"redDotType,omitempty"`
+	UserId           *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UndoDeletionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UndoDeletionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UndoDeletionRequest) SetBizIdList(v []*string) *UndoDeletionRequest {
+	s.BizIdList = v
+	return s
+}
+
+func (s *UndoDeletionRequest) SetRedDotRelationId(v string) *UndoDeletionRequest {
+	s.RedDotRelationId = &v
+	return s
+}
+
+func (s *UndoDeletionRequest) SetRedDotType(v string) *UndoDeletionRequest {
+	s.RedDotType = &v
+	return s
+}
+
+func (s *UndoDeletionRequest) SetUserId(v string) *UndoDeletionRequest {
+	s.UserId = &v
+	return s
+}
+
+type UndoDeletionResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UndoDeletionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UndoDeletionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UndoDeletionResponseBody) SetResult(v bool) *UndoDeletionResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UndoDeletionResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UndoDeletionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UndoDeletionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UndoDeletionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UndoDeletionResponse) SetHeaders(v map[string]*string) *UndoDeletionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UndoDeletionResponse) SetStatusCode(v int32) *UndoDeletionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UndoDeletionResponse) SetBody(v *UndoDeletionResponseBody) *UndoDeletionResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateDingPortalPageScopeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1360,6 +1464,73 @@ func (client *Client) QueryShortcutScopes(shortcutKey *string) (_result *QuerySh
 	headers := &QueryShortcutScopesHeaders{}
 	_result = &QueryShortcutScopesResponse{}
 	_body, _err := client.QueryShortcutScopesWithOptions(shortcutKey, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UndoDeletionWithOptions(request *UndoDeletionRequest, headers *UndoDeletionHeaders, runtime *util.RuntimeOptions) (_result *UndoDeletionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizIdList)) {
+		body["bizIdList"] = request.BizIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RedDotRelationId)) {
+		body["redDotRelationId"] = request.RedDotRelationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RedDotType)) {
+		body["redDotType"] = request.RedDotType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UndoDeletion"),
+		Version:     tea.String("workbench_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workbench/badges/undoDeleted"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UndoDeletionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UndoDeletion(request *UndoDeletionRequest) (_result *UndoDeletionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UndoDeletionHeaders{}
+	_result = &UndoDeletionResponse{}
+	_body, _err := client.UndoDeletionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

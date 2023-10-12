@@ -988,6 +988,7 @@ func (s *CreateAndDeliverResponseBodyResult) SetOutTrackId(v string) *CreateAndD
 }
 
 type CreateAndDeliverResponseBodyResultDeliverResults struct {
+	CarrierId *string `json:"carrierId,omitempty" xml:"carrierId,omitempty"`
 	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
@@ -1000,6 +1001,11 @@ func (s CreateAndDeliverResponseBodyResultDeliverResults) String() string {
 
 func (s CreateAndDeliverResponseBodyResultDeliverResults) GoString() string {
 	return s.String()
+}
+
+func (s *CreateAndDeliverResponseBodyResultDeliverResults) SetCarrierId(v string) *CreateAndDeliverResponseBodyResultDeliverResults {
+	s.CarrierId = &v
+	return s
 }
 
 func (s *CreateAndDeliverResponseBodyResultDeliverResults) SetErrorMsg(v string) *CreateAndDeliverResponseBodyResultDeliverResults {
@@ -1754,6 +1760,8 @@ func (s *DeliverCardResponseBody) SetSuccess(v bool) *DeliverCardResponseBody {
 }
 
 type DeliverCardResponseBodyResult struct {
+	CarrierId *string `json:"carrierId,omitempty" xml:"carrierId,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
@@ -1765,6 +1773,16 @@ func (s DeliverCardResponseBodyResult) String() string {
 
 func (s DeliverCardResponseBodyResult) GoString() string {
 	return s.String()
+}
+
+func (s *DeliverCardResponseBodyResult) SetCarrierId(v string) *DeliverCardResponseBodyResult {
+	s.CarrierId = &v
+	return s
+}
+
+func (s *DeliverCardResponseBodyResult) SetErrorMsg(v string) *DeliverCardResponseBodyResult {
+	s.ErrorMsg = &v
+	return s
 }
 
 func (s *DeliverCardResponseBodyResult) SetSpaceId(v string) *DeliverCardResponseBodyResult {
