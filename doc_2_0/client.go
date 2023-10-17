@@ -2622,6 +2622,115 @@ func (s *DeleteTeamResponse) SetBody(v *TeamVO) *DeleteTeamResponse {
 	return s
 }
 
+type DocContentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocContentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocContentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocContentHeaders) SetCommonHeaders(v map[string]*string) *DocContentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocContentHeaders) SetXAcsDingtalkAccessToken(v string) *DocContentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocContentRequest struct {
+	Option     *DocContentRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	OperatorId *string                  `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocContentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocContentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocContentRequest) SetOption(v *DocContentRequestOption) *DocContentRequest {
+	s.Option = v
+	return s
+}
+
+func (s *DocContentRequest) SetOperatorId(v string) *DocContentRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocContentRequestOption struct {
+	TargetFormat *string `json:"targetFormat,omitempty" xml:"targetFormat,omitempty"`
+}
+
+func (s DocContentRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocContentRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *DocContentRequestOption) SetTargetFormat(v string) *DocContentRequestOption {
+	s.TargetFormat = &v
+	return s
+}
+
+type DocContentResponseBody struct {
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s DocContentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocContentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocContentResponseBody) SetTaskId(v int64) *DocContentResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type DocContentResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DocContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DocContentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocContentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocContentResponse) SetHeaders(v map[string]*string) *DocContentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocContentResponse) SetStatusCode(v int32) *DocContentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocContentResponse) SetBody(v *DocContentResponseBody) *DocContentResponse {
+	s.Body = v
+	return s
+}
+
 type GetSchemaHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8646,6 +8755,67 @@ func (client *Client) DeleteTeam(teamId *string, request *DeleteTeamRequest) (_r
 	headers := &DeleteTeamHeaders{}
 	_result = &DeleteTeamResponse{}
 	_body, _err := client.DeleteTeamWithOptions(teamId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DocContentWithOptions(dentryUuid *string, request *DocContentRequest, headers *DocContentHeaders, runtime *util.RuntimeOptions) (_result *DocContentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocContent"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/" + tea.StringValue(dentryUuid) + "/contents"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocContentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DocContent(dentryUuid *string, request *DocContentRequest) (_result *DocContentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocContentHeaders{}
+	_result = &DocContentResponse{}
+	_body, _err := client.DocContentWithOptions(dentryUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
