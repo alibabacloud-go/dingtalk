@@ -6636,36 +6636,40 @@ func (s *ListAuditLogResponseBody) SetList(v []*ListAuditLogResponseBodyList) *L
 }
 
 type ListAuditLogResponseBodyList struct {
-	Action             *int32                                         `json:"action,omitempty" xml:"action,omitempty"`
-	ActionView         *string                                        `json:"actionView,omitempty" xml:"actionView,omitempty"`
-	BizId              *string                                        `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	DocMemberList      []*ListAuditLogResponseBodyListDocMemberList   `json:"docMemberList,omitempty" xml:"docMemberList,omitempty" type:"Repeated"`
-	DocMobileUrl       *string                                        `json:"docMobileUrl,omitempty" xml:"docMobileUrl,omitempty"`
-	DocPcUrl           *string                                        `json:"docPcUrl,omitempty" xml:"docPcUrl,omitempty"`
-	DocReceiverList    []*ListAuditLogResponseBodyListDocReceiverList `json:"docReceiverList,omitempty" xml:"docReceiverList,omitempty" type:"Repeated"`
-	GmtCreate          *int64                                         `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified        *int64                                         `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	IpAddress          *string                                        `json:"ipAddress,omitempty" xml:"ipAddress,omitempty"`
-	OperateModule      *int64                                         `json:"operateModule,omitempty" xml:"operateModule,omitempty"`
-	OperateModuleView  *string                                        `json:"operateModuleView,omitempty" xml:"operateModuleView,omitempty"`
-	OperatorName       *string                                        `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
-	OrgName            *string                                        `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	Platform           *int32                                         `json:"platform,omitempty" xml:"platform,omitempty"`
-	PlatformView       *string                                        `json:"platformView,omitempty" xml:"platformView,omitempty"`
-	RealName           *string                                        `json:"realName,omitempty" xml:"realName,omitempty"`
-	ReceiverName       *string                                        `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
-	ReceiverType       *int32                                         `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
-	ReceiverTypeView   *string                                        `json:"receiverTypeView,omitempty" xml:"receiverTypeView,omitempty"`
-	Resource           *string                                        `json:"resource,omitempty" xml:"resource,omitempty"`
-	ResourceExtension  *string                                        `json:"resourceExtension,omitempty" xml:"resourceExtension,omitempty"`
-	ResourceSize       *int64                                         `json:"resourceSize,omitempty" xml:"resourceSize,omitempty"`
-	Status             *int32                                         `json:"status,omitempty" xml:"status,omitempty"`
-	TargetSpaceId      *int64                                         `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	UserId             *string                                        `json:"userId,omitempty" xml:"userId,omitempty"`
-	WorkSpaceId        *int64                                         `json:"workSpaceId,omitempty" xml:"workSpaceId,omitempty"`
-	WorkSpaceMobileUrl *string                                        `json:"workSpaceMobileUrl,omitempty" xml:"workSpaceMobileUrl,omitempty"`
-	WorkSpaceName      *string                                        `json:"workSpaceName,omitempty" xml:"workSpaceName,omitempty"`
-	WorkSpacePcUrl     *string                                        `json:"workSpacePcUrl,omitempty" xml:"workSpacePcUrl,omitempty"`
+	Action                 *int32                                         `json:"action,omitempty" xml:"action,omitempty"`
+	ActionView             *string                                        `json:"actionView,omitempty" xml:"actionView,omitempty"`
+	BizId                  *string                                        `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DocMemberList          []*ListAuditLogResponseBodyListDocMemberList   `json:"docMemberList,omitempty" xml:"docMemberList,omitempty" type:"Repeated"`
+	DocMobileUrl           *string                                        `json:"docMobileUrl,omitempty" xml:"docMobileUrl,omitempty"`
+	DocPcUrl               *string                                        `json:"docPcUrl,omitempty" xml:"docPcUrl,omitempty"`
+	DocReceiverList        []*ListAuditLogResponseBodyListDocReceiverList `json:"docReceiverList,omitempty" xml:"docReceiverList,omitempty" type:"Repeated"`
+	GmtCreate              *int64                                         `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified            *int64                                         `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	IpAddress              *string                                        `json:"ipAddress,omitempty" xml:"ipAddress,omitempty"`
+	OperateModule          *int64                                         `json:"operateModule,omitempty" xml:"operateModule,omitempty"`
+	OperateModuleView      *string                                        `json:"operateModuleView,omitempty" xml:"operateModuleView,omitempty"`
+	OperatorName           *string                                        `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
+	OrgName                *string                                        `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	Platform               *int32                                         `json:"platform,omitempty" xml:"platform,omitempty"`
+	PlatformView           *string                                        `json:"platformView,omitempty" xml:"platformView,omitempty"`
+	PrevWorkSpaceId        *int64                                         `json:"prevWorkSpaceId,omitempty" xml:"prevWorkSpaceId,omitempty"`
+	PrevWorkSpaceMobileUrl *string                                        `json:"prevWorkSpaceMobileUrl,omitempty" xml:"prevWorkSpaceMobileUrl,omitempty"`
+	PrevWorkSpaceName      *string                                        `json:"prevWorkSpaceName,omitempty" xml:"prevWorkSpaceName,omitempty"`
+	PrevWorkSpacePcUrl     *string                                        `json:"prevWorkSpacePcUrl,omitempty" xml:"prevWorkSpacePcUrl,omitempty"`
+	RealName               *string                                        `json:"realName,omitempty" xml:"realName,omitempty"`
+	ReceiverName           *string                                        `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	ReceiverType           *int32                                         `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	ReceiverTypeView       *string                                        `json:"receiverTypeView,omitempty" xml:"receiverTypeView,omitempty"`
+	Resource               *string                                        `json:"resource,omitempty" xml:"resource,omitempty"`
+	ResourceExtension      *string                                        `json:"resourceExtension,omitempty" xml:"resourceExtension,omitempty"`
+	ResourceSize           *int64                                         `json:"resourceSize,omitempty" xml:"resourceSize,omitempty"`
+	Status                 *int32                                         `json:"status,omitempty" xml:"status,omitempty"`
+	TargetSpaceId          *int64                                         `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	UserId                 *string                                        `json:"userId,omitempty" xml:"userId,omitempty"`
+	WorkSpaceId            *int64                                         `json:"workSpaceId,omitempty" xml:"workSpaceId,omitempty"`
+	WorkSpaceMobileUrl     *string                                        `json:"workSpaceMobileUrl,omitempty" xml:"workSpaceMobileUrl,omitempty"`
+	WorkSpaceName          *string                                        `json:"workSpaceName,omitempty" xml:"workSpaceName,omitempty"`
+	WorkSpacePcUrl         *string                                        `json:"workSpacePcUrl,omitempty" xml:"workSpacePcUrl,omitempty"`
 }
 
 func (s ListAuditLogResponseBodyList) String() string {
@@ -6753,6 +6757,26 @@ func (s *ListAuditLogResponseBodyList) SetPlatform(v int32) *ListAuditLogRespons
 
 func (s *ListAuditLogResponseBodyList) SetPlatformView(v string) *ListAuditLogResponseBodyList {
 	s.PlatformView = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetPrevWorkSpaceId(v int64) *ListAuditLogResponseBodyList {
+	s.PrevWorkSpaceId = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetPrevWorkSpaceMobileUrl(v string) *ListAuditLogResponseBodyList {
+	s.PrevWorkSpaceMobileUrl = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetPrevWorkSpaceName(v string) *ListAuditLogResponseBodyList {
+	s.PrevWorkSpaceName = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetPrevWorkSpacePcUrl(v string) *ListAuditLogResponseBodyList {
+	s.PrevWorkSpacePcUrl = &v
 	return s
 }
 

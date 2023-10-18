@@ -43,7 +43,9 @@ func (s *AddAttendeeHeaders) SetXAcsDingtalkAccessToken(v string) *AddAttendeeHe
 }
 
 type AddAttendeeRequest struct {
-	AttendeesToAdd []*AddAttendeeRequestAttendeesToAdd `json:"attendeesToAdd,omitempty" xml:"attendeesToAdd,omitempty" type:"Repeated"`
+	AttendeesToAdd   []*AddAttendeeRequestAttendeesToAdd `json:"attendeesToAdd,omitempty" xml:"attendeesToAdd,omitempty" type:"Repeated"`
+	ChatNotification *bool                               `json:"chatNotification,omitempty" xml:"chatNotification,omitempty"`
+	PushNotification *bool                               `json:"pushNotification,omitempty" xml:"pushNotification,omitempty"`
 }
 
 func (s AddAttendeeRequest) String() string {
@@ -56,6 +58,16 @@ func (s AddAttendeeRequest) GoString() string {
 
 func (s *AddAttendeeRequest) SetAttendeesToAdd(v []*AddAttendeeRequestAttendeesToAdd) *AddAttendeeRequest {
 	s.AttendeesToAdd = v
+	return s
+}
+
+func (s *AddAttendeeRequest) SetChatNotification(v bool) *AddAttendeeRequest {
+	s.ChatNotification = &v
+	return s
+}
+
+func (s *AddAttendeeRequest) SetPushNotification(v bool) *AddAttendeeRequest {
+	s.PushNotification = &v
 	return s
 }
 
@@ -2488,6 +2500,23 @@ func (s *DeleteEventHeaders) SetXClientToken(v string) *DeleteEventHeaders {
 
 func (s *DeleteEventHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteEventHeaders {
 	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteEventRequest struct {
+	PushNotification *bool `json:"pushNotification,omitempty" xml:"pushNotification,omitempty"`
+}
+
+func (s DeleteEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEventRequest) SetPushNotification(v bool) *DeleteEventRequest {
+	s.PushNotification = &v
 	return s
 }
 
@@ -8915,6 +8944,14 @@ func (client *Client) AddAttendeeWithOptions(userId *string, calendarId *string,
 		body["attendeesToAdd"] = request.AttendeesToAdd
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ChatNotification)) {
+		body["chatNotification"] = request.ChatNotification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PushNotification)) {
+		body["pushNotification"] = request.PushNotification
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -9512,7 +9549,16 @@ func (client *Client) DeleteAcl(userId *string, calendarId *string, aclId *strin
 	return _result, _err
 }
 
-func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string, eventId *string, headers *DeleteEventHeaders, runtime *util.RuntimeOptions) (_result *DeleteEventResponse, _err error) {
+func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string, eventId *string, request *DeleteEventRequest, headers *DeleteEventHeaders, runtime *util.RuntimeOptions) (_result *DeleteEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PushNotification)) {
+		query["pushNotification"] = request.PushNotification
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -9528,6 +9574,7 @@ func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string,
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("DeleteEvent"),
@@ -9549,11 +9596,11 @@ func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string,
 	return _result, _err
 }
 
-func (client *Client) DeleteEvent(userId *string, calendarId *string, eventId *string) (_result *DeleteEventResponse, _err error) {
+func (client *Client) DeleteEvent(userId *string, calendarId *string, eventId *string, request *DeleteEventRequest) (_result *DeleteEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteEventHeaders{}
 	_result = &DeleteEventResponse{}
-	_body, _err := client.DeleteEventWithOptions(userId, calendarId, eventId, headers, runtime)
+	_body, _err := client.DeleteEventWithOptions(userId, calendarId, eventId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

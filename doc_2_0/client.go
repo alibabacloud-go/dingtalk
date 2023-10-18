@@ -5203,6 +5203,98 @@ func (s *QueryDentryResponse) SetBody(v *DentryVO) *QueryDentryResponse {
 	return s
 }
 
+type QueryDocContentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDocContentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocContentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocContentHeaders) SetCommonHeaders(v map[string]*string) *QueryDocContentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDocContentHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDocContentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDocContentRequest struct {
+	OperatorId   *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	TargetFormat *string `json:"targetFormat,omitempty" xml:"targetFormat,omitempty"`
+}
+
+func (s QueryDocContentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocContentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocContentRequest) SetOperatorId(v string) *QueryDocContentRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *QueryDocContentRequest) SetTargetFormat(v string) *QueryDocContentRequest {
+	s.TargetFormat = &v
+	return s
+}
+
+type QueryDocContentResponseBody struct {
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s QueryDocContentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocContentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocContentResponseBody) SetTaskId(v int64) *QueryDocContentResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type QueryDocContentResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryDocContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDocContentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocContentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocContentResponse) SetHeaders(v map[string]*string) *QueryDocContentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDocContentResponse) SetStatusCode(v int32) *QueryDocContentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryDocContentResponse) SetBody(v *QueryDocContentResponseBody) *QueryDocContentResponse {
+	s.Body = v
+	return s
+}
+
 type QueryItemByUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9945,6 +10037,65 @@ func (client *Client) QueryDentry(spaceId *string, dentryId *string, request *Qu
 	headers := &QueryDentryHeaders{}
 	_result = &QueryDentryResponse{}
 	_body, _err := client.QueryDentryWithOptions(spaceId, dentryId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDocContentWithOptions(dentryUuid *string, request *QueryDocContentRequest, headers *QueryDocContentHeaders, runtime *util.RuntimeOptions) (_result *QueryDocContentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetFormat)) {
+		query["targetFormat"] = request.TargetFormat
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDocContent"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/query/" + tea.StringValue(dentryUuid) + "/contents"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryDocContentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryDocContent(dentryUuid *string, request *QueryDocContentRequest) (_result *QueryDocContentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDocContentHeaders{}
+	_result = &QueryDocContentResponse{}
+	_body, _err := client.QueryDocContentWithOptions(dentryUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

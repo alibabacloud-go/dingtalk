@@ -6492,6 +6492,234 @@ func (s *DIgitalStoreMessagePushResponse) SetBody(v *DIgitalStoreMessagePushResp
 	return s
 }
 
+type DigitalStoreCardRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreCardRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreCardRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreCardRecordHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreCardRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreCardRecordHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreCardRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreCardRecordRequest struct {
+	BeginTime     *int64   `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	EndTime       *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Ids           []*int64 `json:"ids,omitempty" xml:"ids,omitempty" type:"Repeated"`
+	PageNumber    *int32   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize      *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	SceneCardName *string  `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
+}
+
+func (s DigitalStoreCardRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreCardRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreCardRecordRequest) SetBeginTime(v int64) *DigitalStoreCardRecordRequest {
+	s.BeginTime = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordRequest) SetEndTime(v int64) *DigitalStoreCardRecordRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordRequest) SetIds(v []*int64) *DigitalStoreCardRecordRequest {
+	s.Ids = v
+	return s
+}
+
+func (s *DigitalStoreCardRecordRequest) SetPageNumber(v int32) *DigitalStoreCardRecordRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordRequest) SetPageSize(v int32) *DigitalStoreCardRecordRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordRequest) SetSceneCardName(v string) *DigitalStoreCardRecordRequest {
+	s.SceneCardName = &v
+	return s
+}
+
+type DigitalStoreCardRecordResponseBody struct {
+	Content []*DigitalStoreCardRecordResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s DigitalStoreCardRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreCardRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreCardRecordResponseBody) SetContent(v []*DigitalStoreCardRecordResponseBodyContent) *DigitalStoreCardRecordResponseBody {
+	s.Content = v
+	return s
+}
+
+type DigitalStoreCardRecordResponseBodyContent struct {
+	ConversationTitle *string                                                `json:"conversationTitle,omitempty" xml:"conversationTitle,omitempty"`
+	DetailList        []*DigitalStoreCardRecordResponseBodyContentDetailList `json:"detailList,omitempty" xml:"detailList,omitempty" type:"Repeated"`
+	Id                *int64                                                 `json:"id,omitempty" xml:"id,omitempty"`
+	MemberNum         *int32                                                 `json:"memberNum,omitempty" xml:"memberNum,omitempty"`
+	ReadNum           *int32                                                 `json:"readNum,omitempty" xml:"readNum,omitempty"`
+	ReadPercent       *string                                                `json:"readPercent,omitempty" xml:"readPercent,omitempty"`
+	ReceiveNum        *int32                                                 `json:"receiveNum,omitempty" xml:"receiveNum,omitempty"`
+	SceneCardName     *string                                                `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
+	SendStatus        *string                                                `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
+	SendTime          *int64                                                 `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+}
+
+func (s DigitalStoreCardRecordResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreCardRecordResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetConversationTitle(v string) *DigitalStoreCardRecordResponseBodyContent {
+	s.ConversationTitle = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetDetailList(v []*DigitalStoreCardRecordResponseBodyContentDetailList) *DigitalStoreCardRecordResponseBodyContent {
+	s.DetailList = v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetId(v int64) *DigitalStoreCardRecordResponseBodyContent {
+	s.Id = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetMemberNum(v int32) *DigitalStoreCardRecordResponseBodyContent {
+	s.MemberNum = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetReadNum(v int32) *DigitalStoreCardRecordResponseBodyContent {
+	s.ReadNum = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetReadPercent(v string) *DigitalStoreCardRecordResponseBodyContent {
+	s.ReadPercent = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetReceiveNum(v int32) *DigitalStoreCardRecordResponseBodyContent {
+	s.ReceiveNum = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetSceneCardName(v string) *DigitalStoreCardRecordResponseBodyContent {
+	s.SceneCardName = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetSendStatus(v string) *DigitalStoreCardRecordResponseBodyContent {
+	s.SendStatus = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContent) SetSendTime(v int64) *DigitalStoreCardRecordResponseBodyContent {
+	s.SendTime = &v
+	return s
+}
+
+type DigitalStoreCardRecordResponseBodyContentDetailList struct {
+	DeptName      *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	ReadStatusStr *string `json:"readStatusStr,omitempty" xml:"readStatusStr,omitempty"`
+	ReadTime      *int64  `json:"readTime,omitempty" xml:"readTime,omitempty"`
+	RoleName      *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	UserName      *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s DigitalStoreCardRecordResponseBodyContentDetailList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreCardRecordResponseBodyContentDetailList) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContentDetailList) SetDeptName(v string) *DigitalStoreCardRecordResponseBodyContentDetailList {
+	s.DeptName = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContentDetailList) SetReadStatusStr(v string) *DigitalStoreCardRecordResponseBodyContentDetailList {
+	s.ReadStatusStr = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContentDetailList) SetReadTime(v int64) *DigitalStoreCardRecordResponseBodyContentDetailList {
+	s.ReadTime = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContentDetailList) SetRoleName(v string) *DigitalStoreCardRecordResponseBodyContentDetailList {
+	s.RoleName = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponseBodyContentDetailList) SetUserName(v string) *DigitalStoreCardRecordResponseBodyContentDetailList {
+	s.UserName = &v
+	return s
+}
+
+type DigitalStoreCardRecordResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DigitalStoreCardRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreCardRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreCardRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreCardRecordResponse) SetHeaders(v map[string]*string) *DigitalStoreCardRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponse) SetStatusCode(v int32) *DigitalStoreCardRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DigitalStoreCardRecordResponse) SetBody(v *DigitalStoreCardRecordResponseBody) *DigitalStoreCardRecordResponse {
+	s.Body = v
+	return s
+}
+
 type DigitalStoreContactInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6702,6 +6930,310 @@ func (s *DigitalStoreConversationsResponse) SetStatusCode(v int32) *DigitalStore
 }
 
 func (s *DigitalStoreConversationsResponse) SetBody(v *DigitalStoreConversationsResponseBody) *DigitalStoreConversationsResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreExportCardRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreExportCardRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreExportCardRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreExportCardRecordHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreExportCardRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreExportCardRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreExportCardRecordRequest struct {
+	BeginTime     *int64   `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	EndTime       *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Ids           []*int64 `json:"ids,omitempty" xml:"ids,omitempty" type:"Repeated"`
+	SceneCardName *string  `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
+}
+
+func (s DigitalStoreExportCardRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreExportCardRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreExportCardRecordRequest) SetBeginTime(v int64) *DigitalStoreExportCardRecordRequest {
+	s.BeginTime = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordRequest) SetEndTime(v int64) *DigitalStoreExportCardRecordRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordRequest) SetIds(v []*int64) *DigitalStoreExportCardRecordRequest {
+	s.Ids = v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordRequest) SetSceneCardName(v string) *DigitalStoreExportCardRecordRequest {
+	s.SceneCardName = &v
+	return s
+}
+
+type DigitalStoreExportCardRecordResponseBody struct {
+	FileName   *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileType   *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	FileUrl    *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsImport   *string `json:"isImport,omitempty" xml:"isImport,omitempty"`
+	Remark     *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	SuccessNum *string `json:"successNum,omitempty" xml:"successNum,omitempty"`
+	TotalNum   *string `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
+}
+
+func (s DigitalStoreExportCardRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreExportCardRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreExportCardRecordResponseBody) SetFileName(v string) *DigitalStoreExportCardRecordResponseBody {
+	s.FileName = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponseBody) SetFileType(v string) *DigitalStoreExportCardRecordResponseBody {
+	s.FileType = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponseBody) SetFileUrl(v string) *DigitalStoreExportCardRecordResponseBody {
+	s.FileUrl = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponseBody) SetId(v string) *DigitalStoreExportCardRecordResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponseBody) SetIsImport(v string) *DigitalStoreExportCardRecordResponseBody {
+	s.IsImport = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponseBody) SetRemark(v string) *DigitalStoreExportCardRecordResponseBody {
+	s.Remark = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponseBody) SetStatus(v string) *DigitalStoreExportCardRecordResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponseBody) SetSuccessNum(v string) *DigitalStoreExportCardRecordResponseBody {
+	s.SuccessNum = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponseBody) SetTotalNum(v string) *DigitalStoreExportCardRecordResponseBody {
+	s.TotalNum = &v
+	return s
+}
+
+type DigitalStoreExportCardRecordResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DigitalStoreExportCardRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreExportCardRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreExportCardRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreExportCardRecordResponse) SetHeaders(v map[string]*string) *DigitalStoreExportCardRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponse) SetStatusCode(v int32) *DigitalStoreExportCardRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordResponse) SetBody(v *DigitalStoreExportCardRecordResponseBody) *DigitalStoreExportCardRecordResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreExportCardRecordDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreExportCardRecordDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreExportCardRecordDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreExportCardRecordDetailHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreExportCardRecordDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreExportCardRecordDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreExportCardRecordDetailRequest struct {
+	BeginTime     *int64   `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	EndTime       *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Ids           []*int64 `json:"ids,omitempty" xml:"ids,omitempty" type:"Repeated"`
+	SceneCardName *string  `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
+}
+
+func (s DigitalStoreExportCardRecordDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreExportCardRecordDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreExportCardRecordDetailRequest) SetBeginTime(v int64) *DigitalStoreExportCardRecordDetailRequest {
+	s.BeginTime = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailRequest) SetEndTime(v int64) *DigitalStoreExportCardRecordDetailRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailRequest) SetIds(v []*int64) *DigitalStoreExportCardRecordDetailRequest {
+	s.Ids = v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailRequest) SetSceneCardName(v string) *DigitalStoreExportCardRecordDetailRequest {
+	s.SceneCardName = &v
+	return s
+}
+
+type DigitalStoreExportCardRecordDetailResponseBody struct {
+	FileName   *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileType   *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	FileUrl    *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsImport   *string `json:"isImport,omitempty" xml:"isImport,omitempty"`
+	Remark     *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	SuccessNum *string `json:"successNum,omitempty" xml:"successNum,omitempty"`
+	TotalNum   *string `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
+}
+
+func (s DigitalStoreExportCardRecordDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreExportCardRecordDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponseBody) SetFileName(v string) *DigitalStoreExportCardRecordDetailResponseBody {
+	s.FileName = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponseBody) SetFileType(v string) *DigitalStoreExportCardRecordDetailResponseBody {
+	s.FileType = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponseBody) SetFileUrl(v string) *DigitalStoreExportCardRecordDetailResponseBody {
+	s.FileUrl = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponseBody) SetId(v string) *DigitalStoreExportCardRecordDetailResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponseBody) SetIsImport(v string) *DigitalStoreExportCardRecordDetailResponseBody {
+	s.IsImport = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponseBody) SetRemark(v string) *DigitalStoreExportCardRecordDetailResponseBody {
+	s.Remark = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponseBody) SetStatus(v string) *DigitalStoreExportCardRecordDetailResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponseBody) SetSuccessNum(v string) *DigitalStoreExportCardRecordDetailResponseBody {
+	s.SuccessNum = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponseBody) SetTotalNum(v string) *DigitalStoreExportCardRecordDetailResponseBody {
+	s.TotalNum = &v
+	return s
+}
+
+type DigitalStoreExportCardRecordDetailResponse struct {
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DigitalStoreExportCardRecordDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreExportCardRecordDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreExportCardRecordDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponse) SetHeaders(v map[string]*string) *DigitalStoreExportCardRecordDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponse) SetStatusCode(v int32) *DigitalStoreExportCardRecordDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DigitalStoreExportCardRecordDetailResponse) SetBody(v *DigitalStoreExportCardRecordDetailResponseBody) *DigitalStoreExportCardRecordDetailResponse {
 	s.Body = v
 	return s
 }
@@ -8004,6 +8536,163 @@ func (s *DigitalStoreUsersResponse) SetStatusCode(v int32) *DigitalStoreUsersRes
 }
 
 func (s *DigitalStoreUsersResponse) SetBody(v *DigitalStoreUsersResponseBody) *DigitalStoreUsersResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStorelistExportTaskRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStorelistExportTaskRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStorelistExportTaskRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStorelistExportTaskRecordHeaders) SetCommonHeaders(v map[string]*string) *DigitalStorelistExportTaskRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStorelistExportTaskRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStorelistExportTaskRecordRequest struct {
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s DigitalStorelistExportTaskRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStorelistExportTaskRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStorelistExportTaskRecordRequest) SetPageNumber(v int32) *DigitalStorelistExportTaskRecordRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordRequest) SetPageSize(v int32) *DigitalStorelistExportTaskRecordRequest {
+	s.PageSize = &v
+	return s
+}
+
+type DigitalStorelistExportTaskRecordResponseBody struct {
+	Content []*DigitalStorelistExportTaskRecordResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s DigitalStorelistExportTaskRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStorelistExportTaskRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBody) SetContent(v []*DigitalStorelistExportTaskRecordResponseBodyContent) *DigitalStorelistExportTaskRecordResponseBody {
+	s.Content = v
+	return s
+}
+
+type DigitalStorelistExportTaskRecordResponseBodyContent struct {
+	FileName   *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileType   *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	FileUrl    *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsImport   *string `json:"isImport,omitempty" xml:"isImport,omitempty"`
+	Remark     *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	SuccessNum *string `json:"successNum,omitempty" xml:"successNum,omitempty"`
+	TotalNum   *string `json:"totalNum,omitempty" xml:"totalNum,omitempty"`
+}
+
+func (s DigitalStorelistExportTaskRecordResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStorelistExportTaskRecordResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBodyContent) SetFileName(v string) *DigitalStorelistExportTaskRecordResponseBodyContent {
+	s.FileName = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBodyContent) SetFileType(v string) *DigitalStorelistExportTaskRecordResponseBodyContent {
+	s.FileType = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBodyContent) SetFileUrl(v string) *DigitalStorelistExportTaskRecordResponseBodyContent {
+	s.FileUrl = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBodyContent) SetId(v string) *DigitalStorelistExportTaskRecordResponseBodyContent {
+	s.Id = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBodyContent) SetIsImport(v string) *DigitalStorelistExportTaskRecordResponseBodyContent {
+	s.IsImport = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBodyContent) SetRemark(v string) *DigitalStorelistExportTaskRecordResponseBodyContent {
+	s.Remark = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBodyContent) SetStatus(v string) *DigitalStorelistExportTaskRecordResponseBodyContent {
+	s.Status = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBodyContent) SetSuccessNum(v string) *DigitalStorelistExportTaskRecordResponseBodyContent {
+	s.SuccessNum = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponseBodyContent) SetTotalNum(v string) *DigitalStorelistExportTaskRecordResponseBodyContent {
+	s.TotalNum = &v
+	return s
+}
+
+type DigitalStorelistExportTaskRecordResponse struct {
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DigitalStorelistExportTaskRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStorelistExportTaskRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStorelistExportTaskRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStorelistExportTaskRecordResponse) SetHeaders(v map[string]*string) *DigitalStorelistExportTaskRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponse) SetStatusCode(v int32) *DigitalStorelistExportTaskRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DigitalStorelistExportTaskRecordResponse) SetBody(v *DigitalStorelistExportTaskRecordResponseBody) *DigitalStorelistExportTaskRecordResponse {
 	s.Body = v
 	return s
 }
@@ -22991,6 +23680,81 @@ func (client *Client) DIgitalStoreMessagePush(request *DIgitalStoreMessagePushRe
 	return _result, _err
 }
 
+func (client *Client) DigitalStoreCardRecordWithOptions(request *DigitalStoreCardRecordRequest, headers *DigitalStoreCardRecordHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreCardRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BeginTime)) {
+		body["beginTime"] = request.BeginTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ids)) {
+		body["ids"] = request.Ids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SceneCardName)) {
+		body["sceneCardName"] = request.SceneCardName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DigitalStoreCardRecord"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/digitalStores/cardSendRecords/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DigitalStoreCardRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreCardRecord(request *DigitalStoreCardRecordRequest) (_result *DigitalStoreCardRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreCardRecordHeaders{}
+	_result = &DigitalStoreCardRecordResponse{}
+	_body, _err := client.DigitalStoreCardRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) DigitalStoreContactInfoWithOptions(headers *DigitalStoreContactInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreContactInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -23088,6 +23852,140 @@ func (client *Client) DigitalStoreConversations(request *DigitalStoreConversatio
 	headers := &DigitalStoreConversationsHeaders{}
 	_result = &DigitalStoreConversationsResponse{}
 	_body, _err := client.DigitalStoreConversationsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreExportCardRecordWithOptions(request *DigitalStoreExportCardRecordRequest, headers *DigitalStoreExportCardRecordHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreExportCardRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BeginTime)) {
+		body["beginTime"] = request.BeginTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ids)) {
+		body["ids"] = request.Ids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SceneCardName)) {
+		body["sceneCardName"] = request.SceneCardName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DigitalStoreExportCardRecord"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/digitalStores/cardRecords/export"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DigitalStoreExportCardRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreExportCardRecord(request *DigitalStoreExportCardRecordRequest) (_result *DigitalStoreExportCardRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreExportCardRecordHeaders{}
+	_result = &DigitalStoreExportCardRecordResponse{}
+	_body, _err := client.DigitalStoreExportCardRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreExportCardRecordDetailWithOptions(request *DigitalStoreExportCardRecordDetailRequest, headers *DigitalStoreExportCardRecordDetailHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreExportCardRecordDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BeginTime)) {
+		body["beginTime"] = request.BeginTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ids)) {
+		body["ids"] = request.Ids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SceneCardName)) {
+		body["sceneCardName"] = request.SceneCardName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DigitalStoreExportCardRecordDetail"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/digitalStores/cardRecordDetails/export"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DigitalStoreExportCardRecordDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreExportCardRecordDetail(request *DigitalStoreExportCardRecordDetailRequest) (_result *DigitalStoreExportCardRecordDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreExportCardRecordDetailHeaders{}
+	_result = &DigitalStoreExportCardRecordDetailResponse{}
+	_body, _err := client.DigitalStoreExportCardRecordDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -23687,6 +24585,65 @@ func (client *Client) DigitalStoreUsers(request *DigitalStoreUsersRequest) (_res
 	headers := &DigitalStoreUsersHeaders{}
 	_result = &DigitalStoreUsersResponse{}
 	_body, _err := client.DigitalStoreUsersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStorelistExportTaskRecordWithOptions(request *DigitalStorelistExportTaskRecordRequest, headers *DigitalStorelistExportTaskRecordHeaders, runtime *util.RuntimeOptions) (_result *DigitalStorelistExportTaskRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DigitalStorelistExportTaskRecord"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/digitalStores/exportTaskRecords"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DigitalStorelistExportTaskRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStorelistExportTaskRecord(request *DigitalStorelistExportTaskRecordRequest) (_result *DigitalStorelistExportTaskRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStorelistExportTaskRecordHeaders{}
+	_result = &DigitalStorelistExportTaskRecordResponse{}
+	_body, _err := client.DigitalStorelistExportTaskRecordWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

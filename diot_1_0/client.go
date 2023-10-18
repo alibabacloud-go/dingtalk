@@ -863,6 +863,52 @@ func (s *DeviceConferenceResponse) SetBody(v *DeviceConferenceResponseBody) *Dev
 	return s
 }
 
+type DiotMarketManagerTestResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s DiotMarketManagerTestResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DiotMarketManagerTestResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DiotMarketManagerTestResponseBody) SetRequestId(v string) *DiotMarketManagerTestResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type DiotMarketManagerTestResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DiotMarketManagerTestResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DiotMarketManagerTestResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DiotMarketManagerTestResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DiotMarketManagerTestResponse) SetHeaders(v map[string]*string) *DiotMarketManagerTestResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DiotMarketManagerTestResponse) SetStatusCode(v int32) *DiotMarketManagerTestResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DiotMarketManagerTestResponse) SetBody(v *DiotMarketManagerTestResponseBody) *DiotMarketManagerTestResponse {
+	s.Body = v
+	return s
+}
+
 type DiotSystemMarkTestResponseBody struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
@@ -2220,6 +2266,42 @@ func (client *Client) DeviceConference(request *DeviceConferenceRequest) (_resul
 	headers := &DeviceConferenceHeaders{}
 	_result = &DeviceConferenceResponse{}
 	_body, _err := client.DeviceConferenceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DiotMarketManagerTestWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DiotMarketManagerTestResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DiotMarketManagerTest"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/market/manager/test"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DiotMarketManagerTestResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DiotMarketManagerTest() (_result *DiotMarketManagerTestResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &DiotMarketManagerTestResponse{}
+	_body, _err := client.DiotMarketManagerTestWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
