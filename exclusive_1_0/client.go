@@ -295,6 +295,98 @@ func (s *CreateCategoryAndBindingGroupsResponse) SetBody(v *CreateCategoryAndBin
 	return s
 }
 
+type CreateMessageCategoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateMessageCategoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMessageCategoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMessageCategoryHeaders) SetCommonHeaders(v map[string]*string) *CreateMessageCategoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateMessageCategoryHeaders) SetXAcsDingtalkAccessToken(v string) *CreateMessageCategoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateMessageCategoryRequest struct {
+	CategoryName *string   `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	GroupIds     []*string `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateMessageCategoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMessageCategoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMessageCategoryRequest) SetCategoryName(v string) *CreateMessageCategoryRequest {
+	s.CategoryName = &v
+	return s
+}
+
+func (s *CreateMessageCategoryRequest) SetGroupIds(v []*string) *CreateMessageCategoryRequest {
+	s.GroupIds = v
+	return s
+}
+
+type CreateMessageCategoryResponseBody struct {
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CreateMessageCategoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMessageCategoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMessageCategoryResponseBody) SetId(v int64) *CreateMessageCategoryResponseBody {
+	s.Id = &v
+	return s
+}
+
+type CreateMessageCategoryResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateMessageCategoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateMessageCategoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMessageCategoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMessageCategoryResponse) SetHeaders(v map[string]*string) *CreateMessageCategoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateMessageCategoryResponse) SetStatusCode(v int32) *CreateMessageCategoryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateMessageCategoryResponse) SetBody(v *CreateMessageCategoryResponseBody) *CreateMessageCategoryResponse {
+	s.Body = v
+	return s
+}
+
 type CreateRuleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10755,6 +10847,65 @@ func (client *Client) CreateCategoryAndBindingGroups(request *CreateCategoryAndB
 	headers := &CreateCategoryAndBindingGroupsHeaders{}
 	_result = &CreateCategoryAndBindingGroupsResponse{}
 	_body, _err := client.CreateCategoryAndBindingGroupsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateMessageCategoryWithOptions(request *CreateMessageCategoryRequest, headers *CreateMessageCategoryHeaders, runtime *util.RuntimeOptions) (_result *CreateMessageCategoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CategoryName)) {
+		body["categoryName"] = request.CategoryName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupIds)) {
+		body["groupIds"] = request.GroupIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateMessageCategory"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/messageCategories/categories/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateMessageCategoryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateMessageCategory(request *CreateMessageCategoryRequest) (_result *CreateMessageCategoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateMessageCategoryHeaders{}
+	_result = &CreateMessageCategoryResponse{}
+	_body, _err := client.CreateMessageCategoryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
