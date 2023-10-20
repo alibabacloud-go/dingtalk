@@ -5670,6 +5670,7 @@ type SendInteractiveCardRequest struct {
 	CardTemplateId     *string                                `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	ChatBotId          *string                                `json:"chatBotId,omitempty" xml:"chatBotId,omitempty"`
 	ConversationType   *int32                                 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	DigitalWorkerCode  *string                                `json:"digitalWorkerCode,omitempty" xml:"digitalWorkerCode,omitempty"`
 	OpenConversationId *string                                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	OutTrackId         *string                                `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 	PrivateData        map[string]*PrivateDataValue           `json:"privateData,omitempty" xml:"privateData,omitempty"`
@@ -5719,6 +5720,11 @@ func (s *SendInteractiveCardRequest) SetChatBotId(v string) *SendInteractiveCard
 
 func (s *SendInteractiveCardRequest) SetConversationType(v int32) *SendInteractiveCardRequest {
 	s.ConversationType = &v
+	return s
+}
+
+func (s *SendInteractiveCardRequest) SetDigitalWorkerCode(v string) *SendInteractiveCardRequest {
+	s.DigitalWorkerCode = &v
 	return s
 }
 
@@ -11351,6 +11357,10 @@ func (client *Client) SendInteractiveCardWithOptions(request *SendInteractiveCar
 
 	if !tea.BoolValue(util.IsUnset(request.ConversationType)) {
 		body["conversationType"] = request.ConversationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DigitalWorkerCode)) {
+		body["digitalWorkerCode"] = request.DigitalWorkerCode
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {

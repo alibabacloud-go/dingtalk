@@ -1159,6 +1159,180 @@ func (s *BatchBossCheckResponse) SetBody(v *BatchBossCheckResponseBody) *BatchBo
 	return s
 }
 
+type CalculateDurationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CalculateDurationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CalculateDurationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CalculateDurationHeaders) SetCommonHeaders(v map[string]*string) *CalculateDurationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CalculateDurationHeaders) SetXAcsDingtalkAccessToken(v string) *CalculateDurationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CalculateDurationRequest struct {
+	BizType        *int64  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CalculateModel *int64  `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
+	DurationUnit   *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
+	FromTime       *string `json:"fromTime,omitempty" xml:"fromTime,omitempty"`
+	LeaveCode      *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	ToTime         *string `json:"toTime,omitempty" xml:"toTime,omitempty"`
+	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CalculateDurationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CalculateDurationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CalculateDurationRequest) SetBizType(v int64) *CalculateDurationRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *CalculateDurationRequest) SetCalculateModel(v int64) *CalculateDurationRequest {
+	s.CalculateModel = &v
+	return s
+}
+
+func (s *CalculateDurationRequest) SetDurationUnit(v string) *CalculateDurationRequest {
+	s.DurationUnit = &v
+	return s
+}
+
+func (s *CalculateDurationRequest) SetFromTime(v string) *CalculateDurationRequest {
+	s.FromTime = &v
+	return s
+}
+
+func (s *CalculateDurationRequest) SetLeaveCode(v string) *CalculateDurationRequest {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *CalculateDurationRequest) SetToTime(v string) *CalculateDurationRequest {
+	s.ToTime = &v
+	return s
+}
+
+func (s *CalculateDurationRequest) SetUserId(v string) *CalculateDurationRequest {
+	s.UserId = &v
+	return s
+}
+
+type CalculateDurationResponseBody struct {
+	Result  *CalculateDurationResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CalculateDurationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CalculateDurationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CalculateDurationResponseBody) SetResult(v *CalculateDurationResponseBodyResult) *CalculateDurationResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CalculateDurationResponseBody) SetSuccess(v bool) *CalculateDurationResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CalculateDurationResponseBodyResult struct {
+	Duration       *float64                                             `json:"duration,omitempty" xml:"duration,omitempty"`
+	DurationDetail []*CalculateDurationResponseBodyResultDurationDetail `json:"durationDetail,omitempty" xml:"durationDetail,omitempty" type:"Repeated"`
+}
+
+func (s CalculateDurationResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CalculateDurationResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CalculateDurationResponseBodyResult) SetDuration(v float64) *CalculateDurationResponseBodyResult {
+	s.Duration = &v
+	return s
+}
+
+func (s *CalculateDurationResponseBodyResult) SetDurationDetail(v []*CalculateDurationResponseBodyResultDurationDetail) *CalculateDurationResponseBodyResult {
+	s.DurationDetail = v
+	return s
+}
+
+type CalculateDurationResponseBodyResultDurationDetail struct {
+	Date     *string  `json:"date,omitempty" xml:"date,omitempty"`
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+}
+
+func (s CalculateDurationResponseBodyResultDurationDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CalculateDurationResponseBodyResultDurationDetail) GoString() string {
+	return s.String()
+}
+
+func (s *CalculateDurationResponseBodyResultDurationDetail) SetDate(v string) *CalculateDurationResponseBodyResultDurationDetail {
+	s.Date = &v
+	return s
+}
+
+func (s *CalculateDurationResponseBodyResultDurationDetail) SetDuration(v float64) *CalculateDurationResponseBodyResultDurationDetail {
+	s.Duration = &v
+	return s
+}
+
+type CalculateDurationResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CalculateDurationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CalculateDurationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CalculateDurationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CalculateDurationResponse) SetHeaders(v map[string]*string) *CalculateDurationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CalculateDurationResponse) SetStatusCode(v int32) *CalculateDurationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CalculateDurationResponse) SetBody(v *CalculateDurationResponseBody) *CalculateDurationResponse {
+	s.Body = v
+	return s
+}
+
 type CheckClosingAccountHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6097,6 +6271,227 @@ func (s *ProcessApproveCreateResponse) SetBody(v *ProcessApproveCreateResponseBo
 	return s
 }
 
+type ProcessApproveFinishHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ProcessApproveFinishHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveFinishHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveFinishHeaders) SetCommonHeaders(v map[string]*string) *ProcessApproveFinishHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ProcessApproveFinishHeaders) SetXAcsDingtalkAccessToken(v string) *ProcessApproveFinishHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ProcessApproveFinishRequest struct {
+	ApproveId                        *string                                                      `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	JumpUrl                          *string                                                      `json:"jumpUrl,omitempty" xml:"jumpUrl,omitempty"`
+	OverTimeToMore                   *int64                                                       `json:"overTimeToMore,omitempty" xml:"overTimeToMore,omitempty"`
+	OvertimeDuration                 *string                                                      `json:"overtimeDuration,omitempty" xml:"overtimeDuration,omitempty"`
+	SubType                          *string                                                      `json:"subType,omitempty" xml:"subType,omitempty"`
+	TagName                          *string                                                      `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	TopCalculateApproveDurationParam *ProcessApproveFinishRequestTopCalculateApproveDurationParam `json:"topCalculateApproveDurationParam,omitempty" xml:"topCalculateApproveDurationParam,omitempty" type:"Struct"`
+	UserId                           *string                                                      `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ProcessApproveFinishRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveFinishRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveFinishRequest) SetApproveId(v string) *ProcessApproveFinishRequest {
+	s.ApproveId = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequest) SetJumpUrl(v string) *ProcessApproveFinishRequest {
+	s.JumpUrl = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequest) SetOverTimeToMore(v int64) *ProcessApproveFinishRequest {
+	s.OverTimeToMore = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequest) SetOvertimeDuration(v string) *ProcessApproveFinishRequest {
+	s.OvertimeDuration = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequest) SetSubType(v string) *ProcessApproveFinishRequest {
+	s.SubType = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequest) SetTagName(v string) *ProcessApproveFinishRequest {
+	s.TagName = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequest) SetTopCalculateApproveDurationParam(v *ProcessApproveFinishRequestTopCalculateApproveDurationParam) *ProcessApproveFinishRequest {
+	s.TopCalculateApproveDurationParam = v
+	return s
+}
+
+func (s *ProcessApproveFinishRequest) SetUserId(v string) *ProcessApproveFinishRequest {
+	s.UserId = &v
+	return s
+}
+
+type ProcessApproveFinishRequestTopCalculateApproveDurationParam struct {
+	BizType        *int64  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CalculateModel *int64  `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
+	DurationUnit   *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
+	FromTime       *string `json:"fromTime,omitempty" xml:"fromTime,omitempty"`
+	LeaveCode      *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	ToTime         *string `json:"toTime,omitempty" xml:"toTime,omitempty"`
+}
+
+func (s ProcessApproveFinishRequestTopCalculateApproveDurationParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveFinishRequestTopCalculateApproveDurationParam) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveFinishRequestTopCalculateApproveDurationParam) SetBizType(v int64) *ProcessApproveFinishRequestTopCalculateApproveDurationParam {
+	s.BizType = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequestTopCalculateApproveDurationParam) SetCalculateModel(v int64) *ProcessApproveFinishRequestTopCalculateApproveDurationParam {
+	s.CalculateModel = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequestTopCalculateApproveDurationParam) SetDurationUnit(v string) *ProcessApproveFinishRequestTopCalculateApproveDurationParam {
+	s.DurationUnit = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequestTopCalculateApproveDurationParam) SetFromTime(v string) *ProcessApproveFinishRequestTopCalculateApproveDurationParam {
+	s.FromTime = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequestTopCalculateApproveDurationParam) SetLeaveCode(v string) *ProcessApproveFinishRequestTopCalculateApproveDurationParam {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *ProcessApproveFinishRequestTopCalculateApproveDurationParam) SetToTime(v string) *ProcessApproveFinishRequestTopCalculateApproveDurationParam {
+	s.ToTime = &v
+	return s
+}
+
+type ProcessApproveFinishResponseBody struct {
+	Result *ProcessApproveFinishResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ProcessApproveFinishResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveFinishResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveFinishResponseBody) SetResult(v *ProcessApproveFinishResponseBodyResult) *ProcessApproveFinishResponseBody {
+	s.Result = v
+	return s
+}
+
+type ProcessApproveFinishResponseBodyResult struct {
+	Duration       *float64                                                `json:"duration,omitempty" xml:"duration,omitempty"`
+	DurationDetail []*ProcessApproveFinishResponseBodyResultDurationDetail `json:"durationDetail,omitempty" xml:"durationDetail,omitempty" type:"Repeated"`
+}
+
+func (s ProcessApproveFinishResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveFinishResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveFinishResponseBodyResult) SetDuration(v float64) *ProcessApproveFinishResponseBodyResult {
+	s.Duration = &v
+	return s
+}
+
+func (s *ProcessApproveFinishResponseBodyResult) SetDurationDetail(v []*ProcessApproveFinishResponseBodyResultDurationDetail) *ProcessApproveFinishResponseBodyResult {
+	s.DurationDetail = v
+	return s
+}
+
+type ProcessApproveFinishResponseBodyResultDurationDetail struct {
+	Date     *string  `json:"date,omitempty" xml:"date,omitempty"`
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+}
+
+func (s ProcessApproveFinishResponseBodyResultDurationDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveFinishResponseBodyResultDurationDetail) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveFinishResponseBodyResultDurationDetail) SetDate(v string) *ProcessApproveFinishResponseBodyResultDurationDetail {
+	s.Date = &v
+	return s
+}
+
+func (s *ProcessApproveFinishResponseBodyResultDurationDetail) SetDuration(v float64) *ProcessApproveFinishResponseBodyResultDurationDetail {
+	s.Duration = &v
+	return s
+}
+
+type ProcessApproveFinishResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ProcessApproveFinishResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ProcessApproveFinishResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveFinishResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveFinishResponse) SetHeaders(v map[string]*string) *ProcessApproveFinishResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ProcessApproveFinishResponse) SetStatusCode(v int32) *ProcessApproveFinishResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ProcessApproveFinishResponse) SetBody(v *ProcessApproveFinishResponseBody) *ProcessApproveFinishResponse {
+	s.Body = v
+	return s
+}
+
 type ReduceQuotaWithLeaveRecordHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7672,6 +8067,87 @@ func (client *Client) BatchBossCheck(request *BatchBossCheckRequest) (_result *B
 	headers := &BatchBossCheckHeaders{}
 	_result = &BatchBossCheckResponse{}
 	_body, _err := client.BatchBossCheckWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CalculateDurationWithOptions(request *CalculateDurationRequest, headers *CalculateDurationHeaders, runtime *util.RuntimeOptions) (_result *CalculateDurationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CalculateModel)) {
+		body["calculateModel"] = request.CalculateModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DurationUnit)) {
+		body["durationUnit"] = request.DurationUnit
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromTime)) {
+		body["fromTime"] = request.FromTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LeaveCode)) {
+		body["leaveCode"] = request.LeaveCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToTime)) {
+		body["toTime"] = request.ToTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CalculateDuration"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/approvals/durations/calculate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CalculateDurationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CalculateDuration(request *CalculateDurationRequest) (_result *CalculateDurationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CalculateDurationHeaders{}
+	_result = &CalculateDurationResponse{}
+	_body, _err := client.CalculateDurationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9504,6 +9980,91 @@ func (client *Client) ProcessApproveCreate(request *ProcessApproveCreateRequest)
 	headers := &ProcessApproveCreateHeaders{}
 	_result = &ProcessApproveCreateResponse{}
 	_body, _err := client.ProcessApproveCreateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ProcessApproveFinishWithOptions(request *ProcessApproveFinishRequest, headers *ProcessApproveFinishHeaders, runtime *util.RuntimeOptions) (_result *ProcessApproveFinishResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApproveId)) {
+		body["approveId"] = request.ApproveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JumpUrl)) {
+		body["jumpUrl"] = request.JumpUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OverTimeToMore)) {
+		body["overTimeToMore"] = request.OverTimeToMore
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OvertimeDuration)) {
+		body["overtimeDuration"] = request.OvertimeDuration
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubType)) {
+		body["subType"] = request.SubType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagName)) {
+		body["tagName"] = request.TagName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopCalculateApproveDurationParam)) {
+		body["topCalculateApproveDurationParam"] = request.TopCalculateApproveDurationParam
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ProcessApproveFinish"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/approvals/finish"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ProcessApproveFinishResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ProcessApproveFinish(request *ProcessApproveFinishRequest) (_result *ProcessApproveFinishResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ProcessApproveFinishHeaders{}
+	_result = &ProcessApproveFinishResponse{}
+	_body, _err := client.ProcessApproveFinishWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

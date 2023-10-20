@@ -105,6 +105,175 @@ func (s *AddOrgResponse) SetBody(v *AddOrgResponseBody) *AddOrgResponse {
 	return s
 }
 
+type ApproveProcessCallbackHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ApproveProcessCallbackHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApproveProcessCallbackHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ApproveProcessCallbackHeaders) SetCommonHeaders(v map[string]*string) *ApproveProcessCallbackHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ApproveProcessCallbackHeaders) SetXAcsDingtalkAccessToken(v string) *ApproveProcessCallbackHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ApproveProcessCallbackRequest struct {
+	AccessKeyId     *string                               `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	AccessKeySecret *string                               `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	Request         *ApproveProcessCallbackRequestRequest `json:"request,omitempty" xml:"request,omitempty" type:"Struct"`
+	TargetCorpId    *string                               `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s ApproveProcessCallbackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApproveProcessCallbackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ApproveProcessCallbackRequest) SetAccessKeyId(v string) *ApproveProcessCallbackRequest {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequest) SetAccessKeySecret(v string) *ApproveProcessCallbackRequest {
+	s.AccessKeySecret = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequest) SetRequest(v *ApproveProcessCallbackRequestRequest) *ApproveProcessCallbackRequest {
+	s.Request = v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequest) SetTargetCorpId(v string) *ApproveProcessCallbackRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type ApproveProcessCallbackRequestRequest struct {
+	ApproveResult     *string   `json:"approveResult,omitempty" xml:"approveResult,omitempty"`
+	ApproveType       *string   `json:"approveType,omitempty" xml:"approveType,omitempty"`
+	Approvers         []*string `json:"approvers,omitempty" xml:"approvers,omitempty" type:"Repeated"`
+	CreateTime        *int64    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	EventType         *string   `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	FinishTime        *int64    `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	Params            *string   `json:"params,omitempty" xml:"params,omitempty"`
+	ProcessInstanceId *string   `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Title             *string   `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s ApproveProcessCallbackRequestRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApproveProcessCallbackRequestRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ApproveProcessCallbackRequestRequest) SetApproveResult(v string) *ApproveProcessCallbackRequestRequest {
+	s.ApproveResult = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequestRequest) SetApproveType(v string) *ApproveProcessCallbackRequestRequest {
+	s.ApproveType = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequestRequest) SetApprovers(v []*string) *ApproveProcessCallbackRequestRequest {
+	s.Approvers = v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequestRequest) SetCreateTime(v int64) *ApproveProcessCallbackRequestRequest {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequestRequest) SetEventType(v string) *ApproveProcessCallbackRequestRequest {
+	s.EventType = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequestRequest) SetFinishTime(v int64) *ApproveProcessCallbackRequestRequest {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequestRequest) SetParams(v string) *ApproveProcessCallbackRequestRequest {
+	s.Params = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequestRequest) SetProcessInstanceId(v string) *ApproveProcessCallbackRequestRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackRequestRequest) SetTitle(v string) *ApproveProcessCallbackRequestRequest {
+	s.Title = &v
+	return s
+}
+
+type ApproveProcessCallbackResponseBody struct {
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ApproveProcessCallbackResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApproveProcessCallbackResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ApproveProcessCallbackResponseBody) SetSuccess(v string) *ApproveProcessCallbackResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ApproveProcessCallbackResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ApproveProcessCallbackResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ApproveProcessCallbackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApproveProcessCallbackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ApproveProcessCallbackResponse) SetHeaders(v map[string]*string) *ApproveProcessCallbackResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ApproveProcessCallbackResponse) SetStatusCode(v int32) *ApproveProcessCallbackResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ApproveProcessCallbackResponse) SetBody(v *ApproveProcessCallbackResponseBody) *ApproveProcessCallbackResponse {
+	s.Body = v
+	return s
+}
+
 type BanOrOpenGroupWordsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10729,6 +10898,73 @@ func (client *Client) AddOrg(request *AddOrgRequest) (_result *AddOrgResponse, _
 	headers := &AddOrgHeaders{}
 	_result = &AddOrgResponse{}
 	_body, _err := client.AddOrgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ApproveProcessCallbackWithOptions(request *ApproveProcessCallbackRequest, headers *ApproveProcessCallbackHeaders, runtime *util.RuntimeOptions) (_result *ApproveProcessCallbackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKeyId)) {
+		body["accessKeyId"] = request.AccessKeyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKeySecret)) {
+		body["accessKeySecret"] = request.AccessKeySecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Request)) {
+		body["request"] = request.Request
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ApproveProcessCallback"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/approvalResults/callback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ApproveProcessCallbackResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ApproveProcessCallback(request *ApproveProcessCallbackRequest) (_result *ApproveProcessCallbackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ApproveProcessCallbackHeaders{}
+	_result = &ApproveProcessCallbackResponse{}
+	_body, _err := client.ApproveProcessCallbackWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
