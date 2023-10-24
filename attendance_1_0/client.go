@@ -6401,7 +6401,8 @@ func (s *ProcessApproveFinishRequestTopCalculateApproveDurationParam) SetToTime(
 }
 
 type ProcessApproveFinishResponseBody struct {
-	Result *ProcessApproveFinishResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Result  *ProcessApproveFinishResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ProcessApproveFinishResponseBody) String() string {
@@ -6414,6 +6415,11 @@ func (s ProcessApproveFinishResponseBody) GoString() string {
 
 func (s *ProcessApproveFinishResponseBody) SetResult(v *ProcessApproveFinishResponseBodyResult) *ProcessApproveFinishResponseBody {
 	s.Result = v
+	return s
+}
+
+func (s *ProcessApproveFinishResponseBody) SetSuccess(v bool) *ProcessApproveFinishResponseBody {
+	s.Success = &v
 	return s
 }
 

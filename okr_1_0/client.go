@@ -14,6 +14,53 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type OpenPeriodDTO struct {
+	EndDate   *int64  `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	NameCn    *string `json:"nameCn,omitempty" xml:"nameCn,omitempty"`
+	NameEn    *string `json:"nameEn,omitempty" xml:"nameEn,omitempty"`
+	PeriodId  *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	StartDate *int64  `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	Status    *int32  `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s OpenPeriodDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenPeriodDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenPeriodDTO) SetEndDate(v int64) *OpenPeriodDTO {
+	s.EndDate = &v
+	return s
+}
+
+func (s *OpenPeriodDTO) SetNameCn(v string) *OpenPeriodDTO {
+	s.NameCn = &v
+	return s
+}
+
+func (s *OpenPeriodDTO) SetNameEn(v string) *OpenPeriodDTO {
+	s.NameEn = &v
+	return s
+}
+
+func (s *OpenPeriodDTO) SetPeriodId(v string) *OpenPeriodDTO {
+	s.PeriodId = &v
+	return s
+}
+
+func (s *OpenPeriodDTO) SetStartDate(v int64) *OpenPeriodDTO {
+	s.StartDate = &v
+	return s
+}
+
+func (s *OpenPeriodDTO) SetStatus(v int32) *OpenPeriodDTO {
+	s.Status = &v
+	return s
+}
+
 type AlignObjectiveHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2409,6 +2456,157 @@ func (s *GetUserOkrResponse) SetBody(v *GetUserOkrResponseBody) *GetUserOkrRespo
 	return s
 }
 
+type OkrPeriodsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OkrPeriodsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrPeriodsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OkrPeriodsHeaders) SetCommonHeaders(v map[string]*string) *OkrPeriodsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OkrPeriodsHeaders) SetXAcsDingtalkAccessToken(v string) *OkrPeriodsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OkrPeriodsRequest struct {
+	GoodsCode  *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Status     *int64  `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s OkrPeriodsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrPeriodsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OkrPeriodsRequest) SetGoodsCode(v string) *OkrPeriodsRequest {
+	s.GoodsCode = &v
+	return s
+}
+
+func (s *OkrPeriodsRequest) SetPageNumber(v int64) *OkrPeriodsRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *OkrPeriodsRequest) SetPageSize(v int64) *OkrPeriodsRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *OkrPeriodsRequest) SetStatus(v int64) *OkrPeriodsRequest {
+	s.Status = &v
+	return s
+}
+
+type OkrPeriodsResponseBody struct {
+	Content   *OkrPeriodsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                        `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s OkrPeriodsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrPeriodsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OkrPeriodsResponseBody) SetContent(v *OkrPeriodsResponseBodyContent) *OkrPeriodsResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *OkrPeriodsResponseBody) SetRequestId(v string) *OkrPeriodsResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *OkrPeriodsResponseBody) SetSuccess(v bool) *OkrPeriodsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type OkrPeriodsResponseBodyContent struct {
+	PageNumber *int32           `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32           `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Result     []*OpenPeriodDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int64           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s OkrPeriodsResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrPeriodsResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *OkrPeriodsResponseBodyContent) SetPageNumber(v int32) *OkrPeriodsResponseBodyContent {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *OkrPeriodsResponseBodyContent) SetPageSize(v int32) *OkrPeriodsResponseBodyContent {
+	s.PageSize = &v
+	return s
+}
+
+func (s *OkrPeriodsResponseBodyContent) SetResult(v []*OpenPeriodDTO) *OkrPeriodsResponseBodyContent {
+	s.Result = v
+	return s
+}
+
+func (s *OkrPeriodsResponseBodyContent) SetTotalCount(v int64) *OkrPeriodsResponseBodyContent {
+	s.TotalCount = &v
+	return s
+}
+
+type OkrPeriodsResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *OkrPeriodsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s OkrPeriodsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrPeriodsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OkrPeriodsResponse) SetHeaders(v map[string]*string) *OkrPeriodsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OkrPeriodsResponse) SetStatusCode(v int32) *OkrPeriodsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OkrPeriodsResponse) SetBody(v *OkrPeriodsResponseBody) *OkrPeriodsResponse {
+	s.Body = v
+	return s
+}
+
 type UnAlignObjectiveHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4045,6 +4243,73 @@ func (client *Client) GetUserOkr(request *GetUserOkrRequest) (_result *GetUserOk
 	headers := &GetUserOkrHeaders{}
 	_result = &GetUserOkrResponse{}
 	_body, _err := client.GetUserOkrWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) OkrPeriodsWithOptions(request *OkrPeriodsRequest, headers *OkrPeriodsHeaders, runtime *util.RuntimeOptions) (_result *OkrPeriodsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GoodsCode)) {
+		query["goodsCode"] = request.GoodsCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		query["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OkrPeriods"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/pro/periods"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OkrPeriodsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) OkrPeriods(request *OkrPeriodsRequest) (_result *OkrPeriodsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OkrPeriodsHeaders{}
+	_result = &OkrPeriodsResponse{}
+	_body, _err := client.OkrPeriodsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -6163,6 +6163,7 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResultCustomer) SetName(v strin
 type QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList struct {
 	AmountWithTax       *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
 	AmountWithoutTax    *string `json:"amountWithoutTax,omitempty" xml:"amountWithoutTax,omitempty"`
+	DiscountAmount      *string `json:"discountAmount,omitempty" xml:"discountAmount,omitempty"`
 	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
 	Quantity            *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
 	Specification       *string `json:"specification,omitempty" xml:"specification,omitempty"`
@@ -6188,6 +6189,11 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetAmoun
 
 func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetAmountWithoutTax(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
 	s.AmountWithoutTax = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetDiscountAmount(v string) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
+	s.DiscountAmount = &v
 	return s
 }
 
@@ -6605,6 +6611,7 @@ func (s *QueryReceiptForInvoiceResponseBodyListCustomer) SetName(v string) *Quer
 type QueryReceiptForInvoiceResponseBodyListProductInfoList struct {
 	AmountWithTax       *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
 	AmountWithoutTax    *string `json:"amountWithoutTax,omitempty" xml:"amountWithoutTax,omitempty"`
+	DiscountAmount      *string `json:"discountAmount,omitempty" xml:"discountAmount,omitempty"`
 	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
 	Quantity            *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
 	Specification       *string `json:"specification,omitempty" xml:"specification,omitempty"`
@@ -6630,6 +6637,11 @@ func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetAmountWithTax
 
 func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetAmountWithoutTax(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
 	s.AmountWithoutTax = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetDiscountAmount(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.DiscountAmount = &v
 	return s
 }
 

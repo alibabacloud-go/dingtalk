@@ -125,7 +125,7 @@ func (s *UpdateIsvOppStatusRequestIsvOpportunityStatusList) SetUserId(v string) 
 }
 
 type UpdateIsvOppStatusResponseBody struct {
-	Result *UpdateIsvOppStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
 func (s UpdateIsvOppStatusResponseBody) String() string {
@@ -136,25 +136,8 @@ func (s UpdateIsvOppStatusResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateIsvOppStatusResponseBody) SetResult(v *UpdateIsvOppStatusResponseBodyResult) *UpdateIsvOppStatusResponseBody {
-	s.Result = v
-	return s
-}
-
-type UpdateIsvOppStatusResponseBodyResult struct {
-	Value *bool `json:"value,omitempty" xml:"value,omitempty"`
-}
-
-func (s UpdateIsvOppStatusResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateIsvOppStatusResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateIsvOppStatusResponseBodyResult) SetValue(v bool) *UpdateIsvOppStatusResponseBodyResult {
-	s.Value = &v
+func (s *UpdateIsvOppStatusResponseBody) SetResult(v bool) *UpdateIsvOppStatusResponseBody {
+	s.Result = &v
 	return s
 }
 
