@@ -14,6 +14,112 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type OpenKeyResultDTO struct {
+	KrId          *string         `json:"krId,omitempty" xml:"krId,omitempty"`
+	Progress      *int64          `json:"progress,omitempty" xml:"progress,omitempty"`
+	Status        *int64          `json:"status,omitempty" xml:"status,omitempty"`
+	Title         *string         `json:"title,omitempty" xml:"title,omitempty"`
+	TitleMentions []*TitleMention `json:"titleMentions,omitempty" xml:"titleMentions,omitempty" type:"Repeated"`
+	Type          *int64          `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s OpenKeyResultDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenKeyResultDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenKeyResultDTO) SetKrId(v string) *OpenKeyResultDTO {
+	s.KrId = &v
+	return s
+}
+
+func (s *OpenKeyResultDTO) SetProgress(v int64) *OpenKeyResultDTO {
+	s.Progress = &v
+	return s
+}
+
+func (s *OpenKeyResultDTO) SetStatus(v int64) *OpenKeyResultDTO {
+	s.Status = &v
+	return s
+}
+
+func (s *OpenKeyResultDTO) SetTitle(v string) *OpenKeyResultDTO {
+	s.Title = &v
+	return s
+}
+
+func (s *OpenKeyResultDTO) SetTitleMentions(v []*TitleMention) *OpenKeyResultDTO {
+	s.TitleMentions = v
+	return s
+}
+
+func (s *OpenKeyResultDTO) SetType(v int64) *OpenKeyResultDTO {
+	s.Type = &v
+	return s
+}
+
+type OpenObjectiveDTO struct {
+	Executor    *OpenUserDTO        `json:"executor,omitempty" xml:"executor,omitempty"`
+	KeyResults  []*OpenKeyResultDTO `json:"keyResults,omitempty" xml:"keyResults,omitempty" type:"Repeated"`
+	ObjectiveId *string             `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	Period      *OpenPeriodDTO      `json:"period,omitempty" xml:"period,omitempty"`
+	Progress    *int64              `json:"progress,omitempty" xml:"progress,omitempty"`
+	Status      *int64              `json:"status,omitempty" xml:"status,omitempty"`
+	Teams       []*OpenTeamDTO      `json:"teams,omitempty" xml:"teams,omitempty" type:"Repeated"`
+	Title       *string             `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s OpenObjectiveDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenObjectiveDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenObjectiveDTO) SetExecutor(v *OpenUserDTO) *OpenObjectiveDTO {
+	s.Executor = v
+	return s
+}
+
+func (s *OpenObjectiveDTO) SetKeyResults(v []*OpenKeyResultDTO) *OpenObjectiveDTO {
+	s.KeyResults = v
+	return s
+}
+
+func (s *OpenObjectiveDTO) SetObjectiveId(v string) *OpenObjectiveDTO {
+	s.ObjectiveId = &v
+	return s
+}
+
+func (s *OpenObjectiveDTO) SetPeriod(v *OpenPeriodDTO) *OpenObjectiveDTO {
+	s.Period = v
+	return s
+}
+
+func (s *OpenObjectiveDTO) SetProgress(v int64) *OpenObjectiveDTO {
+	s.Progress = &v
+	return s
+}
+
+func (s *OpenObjectiveDTO) SetStatus(v int64) *OpenObjectiveDTO {
+	s.Status = &v
+	return s
+}
+
+func (s *OpenObjectiveDTO) SetTeams(v []*OpenTeamDTO) *OpenObjectiveDTO {
+	s.Teams = v
+	return s
+}
+
+func (s *OpenObjectiveDTO) SetTitle(v string) *OpenObjectiveDTO {
+	s.Title = &v
+	return s
+}
+
 type OpenPeriodDTO struct {
 	EndDate   *int64  `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NameCn    *string `json:"nameCn,omitempty" xml:"nameCn,omitempty"`
@@ -58,6 +164,93 @@ func (s *OpenPeriodDTO) SetStartDate(v int64) *OpenPeriodDTO {
 
 func (s *OpenPeriodDTO) SetStatus(v int32) *OpenPeriodDTO {
 	s.Status = &v
+	return s
+}
+
+type OpenTeamDTO struct {
+	DeptUid    *string `json:"deptUid,omitempty" xml:"deptUid,omitempty"`
+	DingDeptId *string `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s OpenTeamDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenTeamDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenTeamDTO) SetDeptUid(v string) *OpenTeamDTO {
+	s.DeptUid = &v
+	return s
+}
+
+func (s *OpenTeamDTO) SetDingDeptId(v string) *OpenTeamDTO {
+	s.DingDeptId = &v
+	return s
+}
+
+func (s *OpenTeamDTO) SetName(v string) *OpenTeamDTO {
+	s.Name = &v
+	return s
+}
+
+type OpenUserDTO struct {
+	DingUserId *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserUid    *string `json:"userUid,omitempty" xml:"userUid,omitempty"`
+}
+
+func (s OpenUserDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenUserDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenUserDTO) SetDingUserId(v string) *OpenUserDTO {
+	s.DingUserId = &v
+	return s
+}
+
+func (s *OpenUserDTO) SetName(v string) *OpenUserDTO {
+	s.Name = &v
+	return s
+}
+
+func (s *OpenUserDTO) SetUserUid(v string) *OpenUserDTO {
+	s.UserUid = &v
+	return s
+}
+
+type TitleMention struct {
+	Length *int64       `json:"length,omitempty" xml:"length,omitempty"`
+	Offset *int64       `json:"offset,omitempty" xml:"offset,omitempty"`
+	User   *OpenUserDTO `json:"user,omitempty" xml:"user,omitempty"`
+}
+
+func (s TitleMention) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TitleMention) GoString() string {
+	return s.String()
+}
+
+func (s *TitleMention) SetLength(v int64) *TitleMention {
+	s.Length = &v
+	return s
+}
+
+func (s *TitleMention) SetOffset(v int64) *TitleMention {
+	s.Offset = &v
+	return s
+}
+
+func (s *TitleMention) SetUser(v *OpenUserDTO) *TitleMention {
+	s.User = v
 	return s
 }
 
@@ -2456,6 +2649,237 @@ func (s *GetUserOkrResponse) SetBody(v *GetUserOkrResponseBody) *GetUserOkrRespo
 	return s
 }
 
+type OkrObjectivesBatchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OkrObjectivesBatchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrObjectivesBatchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OkrObjectivesBatchHeaders) SetCommonHeaders(v map[string]*string) *OkrObjectivesBatchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OkrObjectivesBatchHeaders) SetXAcsDingtalkAccessToken(v string) *OkrObjectivesBatchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OkrObjectivesBatchRequest struct {
+	GoodsCode    *string   `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	ObjectiveIds []*string `json:"objectiveIds,omitempty" xml:"objectiveIds,omitempty" type:"Repeated"`
+}
+
+func (s OkrObjectivesBatchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrObjectivesBatchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OkrObjectivesBatchRequest) SetGoodsCode(v string) *OkrObjectivesBatchRequest {
+	s.GoodsCode = &v
+	return s
+}
+
+func (s *OkrObjectivesBatchRequest) SetObjectiveIds(v []*string) *OkrObjectivesBatchRequest {
+	s.ObjectiveIds = v
+	return s
+}
+
+type OkrObjectivesBatchResponseBody struct {
+	Content []*OpenObjectiveDTO `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	Success *bool               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s OkrObjectivesBatchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrObjectivesBatchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OkrObjectivesBatchResponseBody) SetContent(v []*OpenObjectiveDTO) *OkrObjectivesBatchResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *OkrObjectivesBatchResponseBody) SetSuccess(v bool) *OkrObjectivesBatchResponseBody {
+	s.Success = &v
+	return s
+}
+
+type OkrObjectivesBatchResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *OkrObjectivesBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s OkrObjectivesBatchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrObjectivesBatchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OkrObjectivesBatchResponse) SetHeaders(v map[string]*string) *OkrObjectivesBatchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OkrObjectivesBatchResponse) SetStatusCode(v int32) *OkrObjectivesBatchResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OkrObjectivesBatchResponse) SetBody(v *OkrObjectivesBatchResponseBody) *OkrObjectivesBatchResponse {
+	s.Body = v
+	return s
+}
+
+type OkrObjectivesByUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OkrObjectivesByUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrObjectivesByUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OkrObjectivesByUserHeaders) SetCommonHeaders(v map[string]*string) *OkrObjectivesByUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OkrObjectivesByUserHeaders) SetXAcsDingtalkAccessToken(v string) *OkrObjectivesByUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OkrObjectivesByUserRequest struct {
+	GoodsCode  *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s OkrObjectivesByUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrObjectivesByUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OkrObjectivesByUserRequest) SetGoodsCode(v string) *OkrObjectivesByUserRequest {
+	s.GoodsCode = &v
+	return s
+}
+
+func (s *OkrObjectivesByUserRequest) SetPageNumber(v int32) *OkrObjectivesByUserRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *OkrObjectivesByUserRequest) SetPageSize(v int32) *OkrObjectivesByUserRequest {
+	s.PageSize = &v
+	return s
+}
+
+type OkrObjectivesByUserResponseBody struct {
+	Content   *OkrObjectivesByUserResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                 `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s OkrObjectivesByUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrObjectivesByUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OkrObjectivesByUserResponseBody) SetContent(v *OkrObjectivesByUserResponseBodyContent) *OkrObjectivesByUserResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *OkrObjectivesByUserResponseBody) SetRequestId(v string) *OkrObjectivesByUserResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *OkrObjectivesByUserResponseBody) SetSuccess(v bool) *OkrObjectivesByUserResponseBody {
+	s.Success = &v
+	return s
+}
+
+type OkrObjectivesByUserResponseBodyContent struct {
+	Result     []*OpenObjectiveDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int64              `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s OkrObjectivesByUserResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrObjectivesByUserResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *OkrObjectivesByUserResponseBodyContent) SetResult(v []*OpenObjectiveDTO) *OkrObjectivesByUserResponseBodyContent {
+	s.Result = v
+	return s
+}
+
+func (s *OkrObjectivesByUserResponseBodyContent) SetTotalCount(v int64) *OkrObjectivesByUserResponseBodyContent {
+	s.TotalCount = &v
+	return s
+}
+
+type OkrObjectivesByUserResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *OkrObjectivesByUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s OkrObjectivesByUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OkrObjectivesByUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OkrObjectivesByUserResponse) SetHeaders(v map[string]*string) *OkrObjectivesByUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OkrObjectivesByUserResponse) SetStatusCode(v int32) *OkrObjectivesByUserResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OkrObjectivesByUserResponse) SetBody(v *OkrObjectivesByUserResponseBody) *OkrObjectivesByUserResponse {
+	s.Body = v
+	return s
+}
+
 type OkrPeriodsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4243,6 +4667,128 @@ func (client *Client) GetUserOkr(request *GetUserOkrRequest) (_result *GetUserOk
 	headers := &GetUserOkrHeaders{}
 	_result = &GetUserOkrResponse{}
 	_body, _err := client.GetUserOkrWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) OkrObjectivesBatchWithOptions(request *OkrObjectivesBatchRequest, headers *OkrObjectivesBatchHeaders, runtime *util.RuntimeOptions) (_result *OkrObjectivesBatchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GoodsCode)) {
+		body["goodsCode"] = request.GoodsCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectiveIds)) {
+		body["objectiveIds"] = request.ObjectiveIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OkrObjectivesBatch"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/pro/objectives/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OkrObjectivesBatchResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) OkrObjectivesBatch(request *OkrObjectivesBatchRequest) (_result *OkrObjectivesBatchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OkrObjectivesBatchHeaders{}
+	_result = &OkrObjectivesBatchResponse{}
+	_body, _err := client.OkrObjectivesBatchWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) OkrObjectivesByUserWithOptions(dingUserId *string, request *OkrObjectivesByUserRequest, headers *OkrObjectivesByUserHeaders, runtime *util.RuntimeOptions) (_result *OkrObjectivesByUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GoodsCode)) {
+		query["goodsCode"] = request.GoodsCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OkrObjectivesByUser"),
+		Version:     tea.String("okr_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/okr/pro/users/" + tea.StringValue(dingUserId) + "/objectives"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OkrObjectivesByUserResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) OkrObjectivesByUser(dingUserId *string, request *OkrObjectivesByUserRequest) (_result *OkrObjectivesByUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OkrObjectivesByUserHeaders{}
+	_result = &OkrObjectivesByUserResponse{}
+	_body, _err := client.OkrObjectivesByUserWithOptions(dingUserId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
