@@ -9619,8 +9619,11 @@ func (s *SaveWhiteAppHeaders) SetXAcsDingtalkAccessToken(v string) *SaveWhiteApp
 }
 
 type SaveWhiteAppRequest struct {
+	// Deprecated
 	AgentIdList []*int64 `json:"agentIdList,omitempty" xml:"agentIdList,omitempty" type:"Repeated"`
-	Operation   *string  `json:"operation,omitempty" xml:"operation,omitempty"`
+	AgentIdMap  *string  `json:"agentIdMap,omitempty" xml:"agentIdMap,omitempty"`
+	// Deprecated
+	Operation *string `json:"operation,omitempty" xml:"operation,omitempty"`
 }
 
 func (s SaveWhiteAppRequest) String() string {
@@ -9633,6 +9636,11 @@ func (s SaveWhiteAppRequest) GoString() string {
 
 func (s *SaveWhiteAppRequest) SetAgentIdList(v []*int64) *SaveWhiteAppRequest {
 	s.AgentIdList = v
+	return s
+}
+
+func (s *SaveWhiteAppRequest) SetAgentIdMap(v string) *SaveWhiteAppRequest {
+	s.AgentIdMap = &v
 	return s
 }
 
@@ -15187,6 +15195,10 @@ func (client *Client) SaveWhiteAppWithOptions(request *SaveWhiteAppRequest, head
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AgentIdList)) {
 		body["agentIdList"] = request.AgentIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentIdMap)) {
+		body["agentIdMap"] = request.AgentIdMap
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Operation)) {

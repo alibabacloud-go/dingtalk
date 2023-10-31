@@ -13,6 +13,116 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddAccountMappingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddAccountMappingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddAccountMappingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddAccountMappingHeaders) SetCommonHeaders(v map[string]*string) *AddAccountMappingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddAccountMappingHeaders) SetXAcsDingtalkAccessToken(v string) *AddAccountMappingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddAccountMappingRequest struct {
+	Domain      *string            `json:"domain,omitempty" xml:"domain,omitempty"`
+	Extension   map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	OutId       *string            `json:"outId,omitempty" xml:"outId,omitempty"`
+	OutTenantId *string            `json:"outTenantId,omitempty" xml:"outTenantId,omitempty"`
+	UserId      *string            `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AddAccountMappingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddAccountMappingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddAccountMappingRequest) SetDomain(v string) *AddAccountMappingRequest {
+	s.Domain = &v
+	return s
+}
+
+func (s *AddAccountMappingRequest) SetExtension(v map[string]*string) *AddAccountMappingRequest {
+	s.Extension = v
+	return s
+}
+
+func (s *AddAccountMappingRequest) SetOutId(v string) *AddAccountMappingRequest {
+	s.OutId = &v
+	return s
+}
+
+func (s *AddAccountMappingRequest) SetOutTenantId(v string) *AddAccountMappingRequest {
+	s.OutTenantId = &v
+	return s
+}
+
+func (s *AddAccountMappingRequest) SetUserId(v string) *AddAccountMappingRequest {
+	s.UserId = &v
+	return s
+}
+
+type AddAccountMappingResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AddAccountMappingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddAccountMappingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddAccountMappingResponseBody) SetResult(v bool) *AddAccountMappingResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AddAccountMappingResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddAccountMappingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddAccountMappingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddAccountMappingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddAccountMappingResponse) SetHeaders(v map[string]*string) *AddAccountMappingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddAccountMappingResponse) SetStatusCode(v int32) *AddAccountMappingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddAccountMappingResponse) SetBody(v *AddAccountMappingResponseBody) *AddAccountMappingResponse {
+	s.Body = v
+	return s
+}
+
 type AddContactHideBySceneSettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1195,6 +1305,98 @@ func (s *CreateSecondaryManagementGroupResponse) SetBody(v *CreateSecondaryManag
 	return s
 }
 
+type DelAccountMappingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DelAccountMappingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelAccountMappingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DelAccountMappingHeaders) SetCommonHeaders(v map[string]*string) *DelAccountMappingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DelAccountMappingHeaders) SetXAcsDingtalkAccessToken(v string) *DelAccountMappingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DelAccountMappingRequest struct {
+	Domain *string `json:"domain,omitempty" xml:"domain,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DelAccountMappingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelAccountMappingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DelAccountMappingRequest) SetDomain(v string) *DelAccountMappingRequest {
+	s.Domain = &v
+	return s
+}
+
+func (s *DelAccountMappingRequest) SetUserId(v string) *DelAccountMappingRequest {
+	s.UserId = &v
+	return s
+}
+
+type DelAccountMappingResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DelAccountMappingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelAccountMappingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DelAccountMappingResponseBody) SetResult(v bool) *DelAccountMappingResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DelAccountMappingResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DelAccountMappingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DelAccountMappingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelAccountMappingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DelAccountMappingResponse) SetHeaders(v map[string]*string) *DelAccountMappingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DelAccountMappingResponse) SetStatusCode(v int32) *DelAccountMappingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DelAccountMappingResponse) SetBody(v *DelAccountMappingResponseBody) *DelAccountMappingResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteContactHideBySceneSettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1537,6 +1739,139 @@ func (s *DeleteManagementGroupResponse) SetHeaders(v map[string]*string) *Delete
 
 func (s *DeleteManagementGroupResponse) SetStatusCode(v int32) *DeleteManagementGroupResponse {
 	s.StatusCode = &v
+	return s
+}
+
+type GetAccountMappingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAccountMappingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountMappingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountMappingHeaders) SetCommonHeaders(v map[string]*string) *GetAccountMappingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAccountMappingHeaders) SetXAcsDingtalkAccessToken(v string) *GetAccountMappingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAccountMappingRequest struct {
+	Domain *string `json:"domain,omitempty" xml:"domain,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetAccountMappingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountMappingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountMappingRequest) SetDomain(v string) *GetAccountMappingRequest {
+	s.Domain = &v
+	return s
+}
+
+func (s *GetAccountMappingRequest) SetUserId(v string) *GetAccountMappingRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetAccountMappingResponseBody struct {
+	Result *GetAccountMappingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetAccountMappingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountMappingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountMappingResponseBody) SetResult(v *GetAccountMappingResponseBodyResult) *GetAccountMappingResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetAccountMappingResponseBodyResult struct {
+	Domain      *string            `json:"domain,omitempty" xml:"domain,omitempty"`
+	Extension   map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	OutId       *string            `json:"outId,omitempty" xml:"outId,omitempty"`
+	OutTenantId *string            `json:"outTenantId,omitempty" xml:"outTenantId,omitempty"`
+	UserId      *string            `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetAccountMappingResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountMappingResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountMappingResponseBodyResult) SetDomain(v string) *GetAccountMappingResponseBodyResult {
+	s.Domain = &v
+	return s
+}
+
+func (s *GetAccountMappingResponseBodyResult) SetExtension(v map[string]*string) *GetAccountMappingResponseBodyResult {
+	s.Extension = v
+	return s
+}
+
+func (s *GetAccountMappingResponseBodyResult) SetOutId(v string) *GetAccountMappingResponseBodyResult {
+	s.OutId = &v
+	return s
+}
+
+func (s *GetAccountMappingResponseBodyResult) SetOutTenantId(v string) *GetAccountMappingResponseBodyResult {
+	s.OutTenantId = &v
+	return s
+}
+
+func (s *GetAccountMappingResponseBodyResult) SetUserId(v string) *GetAccountMappingResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type GetAccountMappingResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetAccountMappingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAccountMappingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountMappingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountMappingResponse) SetHeaders(v map[string]*string) *GetAccountMappingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAccountMappingResponse) SetStatusCode(v int32) *GetAccountMappingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetAccountMappingResponse) SetBody(v *GetAccountMappingResponseBody) *GetAccountMappingResponse {
+	s.Body = v
 	return s
 }
 
@@ -8807,6 +9142,77 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) AddAccountMappingWithOptions(request *AddAccountMappingRequest, headers *AddAccountMappingHeaders, runtime *util.RuntimeOptions) (_result *AddAccountMappingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Domain)) {
+		body["domain"] = request.Domain
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutId)) {
+		body["outId"] = request.OutId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutTenantId)) {
+		body["outTenantId"] = request.OutTenantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddAccountMapping"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/accountMappings"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddAccountMappingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddAccountMapping(request *AddAccountMappingRequest) (_result *AddAccountMappingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddAccountMappingHeaders{}
+	_result = &AddAccountMappingResponse{}
+	_body, _err := client.AddAccountMappingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) AddContactHideBySceneSettingWithOptions(request *AddContactHideBySceneSettingRequest, headers *AddContactHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *AddContactHideBySceneSettingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9432,6 +9838,65 @@ func (client *Client) CreateSecondaryManagementGroup(request *CreateSecondaryMan
 	return _result, _err
 }
 
+func (client *Client) DelAccountMappingWithOptions(request *DelAccountMappingRequest, headers *DelAccountMappingHeaders, runtime *util.RuntimeOptions) (_result *DelAccountMappingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Domain)) {
+		query["domain"] = request.Domain
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DelAccountMapping"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/accountMappings"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DelAccountMappingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DelAccountMapping(request *DelAccountMappingRequest) (_result *DelAccountMappingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DelAccountMappingHeaders{}
+	_result = &DelAccountMappingResponse{}
+	_body, _err := client.DelAccountMappingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) DeleteContactHideBySceneSettingWithOptions(settingId *string, headers *DeleteContactHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *DeleteContactHideBySceneSettingResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -9695,6 +10160,65 @@ func (client *Client) DeleteManagementGroup(groupId *string) (_result *DeleteMan
 	headers := &DeleteManagementGroupHeaders{}
 	_result = &DeleteManagementGroupResponse{}
 	_body, _err := client.DeleteManagementGroupWithOptions(groupId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAccountMappingWithOptions(request *GetAccountMappingRequest, headers *GetAccountMappingHeaders, runtime *util.RuntimeOptions) (_result *GetAccountMappingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Domain)) {
+		query["domain"] = request.Domain
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAccountMapping"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/accountMappings"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetAccountMappingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAccountMapping(request *GetAccountMappingRequest) (_result *GetAccountMappingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAccountMappingHeaders{}
+	_result = &GetAccountMappingResponse{}
+	_body, _err := client.GetAccountMappingWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

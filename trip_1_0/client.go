@@ -37,12 +37,14 @@ func (s *SyncBusinessSignInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Sync
 }
 
 type SyncBusinessSignInfoRequest struct {
-	BizTypeList  []*string `json:"bizTypeList,omitempty" xml:"bizTypeList,omitempty" type:"Repeated"`
-	GmtOrgPay    *string   `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
-	GmtSign      *string   `json:"gmtSign,omitempty" xml:"gmtSign,omitempty"`
-	OrgPayStatus *string   `json:"orgPayStatus,omitempty" xml:"orgPayStatus,omitempty"`
-	SignStatus   *string   `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
-	TargetCorpId *string   `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	BizTypeList          []*string                                          `json:"bizTypeList,omitempty" xml:"bizTypeList,omitempty" type:"Repeated"`
+	GmtOrgPay            *string                                            `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
+	GmtSign              *string                                            `json:"gmtSign,omitempty" xml:"gmtSign,omitempty"`
+	OrgPayStatus         *string                                            `json:"orgPayStatus,omitempty" xml:"orgPayStatus,omitempty"`
+	SignStatus           *string                                            `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	TargetCorpId         *string                                            `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	TmcProductDetailList []*SyncBusinessSignInfoRequestTmcProductDetailList `json:"tmcProductDetailList,omitempty" xml:"tmcProductDetailList,omitempty" type:"Repeated"`
+	TmcProductList       []*SyncBusinessSignInfoRequestTmcProductList       `json:"tmcProductList,omitempty" xml:"tmcProductList,omitempty" type:"Repeated"`
 }
 
 func (s SyncBusinessSignInfoRequest) String() string {
@@ -80,6 +82,103 @@ func (s *SyncBusinessSignInfoRequest) SetSignStatus(v string) *SyncBusinessSignI
 
 func (s *SyncBusinessSignInfoRequest) SetTargetCorpId(v string) *SyncBusinessSignInfoRequest {
 	s.TargetCorpId = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequest) SetTmcProductDetailList(v []*SyncBusinessSignInfoRequestTmcProductDetailList) *SyncBusinessSignInfoRequest {
+	s.TmcProductDetailList = v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequest) SetTmcProductList(v []*SyncBusinessSignInfoRequestTmcProductList) *SyncBusinessSignInfoRequest {
+	s.TmcProductList = v
+	return s
+}
+
+type SyncBusinessSignInfoRequestTmcProductDetailList struct {
+	GmtOrgPay *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
+	PayType   *string `json:"payType,omitempty" xml:"payType,omitempty"`
+	Product   *string `json:"product,omitempty" xml:"product,omitempty"`
+}
+
+func (s SyncBusinessSignInfoRequestTmcProductDetailList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncBusinessSignInfoRequestTmcProductDetailList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductDetailList) SetGmtOrgPay(v string) *SyncBusinessSignInfoRequestTmcProductDetailList {
+	s.GmtOrgPay = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductDetailList) SetPayType(v string) *SyncBusinessSignInfoRequestTmcProductDetailList {
+	s.PayType = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductDetailList) SetProduct(v string) *SyncBusinessSignInfoRequestTmcProductDetailList {
+	s.Product = &v
+	return s
+}
+
+type SyncBusinessSignInfoRequestTmcProductList struct {
+	ProductDetailList []*SyncBusinessSignInfoRequestTmcProductListProductDetailList `json:"productDetailList,omitempty" xml:"productDetailList,omitempty" type:"Repeated"`
+	TmcCorpId         *string                                                       `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
+}
+
+func (s SyncBusinessSignInfoRequestTmcProductList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncBusinessSignInfoRequestTmcProductList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductList) SetProductDetailList(v []*SyncBusinessSignInfoRequestTmcProductListProductDetailList) *SyncBusinessSignInfoRequestTmcProductList {
+	s.ProductDetailList = v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductList) SetTmcCorpId(v string) *SyncBusinessSignInfoRequestTmcProductList {
+	s.TmcCorpId = &v
+	return s
+}
+
+type SyncBusinessSignInfoRequestTmcProductListProductDetailList struct {
+	GmtOrgPay  *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
+	OpenStatus *bool   `json:"openStatus,omitempty" xml:"openStatus,omitempty"`
+	PayType    *string `json:"payType,omitempty" xml:"payType,omitempty"`
+	Product    *string `json:"product,omitempty" xml:"product,omitempty"`
+}
+
+func (s SyncBusinessSignInfoRequestTmcProductListProductDetailList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncBusinessSignInfoRequestTmcProductListProductDetailList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductListProductDetailList) SetGmtOrgPay(v string) *SyncBusinessSignInfoRequestTmcProductListProductDetailList {
+	s.GmtOrgPay = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductListProductDetailList) SetOpenStatus(v bool) *SyncBusinessSignInfoRequestTmcProductListProductDetailList {
+	s.OpenStatus = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductListProductDetailList) SetPayType(v string) *SyncBusinessSignInfoRequestTmcProductListProductDetailList {
+	s.PayType = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductListProductDetailList) SetProduct(v string) *SyncBusinessSignInfoRequestTmcProductListProductDetailList {
+	s.Product = &v
 	return s
 }
 
@@ -887,6 +986,14 @@ func (client *Client) SyncBusinessSignInfoWithOptions(request *SyncBusinessSignI
 
 	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
 		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TmcProductDetailList)) {
+		body["tmcProductDetailList"] = request.TmcProductDetailList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TmcProductList)) {
+		body["tmcProductList"] = request.TmcProductList
 	}
 
 	realHeaders := make(map[string]*string)
