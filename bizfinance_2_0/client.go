@@ -839,6 +839,175 @@ func (s *QueryCustomerByPageResponse) SetBody(v *QueryCustomerByPageResponseBody
 	return s
 }
 
+type QueryEnterpriseAccountByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryEnterpriseAccountByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageHeaders) SetCommonHeaders(v map[string]*string) *QueryEnterpriseAccountByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryEnterpriseAccountByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryEnterpriseAccountByPageRequest struct {
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QueryEnterpriseAccountByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageRequest) SetPageNumber(v int64) *QueryEnterpriseAccountByPageRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageRequest) SetPageSize(v int64) *QueryEnterpriseAccountByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QueryEnterpriseAccountByPageResponseBody struct {
+	HasMore *bool                                           `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryEnterpriseAccountByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s QueryEnterpriseAccountByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBody) SetHasMore(v bool) *QueryEnterpriseAccountByPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBody) SetList(v []*QueryEnterpriseAccountByPageResponseBodyList) *QueryEnterpriseAccountByPageResponseBody {
+	s.List = v
+	return s
+}
+
+type QueryEnterpriseAccountByPageResponseBodyList struct {
+	AccountCode   *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+	AccountId     *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	AccountName   *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
+	AccountType   *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	Amount        *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	BankCode      *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	BankName      *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	CreateTime    *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
+}
+
+func (s QueryEnterpriseAccountByPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountCode(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountCode = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountId(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountId = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountName(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountName = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountRemark(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountRemark = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountType(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountType = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAmount(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.Amount = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetBankCode(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.BankCode = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetBankName(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.BankName = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetCreateTime(v int64) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetCreator(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.Creator = &v
+	return s
+}
+
+type QueryEnterpriseAccountByPageResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryEnterpriseAccountByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryEnterpriseAccountByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageResponse) SetHeaders(v map[string]*string) *QueryEnterpriseAccountByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponse) SetStatusCode(v int32) *QueryEnterpriseAccountByPageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponse) SetBody(v *QueryEnterpriseAccountByPageResponseBody) *QueryEnterpriseAccountByPageResponse {
+	s.Body = v
+	return s
+}
+
 type QueryProjectByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1517,6 +1686,65 @@ func (client *Client) QueryCustomerByPage(request *QueryCustomerByPageRequest) (
 	headers := &QueryCustomerByPageHeaders{}
 	_result = &QueryCustomerByPageResponse{}
 	_body, _err := client.QueryCustomerByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryEnterpriseAccountByPageWithOptions(request *QueryEnterpriseAccountByPageRequest, headers *QueryEnterpriseAccountByPageHeaders, runtime *util.RuntimeOptions) (_result *QueryEnterpriseAccountByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryEnterpriseAccountByPage"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/financeAccounts/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryEnterpriseAccountByPageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryEnterpriseAccountByPage(request *QueryEnterpriseAccountByPageRequest) (_result *QueryEnterpriseAccountByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryEnterpriseAccountByPageHeaders{}
+	_result = &QueryEnterpriseAccountByPageResponse{}
+	_body, _err := client.QueryEnterpriseAccountByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

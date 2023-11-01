@@ -13,6 +13,151 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ContractBenefitConsumeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ContractBenefitConsumeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractBenefitConsumeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ContractBenefitConsumeHeaders) SetCommonHeaders(v map[string]*string) *ContractBenefitConsumeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ContractBenefitConsumeHeaders) SetXAcsDingtalkAccessToken(v string) *ContractBenefitConsumeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ContractBenefitConsumeRequest struct {
+	BenefitPoint *string            `json:"benefitPoint,omitempty" xml:"benefitPoint,omitempty"`
+	BizRequestId *string            `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	ConsumeQuota *int64             `json:"consumeQuota,omitempty" xml:"consumeQuota,omitempty"`
+	CorpId       *string            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtParams    map[string]*string `json:"extParams,omitempty" xml:"extParams,omitempty"`
+	IsvCorpId    *string            `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
+	OptUnionId   *string            `json:"optUnionId,omitempty" xml:"optUnionId,omitempty"`
+}
+
+func (s ContractBenefitConsumeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractBenefitConsumeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ContractBenefitConsumeRequest) SetBenefitPoint(v string) *ContractBenefitConsumeRequest {
+	s.BenefitPoint = &v
+	return s
+}
+
+func (s *ContractBenefitConsumeRequest) SetBizRequestId(v string) *ContractBenefitConsumeRequest {
+	s.BizRequestId = &v
+	return s
+}
+
+func (s *ContractBenefitConsumeRequest) SetConsumeQuota(v int64) *ContractBenefitConsumeRequest {
+	s.ConsumeQuota = &v
+	return s
+}
+
+func (s *ContractBenefitConsumeRequest) SetCorpId(v string) *ContractBenefitConsumeRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ContractBenefitConsumeRequest) SetExtParams(v map[string]*string) *ContractBenefitConsumeRequest {
+	s.ExtParams = v
+	return s
+}
+
+func (s *ContractBenefitConsumeRequest) SetIsvCorpId(v string) *ContractBenefitConsumeRequest {
+	s.IsvCorpId = &v
+	return s
+}
+
+func (s *ContractBenefitConsumeRequest) SetOptUnionId(v string) *ContractBenefitConsumeRequest {
+	s.OptUnionId = &v
+	return s
+}
+
+type ContractBenefitConsumeResponseBody struct {
+	Result  *ContractBenefitConsumeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ContractBenefitConsumeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractBenefitConsumeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ContractBenefitConsumeResponseBody) SetResult(v *ContractBenefitConsumeResponseBodyResult) *ContractBenefitConsumeResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ContractBenefitConsumeResponseBody) SetSuccess(v bool) *ContractBenefitConsumeResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ContractBenefitConsumeResponseBodyResult struct {
+	ConsumeResult *bool `json:"consumeResult,omitempty" xml:"consumeResult,omitempty"`
+}
+
+func (s ContractBenefitConsumeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractBenefitConsumeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ContractBenefitConsumeResponseBodyResult) SetConsumeResult(v bool) *ContractBenefitConsumeResponseBodyResult {
+	s.ConsumeResult = &v
+	return s
+}
+
+type ContractBenefitConsumeResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ContractBenefitConsumeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ContractBenefitConsumeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractBenefitConsumeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ContractBenefitConsumeResponse) SetHeaders(v map[string]*string) *ContractBenefitConsumeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ContractBenefitConsumeResponse) SetStatusCode(v int32) *ContractBenefitConsumeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ContractBenefitConsumeResponse) SetBody(v *ContractBenefitConsumeResponseBody) *ContractBenefitConsumeResponse {
+	s.Body = v
+	return s
+}
+
 type EsignQueryGrantInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -799,6 +944,85 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) ContractBenefitConsumeWithOptions(request *ContractBenefitConsumeRequest, headers *ContractBenefitConsumeHeaders, runtime *util.RuntimeOptions) (_result *ContractBenefitConsumeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BenefitPoint)) {
+		body["benefitPoint"] = request.BenefitPoint
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizRequestId)) {
+		body["bizRequestId"] = request.BizRequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConsumeQuota)) {
+		body["consumeQuota"] = request.ConsumeQuota
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtParams)) {
+		body["extParams"] = request.ExtParams
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvCorpId)) {
+		body["isvCorpId"] = request.IsvCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUnionId)) {
+		body["optUnionId"] = request.OptUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ContractBenefitConsume"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/benefits/consume"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ContractBenefitConsumeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ContractBenefitConsume(request *ContractBenefitConsumeRequest) (_result *ContractBenefitConsumeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ContractBenefitConsumeHeaders{}
+	_result = &ContractBenefitConsumeResponse{}
+	_body, _err := client.ContractBenefitConsumeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) EsignQueryGrantInfoWithOptions(request *EsignQueryGrantInfoRequest, headers *EsignQueryGrantInfoHeaders, runtime *util.RuntimeOptions) (_result *EsignQueryGrantInfoResponse, _err error) {
