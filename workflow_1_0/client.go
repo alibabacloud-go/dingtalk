@@ -6265,6 +6265,139 @@ func (s *QueryProcessByBizCategoryIdResponse) SetBody(v *QueryProcessByBizCatego
 	return s
 }
 
+type QuerySchemaAndProcessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySchemaAndProcessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaAndProcessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaAndProcessHeaders) SetCommonHeaders(v map[string]*string) *QuerySchemaAndProcessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySchemaAndProcessHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySchemaAndProcessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySchemaAndProcessRequest struct {
+	AppUuid     *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s QuerySchemaAndProcessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaAndProcessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaAndProcessRequest) SetAppUuid(v string) *QuerySchemaAndProcessRequest {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *QuerySchemaAndProcessRequest) SetProcessCode(v string) *QuerySchemaAndProcessRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+type QuerySchemaAndProcessResponseBody struct {
+	Result *QuerySchemaAndProcessResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QuerySchemaAndProcessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaAndProcessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaAndProcessResponseBody) SetResult(v *QuerySchemaAndProcessResponseBodyResult) *QuerySchemaAndProcessResponseBody {
+	s.Result = v
+	return s
+}
+
+type QuerySchemaAndProcessResponseBodyResult struct {
+	Content        *string `json:"content,omitempty" xml:"content,omitempty"`
+	HandSignEnable *string `json:"handSignEnable,omitempty" xml:"handSignEnable,omitempty"`
+	IconUrl        *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	ProcessConfig  *string `json:"processConfig,omitempty" xml:"processConfig,omitempty"`
+}
+
+func (s QuerySchemaAndProcessResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaAndProcessResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaAndProcessResponseBodyResult) SetContent(v string) *QuerySchemaAndProcessResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *QuerySchemaAndProcessResponseBodyResult) SetHandSignEnable(v string) *QuerySchemaAndProcessResponseBodyResult {
+	s.HandSignEnable = &v
+	return s
+}
+
+func (s *QuerySchemaAndProcessResponseBodyResult) SetIconUrl(v string) *QuerySchemaAndProcessResponseBodyResult {
+	s.IconUrl = &v
+	return s
+}
+
+func (s *QuerySchemaAndProcessResponseBodyResult) SetName(v string) *QuerySchemaAndProcessResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *QuerySchemaAndProcessResponseBodyResult) SetProcessConfig(v string) *QuerySchemaAndProcessResponseBodyResult {
+	s.ProcessConfig = &v
+	return s
+}
+
+type QuerySchemaAndProcessResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QuerySchemaAndProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QuerySchemaAndProcessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaAndProcessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaAndProcessResponse) SetHeaders(v map[string]*string) *QuerySchemaAndProcessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySchemaAndProcessResponse) SetStatusCode(v int32) *QuerySchemaAndProcessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySchemaAndProcessResponse) SetBody(v *QuerySchemaAndProcessResponseBody) *QuerySchemaAndProcessResponse {
+	s.Body = v
+	return s
+}
+
 type QuerySchemaByProcessCodeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10426,6 +10559,65 @@ func (client *Client) QueryProcessByBizCategoryId(request *QueryProcessByBizCate
 	headers := &QueryProcessByBizCategoryIdHeaders{}
 	_result = &QueryProcessByBizCategoryIdResponse{}
 	_body, _err := client.QueryProcessByBizCategoryIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QuerySchemaAndProcessWithOptions(request *QuerySchemaAndProcessRequest, headers *QuerySchemaAndProcessHeaders, runtime *util.RuntimeOptions) (_result *QuerySchemaAndProcessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUuid)) {
+		query["appUuid"] = request.AppUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		query["processCode"] = request.ProcessCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySchemaAndProcess"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/forms/schemaAndProcess"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySchemaAndProcessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QuerySchemaAndProcess(request *QuerySchemaAndProcessRequest) (_result *QuerySchemaAndProcessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySchemaAndProcessHeaders{}
+	_result = &QuerySchemaAndProcessResponse{}
+	_body, _err := client.QuerySchemaAndProcessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

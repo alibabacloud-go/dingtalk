@@ -2731,6 +2731,92 @@ func (s *DocContentResponse) SetBody(v *DocContentResponseBody) *DocContentRespo
 	return s
 }
 
+type GetDocContentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDocContentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDocContentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDocContentHeaders) SetCommonHeaders(v map[string]*string) *GetDocContentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDocContentHeaders) SetXAcsDingtalkAccessToken(v string) *GetDocContentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDocContentRequest struct {
+	TargetFormat *string `json:"targetFormat,omitempty" xml:"targetFormat,omitempty"`
+}
+
+func (s GetDocContentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDocContentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDocContentRequest) SetTargetFormat(v string) *GetDocContentRequest {
+	s.TargetFormat = &v
+	return s
+}
+
+type GetDocContentResponseBody struct {
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetDocContentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDocContentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDocContentResponseBody) SetTaskId(v int64) *GetDocContentResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type GetDocContentResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetDocContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDocContentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDocContentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDocContentResponse) SetHeaders(v map[string]*string) *GetDocContentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDocContentResponse) SetStatusCode(v int32) *GetDocContentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetDocContentResponse) SetBody(v *GetDocContentResponseBody) *GetDocContentResponse {
+	s.Body = v
+	return s
+}
+
 type GetSchemaHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8908,6 +8994,61 @@ func (client *Client) DocContent(dentryUuid *string, request *DocContentRequest)
 	headers := &DocContentHeaders{}
 	_result = &DocContentResponse{}
 	_body, _err := client.DocContentWithOptions(dentryUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDocContentWithOptions(dentryUuid *string, request *GetDocContentRequest, headers *GetDocContentHeaders, runtime *util.RuntimeOptions) (_result *GetDocContentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetFormat)) {
+		query["targetFormat"] = request.TargetFormat
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDocContent"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/me/query/" + tea.StringValue(dentryUuid) + "/contents"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetDocContentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDocContent(dentryUuid *string, request *GetDocContentRequest) (_result *GetDocContentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDocContentHeaders{}
+	_result = &GetDocContentResponse{}
+	_body, _err := client.GetDocContentWithOptions(dentryUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

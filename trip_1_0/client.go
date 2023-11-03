@@ -148,10 +148,11 @@ func (s *SyncBusinessSignInfoRequestTmcProductList) SetTmcCorpId(v string) *Sync
 }
 
 type SyncBusinessSignInfoRequestTmcProductListProductDetailList struct {
-	GmtOrgPay  *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
-	OpenStatus *bool   `json:"openStatus,omitempty" xml:"openStatus,omitempty"`
-	PayType    *string `json:"payType,omitempty" xml:"payType,omitempty"`
-	Product    *string `json:"product,omitempty" xml:"product,omitempty"`
+	CategoryType *string `json:"categoryType,omitempty" xml:"categoryType,omitempty"`
+	GmtOrgPay    *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
+	OpenStatus   *bool   `json:"openStatus,omitempty" xml:"openStatus,omitempty"`
+	PayType      *string `json:"payType,omitempty" xml:"payType,omitempty"`
+	Product      *string `json:"product,omitempty" xml:"product,omitempty"`
 }
 
 func (s SyncBusinessSignInfoRequestTmcProductListProductDetailList) String() string {
@@ -160,6 +161,11 @@ func (s SyncBusinessSignInfoRequestTmcProductListProductDetailList) String() str
 
 func (s SyncBusinessSignInfoRequestTmcProductListProductDetailList) GoString() string {
 	return s.String()
+}
+
+func (s *SyncBusinessSignInfoRequestTmcProductListProductDetailList) SetCategoryType(v string) *SyncBusinessSignInfoRequestTmcProductListProductDetailList {
+	s.CategoryType = &v
+	return s
 }
 
 func (s *SyncBusinessSignInfoRequestTmcProductListProductDetailList) SetGmtOrgPay(v string) *SyncBusinessSignInfoRequestTmcProductListProductDetailList {
