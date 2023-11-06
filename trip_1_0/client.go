@@ -90,6 +90,7 @@ type GetTravelProcessDetailResponseBodyResult struct {
 	ProcessStatus         *string                                             `json:"processStatus,omitempty" xml:"processStatus,omitempty"`
 	Remark                *string                                             `json:"remark,omitempty" xml:"remark,omitempty"`
 	TravelCategory        *string                                             `json:"travelCategory,omitempty" xml:"travelCategory,omitempty"`
+	Travelers             []*string                                           `json:"travelers,omitempty" xml:"travelers,omitempty" type:"Repeated"`
 }
 
 func (s GetTravelProcessDetailResponseBodyResult) String() string {
@@ -162,6 +163,11 @@ func (s *GetTravelProcessDetailResponseBodyResult) SetRemark(v string) *GetTrave
 
 func (s *GetTravelProcessDetailResponseBodyResult) SetTravelCategory(v string) *GetTravelProcessDetailResponseBodyResult {
 	s.TravelCategory = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetTravelers(v []*string) *GetTravelProcessDetailResponseBodyResult {
+	s.Travelers = v
 	return s
 }
 

@@ -1008,6 +1008,262 @@ func (s *QueryEnterpriseAccountByPageResponse) SetBody(v *QueryEnterpriseAccount
 	return s
 }
 
+type QueryInstancePaymentOrderDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryInstancePaymentOrderDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancePaymentOrderDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancePaymentOrderDetailHeaders) SetCommonHeaders(v map[string]*string) *QueryInstancePaymentOrderDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailHeaders) SetXAcsDingtalkAccessToken(v string) *QueryInstancePaymentOrderDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryInstancePaymentOrderDetailResponseBody struct {
+	Result *QueryInstancePaymentOrderDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBody) SetResult(v *QueryInstancePaymentOrderDetailResponseBodyResult) *QueryInstancePaymentOrderDetailResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryInstancePaymentOrderDetailResponseBodyResult struct {
+	Amount          *string                                                           `json:"amount,omitempty" xml:"amount,omitempty"`
+	InstanceId      *string                                                           `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	PayeeAccountDTO *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO `json:"payeeAccountDTO,omitempty" xml:"payeeAccountDTO,omitempty" type:"Struct"`
+	PayerAccountDTO *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO `json:"payerAccountDTO,omitempty" xml:"payerAccountDTO,omitempty" type:"Struct"`
+	Remark          *string                                                           `json:"remark,omitempty" xml:"remark,omitempty"`
+	Usage           *string                                                           `json:"usage,omitempty" xml:"usage,omitempty"`
+	UserId          *string                                                           `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetAmount(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+	s.Amount = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetInstanceId(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetPayeeAccountDTO(v *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO) *QueryInstancePaymentOrderDetailResponseBodyResult {
+	s.PayeeAccountDTO = v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetPayerAccountDTO(v *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) *QueryInstancePaymentOrderDetailResponseBodyResult {
+	s.PayerAccountDTO = v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetRemark(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+	s.Remark = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetUsage(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+	s.Usage = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetUserId(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO struct {
+	BankOpenDTO *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO `json:"bankOpenDTO,omitempty" xml:"bankOpenDTO,omitempty" type:"Struct"`
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO) SetBankOpenDTO(v *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO {
+	s.BankOpenDTO = v
+	return s
+}
+
+type QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO struct {
+	BankBranchCode *string `json:"bankBranchCode,omitempty" xml:"bankBranchCode,omitempty"`
+	BankBranchName *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
+	BankCardNo     *string `json:"bankCardNo,omitempty" xml:"bankCardNo,omitempty"`
+	BankCode       *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	BankName       *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankBranchCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+	s.BankBranchCode = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankBranchName(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+	s.BankBranchName = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankCardNo(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+	s.BankCardNo = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+	s.BankCode = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankName(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+	s.BankName = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetType(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+	s.Type = &v
+	return s
+}
+
+type QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO struct {
+	BankOpenDTO           *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO `json:"bankOpenDTO,omitempty" xml:"bankOpenDTO,omitempty" type:"Struct"`
+	EnterpriseAccountCode *string                                                                      `json:"enterpriseAccountCode,omitempty" xml:"enterpriseAccountCode,omitempty"`
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) SetBankOpenDTO(v *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO {
+	s.BankOpenDTO = v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) SetEnterpriseAccountCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO {
+	s.EnterpriseAccountCode = &v
+	return s
+}
+
+type QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO struct {
+	BankBranchCode *string `json:"bankBranchCode,omitempty" xml:"bankBranchCode,omitempty"`
+	BankBranchName *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
+	BankCardNo     *string `json:"bankCardNo,omitempty" xml:"bankCardNo,omitempty"`
+	BankCode       *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	BankName       *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankBranchCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+	s.BankBranchCode = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankBranchName(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+	s.BankBranchName = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankCardNo(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+	s.BankCardNo = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+	s.BankCode = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankName(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+	s.BankName = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetType(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+	s.Type = &v
+	return s
+}
+
+type QueryInstancePaymentOrderDetailResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryInstancePaymentOrderDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryInstancePaymentOrderDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancePaymentOrderDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancePaymentOrderDetailResponse) SetHeaders(v map[string]*string) *QueryInstancePaymentOrderDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponse) SetStatusCode(v int32) *QueryInstancePaymentOrderDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponse) SetBody(v *QueryInstancePaymentOrderDetailResponseBody) *QueryInstancePaymentOrderDetailResponse {
+	s.Body = v
+	return s
+}
+
 type QueryProjectByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1318,6 +1574,278 @@ func (s *QuerySupplierByPageResponse) SetStatusCode(v int32) *QuerySupplierByPag
 }
 
 func (s *QuerySupplierByPageResponse) SetBody(v *QuerySupplierByPageResponseBody) *QuerySupplierByPageResponse {
+	s.Body = v
+	return s
+}
+
+type SignEnterpriseAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SignEnterpriseAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignEnterpriseAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SignEnterpriseAccountHeaders) SetCommonHeaders(v map[string]*string) *SignEnterpriseAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SignEnterpriseAccountHeaders) SetXAcsDingtalkAccessToken(v string) *SignEnterpriseAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SignEnterpriseAccountRequest struct {
+	BankCardNo      *string `json:"bankCardNo,omitempty" xml:"bankCardNo,omitempty"`
+	Operator        *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	SignOperateType *string `json:"signOperateType,omitempty" xml:"signOperateType,omitempty"`
+}
+
+func (s SignEnterpriseAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignEnterpriseAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SignEnterpriseAccountRequest) SetBankCardNo(v string) *SignEnterpriseAccountRequest {
+	s.BankCardNo = &v
+	return s
+}
+
+func (s *SignEnterpriseAccountRequest) SetOperator(v string) *SignEnterpriseAccountRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *SignEnterpriseAccountRequest) SetSignOperateType(v string) *SignEnterpriseAccountRequest {
+	s.SignOperateType = &v
+	return s
+}
+
+type SignEnterpriseAccountResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SignEnterpriseAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignEnterpriseAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SignEnterpriseAccountResponseBody) SetResult(v bool) *SignEnterpriseAccountResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SignEnterpriseAccountResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *SignEnterpriseAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SignEnterpriseAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignEnterpriseAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SignEnterpriseAccountResponse) SetHeaders(v map[string]*string) *SignEnterpriseAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SignEnterpriseAccountResponse) SetStatusCode(v int32) *SignEnterpriseAccountResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SignEnterpriseAccountResponse) SetBody(v *SignEnterpriseAccountResponseBody) *SignEnterpriseAccountResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateInstanceOrderInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInstanceOrderInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceOrderInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceOrderInfoHeaders) SetCommonHeaders(v map[string]*string) *UpdateInstanceOrderInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInstanceOrderInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInstanceOrderInfoRequest struct {
+	FailReason *string                                  `json:"failReason,omitempty" xml:"failReason,omitempty"`
+	OutOrderNo *string                                  `json:"outOrderNo,omitempty" xml:"outOrderNo,omitempty"`
+	PayerBank  *UpdateInstanceOrderInfoRequestPayerBank `json:"payerBank,omitempty" xml:"payerBank,omitempty" type:"Struct"`
+	Status     *string                                  `json:"status,omitempty" xml:"status,omitempty"`
+	UserId     *string                                  `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateInstanceOrderInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceOrderInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceOrderInfoRequest) SetFailReason(v string) *UpdateInstanceOrderInfoRequest {
+	s.FailReason = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoRequest) SetOutOrderNo(v string) *UpdateInstanceOrderInfoRequest {
+	s.OutOrderNo = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoRequest) SetPayerBank(v *UpdateInstanceOrderInfoRequestPayerBank) *UpdateInstanceOrderInfoRequest {
+	s.PayerBank = v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoRequest) SetStatus(v string) *UpdateInstanceOrderInfoRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoRequest) SetUserId(v string) *UpdateInstanceOrderInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateInstanceOrderInfoRequestPayerBank struct {
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s UpdateInstanceOrderInfoRequestPayerBank) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceOrderInfoRequestPayerBank) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceOrderInfoRequestPayerBank) SetCardNo(v string) *UpdateInstanceOrderInfoRequestPayerBank {
+	s.CardNo = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoRequestPayerBank) SetName(v string) *UpdateInstanceOrderInfoRequestPayerBank {
+	s.Name = &v
+	return s
+}
+
+type UpdateInstanceOrderInfoShrinkRequest struct {
+	FailReason      *string `json:"failReason,omitempty" xml:"failReason,omitempty"`
+	OutOrderNo      *string `json:"outOrderNo,omitempty" xml:"outOrderNo,omitempty"`
+	PayerBankShrink *string `json:"payerBank,omitempty" xml:"payerBank,omitempty"`
+	Status          *string `json:"status,omitempty" xml:"status,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateInstanceOrderInfoShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceOrderInfoShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceOrderInfoShrinkRequest) SetFailReason(v string) *UpdateInstanceOrderInfoShrinkRequest {
+	s.FailReason = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoShrinkRequest) SetOutOrderNo(v string) *UpdateInstanceOrderInfoShrinkRequest {
+	s.OutOrderNo = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoShrinkRequest) SetPayerBankShrink(v string) *UpdateInstanceOrderInfoShrinkRequest {
+	s.PayerBankShrink = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoShrinkRequest) SetStatus(v string) *UpdateInstanceOrderInfoShrinkRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoShrinkRequest) SetUserId(v string) *UpdateInstanceOrderInfoShrinkRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateInstanceOrderInfoResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateInstanceOrderInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceOrderInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceOrderInfoResponseBody) SetResult(v bool) *UpdateInstanceOrderInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateInstanceOrderInfoResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateInstanceOrderInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateInstanceOrderInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceOrderInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceOrderInfoResponse) SetHeaders(v map[string]*string) *UpdateInstanceOrderInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoResponse) SetStatusCode(v int32) *UpdateInstanceOrderInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoResponse) SetBody(v *UpdateInstanceOrderInfoResponseBody) *UpdateInstanceOrderInfoResponse {
 	s.Body = v
 	return s
 }
@@ -1752,6 +2280,51 @@ func (client *Client) QueryEnterpriseAccountByPage(request *QueryEnterpriseAccou
 	return _result, _err
 }
 
+func (client *Client) QueryInstancePaymentOrderDetailWithOptions(instanceId *string, headers *QueryInstancePaymentOrderDetailHeaders, runtime *util.RuntimeOptions) (_result *QueryInstancePaymentOrderDetailResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryInstancePaymentOrderDetail"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/instances/" + tea.StringValue(instanceId) + "/paymentOrders/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryInstancePaymentOrderDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryInstancePaymentOrderDetail(instanceId *string) (_result *QueryInstancePaymentOrderDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryInstancePaymentOrderDetailHeaders{}
+	_result = &QueryInstancePaymentOrderDetailResponse{}
+	_body, _err := client.QueryInstancePaymentOrderDetailWithOptions(instanceId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) QueryProjectByPageWithOptions(request *QueryProjectByPageRequest, headers *QueryProjectByPageHeaders, runtime *util.RuntimeOptions) (_result *QueryProjectByPageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1863,6 +2436,146 @@ func (client *Client) QuerySupplierByPage(request *QuerySupplierByPageRequest) (
 	headers := &QuerySupplierByPageHeaders{}
 	_result = &QuerySupplierByPageResponse{}
 	_body, _err := client.QuerySupplierByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SignEnterpriseAccountWithOptions(request *SignEnterpriseAccountRequest, headers *SignEnterpriseAccountHeaders, runtime *util.RuntimeOptions) (_result *SignEnterpriseAccountResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BankCardNo)) {
+		query["bankCardNo"] = request.BankCardNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignOperateType)) {
+		query["signOperateType"] = request.SignOperateType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SignEnterpriseAccount"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/enterpriseAccounts/sign"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SignEnterpriseAccountResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SignEnterpriseAccount(request *SignEnterpriseAccountRequest) (_result *SignEnterpriseAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SignEnterpriseAccountHeaders{}
+	_result = &SignEnterpriseAccountResponse{}
+	_body, _err := client.SignEnterpriseAccountWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInstanceOrderInfoWithOptions(instanceId *string, tmpReq *UpdateInstanceOrderInfoRequest, headers *UpdateInstanceOrderInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateInstanceOrderInfoResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &UpdateInstanceOrderInfoShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.PayerBank)) {
+		request.PayerBankShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.PayerBank, tea.String("payerBank"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FailReason)) {
+		query["failReason"] = request.FailReason
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutOrderNo)) {
+		query["outOrderNo"] = request.OutOrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PayerBankShrink)) {
+		query["payerBank"] = request.PayerBankShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		query["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateInstanceOrderInfo"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/instances/" + tea.StringValue(instanceId) + "/paymentOrders/states"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateInstanceOrderInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInstanceOrderInfo(instanceId *string, request *UpdateInstanceOrderInfoRequest) (_result *UpdateInstanceOrderInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInstanceOrderInfoHeaders{}
+	_result = &UpdateInstanceOrderInfoResponse{}
+	_body, _err := client.UpdateInstanceOrderInfoWithOptions(instanceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
