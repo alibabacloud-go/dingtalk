@@ -6290,16 +6290,17 @@ func (s *QueryReceiptForInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryReceiptForInvoiceRequest struct {
-	AccountantBookId  *string   `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
-	ApplyStatusList   []*string `json:"applyStatusList,omitempty" xml:"applyStatusList,omitempty" type:"Repeated"`
-	BizStatusList     []*string `json:"bizStatusList,omitempty" xml:"bizStatusList,omitempty" type:"Repeated"`
-	CompanyCode       *string   `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
-	EndTime           *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	PageNumber        *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize          *int64    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ReceiptStatusList []*string `json:"receiptStatusList,omitempty" xml:"receiptStatusList,omitempty" type:"Repeated"`
-	StartTime         *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Title             *string   `json:"title,omitempty" xml:"title,omitempty"`
+	AccountantBookId  *string            `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
+	ApplyStatusList   []*string          `json:"applyStatusList,omitempty" xml:"applyStatusList,omitempty" type:"Repeated"`
+	BizStatusList     []*string          `json:"bizStatusList,omitempty" xml:"bizStatusList,omitempty" type:"Repeated"`
+	CompanyCode       *string            `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	EndTime           *int64             `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	PageNumber        *int64             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize          *int64             `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ReceiptStatusList []*string          `json:"receiptStatusList,omitempty" xml:"receiptStatusList,omitempty" type:"Repeated"`
+	SearchParams      map[string]*string `json:"searchParams,omitempty" xml:"searchParams,omitempty"`
+	StartTime         *int64             `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Title             *string            `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryReceiptForInvoiceRequest) String() string {
@@ -6347,6 +6348,11 @@ func (s *QueryReceiptForInvoiceRequest) SetPageSize(v int64) *QueryReceiptForInv
 
 func (s *QueryReceiptForInvoiceRequest) SetReceiptStatusList(v []*string) *QueryReceiptForInvoiceRequest {
 	s.ReceiptStatusList = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetSearchParams(v map[string]*string) *QueryReceiptForInvoiceRequest {
+	s.SearchParams = v
 	return s
 }
 
@@ -15882,6 +15888,10 @@ func (client *Client) QueryReceiptForInvoiceWithOptions(request *QueryReceiptFor
 
 	if !tea.BoolValue(util.IsUnset(request.ReceiptStatusList)) {
 		body["receiptStatusList"] = request.ReceiptStatusList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchParams)) {
+		body["searchParams"] = request.SearchParams
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
