@@ -13,6 +13,89 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type MemberModelMapValue struct {
+	UnionId        *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	ConferenceId   *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	UserNick       *string `json:"userNick,omitempty" xml:"userNick,omitempty"`
+	JoinTime       *int64  `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
+	LeaveTime      *int64  `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
+	Duration       *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
+	AttendStatus   *int32  `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
+	Host           *bool   `json:"host,omitempty" xml:"host,omitempty"`
+	CoHost         *bool   `json:"coHost,omitempty" xml:"coHost,omitempty"`
+	OuterOrgMember *bool   `json:"outerOrgMember,omitempty" xml:"outerOrgMember,omitempty"`
+	PstnJoin       *bool   `json:"pstnJoin,omitempty" xml:"pstnJoin,omitempty"`
+	DeviceType     *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+}
+
+func (s MemberModelMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MemberModelMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *MemberModelMapValue) SetUnionId(v string) *MemberModelMapValue {
+	s.UnionId = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetConferenceId(v string) *MemberModelMapValue {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetUserNick(v string) *MemberModelMapValue {
+	s.UserNick = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetJoinTime(v int64) *MemberModelMapValue {
+	s.JoinTime = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetLeaveTime(v int64) *MemberModelMapValue {
+	s.LeaveTime = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetDuration(v int64) *MemberModelMapValue {
+	s.Duration = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetAttendStatus(v int32) *MemberModelMapValue {
+	s.AttendStatus = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetHost(v bool) *MemberModelMapValue {
+	s.Host = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetCoHost(v bool) *MemberModelMapValue {
+	s.CoHost = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetOuterOrgMember(v bool) *MemberModelMapValue {
+	s.OuterOrgMember = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetPstnJoin(v bool) *MemberModelMapValue {
+	s.PstnJoin = &v
+	return s
+}
+
+func (s *MemberModelMapValue) SetDeviceType(v string) *MemberModelMapValue {
+	s.DeviceType = &v
+	return s
+}
+
 type CancelScheduleConferenceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3216,6 +3299,104 @@ func (s *QueryScheduleConferenceInfoResponse) SetBody(v *QueryScheduleConference
 	return s
 }
 
+type QueryUserOnGoingConferenceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserOnGoingConferenceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserOnGoingConferenceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserOnGoingConferenceHeaders) SetCommonHeaders(v map[string]*string) *QueryUserOnGoingConferenceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserOnGoingConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserOnGoingConferenceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserOnGoingConferenceRequest struct {
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	UnionId         *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryUserOnGoingConferenceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserOnGoingConferenceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserOnGoingConferenceRequest) SetOperatorUnionId(v string) *QueryUserOnGoingConferenceRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+func (s *QueryUserOnGoingConferenceRequest) SetUnionId(v string) *QueryUserOnGoingConferenceRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryUserOnGoingConferenceResponseBody struct {
+	MemberModelMap    map[string]*MemberModelMapValue `json:"memberModelMap,omitempty" xml:"memberModelMap,omitempty"`
+	OnGoingConfIdList []*string                       `json:"onGoingConfIdList,omitempty" xml:"onGoingConfIdList,omitempty" type:"Repeated"`
+}
+
+func (s QueryUserOnGoingConferenceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserOnGoingConferenceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserOnGoingConferenceResponseBody) SetMemberModelMap(v map[string]*MemberModelMapValue) *QueryUserOnGoingConferenceResponseBody {
+	s.MemberModelMap = v
+	return s
+}
+
+func (s *QueryUserOnGoingConferenceResponseBody) SetOnGoingConfIdList(v []*string) *QueryUserOnGoingConferenceResponseBody {
+	s.OnGoingConfIdList = v
+	return s
+}
+
+type QueryUserOnGoingConferenceResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryUserOnGoingConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUserOnGoingConferenceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserOnGoingConferenceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserOnGoingConferenceResponse) SetHeaders(v map[string]*string) *QueryUserOnGoingConferenceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserOnGoingConferenceResponse) SetStatusCode(v int32) *QueryUserOnGoingConferenceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryUserOnGoingConferenceResponse) SetBody(v *QueryUserOnGoingConferenceResponseBody) *QueryUserOnGoingConferenceResponse {
+	s.Body = v
+	return s
+}
+
 type StartCloudRecordHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5281,6 +5462,65 @@ func (client *Client) QueryScheduleConferenceInfo(scheduleConferenceId *string, 
 	headers := &QueryScheduleConferenceInfoHeaders{}
 	_result = &QueryScheduleConferenceInfoResponse{}
 	_body, _err := client.QueryScheduleConferenceInfoWithOptions(scheduleConferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUserOnGoingConferenceWithOptions(request *QueryUserOnGoingConferenceRequest, headers *QueryUserOnGoingConferenceHeaders, runtime *util.RuntimeOptions) (_result *QueryUserOnGoingConferenceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		query["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUserOnGoingConference"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/users/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryUserOnGoingConferenceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryUserOnGoingConference(request *QueryUserOnGoingConferenceRequest) (_result *QueryUserOnGoingConferenceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserOnGoingConferenceHeaders{}
+	_result = &QueryUserOnGoingConferenceResponse{}
+	_body, _err := client.QueryUserOnGoingConferenceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

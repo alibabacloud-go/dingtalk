@@ -13,6 +13,98 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BatchDeleteReceiptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchDeleteReceiptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteReceiptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteReceiptHeaders) SetCommonHeaders(v map[string]*string) *BatchDeleteReceiptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchDeleteReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *BatchDeleteReceiptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchDeleteReceiptRequest struct {
+	InstanceIdList []*string `json:"instanceIdList,omitempty" xml:"instanceIdList,omitempty" type:"Repeated"`
+	Operator       *string   `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s BatchDeleteReceiptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteReceiptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteReceiptRequest) SetInstanceIdList(v []*string) *BatchDeleteReceiptRequest {
+	s.InstanceIdList = v
+	return s
+}
+
+func (s *BatchDeleteReceiptRequest) SetOperator(v string) *BatchDeleteReceiptRequest {
+	s.Operator = &v
+	return s
+}
+
+type BatchDeleteReceiptResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s BatchDeleteReceiptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteReceiptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteReceiptResponseBody) SetResult(v bool) *BatchDeleteReceiptResponseBody {
+	s.Result = &v
+	return s
+}
+
+type BatchDeleteReceiptResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BatchDeleteReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchDeleteReceiptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteReceiptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteReceiptResponse) SetHeaders(v map[string]*string) *BatchDeleteReceiptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchDeleteReceiptResponse) SetStatusCode(v int32) *BatchDeleteReceiptResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchDeleteReceiptResponse) SetBody(v *BatchDeleteReceiptResponseBody) *BatchDeleteReceiptResponse {
+	s.Body = v
+	return s
+}
+
 type GetCategoryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1877,6 +1969,65 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) BatchDeleteReceiptWithOptions(request *BatchDeleteReceiptRequest, headers *BatchDeleteReceiptHeaders, runtime *util.RuntimeOptions) (_result *BatchDeleteReceiptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceIdList)) {
+		body["instanceIdList"] = request.InstanceIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchDeleteReceipt"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/instances/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchDeleteReceiptResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchDeleteReceipt(request *BatchDeleteReceiptRequest) (_result *BatchDeleteReceiptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchDeleteReceiptHeaders{}
+	_result = &BatchDeleteReceiptResponse{}
+	_body, _err := client.BatchDeleteReceiptWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) GetCategoryWithOptions(request *GetCategoryRequest, headers *GetCategoryHeaders, runtime *util.RuntimeOptions) (_result *GetCategoryResponse, _err error) {
