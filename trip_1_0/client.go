@@ -13,6 +13,304 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetTravelProcessDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTravelProcessDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailHeaders) SetCommonHeaders(v map[string]*string) *GetTravelProcessDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTravelProcessDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetTravelProcessDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTravelProcessDetailRequest struct {
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s GetTravelProcessDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailRequest) SetProcessInstanceId(v string) *GetTravelProcessDetailRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type GetTravelProcessDetailResponseBody struct {
+	Result  *GetTravelProcessDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetTravelProcessDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponseBody) SetResult(v *GetTravelProcessDetailResponseBodyResult) *GetTravelProcessDetailResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBody) SetSuccess(v bool) *GetTravelProcessDetailResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetTravelProcessDetailResponseBodyResult struct {
+	BusinessId            *string                                             `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CorpId                *string                                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CostCenter            *string                                             `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	ItineraryProject      *string                                             `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
+	Journeys              []*GetTravelProcessDetailResponseBodyResultJourneys `json:"journeys,omitempty" xml:"journeys,omitempty" type:"Repeated"`
+	MainProcessInstanceId *string                                             `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	Memo                  *string                                             `json:"memo,omitempty" xml:"memo,omitempty"`
+	OriginatorId          *string                                             `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	ProcessInstanceId     *string                                             `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ProcessResult         *string                                             `json:"processResult,omitempty" xml:"processResult,omitempty"`
+	ProcessStatus         *string                                             `json:"processStatus,omitempty" xml:"processStatus,omitempty"`
+	Remark                *string                                             `json:"remark,omitempty" xml:"remark,omitempty"`
+	TravelCategory        *string                                             `json:"travelCategory,omitempty" xml:"travelCategory,omitempty"`
+	Travelers             []*string                                           `json:"travelers,omitempty" xml:"travelers,omitempty" type:"Repeated"`
+}
+
+func (s GetTravelProcessDetailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetBusinessId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.BusinessId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetCorpId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetCostCenter(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.CostCenter = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetItineraryProject(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.ItineraryProject = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetJourneys(v []*GetTravelProcessDetailResponseBodyResultJourneys) *GetTravelProcessDetailResponseBodyResult {
+	s.Journeys = v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetMainProcessInstanceId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.MainProcessInstanceId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetMemo(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.Memo = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetOriginatorId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetProcessInstanceId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetProcessResult(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.ProcessResult = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetProcessStatus(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.ProcessStatus = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetRemark(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetTravelCategory(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.TravelCategory = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetTravelers(v []*string) *GetTravelProcessDetailResponseBodyResult {
+	s.Travelers = v
+	return s
+}
+
+type GetTravelProcessDetailResponseBodyResultJourneys struct {
+	Arrival      *GetTravelProcessDetailResponseBodyResultJourneysArrival   `json:"arrival,omitempty" xml:"arrival,omitempty" type:"Struct"`
+	Departure    *GetTravelProcessDetailResponseBodyResultJourneysDeparture `json:"departure,omitempty" xml:"departure,omitempty" type:"Struct"`
+	EndTime      *string                                                    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	JourneyBizNo *string                                                    `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
+	StartTime    *string                                                    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TravelType   *string                                                    `json:"travelType,omitempty" xml:"travelType,omitempty"`
+	TripWay      *string                                                    `json:"tripWay,omitempty" xml:"tripWay,omitempty"`
+}
+
+func (s GetTravelProcessDetailResponseBodyResultJourneys) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailResponseBodyResultJourneys) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetArrival(v *GetTravelProcessDetailResponseBodyResultJourneysArrival) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.Arrival = v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetDeparture(v *GetTravelProcessDetailResponseBodyResultJourneysDeparture) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.Departure = v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetEndTime(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetJourneyBizNo(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.JourneyBizNo = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetStartTime(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetTravelType(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.TravelType = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetTripWay(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.TripWay = &v
+	return s
+}
+
+type GetTravelProcessDetailResponseBodyResultJourneysArrival struct {
+	Code             *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
+	NationalCityCode *string `json:"nationalCityCode,omitempty" xml:"nationalCityCode,omitempty"`
+}
+
+func (s GetTravelProcessDetailResponseBodyResultJourneysArrival) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailResponseBodyResultJourneysArrival) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneysArrival) SetCode(v string) *GetTravelProcessDetailResponseBodyResultJourneysArrival {
+	s.Code = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneysArrival) SetName(v string) *GetTravelProcessDetailResponseBodyResultJourneysArrival {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneysArrival) SetNationalCityCode(v string) *GetTravelProcessDetailResponseBodyResultJourneysArrival {
+	s.NationalCityCode = &v
+	return s
+}
+
+type GetTravelProcessDetailResponseBodyResultJourneysDeparture struct {
+	Code             *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
+	NationalCityCode *string `json:"nationalCityCode,omitempty" xml:"nationalCityCode,omitempty"`
+}
+
+func (s GetTravelProcessDetailResponseBodyResultJourneysDeparture) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailResponseBodyResultJourneysDeparture) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneysDeparture) SetCode(v string) *GetTravelProcessDetailResponseBodyResultJourneysDeparture {
+	s.Code = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneysDeparture) SetName(v string) *GetTravelProcessDetailResponseBodyResultJourneysDeparture {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneysDeparture) SetNationalCityCode(v string) *GetTravelProcessDetailResponseBodyResultJourneysDeparture {
+	s.NationalCityCode = &v
+	return s
+}
+
+type GetTravelProcessDetailResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTravelProcessDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTravelProcessDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponse) SetHeaders(v map[string]*string) *GetTravelProcessDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponse) SetStatusCode(v int32) *GetTravelProcessDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponse) SetBody(v *GetTravelProcessDetailResponseBody) *GetTravelProcessDetailResponse {
+	s.Body = v
+	return s
+}
+
 type SyncBusinessSignInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -962,6 +1260,61 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetTravelProcessDetailWithOptions(request *GetTravelProcessDetailRequest, headers *GetTravelProcessDetailHeaders, runtime *util.RuntimeOptions) (_result *GetTravelProcessDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		query["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTravelProcessDetail"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/processes/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTravelProcessDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTravelProcessDetail(request *GetTravelProcessDetailRequest) (_result *GetTravelProcessDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTravelProcessDetailHeaders{}
+	_result = &GetTravelProcessDetailResponse{}
+	_body, _err := client.GetTravelProcessDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) SyncBusinessSignInfoWithOptions(request *SyncBusinessSignInfoRequest, headers *SyncBusinessSignInfoHeaders, runtime *util.RuntimeOptions) (_result *SyncBusinessSignInfoResponse, _err error) {

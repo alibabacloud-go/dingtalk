@@ -158,6 +158,139 @@ func (s *ContractBenefitConsumeResponse) SetBody(v *ContractBenefitConsumeRespon
 	return s
 }
 
+type EsignQueryApprovalInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EsignQueryApprovalInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EsignQueryApprovalInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EsignQueryApprovalInfoHeaders) SetCommonHeaders(v map[string]*string) *EsignQueryApprovalInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EsignQueryApprovalInfoHeaders) SetXAcsDingtalkAccessToken(v string) *EsignQueryApprovalInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EsignQueryApprovalInfoRequest struct {
+	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	EsignFlowId *string `json:"esignFlowId,omitempty" xml:"esignFlowId,omitempty"`
+	UnionId     *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s EsignQueryApprovalInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EsignQueryApprovalInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EsignQueryApprovalInfoRequest) SetCorpId(v string) *EsignQueryApprovalInfoRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *EsignQueryApprovalInfoRequest) SetEsignFlowId(v string) *EsignQueryApprovalInfoRequest {
+	s.EsignFlowId = &v
+	return s
+}
+
+func (s *EsignQueryApprovalInfoRequest) SetUnionId(v string) *EsignQueryApprovalInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type EsignQueryApprovalInfoResponseBody struct {
+	Result  *EsignQueryApprovalInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s EsignQueryApprovalInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EsignQueryApprovalInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EsignQueryApprovalInfoResponseBody) SetResult(v *EsignQueryApprovalInfoResponseBodyResult) *EsignQueryApprovalInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *EsignQueryApprovalInfoResponseBody) SetSuccess(v bool) *EsignQueryApprovalInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type EsignQueryApprovalInfoResponseBodyResult struct {
+	BpmsProcessBusinessId  *string `json:"bpmsProcessBusinessId,omitempty" xml:"bpmsProcessBusinessId,omitempty"`
+	BpmsProcessInstanceId  *string `json:"bpmsProcessInstanceId,omitempty" xml:"bpmsProcessInstanceId,omitempty"`
+	BpmsProcessInstanceUrl *string `json:"bpmsProcessInstanceUrl,omitempty" xml:"bpmsProcessInstanceUrl,omitempty"`
+}
+
+func (s EsignQueryApprovalInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EsignQueryApprovalInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *EsignQueryApprovalInfoResponseBodyResult) SetBpmsProcessBusinessId(v string) *EsignQueryApprovalInfoResponseBodyResult {
+	s.BpmsProcessBusinessId = &v
+	return s
+}
+
+func (s *EsignQueryApprovalInfoResponseBodyResult) SetBpmsProcessInstanceId(v string) *EsignQueryApprovalInfoResponseBodyResult {
+	s.BpmsProcessInstanceId = &v
+	return s
+}
+
+func (s *EsignQueryApprovalInfoResponseBodyResult) SetBpmsProcessInstanceUrl(v string) *EsignQueryApprovalInfoResponseBodyResult {
+	s.BpmsProcessInstanceUrl = &v
+	return s
+}
+
+type EsignQueryApprovalInfoResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EsignQueryApprovalInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s EsignQueryApprovalInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EsignQueryApprovalInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EsignQueryApprovalInfoResponse) SetHeaders(v map[string]*string) *EsignQueryApprovalInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EsignQueryApprovalInfoResponse) SetStatusCode(v int32) *EsignQueryApprovalInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EsignQueryApprovalInfoResponse) SetBody(v *EsignQueryApprovalInfoResponseBody) *EsignQueryApprovalInfoResponse {
+	s.Body = v
+	return s
+}
+
 type EsignQueryGrantInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1018,6 +1151,69 @@ func (client *Client) ContractBenefitConsume(request *ContractBenefitConsumeRequ
 	headers := &ContractBenefitConsumeHeaders{}
 	_result = &ContractBenefitConsumeResponse{}
 	_body, _err := client.ContractBenefitConsumeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) EsignQueryApprovalInfoWithOptions(request *EsignQueryApprovalInfoRequest, headers *EsignQueryApprovalInfoHeaders, runtime *util.RuntimeOptions) (_result *EsignQueryApprovalInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EsignFlowId)) {
+		body["esignFlowId"] = request.EsignFlowId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EsignQueryApprovalInfo"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/esign/approvalInfos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EsignQueryApprovalInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) EsignQueryApprovalInfo(request *EsignQueryApprovalInfoRequest) (_result *EsignQueryApprovalInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EsignQueryApprovalInfoHeaders{}
+	_result = &EsignQueryApprovalInfoResponse{}
+	_body, _err := client.EsignQueryApprovalInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

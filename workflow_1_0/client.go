@@ -6668,10 +6668,11 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) S
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps struct {
-	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
-	Label    *string `json:"label,omitempty" xml:"label,omitempty"`
-	Required *bool   `json:"required,omitempty" xml:"required,omitempty"`
+	BizAlias *string   `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Id       *string   `json:"id,omitempty" xml:"id,omitempty"`
+	Label    *string   `json:"label,omitempty" xml:"label,omitempty"`
+	Options  []*string `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	Required *bool     `json:"required,omitempty" xml:"required,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) String() string {
@@ -6694,6 +6695,11 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenPro
 
 func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) SetLabel(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps {
 	s.Label = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) SetOptions(v []*string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps {
+	s.Options = v
 	return s
 }
 
@@ -6745,6 +6751,7 @@ type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps struct {
 	ShowAttendOptions      *bool                                                                               `json:"showAttendOptions,omitempty" xml:"showAttendOptions,omitempty"`
 	StaffStatusEnabled     *bool                                                                               `json:"staffStatusEnabled,omitempty" xml:"staffStatusEnabled,omitempty"`
 	StatField              []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField       `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	TableViewMode          *string                                                                             `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
 	Unit                   *string                                                                             `json:"unit,omitempty" xml:"unit,omitempty"`
 	UseCalendar            *bool                                                                               `json:"useCalendar,omitempty" xml:"useCalendar,omitempty"`
 	VerticalPrint          *bool                                                                               `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
@@ -6965,6 +6972,11 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetS
 
 func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetStatField(v []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
 	s.StatField = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetTableViewMode(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.TableViewMode = &v
 	return s
 }
 

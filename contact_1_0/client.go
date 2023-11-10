@@ -535,6 +535,122 @@ func (s *AddEmpAttributeHideBySceneSettingResponse) SetBody(v *AddEmpAttributeHi
 	return s
 }
 
+type AddOrgAccountOwnnessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddOrgAccountOwnnessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgAccountOwnnessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgAccountOwnnessHeaders) SetCommonHeaders(v map[string]*string) *AddOrgAccountOwnnessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddOrgAccountOwnnessHeaders) SetXAcsDingtalkAccessToken(v string) *AddOrgAccountOwnnessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddOrgAccountOwnnessRequest struct {
+	EndTime     *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OwnenssType *int64   `json:"ownenssType,omitempty" xml:"ownenssType,omitempty"`
+	OwnnessId   *int64   `json:"ownnessId,omitempty" xml:"ownnessId,omitempty"`
+	StartTime   *float32 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Text        *string  `json:"text,omitempty" xml:"text,omitempty"`
+	UserId      *string  `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AddOrgAccountOwnnessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgAccountOwnnessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgAccountOwnnessRequest) SetEndTime(v int64) *AddOrgAccountOwnnessRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *AddOrgAccountOwnnessRequest) SetOwnenssType(v int64) *AddOrgAccountOwnnessRequest {
+	s.OwnenssType = &v
+	return s
+}
+
+func (s *AddOrgAccountOwnnessRequest) SetOwnnessId(v int64) *AddOrgAccountOwnnessRequest {
+	s.OwnnessId = &v
+	return s
+}
+
+func (s *AddOrgAccountOwnnessRequest) SetStartTime(v float32) *AddOrgAccountOwnnessRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *AddOrgAccountOwnnessRequest) SetText(v string) *AddOrgAccountOwnnessRequest {
+	s.Text = &v
+	return s
+}
+
+func (s *AddOrgAccountOwnnessRequest) SetUserId(v string) *AddOrgAccountOwnnessRequest {
+	s.UserId = &v
+	return s
+}
+
+type AddOrgAccountOwnnessResponseBody struct {
+	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AddOrgAccountOwnnessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgAccountOwnnessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgAccountOwnnessResponseBody) SetResult(v int64) *AddOrgAccountOwnnessResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AddOrgAccountOwnnessResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddOrgAccountOwnnessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddOrgAccountOwnnessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgAccountOwnnessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgAccountOwnnessResponse) SetHeaders(v map[string]*string) *AddOrgAccountOwnnessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddOrgAccountOwnnessResponse) SetStatusCode(v int32) *AddOrgAccountOwnnessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddOrgAccountOwnnessResponse) SetBody(v *AddOrgAccountOwnnessResponseBody) *AddOrgAccountOwnnessResponse {
+	s.Body = v
+	return s
+}
+
 type AnnualCertificationAuditHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1393,6 +1509,104 @@ func (s *DelAccountMappingResponse) SetStatusCode(v int32) *DelAccountMappingRes
 }
 
 func (s *DelAccountMappingResponse) SetBody(v *DelAccountMappingResponseBody) *DelAccountMappingResponse {
+	s.Body = v
+	return s
+}
+
+type DelOrgAccUserOwnnessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DelOrgAccUserOwnnessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelOrgAccUserOwnnessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DelOrgAccUserOwnnessHeaders) SetCommonHeaders(v map[string]*string) *DelOrgAccUserOwnnessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DelOrgAccUserOwnnessHeaders) SetXAcsDingtalkAccessToken(v string) *DelOrgAccUserOwnnessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DelOrgAccUserOwnnessRequest struct {
+	OwnenssType *int64  `json:"ownenssType,omitempty" xml:"ownenssType,omitempty"`
+	OwnnessId   *int64  `json:"ownnessId,omitempty" xml:"ownnessId,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DelOrgAccUserOwnnessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelOrgAccUserOwnnessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DelOrgAccUserOwnnessRequest) SetOwnenssType(v int64) *DelOrgAccUserOwnnessRequest {
+	s.OwnenssType = &v
+	return s
+}
+
+func (s *DelOrgAccUserOwnnessRequest) SetOwnnessId(v int64) *DelOrgAccUserOwnnessRequest {
+	s.OwnnessId = &v
+	return s
+}
+
+func (s *DelOrgAccUserOwnnessRequest) SetUserId(v string) *DelOrgAccUserOwnnessRequest {
+	s.UserId = &v
+	return s
+}
+
+type DelOrgAccUserOwnnessResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DelOrgAccUserOwnnessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelOrgAccUserOwnnessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DelOrgAccUserOwnnessResponseBody) SetResult(v bool) *DelOrgAccUserOwnnessResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DelOrgAccUserOwnnessResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DelOrgAccUserOwnnessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DelOrgAccUserOwnnessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelOrgAccUserOwnnessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DelOrgAccUserOwnnessResponse) SetHeaders(v map[string]*string) *DelOrgAccUserOwnnessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DelOrgAccUserOwnnessResponse) SetStatusCode(v int32) *DelOrgAccUserOwnnessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DelOrgAccUserOwnnessResponse) SetBody(v *DelOrgAccUserOwnnessResponseBody) *DelOrgAccUserOwnnessResponse {
 	s.Body = v
 	return s
 }
@@ -5741,6 +5955,122 @@ func (s *ListSeniorSettingsResponse) SetBody(v *ListSeniorSettingsResponseBody) 
 	return s
 }
 
+type ModifyOrgAccUserOwnnessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ModifyOrgAccUserOwnnessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyOrgAccUserOwnnessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyOrgAccUserOwnnessHeaders) SetCommonHeaders(v map[string]*string) *ModifyOrgAccUserOwnnessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ModifyOrgAccUserOwnnessHeaders) SetXAcsDingtalkAccessToken(v string) *ModifyOrgAccUserOwnnessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ModifyOrgAccUserOwnnessRequest struct {
+	EndTime     *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OwnenssType *int64  `json:"ownenssType,omitempty" xml:"ownenssType,omitempty"`
+	OwnnessId   *int64  `json:"ownnessId,omitempty" xml:"ownnessId,omitempty"`
+	StartTime   *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Text        *string `json:"text,omitempty" xml:"text,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ModifyOrgAccUserOwnnessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyOrgAccUserOwnnessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyOrgAccUserOwnnessRequest) SetEndTime(v int64) *ModifyOrgAccUserOwnnessRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ModifyOrgAccUserOwnnessRequest) SetOwnenssType(v int64) *ModifyOrgAccUserOwnnessRequest {
+	s.OwnenssType = &v
+	return s
+}
+
+func (s *ModifyOrgAccUserOwnnessRequest) SetOwnnessId(v int64) *ModifyOrgAccUserOwnnessRequest {
+	s.OwnnessId = &v
+	return s
+}
+
+func (s *ModifyOrgAccUserOwnnessRequest) SetStartTime(v int64) *ModifyOrgAccUserOwnnessRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ModifyOrgAccUserOwnnessRequest) SetText(v string) *ModifyOrgAccUserOwnnessRequest {
+	s.Text = &v
+	return s
+}
+
+func (s *ModifyOrgAccUserOwnnessRequest) SetUserId(v string) *ModifyOrgAccUserOwnnessRequest {
+	s.UserId = &v
+	return s
+}
+
+type ModifyOrgAccUserOwnnessResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ModifyOrgAccUserOwnnessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyOrgAccUserOwnnessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyOrgAccUserOwnnessResponseBody) SetResult(v bool) *ModifyOrgAccUserOwnnessResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ModifyOrgAccUserOwnnessResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ModifyOrgAccUserOwnnessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ModifyOrgAccUserOwnnessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyOrgAccUserOwnnessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyOrgAccUserOwnnessResponse) SetHeaders(v map[string]*string) *ModifyOrgAccUserOwnnessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ModifyOrgAccUserOwnnessResponse) SetStatusCode(v int32) *ModifyOrgAccUserOwnnessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ModifyOrgAccUserOwnnessResponse) SetBody(v *ModifyOrgAccUserOwnnessResponseBody) *ModifyOrgAccUserOwnnessResponse {
+	s.Body = v
+	return s
+}
+
 type MultiOrgPermissionGrantHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9407,6 +9737,83 @@ func (client *Client) AddEmpAttributeHideBySceneSetting(request *AddEmpAttribute
 	return _result, _err
 }
 
+func (client *Client) AddOrgAccountOwnnessWithOptions(request *AddOrgAccountOwnnessRequest, headers *AddOrgAccountOwnnessHeaders, runtime *util.RuntimeOptions) (_result *AddOrgAccountOwnnessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnenssType)) {
+		body["ownenssType"] = request.OwnenssType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnnessId)) {
+		body["ownnessId"] = request.OwnnessId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Text)) {
+		body["text"] = request.Text
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddOrgAccountOwnness"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/orgAccounts/owness"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddOrgAccountOwnnessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddOrgAccountOwnness(request *AddOrgAccountOwnnessRequest) (_result *AddOrgAccountOwnnessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddOrgAccountOwnnessHeaders{}
+	_result = &AddOrgAccountOwnnessResponse{}
+	_body, _err := client.AddOrgAccountOwnnessWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) AnnualCertificationAuditWithOptions(request *AnnualCertificationAuditRequest, headers *AnnualCertificationAuditHeaders, runtime *util.RuntimeOptions) (_result *AnnualCertificationAuditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9890,6 +10297,69 @@ func (client *Client) DelAccountMapping(request *DelAccountMappingRequest) (_res
 	headers := &DelAccountMappingHeaders{}
 	_result = &DelAccountMappingResponse{}
 	_body, _err := client.DelAccountMappingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DelOrgAccUserOwnnessWithOptions(request *DelOrgAccUserOwnnessRequest, headers *DelOrgAccUserOwnnessHeaders, runtime *util.RuntimeOptions) (_result *DelOrgAccUserOwnnessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OwnenssType)) {
+		query["ownenssType"] = request.OwnenssType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnnessId)) {
+		query["ownnessId"] = request.OwnnessId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DelOrgAccUserOwnness"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/orgAccounts/ownness"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DelOrgAccUserOwnnessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DelOrgAccUserOwnness(request *DelOrgAccUserOwnnessRequest) (_result *DelOrgAccUserOwnnessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DelOrgAccUserOwnnessHeaders{}
+	_result = &DelOrgAccUserOwnnessResponse{}
+	_body, _err := client.DelOrgAccUserOwnnessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11700,6 +12170,83 @@ func (client *Client) ListSeniorSettings(request *ListSeniorSettingsRequest) (_r
 	headers := &ListSeniorSettingsHeaders{}
 	_result = &ListSeniorSettingsResponse{}
 	_body, _err := client.ListSeniorSettingsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ModifyOrgAccUserOwnnessWithOptions(request *ModifyOrgAccUserOwnnessRequest, headers *ModifyOrgAccUserOwnnessHeaders, runtime *util.RuntimeOptions) (_result *ModifyOrgAccUserOwnnessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnenssType)) {
+		body["ownenssType"] = request.OwnenssType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnnessId)) {
+		body["ownnessId"] = request.OwnnessId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Text)) {
+		body["text"] = request.Text
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ModifyOrgAccUserOwnness"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/orgAccounts/owness"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ModifyOrgAccUserOwnnessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ModifyOrgAccUserOwnness(request *ModifyOrgAccUserOwnnessRequest) (_result *ModifyOrgAccUserOwnnessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ModifyOrgAccUserOwnnessHeaders{}
+	_result = &ModifyOrgAccUserOwnnessResponse{}
+	_body, _err := client.ModifyOrgAccUserOwnnessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

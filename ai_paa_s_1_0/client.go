@@ -175,6 +175,116 @@ func (s *ExecuteAgentResponse) SetBody(v *ExecuteAgentResponseBody) *ExecuteAgen
 	return s
 }
 
+type LiandanluExclusiveModelHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s LiandanluExclusiveModelHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanluExclusiveModelHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanluExclusiveModelHeaders) SetCommonHeaders(v map[string]*string) *LiandanluExclusiveModelHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *LiandanluExclusiveModelHeaders) SetXAcsDingtalkAccessToken(v string) *LiandanluExclusiveModelHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type LiandanluExclusiveModelRequest struct {
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	Module  *string `json:"module,omitempty" xml:"module,omitempty"`
+	Prompt  *string `json:"prompt,omitempty" xml:"prompt,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s LiandanluExclusiveModelRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanluExclusiveModelRequest) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanluExclusiveModelRequest) SetModelId(v string) *LiandanluExclusiveModelRequest {
+	s.ModelId = &v
+	return s
+}
+
+func (s *LiandanluExclusiveModelRequest) SetModule(v string) *LiandanluExclusiveModelRequest {
+	s.Module = &v
+	return s
+}
+
+func (s *LiandanluExclusiveModelRequest) SetPrompt(v string) *LiandanluExclusiveModelRequest {
+	s.Prompt = &v
+	return s
+}
+
+func (s *LiandanluExclusiveModelRequest) SetUserId(v string) *LiandanluExclusiveModelRequest {
+	s.UserId = &v
+	return s
+}
+
+type LiandanluExclusiveModelResponseBody struct {
+	RequestId *string                `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s LiandanluExclusiveModelResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanluExclusiveModelResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanluExclusiveModelResponseBody) SetRequestId(v string) *LiandanluExclusiveModelResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *LiandanluExclusiveModelResponseBody) SetResult(v map[string]interface{}) *LiandanluExclusiveModelResponseBody {
+	s.Result = v
+	return s
+}
+
+type LiandanluExclusiveModelResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *LiandanluExclusiveModelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s LiandanluExclusiveModelResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanluExclusiveModelResponse) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanluExclusiveModelResponse) SetHeaders(v map[string]*string) *LiandanluExclusiveModelResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *LiandanluExclusiveModelResponse) SetStatusCode(v int32) *LiandanluExclusiveModelResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *LiandanluExclusiveModelResponse) SetBody(v *LiandanluExclusiveModelResponseBody) *LiandanluExclusiveModelResponse {
+	s.Body = v
+	return s
+}
+
 type QueryConversationMessageForAIHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -848,6 +958,73 @@ func (client *Client) ExecuteAgent(request *ExecuteAgentRequest) (_result *Execu
 	headers := &ExecuteAgentHeaders{}
 	_result = &ExecuteAgentResponse{}
 	_body, _err := client.ExecuteAgentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) LiandanluExclusiveModelWithOptions(request *LiandanluExclusiveModelRequest, headers *LiandanluExclusiveModelHeaders, runtime *util.RuntimeOptions) (_result *LiandanluExclusiveModelResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ModelId)) {
+		body["modelId"] = request.ModelId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Module)) {
+		body["module"] = request.Module
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Prompt)) {
+		body["prompt"] = request.Prompt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("LiandanluExclusiveModel"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/ai/generate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &LiandanluExclusiveModelResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) LiandanluExclusiveModel(request *LiandanluExclusiveModelRequest) (_result *LiandanluExclusiveModelResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &LiandanluExclusiveModelHeaders{}
+	_result = &LiandanluExclusiveModelResponse{}
+	_body, _err := client.LiandanluExclusiveModelWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -225,15 +225,17 @@ func (s *CreateMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *CreateM
 }
 
 type CreateMeetingRoomRequest struct {
-	GroupId      *int64                                `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	IsvRoomId    *string                               `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	RoomCapacity *int32                                `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	RoomLabelIds []*int64                              `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
-	RoomLocation *CreateMeetingRoomRequestRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	RoomName     *string                               `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	RoomPicture  *string                               `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	RoomStatus   *int32                                `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
-	UnionId      *string                               `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	EnableCycleReservation *bool                                         `json:"enableCycleReservation,omitempty" xml:"enableCycleReservation,omitempty"`
+	GroupId                *int64                                        `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	IsvRoomId              *string                                       `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	ReservationAuthority   *CreateMeetingRoomRequestReservationAuthority `json:"reservationAuthority,omitempty" xml:"reservationAuthority,omitempty" type:"Struct"`
+	RoomCapacity           *int32                                        `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomLabelIds           []*int64                                      `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
+	RoomLocation           *CreateMeetingRoomRequestRoomLocation         `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
+	RoomName               *string                                       `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	RoomPicture            *string                                       `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	RoomStatus             *int32                                        `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	UnionId                *string                                       `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CreateMeetingRoomRequest) String() string {
@@ -244,6 +246,11 @@ func (s CreateMeetingRoomRequest) GoString() string {
 	return s.String()
 }
 
+func (s *CreateMeetingRoomRequest) SetEnableCycleReservation(v bool) *CreateMeetingRoomRequest {
+	s.EnableCycleReservation = &v
+	return s
+}
+
 func (s *CreateMeetingRoomRequest) SetGroupId(v int64) *CreateMeetingRoomRequest {
 	s.GroupId = &v
 	return s
@@ -251,6 +258,11 @@ func (s *CreateMeetingRoomRequest) SetGroupId(v int64) *CreateMeetingRoomRequest
 
 func (s *CreateMeetingRoomRequest) SetIsvRoomId(v string) *CreateMeetingRoomRequest {
 	s.IsvRoomId = &v
+	return s
+}
+
+func (s *CreateMeetingRoomRequest) SetReservationAuthority(v *CreateMeetingRoomRequestReservationAuthority) *CreateMeetingRoomRequest {
+	s.ReservationAuthority = v
 	return s
 }
 
@@ -286,6 +298,52 @@ func (s *CreateMeetingRoomRequest) SetRoomStatus(v int32) *CreateMeetingRoomRequ
 
 func (s *CreateMeetingRoomRequest) SetUnionId(v string) *CreateMeetingRoomRequest {
 	s.UnionId = &v
+	return s
+}
+
+type CreateMeetingRoomRequestReservationAuthority struct {
+	AuthorizedMembers []*CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers `json:"authorizedMembers,omitempty" xml:"authorizedMembers,omitempty" type:"Repeated"`
+}
+
+func (s CreateMeetingRoomRequestReservationAuthority) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMeetingRoomRequestReservationAuthority) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMeetingRoomRequestReservationAuthority) SetAuthorizedMembers(v []*CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers) *CreateMeetingRoomRequestReservationAuthority {
+	s.AuthorizedMembers = v
+	return s
+}
+
+type CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers struct {
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+}
+
+func (s CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers) SetMemberId(v string) *CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers) SetMemberName(v string) *CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers {
+	s.MemberName = &v
+	return s
+}
+
+func (s *CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers) SetMemberType(v string) *CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers {
+	s.MemberType = &v
 	return s
 }
 
@@ -1466,17 +1524,20 @@ func (s *QueryMeetingRoomResponseBody) SetResult(v *QueryMeetingRoomResponseBody
 }
 
 type QueryMeetingRoomResponseBodyResult struct {
-	CorpId       *string                                         `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	IsvRoomId    *string                                         `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	RoomCapacity *int32                                          `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	RoomGroup    *QueryMeetingRoomResponseBodyResultRoomGroup    `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
-	RoomId       *string                                         `json:"roomId,omitempty" xml:"roomId,omitempty"`
-	RoomLabels   []*QueryMeetingRoomResponseBodyResultRoomLabels `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
-	RoomLocation *QueryMeetingRoomResponseBodyResultRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	RoomName     *string                                         `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	RoomPicture  *string                                         `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	RoomStaffId  *string                                         `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
-	RoomStatus   *int32                                          `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	CorpId                 *string                                                 `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeviceUnionIds         []*string                                               `json:"deviceUnionIds,omitempty" xml:"deviceUnionIds,omitempty" type:"Repeated"`
+	EnableCycleReservation *bool                                                   `json:"enableCycleReservation,omitempty" xml:"enableCycleReservation,omitempty"`
+	IsvRoomId              *string                                                 `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	ReservationAuthority   *QueryMeetingRoomResponseBodyResultReservationAuthority `json:"reservationAuthority,omitempty" xml:"reservationAuthority,omitempty" type:"Struct"`
+	RoomCapacity           *int32                                                  `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomGroup              *QueryMeetingRoomResponseBodyResultRoomGroup            `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
+	RoomId                 *string                                                 `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	RoomLabels             []*QueryMeetingRoomResponseBodyResultRoomLabels         `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
+	RoomLocation           *QueryMeetingRoomResponseBodyResultRoomLocation         `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
+	RoomName               *string                                                 `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	RoomPicture            *string                                                 `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	RoomStaffId            *string                                                 `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
+	RoomStatus             *int32                                                  `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
 }
 
 func (s QueryMeetingRoomResponseBodyResult) String() string {
@@ -1492,8 +1553,23 @@ func (s *QueryMeetingRoomResponseBodyResult) SetCorpId(v string) *QueryMeetingRo
 	return s
 }
 
+func (s *QueryMeetingRoomResponseBodyResult) SetDeviceUnionIds(v []*string) *QueryMeetingRoomResponseBodyResult {
+	s.DeviceUnionIds = v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResult) SetEnableCycleReservation(v bool) *QueryMeetingRoomResponseBodyResult {
+	s.EnableCycleReservation = &v
+	return s
+}
+
 func (s *QueryMeetingRoomResponseBodyResult) SetIsvRoomId(v string) *QueryMeetingRoomResponseBodyResult {
 	s.IsvRoomId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResult) SetReservationAuthority(v *QueryMeetingRoomResponseBodyResultReservationAuthority) *QueryMeetingRoomResponseBodyResult {
+	s.ReservationAuthority = v
 	return s
 }
 
@@ -1539,6 +1615,52 @@ func (s *QueryMeetingRoomResponseBodyResult) SetRoomStaffId(v string) *QueryMeet
 
 func (s *QueryMeetingRoomResponseBodyResult) SetRoomStatus(v int32) *QueryMeetingRoomResponseBodyResult {
 	s.RoomStatus = &v
+	return s
+}
+
+type QueryMeetingRoomResponseBodyResultReservationAuthority struct {
+	AuthorizedMembers []*QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers `json:"authorizedMembers,omitempty" xml:"authorizedMembers,omitempty" type:"Repeated"`
+}
+
+func (s QueryMeetingRoomResponseBodyResultReservationAuthority) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomResponseBodyResultReservationAuthority) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomResponseBodyResultReservationAuthority) SetAuthorizedMembers(v []*QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers) *QueryMeetingRoomResponseBodyResultReservationAuthority {
+	s.AuthorizedMembers = v
+	return s
+}
+
+type QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers struct {
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+}
+
+func (s QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers) SetMemberId(v string) *QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers) SetMemberName(v string) *QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers {
+	s.MemberName = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers) SetMemberType(v string) *QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers {
+	s.MemberType = &v
 	return s
 }
 
@@ -1716,8 +1838,19 @@ func (s *QueryMeetingRoomDeviceResponseBody) SetResult(v *QueryMeetingRoomDevice
 }
 
 type QueryMeetingRoomDeviceResponseBodyResult struct {
+	ActiveTime      *int64                                                 `json:"activeTime,omitempty" xml:"activeTime,omitempty"`
 	Controllers     []*QueryMeetingRoomDeviceResponseBodyResultControllers `json:"controllers,omitempty" xml:"controllers,omitempty" type:"Repeated"`
 	CorpId          *string                                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreatorUnionId  *string                                                `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	DevCamera       *string                                                `json:"devCamera,omitempty" xml:"devCamera,omitempty"`
+	DevHdmi         *string                                                `json:"devHdmi,omitempty" xml:"devHdmi,omitempty"`
+	DevMic          *string                                                `json:"devMic,omitempty" xml:"devMic,omitempty"`
+	DevMirror       *string                                                `json:"devMirror,omitempty" xml:"devMirror,omitempty"`
+	DevNetIp        *string                                                `json:"devNetIp,omitempty" xml:"devNetIp,omitempty"`
+	DevNetType      *string                                                `json:"devNetType,omitempty" xml:"devNetType,omitempty"`
+	DevVoice        *string                                                `json:"devVoice,omitempty" xml:"devVoice,omitempty"`
+	DevWifiMac      *string                                                `json:"devWifiMac,omitempty" xml:"devWifiMac,omitempty"`
+	DevWireMac      *string                                                `json:"devWireMac,omitempty" xml:"devWireMac,omitempty"`
 	DeviceId        *string                                                `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
 	DeviceMac       *string                                                `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
 	DeviceModel     *string                                                `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
@@ -1727,8 +1860,12 @@ type QueryMeetingRoomDeviceResponseBodyResult struct {
 	DeviceStatus    *string                                                `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
 	DeviceType      *string                                                `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
 	DeviceUnionId   *string                                                `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	FirmwareVersion *string                                                `json:"firmwareVersion,omitempty" xml:"firmwareVersion,omitempty"`
 	OpenRoomId      *string                                                `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
+	RoomName        *string                                                `json:"roomName,omitempty" xml:"roomName,omitempty"`
 	ShareCode       *string                                                `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
+	SipAccountName  *string                                                `json:"sipAccountName,omitempty" xml:"sipAccountName,omitempty"`
+	SoftwareVersion *string                                                `json:"softwareVersion,omitempty" xml:"softwareVersion,omitempty"`
 }
 
 func (s QueryMeetingRoomDeviceResponseBodyResult) String() string {
@@ -1739,6 +1876,11 @@ func (s QueryMeetingRoomDeviceResponseBodyResult) GoString() string {
 	return s.String()
 }
 
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetActiveTime(v int64) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.ActiveTime = &v
+	return s
+}
+
 func (s *QueryMeetingRoomDeviceResponseBodyResult) SetControllers(v []*QueryMeetingRoomDeviceResponseBodyResultControllers) *QueryMeetingRoomDeviceResponseBodyResult {
 	s.Controllers = v
 	return s
@@ -1746,6 +1888,56 @@ func (s *QueryMeetingRoomDeviceResponseBodyResult) SetControllers(v []*QueryMeet
 
 func (s *QueryMeetingRoomDeviceResponseBodyResult) SetCorpId(v string) *QueryMeetingRoomDeviceResponseBodyResult {
 	s.CorpId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetCreatorUnionId(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDevCamera(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DevCamera = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDevHdmi(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DevHdmi = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDevMic(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DevMic = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDevMirror(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DevMirror = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDevNetIp(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DevNetIp = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDevNetType(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DevNetType = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDevVoice(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DevVoice = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDevWifiMac(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DevWifiMac = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDevWireMac(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.DevWireMac = &v
 	return s
 }
 
@@ -1794,13 +1986,33 @@ func (s *QueryMeetingRoomDeviceResponseBodyResult) SetDeviceUnionId(v string) *Q
 	return s
 }
 
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetFirmwareVersion(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.FirmwareVersion = &v
+	return s
+}
+
 func (s *QueryMeetingRoomDeviceResponseBodyResult) SetOpenRoomId(v string) *QueryMeetingRoomDeviceResponseBodyResult {
 	s.OpenRoomId = &v
 	return s
 }
 
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetRoomName(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.RoomName = &v
+	return s
+}
+
 func (s *QueryMeetingRoomDeviceResponseBodyResult) SetShareCode(v string) *QueryMeetingRoomDeviceResponseBodyResult {
 	s.ShareCode = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetSipAccountName(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.SipAccountName = &v
+	return s
+}
+
+func (s *QueryMeetingRoomDeviceResponseBodyResult) SetSoftwareVersion(v string) *QueryMeetingRoomDeviceResponseBodyResult {
+	s.SoftwareVersion = &v
 	return s
 }
 
@@ -2805,16 +3017,18 @@ func (s *UpdateMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateM
 }
 
 type UpdateMeetingRoomRequest struct {
-	GroupId      *int64                                `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	IsvRoomId    *string                               `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	RoomCapacity *int32                                `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	RoomId       *string                               `json:"roomId,omitempty" xml:"roomId,omitempty"`
-	RoomLabelIds []*int64                              `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
-	RoomLocation *UpdateMeetingRoomRequestRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	RoomName     *string                               `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	RoomPicture  *string                               `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	RoomStatus   *int32                                `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
-	UnionId      *string                               `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	EnableCycleReservation *bool                                         `json:"enableCycleReservation,omitempty" xml:"enableCycleReservation,omitempty"`
+	GroupId                *int64                                        `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	IsvRoomId              *string                                       `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	ReservationAuthority   *UpdateMeetingRoomRequestReservationAuthority `json:"reservationAuthority,omitempty" xml:"reservationAuthority,omitempty" type:"Struct"`
+	RoomCapacity           *int32                                        `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomId                 *string                                       `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	RoomLabelIds           []*int64                                      `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
+	RoomLocation           *UpdateMeetingRoomRequestRoomLocation         `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
+	RoomName               *string                                       `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	RoomPicture            *string                                       `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	RoomStatus             *int32                                        `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	UnionId                *string                                       `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateMeetingRoomRequest) String() string {
@@ -2825,6 +3039,11 @@ func (s UpdateMeetingRoomRequest) GoString() string {
 	return s.String()
 }
 
+func (s *UpdateMeetingRoomRequest) SetEnableCycleReservation(v bool) *UpdateMeetingRoomRequest {
+	s.EnableCycleReservation = &v
+	return s
+}
+
 func (s *UpdateMeetingRoomRequest) SetGroupId(v int64) *UpdateMeetingRoomRequest {
 	s.GroupId = &v
 	return s
@@ -2832,6 +3051,11 @@ func (s *UpdateMeetingRoomRequest) SetGroupId(v int64) *UpdateMeetingRoomRequest
 
 func (s *UpdateMeetingRoomRequest) SetIsvRoomId(v string) *UpdateMeetingRoomRequest {
 	s.IsvRoomId = &v
+	return s
+}
+
+func (s *UpdateMeetingRoomRequest) SetReservationAuthority(v *UpdateMeetingRoomRequestReservationAuthority) *UpdateMeetingRoomRequest {
+	s.ReservationAuthority = v
 	return s
 }
 
@@ -2872,6 +3096,52 @@ func (s *UpdateMeetingRoomRequest) SetRoomStatus(v int32) *UpdateMeetingRoomRequ
 
 func (s *UpdateMeetingRoomRequest) SetUnionId(v string) *UpdateMeetingRoomRequest {
 	s.UnionId = &v
+	return s
+}
+
+type UpdateMeetingRoomRequestReservationAuthority struct {
+	AuthorizedMembers []*UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers `json:"authorizedMembers,omitempty" xml:"authorizedMembers,omitempty" type:"Repeated"`
+}
+
+func (s UpdateMeetingRoomRequestReservationAuthority) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMeetingRoomRequestReservationAuthority) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMeetingRoomRequestReservationAuthority) SetAuthorizedMembers(v []*UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers) *UpdateMeetingRoomRequestReservationAuthority {
+	s.AuthorizedMembers = v
+	return s
+}
+
+type UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers struct {
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+}
+
+func (s UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers) SetMemberId(v string) *UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers) SetMemberName(v string) *UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers {
+	s.MemberName = &v
+	return s
+}
+
+func (s *UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers) SetMemberType(v string) *UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers {
+	s.MemberType = &v
 	return s
 }
 
@@ -3200,12 +3470,20 @@ func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomReq
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EnableCycleReservation)) {
+		body["enableCycleReservation"] = request.EnableCycleReservation
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
 		body["groupId"] = request.GroupId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.IsvRoomId)) {
 		body["isvRoomId"] = request.IsvRoomId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReservationAuthority)) {
+		body["reservationAuthority"] = request.ReservationAuthority
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RoomCapacity)) {
@@ -4273,12 +4551,20 @@ func (client *Client) UpdateMeetingRoomWithOptions(request *UpdateMeetingRoomReq
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EnableCycleReservation)) {
+		body["enableCycleReservation"] = request.EnableCycleReservation
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
 		body["groupId"] = request.GroupId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.IsvRoomId)) {
 		body["isvRoomId"] = request.IsvRoomId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReservationAuthority)) {
+		body["reservationAuthority"] = request.ReservationAuthority
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RoomCapacity)) {
