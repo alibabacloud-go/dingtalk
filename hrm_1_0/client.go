@@ -2567,9 +2567,10 @@ func (s *RosterMetaAvailableFieldListResponseBody) SetResult(v []*RosterMetaAvai
 }
 
 type RosterMetaAvailableFieldListResponseBodyResult struct {
-	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	FieldCode  *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FieldName  *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldType  *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	OptionText *string `json:"optionText,omitempty" xml:"optionText,omitempty"`
 }
 
 func (s RosterMetaAvailableFieldListResponseBodyResult) String() string {
@@ -2592,6 +2593,11 @@ func (s *RosterMetaAvailableFieldListResponseBodyResult) SetFieldName(v string) 
 
 func (s *RosterMetaAvailableFieldListResponseBodyResult) SetFieldType(v string) *RosterMetaAvailableFieldListResponseBodyResult {
 	s.FieldType = &v
+	return s
+}
+
+func (s *RosterMetaAvailableFieldListResponseBodyResult) SetOptionText(v string) *RosterMetaAvailableFieldListResponseBodyResult {
+	s.OptionText = &v
 	return s
 }
 

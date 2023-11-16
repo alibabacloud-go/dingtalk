@@ -13,6 +13,208 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BusinessMatchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BusinessMatchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessMatchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessMatchHeaders) SetCommonHeaders(v map[string]*string) *BusinessMatchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BusinessMatchHeaders) SetXAcsDingtalkAccessToken(v string) *BusinessMatchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BusinessMatchRequest struct {
+	BusinessInfo *string `json:"businessInfo,omitempty" xml:"businessInfo,omitempty"`
+	CorpName     *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BusinessMatchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessMatchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessMatchRequest) SetBusinessInfo(v string) *BusinessMatchRequest {
+	s.BusinessInfo = &v
+	return s
+}
+
+func (s *BusinessMatchRequest) SetCorpName(v string) *BusinessMatchRequest {
+	s.CorpName = &v
+	return s
+}
+
+func (s *BusinessMatchRequest) SetUserId(v string) *BusinessMatchRequest {
+	s.UserId = &v
+	return s
+}
+
+type BusinessMatchResponseBody struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s BusinessMatchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessMatchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessMatchResponseBody) SetTaskId(v string) *BusinessMatchResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type BusinessMatchResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BusinessMatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BusinessMatchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessMatchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessMatchResponse) SetHeaders(v map[string]*string) *BusinessMatchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BusinessMatchResponse) SetStatusCode(v int32) *BusinessMatchResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BusinessMatchResponse) SetBody(v *BusinessMatchResponseBody) *BusinessMatchResponse {
+	s.Body = v
+	return s
+}
+
+type BusinessMatchResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BusinessMatchResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessMatchResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessMatchResultHeaders) SetCommonHeaders(v map[string]*string) *BusinessMatchResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BusinessMatchResultHeaders) SetXAcsDingtalkAccessToken(v string) *BusinessMatchResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BusinessMatchResultRequest struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BusinessMatchResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessMatchResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessMatchResultRequest) SetTaskId(v string) *BusinessMatchResultRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *BusinessMatchResultRequest) SetUserId(v string) *BusinessMatchResultRequest {
+	s.UserId = &v
+	return s
+}
+
+type BusinessMatchResultResponseBody struct {
+	Content   *string `json:"content,omitempty" xml:"content,omitempty"`
+	IsMatched *bool   `json:"isMatched,omitempty" xml:"isMatched,omitempty"`
+	Status    *int32  `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s BusinessMatchResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessMatchResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessMatchResultResponseBody) SetContent(v string) *BusinessMatchResultResponseBody {
+	s.Content = &v
+	return s
+}
+
+func (s *BusinessMatchResultResponseBody) SetIsMatched(v bool) *BusinessMatchResultResponseBody {
+	s.IsMatched = &v
+	return s
+}
+
+func (s *BusinessMatchResultResponseBody) SetStatus(v int32) *BusinessMatchResultResponseBody {
+	s.Status = &v
+	return s
+}
+
+type BusinessMatchResultResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *BusinessMatchResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BusinessMatchResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessMatchResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessMatchResultResponse) SetHeaders(v map[string]*string) *BusinessMatchResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BusinessMatchResultResponse) SetStatusCode(v int32) *BusinessMatchResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BusinessMatchResultResponse) SetBody(v *BusinessMatchResultResponseBody) *BusinessMatchResultResponse {
+	s.Body = v
+	return s
+}
+
 type CampusAddRenterMemberHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -20268,6 +20470,128 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) BusinessMatchWithOptions(request *BusinessMatchRequest, headers *BusinessMatchHeaders, runtime *util.RuntimeOptions) (_result *BusinessMatchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BusinessInfo)) {
+		body["businessInfo"] = request.BusinessInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpName)) {
+		body["corpName"] = request.CorpName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BusinessMatch"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/me/businesses/matching"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BusinessMatchResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BusinessMatch(request *BusinessMatchRequest) (_result *BusinessMatchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BusinessMatchHeaders{}
+	_result = &BusinessMatchResponse{}
+	_body, _err := client.BusinessMatchWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BusinessMatchResultWithOptions(request *BusinessMatchResultRequest, headers *BusinessMatchResultHeaders, runtime *util.RuntimeOptions) (_result *BusinessMatchResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		query["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BusinessMatchResult"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/me/businesses/matchingResults"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BusinessMatchResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BusinessMatchResult(request *BusinessMatchResultRequest) (_result *BusinessMatchResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BusinessMatchResultHeaders{}
+	_result = &BusinessMatchResultResponse{}
+	_body, _err := client.BusinessMatchResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 func (client *Client) CampusAddRenterMemberWithOptions(request *CampusAddRenterMemberRequest, headers *CampusAddRenterMemberHeaders, runtime *util.RuntimeOptions) (_result *CampusAddRenterMemberResponse, _err error) {

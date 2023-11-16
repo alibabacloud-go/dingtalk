@@ -1141,7 +1141,13 @@ func (s *QueryInstancePaymentOrderDetailRequest) SetOrderNo(v string) *QueryInst
 }
 
 type QueryInstancePaymentOrderDetailResponseBody struct {
-	Result *QueryInstancePaymentOrderDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Amount          *string                                                     `json:"amount,omitempty" xml:"amount,omitempty"`
+	InstanceId      *string                                                     `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	PayeeAccountDTO *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTO `json:"payeeAccountDTO,omitempty" xml:"payeeAccountDTO,omitempty" type:"Struct"`
+	PayerAccountDTO *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTO `json:"payerAccountDTO,omitempty" xml:"payerAccountDTO,omitempty" type:"Struct"`
+	Remark          *string                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
+	Usage           *string                                                     `json:"usage,omitempty" xml:"usage,omitempty"`
+	UserId          *string                                                     `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryInstancePaymentOrderDetailResponseBody) String() string {
@@ -1152,82 +1158,60 @@ func (s QueryInstancePaymentOrderDetailResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBody) SetResult(v *QueryInstancePaymentOrderDetailResponseBodyResult) *QueryInstancePaymentOrderDetailResponseBody {
-	s.Result = v
-	return s
-}
-
-type QueryInstancePaymentOrderDetailResponseBodyResult struct {
-	Amount          *string                                                           `json:"amount,omitempty" xml:"amount,omitempty"`
-	InstanceId      *string                                                           `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	PayeeAccountDTO *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO `json:"payeeAccountDTO,omitempty" xml:"payeeAccountDTO,omitempty" type:"Struct"`
-	PayerAccountDTO *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO `json:"payerAccountDTO,omitempty" xml:"payerAccountDTO,omitempty" type:"Struct"`
-	Remark          *string                                                           `json:"remark,omitempty" xml:"remark,omitempty"`
-	Usage           *string                                                           `json:"usage,omitempty" xml:"usage,omitempty"`
-	UserId          *string                                                           `json:"userId,omitempty" xml:"userId,omitempty"`
-}
-
-func (s QueryInstancePaymentOrderDetailResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryInstancePaymentOrderDetailResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetAmount(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+func (s *QueryInstancePaymentOrderDetailResponseBody) SetAmount(v string) *QueryInstancePaymentOrderDetailResponseBody {
 	s.Amount = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetInstanceId(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+func (s *QueryInstancePaymentOrderDetailResponseBody) SetInstanceId(v string) *QueryInstancePaymentOrderDetailResponseBody {
 	s.InstanceId = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetPayeeAccountDTO(v *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO) *QueryInstancePaymentOrderDetailResponseBodyResult {
+func (s *QueryInstancePaymentOrderDetailResponseBody) SetPayeeAccountDTO(v *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTO) *QueryInstancePaymentOrderDetailResponseBody {
 	s.PayeeAccountDTO = v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetPayerAccountDTO(v *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) *QueryInstancePaymentOrderDetailResponseBodyResult {
+func (s *QueryInstancePaymentOrderDetailResponseBody) SetPayerAccountDTO(v *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTO) *QueryInstancePaymentOrderDetailResponseBody {
 	s.PayerAccountDTO = v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetRemark(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+func (s *QueryInstancePaymentOrderDetailResponseBody) SetRemark(v string) *QueryInstancePaymentOrderDetailResponseBody {
 	s.Remark = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetUsage(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+func (s *QueryInstancePaymentOrderDetailResponseBody) SetUsage(v string) *QueryInstancePaymentOrderDetailResponseBody {
 	s.Usage = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResult) SetUserId(v string) *QueryInstancePaymentOrderDetailResponseBodyResult {
+func (s *QueryInstancePaymentOrderDetailResponseBody) SetUserId(v string) *QueryInstancePaymentOrderDetailResponseBody {
 	s.UserId = &v
 	return s
 }
 
-type QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO struct {
-	BankOpenDTO *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO `json:"bankOpenDTO,omitempty" xml:"bankOpenDTO,omitempty" type:"Struct"`
+type QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTO struct {
+	BankOpenDTO *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO `json:"bankOpenDTO,omitempty" xml:"bankOpenDTO,omitempty" type:"Struct"`
 }
 
-func (s QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO) String() string {
+func (s QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTO) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO) GoString() string {
+func (s QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTO) GoString() string {
 	return s.String()
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO) SetBankOpenDTO(v *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTO) SetBankOpenDTO(v *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTO {
 	s.BankOpenDTO = v
 	return s
 }
 
-type QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO struct {
+type QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO struct {
+	AccountName    *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
 	BankBranchCode *string `json:"bankBranchCode,omitempty" xml:"bankBranchCode,omitempty"`
 	BankBranchName *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
 	BankCardNo     *string `json:"bankCardNo,omitempty" xml:"bankCardNo,omitempty"`
@@ -1236,68 +1220,74 @@ type QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO
 	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
-func (s QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) String() string {
+func (s QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) GoString() string {
+func (s QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) GoString() string {
 	return s.String()
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankBranchCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) SetAccountName(v string) *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO {
+	s.AccountName = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) SetBankBranchCode(v string) *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO {
 	s.BankBranchCode = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankBranchName(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) SetBankBranchName(v string) *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO {
 	s.BankBranchName = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankCardNo(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) SetBankCardNo(v string) *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO {
 	s.BankCardNo = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) SetBankCode(v string) *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO {
 	s.BankCode = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetBankName(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) SetBankName(v string) *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO {
 	s.BankName = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO) SetType(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayeeAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO) SetType(v string) *QueryInstancePaymentOrderDetailResponseBodyPayeeAccountDTOBankOpenDTO {
 	s.Type = &v
 	return s
 }
 
-type QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO struct {
-	BankOpenDTO           *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO `json:"bankOpenDTO,omitempty" xml:"bankOpenDTO,omitempty" type:"Struct"`
-	EnterpriseAccountCode *string                                                                      `json:"enterpriseAccountCode,omitempty" xml:"enterpriseAccountCode,omitempty"`
+type QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTO struct {
+	BankOpenDTO           *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO `json:"bankOpenDTO,omitempty" xml:"bankOpenDTO,omitempty" type:"Struct"`
+	EnterpriseAccountCode *string                                                                `json:"enterpriseAccountCode,omitempty" xml:"enterpriseAccountCode,omitempty"`
 }
 
-func (s QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) String() string {
+func (s QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTO) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) GoString() string {
+func (s QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTO) GoString() string {
 	return s.String()
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) SetBankOpenDTO(v *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTO) SetBankOpenDTO(v *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTO {
 	s.BankOpenDTO = v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO) SetEnterpriseAccountCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTO) SetEnterpriseAccountCode(v string) *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTO {
 	s.EnterpriseAccountCode = &v
 	return s
 }
 
-type QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO struct {
+type QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO struct {
+	AccountName    *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
 	BankBranchCode *string `json:"bankBranchCode,omitempty" xml:"bankBranchCode,omitempty"`
 	BankBranchName *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
 	BankCardNo     *string `json:"bankCardNo,omitempty" xml:"bankCardNo,omitempty"`
@@ -1306,40 +1296,45 @@ type QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO
 	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
-func (s QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) String() string {
+func (s QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) GoString() string {
+func (s QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) GoString() string {
 	return s.String()
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankBranchCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) SetAccountName(v string) *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO {
+	s.AccountName = &v
+	return s
+}
+
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) SetBankBranchCode(v string) *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO {
 	s.BankBranchCode = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankBranchName(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) SetBankBranchName(v string) *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO {
 	s.BankBranchName = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankCardNo(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) SetBankCardNo(v string) *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO {
 	s.BankCardNo = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankCode(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) SetBankCode(v string) *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO {
 	s.BankCode = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetBankName(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) SetBankName(v string) *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO {
 	s.BankName = &v
 	return s
 }
 
-func (s *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO) SetType(v string) *QueryInstancePaymentOrderDetailResponseBodyResultPayerAccountDTOBankOpenDTO {
+func (s *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO) SetType(v string) *QueryInstancePaymentOrderDetailResponseBodyPayerAccountDTOBankOpenDTO {
 	s.Type = &v
 	return s
 }

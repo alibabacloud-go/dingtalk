@@ -8910,8 +8910,7 @@ func (s *GetPointActionRecordHeaders) SetXAcsDingtalkAccessToken(v string) *GetP
 }
 
 type GetPointActionRecordRequest struct {
-	BizId     *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	PointType *string `json:"pointType,omitempty" xml:"pointType,omitempty"`
+	Body *GetPointActionRecordRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Struct"`
 }
 
 func (s GetPointActionRecordRequest) String() string {
@@ -8922,13 +8921,54 @@ func (s GetPointActionRecordRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetPointActionRecordRequest) SetBizId(v string) *GetPointActionRecordRequest {
+func (s *GetPointActionRecordRequest) SetBody(v *GetPointActionRecordRequestBody) *GetPointActionRecordRequest {
+	s.Body = v
+	return s
+}
+
+type GetPointActionRecordRequestBody struct {
+	BizId     *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	OwnerId   *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	PointType *string `json:"pointType,omitempty" xml:"pointType,omitempty"`
+}
+
+func (s GetPointActionRecordRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointActionRecordRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointActionRecordRequestBody) SetBizId(v string) *GetPointActionRecordRequestBody {
 	s.BizId = &v
 	return s
 }
 
-func (s *GetPointActionRecordRequest) SetPointType(v string) *GetPointActionRecordRequest {
+func (s *GetPointActionRecordRequestBody) SetOwnerId(v string) *GetPointActionRecordRequestBody {
+	s.OwnerId = &v
+	return s
+}
+
+func (s *GetPointActionRecordRequestBody) SetPointType(v string) *GetPointActionRecordRequestBody {
 	s.PointType = &v
+	return s
+}
+
+type GetPointActionRecordShrinkRequest struct {
+	BodyShrink *string `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetPointActionRecordShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPointActionRecordShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPointActionRecordShrinkRequest) SetBodyShrink(v string) *GetPointActionRecordShrinkRequest {
+	s.BodyShrink = &v
 	return s
 }
 
@@ -23206,18 +23246,20 @@ func (client *Client) GetOpenCourses(request *GetOpenCoursesRequest) (_result *G
 	return _result, _err
 }
 
-func (client *Client) GetPointActionRecordWithOptions(request *GetPointActionRecordRequest, headers *GetPointActionRecordHeaders, runtime *util.RuntimeOptions) (_result *GetPointActionRecordResponse, _err error) {
-	_err = util.ValidateModel(request)
+func (client *Client) GetPointActionRecordWithOptions(tmpReq *GetPointActionRecordRequest, headers *GetPointActionRecordHeaders, runtime *util.RuntimeOptions) (_result *GetPointActionRecordResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.BizId)) {
-		query["bizId"] = request.BizId
+	request := &GetPointActionRecordShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.Body)) {
+		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Body, tea.String("body"), tea.String("json"))
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.PointType)) {
-		query["pointType"] = request.PointType
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BodyShrink)) {
+		query["body"] = request.BodyShrink
 	}
 
 	realHeaders := make(map[string]*string)
