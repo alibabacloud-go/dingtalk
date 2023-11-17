@@ -2152,17 +2152,17 @@ type CardGetCardResponseBodyResult struct {
 	ClassNames                      []*string `json:"classNames,omitempty" xml:"classNames,omitempty" type:"Repeated"`
 	Content                         *string   `json:"content,omitempty" xml:"content,omitempty"`
 	CorpId                          *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	EffectTime                      *int64    `json:"effectTime,omitempty" xml:"effectTime,omitempty"`
+	EffectTime                      *string   `json:"effectTime,omitempty" xml:"effectTime,omitempty"`
 	Finished                        *bool     `json:"finished,omitempty" xml:"finished,omitempty"`
 	Media                           *string   `json:"media,omitempty" xml:"media,omitempty"`
-	OptEndTime                      *int64    `json:"optEndTime,omitempty" xml:"optEndTime,omitempty"`
+	OptEndTime                      *string   `json:"optEndTime,omitempty" xml:"optEndTime,omitempty"`
 	OptEndUserId                    *string   `json:"optEndUserId,omitempty" xml:"optEndUserId,omitempty"`
 	OptEndUserName                  *string   `json:"optEndUserName,omitempty" xml:"optEndUserName,omitempty"`
 	RemindNotPunchCardHour          *int32    `json:"remindNotPunchCardHour,omitempty" xml:"remindNotPunchCardHour,omitempty"`
 	RemindNotPunchCardMinute        *int32    `json:"remindNotPunchCardMinute,omitempty" xml:"remindNotPunchCardMinute,omitempty"`
-	SendTime                        *int64    `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	SendTime                        *string   `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
 	SourceType                      *string   `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
-	StartTime                       *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	StartTime                       *string   `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	Status                          *int32    `json:"status,omitempty" xml:"status,omitempty"`
 	SystemTime                      *int64    `json:"systemTime,omitempty" xml:"systemTime,omitempty"`
 	TeacherId                       *string   `json:"teacherId,omitempty" xml:"teacherId,omitempty"`
@@ -2270,7 +2270,7 @@ func (s *CardGetCardResponseBodyResult) SetCorpId(v string) *CardGetCardResponse
 	return s
 }
 
-func (s *CardGetCardResponseBodyResult) SetEffectTime(v int64) *CardGetCardResponseBodyResult {
+func (s *CardGetCardResponseBodyResult) SetEffectTime(v string) *CardGetCardResponseBodyResult {
 	s.EffectTime = &v
 	return s
 }
@@ -2285,7 +2285,7 @@ func (s *CardGetCardResponseBodyResult) SetMedia(v string) *CardGetCardResponseB
 	return s
 }
 
-func (s *CardGetCardResponseBodyResult) SetOptEndTime(v int64) *CardGetCardResponseBodyResult {
+func (s *CardGetCardResponseBodyResult) SetOptEndTime(v string) *CardGetCardResponseBodyResult {
 	s.OptEndTime = &v
 	return s
 }
@@ -2310,7 +2310,7 @@ func (s *CardGetCardResponseBodyResult) SetRemindNotPunchCardMinute(v int32) *Ca
 	return s
 }
 
-func (s *CardGetCardResponseBodyResult) SetSendTime(v int64) *CardGetCardResponseBodyResult {
+func (s *CardGetCardResponseBodyResult) SetSendTime(v string) *CardGetCardResponseBodyResult {
 	s.SendTime = &v
 	return s
 }
@@ -2320,7 +2320,7 @@ func (s *CardGetCardResponseBodyResult) SetSourceType(v string) *CardGetCardResp
 	return s
 }
 
-func (s *CardGetCardResponseBodyResult) SetStartTime(v int64) *CardGetCardResponseBodyResult {
+func (s *CardGetCardResponseBodyResult) SetStartTime(v string) *CardGetCardResponseBodyResult {
 	s.StartTime = &v
 	return s
 }

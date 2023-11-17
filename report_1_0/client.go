@@ -282,6 +282,181 @@ func (s *CreateTemplatesResponse) SetBody(v *CreateTemplatesResponseBody) *Creat
 	return s
 }
 
+type GetSendAndReceiveReportListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSendAndReceiveReportListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSendAndReceiveReportListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSendAndReceiveReportListHeaders) SetCommonHeaders(v map[string]*string) *GetSendAndReceiveReportListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListHeaders) SetXAcsDingtalkAccessToken(v string) *GetSendAndReceiveReportListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSendAndReceiveReportListRequest struct {
+	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	MaxResults      *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken       *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OperationUserId *string `json:"operationUserId,omitempty" xml:"operationUserId,omitempty"`
+	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s GetSendAndReceiveReportListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSendAndReceiveReportListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSendAndReceiveReportListRequest) SetEndTime(v int64) *GetSendAndReceiveReportListRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListRequest) SetMaxResults(v int32) *GetSendAndReceiveReportListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListRequest) SetNextToken(v int64) *GetSendAndReceiveReportListRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListRequest) SetOperationUserId(v string) *GetSendAndReceiveReportListRequest {
+	s.OperationUserId = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListRequest) SetStartTime(v int64) *GetSendAndReceiveReportListRequest {
+	s.StartTime = &v
+	return s
+}
+
+type GetSendAndReceiveReportListResponseBody struct {
+	DataList   []*GetSendAndReceiveReportListResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	HasMore    *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	MaxResults *int32                                             `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64                                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetSendAndReceiveReportListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSendAndReceiveReportListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSendAndReceiveReportListResponseBody) SetDataList(v []*GetSendAndReceiveReportListResponseBodyDataList) *GetSendAndReceiveReportListResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponseBody) SetHasMore(v bool) *GetSendAndReceiveReportListResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponseBody) SetMaxResults(v int32) *GetSendAndReceiveReportListResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponseBody) SetNextToken(v int64) *GetSendAndReceiveReportListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type GetSendAndReceiveReportListResponseBodyDataList struct {
+	CreateTime   *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorId    *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CreatorName  *string `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	ModifiedTime *int64  `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	ReportId     *string `json:"reportId,omitempty" xml:"reportId,omitempty"`
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
+}
+
+func (s GetSendAndReceiveReportListResponseBodyDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSendAndReceiveReportListResponseBodyDataList) GoString() string {
+	return s.String()
+}
+
+func (s *GetSendAndReceiveReportListResponseBodyDataList) SetCreateTime(v int64) *GetSendAndReceiveReportListResponseBodyDataList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponseBodyDataList) SetCreatorId(v string) *GetSendAndReceiveReportListResponseBodyDataList {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponseBodyDataList) SetCreatorName(v string) *GetSendAndReceiveReportListResponseBodyDataList {
+	s.CreatorName = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponseBodyDataList) SetModifiedTime(v int64) *GetSendAndReceiveReportListResponseBodyDataList {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponseBodyDataList) SetReportId(v string) *GetSendAndReceiveReportListResponseBodyDataList {
+	s.ReportId = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponseBodyDataList) SetTemplateName(v string) *GetSendAndReceiveReportListResponseBodyDataList {
+	s.TemplateName = &v
+	return s
+}
+
+type GetSendAndReceiveReportListResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSendAndReceiveReportListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSendAndReceiveReportListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSendAndReceiveReportListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSendAndReceiveReportListResponse) SetHeaders(v map[string]*string) *GetSendAndReceiveReportListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponse) SetStatusCode(v int32) *GetSendAndReceiveReportListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSendAndReceiveReportListResponse) SetBody(v *GetSendAndReceiveReportListResponseBody) *GetSendAndReceiveReportListResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -415,6 +590,77 @@ func (client *Client) CreateTemplates(request *CreateTemplatesRequest) (_result 
 	headers := &CreateTemplatesHeaders{}
 	_result = &CreateTemplatesResponse{}
 	_body, _err := client.CreateTemplatesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSendAndReceiveReportListWithOptions(request *GetSendAndReceiveReportListRequest, headers *GetSendAndReceiveReportListHeaders, runtime *util.RuntimeOptions) (_result *GetSendAndReceiveReportListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperationUserId)) {
+		query["operationUserId"] = request.OperationUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSendAndReceiveReportList"),
+		Version:     tea.String("report_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/report/users/sendAndReceiveLists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSendAndReceiveReportListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSendAndReceiveReportList(request *GetSendAndReceiveReportListRequest) (_result *GetSendAndReceiveReportListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSendAndReceiveReportListHeaders{}
+	_result = &GetSendAndReceiveReportListResponse{}
+	_body, _err := client.GetSendAndReceiveReportListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
