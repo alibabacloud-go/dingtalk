@@ -13,6 +13,35 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type UserMapValue struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s UserMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *UserMapValue) SetUserId(v string) *UserMapValue {
+	s.UserId = &v
+	return s
+}
+
+func (s *UserMapValue) SetName(v string) *UserMapValue {
+	s.Name = &v
+	return s
+}
+
+func (s *UserMapValue) SetDeptId(v string) *UserMapValue {
+	s.DeptId = &v
+	return s
+}
+
 type CreateTemplatesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -457,6 +486,152 @@ func (s *GetSendAndReceiveReportListResponse) SetBody(v *GetSendAndReceiveReport
 	return s
 }
 
+type GetSubmitStatisticsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSubmitStatisticsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSubmitStatisticsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSubmitStatisticsHeaders) SetCommonHeaders(v map[string]*string) *GetSubmitStatisticsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSubmitStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *GetSubmitStatisticsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSubmitStatisticsRequest struct {
+	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OperationUserId *string `json:"operationUserId,omitempty" xml:"operationUserId,omitempty"`
+	RemindId        *int64  `json:"remindId,omitempty" xml:"remindId,omitempty"`
+	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TemplateId      *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s GetSubmitStatisticsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSubmitStatisticsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSubmitStatisticsRequest) SetEndTime(v int64) *GetSubmitStatisticsRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetSubmitStatisticsRequest) SetOperationUserId(v string) *GetSubmitStatisticsRequest {
+	s.OperationUserId = &v
+	return s
+}
+
+func (s *GetSubmitStatisticsRequest) SetRemindId(v int64) *GetSubmitStatisticsRequest {
+	s.RemindId = &v
+	return s
+}
+
+func (s *GetSubmitStatisticsRequest) SetStartTime(v int64) *GetSubmitStatisticsRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetSubmitStatisticsRequest) SetTemplateId(v string) *GetSubmitStatisticsRequest {
+	s.TemplateId = &v
+	return s
+}
+
+type GetSubmitStatisticsResponseBody struct {
+	ShouldRemindTimes *int32                            `json:"shouldRemindTimes,omitempty" xml:"shouldRemindTimes,omitempty"`
+	TemplateName      *string                           `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	UserDeptMap       map[string]*string                `json:"userDeptMap,omitempty" xml:"userDeptMap,omitempty"`
+	UserIdCountMap    map[string]*int64                 `json:"userIdCountMap,omitempty" xml:"userIdCountMap,omitempty"`
+	UserIdStatusMap   map[string]map[string]interface{} `json:"userIdStatusMap,omitempty" xml:"userIdStatusMap,omitempty"`
+	UserIds           []*string                         `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	UserMap           map[string]*UserMapValue          `json:"userMap,omitempty" xml:"userMap,omitempty"`
+}
+
+func (s GetSubmitStatisticsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSubmitStatisticsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSubmitStatisticsResponseBody) SetShouldRemindTimes(v int32) *GetSubmitStatisticsResponseBody {
+	s.ShouldRemindTimes = &v
+	return s
+}
+
+func (s *GetSubmitStatisticsResponseBody) SetTemplateName(v string) *GetSubmitStatisticsResponseBody {
+	s.TemplateName = &v
+	return s
+}
+
+func (s *GetSubmitStatisticsResponseBody) SetUserDeptMap(v map[string]*string) *GetSubmitStatisticsResponseBody {
+	s.UserDeptMap = v
+	return s
+}
+
+func (s *GetSubmitStatisticsResponseBody) SetUserIdCountMap(v map[string]*int64) *GetSubmitStatisticsResponseBody {
+	s.UserIdCountMap = v
+	return s
+}
+
+func (s *GetSubmitStatisticsResponseBody) SetUserIdStatusMap(v map[string]map[string]interface{}) *GetSubmitStatisticsResponseBody {
+	s.UserIdStatusMap = v
+	return s
+}
+
+func (s *GetSubmitStatisticsResponseBody) SetUserIds(v []*string) *GetSubmitStatisticsResponseBody {
+	s.UserIds = v
+	return s
+}
+
+func (s *GetSubmitStatisticsResponseBody) SetUserMap(v map[string]*UserMapValue) *GetSubmitStatisticsResponseBody {
+	s.UserMap = v
+	return s
+}
+
+type GetSubmitStatisticsResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSubmitStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSubmitStatisticsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSubmitStatisticsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSubmitStatisticsResponse) SetHeaders(v map[string]*string) *GetSubmitStatisticsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSubmitStatisticsResponse) SetStatusCode(v int32) *GetSubmitStatisticsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSubmitStatisticsResponse) SetBody(v *GetSubmitStatisticsResponseBody) *GetSubmitStatisticsResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -661,6 +836,77 @@ func (client *Client) GetSendAndReceiveReportList(request *GetSendAndReceiveRepo
 	headers := &GetSendAndReceiveReportListHeaders{}
 	_result = &GetSendAndReceiveReportListResponse{}
 	_body, _err := client.GetSendAndReceiveReportListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSubmitStatisticsWithOptions(request *GetSubmitStatisticsRequest, headers *GetSubmitStatisticsHeaders, runtime *util.RuntimeOptions) (_result *GetSubmitStatisticsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperationUserId)) {
+		query["operationUserId"] = request.OperationUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RemindId)) {
+		query["remindId"] = request.RemindId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		query["templateId"] = request.TemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSubmitStatistics"),
+		Version:     tea.String("report_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/report/submitStatisticalResults"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSubmitStatisticsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSubmitStatistics(request *GetSubmitStatisticsRequest) (_result *GetSubmitStatisticsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSubmitStatisticsHeaders{}
+	_result = &GetSubmitStatisticsResponse{}
+	_body, _err := client.GetSubmitStatisticsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

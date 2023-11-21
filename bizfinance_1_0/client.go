@@ -7600,7 +7600,8 @@ func (s *QueryUserRoleListRequest) SetUserId(v string) *QueryUserRoleListRequest
 }
 
 type QueryUserRoleListResponseBody struct {
-	RoleVOList []*QueryUserRoleListResponseBodyRoleVOList `json:"roleVOList,omitempty" xml:"roleVOList,omitempty" type:"Repeated"`
+	FinanceEmpDeptOpenList []*QueryUserRoleListResponseBodyFinanceEmpDeptOpenList `json:"financeEmpDeptOpenList,omitempty" xml:"financeEmpDeptOpenList,omitempty" type:"Repeated"`
+	RoleVOList             []*QueryUserRoleListResponseBodyRoleVOList             `json:"roleVOList,omitempty" xml:"roleVOList,omitempty" type:"Repeated"`
 }
 
 func (s QueryUserRoleListResponseBody) String() string {
@@ -7611,8 +7612,42 @@ func (s QueryUserRoleListResponseBody) GoString() string {
 	return s.String()
 }
 
+func (s *QueryUserRoleListResponseBody) SetFinanceEmpDeptOpenList(v []*QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) *QueryUserRoleListResponseBody {
+	s.FinanceEmpDeptOpenList = v
+	return s
+}
+
 func (s *QueryUserRoleListResponseBody) SetRoleVOList(v []*QueryUserRoleListResponseBodyRoleVOList) *QueryUserRoleListResponseBody {
 	s.RoleVOList = v
+	return s
+}
+
+type QueryUserRoleListResponseBodyFinanceEmpDeptOpenList struct {
+	DeptId      *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	SuperDeptId *int64  `json:"superDeptId,omitempty" xml:"superDeptId,omitempty"`
+}
+
+func (s QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) SetDeptId(v int64) *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList {
+	s.DeptId = &v
+	return s
+}
+
+func (s *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) SetName(v string) *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) SetSuperDeptId(v int64) *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList {
+	s.SuperDeptId = &v
 	return s
 }
 

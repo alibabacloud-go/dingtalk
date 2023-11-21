@@ -3323,8 +3323,7 @@ func (s *QueryUserOnGoingConferenceHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryUserOnGoingConferenceRequest struct {
-	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
-	UnionId         *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryUserOnGoingConferenceRequest) String() string {
@@ -3333,11 +3332,6 @@ func (s QueryUserOnGoingConferenceRequest) String() string {
 
 func (s QueryUserOnGoingConferenceRequest) GoString() string {
 	return s.String()
-}
-
-func (s *QueryUserOnGoingConferenceRequest) SetOperatorUnionId(v string) *QueryUserOnGoingConferenceRequest {
-	s.OperatorUnionId = &v
-	return s
 }
 
 func (s *QueryUserOnGoingConferenceRequest) SetUnionId(v string) *QueryUserOnGoingConferenceRequest {
@@ -5475,10 +5469,6 @@ func (client *Client) QueryUserOnGoingConferenceWithOptions(request *QueryUserOn
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
-		query["operatorUnionId"] = request.OperatorUnionId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
 	}

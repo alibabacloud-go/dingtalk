@@ -559,12 +559,12 @@ func (s *AddOrgAccountOwnnessHeaders) SetXAcsDingtalkAccessToken(v string) *AddO
 }
 
 type AddOrgAccountOwnnessRequest struct {
-	EndTime     *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	OwnenssType *int64   `json:"ownenssType,omitempty" xml:"ownenssType,omitempty"`
-	OwnnessId   *int64   `json:"ownnessId,omitempty" xml:"ownnessId,omitempty"`
-	StartTime   *float32 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Text        *string  `json:"text,omitempty" xml:"text,omitempty"`
-	UserId      *string  `json:"userId,omitempty" xml:"userId,omitempty"`
+	EndTime     *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OwnenssType *int64  `json:"ownenssType,omitempty" xml:"ownenssType,omitempty"`
+	OwnnessId   *int64  `json:"ownnessId,omitempty" xml:"ownnessId,omitempty"`
+	StartTime   *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Text        *string `json:"text,omitempty" xml:"text,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddOrgAccountOwnnessRequest) String() string {
@@ -590,7 +590,7 @@ func (s *AddOrgAccountOwnnessRequest) SetOwnnessId(v int64) *AddOrgAccountOwnnes
 	return s
 }
 
-func (s *AddOrgAccountOwnnessRequest) SetStartTime(v float32) *AddOrgAccountOwnnessRequest {
+func (s *AddOrgAccountOwnnessRequest) SetStartTime(v int64) *AddOrgAccountOwnnessRequest {
 	s.StartTime = &v
 	return s
 }

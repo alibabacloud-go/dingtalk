@@ -1690,14 +1690,14 @@ type CardBatchQueryCardsResponseBodyResultCards struct {
 	CardStatus     *int32  `json:"cardStatus,omitempty" xml:"cardStatus,omitempty"`
 	Content        *string `json:"content,omitempty" xml:"content,omitempty"`
 	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	EffectTime     *int64  `json:"effectTime,omitempty" xml:"effectTime,omitempty"`
+	EffectTime     *string `json:"effectTime,omitempty" xml:"effectTime,omitempty"`
 	Finished       *bool   `json:"finished,omitempty" xml:"finished,omitempty"`
-	GmtCreate      *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	OptEndTime     *int64  `json:"optEndTime,omitempty" xml:"optEndTime,omitempty"`
+	GmtCreate      *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	OptEndTime     *string `json:"optEndTime,omitempty" xml:"optEndTime,omitempty"`
 	OptEndUserId   *string `json:"optEndUserId,omitempty" xml:"optEndUserId,omitempty"`
 	OptEndUserName *string `json:"optEndUserName,omitempty" xml:"optEndUserName,omitempty"`
-	SendTime       *int64  `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
-	StartTime      *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	SendTime       *string `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	StartTime      *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	Status         *int32  `json:"status,omitempty" xml:"status,omitempty"`
 	TeacherId      *string `json:"teacherId,omitempty" xml:"teacherId,omitempty"`
 	TeacherName    *string `json:"teacherName,omitempty" xml:"teacherName,omitempty"`
@@ -1738,7 +1738,7 @@ func (s *CardBatchQueryCardsResponseBodyResultCards) SetCorpId(v string) *CardBa
 	return s
 }
 
-func (s *CardBatchQueryCardsResponseBodyResultCards) SetEffectTime(v int64) *CardBatchQueryCardsResponseBodyResultCards {
+func (s *CardBatchQueryCardsResponseBodyResultCards) SetEffectTime(v string) *CardBatchQueryCardsResponseBodyResultCards {
 	s.EffectTime = &v
 	return s
 }
@@ -1748,12 +1748,12 @@ func (s *CardBatchQueryCardsResponseBodyResultCards) SetFinished(v bool) *CardBa
 	return s
 }
 
-func (s *CardBatchQueryCardsResponseBodyResultCards) SetGmtCreate(v int64) *CardBatchQueryCardsResponseBodyResultCards {
+func (s *CardBatchQueryCardsResponseBodyResultCards) SetGmtCreate(v string) *CardBatchQueryCardsResponseBodyResultCards {
 	s.GmtCreate = &v
 	return s
 }
 
-func (s *CardBatchQueryCardsResponseBodyResultCards) SetOptEndTime(v int64) *CardBatchQueryCardsResponseBodyResultCards {
+func (s *CardBatchQueryCardsResponseBodyResultCards) SetOptEndTime(v string) *CardBatchQueryCardsResponseBodyResultCards {
 	s.OptEndTime = &v
 	return s
 }
@@ -1768,12 +1768,12 @@ func (s *CardBatchQueryCardsResponseBodyResultCards) SetOptEndUserName(v string)
 	return s
 }
 
-func (s *CardBatchQueryCardsResponseBodyResultCards) SetSendTime(v int64) *CardBatchQueryCardsResponseBodyResultCards {
+func (s *CardBatchQueryCardsResponseBodyResultCards) SetSendTime(v string) *CardBatchQueryCardsResponseBodyResultCards {
 	s.SendTime = &v
 	return s
 }
 
-func (s *CardBatchQueryCardsResponseBodyResultCards) SetStartTime(v int64) *CardBatchQueryCardsResponseBodyResultCards {
+func (s *CardBatchQueryCardsResponseBodyResultCards) SetStartTime(v string) *CardBatchQueryCardsResponseBodyResultCards {
 	s.StartTime = &v
 	return s
 }

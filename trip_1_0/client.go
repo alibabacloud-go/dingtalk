@@ -311,6 +311,282 @@ func (s *GetTravelProcessDetailResponse) SetBody(v *GetTravelProcessDetailRespon
 	return s
 }
 
+type PreCheckTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PreCheckTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckTemplateHeaders) SetCommonHeaders(v map[string]*string) *PreCheckTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PreCheckTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *PreCheckTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PreCheckTemplateRequest struct {
+	CustomerCorpId *string `json:"customerCorpId,omitempty" xml:"customerCorpId,omitempty"`
+}
+
+func (s PreCheckTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckTemplateRequest) SetCustomerCorpId(v string) *PreCheckTemplateRequest {
+	s.CustomerCorpId = &v
+	return s
+}
+
+type PreCheckTemplateResponseBody struct {
+	Result  *PreCheckTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PreCheckTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckTemplateResponseBody) SetResult(v *PreCheckTemplateResponseBodyResult) *PreCheckTemplateResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PreCheckTemplateResponseBody) SetSuccess(v bool) *PreCheckTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PreCheckTemplateResponseBodyResult struct {
+	BlockRecords []*PreCheckTemplateResponseBodyResultBlockRecords `json:"blockRecords,omitempty" xml:"blockRecords,omitempty" type:"Repeated"`
+	Pass         *bool                                             `json:"pass,omitempty" xml:"pass,omitempty"`
+}
+
+func (s PreCheckTemplateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckTemplateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckTemplateResponseBodyResult) SetBlockRecords(v []*PreCheckTemplateResponseBodyResultBlockRecords) *PreCheckTemplateResponseBodyResult {
+	s.BlockRecords = v
+	return s
+}
+
+func (s *PreCheckTemplateResponseBodyResult) SetPass(v bool) *PreCheckTemplateResponseBodyResult {
+	s.Pass = &v
+	return s
+}
+
+type PreCheckTemplateResponseBodyResultBlockRecords struct {
+	BlockType *string `json:"blockType,omitempty" xml:"blockType,omitempty"`
+	Reason    *string `json:"reason,omitempty" xml:"reason,omitempty"`
+}
+
+func (s PreCheckTemplateResponseBodyResultBlockRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckTemplateResponseBodyResultBlockRecords) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckTemplateResponseBodyResultBlockRecords) SetBlockType(v string) *PreCheckTemplateResponseBodyResultBlockRecords {
+	s.BlockType = &v
+	return s
+}
+
+func (s *PreCheckTemplateResponseBodyResultBlockRecords) SetReason(v string) *PreCheckTemplateResponseBodyResultBlockRecords {
+	s.Reason = &v
+	return s
+}
+
+type PreCheckTemplateResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PreCheckTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PreCheckTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckTemplateResponse) SetHeaders(v map[string]*string) *PreCheckTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PreCheckTemplateResponse) SetStatusCode(v int32) *PreCheckTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PreCheckTemplateResponse) SetBody(v *PreCheckTemplateResponseBody) *PreCheckTemplateResponse {
+	s.Body = v
+	return s
+}
+
+type QueryTripProcessTemplatesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryTripProcessTemplatesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripProcessTemplatesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripProcessTemplatesHeaders) SetCommonHeaders(v map[string]*string) *QueryTripProcessTemplatesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryTripProcessTemplatesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryTripProcessTemplatesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryTripProcessTemplatesRequest struct {
+	CustomerCorpId *string `json:"customerCorpId,omitempty" xml:"customerCorpId,omitempty"`
+}
+
+func (s QueryTripProcessTemplatesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripProcessTemplatesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripProcessTemplatesRequest) SetCustomerCorpId(v string) *QueryTripProcessTemplatesRequest {
+	s.CustomerCorpId = &v
+	return s
+}
+
+type QueryTripProcessTemplatesResponseBody struct {
+	Result  *QueryTripProcessTemplatesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryTripProcessTemplatesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripProcessTemplatesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripProcessTemplatesResponseBody) SetResult(v *QueryTripProcessTemplatesResponseBodyResult) *QueryTripProcessTemplatesResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryTripProcessTemplatesResponseBody) SetSuccess(v bool) *QueryTripProcessTemplatesResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryTripProcessTemplatesResponseBodyResult struct {
+	Schemas []*QueryTripProcessTemplatesResponseBodyResultSchemas `json:"schemas,omitempty" xml:"schemas,omitempty" type:"Repeated"`
+}
+
+func (s QueryTripProcessTemplatesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripProcessTemplatesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripProcessTemplatesResponseBodyResult) SetSchemas(v []*QueryTripProcessTemplatesResponseBodyResultSchemas) *QueryTripProcessTemplatesResponseBodyResult {
+	s.Schemas = v
+	return s
+}
+
+type QueryTripProcessTemplatesResponseBodyResultSchemas struct {
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s QueryTripProcessTemplatesResponseBodyResultSchemas) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripProcessTemplatesResponseBodyResultSchemas) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripProcessTemplatesResponseBodyResultSchemas) SetProcessCode(v string) *QueryTripProcessTemplatesResponseBodyResultSchemas {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *QueryTripProcessTemplatesResponseBodyResultSchemas) SetProcessName(v string) *QueryTripProcessTemplatesResponseBodyResultSchemas {
+	s.ProcessName = &v
+	return s
+}
+
+func (s *QueryTripProcessTemplatesResponseBodyResultSchemas) SetType(v string) *QueryTripProcessTemplatesResponseBodyResultSchemas {
+	s.Type = &v
+	return s
+}
+
+type QueryTripProcessTemplatesResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *QueryTripProcessTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryTripProcessTemplatesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripProcessTemplatesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripProcessTemplatesResponse) SetHeaders(v map[string]*string) *QueryTripProcessTemplatesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryTripProcessTemplatesResponse) SetStatusCode(v int32) *QueryTripProcessTemplatesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryTripProcessTemplatesResponse) SetBody(v *QueryTripProcessTemplatesResponseBody) *QueryTripProcessTemplatesResponse {
+	s.Body = v
+	return s
+}
+
 type SyncBusinessSignInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1233,6 +1509,127 @@ func (s *SyncTripOrderResponse) SetBody(v *SyncTripOrderResponseBody) *SyncTripO
 	return s
 }
 
+type UpgradeTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpgradeTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeTemplateHeaders) SetCommonHeaders(v map[string]*string) *UpgradeTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpgradeTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *UpgradeTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpgradeTemplateRequest struct {
+	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	ForceUpgrade  *bool   `json:"forceUpgrade,omitempty" xml:"forceUpgrade,omitempty"`
+	TmcCorpId     *string `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
+}
+
+func (s UpgradeTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeTemplateRequest) SetChannelCorpId(v string) *UpgradeTemplateRequest {
+	s.ChannelCorpId = &v
+	return s
+}
+
+func (s *UpgradeTemplateRequest) SetForceUpgrade(v bool) *UpgradeTemplateRequest {
+	s.ForceUpgrade = &v
+	return s
+}
+
+func (s *UpgradeTemplateRequest) SetTmcCorpId(v string) *UpgradeTemplateRequest {
+	s.TmcCorpId = &v
+	return s
+}
+
+type UpgradeTemplateResponseBody struct {
+	Result  *UpgradeTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpgradeTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeTemplateResponseBody) SetResult(v *UpgradeTemplateResponseBodyResult) *UpgradeTemplateResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *UpgradeTemplateResponseBody) SetSuccess(v bool) *UpgradeTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpgradeTemplateResponseBodyResult struct {
+	UpgradeResult *bool `json:"upgradeResult,omitempty" xml:"upgradeResult,omitempty"`
+}
+
+func (s UpgradeTemplateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeTemplateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeTemplateResponseBodyResult) SetUpgradeResult(v bool) *UpgradeTemplateResponseBodyResult {
+	s.UpgradeResult = &v
+	return s
+}
+
+type UpgradeTemplateResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpgradeTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpgradeTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeTemplateResponse) SetHeaders(v map[string]*string) *UpgradeTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpgradeTemplateResponse) SetStatusCode(v int32) *UpgradeTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpgradeTemplateResponse) SetBody(v *UpgradeTemplateResponseBody) *UpgradeTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1310,6 +1707,116 @@ func (client *Client) GetTravelProcessDetail(request *GetTravelProcessDetailRequ
 	headers := &GetTravelProcessDetailHeaders{}
 	_result = &GetTravelProcessDetailResponse{}
 	_body, _err := client.GetTravelProcessDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PreCheckTemplateWithOptions(request *PreCheckTemplateRequest, headers *PreCheckTemplateHeaders, runtime *util.RuntimeOptions) (_result *PreCheckTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomerCorpId)) {
+		body["customerCorpId"] = request.CustomerCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PreCheckTemplate"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/processes/templateUpgrades/preCheck"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PreCheckTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PreCheckTemplate(request *PreCheckTemplateRequest) (_result *PreCheckTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PreCheckTemplateHeaders{}
+	_result = &PreCheckTemplateResponse{}
+	_body, _err := client.PreCheckTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryTripProcessTemplatesWithOptions(request *QueryTripProcessTemplatesRequest, headers *QueryTripProcessTemplatesHeaders, runtime *util.RuntimeOptions) (_result *QueryTripProcessTemplatesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomerCorpId)) {
+		query["customerCorpId"] = request.CustomerCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryTripProcessTemplates"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/processes/templatesDetails"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryTripProcessTemplatesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryTripProcessTemplates(request *QueryTripProcessTemplatesRequest) (_result *QueryTripProcessTemplatesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryTripProcessTemplatesHeaders{}
+	_result = &QueryTripProcessTemplatesResponse{}
+	_body, _err := client.QueryTripProcessTemplatesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1619,6 +2126,69 @@ func (client *Client) SyncTripOrder(request *SyncTripOrderRequest) (_result *Syn
 	headers := &SyncTripOrderHeaders{}
 	_result = &SyncTripOrderResponse{}
 	_body, _err := client.SyncTripOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpgradeTemplateWithOptions(request *UpgradeTemplateRequest, headers *UpgradeTemplateHeaders, runtime *util.RuntimeOptions) (_result *UpgradeTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCorpId)) {
+		body["channelCorpId"] = request.ChannelCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ForceUpgrade)) {
+		body["forceUpgrade"] = request.ForceUpgrade
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TmcCorpId)) {
+		body["tmcCorpId"] = request.TmcCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpgradeTemplate"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/process/templates/upgrade"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpgradeTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpgradeTemplate(request *UpgradeTemplateRequest) (_result *UpgradeTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpgradeTemplateHeaders{}
+	_result = &UpgradeTemplateResponse{}
+	_body, _err := client.UpgradeTemplateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
