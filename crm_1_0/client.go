@@ -7992,6 +7992,174 @@ func (s *GetGroupSetResponse) SetBody(v *GetGroupSetResponseBody) *GetGroupSetRe
 	return s
 }
 
+type GetNavigationCatalogHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetNavigationCatalogHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNavigationCatalogHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetNavigationCatalogHeaders) SetCommonHeaders(v map[string]*string) *GetNavigationCatalogHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetNavigationCatalogHeaders) SetXAcsDingtalkAccessToken(v string) *GetNavigationCatalogHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetNavigationCatalogRequest struct {
+	BizTraceId     *string `json:"bizTraceId,omitempty" xml:"bizTraceId,omitempty"`
+	Module         *string `json:"module,omitempty" xml:"module,omitempty"`
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s GetNavigationCatalogRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNavigationCatalogRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetNavigationCatalogRequest) SetBizTraceId(v string) *GetNavigationCatalogRequest {
+	s.BizTraceId = &v
+	return s
+}
+
+func (s *GetNavigationCatalogRequest) SetModule(v string) *GetNavigationCatalogRequest {
+	s.Module = &v
+	return s
+}
+
+func (s *GetNavigationCatalogRequest) SetOperatorUserId(v string) *GetNavigationCatalogRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type GetNavigationCatalogResponseBody struct {
+	Result *GetNavigationCatalogResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetNavigationCatalogResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNavigationCatalogResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetNavigationCatalogResponseBody) SetResult(v *GetNavigationCatalogResponseBodyResult) *GetNavigationCatalogResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetNavigationCatalogResponseBodyResult struct {
+	BizTraceId *string                                             `json:"bizTraceId,omitempty" xml:"bizTraceId,omitempty"`
+	Module     *string                                             `json:"module,omitempty" xml:"module,omitempty"`
+	NavCatalog []*GetNavigationCatalogResponseBodyResultNavCatalog `json:"navCatalog,omitempty" xml:"navCatalog,omitempty" type:"Repeated"`
+}
+
+func (s GetNavigationCatalogResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNavigationCatalogResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetNavigationCatalogResponseBodyResult) SetBizTraceId(v string) *GetNavigationCatalogResponseBodyResult {
+	s.BizTraceId = &v
+	return s
+}
+
+func (s *GetNavigationCatalogResponseBodyResult) SetModule(v string) *GetNavigationCatalogResponseBodyResult {
+	s.Module = &v
+	return s
+}
+
+func (s *GetNavigationCatalogResponseBodyResult) SetNavCatalog(v []*GetNavigationCatalogResponseBodyResultNavCatalog) *GetNavigationCatalogResponseBodyResult {
+	s.NavCatalog = v
+	return s
+}
+
+type GetNavigationCatalogResponseBodyResultNavCatalog struct {
+	Children interface{} `json:"children,omitempty" xml:"children,omitempty"`
+	NavCode  *string     `json:"navCode,omitempty" xml:"navCode,omitempty"`
+	NavId    *string     `json:"navId,omitempty" xml:"navId,omitempty"`
+	NavName  *string     `json:"navName,omitempty" xml:"navName,omitempty"`
+	NavType  *string     `json:"navType,omitempty" xml:"navType,omitempty"`
+}
+
+func (s GetNavigationCatalogResponseBodyResultNavCatalog) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNavigationCatalogResponseBodyResultNavCatalog) GoString() string {
+	return s.String()
+}
+
+func (s *GetNavigationCatalogResponseBodyResultNavCatalog) SetChildren(v interface{}) *GetNavigationCatalogResponseBodyResultNavCatalog {
+	s.Children = v
+	return s
+}
+
+func (s *GetNavigationCatalogResponseBodyResultNavCatalog) SetNavCode(v string) *GetNavigationCatalogResponseBodyResultNavCatalog {
+	s.NavCode = &v
+	return s
+}
+
+func (s *GetNavigationCatalogResponseBodyResultNavCatalog) SetNavId(v string) *GetNavigationCatalogResponseBodyResultNavCatalog {
+	s.NavId = &v
+	return s
+}
+
+func (s *GetNavigationCatalogResponseBodyResultNavCatalog) SetNavName(v string) *GetNavigationCatalogResponseBodyResultNavCatalog {
+	s.NavName = &v
+	return s
+}
+
+func (s *GetNavigationCatalogResponseBodyResultNavCatalog) SetNavType(v string) *GetNavigationCatalogResponseBodyResultNavCatalog {
+	s.NavType = &v
+	return s
+}
+
+type GetNavigationCatalogResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetNavigationCatalogResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetNavigationCatalogResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNavigationCatalogResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetNavigationCatalogResponse) SetHeaders(v map[string]*string) *GetNavigationCatalogResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetNavigationCatalogResponse) SetStatusCode(v int32) *GetNavigationCatalogResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetNavigationCatalogResponse) SetBody(v *GetNavigationCatalogResponseBody) *GetNavigationCatalogResponse {
+	s.Body = v
+	return s
+}
+
 type GetOfficialAccountContactInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11736,6 +11904,258 @@ func (s *UpdateGroupSetResponse) SetBody(v bool) *UpdateGroupSetResponse {
 	return s
 }
 
+type UpdateMenuDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateMenuDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMenuDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMenuDataHeaders) SetCommonHeaders(v map[string]*string) *UpdateMenuDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateMenuDataHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateMenuDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateMenuDataRequest struct {
+	Attr           map[string]interface{}        `json:"attr,omitempty" xml:"attr,omitempty"`
+	BizTraceId     *string                       `json:"bizTraceId,omitempty" xml:"bizTraceId,omitempty"`
+	Module         *string                       `json:"module,omitempty" xml:"module,omitempty"`
+	NavData        *UpdateMenuDataRequestNavData `json:"navData,omitempty" xml:"navData,omitempty" type:"Struct"`
+	OperateType    *string                       `json:"operateType,omitempty" xml:"operateType,omitempty"`
+	OperatorUserId *string                       `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s UpdateMenuDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMenuDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMenuDataRequest) SetAttr(v map[string]interface{}) *UpdateMenuDataRequest {
+	s.Attr = v
+	return s
+}
+
+func (s *UpdateMenuDataRequest) SetBizTraceId(v string) *UpdateMenuDataRequest {
+	s.BizTraceId = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequest) SetModule(v string) *UpdateMenuDataRequest {
+	s.Module = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequest) SetNavData(v *UpdateMenuDataRequestNavData) *UpdateMenuDataRequest {
+	s.NavData = v
+	return s
+}
+
+func (s *UpdateMenuDataRequest) SetOperateType(v string) *UpdateMenuDataRequest {
+	s.OperateType = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequest) SetOperatorUserId(v string) *UpdateMenuDataRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type UpdateMenuDataRequestNavData struct {
+	DisplayStatus       *string                                 `json:"displayStatus,omitempty" xml:"displayStatus,omitempty"`
+	Icon                *string                                 `json:"icon,omitempty" xml:"icon,omitempty"`
+	IconBgColor         *string                                 `json:"iconBgColor,omitempty" xml:"iconBgColor,omitempty"`
+	IconColor           *string                                 `json:"iconColor,omitempty" xml:"iconColor,omitempty"`
+	IntegrationProtocol *string                                 `json:"integrationProtocol,omitempty" xml:"integrationProtocol,omitempty"`
+	MobileNavName       *string                                 `json:"mobileNavName,omitempty" xml:"mobileNavName,omitempty"`
+	MobileUrl           *string                                 `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	NavCode             *string                                 `json:"navCode,omitempty" xml:"navCode,omitempty"`
+	NavExtInfo          *UpdateMenuDataRequestNavDataNavExtInfo `json:"navExtInfo,omitempty" xml:"navExtInfo,omitempty" type:"Struct"`
+	NavId               *string                                 `json:"navId,omitempty" xml:"navId,omitempty"`
+	NavName             *string                                 `json:"navName,omitempty" xml:"navName,omitempty"`
+	NavStatus           *string                                 `json:"navStatus,omitempty" xml:"navStatus,omitempty"`
+	NavType             *string                                 `json:"navType,omitempty" xml:"navType,omitempty"`
+	ParentNavId         *string                                 `json:"parentNavId,omitempty" xml:"parentNavId,omitempty"`
+	Provider            *string                                 `json:"provider,omitempty" xml:"provider,omitempty"`
+	SortNum             *int32                                  `json:"sortNum,omitempty" xml:"sortNum,omitempty"`
+	Url                 *string                                 `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s UpdateMenuDataRequestNavData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMenuDataRequestNavData) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMenuDataRequestNavData) SetDisplayStatus(v string) *UpdateMenuDataRequestNavData {
+	s.DisplayStatus = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetIcon(v string) *UpdateMenuDataRequestNavData {
+	s.Icon = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetIconBgColor(v string) *UpdateMenuDataRequestNavData {
+	s.IconBgColor = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetIconColor(v string) *UpdateMenuDataRequestNavData {
+	s.IconColor = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetIntegrationProtocol(v string) *UpdateMenuDataRequestNavData {
+	s.IntegrationProtocol = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetMobileNavName(v string) *UpdateMenuDataRequestNavData {
+	s.MobileNavName = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetMobileUrl(v string) *UpdateMenuDataRequestNavData {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetNavCode(v string) *UpdateMenuDataRequestNavData {
+	s.NavCode = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetNavExtInfo(v *UpdateMenuDataRequestNavDataNavExtInfo) *UpdateMenuDataRequestNavData {
+	s.NavExtInfo = v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetNavId(v string) *UpdateMenuDataRequestNavData {
+	s.NavId = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetNavName(v string) *UpdateMenuDataRequestNavData {
+	s.NavName = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetNavStatus(v string) *UpdateMenuDataRequestNavData {
+	s.NavStatus = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetNavType(v string) *UpdateMenuDataRequestNavData {
+	s.NavType = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetParentNavId(v string) *UpdateMenuDataRequestNavData {
+	s.ParentNavId = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetProvider(v string) *UpdateMenuDataRequestNavData {
+	s.Provider = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetSortNum(v int32) *UpdateMenuDataRequestNavData {
+	s.SortNum = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavData) SetUrl(v string) *UpdateMenuDataRequestNavData {
+	s.Url = &v
+	return s
+}
+
+type UpdateMenuDataRequestNavDataNavExtInfo struct {
+	ProductMode *string `json:"productMode,omitempty" xml:"productMode,omitempty"`
+	Provider    *string `json:"provider,omitempty" xml:"provider,omitempty"`
+}
+
+func (s UpdateMenuDataRequestNavDataNavExtInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMenuDataRequestNavDataNavExtInfo) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMenuDataRequestNavDataNavExtInfo) SetProductMode(v string) *UpdateMenuDataRequestNavDataNavExtInfo {
+	s.ProductMode = &v
+	return s
+}
+
+func (s *UpdateMenuDataRequestNavDataNavExtInfo) SetProvider(v string) *UpdateMenuDataRequestNavDataNavExtInfo {
+	s.Provider = &v
+	return s
+}
+
+type UpdateMenuDataResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateMenuDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMenuDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMenuDataResponseBody) SetResult(v string) *UpdateMenuDataResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateMenuDataResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateMenuDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateMenuDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMenuDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMenuDataResponse) SetHeaders(v map[string]*string) *UpdateMenuDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateMenuDataResponse) SetStatusCode(v int32) *UpdateMenuDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateMenuDataResponse) SetBody(v *UpdateMenuDataResponseBody) *UpdateMenuDataResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateRelationMetaFieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -14037,6 +14457,69 @@ func (client *Client) GetGroupSet(request *GetGroupSetRequest) (_result *GetGrou
 	return _result, _err
 }
 
+func (client *Client) GetNavigationCatalogWithOptions(request *GetNavigationCatalogRequest, headers *GetNavigationCatalogHeaders, runtime *util.RuntimeOptions) (_result *GetNavigationCatalogResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizTraceId)) {
+		query["bizTraceId"] = request.BizTraceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Module)) {
+		query["module"] = request.Module
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		query["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetNavigationCatalog"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/navigations/catalogs"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetNavigationCatalogResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetNavigationCatalog(request *GetNavigationCatalogRequest) (_result *GetNavigationCatalogResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetNavigationCatalogHeaders{}
+	_result = &GetNavigationCatalogResponse{}
+	_body, _err := client.GetNavigationCatalogWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetOfficialAccountContactInfoWithOptions(userId *string, headers *GetOfficialAccountContactInfoHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountContactInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -15297,6 +15780,81 @@ func (client *Client) UpdateGroupSet(request *UpdateGroupSetRequest) (_result *U
 	headers := &UpdateGroupSetHeaders{}
 	_result = &UpdateGroupSetResponse{}
 	_body, _err := client.UpdateGroupSetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateMenuDataWithOptions(request *UpdateMenuDataRequest, headers *UpdateMenuDataHeaders, runtime *util.RuntimeOptions) (_result *UpdateMenuDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Attr)) {
+		body["attr"] = request.Attr
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizTraceId)) {
+		body["bizTraceId"] = request.BizTraceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Module)) {
+		body["module"] = request.Module
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NavData)) {
+		body["navData"] = request.NavData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateType)) {
+		body["operateType"] = request.OperateType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateMenuData"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/navigations/menus/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateMenuDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateMenuData(request *UpdateMenuDataRequest) (_result *UpdateMenuDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateMenuDataHeaders{}
+	_result = &UpdateMenuDataResponse{}
+	_body, _err := client.UpdateMenuDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

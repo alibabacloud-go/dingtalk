@@ -7623,9 +7623,10 @@ func (s *QueryUserRoleListResponseBody) SetRoleVOList(v []*QueryUserRoleListResp
 }
 
 type QueryUserRoleListResponseBodyFinanceEmpDeptOpenList struct {
-	DeptId      *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
-	SuperDeptId *int64  `json:"superDeptId,omitempty" xml:"superDeptId,omitempty"`
+	CascadeDeptId *string `json:"cascadeDeptId,omitempty" xml:"cascadeDeptId,omitempty"`
+	DeptId        *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	SuperDeptId   *int64  `json:"superDeptId,omitempty" xml:"superDeptId,omitempty"`
 }
 
 func (s QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) String() string {
@@ -7634,6 +7635,11 @@ func (s QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) String() string {
 
 func (s QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) GoString() string {
 	return s.String()
+}
+
+func (s *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) SetCascadeDeptId(v string) *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList {
+	s.CascadeDeptId = &v
+	return s
 }
 
 func (s *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList) SetDeptId(v int64) *QueryUserRoleListResponseBodyFinanceEmpDeptOpenList {

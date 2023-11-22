@@ -1556,6 +1556,309 @@ func (s *MasterDataTenantQueyResponse) SetBody(v *MasterDataTenantQueyResponseBo
 	return s
 }
 
+type MasterDatasQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MasterDatasQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasQueryHeaders) SetCommonHeaders(v map[string]*string) *MasterDatasQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MasterDatasQueryHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDatasQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MasterDatasQueryRequest struct {
+	BizUK          *string                               `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
+	MaxResults     *int32                                `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *int32                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	QueryParams    []*MasterDatasQueryRequestQueryParams `json:"queryParams,omitempty" xml:"queryParams,omitempty" type:"Repeated"`
+	RelationIds    []*string                             `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
+	ScopeCode      *string                               `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	TenantId       *int64                                `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	ViewEntityCode *string                               `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+}
+
+func (s MasterDatasQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasQueryRequest) SetBizUK(v string) *MasterDatasQueryRequest {
+	s.BizUK = &v
+	return s
+}
+
+func (s *MasterDatasQueryRequest) SetMaxResults(v int32) *MasterDatasQueryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *MasterDatasQueryRequest) SetNextToken(v int32) *MasterDatasQueryRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *MasterDatasQueryRequest) SetQueryParams(v []*MasterDatasQueryRequestQueryParams) *MasterDatasQueryRequest {
+	s.QueryParams = v
+	return s
+}
+
+func (s *MasterDatasQueryRequest) SetRelationIds(v []*string) *MasterDatasQueryRequest {
+	s.RelationIds = v
+	return s
+}
+
+func (s *MasterDatasQueryRequest) SetScopeCode(v string) *MasterDatasQueryRequest {
+	s.ScopeCode = &v
+	return s
+}
+
+func (s *MasterDatasQueryRequest) SetTenantId(v int64) *MasterDatasQueryRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *MasterDatasQueryRequest) SetViewEntityCode(v string) *MasterDatasQueryRequest {
+	s.ViewEntityCode = &v
+	return s
+}
+
+type MasterDatasQueryRequestQueryParams struct {
+	ConditionList []*MasterDatasQueryRequestQueryParamsConditionList `json:"conditionList,omitempty" xml:"conditionList,omitempty" type:"Repeated"`
+	FieldCode     *string                                            `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	JoinType      *string                                            `json:"joinType,omitempty" xml:"joinType,omitempty"`
+}
+
+func (s MasterDatasQueryRequestQueryParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasQueryRequestQueryParams) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasQueryRequestQueryParams) SetConditionList(v []*MasterDatasQueryRequestQueryParamsConditionList) *MasterDatasQueryRequestQueryParams {
+	s.ConditionList = v
+	return s
+}
+
+func (s *MasterDatasQueryRequestQueryParams) SetFieldCode(v string) *MasterDatasQueryRequestQueryParams {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *MasterDatasQueryRequestQueryParams) SetJoinType(v string) *MasterDatasQueryRequestQueryParams {
+	s.JoinType = &v
+	return s
+}
+
+type MasterDatasQueryRequestQueryParamsConditionList struct {
+	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
+	Value   *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s MasterDatasQueryRequestQueryParamsConditionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasQueryRequestQueryParamsConditionList) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasQueryRequestQueryParamsConditionList) SetOperate(v string) *MasterDatasQueryRequestQueryParamsConditionList {
+	s.Operate = &v
+	return s
+}
+
+func (s *MasterDatasQueryRequestQueryParamsConditionList) SetValue(v string) *MasterDatasQueryRequestQueryParamsConditionList {
+	s.Value = &v
+	return s
+}
+
+type MasterDatasQueryResponseBody struct {
+	HasMore   *bool                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *int64                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*MasterDatasQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success   *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
+	Total     *int64                                `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s MasterDatasQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasQueryResponseBody) SetHasMore(v bool) *MasterDatasQueryResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBody) SetNextToken(v int64) *MasterDatasQueryResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBody) SetResult(v []*MasterDatasQueryResponseBodyResult) *MasterDatasQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBody) SetSuccess(v bool) *MasterDatasQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBody) SetTotal(v int64) *MasterDatasQueryResponseBody {
+	s.Total = &v
+	return s
+}
+
+type MasterDatasQueryResponseBodyResult struct {
+	OuterId               *string                                                    `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	RelationId            *string                                                    `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	ScopeCode             *string                                                    `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	ViewEntityCode        *string                                                    `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+	ViewEntityFieldVOList []*MasterDatasQueryResponseBodyResultViewEntityFieldVOList `json:"viewEntityFieldVOList,omitempty" xml:"viewEntityFieldVOList,omitempty" type:"Repeated"`
+}
+
+func (s MasterDatasQueryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasQueryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasQueryResponseBodyResult) SetOuterId(v string) *MasterDatasQueryResponseBodyResult {
+	s.OuterId = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBodyResult) SetRelationId(v string) *MasterDatasQueryResponseBodyResult {
+	s.RelationId = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBodyResult) SetScopeCode(v string) *MasterDatasQueryResponseBodyResult {
+	s.ScopeCode = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBodyResult) SetViewEntityCode(v string) *MasterDatasQueryResponseBodyResult {
+	s.ViewEntityCode = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBodyResult) SetViewEntityFieldVOList(v []*MasterDatasQueryResponseBodyResultViewEntityFieldVOList) *MasterDatasQueryResponseBodyResult {
+	s.ViewEntityFieldVOList = v
+	return s
+}
+
+type MasterDatasQueryResponseBodyResultViewEntityFieldVOList struct {
+	FieldCode   *string                                                             `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FieldDataVO *MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO `json:"fieldDataVO,omitempty" xml:"fieldDataVO,omitempty" type:"Struct"`
+	FieldName   *string                                                             `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldType   *string                                                             `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+}
+
+func (s MasterDatasQueryResponseBodyResultViewEntityFieldVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasQueryResponseBodyResultViewEntityFieldVOList) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasQueryResponseBodyResultViewEntityFieldVOList) SetFieldCode(v string) *MasterDatasQueryResponseBodyResultViewEntityFieldVOList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBodyResultViewEntityFieldVOList) SetFieldDataVO(v *MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) *MasterDatasQueryResponseBodyResultViewEntityFieldVOList {
+	s.FieldDataVO = v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBodyResultViewEntityFieldVOList) SetFieldName(v string) *MasterDatasQueryResponseBodyResultViewEntityFieldVOList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBodyResultViewEntityFieldVOList) SetFieldType(v string) *MasterDatasQueryResponseBodyResultViewEntityFieldVOList {
+	s.FieldType = &v
+	return s
+}
+
+type MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) SetKey(v string) *MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO {
+	s.Key = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) SetValue(v string) *MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO {
+	s.Value = &v
+	return s
+}
+
+type MasterDatasQueryResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *MasterDatasQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s MasterDatasQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasQueryResponse) SetHeaders(v map[string]*string) *MasterDatasQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MasterDatasQueryResponse) SetStatusCode(v int32) *MasterDatasQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *MasterDatasQueryResponse) SetBody(v *MasterDatasQueryResponseBody) *MasterDatasQueryResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCustomEntryProcessesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4209,6 +4512,89 @@ func (client *Client) MasterDataTenantQuey(request *MasterDataTenantQueyRequest)
 	headers := &MasterDataTenantQueyHeaders{}
 	_result = &MasterDataTenantQueyResponse{}
 	_body, _err := client.MasterDataTenantQueyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MasterDatasQueryWithOptions(request *MasterDatasQueryRequest, headers *MasterDatasQueryHeaders, runtime *util.RuntimeOptions) (_result *MasterDatasQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizUK)) {
+		body["bizUK"] = request.BizUK
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryParams)) {
+		body["queryParams"] = request.QueryParams
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationIds)) {
+		body["relationIds"] = request.RelationIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScopeCode)) {
+		body["scopeCode"] = request.ScopeCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TenantId)) {
+		body["tenantId"] = request.TenantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ViewEntityCode)) {
+		body["viewEntityCode"] = request.ViewEntityCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("MasterDatasQuery"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masterDatas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &MasterDatasQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MasterDatasQuery(request *MasterDatasQueryRequest) (_result *MasterDatasQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MasterDatasQueryHeaders{}
+	_result = &MasterDatasQueryResponse{}
+	_body, _err := client.MasterDatasQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
