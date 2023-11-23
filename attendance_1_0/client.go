@@ -2714,6 +2714,272 @@ func (s *GetCheckinRecordByUserResponse) SetBody(v *GetCheckinRecordByUserRespon
 	return s
 }
 
+type GetClassWithDeletedHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetClassWithDeletedHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedHeaders) SetCommonHeaders(v map[string]*string) *GetClassWithDeletedHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetClassWithDeletedHeaders) SetXAcsDingtalkAccessToken(v string) *GetClassWithDeletedHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetClassWithDeletedResponseBody struct {
+	Result *GetClassWithDeletedResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetClassWithDeletedResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedResponseBody) SetResult(v *GetClassWithDeletedResponseBodyResult) *GetClassWithDeletedResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetClassWithDeletedResponseBodyResult struct {
+	ClassId      *int64                                             `json:"classId,omitempty" xml:"classId,omitempty"`
+	ClassSetting *GetClassWithDeletedResponseBodyResultClassSetting `json:"classSetting,omitempty" xml:"classSetting,omitempty" type:"Struct"`
+	CorpId       *string                                            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Name         *string                                            `json:"name,omitempty" xml:"name,omitempty"`
+	Sections     []*GetClassWithDeletedResponseBodyResultSections   `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
+	WorkDays     []*int32                                           `json:"workDays,omitempty" xml:"workDays,omitempty" type:"Repeated"`
+}
+
+func (s GetClassWithDeletedResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedResponseBodyResult) SetClassId(v int64) *GetClassWithDeletedResponseBodyResult {
+	s.ClassId = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResult) SetClassSetting(v *GetClassWithDeletedResponseBodyResultClassSetting) *GetClassWithDeletedResponseBodyResult {
+	s.ClassSetting = v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResult) SetCorpId(v string) *GetClassWithDeletedResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResult) SetName(v string) *GetClassWithDeletedResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResult) SetSections(v []*GetClassWithDeletedResponseBodyResultSections) *GetClassWithDeletedResponseBodyResult {
+	s.Sections = v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResult) SetWorkDays(v []*int32) *GetClassWithDeletedResponseBodyResult {
+	s.WorkDays = v
+	return s
+}
+
+type GetClassWithDeletedResponseBodyResultClassSetting struct {
+	ClassSettingId *int64                                                           `json:"classSettingId,omitempty" xml:"classSettingId,omitempty"`
+	RestTimeList   []*GetClassWithDeletedResponseBodyResultClassSettingRestTimeList `json:"restTimeList,omitempty" xml:"restTimeList,omitempty" type:"Repeated"`
+}
+
+func (s GetClassWithDeletedResponseBodyResultClassSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedResponseBodyResultClassSetting) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedResponseBodyResultClassSetting) SetClassSettingId(v int64) *GetClassWithDeletedResponseBodyResultClassSetting {
+	s.ClassSettingId = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResultClassSetting) SetRestTimeList(v []*GetClassWithDeletedResponseBodyResultClassSettingRestTimeList) *GetClassWithDeletedResponseBodyResultClassSetting {
+	s.RestTimeList = v
+	return s
+}
+
+type GetClassWithDeletedResponseBodyResultClassSettingRestTimeList struct {
+	Begin *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin `json:"begin,omitempty" xml:"begin,omitempty" type:"Struct"`
+	End   *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd   `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+}
+
+func (s GetClassWithDeletedResponseBodyResultClassSettingRestTimeList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedResponseBodyResultClassSettingRestTimeList) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedResponseBodyResultClassSettingRestTimeList) SetBegin(v *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin) *GetClassWithDeletedResponseBodyResultClassSettingRestTimeList {
+	s.Begin = v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResultClassSettingRestTimeList) SetEnd(v *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd) *GetClassWithDeletedResponseBodyResultClassSettingRestTimeList {
+	s.End = v
+	return s
+}
+
+type GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin struct {
+	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+}
+
+func (s GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin) SetAcross(v int32) *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin {
+	s.Across = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin) SetCheckTime(v string) *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin {
+	s.CheckTime = &v
+	return s
+}
+
+type GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd struct {
+	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+}
+
+func (s GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd) SetAcross(v int32) *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd {
+	s.Across = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd) SetCheckTime(v string) *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd {
+	s.CheckTime = &v
+	return s
+}
+
+type GetClassWithDeletedResponseBodyResultSections struct {
+	Times []*GetClassWithDeletedResponseBodyResultSectionsTimes `json:"times,omitempty" xml:"times,omitempty" type:"Repeated"`
+}
+
+func (s GetClassWithDeletedResponseBodyResultSections) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedResponseBodyResultSections) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedResponseBodyResultSections) SetTimes(v []*GetClassWithDeletedResponseBodyResultSectionsTimes) *GetClassWithDeletedResponseBodyResultSections {
+	s.Times = v
+	return s
+}
+
+type GetClassWithDeletedResponseBodyResultSectionsTimes struct {
+	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	BeginMin  *int64  `json:"beginMin,omitempty" xml:"beginMin,omitempty"`
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	CheckType *string `json:"checkType,omitempty" xml:"checkType,omitempty"`
+	EndMin    *int64  `json:"endMin,omitempty" xml:"endMin,omitempty"`
+}
+
+func (s GetClassWithDeletedResponseBodyResultSectionsTimes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedResponseBodyResultSectionsTimes) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedResponseBodyResultSectionsTimes) SetAcross(v int32) *GetClassWithDeletedResponseBodyResultSectionsTimes {
+	s.Across = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResultSectionsTimes) SetBeginMin(v int64) *GetClassWithDeletedResponseBodyResultSectionsTimes {
+	s.BeginMin = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResultSectionsTimes) SetCheckTime(v string) *GetClassWithDeletedResponseBodyResultSectionsTimes {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResultSectionsTimes) SetCheckType(v string) *GetClassWithDeletedResponseBodyResultSectionsTimes {
+	s.CheckType = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponseBodyResultSectionsTimes) SetEndMin(v int64) *GetClassWithDeletedResponseBodyResultSectionsTimes {
+	s.EndMin = &v
+	return s
+}
+
+type GetClassWithDeletedResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetClassWithDeletedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetClassWithDeletedResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassWithDeletedResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassWithDeletedResponse) SetHeaders(v map[string]*string) *GetClassWithDeletedResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetClassWithDeletedResponse) SetStatusCode(v int32) *GetClassWithDeletedResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetClassWithDeletedResponse) SetBody(v *GetClassWithDeletedResponseBody) *GetClassWithDeletedResponse {
+	s.Body = v
+	return s
+}
+
 type GetClosingAccountsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4382,6 +4648,449 @@ func (s *GetShiftResponse) SetStatusCode(v int32) *GetShiftResponse {
 }
 
 func (s *GetShiftResponse) SetBody(v *GetShiftResponseBody) *GetShiftResponse {
+	s.Body = v
+	return s
+}
+
+type GetSimpleGroupsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSimpleGroupsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsHeaders) SetCommonHeaders(v map[string]*string) *GetSimpleGroupsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSimpleGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *GetSimpleGroupsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSimpleGroupsRequest struct {
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetSimpleGroupsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsRequest) SetMaxResults(v int32) *GetSimpleGroupsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetSimpleGroupsRequest) SetNextToken(v int64) *GetSimpleGroupsRequest {
+	s.NextToken = &v
+	return s
+}
+
+type GetSimpleGroupsResponseBody struct {
+	Result *GetSimpleGroupsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetSimpleGroupsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBody) SetResult(v *GetSimpleGroupsResponseBodyResult) *GetSimpleGroupsResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetSimpleGroupsResponseBodyResult struct {
+	Groups  []*GetSimpleGroupsResponseBodyResultGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
+	HasMore *bool                                      `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+}
+
+func (s GetSimpleGroupsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBodyResult) SetGroups(v []*GetSimpleGroupsResponseBodyResultGroups) *GetSimpleGroupsResponseBodyResult {
+	s.Groups = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResult) SetHasMore(v bool) *GetSimpleGroupsResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+type GetSimpleGroupsResponseBodyResultGroups struct {
+	ClassesList                 []*string                                               `json:"classesList,omitempty" xml:"classesList,omitempty" type:"Repeated"`
+	DefaultClassId              *int64                                                  `json:"defaultClassId,omitempty" xml:"defaultClassId,omitempty"`
+	DeptIds                     []*int64                                                `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	DeptNameList                []*string                                               `json:"deptNameList,omitempty" xml:"deptNameList,omitempty" type:"Repeated"`
+	DisableCheckWhenRest        *bool                                                   `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
+	DisableCheckWithoutSchedule *bool                                                   `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
+	EnableEmpSelectClass        *bool                                                   `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
+	FreeCheckDayStartMinOffset  *int32                                                  `json:"freeCheckDayStartMinOffset,omitempty" xml:"freeCheckDayStartMinOffset,omitempty"`
+	FreecheckWorkDays           []*int32                                                `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
+	GroupId                     *int64                                                  `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	GroupName                   *string                                                 `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	IsDefault                   *bool                                                   `json:"isDefault,omitempty" xml:"isDefault,omitempty"`
+	ManagerList                 []*string                                               `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
+	MemberCount                 *int32                                                  `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	OwnerUserId                 *string                                                 `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	SelectedClass               []*GetSimpleGroupsResponseBodyResultGroupsSelectedClass `json:"selectedClass,omitempty" xml:"selectedClass,omitempty" type:"Repeated"`
+	Type                        *string                                                 `json:"type,omitempty" xml:"type,omitempty"`
+	UserIds                     []*string                                               `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	WorkDayList                 []*string                                               `json:"workDayList,omitempty" xml:"workDayList,omitempty" type:"Repeated"`
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroups) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroups) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetClassesList(v []*string) *GetSimpleGroupsResponseBodyResultGroups {
+	s.ClassesList = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetDefaultClassId(v int64) *GetSimpleGroupsResponseBodyResultGroups {
+	s.DefaultClassId = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetDeptIds(v []*int64) *GetSimpleGroupsResponseBodyResultGroups {
+	s.DeptIds = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetDeptNameList(v []*string) *GetSimpleGroupsResponseBodyResultGroups {
+	s.DeptNameList = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetDisableCheckWhenRest(v bool) *GetSimpleGroupsResponseBodyResultGroups {
+	s.DisableCheckWhenRest = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetDisableCheckWithoutSchedule(v bool) *GetSimpleGroupsResponseBodyResultGroups {
+	s.DisableCheckWithoutSchedule = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetEnableEmpSelectClass(v bool) *GetSimpleGroupsResponseBodyResultGroups {
+	s.EnableEmpSelectClass = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetFreeCheckDayStartMinOffset(v int32) *GetSimpleGroupsResponseBodyResultGroups {
+	s.FreeCheckDayStartMinOffset = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetFreecheckWorkDays(v []*int32) *GetSimpleGroupsResponseBodyResultGroups {
+	s.FreecheckWorkDays = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetGroupId(v int64) *GetSimpleGroupsResponseBodyResultGroups {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetGroupName(v string) *GetSimpleGroupsResponseBodyResultGroups {
+	s.GroupName = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetIsDefault(v bool) *GetSimpleGroupsResponseBodyResultGroups {
+	s.IsDefault = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetManagerList(v []*string) *GetSimpleGroupsResponseBodyResultGroups {
+	s.ManagerList = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetMemberCount(v int32) *GetSimpleGroupsResponseBodyResultGroups {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetOwnerUserId(v string) *GetSimpleGroupsResponseBodyResultGroups {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetSelectedClass(v []*GetSimpleGroupsResponseBodyResultGroupsSelectedClass) *GetSimpleGroupsResponseBodyResultGroups {
+	s.SelectedClass = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetType(v string) *GetSimpleGroupsResponseBodyResultGroups {
+	s.Type = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetUserIds(v []*string) *GetSimpleGroupsResponseBodyResultGroups {
+	s.UserIds = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroups) SetWorkDayList(v []*string) *GetSimpleGroupsResponseBodyResultGroups {
+	s.WorkDayList = v
+	return s
+}
+
+type GetSimpleGroupsResponseBodyResultGroupsSelectedClass struct {
+	ClassId   *int64                                                          `json:"classId,omitempty" xml:"classId,omitempty"`
+	ClassName *string                                                         `json:"className,omitempty" xml:"className,omitempty"`
+	Sections  []*GetSimpleGroupsResponseBodyResultGroupsSelectedClassSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
+	Setting   *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting    `json:"setting,omitempty" xml:"setting,omitempty" type:"Struct"`
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClass) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClass) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClass) SetClassId(v int64) *GetSimpleGroupsResponseBodyResultGroupsSelectedClass {
+	s.ClassId = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClass) SetClassName(v string) *GetSimpleGroupsResponseBodyResultGroupsSelectedClass {
+	s.ClassName = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClass) SetSections(v []*GetSimpleGroupsResponseBodyResultGroupsSelectedClassSections) *GetSimpleGroupsResponseBodyResultGroupsSelectedClass {
+	s.Sections = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClass) SetSetting(v *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) *GetSimpleGroupsResponseBodyResultGroupsSelectedClass {
+	s.Setting = v
+	return s
+}
+
+type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSections struct {
+	Times []*GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes `json:"times,omitempty" xml:"times,omitempty" type:"Repeated"`
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSections) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSections) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSections) SetTimes(v []*GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSections {
+	s.Times = v
+	return s
+}
+
+type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes struct {
+	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	CheckType *string `json:"checkType,omitempty" xml:"checkType,omitempty"`
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes) SetAcross(v int32) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes {
+	s.Across = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes) SetCheckTime(v string) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes) SetCheckType(v string) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes {
+	s.CheckType = &v
+	return s
+}
+
+type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting struct {
+	AbsenteeismLateMinutes *int32                                                                     `json:"absenteeismLateMinutes,omitempty" xml:"absenteeismLateMinutes,omitempty"`
+	ClassSettingId         *int64                                                                     `json:"classSettingId,omitempty" xml:"classSettingId,omitempty"`
+	IsOffDutyFreeCheck     *string                                                                    `json:"isOffDutyFreeCheck,omitempty" xml:"isOffDutyFreeCheck,omitempty"`
+	PermitLateMinutes      *int32                                                                     `json:"permitLateMinutes,omitempty" xml:"permitLateMinutes,omitempty"`
+	RestTimeList           []*GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList `json:"restTimeList,omitempty" xml:"restTimeList,omitempty" type:"Repeated"`
+	SeriousLateMinutes     *int32                                                                     `json:"seriousLateMinutes,omitempty" xml:"seriousLateMinutes,omitempty"`
+	WorkTimeMinutes        *int32                                                                     `json:"workTimeMinutes,omitempty" xml:"workTimeMinutes,omitempty"`
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) SetAbsenteeismLateMinutes(v int32) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting {
+	s.AbsenteeismLateMinutes = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) SetClassSettingId(v int64) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting {
+	s.ClassSettingId = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) SetIsOffDutyFreeCheck(v string) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting {
+	s.IsOffDutyFreeCheck = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) SetPermitLateMinutes(v int32) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting {
+	s.PermitLateMinutes = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) SetRestTimeList(v []*GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting {
+	s.RestTimeList = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) SetSeriousLateMinutes(v int32) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting {
+	s.SeriousLateMinutes = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) SetWorkTimeMinutes(v int32) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting {
+	s.WorkTimeMinutes = &v
+	return s
+}
+
+type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList struct {
+	Begin *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin `json:"begin,omitempty" xml:"begin,omitempty" type:"Struct"`
+	End   *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd   `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList) SetBegin(v *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList {
+	s.Begin = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList) SetEnd(v *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList {
+	s.End = v
+	return s
+}
+
+type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin struct {
+	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin) SetAcross(v int32) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin {
+	s.Across = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin) SetCheckTime(v string) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin {
+	s.CheckTime = &v
+	return s
+}
+
+type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd struct {
+	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd) SetAcross(v int32) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd {
+	s.Across = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd) SetCheckTime(v string) *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd {
+	s.CheckTime = &v
+	return s
+}
+
+type GetSimpleGroupsResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetSimpleGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSimpleGroupsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleGroupsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleGroupsResponse) SetHeaders(v map[string]*string) *GetSimpleGroupsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSimpleGroupsResponse) SetStatusCode(v int32) *GetSimpleGroupsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSimpleGroupsResponse) SetBody(v *GetSimpleGroupsResponseBody) *GetSimpleGroupsResponse {
 	s.Body = v
 	return s
 }
@@ -8772,6 +9481,51 @@ func (client *Client) GetCheckinRecordByUser(request *GetCheckinRecordByUserRequ
 	return _result, _err
 }
 
+func (client *Client) GetClassWithDeletedWithOptions(classId *string, headers *GetClassWithDeletedHeaders, runtime *util.RuntimeOptions) (_result *GetClassWithDeletedResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetClassWithDeleted"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/classWithDeleted/" + tea.StringValue(classId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetClassWithDeletedResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetClassWithDeleted(classId *string) (_result *GetClassWithDeletedResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetClassWithDeletedHeaders{}
+	_result = &GetClassWithDeletedResponse{}
+	_body, _err := client.GetClassWithDeletedWithOptions(classId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetClosingAccountsWithOptions(request *GetClosingAccountsRequest, headers *GetClosingAccountsHeaders, runtime *util.RuntimeOptions) (_result *GetClosingAccountsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9168,6 +9922,65 @@ func (client *Client) GetShift(request *GetShiftRequest) (_result *GetShiftRespo
 	headers := &GetShiftHeaders{}
 	_result = &GetShiftResponse{}
 	_body, _err := client.GetShiftWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSimpleGroupsWithOptions(request *GetSimpleGroupsRequest, headers *GetSimpleGroupsHeaders, runtime *util.RuntimeOptions) (_result *GetSimpleGroupsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSimpleGroups"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/groupDetails"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSimpleGroupsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSimpleGroups(request *GetSimpleGroupsRequest) (_result *GetSimpleGroupsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSimpleGroupsHeaders{}
+	_result = &GetSimpleGroupsResponse{}
+	_body, _err := client.GetSimpleGroupsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
