@@ -37,6 +37,7 @@ func (s *GetTravelProcessDetailHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetTravelProcessDetailRequest struct {
+	ProcessCorpId     *string `json:"processCorpId,omitempty" xml:"processCorpId,omitempty"`
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
@@ -46,6 +47,11 @@ func (s GetTravelProcessDetailRequest) String() string {
 
 func (s GetTravelProcessDetailRequest) GoString() string {
 	return s.String()
+}
+
+func (s *GetTravelProcessDetailRequest) SetProcessCorpId(v string) *GetTravelProcessDetailRequest {
+	s.ProcessCorpId = &v
+	return s
 }
 
 func (s *GetTravelProcessDetailRequest) SetProcessInstanceId(v string) *GetTravelProcessDetailRequest {
@@ -1665,6 +1671,10 @@ func (client *Client) GetTravelProcessDetailWithOptions(request *GetTravelProces
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessCorpId)) {
+		query["processCorpId"] = request.ProcessCorpId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
 		query["processInstanceId"] = request.ProcessInstanceId
 	}

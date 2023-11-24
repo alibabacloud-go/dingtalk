@@ -10738,6 +10738,318 @@ func (s *InsertSectionConfigResponse) SetBody(v *InsertSectionConfigResponseBody
 	return s
 }
 
+type IsvDataWriteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IsvDataWriteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvDataWriteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IsvDataWriteHeaders) SetCommonHeaders(v map[string]*string) *IsvDataWriteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IsvDataWriteHeaders) SetXAcsDingtalkAccessToken(v string) *IsvDataWriteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IsvDataWriteRequest struct {
+	ObjectCode   *string                              `json:"objectCode,omitempty" xml:"objectCode,omitempty"`
+	RowValueList [][]*IsvDataWriteRequestRowValueList `json:"rowValueList,omitempty" xml:"rowValueList,omitempty" type:"Repeated"`
+}
+
+func (s IsvDataWriteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvDataWriteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IsvDataWriteRequest) SetObjectCode(v string) *IsvDataWriteRequest {
+	s.ObjectCode = &v
+	return s
+}
+
+func (s *IsvDataWriteRequest) SetRowValueList(v [][]*IsvDataWriteRequestRowValueList) *IsvDataWriteRequest {
+	s.RowValueList = v
+	return s
+}
+
+type IsvDataWriteRequestRowValueList struct {
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s IsvDataWriteRequestRowValueList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvDataWriteRequestRowValueList) GoString() string {
+	return s.String()
+}
+
+func (s *IsvDataWriteRequestRowValueList) SetName(v string) *IsvDataWriteRequestRowValueList {
+	s.Name = &v
+	return s
+}
+
+func (s *IsvDataWriteRequestRowValueList) SetValue(v string) *IsvDataWriteRequestRowValueList {
+	s.Value = &v
+	return s
+}
+
+type IsvDataWriteResponseBody struct {
+	Result  *IsvDataWriteResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s IsvDataWriteResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvDataWriteResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IsvDataWriteResponseBody) SetResult(v *IsvDataWriteResponseBodyResult) *IsvDataWriteResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *IsvDataWriteResponseBody) SetSuccess(v bool) *IsvDataWriteResponseBody {
+	s.Success = &v
+	return s
+}
+
+type IsvDataWriteResponseBodyResult struct {
+	NeedRetry *bool `json:"needRetry,omitempty" xml:"needRetry,omitempty"`
+	Success   *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s IsvDataWriteResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvDataWriteResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *IsvDataWriteResponseBodyResult) SetNeedRetry(v bool) *IsvDataWriteResponseBodyResult {
+	s.NeedRetry = &v
+	return s
+}
+
+func (s *IsvDataWriteResponseBodyResult) SetSuccess(v bool) *IsvDataWriteResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type IsvDataWriteResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *IsvDataWriteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IsvDataWriteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvDataWriteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IsvDataWriteResponse) SetHeaders(v map[string]*string) *IsvDataWriteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IsvDataWriteResponse) SetStatusCode(v int32) *IsvDataWriteResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *IsvDataWriteResponse) SetBody(v *IsvDataWriteResponseBody) *IsvDataWriteResponse {
+	s.Body = v
+	return s
+}
+
+type IsvMetadataQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IsvMetadataQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvMetadataQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IsvMetadataQueryHeaders) SetCommonHeaders(v map[string]*string) *IsvMetadataQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IsvMetadataQueryHeaders) SetXAcsDingtalkAccessToken(v string) *IsvMetadataQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IsvMetadataQueryRequest struct {
+	ObjectCode *string `json:"objectCode,omitempty" xml:"objectCode,omitempty"`
+}
+
+func (s IsvMetadataQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvMetadataQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IsvMetadataQueryRequest) SetObjectCode(v string) *IsvMetadataQueryRequest {
+	s.ObjectCode = &v
+	return s
+}
+
+type IsvMetadataQueryResponseBody struct {
+	Result  *IsvMetadataQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s IsvMetadataQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvMetadataQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IsvMetadataQueryResponseBody) SetResult(v *IsvMetadataQueryResponseBodyResult) *IsvMetadataQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *IsvMetadataQueryResponseBody) SetSuccess(v bool) *IsvMetadataQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type IsvMetadataQueryResponseBodyResult struct {
+	Fields     []*IsvMetadataQueryResponseBodyResultFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	TableCode  *string                                     `json:"tableCode,omitempty" xml:"tableCode,omitempty"`
+	TableExist *bool                                       `json:"tableExist,omitempty" xml:"tableExist,omitempty"`
+}
+
+func (s IsvMetadataQueryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvMetadataQueryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *IsvMetadataQueryResponseBodyResult) SetFields(v []*IsvMetadataQueryResponseBodyResultFields) *IsvMetadataQueryResponseBodyResult {
+	s.Fields = v
+	return s
+}
+
+func (s *IsvMetadataQueryResponseBodyResult) SetTableCode(v string) *IsvMetadataQueryResponseBodyResult {
+	s.TableCode = &v
+	return s
+}
+
+func (s *IsvMetadataQueryResponseBodyResult) SetTableExist(v bool) *IsvMetadataQueryResponseBodyResult {
+	s.TableExist = &v
+	return s
+}
+
+type IsvMetadataQueryResponseBodyResultFields struct {
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	FieldKey    *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	FieldName   *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldType   *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	PrimaryKey  *bool   `json:"primaryKey,omitempty" xml:"primaryKey,omitempty"`
+	Required    *bool   `json:"required,omitempty" xml:"required,omitempty"`
+}
+
+func (s IsvMetadataQueryResponseBodyResultFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvMetadataQueryResponseBodyResultFields) GoString() string {
+	return s.String()
+}
+
+func (s *IsvMetadataQueryResponseBodyResultFields) SetDescription(v string) *IsvMetadataQueryResponseBodyResultFields {
+	s.Description = &v
+	return s
+}
+
+func (s *IsvMetadataQueryResponseBodyResultFields) SetFieldKey(v string) *IsvMetadataQueryResponseBodyResultFields {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *IsvMetadataQueryResponseBodyResultFields) SetFieldName(v string) *IsvMetadataQueryResponseBodyResultFields {
+	s.FieldName = &v
+	return s
+}
+
+func (s *IsvMetadataQueryResponseBodyResultFields) SetFieldType(v string) *IsvMetadataQueryResponseBodyResultFields {
+	s.FieldType = &v
+	return s
+}
+
+func (s *IsvMetadataQueryResponseBodyResultFields) SetPrimaryKey(v bool) *IsvMetadataQueryResponseBodyResultFields {
+	s.PrimaryKey = &v
+	return s
+}
+
+func (s *IsvMetadataQueryResponseBodyResultFields) SetRequired(v bool) *IsvMetadataQueryResponseBodyResultFields {
+	s.Required = &v
+	return s
+}
+
+type IsvMetadataQueryResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *IsvMetadataQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IsvMetadataQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvMetadataQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IsvMetadataQueryResponse) SetHeaders(v map[string]*string) *IsvMetadataQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IsvMetadataQueryResponse) SetStatusCode(v int32) *IsvMetadataQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *IsvMetadataQueryResponse) SetBody(v *IsvMetadataQueryResponseBody) *IsvMetadataQueryResponse {
+	s.Body = v
+	return s
+}
+
 type ListOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -23906,6 +24218,120 @@ func (client *Client) InsertSectionConfig(request *InsertSectionConfigRequest) (
 	headers := &InsertSectionConfigHeaders{}
 	_result = &InsertSectionConfigResponse{}
 	_body, _err := client.InsertSectionConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IsvDataWriteWithOptions(request *IsvDataWriteRequest, headers *IsvDataWriteHeaders, runtime *util.RuntimeOptions) (_result *IsvDataWriteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ObjectCode)) {
+		body["objectCode"] = request.ObjectCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RowValueList)) {
+		body["rowValueList"] = request.RowValueList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("IsvDataWrite"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/datas/write"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &IsvDataWriteResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IsvDataWrite(request *IsvDataWriteRequest) (_result *IsvDataWriteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IsvDataWriteHeaders{}
+	_result = &IsvDataWriteResponse{}
+	_body, _err := client.IsvDataWriteWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IsvMetadataQueryWithOptions(request *IsvMetadataQueryRequest, headers *IsvMetadataQueryHeaders, runtime *util.RuntimeOptions) (_result *IsvMetadataQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ObjectCode)) {
+		query["objectCode"] = request.ObjectCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("IsvMetadataQuery"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/datas/metadatas"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &IsvMetadataQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IsvMetadataQuery(request *IsvMetadataQueryRequest) (_result *IsvMetadataQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IsvMetadataQueryHeaders{}
+	_result = &IsvMetadataQueryResponse{}
+	_body, _err := client.IsvMetadataQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

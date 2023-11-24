@@ -460,6 +460,122 @@ func (s *ECertQueryResponse) SetBody(v *ECertQueryResponseBody) *ECertQueryRespo
 	return s
 }
 
+type EmployeeAttachmentUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EmployeeAttachmentUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmployeeAttachmentUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EmployeeAttachmentUpdateHeaders) SetCommonHeaders(v map[string]*string) *EmployeeAttachmentUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EmployeeAttachmentUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *EmployeeAttachmentUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EmployeeAttachmentUpdateRequest struct {
+	AppAgentId *int64  `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
+	FieldCode  *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FileSuffix *string `json:"fileSuffix,omitempty" xml:"fileSuffix,omitempty"`
+	MediaId    *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s EmployeeAttachmentUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmployeeAttachmentUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EmployeeAttachmentUpdateRequest) SetAppAgentId(v int64) *EmployeeAttachmentUpdateRequest {
+	s.AppAgentId = &v
+	return s
+}
+
+func (s *EmployeeAttachmentUpdateRequest) SetFieldCode(v string) *EmployeeAttachmentUpdateRequest {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *EmployeeAttachmentUpdateRequest) SetFileSuffix(v string) *EmployeeAttachmentUpdateRequest {
+	s.FileSuffix = &v
+	return s
+}
+
+func (s *EmployeeAttachmentUpdateRequest) SetMediaId(v string) *EmployeeAttachmentUpdateRequest {
+	s.MediaId = &v
+	return s
+}
+
+func (s *EmployeeAttachmentUpdateRequest) SetUserId(v string) *EmployeeAttachmentUpdateRequest {
+	s.UserId = &v
+	return s
+}
+
+type EmployeeAttachmentUpdateResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s EmployeeAttachmentUpdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmployeeAttachmentUpdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EmployeeAttachmentUpdateResponseBody) SetResult(v bool) *EmployeeAttachmentUpdateResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *EmployeeAttachmentUpdateResponseBody) SetSuccess(v bool) *EmployeeAttachmentUpdateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type EmployeeAttachmentUpdateResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EmployeeAttachmentUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s EmployeeAttachmentUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmployeeAttachmentUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EmployeeAttachmentUpdateResponse) SetHeaders(v map[string]*string) *EmployeeAttachmentUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EmployeeAttachmentUpdateResponse) SetStatusCode(v int32) *EmployeeAttachmentUpdateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EmployeeAttachmentUpdateResponse) SetBody(v *EmployeeAttachmentUpdateResponseBody) *EmployeeAttachmentUpdateResponse {
+	s.Body = v
+	return s
+}
+
 type EsignRollbackHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4038,6 +4154,79 @@ func (client *Client) ECertQuery(request *ECertQueryRequest) (_result *ECertQuer
 	headers := &ECertQueryHeaders{}
 	_result = &ECertQueryResponse{}
 	_body, _err := client.ECertQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) EmployeeAttachmentUpdateWithOptions(request *EmployeeAttachmentUpdateRequest, headers *EmployeeAttachmentUpdateHeaders, runtime *util.RuntimeOptions) (_result *EmployeeAttachmentUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppAgentId)) {
+		query["appAgentId"] = request.AppAgentId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FieldCode)) {
+		body["fieldCode"] = request.FieldCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSuffix)) {
+		body["fileSuffix"] = request.FileSuffix
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EmployeeAttachmentUpdate"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/employees/attachments"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EmployeeAttachmentUpdateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) EmployeeAttachmentUpdate(request *EmployeeAttachmentUpdateRequest) (_result *EmployeeAttachmentUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EmployeeAttachmentUpdateHeaders{}
+	_result = &EmployeeAttachmentUpdateResponse{}
+	_body, _err := client.EmployeeAttachmentUpdateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
