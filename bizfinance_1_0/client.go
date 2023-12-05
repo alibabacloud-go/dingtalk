@@ -9045,10 +9045,11 @@ func (s *UpdateFinanceCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdateFinanceCompanyInfoRequest struct {
-	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
-	TaxNature   *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
-	TaxNo       *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	CompanyName         *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	TaxNature           *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	TaxNo               *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	TaxOrInvoiceHasInit *bool   `json:"taxOrInvoiceHasInit,omitempty" xml:"taxOrInvoiceHasInit,omitempty"`
+	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateFinanceCompanyInfoRequest) String() string {
@@ -9071,6 +9072,11 @@ func (s *UpdateFinanceCompanyInfoRequest) SetTaxNature(v string) *UpdateFinanceC
 
 func (s *UpdateFinanceCompanyInfoRequest) SetTaxNo(v string) *UpdateFinanceCompanyInfoRequest {
 	s.TaxNo = &v
+	return s
+}
+
+func (s *UpdateFinanceCompanyInfoRequest) SetTaxOrInvoiceHasInit(v bool) *UpdateFinanceCompanyInfoRequest {
+	s.TaxOrInvoiceHasInit = &v
 	return s
 }
 
@@ -9149,11 +9155,12 @@ func (s *UpdateFinanceMultiCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type UpdateFinanceMultiCompanyInfoRequest struct {
-	CompanyCode *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
-	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
-	TaxNature   *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
-	TaxNo       *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	CompanyCode         *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	CompanyName         *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	TaxNature           *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	TaxNo               *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	TaxOrInvoiceHasInit *bool   `json:"taxOrInvoiceHasInit,omitempty" xml:"taxOrInvoiceHasInit,omitempty"`
+	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateFinanceMultiCompanyInfoRequest) String() string {
@@ -9181,6 +9188,11 @@ func (s *UpdateFinanceMultiCompanyInfoRequest) SetTaxNature(v string) *UpdateFin
 
 func (s *UpdateFinanceMultiCompanyInfoRequest) SetTaxNo(v string) *UpdateFinanceMultiCompanyInfoRequest {
 	s.TaxNo = &v
+	return s
+}
+
+func (s *UpdateFinanceMultiCompanyInfoRequest) SetTaxOrInvoiceHasInit(v bool) *UpdateFinanceMultiCompanyInfoRequest {
+	s.TaxOrInvoiceHasInit = &v
 	return s
 }
 
@@ -16868,6 +16880,10 @@ func (client *Client) UpdateFinanceCompanyInfoWithOptions(request *UpdateFinance
 		query["taxNo"] = request.TaxNo
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.TaxOrInvoiceHasInit)) {
+		query["taxOrInvoiceHasInit"] = request.TaxOrInvoiceHasInit
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
 	}
@@ -16937,6 +16953,10 @@ func (client *Client) UpdateFinanceMultiCompanyInfoWithOptions(request *UpdateFi
 
 	if !tea.BoolValue(util.IsUnset(request.TaxNo)) {
 		query["taxNo"] = request.TaxNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaxOrInvoiceHasInit)) {
+		query["taxOrInvoiceHasInit"] = request.TaxOrInvoiceHasInit
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
