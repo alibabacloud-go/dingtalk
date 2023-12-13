@@ -16,6 +16,7 @@ import (
 type OpenConnectionRequest struct {
 	ClientId      *string                               `json:"clientId,omitempty" xml:"clientId,omitempty"`
 	ClientSecret  *string                               `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
+	Extras        map[string]interface{}                `json:"extras,omitempty" xml:"extras,omitempty"`
 	LocalIp       *string                               `json:"localIp,omitempty" xml:"localIp,omitempty"`
 	Subscriptions []*OpenConnectionRequestSubscriptions `json:"subscriptions,omitempty" xml:"subscriptions,omitempty" type:"Repeated"`
 }
@@ -35,6 +36,11 @@ func (s *OpenConnectionRequest) SetClientId(v string) *OpenConnectionRequest {
 
 func (s *OpenConnectionRequest) SetClientSecret(v string) *OpenConnectionRequest {
 	s.ClientSecret = &v
+	return s
+}
+
+func (s *OpenConnectionRequest) SetExtras(v map[string]interface{}) *OpenConnectionRequest {
+	s.Extras = v
 	return s
 }
 
@@ -165,6 +171,10 @@ func (client *Client) OpenConnectionWithOptions(request *OpenConnectionRequest, 
 
 	if !tea.BoolValue(util.IsUnset(request.ClientSecret)) {
 		body["clientSecret"] = request.ClientSecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extras)) {
+		body["extras"] = request.Extras
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.LocalIp)) {
