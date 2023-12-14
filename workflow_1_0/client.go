@@ -6329,7 +6329,6 @@ func (s *QuerySchemaAndProcessResponseBody) SetResult(v *QuerySchemaAndProcessRe
 }
 
 type QuerySchemaAndProcessResponseBodyResult struct {
-	AppType        *int32  `json:"appType,omitempty" xml:"appType,omitempty"`
 	Content        *string `json:"content,omitempty" xml:"content,omitempty"`
 	HandSignEnable *string `json:"handSignEnable,omitempty" xml:"handSignEnable,omitempty"`
 	IconUrl        *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
@@ -6343,11 +6342,6 @@ func (s QuerySchemaAndProcessResponseBodyResult) String() string {
 
 func (s QuerySchemaAndProcessResponseBodyResult) GoString() string {
 	return s.String()
-}
-
-func (s *QuerySchemaAndProcessResponseBodyResult) SetAppType(v int32) *QuerySchemaAndProcessResponseBodyResult {
-	s.AppType = &v
-	return s
 }
 
 func (s *QuerySchemaAndProcessResponseBodyResult) SetContent(v string) *QuerySchemaAndProcessResponseBodyResult {

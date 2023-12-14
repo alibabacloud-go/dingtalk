@@ -13241,7 +13241,7 @@ func (client *Client) QueryActiveUserStatisticalDataWithOptions(request *QueryAc
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryActiveUserStatisticalDataResponse{}
@@ -13359,7 +13359,7 @@ func (client *Client) QueryApprovalStatisticalDataWithOptions(request *QueryAppr
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryApprovalStatisticalDataResponse{}
@@ -13414,7 +13414,7 @@ func (client *Client) QueryAttendanceStatisticalDataWithOptions(request *QueryAt
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryAttendanceStatisticalDataResponse{}
@@ -13469,7 +13469,7 @@ func (client *Client) QueryBlackboardStatisticalDataWithOptions(request *QueryBl
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryBlackboardStatisticalDataResponse{}
@@ -13524,7 +13524,7 @@ func (client *Client) QueryCalendarStatisticalDataWithOptions(request *QueryCale
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryCalendarStatisticalDataResponse{}
@@ -13579,7 +13579,7 @@ func (client *Client) QueryCheckinStatisticalDataWithOptions(request *QueryCheck
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryCheckinStatisticalDataResponse{}
@@ -13634,7 +13634,7 @@ func (client *Client) QueryCircleStatisticalDataWithOptions(request *QueryCircle
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryCircleStatisticalDataResponse{}
@@ -13811,7 +13811,7 @@ func (client *Client) QueryDingReciveStatisticalDataWithOptions(request *QueryDi
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryDingReciveStatisticalDataResponse{}
@@ -13866,7 +13866,7 @@ func (client *Client) QueryDingSendStatisticalDataWithOptions(request *QueryDing
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryDingSendStatisticalDataResponse{}
@@ -13921,7 +13921,7 @@ func (client *Client) QueryDocumentStatisticalDataWithOptions(request *QueryDocu
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryDocumentStatisticalDataResponse{}
@@ -13976,7 +13976,7 @@ func (client *Client) QueryDriveStatisticalDataWithOptions(request *QueryDriveSt
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryDriveStatisticalDataResponse{}
@@ -14031,7 +14031,7 @@ func (client *Client) QueryEmployeeTypeStatisticalDataWithOptions(request *Query
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryEmployeeTypeStatisticalDataResponse{}
@@ -14165,7 +14165,7 @@ func (client *Client) QueryGroupLiveStatisticalDataWithOptions(request *QueryGro
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryGroupLiveStatisticalDataResponse{}
@@ -14220,7 +14220,7 @@ func (client *Client) QueryGroupMessageStatisticalDataWithOptions(request *Query
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryGroupMessageStatisticalDataResponse{}
@@ -14275,7 +14275,7 @@ func (client *Client) QueryHealthStatisticalDataWithOptions(request *QueryHealth
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryHealthStatisticalDataResponse{}
@@ -14330,7 +14330,7 @@ func (client *Client) QueryMailStatisticalDataWithOptions(request *QueryMailStat
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryMailStatisticalDataResponse{}
@@ -14625,7 +14625,7 @@ func (client *Client) QueryOnlineUserStatisticalDataWithOptions(request *QueryOn
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryOnlineUserStatisticalDataResponse{}
@@ -14680,7 +14680,7 @@ func (client *Client) QueryRedEnvelopeReciveStatisticalDataWithOptions(request *
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryRedEnvelopeReciveStatisticalDataResponse{}
@@ -14735,7 +14735,7 @@ func (client *Client) QueryRedEnvelopeSendStatisticalDataWithOptions(request *Qu
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryRedEnvelopeSendStatisticalDataResponse{}
@@ -14790,7 +14790,7 @@ func (client *Client) QueryReportStatisticalDataWithOptions(request *QueryReport
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryReportStatisticalDataResponse{}
@@ -14845,7 +14845,7 @@ func (client *Client) QuerySingleMessageStatisticalDataWithOptions(request *Quer
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QuerySingleMessageStatisticalDataResponse{}
@@ -14900,7 +14900,7 @@ func (client *Client) QueryTelMeetingStatisticalDataWithOptions(request *QueryTe
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryTelMeetingStatisticalDataResponse{}
@@ -14955,7 +14955,7 @@ func (client *Client) QueryTodoStatisticalDataWithOptions(request *QueryTodoStat
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryTodoStatisticalDataResponse{}
@@ -15010,7 +15010,7 @@ func (client *Client) QueryVedioMeetingStatisticalDataWithOptions(request *Query
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("none"),
+		ReqBodyType: tea.String("json"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryVedioMeetingStatisticalDataResponse{}
