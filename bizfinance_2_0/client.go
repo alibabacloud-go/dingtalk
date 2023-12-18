@@ -635,6 +635,122 @@ func (s *GetSupplierResponse) SetBody(v *GetSupplierResponseBody) *GetSupplierRe
 	return s
 }
 
+type LinkCommonInvokeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s LinkCommonInvokeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LinkCommonInvokeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *LinkCommonInvokeHeaders) SetCommonHeaders(v map[string]*string) *LinkCommonInvokeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *LinkCommonInvokeHeaders) SetXAcsDingtalkAccessToken(v string) *LinkCommonInvokeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type LinkCommonInvokeRequest struct {
+	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Data     *string `json:"data,omitempty" xml:"data,omitempty"`
+	InvokeId *string `json:"invokeId,omitempty" xml:"invokeId,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s LinkCommonInvokeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LinkCommonInvokeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *LinkCommonInvokeRequest) SetBizType(v string) *LinkCommonInvokeRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *LinkCommonInvokeRequest) SetData(v string) *LinkCommonInvokeRequest {
+	s.Data = &v
+	return s
+}
+
+func (s *LinkCommonInvokeRequest) SetInvokeId(v string) *LinkCommonInvokeRequest {
+	s.InvokeId = &v
+	return s
+}
+
+func (s *LinkCommonInvokeRequest) SetUserId(v string) *LinkCommonInvokeRequest {
+	s.UserId = &v
+	return s
+}
+
+type LinkCommonInvokeResponseBody struct {
+	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Data     *string `json:"data,omitempty" xml:"data,omitempty"`
+	InvokeId *string `json:"invokeId,omitempty" xml:"invokeId,omitempty"`
+}
+
+func (s LinkCommonInvokeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LinkCommonInvokeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *LinkCommonInvokeResponseBody) SetBizType(v string) *LinkCommonInvokeResponseBody {
+	s.BizType = &v
+	return s
+}
+
+func (s *LinkCommonInvokeResponseBody) SetData(v string) *LinkCommonInvokeResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *LinkCommonInvokeResponseBody) SetInvokeId(v string) *LinkCommonInvokeResponseBody {
+	s.InvokeId = &v
+	return s
+}
+
+type LinkCommonInvokeResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *LinkCommonInvokeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s LinkCommonInvokeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LinkCommonInvokeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *LinkCommonInvokeResponse) SetHeaders(v map[string]*string) *LinkCommonInvokeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *LinkCommonInvokeResponse) SetStatusCode(v int32) *LinkCommonInvokeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *LinkCommonInvokeResponse) SetBody(v *LinkCommonInvokeResponseBody) *LinkCommonInvokeResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCategoryByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2267,6 +2383,73 @@ func (client *Client) GetSupplier(request *GetSupplierRequest) (_result *GetSupp
 	headers := &GetSupplierHeaders{}
 	_result = &GetSupplierResponse{}
 	_body, _err := client.GetSupplierWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) LinkCommonInvokeWithOptions(request *LinkCommonInvokeRequest, headers *LinkCommonInvokeHeaders, runtime *util.RuntimeOptions) (_result *LinkCommonInvokeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvokeId)) {
+		body["invokeId"] = request.InvokeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("LinkCommonInvoke"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/link/bizTypes/invoke"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &LinkCommonInvokeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) LinkCommonInvoke(request *LinkCommonInvokeRequest) (_result *LinkCommonInvokeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &LinkCommonInvokeHeaders{}
+	_result = &LinkCommonInvokeResponse{}
+	_body, _err := client.LinkCommonInvokeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

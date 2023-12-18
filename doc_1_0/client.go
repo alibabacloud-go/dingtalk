@@ -3394,8 +3394,7 @@ func (s *DocUpdateContentRequest) SetOperatorId(v string) *DocUpdateContentReque
 }
 
 type DocUpdateContentResponseBody struct {
-	Result  *DocUpdateContentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DocUpdateContentResponseBody) String() string {
@@ -3406,30 +3405,8 @@ func (s DocUpdateContentResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *DocUpdateContentResponseBody) SetResult(v *DocUpdateContentResponseBodyResult) *DocUpdateContentResponseBody {
-	s.Result = v
-	return s
-}
-
 func (s *DocUpdateContentResponseBody) SetSuccess(v bool) *DocUpdateContentResponseBody {
 	s.Success = &v
-	return s
-}
-
-type DocUpdateContentResponseBodyResult struct {
-	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
-}
-
-func (s DocUpdateContentResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DocUpdateContentResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *DocUpdateContentResponseBodyResult) SetData(v map[string]interface{}) *DocUpdateContentResponseBodyResult {
-	s.Data = v
 	return s
 }
 

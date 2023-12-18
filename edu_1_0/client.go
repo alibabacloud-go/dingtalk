@@ -123,6 +123,116 @@ func (s *ActivateDeviceResponse) SetBody(v *ActivateDeviceResponseBody) *Activat
 	return s
 }
 
+type AddCompetitionRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddCompetitionRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCompetitionRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddCompetitionRecordHeaders) SetCommonHeaders(v map[string]*string) *AddCompetitionRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddCompetitionRecordHeaders) SetXAcsDingtalkAccessToken(v string) *AddCompetitionRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddCompetitionRecordRequest struct {
+	CompetitionCode   *string `json:"competitionCode,omitempty" xml:"competitionCode,omitempty"`
+	GroupTemplateCode *string `json:"groupTemplateCode,omitempty" xml:"groupTemplateCode,omitempty"`
+	JoinGroup         *bool   `json:"joinGroup,omitempty" xml:"joinGroup,omitempty"`
+	ParticipantName   *string `json:"participantName,omitempty" xml:"participantName,omitempty"`
+	UnionId           *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s AddCompetitionRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCompetitionRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddCompetitionRecordRequest) SetCompetitionCode(v string) *AddCompetitionRecordRequest {
+	s.CompetitionCode = &v
+	return s
+}
+
+func (s *AddCompetitionRecordRequest) SetGroupTemplateCode(v string) *AddCompetitionRecordRequest {
+	s.GroupTemplateCode = &v
+	return s
+}
+
+func (s *AddCompetitionRecordRequest) SetJoinGroup(v bool) *AddCompetitionRecordRequest {
+	s.JoinGroup = &v
+	return s
+}
+
+func (s *AddCompetitionRecordRequest) SetParticipantName(v string) *AddCompetitionRecordRequest {
+	s.ParticipantName = &v
+	return s
+}
+
+func (s *AddCompetitionRecordRequest) SetUnionId(v string) *AddCompetitionRecordRequest {
+	s.UnionId = &v
+	return s
+}
+
+type AddCompetitionRecordResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddCompetitionRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCompetitionRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddCompetitionRecordResponseBody) SetSuccess(v bool) *AddCompetitionRecordResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddCompetitionRecordResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AddCompetitionRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddCompetitionRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCompetitionRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddCompetitionRecordResponse) SetHeaders(v map[string]*string) *AddCompetitionRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddCompetitionRecordResponse) SetStatusCode(v int32) *AddCompetitionRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddCompetitionRecordResponse) SetBody(v *AddCompetitionRecordResponseBody) *AddCompetitionRecordResponse {
+	s.Body = v
+	return s
+}
+
 type AddDeviceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -19499,6 +19609,77 @@ func (client *Client) ActivateDevice(request *ActivateDeviceRequest) (_result *A
 	headers := &ActivateDeviceHeaders{}
 	_result = &ActivateDeviceResponse{}
 	_body, _err := client.ActivateDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddCompetitionRecordWithOptions(request *AddCompetitionRecordRequest, headers *AddCompetitionRecordHeaders, runtime *util.RuntimeOptions) (_result *AddCompetitionRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompetitionCode)) {
+		body["competitionCode"] = request.CompetitionCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTemplateCode)) {
+		body["groupTemplateCode"] = request.GroupTemplateCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JoinGroup)) {
+		body["joinGroup"] = request.JoinGroup
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParticipantName)) {
+		body["participantName"] = request.ParticipantName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddCompetitionRecord"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/competitions/records"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddCompetitionRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddCompetitionRecord(request *AddCompetitionRecordRequest) (_result *AddCompetitionRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddCompetitionRecordHeaders{}
+	_result = &AddCompetitionRecordResponse{}
+	_body, _err := client.AddCompetitionRecordWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

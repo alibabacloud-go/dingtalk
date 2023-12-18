@@ -2408,6 +2408,110 @@ func (s *GetFinanceAccountResponse) SetBody(v *GetFinanceAccountResponseBody) *G
 	return s
 }
 
+type GetFormTemplateInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFormTemplateInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormTemplateInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormTemplateInfoHeaders) SetCommonHeaders(v map[string]*string) *GetFormTemplateInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFormTemplateInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFormTemplateInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFormTemplateInfoResponseBody struct {
+	ReceiptFormTemplateInfoList []*GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList `json:"receiptFormTemplateInfoList,omitempty" xml:"receiptFormTemplateInfoList,omitempty" type:"Repeated"`
+}
+
+func (s GetFormTemplateInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormTemplateInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormTemplateInfoResponseBody) SetReceiptFormTemplateInfoList(v []*GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList) *GetFormTemplateInfoResponseBody {
+	s.ReceiptFormTemplateInfoList = v
+	return s
+}
+
+type GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList struct {
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
+	SuiteId     *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
+}
+
+func (s GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList) SetName(v string) *GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList) SetProcessCode(v string) *GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList) SetStatus(v string) *GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList {
+	s.Status = &v
+	return s
+}
+
+func (s *GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList) SetSuiteId(v string) *GetFormTemplateInfoResponseBodyReceiptFormTemplateInfoList {
+	s.SuiteId = &v
+	return s
+}
+
+type GetFormTemplateInfoResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetFormTemplateInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFormTemplateInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormTemplateInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormTemplateInfoResponse) SetHeaders(v map[string]*string) *GetFormTemplateInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFormTemplateInfoResponse) SetStatusCode(v int32) *GetFormTemplateInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetFormTemplateInfoResponse) SetBody(v *GetFormTemplateInfoResponseBody) *GetFormTemplateInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetInvoiceByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4260,6 +4364,116 @@ func (s *ProfessionBenefitConsumeResponse) SetStatusCode(v int32) *ProfessionBen
 }
 
 func (s *ProfessionBenefitConsumeResponse) SetBody(v *ProfessionBenefitConsumeResponseBody) *ProfessionBenefitConsumeResponse {
+	s.Body = v
+	return s
+}
+
+type PushHistoricalReceiptsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PushHistoricalReceiptsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushHistoricalReceiptsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PushHistoricalReceiptsHeaders) SetCommonHeaders(v map[string]*string) *PushHistoricalReceiptsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PushHistoricalReceiptsHeaders) SetXAcsDingtalkAccessToken(v string) *PushHistoricalReceiptsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PushHistoricalReceiptsRequest struct {
+	BizId           *string   `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	EndTime         *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ForcedIgnoreDup *bool     `json:"forcedIgnoreDup,omitempty" xml:"forcedIgnoreDup,omitempty"`
+	FormCodeList    []*string `json:"formCodeList,omitempty" xml:"formCodeList,omitempty" type:"Repeated"`
+	StartTime       *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s PushHistoricalReceiptsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushHistoricalReceiptsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PushHistoricalReceiptsRequest) SetBizId(v string) *PushHistoricalReceiptsRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *PushHistoricalReceiptsRequest) SetEndTime(v int64) *PushHistoricalReceiptsRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *PushHistoricalReceiptsRequest) SetForcedIgnoreDup(v bool) *PushHistoricalReceiptsRequest {
+	s.ForcedIgnoreDup = &v
+	return s
+}
+
+func (s *PushHistoricalReceiptsRequest) SetFormCodeList(v []*string) *PushHistoricalReceiptsRequest {
+	s.FormCodeList = v
+	return s
+}
+
+func (s *PushHistoricalReceiptsRequest) SetStartTime(v int64) *PushHistoricalReceiptsRequest {
+	s.StartTime = &v
+	return s
+}
+
+type PushHistoricalReceiptsResponseBody struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s PushHistoricalReceiptsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushHistoricalReceiptsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PushHistoricalReceiptsResponseBody) SetTaskId(v string) *PushHistoricalReceiptsResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type PushHistoricalReceiptsResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PushHistoricalReceiptsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PushHistoricalReceiptsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushHistoricalReceiptsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PushHistoricalReceiptsResponse) SetHeaders(v map[string]*string) *PushHistoricalReceiptsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PushHistoricalReceiptsResponse) SetStatusCode(v int32) *PushHistoricalReceiptsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PushHistoricalReceiptsResponse) SetBody(v *PushHistoricalReceiptsResponseBody) *PushHistoricalReceiptsResponse {
 	s.Body = v
 	return s
 }
@@ -8831,10 +9045,11 @@ func (s *UpdateFinanceCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdateFinanceCompanyInfoRequest struct {
-	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
-	TaxNature   *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
-	TaxNo       *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	CompanyName         *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	TaxNature           *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	TaxNo               *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	TaxOrInvoiceHasInit *bool   `json:"taxOrInvoiceHasInit,omitempty" xml:"taxOrInvoiceHasInit,omitempty"`
+	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateFinanceCompanyInfoRequest) String() string {
@@ -8857,6 +9072,11 @@ func (s *UpdateFinanceCompanyInfoRequest) SetTaxNature(v string) *UpdateFinanceC
 
 func (s *UpdateFinanceCompanyInfoRequest) SetTaxNo(v string) *UpdateFinanceCompanyInfoRequest {
 	s.TaxNo = &v
+	return s
+}
+
+func (s *UpdateFinanceCompanyInfoRequest) SetTaxOrInvoiceHasInit(v bool) *UpdateFinanceCompanyInfoRequest {
+	s.TaxOrInvoiceHasInit = &v
 	return s
 }
 
@@ -8935,11 +9155,12 @@ func (s *UpdateFinanceMultiCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type UpdateFinanceMultiCompanyInfoRequest struct {
-	CompanyCode *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
-	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
-	TaxNature   *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
-	TaxNo       *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	CompanyCode         *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	CompanyName         *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	TaxNature           *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	TaxNo               *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	TaxOrInvoiceHasInit *bool   `json:"taxOrInvoiceHasInit,omitempty" xml:"taxOrInvoiceHasInit,omitempty"`
+	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateFinanceMultiCompanyInfoRequest) String() string {
@@ -8967,6 +9188,11 @@ func (s *UpdateFinanceMultiCompanyInfoRequest) SetTaxNature(v string) *UpdateFin
 
 func (s *UpdateFinanceMultiCompanyInfoRequest) SetTaxNo(v string) *UpdateFinanceMultiCompanyInfoRequest {
 	s.TaxNo = &v
+	return s
+}
+
+func (s *UpdateFinanceMultiCompanyInfoRequest) SetTaxOrInvoiceHasInit(v bool) *UpdateFinanceMultiCompanyInfoRequest {
+	s.TaxOrInvoiceHasInit = &v
 	return s
 }
 
@@ -14638,6 +14864,51 @@ func (client *Client) GetFinanceAccount(request *GetFinanceAccountRequest) (_res
 	return _result, _err
 }
 
+func (client *Client) GetFormTemplateInfoWithOptions(headers *GetFormTemplateInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFormTemplateInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFormTemplateInfo"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/formTemplates/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetFormTemplateInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetFormTemplateInfo() (_result *GetFormTemplateInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFormTemplateInfoHeaders{}
+	_result = &GetFormTemplateInfoResponse{}
+	_body, _err := client.GetFormTemplateInfoWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetInvoiceByPageWithOptions(tmpReq *GetInvoiceByPageRequest, headers *GetInvoiceByPageHeaders, runtime *util.RuntimeOptions) (_result *GetInvoiceByPageResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -15169,6 +15440,77 @@ func (client *Client) ProfessionBenefitConsume(request *ProfessionBenefitConsume
 	headers := &ProfessionBenefitConsumeHeaders{}
 	_result = &ProfessionBenefitConsumeResponse{}
 	_body, _err := client.ProfessionBenefitConsumeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PushHistoricalReceiptsWithOptions(request *PushHistoricalReceiptsRequest, headers *PushHistoricalReceiptsHeaders, runtime *util.RuntimeOptions) (_result *PushHistoricalReceiptsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ForcedIgnoreDup)) {
+		body["forcedIgnoreDup"] = request.ForcedIgnoreDup
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormCodeList)) {
+		body["formCodeList"] = request.FormCodeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PushHistoricalReceipts"),
+		Version:     tea.String("bizfinance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/bizfinance/budgets/historicalReceipts/push"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PushHistoricalReceiptsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PushHistoricalReceipts(request *PushHistoricalReceiptsRequest) (_result *PushHistoricalReceiptsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PushHistoricalReceiptsHeaders{}
+	_result = &PushHistoricalReceiptsResponse{}
+	_body, _err := client.PushHistoricalReceiptsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -16538,6 +16880,10 @@ func (client *Client) UpdateFinanceCompanyInfoWithOptions(request *UpdateFinance
 		query["taxNo"] = request.TaxNo
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.TaxOrInvoiceHasInit)) {
+		query["taxOrInvoiceHasInit"] = request.TaxOrInvoiceHasInit
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
 	}
@@ -16607,6 +16953,10 @@ func (client *Client) UpdateFinanceMultiCompanyInfoWithOptions(request *UpdateFi
 
 	if !tea.BoolValue(util.IsUnset(request.TaxNo)) {
 		query["taxNo"] = request.TaxNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaxOrInvoiceHasInit)) {
+		query["taxOrInvoiceHasInit"] = request.TaxOrInvoiceHasInit
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {

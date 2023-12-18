@@ -863,6 +863,52 @@ func (s *DeviceConferenceResponse) SetBody(v *DeviceConferenceResponseBody) *Dev
 	return s
 }
 
+type DiotMamaResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s DiotMamaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DiotMamaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DiotMamaResponseBody) SetRequestId(v string) *DiotMamaResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type DiotMamaResponse struct {
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DiotMamaResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DiotMamaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DiotMamaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DiotMamaResponse) SetHeaders(v map[string]*string) *DiotMamaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DiotMamaResponse) SetStatusCode(v int32) *DiotMamaResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DiotMamaResponse) SetBody(v *DiotMamaResponseBody) *DiotMamaResponse {
+	s.Body = v
+	return s
+}
+
 type DiotMarketManagerTestResponseBody struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
@@ -2266,6 +2312,42 @@ func (client *Client) DeviceConference(request *DeviceConferenceRequest) (_resul
 	headers := &DeviceConferenceHeaders{}
 	_result = &DeviceConferenceResponse{}
 	_body, _err := client.DeviceConferenceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DiotMamaWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DiotMamaResponse, _err error) {
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DiotMama"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DiotMamaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DiotMama() (_result *DiotMamaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &DiotMamaResponse{}
+	_body, _err := client.DiotMamaWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
