@@ -581,6 +581,7 @@ func (s *ModifyWorkbenchBadgeHeaders) SetXAcsDingtalkAccessToken(v string) *Modi
 type ModifyWorkbenchBadgeRequest struct {
 	BizIdList        []*string `json:"bizIdList,omitempty" xml:"bizIdList,omitempty" type:"Repeated"`
 	IsAdded          *bool     `json:"isAdded,omitempty" xml:"isAdded,omitempty"`
+	ModifyMode       *string   `json:"modifyMode,omitempty" xml:"modifyMode,omitempty"`
 	RedDotRelationId *string   `json:"redDotRelationId,omitempty" xml:"redDotRelationId,omitempty"`
 	RedDotType       *string   `json:"redDotType,omitempty" xml:"redDotType,omitempty"`
 	UserId           *string   `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -601,6 +602,11 @@ func (s *ModifyWorkbenchBadgeRequest) SetBizIdList(v []*string) *ModifyWorkbench
 
 func (s *ModifyWorkbenchBadgeRequest) SetIsAdded(v bool) *ModifyWorkbenchBadgeRequest {
 	s.IsAdded = &v
+	return s
+}
+
+func (s *ModifyWorkbenchBadgeRequest) SetModifyMode(v string) *ModifyWorkbenchBadgeRequest {
+	s.ModifyMode = &v
 	return s
 }
 
@@ -1322,6 +1328,10 @@ func (client *Client) ModifyWorkbenchBadgeWithOptions(request *ModifyWorkbenchBa
 
 	if !tea.BoolValue(util.IsUnset(request.IsAdded)) {
 		body["isAdded"] = request.IsAdded
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifyMode)) {
+		body["modifyMode"] = request.ModifyMode
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RedDotRelationId)) {
