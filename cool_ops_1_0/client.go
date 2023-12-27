@@ -202,6 +202,7 @@ type UpdateIsvOppStatusRequestIsvOpportunityStatusList struct {
 	MicroAppId        *string `json:"microAppId,omitempty" xml:"microAppId,omitempty"`
 	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
 	Note              *string `json:"note,omitempty" xml:"note,omitempty"`
+	OperCorpId        *string `json:"operCorpId,omitempty" xml:"operCorpId,omitempty"`
 	OperName          *string `json:"operName,omitempty" xml:"operName,omitempty"`
 	OperTime          *string `json:"operTime,omitempty" xml:"operTime,omitempty"`
 	OperUserId        *string `json:"operUserId,omitempty" xml:"operUserId,omitempty"`
@@ -235,6 +236,11 @@ func (s *UpdateIsvOppStatusRequestIsvOpportunityStatusList) SetName(v string) *U
 
 func (s *UpdateIsvOppStatusRequestIsvOpportunityStatusList) SetNote(v string) *UpdateIsvOppStatusRequestIsvOpportunityStatusList {
 	s.Note = &v
+	return s
+}
+
+func (s *UpdateIsvOppStatusRequestIsvOpportunityStatusList) SetOperCorpId(v string) *UpdateIsvOppStatusRequestIsvOpportunityStatusList {
+	s.OperCorpId = &v
 	return s
 }
 
