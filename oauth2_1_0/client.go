@@ -852,6 +852,87 @@ func (s *GetSuiteAccessTokenResponse) SetBody(v *GetSuiteAccessTokenResponseBody
 	return s
 }
 
+type GetTokenRequest struct {
+	ClientId     *string `json:"client_id,omitempty" xml:"client_id,omitempty"`
+	ClientSecret *string `json:"client_secret,omitempty" xml:"client_secret,omitempty"`
+	GrantType    *string `json:"grant_type,omitempty" xml:"grant_type,omitempty"`
+}
+
+func (s GetTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTokenRequest) SetClientId(v string) *GetTokenRequest {
+	s.ClientId = &v
+	return s
+}
+
+func (s *GetTokenRequest) SetClientSecret(v string) *GetTokenRequest {
+	s.ClientSecret = &v
+	return s
+}
+
+func (s *GetTokenRequest) SetGrantType(v string) *GetTokenRequest {
+	s.GrantType = &v
+	return s
+}
+
+type GetTokenResponseBody struct {
+	AccessToken *string `json:"access_token,omitempty" xml:"access_token,omitempty"`
+	ExpiresIn   *int32  `json:"expires_in,omitempty" xml:"expires_in,omitempty"`
+}
+
+func (s GetTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTokenResponseBody) SetAccessToken(v string) *GetTokenResponseBody {
+	s.AccessToken = &v
+	return s
+}
+
+func (s *GetTokenResponseBody) SetExpiresIn(v int32) *GetTokenResponseBody {
+	s.ExpiresIn = &v
+	return s
+}
+
+type GetTokenResponse struct {
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTokenResponse) SetHeaders(v map[string]*string) *GetTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTokenResponse) SetStatusCode(v int32) *GetTokenResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTokenResponse) SetBody(v *GetTokenResponseBody) *GetTokenResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserTokenRequest struct {
 	ClientId     *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
 	ClientSecret *string `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
@@ -1392,6 +1473,60 @@ func (client *Client) GetSuiteAccessToken(request *GetSuiteAccessTokenRequest) (
 	headers := make(map[string]*string)
 	_result = &GetSuiteAccessTokenResponse{}
 	_body, _err := client.GetSuiteAccessTokenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTokenWithOptions(corpId *string, request *GetTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClientId)) {
+		body["client_id"] = request.ClientId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClientSecret)) {
+		body["client_secret"] = request.ClientSecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GrantType)) {
+		body["grant_type"] = request.GrantType
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetToken"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/" + tea.StringValue(corpId) + "/token"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTokenResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetToken(corpId *string, request *GetTokenRequest) (_result *GetTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &GetTokenResponse{}
+	_body, _err := client.GetTokenWithOptions(corpId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
