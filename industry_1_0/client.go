@@ -2586,6 +2586,875 @@ func (s *CampusUpdateRenterMemberResponse) SetBody(v *CampusUpdateRenterMemberRe
 	return s
 }
 
+type ChatMemoAddGeneralFileHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoAddGeneralFileHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddGeneralFileHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddGeneralFileHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoAddGeneralFileHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoAddGeneralFileHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoAddGeneralFileRequest struct {
+	BizId       *string                                 `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DatasetId   *int64                                  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	DownloadUrl *string                                 `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	FileDesc    *string                                 `json:"fileDesc,omitempty" xml:"fileDesc,omitempty"`
+	FileName    *string                                 `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	TagList     []*ChatMemoAddGeneralFileRequestTagList `json:"tagList,omitempty" xml:"tagList,omitempty" type:"Repeated"`
+}
+
+func (s ChatMemoAddGeneralFileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddGeneralFileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddGeneralFileRequest) SetBizId(v string) *ChatMemoAddGeneralFileRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileRequest) SetDatasetId(v int64) *ChatMemoAddGeneralFileRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileRequest) SetDownloadUrl(v string) *ChatMemoAddGeneralFileRequest {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileRequest) SetFileDesc(v string) *ChatMemoAddGeneralFileRequest {
+	s.FileDesc = &v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileRequest) SetFileName(v string) *ChatMemoAddGeneralFileRequest {
+	s.FileName = &v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileRequest) SetTagList(v []*ChatMemoAddGeneralFileRequestTagList) *ChatMemoAddGeneralFileRequest {
+	s.TagList = v
+	return s
+}
+
+type ChatMemoAddGeneralFileRequestTagList struct {
+	TagName      *string   `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	TagValueList []*string `json:"tagValueList,omitempty" xml:"tagValueList,omitempty" type:"Repeated"`
+}
+
+func (s ChatMemoAddGeneralFileRequestTagList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddGeneralFileRequestTagList) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddGeneralFileRequestTagList) SetTagName(v string) *ChatMemoAddGeneralFileRequestTagList {
+	s.TagName = &v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileRequestTagList) SetTagValueList(v []*string) *ChatMemoAddGeneralFileRequestTagList {
+	s.TagValueList = v
+	return s
+}
+
+type ChatMemoAddGeneralFileResponseBody struct {
+	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoAddGeneralFileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddGeneralFileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddGeneralFileResponseBody) SetBizId(v string) *ChatMemoAddGeneralFileResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileResponseBody) SetMediaId(v string) *ChatMemoAddGeneralFileResponseBody {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoAddGeneralFileResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatMemoAddGeneralFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatMemoAddGeneralFileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddGeneralFileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddGeneralFileResponse) SetHeaders(v map[string]*string) *ChatMemoAddGeneralFileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileResponse) SetStatusCode(v int32) *ChatMemoAddGeneralFileResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoAddGeneralFileResponse) SetBody(v *ChatMemoAddGeneralFileResponseBody) *ChatMemoAddGeneralFileResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoDeleteGeneralFileHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoDeleteGeneralFileHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteGeneralFileHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteGeneralFileHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoDeleteGeneralFileHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoDeleteGeneralFileHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoDeleteGeneralFileHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoDeleteGeneralFileRequest struct {
+	DatasetId *int64  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	MediaId   *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoDeleteGeneralFileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteGeneralFileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteGeneralFileRequest) SetDatasetId(v int64) *ChatMemoDeleteGeneralFileRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoDeleteGeneralFileRequest) SetMediaId(v string) *ChatMemoDeleteGeneralFileRequest {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoDeleteGeneralFileResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ChatMemoDeleteGeneralFileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteGeneralFileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteGeneralFileResponseBody) SetResult(v bool) *ChatMemoDeleteGeneralFileResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ChatMemoDeleteGeneralFileResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatMemoDeleteGeneralFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatMemoDeleteGeneralFileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteGeneralFileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteGeneralFileResponse) SetHeaders(v map[string]*string) *ChatMemoDeleteGeneralFileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoDeleteGeneralFileResponse) SetStatusCode(v int32) *ChatMemoDeleteGeneralFileResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoDeleteGeneralFileResponse) SetBody(v *ChatMemoDeleteGeneralFileResponseBody) *ChatMemoDeleteGeneralFileResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoFaqAddHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoFaqAddHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqAddHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqAddHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoFaqAddHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoFaqAddHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoFaqAddHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoFaqAddRequest struct {
+	Answer      *string `json:"answer,omitempty" xml:"answer,omitempty"`
+	BizId       *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DatasetId   *int64  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	Question    *string `json:"question,omitempty" xml:"question,omitempty"`
+	Redirection *string `json:"redirection,omitempty" xml:"redirection,omitempty"`
+}
+
+func (s ChatMemoFaqAddRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqAddRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqAddRequest) SetAnswer(v string) *ChatMemoFaqAddRequest {
+	s.Answer = &v
+	return s
+}
+
+func (s *ChatMemoFaqAddRequest) SetBizId(v string) *ChatMemoFaqAddRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoFaqAddRequest) SetDatasetId(v int64) *ChatMemoFaqAddRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoFaqAddRequest) SetQuestion(v string) *ChatMemoFaqAddRequest {
+	s.Question = &v
+	return s
+}
+
+func (s *ChatMemoFaqAddRequest) SetRedirection(v string) *ChatMemoFaqAddRequest {
+	s.Redirection = &v
+	return s
+}
+
+type ChatMemoFaqAddResponseBody struct {
+	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoFaqAddResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqAddResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqAddResponseBody) SetBizId(v string) *ChatMemoFaqAddResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoFaqAddResponseBody) SetMediaId(v string) *ChatMemoFaqAddResponseBody {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoFaqAddResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatMemoFaqAddResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatMemoFaqAddResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqAddResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqAddResponse) SetHeaders(v map[string]*string) *ChatMemoFaqAddResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoFaqAddResponse) SetStatusCode(v int32) *ChatMemoFaqAddResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoFaqAddResponse) SetBody(v *ChatMemoFaqAddResponseBody) *ChatMemoFaqAddResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoFaqDeleteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoFaqDeleteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqDeleteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqDeleteHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoFaqDeleteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoFaqDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoFaqDeleteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoFaqDeleteRequest struct {
+	DatasetId *int64  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	MediaId   *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoFaqDeleteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqDeleteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqDeleteRequest) SetDatasetId(v int64) *ChatMemoFaqDeleteRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoFaqDeleteRequest) SetMediaId(v string) *ChatMemoFaqDeleteRequest {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoFaqDeleteResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ChatMemoFaqDeleteResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqDeleteResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqDeleteResponseBody) SetResult(v bool) *ChatMemoFaqDeleteResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ChatMemoFaqDeleteResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatMemoFaqDeleteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatMemoFaqDeleteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqDeleteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqDeleteResponse) SetHeaders(v map[string]*string) *ChatMemoFaqDeleteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoFaqDeleteResponse) SetStatusCode(v int32) *ChatMemoFaqDeleteResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoFaqDeleteResponse) SetBody(v *ChatMemoFaqDeleteResponseBody) *ChatMemoFaqDeleteResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoFaqListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoFaqListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqListHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoFaqListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoFaqListHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoFaqListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoFaqListRequest struct {
+	DatasetId  *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s ChatMemoFaqListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqListRequest) SetDatasetId(v int64) *ChatMemoFaqListRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoFaqListRequest) SetPageNumber(v int64) *ChatMemoFaqListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ChatMemoFaqListRequest) SetPageSize(v int64) *ChatMemoFaqListRequest {
+	s.PageSize = &v
+	return s
+}
+
+type ChatMemoFaqListResponseBody struct {
+	Data       []*ChatMemoFaqListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	PageNumber *int32                             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32                             `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Total      *int32                             `json:"total,omitempty" xml:"total,omitempty"`
+	TotalPage  *int32                             `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+}
+
+func (s ChatMemoFaqListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqListResponseBody) SetData(v []*ChatMemoFaqListResponseBodyData) *ChatMemoFaqListResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *ChatMemoFaqListResponseBody) SetPageNumber(v int32) *ChatMemoFaqListResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ChatMemoFaqListResponseBody) SetPageSize(v int32) *ChatMemoFaqListResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ChatMemoFaqListResponseBody) SetTotal(v int32) *ChatMemoFaqListResponseBody {
+	s.Total = &v
+	return s
+}
+
+func (s *ChatMemoFaqListResponseBody) SetTotalPage(v int32) *ChatMemoFaqListResponseBody {
+	s.TotalPage = &v
+	return s
+}
+
+type ChatMemoFaqListResponseBodyData struct {
+	Answer      *string `json:"answer,omitempty" xml:"answer,omitempty"`
+	BizId       *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	MediaId     *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	Question    *string `json:"question,omitempty" xml:"question,omitempty"`
+	Redirection *string `json:"redirection,omitempty" xml:"redirection,omitempty"`
+}
+
+func (s ChatMemoFaqListResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqListResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqListResponseBodyData) SetAnswer(v string) *ChatMemoFaqListResponseBodyData {
+	s.Answer = &v
+	return s
+}
+
+func (s *ChatMemoFaqListResponseBodyData) SetBizId(v string) *ChatMemoFaqListResponseBodyData {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoFaqListResponseBodyData) SetMediaId(v string) *ChatMemoFaqListResponseBodyData {
+	s.MediaId = &v
+	return s
+}
+
+func (s *ChatMemoFaqListResponseBodyData) SetQuestion(v string) *ChatMemoFaqListResponseBodyData {
+	s.Question = &v
+	return s
+}
+
+func (s *ChatMemoFaqListResponseBodyData) SetRedirection(v string) *ChatMemoFaqListResponseBodyData {
+	s.Redirection = &v
+	return s
+}
+
+type ChatMemoFaqListResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatMemoFaqListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatMemoFaqListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoFaqListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoFaqListResponse) SetHeaders(v map[string]*string) *ChatMemoFaqListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoFaqListResponse) SetStatusCode(v int32) *ChatMemoFaqListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoFaqListResponse) SetBody(v *ChatMemoFaqListResponseBody) *ChatMemoFaqListResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoGetFileListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoGetFileListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoGetFileListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoGetFileListHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoGetFileListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoGetFileListHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoGetFileListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoGetFileListRequest struct {
+	DatasetId  *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s ChatMemoGetFileListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoGetFileListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoGetFileListRequest) SetDatasetId(v int64) *ChatMemoGetFileListRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListRequest) SetPageNumber(v int64) *ChatMemoGetFileListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListRequest) SetPageSize(v int64) *ChatMemoGetFileListRequest {
+	s.PageSize = &v
+	return s
+}
+
+type ChatMemoGetFileListResponseBody struct {
+	Data       []*ChatMemoGetFileListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	PageNumber *int32                                 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32                                 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Total      *int32                                 `json:"total,omitempty" xml:"total,omitempty"`
+	TotalPage  *int32                                 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+}
+
+func (s ChatMemoGetFileListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoGetFileListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoGetFileListResponseBody) SetData(v []*ChatMemoGetFileListResponseBodyData) *ChatMemoGetFileListResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponseBody) SetPageNumber(v int32) *ChatMemoGetFileListResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponseBody) SetPageSize(v int32) *ChatMemoGetFileListResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponseBody) SetTotal(v int32) *ChatMemoGetFileListResponseBody {
+	s.Total = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponseBody) SetTotalPage(v int32) *ChatMemoGetFileListResponseBody {
+	s.TotalPage = &v
+	return s
+}
+
+type ChatMemoGetFileListResponseBodyData struct {
+	BizId    *string              `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	FileDesc *string              `json:"fileDesc,omitempty" xml:"fileDesc,omitempty"`
+	FileName *string              `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	MediaId  *string              `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	TagMap   map[string][]*string `json:"tagMap,omitempty" xml:"tagMap,omitempty"`
+}
+
+func (s ChatMemoGetFileListResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoGetFileListResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoGetFileListResponseBodyData) SetBizId(v string) *ChatMemoGetFileListResponseBodyData {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponseBodyData) SetFileDesc(v string) *ChatMemoGetFileListResponseBodyData {
+	s.FileDesc = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponseBodyData) SetFileName(v string) *ChatMemoGetFileListResponseBodyData {
+	s.FileName = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponseBodyData) SetMediaId(v string) *ChatMemoGetFileListResponseBodyData {
+	s.MediaId = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponseBodyData) SetTagMap(v map[string][]*string) *ChatMemoGetFileListResponseBodyData {
+	s.TagMap = v
+	return s
+}
+
+type ChatMemoGetFileListResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatMemoGetFileListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatMemoGetFileListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoGetFileListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoGetFileListResponse) SetHeaders(v map[string]*string) *ChatMemoGetFileListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponse) SetStatusCode(v int32) *ChatMemoGetFileListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoGetFileListResponse) SetBody(v *ChatMemoGetFileListResponseBody) *ChatMemoGetFileListResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoGetFileStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoGetFileStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoGetFileStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoGetFileStatusHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoGetFileStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoGetFileStatusHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoGetFileStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoGetFileStatusRequest struct {
+	DatasetId *int64  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	MediaId   *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoGetFileStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoGetFileStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoGetFileStatusRequest) SetDatasetId(v int64) *ChatMemoGetFileStatusRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoGetFileStatusRequest) SetMediaId(v string) *ChatMemoGetFileStatusRequest {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoGetFileStatusResponseBody struct {
+	Status     *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	StatusDesc *string `json:"statusDesc,omitempty" xml:"statusDesc,omitempty"`
+}
+
+func (s ChatMemoGetFileStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoGetFileStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoGetFileStatusResponseBody) SetStatus(v int32) *ChatMemoGetFileStatusResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *ChatMemoGetFileStatusResponseBody) SetStatusDesc(v string) *ChatMemoGetFileStatusResponseBody {
+	s.StatusDesc = &v
+	return s
+}
+
+type ChatMemoGetFileStatusResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatMemoGetFileStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatMemoGetFileStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoGetFileStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoGetFileStatusResponse) SetHeaders(v map[string]*string) *ChatMemoGetFileStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoGetFileStatusResponse) SetStatusCode(v int32) *ChatMemoGetFileStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoGetFileStatusResponse) SetBody(v *ChatMemoGetFileStatusResponseBody) *ChatMemoGetFileStatusResponse {
+	s.Body = v
+	return s
+}
+
 type CollegeActiveCollegeDeptGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -21832,6 +22701,455 @@ func (client *Client) CampusUpdateRenterMember(request *CampusUpdateRenterMember
 	headers := &CampusUpdateRenterMemberHeaders{}
 	_result = &CampusUpdateRenterMemberResponse{}
 	_body, _err := client.CampusUpdateRenterMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatMemoAddGeneralFileWithOptions(request *ChatMemoAddGeneralFileRequest, headers *ChatMemoAddGeneralFileHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoAddGeneralFileResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DownloadUrl)) {
+		body["downloadUrl"] = request.DownloadUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileDesc)) {
+		body["fileDesc"] = request.FileDesc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileName)) {
+		body["fileName"] = request.FileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagList)) {
+		body["tagList"] = request.TagList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoAddGeneralFile"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/files"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoAddGeneralFileResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatMemoAddGeneralFile(request *ChatMemoAddGeneralFileRequest) (_result *ChatMemoAddGeneralFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoAddGeneralFileHeaders{}
+	_result = &ChatMemoAddGeneralFileResponse{}
+	_body, _err := client.ChatMemoAddGeneralFileWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatMemoDeleteGeneralFileWithOptions(request *ChatMemoDeleteGeneralFileRequest, headers *ChatMemoDeleteGeneralFileHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoDeleteGeneralFileResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoDeleteGeneralFile"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/files/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoDeleteGeneralFileResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatMemoDeleteGeneralFile(request *ChatMemoDeleteGeneralFileRequest) (_result *ChatMemoDeleteGeneralFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoDeleteGeneralFileHeaders{}
+	_result = &ChatMemoDeleteGeneralFileResponse{}
+	_body, _err := client.ChatMemoDeleteGeneralFileWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatMemoFaqAddWithOptions(request *ChatMemoFaqAddRequest, headers *ChatMemoFaqAddHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoFaqAddResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Answer)) {
+		body["answer"] = request.Answer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Question)) {
+		body["question"] = request.Question
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Redirection)) {
+		body["redirection"] = request.Redirection
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoFaqAdd"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/faq"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoFaqAddResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatMemoFaqAdd(request *ChatMemoFaqAddRequest) (_result *ChatMemoFaqAddResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoFaqAddHeaders{}
+	_result = &ChatMemoFaqAddResponse{}
+	_body, _err := client.ChatMemoFaqAddWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatMemoFaqDeleteWithOptions(request *ChatMemoFaqDeleteRequest, headers *ChatMemoFaqDeleteHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoFaqDeleteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoFaqDelete"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/faq/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoFaqDeleteResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatMemoFaqDelete(request *ChatMemoFaqDeleteRequest) (_result *ChatMemoFaqDeleteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoFaqDeleteHeaders{}
+	_result = &ChatMemoFaqDeleteResponse{}
+	_body, _err := client.ChatMemoFaqDeleteWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatMemoFaqListWithOptions(request *ChatMemoFaqListRequest, headers *ChatMemoFaqListHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoFaqListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		query["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoFaqList"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/faq/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoFaqListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatMemoFaqList(request *ChatMemoFaqListRequest) (_result *ChatMemoFaqListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoFaqListHeaders{}
+	_result = &ChatMemoFaqListResponse{}
+	_body, _err := client.ChatMemoFaqListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatMemoGetFileListWithOptions(request *ChatMemoGetFileListRequest, headers *ChatMemoGetFileListHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoGetFileListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		query["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoGetFileList"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/file/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoGetFileListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatMemoGetFileList(request *ChatMemoGetFileListRequest) (_result *ChatMemoGetFileListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoGetFileListHeaders{}
+	_result = &ChatMemoGetFileListResponse{}
+	_body, _err := client.ChatMemoGetFileListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatMemoGetFileStatusWithOptions(request *ChatMemoGetFileStatusRequest, headers *ChatMemoGetFileStatusHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoGetFileStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoGetFileStatus"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/files/statuses/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoGetFileStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatMemoGetFileStatus(request *ChatMemoGetFileStatusRequest) (_result *ChatMemoGetFileStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoGetFileStatusHeaders{}
+	_result = &ChatMemoGetFileStatusResponse{}
+	_body, _err := client.ChatMemoGetFileStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

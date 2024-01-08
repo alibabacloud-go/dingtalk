@@ -129,6 +129,145 @@ func (s *CountTodoTasksResponse) SetBody(v *CountTodoTasksResponseBody) *CountTo
 	return s
 }
 
+type CreatePersonalTodoTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreatePersonalTodoTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePersonalTodoTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePersonalTodoTaskHeaders) SetCommonHeaders(v map[string]*string) *CreatePersonalTodoTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreatePersonalTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreatePersonalTodoTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreatePersonalTodoTaskRequest struct {
+	Description    *string                                     `json:"description,omitempty" xml:"description,omitempty"`
+	DueTime        *int64                                      `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
+	ExecutorIds    []*string                                   `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
+	NotifyConfigs  *CreatePersonalTodoTaskRequestNotifyConfigs `json:"notifyConfigs,omitempty" xml:"notifyConfigs,omitempty" type:"Struct"`
+	ParticipantIds []*string                                   `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
+	Subject        *string                                     `json:"subject,omitempty" xml:"subject,omitempty"`
+}
+
+func (s CreatePersonalTodoTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePersonalTodoTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePersonalTodoTaskRequest) SetDescription(v string) *CreatePersonalTodoTaskRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreatePersonalTodoTaskRequest) SetDueTime(v int64) *CreatePersonalTodoTaskRequest {
+	s.DueTime = &v
+	return s
+}
+
+func (s *CreatePersonalTodoTaskRequest) SetExecutorIds(v []*string) *CreatePersonalTodoTaskRequest {
+	s.ExecutorIds = v
+	return s
+}
+
+func (s *CreatePersonalTodoTaskRequest) SetNotifyConfigs(v *CreatePersonalTodoTaskRequestNotifyConfigs) *CreatePersonalTodoTaskRequest {
+	s.NotifyConfigs = v
+	return s
+}
+
+func (s *CreatePersonalTodoTaskRequest) SetParticipantIds(v []*string) *CreatePersonalTodoTaskRequest {
+	s.ParticipantIds = v
+	return s
+}
+
+func (s *CreatePersonalTodoTaskRequest) SetSubject(v string) *CreatePersonalTodoTaskRequest {
+	s.Subject = &v
+	return s
+}
+
+type CreatePersonalTodoTaskRequestNotifyConfigs struct {
+	DingNotify *string `json:"dingNotify,omitempty" xml:"dingNotify,omitempty"`
+}
+
+func (s CreatePersonalTodoTaskRequestNotifyConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePersonalTodoTaskRequestNotifyConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePersonalTodoTaskRequestNotifyConfigs) SetDingNotify(v string) *CreatePersonalTodoTaskRequestNotifyConfigs {
+	s.DingNotify = &v
+	return s
+}
+
+type CreatePersonalTodoTaskResponseBody struct {
+	CreatedTime *int64  `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	TaskId      *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s CreatePersonalTodoTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePersonalTodoTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePersonalTodoTaskResponseBody) SetCreatedTime(v int64) *CreatePersonalTodoTaskResponseBody {
+	s.CreatedTime = &v
+	return s
+}
+
+func (s *CreatePersonalTodoTaskResponseBody) SetTaskId(v string) *CreatePersonalTodoTaskResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type CreatePersonalTodoTaskResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreatePersonalTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreatePersonalTodoTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePersonalTodoTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePersonalTodoTaskResponse) SetHeaders(v map[string]*string) *CreatePersonalTodoTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreatePersonalTodoTaskResponse) SetStatusCode(v int32) *CreatePersonalTodoTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreatePersonalTodoTaskResponse) SetBody(v *CreatePersonalTodoTaskResponseBody) *CreatePersonalTodoTaskResponse {
+	s.Body = v
+	return s
+}
+
 type CreateTodoTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3438,6 +3577,81 @@ func (client *Client) CountTodoTasks(unionId *string, request *CountTodoTasksReq
 	headers := &CountTodoTasksHeaders{}
 	_result = &CountTodoTasksResponse{}
 	_body, _err := client.CountTodoTasksWithOptions(unionId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreatePersonalTodoTaskWithOptions(request *CreatePersonalTodoTaskRequest, headers *CreatePersonalTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *CreatePersonalTodoTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DueTime)) {
+		body["dueTime"] = request.DueTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExecutorIds)) {
+		body["executorIds"] = request.ExecutorIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NotifyConfigs)) {
+		body["notifyConfigs"] = request.NotifyConfigs
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParticipantIds)) {
+		body["participantIds"] = request.ParticipantIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Subject)) {
+		body["subject"] = request.Subject
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreatePersonalTodoTask"),
+		Version:     tea.String("todo_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/todo/users/me/personalTasks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreatePersonalTodoTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreatePersonalTodoTask(request *CreatePersonalTodoTaskRequest) (_result *CreatePersonalTodoTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreatePersonalTodoTaskHeaders{}
+	_result = &CreatePersonalTodoTaskResponse{}
+	_body, _err := client.CreatePersonalTodoTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

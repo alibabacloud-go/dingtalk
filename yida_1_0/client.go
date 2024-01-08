@@ -9348,6 +9348,7 @@ type ListApplicationResponseBodyData struct {
 	Inexistence       *string `json:"inexistence,omitempty" xml:"inexistence,omitempty"`
 	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
 	SubCorpId         *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
+	SystemToken       *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
 }
 
 func (s ListApplicationResponseBodyData) String() string {
@@ -9405,6 +9406,11 @@ func (s *ListApplicationResponseBodyData) SetName(v string) *ListApplicationResp
 
 func (s *ListApplicationResponseBodyData) SetSubCorpId(v string) *ListApplicationResponseBodyData {
 	s.SubCorpId = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetSystemToken(v string) *ListApplicationResponseBodyData {
+	s.SystemToken = &v
 	return s
 }
 
