@@ -2586,6 +2586,92 @@ func (s *CampusUpdateRenterMemberResponse) SetBody(v *CampusUpdateRenterMemberRe
 	return s
 }
 
+type ChatFormGetDataForApiAccessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatFormGetDataForApiAccessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatFormGetDataForApiAccessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatFormGetDataForApiAccessHeaders) SetCommonHeaders(v map[string]*string) *ChatFormGetDataForApiAccessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatFormGetDataForApiAccessHeaders) SetXAcsDingtalkAccessToken(v string) *ChatFormGetDataForApiAccessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatFormGetDataForApiAccessRequest struct {
+	DingTalkTraceId *string `json:"dingTalkTraceId,omitempty" xml:"dingTalkTraceId,omitempty"`
+}
+
+func (s ChatFormGetDataForApiAccessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatFormGetDataForApiAccessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatFormGetDataForApiAccessRequest) SetDingTalkTraceId(v string) *ChatFormGetDataForApiAccessRequest {
+	s.DingTalkTraceId = &v
+	return s
+}
+
+type ChatFormGetDataForApiAccessResponseBody struct {
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s ChatFormGetDataForApiAccessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatFormGetDataForApiAccessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatFormGetDataForApiAccessResponseBody) SetData(v string) *ChatFormGetDataForApiAccessResponseBody {
+	s.Data = &v
+	return s
+}
+
+type ChatFormGetDataForApiAccessResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *ChatFormGetDataForApiAccessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatFormGetDataForApiAccessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatFormGetDataForApiAccessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatFormGetDataForApiAccessResponse) SetHeaders(v map[string]*string) *ChatFormGetDataForApiAccessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatFormGetDataForApiAccessResponse) SetStatusCode(v int32) *ChatFormGetDataForApiAccessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatFormGetDataForApiAccessResponse) SetBody(v *ChatFormGetDataForApiAccessResponseBody) *ChatFormGetDataForApiAccessResponse {
+	s.Body = v
+	return s
+}
+
 type ChatMemoAddGeneralFileHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -22701,6 +22787,61 @@ func (client *Client) CampusUpdateRenterMember(request *CampusUpdateRenterMember
 	headers := &CampusUpdateRenterMemberHeaders{}
 	_result = &CampusUpdateRenterMemberResponse{}
 	_body, _err := client.CampusUpdateRenterMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatFormGetDataForApiAccessWithOptions(request *ChatFormGetDataForApiAccessRequest, headers *ChatFormGetDataForApiAccessHeaders, runtime *util.RuntimeOptions) (_result *ChatFormGetDataForApiAccessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTalkTraceId)) {
+		query["dingTalkTraceId"] = request.DingTalkTraceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatFormGetDataForApiAccess"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatform/datas"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatFormGetDataForApiAccessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatFormGetDataForApiAccess(request *ChatFormGetDataForApiAccessRequest) (_result *ChatFormGetDataForApiAccessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatFormGetDataForApiAccessHeaders{}
+	_result = &ChatFormGetDataForApiAccessResponse{}
+	_body, _err := client.ChatFormGetDataForApiAccessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

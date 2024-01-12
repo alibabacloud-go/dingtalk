@@ -1359,6 +1359,226 @@ func (s *HrmProcessUpdateTerminationInfoResponse) SetBody(v *HrmProcessUpdateTer
 	return s
 }
 
+type MasterDataDeleteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MasterDataDeleteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataDeleteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataDeleteHeaders) SetCommonHeaders(v map[string]*string) *MasterDataDeleteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MasterDataDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDataDeleteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MasterDataDeleteRequest struct {
+	Body     []*MasterDataDeleteRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	TenantId *int64                         `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+}
+
+func (s MasterDataDeleteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataDeleteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataDeleteRequest) SetBody(v []*MasterDataDeleteRequestBody) *MasterDataDeleteRequest {
+	s.Body = v
+	return s
+}
+
+func (s *MasterDataDeleteRequest) SetTenantId(v int64) *MasterDataDeleteRequest {
+	s.TenantId = &v
+	return s
+}
+
+type MasterDataDeleteRequestBody struct {
+	BizTime    *int64                                  `json:"bizTime,omitempty" xml:"bizTime,omitempty"`
+	BizUk      *string                                 `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
+	EntityCode *string                                 `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
+	FieldList  []*MasterDataDeleteRequestBodyFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
+	Scope      *MasterDataDeleteRequestBodyScope       `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+}
+
+func (s MasterDataDeleteRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataDeleteRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataDeleteRequestBody) SetBizTime(v int64) *MasterDataDeleteRequestBody {
+	s.BizTime = &v
+	return s
+}
+
+func (s *MasterDataDeleteRequestBody) SetBizUk(v string) *MasterDataDeleteRequestBody {
+	s.BizUk = &v
+	return s
+}
+
+func (s *MasterDataDeleteRequestBody) SetEntityCode(v string) *MasterDataDeleteRequestBody {
+	s.EntityCode = &v
+	return s
+}
+
+func (s *MasterDataDeleteRequestBody) SetFieldList(v []*MasterDataDeleteRequestBodyFieldList) *MasterDataDeleteRequestBody {
+	s.FieldList = v
+	return s
+}
+
+func (s *MasterDataDeleteRequestBody) SetScope(v *MasterDataDeleteRequestBodyScope) *MasterDataDeleteRequestBody {
+	s.Scope = v
+	return s
+}
+
+type MasterDataDeleteRequestBodyFieldList struct {
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	ValueStr *string `json:"valueStr,omitempty" xml:"valueStr,omitempty"`
+}
+
+func (s MasterDataDeleteRequestBodyFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataDeleteRequestBodyFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataDeleteRequestBodyFieldList) SetName(v string) *MasterDataDeleteRequestBodyFieldList {
+	s.Name = &v
+	return s
+}
+
+func (s *MasterDataDeleteRequestBodyFieldList) SetValueStr(v string) *MasterDataDeleteRequestBodyFieldList {
+	s.ValueStr = &v
+	return s
+}
+
+type MasterDataDeleteRequestBodyScope struct {
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	Version   *int32  `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s MasterDataDeleteRequestBodyScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataDeleteRequestBodyScope) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataDeleteRequestBodyScope) SetScopeCode(v string) *MasterDataDeleteRequestBodyScope {
+	s.ScopeCode = &v
+	return s
+}
+
+func (s *MasterDataDeleteRequestBodyScope) SetVersion(v int32) *MasterDataDeleteRequestBodyScope {
+	s.Version = &v
+	return s
+}
+
+type MasterDataDeleteResponseBody struct {
+	AllSuccess *bool                                     `json:"allSuccess,omitempty" xml:"allSuccess,omitempty"`
+	FailResult []*MasterDataDeleteResponseBodyFailResult `json:"failResult,omitempty" xml:"failResult,omitempty" type:"Repeated"`
+}
+
+func (s MasterDataDeleteResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataDeleteResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataDeleteResponseBody) SetAllSuccess(v bool) *MasterDataDeleteResponseBody {
+	s.AllSuccess = &v
+	return s
+}
+
+func (s *MasterDataDeleteResponseBody) SetFailResult(v []*MasterDataDeleteResponseBodyFailResult) *MasterDataDeleteResponseBody {
+	s.FailResult = v
+	return s
+}
+
+type MasterDataDeleteResponseBodyFailResult struct {
+	BizUK     *string `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s MasterDataDeleteResponseBodyFailResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataDeleteResponseBodyFailResult) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataDeleteResponseBodyFailResult) SetBizUK(v string) *MasterDataDeleteResponseBodyFailResult {
+	s.BizUK = &v
+	return s
+}
+
+func (s *MasterDataDeleteResponseBodyFailResult) SetErrorCode(v string) *MasterDataDeleteResponseBodyFailResult {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *MasterDataDeleteResponseBodyFailResult) SetErrorMsg(v string) *MasterDataDeleteResponseBodyFailResult {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *MasterDataDeleteResponseBodyFailResult) SetSuccess(v bool) *MasterDataDeleteResponseBodyFailResult {
+	s.Success = &v
+	return s
+}
+
+type MasterDataDeleteResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *MasterDataDeleteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s MasterDataDeleteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataDeleteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataDeleteResponse) SetHeaders(v map[string]*string) *MasterDataDeleteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MasterDataDeleteResponse) SetStatusCode(v int32) *MasterDataDeleteResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *MasterDataDeleteResponse) SetBody(v *MasterDataDeleteResponseBody) *MasterDataDeleteResponse {
+	s.Body = v
+	return s
+}
+
 type MasterDataQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4919,6 +5139,62 @@ func (client *Client) HrmProcessUpdateTerminationInfo(request *HrmProcessUpdateT
 	headers := &HrmProcessUpdateTerminationInfoHeaders{}
 	_result = &HrmProcessUpdateTerminationInfoResponse{}
 	_body, _err := client.HrmProcessUpdateTerminationInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MasterDataDeleteWithOptions(request *MasterDataDeleteRequest, headers *MasterDataDeleteHeaders, runtime *util.RuntimeOptions) (_result *MasterDataDeleteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TenantId)) {
+		query["tenantId"] = request.TenantId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    util.ToArray(request.Body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("MasterDataDelete"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/datas/batchRemove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &MasterDataDeleteResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MasterDataDelete(request *MasterDataDeleteRequest) (_result *MasterDataDeleteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MasterDataDeleteHeaders{}
+	_result = &MasterDataDeleteResponse{}
+	_body, _err := client.MasterDataDeleteWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
