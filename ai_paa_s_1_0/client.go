@@ -175,6 +175,116 @@ func (s *ExecuteAgentResponse) SetBody(v *ExecuteAgentResponseBody) *ExecuteAgen
 	return s
 }
 
+type LiandanTextImageGetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s LiandanTextImageGetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanTextImageGetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanTextImageGetHeaders) SetCommonHeaders(v map[string]*string) *LiandanTextImageGetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *LiandanTextImageGetHeaders) SetXAcsDingtalkAccessToken(v string) *LiandanTextImageGetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type LiandanTextImageGetRequest struct {
+	Module        *string `json:"module,omitempty" xml:"module,omitempty"`
+	RequestSource *string `json:"requestSource,omitempty" xml:"requestSource,omitempty"`
+	TaskId        *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s LiandanTextImageGetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanTextImageGetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanTextImageGetRequest) SetModule(v string) *LiandanTextImageGetRequest {
+	s.Module = &v
+	return s
+}
+
+func (s *LiandanTextImageGetRequest) SetRequestSource(v string) *LiandanTextImageGetRequest {
+	s.RequestSource = &v
+	return s
+}
+
+func (s *LiandanTextImageGetRequest) SetTaskId(v string) *LiandanTextImageGetRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *LiandanTextImageGetRequest) SetUserId(v string) *LiandanTextImageGetRequest {
+	s.UserId = &v
+	return s
+}
+
+type LiandanTextImageGetResponseBody struct {
+	Result  []map[string]interface{} `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s LiandanTextImageGetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanTextImageGetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanTextImageGetResponseBody) SetResult(v []map[string]interface{}) *LiandanTextImageGetResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *LiandanTextImageGetResponseBody) SetSuccess(v bool) *LiandanTextImageGetResponseBody {
+	s.Success = &v
+	return s
+}
+
+type LiandanTextImageGetResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *LiandanTextImageGetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s LiandanTextImageGetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanTextImageGetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanTextImageGetResponse) SetHeaders(v map[string]*string) *LiandanTextImageGetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *LiandanTextImageGetResponse) SetStatusCode(v int32) *LiandanTextImageGetResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *LiandanTextImageGetResponse) SetBody(v *LiandanTextImageGetResponseBody) *LiandanTextImageGetResponse {
+	s.Body = v
+	return s
+}
+
 type LiandanluExclusiveModelHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -281,6 +391,151 @@ func (s *LiandanluExclusiveModelResponse) SetStatusCode(v int32) *LiandanluExclu
 }
 
 func (s *LiandanluExclusiveModelResponse) SetBody(v *LiandanluExclusiveModelResponseBody) *LiandanluExclusiveModelResponse {
+	s.Body = v
+	return s
+}
+
+type LiandanluTextToImageModelHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s LiandanluTextToImageModelHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanluTextToImageModelHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanluTextToImageModelHeaders) SetCommonHeaders(v map[string]*string) *LiandanluTextToImageModelHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *LiandanluTextToImageModelHeaders) SetXAcsDingtalkAccessToken(v string) *LiandanluTextToImageModelHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type LiandanluTextToImageModelRequest struct {
+	Module     *string            `json:"module,omitempty" xml:"module,omitempty"`
+	Number     *int64             `json:"number,omitempty" xml:"number,omitempty"`
+	Parameters map[string]*string `json:"parameters,omitempty" xml:"parameters,omitempty"`
+	Prompt     *string            `json:"prompt,omitempty" xml:"prompt,omitempty"`
+	UserId     *string            `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s LiandanluTextToImageModelRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanluTextToImageModelRequest) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanluTextToImageModelRequest) SetModule(v string) *LiandanluTextToImageModelRequest {
+	s.Module = &v
+	return s
+}
+
+func (s *LiandanluTextToImageModelRequest) SetNumber(v int64) *LiandanluTextToImageModelRequest {
+	s.Number = &v
+	return s
+}
+
+func (s *LiandanluTextToImageModelRequest) SetParameters(v map[string]*string) *LiandanluTextToImageModelRequest {
+	s.Parameters = v
+	return s
+}
+
+func (s *LiandanluTextToImageModelRequest) SetPrompt(v string) *LiandanluTextToImageModelRequest {
+	s.Prompt = &v
+	return s
+}
+
+func (s *LiandanluTextToImageModelRequest) SetUserId(v string) *LiandanluTextToImageModelRequest {
+	s.UserId = &v
+	return s
+}
+
+type LiandanluTextToImageModelResponseBody struct {
+	Result  *LiandanluTextToImageModelResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s LiandanluTextToImageModelResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanluTextToImageModelResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanluTextToImageModelResponseBody) SetResult(v *LiandanluTextToImageModelResponseBodyResult) *LiandanluTextToImageModelResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *LiandanluTextToImageModelResponseBody) SetSuccess(v bool) *LiandanluTextToImageModelResponseBody {
+	s.Success = &v
+	return s
+}
+
+type LiandanluTextToImageModelResponseBodyResult struct {
+	RequestId  *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	TaskId     *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskStatus *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+}
+
+func (s LiandanluTextToImageModelResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanluTextToImageModelResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanluTextToImageModelResponseBodyResult) SetRequestId(v string) *LiandanluTextToImageModelResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+func (s *LiandanluTextToImageModelResponseBodyResult) SetTaskId(v string) *LiandanluTextToImageModelResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *LiandanluTextToImageModelResponseBodyResult) SetTaskStatus(v string) *LiandanluTextToImageModelResponseBodyResult {
+	s.TaskStatus = &v
+	return s
+}
+
+type LiandanluTextToImageModelResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *LiandanluTextToImageModelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s LiandanluTextToImageModelResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LiandanluTextToImageModelResponse) GoString() string {
+	return s.String()
+}
+
+func (s *LiandanluTextToImageModelResponse) SetHeaders(v map[string]*string) *LiandanluTextToImageModelResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *LiandanluTextToImageModelResponse) SetStatusCode(v int32) *LiandanluTextToImageModelResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *LiandanluTextToImageModelResponse) SetBody(v *LiandanluTextToImageModelResponseBody) *LiandanluTextToImageModelResponse {
 	s.Body = v
 	return s
 }
@@ -1069,6 +1324,73 @@ func (client *Client) ExecuteAgent(request *ExecuteAgentRequest) (_result *Execu
 	return _result, _err
 }
 
+func (client *Client) LiandanTextImageGetWithOptions(request *LiandanTextImageGetRequest, headers *LiandanTextImageGetHeaders, runtime *util.RuntimeOptions) (_result *LiandanTextImageGetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Module)) {
+		body["module"] = request.Module
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestSource)) {
+		body["requestSource"] = request.RequestSource
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("LiandanTextImageGet"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/ai/textToImage/results/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &LiandanTextImageGetResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) LiandanTextImageGet(request *LiandanTextImageGetRequest) (_result *LiandanTextImageGetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &LiandanTextImageGetHeaders{}
+	_result = &LiandanTextImageGetResponse{}
+	_body, _err := client.LiandanTextImageGetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) LiandanluExclusiveModelWithOptions(request *LiandanluExclusiveModelRequest, headers *LiandanluExclusiveModelHeaders, runtime *util.RuntimeOptions) (_result *LiandanluExclusiveModelResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1129,6 +1451,77 @@ func (client *Client) LiandanluExclusiveModel(request *LiandanluExclusiveModelRe
 	headers := &LiandanluExclusiveModelHeaders{}
 	_result = &LiandanluExclusiveModelResponse{}
 	_body, _err := client.LiandanluExclusiveModelWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) LiandanluTextToImageModelWithOptions(request *LiandanluTextToImageModelRequest, headers *LiandanluTextToImageModelHeaders, runtime *util.RuntimeOptions) (_result *LiandanluTextToImageModelResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Module)) {
+		body["module"] = request.Module
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Number)) {
+		body["number"] = request.Number
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Parameters)) {
+		body["parameters"] = request.Parameters
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Prompt)) {
+		body["prompt"] = request.Prompt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("LiandanluTextToImageModel"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/ai/textToImage/generate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &LiandanluTextToImageModelResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) LiandanluTextToImageModel(request *LiandanluTextToImageModelRequest) (_result *LiandanluTextToImageModelResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &LiandanluTextToImageModelHeaders{}
+	_result = &LiandanluTextToImageModelResponse{}
+	_body, _err := client.LiandanluTextToImageModelWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

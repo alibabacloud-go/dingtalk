@@ -6140,6 +6140,110 @@ func (s *MultiOrgPermissionGrantResponse) SetStatusCode(v int32) *MultiOrgPermis
 	return s
 }
 
+type PushVerifyEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PushVerifyEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushVerifyEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PushVerifyEventHeaders) SetCommonHeaders(v map[string]*string) *PushVerifyEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PushVerifyEventHeaders) SetXAcsDingtalkAccessToken(v string) *PushVerifyEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PushVerifyEventRequest struct {
+	CallerDeviceId *string   `json:"callerDeviceId,omitempty" xml:"callerDeviceId,omitempty"`
+	FactorCodeList []*string `json:"factorCodeList,omitempty" xml:"factorCodeList,omitempty" type:"Repeated"`
+	State          *string   `json:"state,omitempty" xml:"state,omitempty"`
+	UserId         *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PushVerifyEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushVerifyEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PushVerifyEventRequest) SetCallerDeviceId(v string) *PushVerifyEventRequest {
+	s.CallerDeviceId = &v
+	return s
+}
+
+func (s *PushVerifyEventRequest) SetFactorCodeList(v []*string) *PushVerifyEventRequest {
+	s.FactorCodeList = v
+	return s
+}
+
+func (s *PushVerifyEventRequest) SetState(v string) *PushVerifyEventRequest {
+	s.State = &v
+	return s
+}
+
+func (s *PushVerifyEventRequest) SetUserId(v string) *PushVerifyEventRequest {
+	s.UserId = &v
+	return s
+}
+
+type PushVerifyEventResponseBody struct {
+	VerifyId *string `json:"verifyId,omitempty" xml:"verifyId,omitempty"`
+}
+
+func (s PushVerifyEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushVerifyEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PushVerifyEventResponseBody) SetVerifyId(v string) *PushVerifyEventResponseBody {
+	s.VerifyId = &v
+	return s
+}
+
+type PushVerifyEventResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *PushVerifyEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PushVerifyEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushVerifyEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PushVerifyEventResponse) SetHeaders(v map[string]*string) *PushVerifyEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PushVerifyEventResponse) SetStatusCode(v int32) *PushVerifyEventResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PushVerifyEventResponse) SetBody(v *PushVerifyEventResponseBody) *PushVerifyEventResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCardVisitorStatisticDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12306,6 +12410,73 @@ func (client *Client) MultiOrgPermissionGrant(request *MultiOrgPermissionGrantRe
 	headers := &MultiOrgPermissionGrantHeaders{}
 	_result = &MultiOrgPermissionGrantResponse{}
 	_body, _err := client.MultiOrgPermissionGrantWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PushVerifyEventWithOptions(request *PushVerifyEventRequest, headers *PushVerifyEventHeaders, runtime *util.RuntimeOptions) (_result *PushVerifyEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CallerDeviceId)) {
+		body["callerDeviceId"] = request.CallerDeviceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FactorCodeList)) {
+		body["factorCodeList"] = request.FactorCodeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.State)) {
+		body["state"] = request.State
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PushVerifyEvent"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/verifyIdentitys/verifyEvents/push"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PushVerifyEventResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PushVerifyEvent(request *PushVerifyEventRequest) (_result *PushVerifyEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PushVerifyEventHeaders{}
+	_result = &PushVerifyEventResponse{}
+	_body, _err := client.PushVerifyEventWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
