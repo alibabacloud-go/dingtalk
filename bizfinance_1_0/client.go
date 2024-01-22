@@ -253,6 +253,7 @@ type BatchAddInvoiceRequest struct {
 	CompanyCode          *string                                       `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	GeneralInvoiceVOList []*BatchAddInvoiceRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
 	Operator             *string                                       `json:"operator,omitempty" xml:"operator,omitempty"`
+	Source               *string                                       `json:"source,omitempty" xml:"source,omitempty"`
 }
 
 func (s BatchAddInvoiceRequest) String() string {
@@ -275,6 +276,11 @@ func (s *BatchAddInvoiceRequest) SetGeneralInvoiceVOList(v []*BatchAddInvoiceReq
 
 func (s *BatchAddInvoiceRequest) SetOperator(v string) *BatchAddInvoiceRequest {
 	s.Operator = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequest) SetSource(v string) *BatchAddInvoiceRequest {
+	s.Source = &v
 	return s
 }
 
@@ -14193,6 +14199,10 @@ func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest
 
 	if !tea.BoolValue(util.IsUnset(request.Operator)) {
 		body["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
 	}
 
 	realHeaders := make(map[string]*string)
