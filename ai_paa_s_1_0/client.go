@@ -199,10 +199,9 @@ func (s *LiandanTextImageGetHeaders) SetXAcsDingtalkAccessToken(v string) *Liand
 }
 
 type LiandanTextImageGetRequest struct {
-	Module        *string `json:"module,omitempty" xml:"module,omitempty"`
-	RequestSource *string `json:"requestSource,omitempty" xml:"requestSource,omitempty"`
-	TaskId        *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Module *string `json:"module,omitempty" xml:"module,omitempty"`
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s LiandanTextImageGetRequest) String() string {
@@ -215,11 +214,6 @@ func (s LiandanTextImageGetRequest) GoString() string {
 
 func (s *LiandanTextImageGetRequest) SetModule(v string) *LiandanTextImageGetRequest {
 	s.Module = &v
-	return s
-}
-
-func (s *LiandanTextImageGetRequest) SetRequestSource(v string) *LiandanTextImageGetRequest {
-	s.RequestSource = &v
 	return s
 }
 
@@ -1332,10 +1326,6 @@ func (client *Client) LiandanTextImageGetWithOptions(request *LiandanTextImageGe
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Module)) {
 		body["module"] = request.Module
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.RequestSource)) {
-		body["requestSource"] = request.RequestSource
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TaskId)) {

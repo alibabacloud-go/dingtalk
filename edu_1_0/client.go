@@ -8004,6 +8004,261 @@ func (s *DeviceHeartbeatResponse) SetBody(v *DeviceHeartbeatResponseBody) *Devic
 	return s
 }
 
+type EduFindUserRolesByUserIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EduFindUserRolesByUserIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduFindUserRolesByUserIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EduFindUserRolesByUserIdHeaders) SetCommonHeaders(v map[string]*string) *EduFindUserRolesByUserIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EduFindUserRolesByUserIdHeaders) SetXAcsDingtalkAccessToken(v string) *EduFindUserRolesByUserIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EduFindUserRolesByUserIdRequest struct {
+	ClassId    *int64  `json:"classId,omitempty" xml:"classId,omitempty"`
+	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	HasOrgRole *bool   `json:"hasOrgRole,omitempty" xml:"hasOrgRole,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s EduFindUserRolesByUserIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduFindUserRolesByUserIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EduFindUserRolesByUserIdRequest) SetClassId(v int64) *EduFindUserRolesByUserIdRequest {
+	s.ClassId = &v
+	return s
+}
+
+func (s *EduFindUserRolesByUserIdRequest) SetCorpId(v string) *EduFindUserRolesByUserIdRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *EduFindUserRolesByUserIdRequest) SetHasOrgRole(v bool) *EduFindUserRolesByUserIdRequest {
+	s.HasOrgRole = &v
+	return s
+}
+
+func (s *EduFindUserRolesByUserIdRequest) SetUserId(v string) *EduFindUserRolesByUserIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type EduFindUserRolesByUserIdResponseBody struct {
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s EduFindUserRolesByUserIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduFindUserRolesByUserIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EduFindUserRolesByUserIdResponseBody) SetResult(v []*string) *EduFindUserRolesByUserIdResponseBody {
+	s.Result = v
+	return s
+}
+
+type EduFindUserRolesByUserIdResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EduFindUserRolesByUserIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s EduFindUserRolesByUserIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduFindUserRolesByUserIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EduFindUserRolesByUserIdResponse) SetHeaders(v map[string]*string) *EduFindUserRolesByUserIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EduFindUserRolesByUserIdResponse) SetStatusCode(v int32) *EduFindUserRolesByUserIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EduFindUserRolesByUserIdResponse) SetBody(v *EduFindUserRolesByUserIdResponseBody) *EduFindUserRolesByUserIdResponse {
+	s.Body = v
+	return s
+}
+
+type EduListUserByFromUserIdsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EduListUserByFromUserIdsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduListUserByFromUserIdsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EduListUserByFromUserIdsHeaders) SetCommonHeaders(v map[string]*string) *EduListUserByFromUserIdsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsHeaders) SetXAcsDingtalkAccessToken(v string) *EduListUserByFromUserIdsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EduListUserByFromUserIdsRequest struct {
+	ClassId        *int64  `json:"classId,omitempty" xml:"classId,omitempty"`
+	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	GuardianUserId *string `json:"guardianUserId,omitempty" xml:"guardianUserId,omitempty"`
+}
+
+func (s EduListUserByFromUserIdsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduListUserByFromUserIdsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EduListUserByFromUserIdsRequest) SetClassId(v int64) *EduListUserByFromUserIdsRequest {
+	s.ClassId = &v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsRequest) SetCorpId(v string) *EduListUserByFromUserIdsRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsRequest) SetGuardianUserId(v string) *EduListUserByFromUserIdsRequest {
+	s.GuardianUserId = &v
+	return s
+}
+
+type EduListUserByFromUserIdsResponseBody struct {
+	Result []*EduListUserByFromUserIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s EduListUserByFromUserIdsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduListUserByFromUserIdsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EduListUserByFromUserIdsResponseBody) SetResult(v []*EduListUserByFromUserIdsResponseBodyResult) *EduListUserByFromUserIdsResponseBody {
+	s.Result = v
+	return s
+}
+
+type EduListUserByFromUserIdsResponseBodyResult struct {
+	CampusId *int64  `json:"campusId,omitempty" xml:"campusId,omitempty"`
+	ClassId  *int64  `json:"classId,omitempty" xml:"classId,omitempty"`
+	GradeId  *int64  `json:"gradeId,omitempty" xml:"gradeId,omitempty"`
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	PeriodId *int64  `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	Role     *string `json:"role,omitempty" xml:"role,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s EduListUserByFromUserIdsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduListUserByFromUserIdsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *EduListUserByFromUserIdsResponseBodyResult) SetCampusId(v int64) *EduListUserByFromUserIdsResponseBodyResult {
+	s.CampusId = &v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsResponseBodyResult) SetClassId(v int64) *EduListUserByFromUserIdsResponseBodyResult {
+	s.ClassId = &v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsResponseBodyResult) SetGradeId(v int64) *EduListUserByFromUserIdsResponseBodyResult {
+	s.GradeId = &v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsResponseBodyResult) SetName(v string) *EduListUserByFromUserIdsResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsResponseBodyResult) SetPeriodId(v int64) *EduListUserByFromUserIdsResponseBodyResult {
+	s.PeriodId = &v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsResponseBodyResult) SetRole(v string) *EduListUserByFromUserIdsResponseBodyResult {
+	s.Role = &v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsResponseBodyResult) SetUserId(v string) *EduListUserByFromUserIdsResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type EduListUserByFromUserIdsResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *EduListUserByFromUserIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s EduListUserByFromUserIdsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduListUserByFromUserIdsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EduListUserByFromUserIdsResponse) SetHeaders(v map[string]*string) *EduListUserByFromUserIdsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsResponse) SetStatusCode(v int32) *EduListUserByFromUserIdsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EduListUserByFromUserIdsResponse) SetBody(v *EduListUserByFromUserIdsResponseBody) *EduListUserByFromUserIdsResponse {
+	s.Body = v
+	return s
+}
+
 type EduTeacherListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -23333,6 +23588,136 @@ func (client *Client) DeviceHeartbeat(request *DeviceHeartbeatRequest) (_result 
 	headers := &DeviceHeartbeatHeaders{}
 	_result = &DeviceHeartbeatResponse{}
 	_body, _err := client.DeviceHeartbeatWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) EduFindUserRolesByUserIdWithOptions(request *EduFindUserRolesByUserIdRequest, headers *EduFindUserRolesByUserIdHeaders, runtime *util.RuntimeOptions) (_result *EduFindUserRolesByUserIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClassId)) {
+		query["classId"] = request.ClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HasOrgRole)) {
+		query["hasOrgRole"] = request.HasOrgRole
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EduFindUserRolesByUserId"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/users/allRoles"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EduFindUserRolesByUserIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) EduFindUserRolesByUserId(request *EduFindUserRolesByUserIdRequest) (_result *EduFindUserRolesByUserIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EduFindUserRolesByUserIdHeaders{}
+	_result = &EduFindUserRolesByUserIdResponse{}
+	_body, _err := client.EduFindUserRolesByUserIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) EduListUserByFromUserIdsWithOptions(request *EduListUserByFromUserIdsRequest, headers *EduListUserByFromUserIdsHeaders, runtime *util.RuntimeOptions) (_result *EduListUserByFromUserIdsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClassId)) {
+		query["classId"] = request.ClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GuardianUserId)) {
+		query["guardianUserId"] = request.GuardianUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EduListUserByFromUserIds"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/users/allRelations/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EduListUserByFromUserIdsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) EduListUserByFromUserIds(request *EduListUserByFromUserIdsRequest) (_result *EduListUserByFromUserIdsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EduListUserByFromUserIdsHeaders{}
+	_result = &EduListUserByFromUserIdsResponse{}
+	_body, _err := client.EduListUserByFromUserIdsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
