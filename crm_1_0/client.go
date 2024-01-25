@@ -6886,6 +6886,239 @@ func (s *GetAllCustomerRecyclesResponse) SetBody(v *GetAllCustomerRecyclesRespon
 	return s
 }
 
+type GetContactsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetContactsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactsHeaders) SetCommonHeaders(v map[string]*string) *GetContactsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetContactsHeaders) SetXAcsDingtalkAccessToken(v string) *GetContactsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetContactsRequest struct {
+	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
+	MaxResults            *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken             *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ObjectType            *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	ProviderCorpid        *string `json:"providerCorpid,omitempty" xml:"providerCorpid,omitempty"`
+	QueryDsl              *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+}
+
+func (s GetContactsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactsRequest) SetCurrentOperatorUserId(v string) *GetContactsRequest {
+	s.CurrentOperatorUserId = &v
+	return s
+}
+
+func (s *GetContactsRequest) SetMaxResults(v int64) *GetContactsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetContactsRequest) SetNextToken(v string) *GetContactsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetContactsRequest) SetObjectType(v string) *GetContactsRequest {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *GetContactsRequest) SetProviderCorpid(v string) *GetContactsRequest {
+	s.ProviderCorpid = &v
+	return s
+}
+
+func (s *GetContactsRequest) SetQueryDsl(v string) *GetContactsRequest {
+	s.QueryDsl = &v
+	return s
+}
+
+type GetContactsResponseBody struct {
+	Result *GetContactsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetContactsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactsResponseBody) SetResult(v *GetContactsResponseBodyResult) *GetContactsResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetContactsResponseBodyResult struct {
+	HasMore    *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	MaxResults *int64                                 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Values     []*GetContactsResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+}
+
+func (s GetContactsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactsResponseBodyResult) SetHasMore(v bool) *GetContactsResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetContactsResponseBodyResult) SetMaxResults(v int64) *GetContactsResponseBodyResult {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetContactsResponseBodyResult) SetNextToken(v string) *GetContactsResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetContactsResponseBodyResult) SetValues(v []*GetContactsResponseBodyResultValues) *GetContactsResponseBodyResult {
+	s.Values = v
+	return s
+}
+
+type GetContactsResponseBodyResultValues struct {
+	CreatorUserId *string                                        `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	Data          map[string]*string                             `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData    map[string]*string                             `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	GmtCreate     *string                                        `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified   *string                                        `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	InstanceId    *string                                        `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	ObjectType    *string                                        `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	Permission    *GetContactsResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+}
+
+func (s GetContactsResponseBodyResultValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactsResponseBodyResultValues) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactsResponseBodyResultValues) SetCreatorUserId(v string) *GetContactsResponseBodyResultValues {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *GetContactsResponseBodyResultValues) SetData(v map[string]*string) *GetContactsResponseBodyResultValues {
+	s.Data = v
+	return s
+}
+
+func (s *GetContactsResponseBodyResultValues) SetExtendData(v map[string]*string) *GetContactsResponseBodyResultValues {
+	s.ExtendData = v
+	return s
+}
+
+func (s *GetContactsResponseBodyResultValues) SetGmtCreate(v string) *GetContactsResponseBodyResultValues {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetContactsResponseBodyResultValues) SetGmtModified(v string) *GetContactsResponseBodyResultValues {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *GetContactsResponseBodyResultValues) SetInstanceId(v string) *GetContactsResponseBodyResultValues {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *GetContactsResponseBodyResultValues) SetObjectType(v string) *GetContactsResponseBodyResultValues {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *GetContactsResponseBodyResultValues) SetPermission(v *GetContactsResponseBodyResultValuesPermission) *GetContactsResponseBodyResultValues {
+	s.Permission = v
+	return s
+}
+
+type GetContactsResponseBodyResultValuesPermission struct {
+	OwnerUserIds       []*string `json:"ownerUserIds,omitempty" xml:"ownerUserIds,omitempty" type:"Repeated"`
+	ParticipantUserIds []*string `json:"participantUserIds,omitempty" xml:"participantUserIds,omitempty" type:"Repeated"`
+}
+
+func (s GetContactsResponseBodyResultValuesPermission) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactsResponseBodyResultValuesPermission) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactsResponseBodyResultValuesPermission) SetOwnerUserIds(v []*string) *GetContactsResponseBodyResultValuesPermission {
+	s.OwnerUserIds = v
+	return s
+}
+
+func (s *GetContactsResponseBodyResultValuesPermission) SetParticipantUserIds(v []*string) *GetContactsResponseBodyResultValuesPermission {
+	s.ParticipantUserIds = v
+	return s
+}
+
+type GetContactsResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetContactsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetContactsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactsResponse) SetHeaders(v map[string]*string) *GetContactsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetContactsResponse) SetStatusCode(v int32) *GetContactsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetContactsResponse) SetBody(v *GetContactsResponseBody) *GetContactsResponse {
+	s.Body = v
+	return s
+}
+
 type GetCrmGroupChatHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8156,6 +8389,251 @@ func (s *GetNavigationCatalogResponse) SetStatusCode(v int32) *GetNavigationCata
 }
 
 func (s *GetNavigationCatalogResponse) SetBody(v *GetNavigationCatalogResponseBody) *GetNavigationCatalogResponse {
+	s.Body = v
+	return s
+}
+
+type GetObjectDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetObjectDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectDataHeaders) SetCommonHeaders(v map[string]*string) *GetObjectDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetObjectDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetObjectDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetObjectDataRequest struct {
+	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
+	MaxResults            *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
+	NextToken             *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	QueryDsl              *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+}
+
+func (s GetObjectDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectDataRequest) SetCurrentOperatorUserId(v string) *GetObjectDataRequest {
+	s.CurrentOperatorUserId = &v
+	return s
+}
+
+func (s *GetObjectDataRequest) SetMaxResults(v int64) *GetObjectDataRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetObjectDataRequest) SetName(v string) *GetObjectDataRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *GetObjectDataRequest) SetNextToken(v string) *GetObjectDataRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetObjectDataRequest) SetQueryDsl(v string) *GetObjectDataRequest {
+	s.QueryDsl = &v
+	return s
+}
+
+type GetObjectDataResponseBody struct {
+	Result *GetObjectDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetObjectDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectDataResponseBody) SetResult(v *GetObjectDataResponseBodyResult) *GetObjectDataResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetObjectDataResponseBodyResult struct {
+	HasMore    *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	MaxResults *int64                                   `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Values     []*GetObjectDataResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+}
+
+func (s GetObjectDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectDataResponseBodyResult) SetHasMore(v bool) *GetObjectDataResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResult) SetMaxResults(v int64) *GetObjectDataResponseBodyResult {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResult) SetNextToken(v string) *GetObjectDataResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResult) SetValues(v []*GetObjectDataResponseBodyResultValues) *GetObjectDataResponseBodyResult {
+	s.Values = v
+	return s
+}
+
+type GetObjectDataResponseBodyResultValues struct {
+	CreatorNick    *string                                          `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	CreatorUserId  *string                                          `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	Data           map[string]*string                               `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData     map[string]*string                               `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	GmtCreate      *string                                          `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified    *string                                          `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	InstanceId     *string                                          `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	ObjectType     *string                                          `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	Permission     *GetObjectDataResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	ProcInstStatus *string                                          `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
+	ProcOutResult  *string                                          `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
+}
+
+func (s GetObjectDataResponseBodyResultValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectDataResponseBodyResultValues) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetCreatorNick(v string) *GetObjectDataResponseBodyResultValues {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetCreatorUserId(v string) *GetObjectDataResponseBodyResultValues {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetData(v map[string]*string) *GetObjectDataResponseBodyResultValues {
+	s.Data = v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetExtendData(v map[string]*string) *GetObjectDataResponseBodyResultValues {
+	s.ExtendData = v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetGmtCreate(v string) *GetObjectDataResponseBodyResultValues {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetGmtModified(v string) *GetObjectDataResponseBodyResultValues {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetInstanceId(v string) *GetObjectDataResponseBodyResultValues {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetObjectType(v string) *GetObjectDataResponseBodyResultValues {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetPermission(v *GetObjectDataResponseBodyResultValuesPermission) *GetObjectDataResponseBodyResultValues {
+	s.Permission = v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetProcInstStatus(v string) *GetObjectDataResponseBodyResultValues {
+	s.ProcInstStatus = &v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValues) SetProcOutResult(v string) *GetObjectDataResponseBodyResultValues {
+	s.ProcOutResult = &v
+	return s
+}
+
+type GetObjectDataResponseBodyResultValuesPermission struct {
+	OwnerUserIds       []*string `json:"ownerUserIds,omitempty" xml:"ownerUserIds,omitempty" type:"Repeated"`
+	ParticipantUserIds []*string `json:"participantUserIds,omitempty" xml:"participantUserIds,omitempty" type:"Repeated"`
+}
+
+func (s GetObjectDataResponseBodyResultValuesPermission) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectDataResponseBodyResultValuesPermission) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectDataResponseBodyResultValuesPermission) SetOwnerUserIds(v []*string) *GetObjectDataResponseBodyResultValuesPermission {
+	s.OwnerUserIds = v
+	return s
+}
+
+func (s *GetObjectDataResponseBodyResultValuesPermission) SetParticipantUserIds(v []*string) *GetObjectDataResponseBodyResultValuesPermission {
+	s.ParticipantUserIds = v
+	return s
+}
+
+type GetObjectDataResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *GetObjectDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetObjectDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectDataResponse) SetHeaders(v map[string]*string) *GetObjectDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetObjectDataResponse) SetStatusCode(v int32) *GetObjectDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetObjectDataResponse) SetBody(v *GetObjectDataResponseBody) *GetObjectDataResponse {
 	s.Body = v
 	return s
 }
@@ -14121,6 +14599,81 @@ func (client *Client) GetAllCustomerRecycles(request *GetAllCustomerRecyclesRequ
 	return _result, _err
 }
 
+func (client *Client) GetContactsWithOptions(request *GetContactsRequest, headers *GetContactsHeaders, runtime *util.RuntimeOptions) (_result *GetContactsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
+		body["currentOperatorUserId"] = request.CurrentOperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectType)) {
+		body["objectType"] = request.ObjectType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProviderCorpid)) {
+		body["providerCorpid"] = request.ProviderCorpid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryDsl)) {
+		body["queryDsl"] = request.QueryDsl
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetContacts"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/customObjects/contacts/datas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetContactsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetContacts(request *GetContactsRequest) (_result *GetContactsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetContactsHeaders{}
+	_result = &GetContactsResponse{}
+	_body, _err := client.GetContactsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetCrmGroupChatWithOptions(openConversationId *string, headers *GetCrmGroupChatHeaders, runtime *util.RuntimeOptions) (_result *GetCrmGroupChatResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -14513,6 +15066,77 @@ func (client *Client) GetNavigationCatalog(request *GetNavigationCatalogRequest)
 	headers := &GetNavigationCatalogHeaders{}
 	_result = &GetNavigationCatalogResponse{}
 	_body, _err := client.GetNavigationCatalogWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetObjectDataWithOptions(request *GetObjectDataRequest, headers *GetObjectDataHeaders, runtime *util.RuntimeOptions) (_result *GetObjectDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
+		body["currentOperatorUserId"] = request.CurrentOperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryDsl)) {
+		body["queryDsl"] = request.QueryDsl
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetObjectData"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/customObjects/datas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetObjectDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetObjectData(request *GetObjectDataRequest) (_result *GetObjectDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetObjectDataHeaders{}
+	_result = &GetObjectDataResponse{}
+	_body, _err := client.GetObjectDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

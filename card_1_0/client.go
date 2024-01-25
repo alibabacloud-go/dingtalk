@@ -354,6 +354,330 @@ func (s *AppendSpaceResponse) SetBody(v *AppendSpaceResponseBody) *AppendSpaceRe
 	return s
 }
 
+type AppendSpaceWithDelegateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateHeaders) SetCommonHeaders(v map[string]*string) *AppendSpaceWithDelegateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateHeaders) SetXAcsDingtalkAccessToken(v string) *AppendSpaceWithDelegateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AppendSpaceWithDelegateRequest struct {
+	CoFeedOpenSpaceModel  *AppendSpaceWithDelegateRequestCoFeedOpenSpaceModel  `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
+	ImGroupOpenSpaceModel *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
+	ImRobotOpenSpaceModel *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
+	OutTrackId            *string                                              `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	TopOpenSpaceModel     *AppendSpaceWithDelegateRequestTopOpenSpaceModel     `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
+}
+
+func (s AppendSpaceWithDelegateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateRequest) SetCoFeedOpenSpaceModel(v *AppendSpaceWithDelegateRequestCoFeedOpenSpaceModel) *AppendSpaceWithDelegateRequest {
+	s.CoFeedOpenSpaceModel = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequest) SetImGroupOpenSpaceModel(v *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel) *AppendSpaceWithDelegateRequest {
+	s.ImGroupOpenSpaceModel = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequest) SetImRobotOpenSpaceModel(v *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel) *AppendSpaceWithDelegateRequest {
+	s.ImRobotOpenSpaceModel = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequest) SetOutTrackId(v string) *AppendSpaceWithDelegateRequest {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequest) SetTopOpenSpaceModel(v *AppendSpaceWithDelegateRequestTopOpenSpaceModel) *AppendSpaceWithDelegateRequest {
+	s.TopOpenSpaceModel = v
+	return s
+}
+
+type AppendSpaceWithDelegateRequestCoFeedOpenSpaceModel struct {
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateRequestCoFeedOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateRequestCoFeedOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateRequestCoFeedOpenSpaceModel) SetTitle(v string) *AppendSpaceWithDelegateRequestCoFeedOpenSpaceModel {
+	s.Title = &v
+	return s
+}
+
+type AppendSpaceWithDelegateRequestImGroupOpenSpaceModel struct {
+	LastMessageI18n map[string]*string                                                `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	Notification    *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification  `json:"notification,omitempty" xml:"notification,omitempty" type:"Struct"`
+	SearchSupport   *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport `json:"searchSupport,omitempty" xml:"searchSupport,omitempty" type:"Struct"`
+	SupportForward  *bool                                                             `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateRequestImGroupOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateRequestImGroupOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel) SetLastMessageI18n(v map[string]*string) *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel) SetNotification(v *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification) *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel {
+	s.Notification = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel) SetSearchSupport(v *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport) *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel {
+	s.SearchSupport = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel) SetSupportForward(v bool) *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel {
+	s.SupportForward = &v
+	return s
+}
+
+type AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification struct {
+	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
+	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification) SetAlertContent(v string) *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification {
+	s.AlertContent = &v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification) SetNotificationOff(v bool) *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification {
+	s.NotificationOff = &v
+	return s
+}
+
+type AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport struct {
+	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport) SetSearchDesc(v string) *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchDesc = &v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport) SetSearchIcon(v string) *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchIcon = &v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchTypeName = &v
+	return s
+}
+
+type AppendSpaceWithDelegateRequestImRobotOpenSpaceModel struct {
+	LastMessageI18n map[string]*string                                                `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	Notification    *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification  `json:"notification,omitempty" xml:"notification,omitempty" type:"Struct"`
+	SearchSupport   *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport `json:"searchSupport,omitempty" xml:"searchSupport,omitempty" type:"Struct"`
+	SupportForward  *bool                                                             `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateRequestImRobotOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateRequestImRobotOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel) SetLastMessageI18n(v map[string]*string) *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel) SetNotification(v *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification) *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel {
+	s.Notification = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel) SetSearchSupport(v *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport) *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel {
+	s.SearchSupport = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel) SetSupportForward(v bool) *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel {
+	s.SupportForward = &v
+	return s
+}
+
+type AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification struct {
+	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
+	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification) SetAlertContent(v string) *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification {
+	s.AlertContent = &v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification) SetNotificationOff(v bool) *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification {
+	s.NotificationOff = &v
+	return s
+}
+
+type AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport struct {
+	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSearchDesc(v string) *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchDesc = &v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSearchIcon(v string) *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchIcon = &v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchTypeName = &v
+	return s
+}
+
+type AppendSpaceWithDelegateRequestTopOpenSpaceModel struct {
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateRequestTopOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateRequestTopOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateRequestTopOpenSpaceModel) SetSpaceType(v string) *AppendSpaceWithDelegateRequestTopOpenSpaceModel {
+	s.SpaceType = &v
+	return s
+}
+
+type AppendSpaceWithDelegateResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AppendSpaceWithDelegateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateResponseBody) SetResult(v bool) *AppendSpaceWithDelegateResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateResponseBody) SetSuccess(v bool) *AppendSpaceWithDelegateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AppendSpaceWithDelegateResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *AppendSpaceWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AppendSpaceWithDelegateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceWithDelegateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceWithDelegateResponse) SetHeaders(v map[string]*string) *AppendSpaceWithDelegateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateResponse) SetStatusCode(v int32) *AppendSpaceWithDelegateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AppendSpaceWithDelegateResponse) SetBody(v *AppendSpaceWithDelegateResponseBody) *AppendSpaceWithDelegateResponse {
+	s.Body = v
+	return s
+}
+
 type CreateAndDeliverHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1057,6 +1381,709 @@ func (s *CreateAndDeliverResponse) SetBody(v *CreateAndDeliverResponseBody) *Cre
 	return s
 }
 
+type CreateAndDeliverWithDelegateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateHeaders) SetCommonHeaders(v map[string]*string) *CreateAndDeliverWithDelegateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAndDeliverWithDelegateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequest struct {
+	CallbackRouteKey        *string                                                     `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CallbackType            *string                                                     `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
+	CardData                *CreateAndDeliverWithDelegateRequestCardData                `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CardTemplateId          *string                                                     `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	CoFeedOpenDeliverModel  *CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel  `json:"coFeedOpenDeliverModel,omitempty" xml:"coFeedOpenDeliverModel,omitempty" type:"Struct"`
+	CoFeedOpenSpaceModel    *CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel    `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
+	DocOpenDeliverModel     *CreateAndDeliverWithDelegateRequestDocOpenDeliverModel     `json:"docOpenDeliverModel,omitempty" xml:"docOpenDeliverModel,omitempty" type:"Struct"`
+	ImGroupOpenDeliverModel *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel `json:"imGroupOpenDeliverModel,omitempty" xml:"imGroupOpenDeliverModel,omitempty" type:"Struct"`
+	ImGroupOpenSpaceModel   *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel   `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
+	ImRobotOpenDeliverModel *CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel `json:"imRobotOpenDeliverModel,omitempty" xml:"imRobotOpenDeliverModel,omitempty" type:"Struct"`
+	ImRobotOpenSpaceModel   *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel   `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
+	OpenDynamicDataConfig   *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfig   `json:"openDynamicDataConfig,omitempty" xml:"openDynamicDataConfig,omitempty" type:"Struct"`
+	OpenSpaceId             *string                                                     `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
+	OutTrackId              *string                                                     `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData             map[string]*PrivateDataValue                                `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	TopOpenDeliverModel     *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel     `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
+	TopOpenSpaceModel       *CreateAndDeliverWithDelegateRequestTopOpenSpaceModel       `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
+	UserId                  *string                                                     `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdType              *int32                                                      `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetCallbackRouteKey(v string) *CreateAndDeliverWithDelegateRequest {
+	s.CallbackRouteKey = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetCallbackType(v string) *CreateAndDeliverWithDelegateRequest {
+	s.CallbackType = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetCardData(v *CreateAndDeliverWithDelegateRequestCardData) *CreateAndDeliverWithDelegateRequest {
+	s.CardData = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetCardTemplateId(v string) *CreateAndDeliverWithDelegateRequest {
+	s.CardTemplateId = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetCoFeedOpenDeliverModel(v *CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel) *CreateAndDeliverWithDelegateRequest {
+	s.CoFeedOpenDeliverModel = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetCoFeedOpenSpaceModel(v *CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel) *CreateAndDeliverWithDelegateRequest {
+	s.CoFeedOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetDocOpenDeliverModel(v *CreateAndDeliverWithDelegateRequestDocOpenDeliverModel) *CreateAndDeliverWithDelegateRequest {
+	s.DocOpenDeliverModel = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetImGroupOpenDeliverModel(v *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel) *CreateAndDeliverWithDelegateRequest {
+	s.ImGroupOpenDeliverModel = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetImGroupOpenSpaceModel(v *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel) *CreateAndDeliverWithDelegateRequest {
+	s.ImGroupOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetImRobotOpenDeliverModel(v *CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel) *CreateAndDeliverWithDelegateRequest {
+	s.ImRobotOpenDeliverModel = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetImRobotOpenSpaceModel(v *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel) *CreateAndDeliverWithDelegateRequest {
+	s.ImRobotOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetOpenDynamicDataConfig(v *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfig) *CreateAndDeliverWithDelegateRequest {
+	s.OpenDynamicDataConfig = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetOpenSpaceId(v string) *CreateAndDeliverWithDelegateRequest {
+	s.OpenSpaceId = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetOutTrackId(v string) *CreateAndDeliverWithDelegateRequest {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetPrivateData(v map[string]*PrivateDataValue) *CreateAndDeliverWithDelegateRequest {
+	s.PrivateData = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetTopOpenDeliverModel(v *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel) *CreateAndDeliverWithDelegateRequest {
+	s.TopOpenDeliverModel = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetTopOpenSpaceModel(v *CreateAndDeliverWithDelegateRequestTopOpenSpaceModel) *CreateAndDeliverWithDelegateRequest {
+	s.TopOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetUserId(v string) *CreateAndDeliverWithDelegateRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequest) SetUserIdType(v int32) *CreateAndDeliverWithDelegateRequest {
+	s.UserIdType = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestCardData struct {
+	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestCardData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestCardData) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestCardData) SetCardParamMap(v map[string]*string) *CreateAndDeliverWithDelegateRequestCardData {
+	s.CardParamMap = v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel struct {
+	BizTag      *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	GmtTimeLine *int64  `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel) SetBizTag(v string) *CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel {
+	s.BizTag = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel) SetGmtTimeLine(v int64) *CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel {
+	s.GmtTimeLine = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel struct {
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel) SetCoolAppCode(v string) *CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel) SetTitle(v string) *CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel {
+	s.Title = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestDocOpenDeliverModel struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestDocOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestDocOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestDocOpenDeliverModel) SetUserId(v string) *CreateAndDeliverWithDelegateRequestDocOpenDeliverModel {
+	s.UserId = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel struct {
+	AtUserIds  map[string]*string `json:"atUserIds,omitempty" xml:"atUserIds,omitempty"`
+	Extension  map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Recipients []*string          `json:"recipients,omitempty" xml:"recipients,omitempty" type:"Repeated"`
+	RobotCode  *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel) SetAtUserIds(v map[string]*string) *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel {
+	s.AtUserIds = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel) SetExtension(v map[string]*string) *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel {
+	s.Extension = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel) SetRecipients(v []*string) *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel {
+	s.Recipients = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel) SetRobotCode(v string) *CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel {
+	s.RobotCode = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel struct {
+	LastMessageI18n map[string]*string                                                     `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	Notification    *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification  `json:"notification,omitempty" xml:"notification,omitempty" type:"Struct"`
+	SearchSupport   *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport `json:"searchSupport,omitempty" xml:"searchSupport,omitempty" type:"Struct"`
+	SupportForward  *bool                                                                  `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel) SetLastMessageI18n(v map[string]*string) *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel) SetNotification(v *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification) *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel {
+	s.Notification = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel) SetSearchSupport(v *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport) *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel {
+	s.SearchSupport = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel) SetSupportForward(v bool) *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel {
+	s.SupportForward = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification struct {
+	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
+	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification) SetAlertContent(v string) *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification {
+	s.AlertContent = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification) SetNotificationOff(v bool) *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification {
+	s.NotificationOff = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport struct {
+	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport) SetSearchDesc(v string) *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchDesc = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport) SetSearchIcon(v string) *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchIcon = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchTypeName = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel struct {
+	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	RobotCode *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel) SetExtension(v map[string]*string) *CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel {
+	s.Extension = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel) SetRobotCode(v string) *CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel) SetSpaceType(v string) *CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel {
+	s.SpaceType = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel struct {
+	LastMessageI18n map[string]*string                                                     `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	Notification    *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification  `json:"notification,omitempty" xml:"notification,omitempty" type:"Struct"`
+	SearchSupport   *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport `json:"searchSupport,omitempty" xml:"searchSupport,omitempty" type:"Struct"`
+	SupportForward  *bool                                                                  `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel) SetLastMessageI18n(v map[string]*string) *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel) SetNotification(v *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification) *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel {
+	s.Notification = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel) SetSearchSupport(v *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport) *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel {
+	s.SearchSupport = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel) SetSupportForward(v bool) *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel {
+	s.SupportForward = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification struct {
+	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
+	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification) SetAlertContent(v string) *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification {
+	s.AlertContent = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification) SetNotificationOff(v bool) *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification {
+	s.NotificationOff = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport struct {
+	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSearchDesc(v string) *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchDesc = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSearchIcon(v string) *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchIcon = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchTypeName = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestOpenDynamicDataConfig struct {
+	DynamicDataSourceConfigs []*CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs `json:"dynamicDataSourceConfigs,omitempty" xml:"dynamicDataSourceConfigs,omitempty" type:"Repeated"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestOpenDynamicDataConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestOpenDynamicDataConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfig) SetDynamicDataSourceConfigs(v []*CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfig {
+	s.DynamicDataSourceConfigs = v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs struct {
+	ConstParams         map[string]*string                                                                          `json:"constParams,omitempty" xml:"constParams,omitempty"`
+	DynamicDataSourceId *string                                                                                     `json:"dynamicDataSourceId,omitempty" xml:"dynamicDataSourceId,omitempty"`
+	PullConfig          *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig `json:"pullConfig,omitempty" xml:"pullConfig,omitempty" type:"Struct"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) SetConstParams(v map[string]*string) *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs {
+	s.ConstParams = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) SetDynamicDataSourceId(v string) *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs {
+	s.DynamicDataSourceId = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) SetPullConfig(v *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs {
+	s.PullConfig = v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig struct {
+	Interval     *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	PullStrategy *string `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
+	TimeUnit     *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) SetInterval(v int32) *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig {
+	s.Interval = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) SetPullStrategy(v string) *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig {
+	s.PullStrategy = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) SetTimeUnit(v string) *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig {
+	s.TimeUnit = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestTopOpenDeliverModel struct {
+	ExpiredTimeMillis *int64    `json:"expiredTimeMillis,omitempty" xml:"expiredTimeMillis,omitempty"`
+	Platforms         []*string `json:"platforms,omitempty" xml:"platforms,omitempty" type:"Repeated"`
+	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestTopOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestTopOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel) SetExpiredTimeMillis(v int64) *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel {
+	s.ExpiredTimeMillis = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel) SetPlatforms(v []*string) *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel {
+	s.Platforms = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel) SetUserIds(v []*string) *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel {
+	s.UserIds = v
+	return s
+}
+
+type CreateAndDeliverWithDelegateRequestTopOpenSpaceModel struct {
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateRequestTopOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateRequestTopOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateRequestTopOpenSpaceModel) SetSpaceType(v string) *CreateAndDeliverWithDelegateRequestTopOpenSpaceModel {
+	s.SpaceType = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateResponseBody struct {
+	Result  *CreateAndDeliverWithDelegateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateResponseBody) SetResult(v *CreateAndDeliverWithDelegateResponseBodyResult) *CreateAndDeliverWithDelegateResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateResponseBody) SetSuccess(v bool) *CreateAndDeliverWithDelegateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateResponseBodyResult struct {
+	DeliverResults []*CreateAndDeliverWithDelegateResponseBodyResultDeliverResults `json:"deliverResults,omitempty" xml:"deliverResults,omitempty" type:"Repeated"`
+	OutTrackId     *string                                                         `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateResponseBodyResult) SetDeliverResults(v []*CreateAndDeliverWithDelegateResponseBodyResultDeliverResults) *CreateAndDeliverWithDelegateResponseBodyResult {
+	s.DeliverResults = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateResponseBodyResult) SetOutTrackId(v string) *CreateAndDeliverWithDelegateResponseBodyResult {
+	s.OutTrackId = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateResponseBodyResultDeliverResults struct {
+	CarrierId *string `json:"carrierId,omitempty" xml:"carrierId,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateAndDeliverWithDelegateResponseBodyResultDeliverResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateResponseBodyResultDeliverResults) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults) SetCarrierId(v string) *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults {
+	s.CarrierId = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults) SetErrorMsg(v string) *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults) SetSpaceId(v string) *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults) SetSpaceType(v string) *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults {
+	s.SpaceType = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults) SetSuccess(v bool) *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults {
+	s.Success = &v
+	return s
+}
+
+type CreateAndDeliverWithDelegateResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateAndDeliverWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateAndDeliverWithDelegateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverWithDelegateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverWithDelegateResponse) SetHeaders(v map[string]*string) *CreateAndDeliverWithDelegateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateResponse) SetStatusCode(v int32) *CreateAndDeliverWithDelegateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateAndDeliverWithDelegateResponse) SetBody(v *CreateAndDeliverWithDelegateResponseBody) *CreateAndDeliverWithDelegateResponse {
+	s.Body = v
+	return s
+}
+
 type CreateCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1521,6 +2548,470 @@ func (s *CreateCardResponse) SetBody(v *CreateCardResponseBody) *CreateCardRespo
 	return s
 }
 
+type CreateCardWithDelegateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCardWithDelegateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateHeaders) SetCommonHeaders(v map[string]*string) *CreateCardWithDelegateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCardWithDelegateHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCardWithDelegateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCardWithDelegateRequest struct {
+	CallbackRouteKey      *string                                             `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CallbackType          *string                                             `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
+	CardData              *CreateCardWithDelegateRequestCardData              `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CardTemplateId        *string                                             `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	CoFeedOpenSpaceModel  *CreateCardWithDelegateRequestCoFeedOpenSpaceModel  `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
+	ImGroupOpenSpaceModel *CreateCardWithDelegateRequestImGroupOpenSpaceModel `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
+	ImRobotOpenSpaceModel *CreateCardWithDelegateRequestImRobotOpenSpaceModel `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
+	OpenDynamicDataConfig *CreateCardWithDelegateRequestOpenDynamicDataConfig `json:"openDynamicDataConfig,omitempty" xml:"openDynamicDataConfig,omitempty" type:"Struct"`
+	OutTrackId            *string                                             `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData           map[string]*PrivateDataValue                        `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	TopOpenSpaceModel     *CreateCardWithDelegateRequestTopOpenSpaceModel     `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
+	UserId                *string                                             `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdType            *int32                                              `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequest) SetCallbackRouteKey(v string) *CreateCardWithDelegateRequest {
+	s.CallbackRouteKey = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetCallbackType(v string) *CreateCardWithDelegateRequest {
+	s.CallbackType = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetCardData(v *CreateCardWithDelegateRequestCardData) *CreateCardWithDelegateRequest {
+	s.CardData = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetCardTemplateId(v string) *CreateCardWithDelegateRequest {
+	s.CardTemplateId = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetCoFeedOpenSpaceModel(v *CreateCardWithDelegateRequestCoFeedOpenSpaceModel) *CreateCardWithDelegateRequest {
+	s.CoFeedOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetImGroupOpenSpaceModel(v *CreateCardWithDelegateRequestImGroupOpenSpaceModel) *CreateCardWithDelegateRequest {
+	s.ImGroupOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetImRobotOpenSpaceModel(v *CreateCardWithDelegateRequestImRobotOpenSpaceModel) *CreateCardWithDelegateRequest {
+	s.ImRobotOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetOpenDynamicDataConfig(v *CreateCardWithDelegateRequestOpenDynamicDataConfig) *CreateCardWithDelegateRequest {
+	s.OpenDynamicDataConfig = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetOutTrackId(v string) *CreateCardWithDelegateRequest {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetPrivateData(v map[string]*PrivateDataValue) *CreateCardWithDelegateRequest {
+	s.PrivateData = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetTopOpenSpaceModel(v *CreateCardWithDelegateRequestTopOpenSpaceModel) *CreateCardWithDelegateRequest {
+	s.TopOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetUserId(v string) *CreateCardWithDelegateRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequest) SetUserIdType(v int32) *CreateCardWithDelegateRequest {
+	s.UserIdType = &v
+	return s
+}
+
+type CreateCardWithDelegateRequestCardData struct {
+	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestCardData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestCardData) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestCardData) SetCardParamMap(v map[string]*string) *CreateCardWithDelegateRequestCardData {
+	s.CardParamMap = v
+	return s
+}
+
+type CreateCardWithDelegateRequestCoFeedOpenSpaceModel struct {
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestCoFeedOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestCoFeedOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestCoFeedOpenSpaceModel) SetTitle(v string) *CreateCardWithDelegateRequestCoFeedOpenSpaceModel {
+	s.Title = &v
+	return s
+}
+
+type CreateCardWithDelegateRequestImGroupOpenSpaceModel struct {
+	LastMessageI18n map[string]*string                                               `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	Notification    *CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification  `json:"notification,omitempty" xml:"notification,omitempty" type:"Struct"`
+	SearchSupport   *CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport `json:"searchSupport,omitempty" xml:"searchSupport,omitempty" type:"Struct"`
+	SupportForward  *bool                                                            `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestImGroupOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestImGroupOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModel) SetLastMessageI18n(v map[string]*string) *CreateCardWithDelegateRequestImGroupOpenSpaceModel {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModel) SetNotification(v *CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification) *CreateCardWithDelegateRequestImGroupOpenSpaceModel {
+	s.Notification = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModel) SetSearchSupport(v *CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport) *CreateCardWithDelegateRequestImGroupOpenSpaceModel {
+	s.SearchSupport = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModel) SetSupportForward(v bool) *CreateCardWithDelegateRequestImGroupOpenSpaceModel {
+	s.SupportForward = &v
+	return s
+}
+
+type CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification struct {
+	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
+	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification) SetAlertContent(v string) *CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification {
+	s.AlertContent = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification) SetNotificationOff(v bool) *CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification {
+	s.NotificationOff = &v
+	return s
+}
+
+type CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport struct {
+	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport) SetSearchDesc(v string) *CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchDesc = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport) SetSearchIcon(v string) *CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchIcon = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchTypeName = &v
+	return s
+}
+
+type CreateCardWithDelegateRequestImRobotOpenSpaceModel struct {
+	LastMessageI18n map[string]*string                                               `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	Notification    *CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification  `json:"notification,omitempty" xml:"notification,omitempty" type:"Struct"`
+	SearchSupport   *CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport `json:"searchSupport,omitempty" xml:"searchSupport,omitempty" type:"Struct"`
+	SupportForward  *bool                                                            `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestImRobotOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestImRobotOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModel) SetLastMessageI18n(v map[string]*string) *CreateCardWithDelegateRequestImRobotOpenSpaceModel {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModel) SetNotification(v *CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification) *CreateCardWithDelegateRequestImRobotOpenSpaceModel {
+	s.Notification = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModel) SetSearchSupport(v *CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport) *CreateCardWithDelegateRequestImRobotOpenSpaceModel {
+	s.SearchSupport = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModel) SetSupportForward(v bool) *CreateCardWithDelegateRequestImRobotOpenSpaceModel {
+	s.SupportForward = &v
+	return s
+}
+
+type CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification struct {
+	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
+	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification) SetAlertContent(v string) *CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification {
+	s.AlertContent = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification) SetNotificationOff(v bool) *CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification {
+	s.NotificationOff = &v
+	return s
+}
+
+type CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport struct {
+	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSearchDesc(v string) *CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchDesc = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSearchIcon(v string) *CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchIcon = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchTypeName = &v
+	return s
+}
+
+type CreateCardWithDelegateRequestOpenDynamicDataConfig struct {
+	DynamicDataSourceConfigs []*CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs `json:"dynamicDataSourceConfigs,omitempty" xml:"dynamicDataSourceConfigs,omitempty" type:"Repeated"`
+}
+
+func (s CreateCardWithDelegateRequestOpenDynamicDataConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestOpenDynamicDataConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestOpenDynamicDataConfig) SetDynamicDataSourceConfigs(v []*CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) *CreateCardWithDelegateRequestOpenDynamicDataConfig {
+	s.DynamicDataSourceConfigs = v
+	return s
+}
+
+type CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs struct {
+	ConstParams         map[string]*string                                                                    `json:"constParams,omitempty" xml:"constParams,omitempty"`
+	DynamicDataSourceId *string                                                                               `json:"dynamicDataSourceId,omitempty" xml:"dynamicDataSourceId,omitempty"`
+	PullConfig          *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig `json:"pullConfig,omitempty" xml:"pullConfig,omitempty" type:"Struct"`
+}
+
+func (s CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) SetConstParams(v map[string]*string) *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs {
+	s.ConstParams = v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) SetDynamicDataSourceId(v string) *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs {
+	s.DynamicDataSourceId = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs) SetPullConfig(v *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs {
+	s.PullConfig = v
+	return s
+}
+
+type CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig struct {
+	Interval     *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	PullStrategy *string `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
+	TimeUnit     *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) SetInterval(v int32) *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig {
+	s.Interval = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) SetPullStrategy(v string) *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig {
+	s.PullStrategy = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) SetTimeUnit(v string) *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig {
+	s.TimeUnit = &v
+	return s
+}
+
+type CreateCardWithDelegateRequestTopOpenSpaceModel struct {
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+}
+
+func (s CreateCardWithDelegateRequestTopOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateRequestTopOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateRequestTopOpenSpaceModel) SetSpaceType(v string) *CreateCardWithDelegateRequestTopOpenSpaceModel {
+	s.SpaceType = &v
+	return s
+}
+
+type CreateCardWithDelegateResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateCardWithDelegateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateResponseBody) SetResult(v string) *CreateCardWithDelegateResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateResponseBody) SetSuccess(v bool) *CreateCardWithDelegateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateCardWithDelegateResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *CreateCardWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateCardWithDelegateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardWithDelegateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardWithDelegateResponse) SetHeaders(v map[string]*string) *CreateCardWithDelegateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCardWithDelegateResponse) SetStatusCode(v int32) *CreateCardWithDelegateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateCardWithDelegateResponse) SetBody(v *CreateCardWithDelegateResponseBody) *CreateCardWithDelegateResponse {
+	s.Body = v
+	return s
+}
+
 type DeliverCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1829,6 +3320,314 @@ func (s *DeliverCardResponse) SetBody(v *DeliverCardResponseBody) *DeliverCardRe
 	return s
 }
 
+type DeliverCardWithDelegateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeliverCardWithDelegateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateHeaders) SetCommonHeaders(v map[string]*string) *DeliverCardWithDelegateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateHeaders) SetXAcsDingtalkAccessToken(v string) *DeliverCardWithDelegateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeliverCardWithDelegateRequest struct {
+	CoFeedOpenDeliverModel  *DeliverCardWithDelegateRequestCoFeedOpenDeliverModel  `json:"coFeedOpenDeliverModel,omitempty" xml:"coFeedOpenDeliverModel,omitempty" type:"Struct"`
+	DocOpenDeliverModel     *DeliverCardWithDelegateRequestDocOpenDeliverModel     `json:"docOpenDeliverModel,omitempty" xml:"docOpenDeliverModel,omitempty" type:"Struct"`
+	ImGroupOpenDeliverModel *DeliverCardWithDelegateRequestImGroupOpenDeliverModel `json:"imGroupOpenDeliverModel,omitempty" xml:"imGroupOpenDeliverModel,omitempty" type:"Struct"`
+	ImRobotOpenDeliverModel *DeliverCardWithDelegateRequestImRobotOpenDeliverModel `json:"imRobotOpenDeliverModel,omitempty" xml:"imRobotOpenDeliverModel,omitempty" type:"Struct"`
+	OpenSpaceId             *string                                                `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
+	OutTrackId              *string                                                `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	TopOpenDeliverModel     *DeliverCardWithDelegateRequestTopOpenDeliverModel     `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
+	UserIdType              *int32                                                 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+}
+
+func (s DeliverCardWithDelegateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateRequest) SetCoFeedOpenDeliverModel(v *DeliverCardWithDelegateRequestCoFeedOpenDeliverModel) *DeliverCardWithDelegateRequest {
+	s.CoFeedOpenDeliverModel = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequest) SetDocOpenDeliverModel(v *DeliverCardWithDelegateRequestDocOpenDeliverModel) *DeliverCardWithDelegateRequest {
+	s.DocOpenDeliverModel = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequest) SetImGroupOpenDeliverModel(v *DeliverCardWithDelegateRequestImGroupOpenDeliverModel) *DeliverCardWithDelegateRequest {
+	s.ImGroupOpenDeliverModel = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequest) SetImRobotOpenDeliverModel(v *DeliverCardWithDelegateRequestImRobotOpenDeliverModel) *DeliverCardWithDelegateRequest {
+	s.ImRobotOpenDeliverModel = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequest) SetOpenSpaceId(v string) *DeliverCardWithDelegateRequest {
+	s.OpenSpaceId = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequest) SetOutTrackId(v string) *DeliverCardWithDelegateRequest {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequest) SetTopOpenDeliverModel(v *DeliverCardWithDelegateRequestTopOpenDeliverModel) *DeliverCardWithDelegateRequest {
+	s.TopOpenDeliverModel = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequest) SetUserIdType(v int32) *DeliverCardWithDelegateRequest {
+	s.UserIdType = &v
+	return s
+}
+
+type DeliverCardWithDelegateRequestCoFeedOpenDeliverModel struct {
+	BizTag      *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	GmtTimeLine *int64  `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
+}
+
+func (s DeliverCardWithDelegateRequestCoFeedOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateRequestCoFeedOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateRequestCoFeedOpenDeliverModel) SetBizTag(v string) *DeliverCardWithDelegateRequestCoFeedOpenDeliverModel {
+	s.BizTag = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequestCoFeedOpenDeliverModel) SetGmtTimeLine(v int64) *DeliverCardWithDelegateRequestCoFeedOpenDeliverModel {
+	s.GmtTimeLine = &v
+	return s
+}
+
+type DeliverCardWithDelegateRequestDocOpenDeliverModel struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeliverCardWithDelegateRequestDocOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateRequestDocOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateRequestDocOpenDeliverModel) SetUserId(v string) *DeliverCardWithDelegateRequestDocOpenDeliverModel {
+	s.UserId = &v
+	return s
+}
+
+type DeliverCardWithDelegateRequestImGroupOpenDeliverModel struct {
+	AtUserIds  map[string]*string `json:"atUserIds,omitempty" xml:"atUserIds,omitempty"`
+	Extension  map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Recipients []*string          `json:"recipients,omitempty" xml:"recipients,omitempty" type:"Repeated"`
+	RobotCode  *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s DeliverCardWithDelegateRequestImGroupOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateRequestImGroupOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateRequestImGroupOpenDeliverModel) SetAtUserIds(v map[string]*string) *DeliverCardWithDelegateRequestImGroupOpenDeliverModel {
+	s.AtUserIds = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequestImGroupOpenDeliverModel) SetExtension(v map[string]*string) *DeliverCardWithDelegateRequestImGroupOpenDeliverModel {
+	s.Extension = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequestImGroupOpenDeliverModel) SetRecipients(v []*string) *DeliverCardWithDelegateRequestImGroupOpenDeliverModel {
+	s.Recipients = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequestImGroupOpenDeliverModel) SetRobotCode(v string) *DeliverCardWithDelegateRequestImGroupOpenDeliverModel {
+	s.RobotCode = &v
+	return s
+}
+
+type DeliverCardWithDelegateRequestImRobotOpenDeliverModel struct {
+	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	RobotCode *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+}
+
+func (s DeliverCardWithDelegateRequestImRobotOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateRequestImRobotOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateRequestImRobotOpenDeliverModel) SetExtension(v map[string]*string) *DeliverCardWithDelegateRequestImRobotOpenDeliverModel {
+	s.Extension = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequestImRobotOpenDeliverModel) SetRobotCode(v string) *DeliverCardWithDelegateRequestImRobotOpenDeliverModel {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequestImRobotOpenDeliverModel) SetSpaceType(v string) *DeliverCardWithDelegateRequestImRobotOpenDeliverModel {
+	s.SpaceType = &v
+	return s
+}
+
+type DeliverCardWithDelegateRequestTopOpenDeliverModel struct {
+	ExpiredTimeMillis *int64    `json:"expiredTimeMillis,omitempty" xml:"expiredTimeMillis,omitempty"`
+	Platforms         []*string `json:"platforms,omitempty" xml:"platforms,omitempty" type:"Repeated"`
+	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s DeliverCardWithDelegateRequestTopOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateRequestTopOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateRequestTopOpenDeliverModel) SetExpiredTimeMillis(v int64) *DeliverCardWithDelegateRequestTopOpenDeliverModel {
+	s.ExpiredTimeMillis = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequestTopOpenDeliverModel) SetPlatforms(v []*string) *DeliverCardWithDelegateRequestTopOpenDeliverModel {
+	s.Platforms = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateRequestTopOpenDeliverModel) SetUserIds(v []*string) *DeliverCardWithDelegateRequestTopOpenDeliverModel {
+	s.UserIds = v
+	return s
+}
+
+type DeliverCardWithDelegateResponseBody struct {
+	Result  []*DeliverCardWithDelegateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeliverCardWithDelegateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateResponseBody) SetResult(v []*DeliverCardWithDelegateResponseBodyResult) *DeliverCardWithDelegateResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateResponseBody) SetSuccess(v bool) *DeliverCardWithDelegateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeliverCardWithDelegateResponseBodyResult struct {
+	CarrierId *string `json:"carrierId,omitempty" xml:"carrierId,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeliverCardWithDelegateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateResponseBodyResult) SetCarrierId(v string) *DeliverCardWithDelegateResponseBodyResult {
+	s.CarrierId = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateResponseBodyResult) SetErrorMsg(v string) *DeliverCardWithDelegateResponseBodyResult {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateResponseBodyResult) SetSpaceId(v string) *DeliverCardWithDelegateResponseBodyResult {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateResponseBodyResult) SetSpaceType(v string) *DeliverCardWithDelegateResponseBodyResult {
+	s.SpaceType = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateResponseBodyResult) SetSuccess(v bool) *DeliverCardWithDelegateResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type DeliverCardWithDelegateResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeliverCardWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeliverCardWithDelegateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardWithDelegateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardWithDelegateResponse) SetHeaders(v map[string]*string) *DeliverCardWithDelegateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeliverCardWithDelegateResponse) SetStatusCode(v int32) *DeliverCardWithDelegateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeliverCardWithDelegateResponse) SetBody(v *DeliverCardWithDelegateResponseBody) *DeliverCardWithDelegateResponse {
+	s.Body = v
+	return s
+}
+
 type RegisterCallbackHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1958,6 +3757,139 @@ func (s *RegisterCallbackResponse) SetStatusCode(v int32) *RegisterCallbackRespo
 }
 
 func (s *RegisterCallbackResponse) SetBody(v *RegisterCallbackResponseBody) *RegisterCallbackResponse {
+	s.Body = v
+	return s
+}
+
+type RegisterCallbackWithDelegateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RegisterCallbackWithDelegateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterCallbackWithDelegateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterCallbackWithDelegateHeaders) SetCommonHeaders(v map[string]*string) *RegisterCallbackWithDelegateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RegisterCallbackWithDelegateHeaders) SetXAcsDingtalkAccessToken(v string) *RegisterCallbackWithDelegateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RegisterCallbackWithDelegateRequest struct {
+	ApiSecret        *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CallbackUrl      *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	ForceUpdate      *bool   `json:"forceUpdate,omitempty" xml:"forceUpdate,omitempty"`
+}
+
+func (s RegisterCallbackWithDelegateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterCallbackWithDelegateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterCallbackWithDelegateRequest) SetApiSecret(v string) *RegisterCallbackWithDelegateRequest {
+	s.ApiSecret = &v
+	return s
+}
+
+func (s *RegisterCallbackWithDelegateRequest) SetCallbackRouteKey(v string) *RegisterCallbackWithDelegateRequest {
+	s.CallbackRouteKey = &v
+	return s
+}
+
+func (s *RegisterCallbackWithDelegateRequest) SetCallbackUrl(v string) *RegisterCallbackWithDelegateRequest {
+	s.CallbackUrl = &v
+	return s
+}
+
+func (s *RegisterCallbackWithDelegateRequest) SetForceUpdate(v bool) *RegisterCallbackWithDelegateRequest {
+	s.ForceUpdate = &v
+	return s
+}
+
+type RegisterCallbackWithDelegateResponseBody struct {
+	Result  *RegisterCallbackWithDelegateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RegisterCallbackWithDelegateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterCallbackWithDelegateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterCallbackWithDelegateResponseBody) SetResult(v *RegisterCallbackWithDelegateResponseBodyResult) *RegisterCallbackWithDelegateResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *RegisterCallbackWithDelegateResponseBody) SetSuccess(v bool) *RegisterCallbackWithDelegateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RegisterCallbackWithDelegateResponseBodyResult struct {
+	ApiSecret   *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+}
+
+func (s RegisterCallbackWithDelegateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterCallbackWithDelegateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterCallbackWithDelegateResponseBodyResult) SetApiSecret(v string) *RegisterCallbackWithDelegateResponseBodyResult {
+	s.ApiSecret = &v
+	return s
+}
+
+func (s *RegisterCallbackWithDelegateResponseBodyResult) SetCallbackUrl(v string) *RegisterCallbackWithDelegateResponseBodyResult {
+	s.CallbackUrl = &v
+	return s
+}
+
+type RegisterCallbackWithDelegateResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *RegisterCallbackWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RegisterCallbackWithDelegateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterCallbackWithDelegateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterCallbackWithDelegateResponse) SetHeaders(v map[string]*string) *RegisterCallbackWithDelegateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RegisterCallbackWithDelegateResponse) SetStatusCode(v int32) *RegisterCallbackWithDelegateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RegisterCallbackWithDelegateResponse) SetBody(v *RegisterCallbackWithDelegateResponseBody) *RegisterCallbackWithDelegateResponse {
 	s.Body = v
 	return s
 }
@@ -2246,6 +4178,162 @@ func (s *UpdateCardResponse) SetBody(v *UpdateCardResponseBody) *UpdateCardRespo
 	return s
 }
 
+type UpdateCardWithDelegateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCardWithDelegateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardWithDelegateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardWithDelegateHeaders) SetCommonHeaders(v map[string]*string) *UpdateCardWithDelegateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCardWithDelegateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCardWithDelegateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCardWithDelegateRequest struct {
+	CardData          *UpdateCardWithDelegateRequestCardData          `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CardUpdateOptions *UpdateCardWithDelegateRequestCardUpdateOptions `json:"cardUpdateOptions,omitempty" xml:"cardUpdateOptions,omitempty" type:"Struct"`
+	OutTrackId        *string                                         `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData       map[string]*PrivateDataValue                    `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	UserIdType        *int32                                          `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+}
+
+func (s UpdateCardWithDelegateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardWithDelegateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardWithDelegateRequest) SetCardData(v *UpdateCardWithDelegateRequestCardData) *UpdateCardWithDelegateRequest {
+	s.CardData = v
+	return s
+}
+
+func (s *UpdateCardWithDelegateRequest) SetCardUpdateOptions(v *UpdateCardWithDelegateRequestCardUpdateOptions) *UpdateCardWithDelegateRequest {
+	s.CardUpdateOptions = v
+	return s
+}
+
+func (s *UpdateCardWithDelegateRequest) SetOutTrackId(v string) *UpdateCardWithDelegateRequest {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *UpdateCardWithDelegateRequest) SetPrivateData(v map[string]*PrivateDataValue) *UpdateCardWithDelegateRequest {
+	s.PrivateData = v
+	return s
+}
+
+func (s *UpdateCardWithDelegateRequest) SetUserIdType(v int32) *UpdateCardWithDelegateRequest {
+	s.UserIdType = &v
+	return s
+}
+
+type UpdateCardWithDelegateRequestCardData struct {
+	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+}
+
+func (s UpdateCardWithDelegateRequestCardData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardWithDelegateRequestCardData) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardWithDelegateRequestCardData) SetCardParamMap(v map[string]*string) *UpdateCardWithDelegateRequestCardData {
+	s.CardParamMap = v
+	return s
+}
+
+type UpdateCardWithDelegateRequestCardUpdateOptions struct {
+	UpdateCardDataByKey    *bool `json:"updateCardDataByKey,omitempty" xml:"updateCardDataByKey,omitempty"`
+	UpdatePrivateDataByKey *bool `json:"updatePrivateDataByKey,omitempty" xml:"updatePrivateDataByKey,omitempty"`
+}
+
+func (s UpdateCardWithDelegateRequestCardUpdateOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardWithDelegateRequestCardUpdateOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardWithDelegateRequestCardUpdateOptions) SetUpdateCardDataByKey(v bool) *UpdateCardWithDelegateRequestCardUpdateOptions {
+	s.UpdateCardDataByKey = &v
+	return s
+}
+
+func (s *UpdateCardWithDelegateRequestCardUpdateOptions) SetUpdatePrivateDataByKey(v bool) *UpdateCardWithDelegateRequestCardUpdateOptions {
+	s.UpdatePrivateDataByKey = &v
+	return s
+}
+
+type UpdateCardWithDelegateResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateCardWithDelegateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardWithDelegateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardWithDelegateResponseBody) SetResult(v bool) *UpdateCardWithDelegateResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateCardWithDelegateResponseBody) SetSuccess(v bool) *UpdateCardWithDelegateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateCardWithDelegateResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *UpdateCardWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateCardWithDelegateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardWithDelegateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardWithDelegateResponse) SetHeaders(v map[string]*string) *UpdateCardWithDelegateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCardWithDelegateResponse) SetStatusCode(v int32) *UpdateCardWithDelegateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateCardWithDelegateResponse) SetBody(v *UpdateCardWithDelegateResponseBody) *UpdateCardWithDelegateResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -2339,6 +4427,77 @@ func (client *Client) AppendSpace(request *AppendSpaceRequest) (_result *AppendS
 	headers := &AppendSpaceHeaders{}
 	_result = &AppendSpaceResponse{}
 	_body, _err := client.AppendSpaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AppendSpaceWithDelegateWithOptions(request *AppendSpaceWithDelegateRequest, headers *AppendSpaceWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *AppendSpaceWithDelegateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenSpaceModel)) {
+		body["coFeedOpenSpaceModel"] = request.CoFeedOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenSpaceModel)) {
+		body["imGroupOpenSpaceModel"] = request.ImGroupOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenSpaceModel)) {
+		body["imRobotOpenSpaceModel"] = request.ImRobotOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutTrackId)) {
+		body["outTrackId"] = request.OutTrackId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopOpenSpaceModel)) {
+		body["topOpenSpaceModel"] = request.TopOpenSpaceModel
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AppendSpaceWithDelegate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/me/instances/spaces"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AppendSpaceWithDelegateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AppendSpaceWithDelegate(request *AppendSpaceWithDelegateRequest) (_result *AppendSpaceWithDelegateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AppendSpaceWithDelegateHeaders{}
+	_result = &AppendSpaceWithDelegateResponse{}
+	_body, _err := client.AppendSpaceWithDelegateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2473,6 +4632,133 @@ func (client *Client) CreateAndDeliver(request *CreateAndDeliverRequest) (_resul
 	return _result, _err
 }
 
+func (client *Client) CreateAndDeliverWithDelegateWithOptions(request *CreateAndDeliverWithDelegateRequest, headers *CreateAndDeliverWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *CreateAndDeliverWithDelegateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CallbackRouteKey)) {
+		body["callbackRouteKey"] = request.CallbackRouteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallbackType)) {
+		body["callbackType"] = request.CallbackType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardTemplateId)) {
+		body["cardTemplateId"] = request.CardTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenDeliverModel)) {
+		body["coFeedOpenDeliverModel"] = request.CoFeedOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenSpaceModel)) {
+		body["coFeedOpenSpaceModel"] = request.CoFeedOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DocOpenDeliverModel)) {
+		body["docOpenDeliverModel"] = request.DocOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenDeliverModel)) {
+		body["imGroupOpenDeliverModel"] = request.ImGroupOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenSpaceModel)) {
+		body["imGroupOpenSpaceModel"] = request.ImGroupOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenDeliverModel)) {
+		body["imRobotOpenDeliverModel"] = request.ImRobotOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenSpaceModel)) {
+		body["imRobotOpenSpaceModel"] = request.ImRobotOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenDynamicDataConfig)) {
+		body["openDynamicDataConfig"] = request.OpenDynamicDataConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenSpaceId)) {
+		body["openSpaceId"] = request.OpenSpaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutTrackId)) {
+		body["outTrackId"] = request.OutTrackId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PrivateData)) {
+		body["privateData"] = request.PrivateData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopOpenDeliverModel)) {
+		body["topOpenDeliverModel"] = request.TopOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopOpenSpaceModel)) {
+		body["topOpenSpaceModel"] = request.TopOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateAndDeliverWithDelegate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/me/instances/createAndDeliver"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateAndDeliverWithDelegateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateAndDeliverWithDelegate(request *CreateAndDeliverWithDelegateRequest) (_result *CreateAndDeliverWithDelegateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAndDeliverWithDelegateHeaders{}
+	_result = &CreateAndDeliverWithDelegateResponse{}
+	_body, _err := client.CreateAndDeliverWithDelegateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers *CreateCardHeaders, runtime *util.RuntimeOptions) (_result *CreateCardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2576,6 +4862,109 @@ func (client *Client) CreateCard(request *CreateCardRequest) (_result *CreateCar
 	return _result, _err
 }
 
+func (client *Client) CreateCardWithDelegateWithOptions(request *CreateCardWithDelegateRequest, headers *CreateCardWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *CreateCardWithDelegateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CallbackRouteKey)) {
+		body["callbackRouteKey"] = request.CallbackRouteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallbackType)) {
+		body["callbackType"] = request.CallbackType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardTemplateId)) {
+		body["cardTemplateId"] = request.CardTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenSpaceModel)) {
+		body["coFeedOpenSpaceModel"] = request.CoFeedOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenSpaceModel)) {
+		body["imGroupOpenSpaceModel"] = request.ImGroupOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenSpaceModel)) {
+		body["imRobotOpenSpaceModel"] = request.ImRobotOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenDynamicDataConfig)) {
+		body["openDynamicDataConfig"] = request.OpenDynamicDataConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutTrackId)) {
+		body["outTrackId"] = request.OutTrackId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PrivateData)) {
+		body["privateData"] = request.PrivateData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopOpenSpaceModel)) {
+		body["topOpenSpaceModel"] = request.TopOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateCardWithDelegate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/me/instances"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateCardWithDelegateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateCardWithDelegate(request *CreateCardWithDelegateRequest) (_result *CreateCardWithDelegateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCardWithDelegateHeaders{}
+	_result = &CreateCardWithDelegateResponse{}
+	_body, _err := client.CreateCardWithDelegateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) DeliverCardWithOptions(request *DeliverCardRequest, headers *DeliverCardHeaders, runtime *util.RuntimeOptions) (_result *DeliverCardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2659,6 +5048,89 @@ func (client *Client) DeliverCard(request *DeliverCardRequest) (_result *Deliver
 	return _result, _err
 }
 
+func (client *Client) DeliverCardWithDelegateWithOptions(request *DeliverCardWithDelegateRequest, headers *DeliverCardWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *DeliverCardWithDelegateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenDeliverModel)) {
+		body["coFeedOpenDeliverModel"] = request.CoFeedOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DocOpenDeliverModel)) {
+		body["docOpenDeliverModel"] = request.DocOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenDeliverModel)) {
+		body["imGroupOpenDeliverModel"] = request.ImGroupOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenDeliverModel)) {
+		body["imRobotOpenDeliverModel"] = request.ImRobotOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenSpaceId)) {
+		body["openSpaceId"] = request.OpenSpaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutTrackId)) {
+		body["outTrackId"] = request.OutTrackId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopOpenDeliverModel)) {
+		body["topOpenDeliverModel"] = request.TopOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeliverCardWithDelegate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/me/instances/deliver"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeliverCardWithDelegateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeliverCardWithDelegate(request *DeliverCardWithDelegateRequest) (_result *DeliverCardWithDelegateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeliverCardWithDelegateHeaders{}
+	_result = &DeliverCardWithDelegateResponse{}
+	_body, _err := client.DeliverCardWithDelegateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) RegisterCallbackWithOptions(request *RegisterCallbackRequest, headers *RegisterCallbackHeaders, runtime *util.RuntimeOptions) (_result *RegisterCallbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2719,6 +5191,73 @@ func (client *Client) RegisterCallback(request *RegisterCallbackRequest) (_resul
 	headers := &RegisterCallbackHeaders{}
 	_result = &RegisterCallbackResponse{}
 	_body, _err := client.RegisterCallbackWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RegisterCallbackWithDelegateWithOptions(request *RegisterCallbackWithDelegateRequest, headers *RegisterCallbackWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *RegisterCallbackWithDelegateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApiSecret)) {
+		body["apiSecret"] = request.ApiSecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallbackRouteKey)) {
+		body["callbackRouteKey"] = request.CallbackRouteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallbackUrl)) {
+		body["callbackUrl"] = request.CallbackUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ForceUpdate)) {
+		body["forceUpdate"] = request.ForceUpdate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RegisterCallbackWithDelegate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/me/callbacks/register"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RegisterCallbackWithDelegateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RegisterCallbackWithDelegate(request *RegisterCallbackWithDelegateRequest) (_result *RegisterCallbackWithDelegateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RegisterCallbackWithDelegateHeaders{}
+	_result = &RegisterCallbackWithDelegateResponse{}
+	_body, _err := client.RegisterCallbackWithDelegateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2869,6 +5408,77 @@ func (client *Client) UpdateCard(request *UpdateCardRequest) (_result *UpdateCar
 	headers := &UpdateCardHeaders{}
 	_result = &UpdateCardResponse{}
 	_body, _err := client.UpdateCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateCardWithDelegateWithOptions(request *UpdateCardWithDelegateRequest, headers *UpdateCardWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *UpdateCardWithDelegateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardUpdateOptions)) {
+		body["cardUpdateOptions"] = request.CardUpdateOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutTrackId)) {
+		body["outTrackId"] = request.OutTrackId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PrivateData)) {
+		body["privateData"] = request.PrivateData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateCardWithDelegate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/me/instances"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateCardWithDelegateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateCardWithDelegate(request *UpdateCardWithDelegateRequest) (_result *UpdateCardWithDelegateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCardWithDelegateHeaders{}
+	_result = &UpdateCardWithDelegateResponse{}
+	_body, _err := client.UpdateCardWithDelegateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

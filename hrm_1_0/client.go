@@ -1023,6 +1023,190 @@ func (s *HrmMailSendResponse) SetBody(v *HrmMailSendResponseBody) *HrmMailSendRe
 	return s
 }
 
+type HrmMokaEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmMokaEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmMokaEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmMokaEventHeaders) SetCommonHeaders(v map[string]*string) *HrmMokaEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmMokaEventHeaders) SetXAcsDingtalkAccessToken(v string) *HrmMokaEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmMokaEventRequest struct {
+	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s HrmMokaEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmMokaEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmMokaEventRequest) SetBizId(v string) *HrmMokaEventRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *HrmMokaEventRequest) SetContent(v string) *HrmMokaEventRequest {
+	s.Content = &v
+	return s
+}
+
+type HrmMokaEventResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HrmMokaEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmMokaEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmMokaEventResponseBody) SetResult(v bool) *HrmMokaEventResponseBody {
+	s.Result = &v
+	return s
+}
+
+type HrmMokaEventResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *HrmMokaEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s HrmMokaEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmMokaEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmMokaEventResponse) SetHeaders(v map[string]*string) *HrmMokaEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmMokaEventResponse) SetStatusCode(v int32) *HrmMokaEventResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrmMokaEventResponse) SetBody(v *HrmMokaEventResponseBody) *HrmMokaEventResponse {
+	s.Body = v
+	return s
+}
+
+type HrmMokaOapiHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmMokaOapiHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmMokaOapiHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmMokaOapiHeaders) SetCommonHeaders(v map[string]*string) *HrmMokaOapiHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmMokaOapiHeaders) SetXAcsDingtalkAccessToken(v string) *HrmMokaOapiHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmMokaOapiRequest struct {
+	ApiCode *string     `json:"apiCode,omitempty" xml:"apiCode,omitempty"`
+	Params  interface{} `json:"params,omitempty" xml:"params,omitempty"`
+}
+
+func (s HrmMokaOapiRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmMokaOapiRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmMokaOapiRequest) SetApiCode(v string) *HrmMokaOapiRequest {
+	s.ApiCode = &v
+	return s
+}
+
+func (s *HrmMokaOapiRequest) SetParams(v interface{}) *HrmMokaOapiRequest {
+	s.Params = v
+	return s
+}
+
+type HrmMokaOapiResponseBody struct {
+	Result map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HrmMokaOapiResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmMokaOapiResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmMokaOapiResponseBody) SetResult(v map[string]interface{}) *HrmMokaOapiResponseBody {
+	s.Result = v
+	return s
+}
+
+type HrmMokaOapiResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *HrmMokaOapiResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s HrmMokaOapiResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmMokaOapiResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmMokaOapiResponse) SetHeaders(v map[string]*string) *HrmMokaOapiResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmMokaOapiResponse) SetStatusCode(v int32) *HrmMokaOapiResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrmMokaOapiResponse) SetBody(v *HrmMokaOapiResponseBody) *HrmMokaOapiResponse {
+	s.Body = v
+	return s
+}
+
 type HrmProcessRegularHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4922,6 +5106,124 @@ func (client *Client) HrmMailSend(request *HrmMailSendRequest) (_result *HrmMail
 	headers := &HrmMailSendHeaders{}
 	_result = &HrmMailSendResponse{}
 	_body, _err := client.HrmMailSendWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) HrmMokaEventWithOptions(request *HrmMokaEventRequest, headers *HrmMokaEventHeaders, runtime *util.RuntimeOptions) (_result *HrmMokaEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmMokaEvent"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/moka/events/forward"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrmMokaEventResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) HrmMokaEvent(request *HrmMokaEventRequest) (_result *HrmMokaEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmMokaEventHeaders{}
+	_result = &HrmMokaEventResponse{}
+	_body, _err := client.HrmMokaEventWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) HrmMokaOapiWithOptions(request *HrmMokaOapiRequest, headers *HrmMokaOapiHeaders, runtime *util.RuntimeOptions) (_result *HrmMokaOapiResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApiCode)) {
+		body["apiCode"] = request.ApiCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmMokaOapi"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/moka/forward"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrmMokaOapiResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) HrmMokaOapi(request *HrmMokaOapiRequest) (_result *HrmMokaOapiResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmMokaOapiHeaders{}
+	_result = &HrmMokaOapiResponse{}
+	_body, _err := client.HrmMokaOapiWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

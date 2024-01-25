@@ -1721,6 +1721,98 @@ func (s *CreateApproveResponse) SetBody(v *CreateApproveResponseBody) *CreateApp
 	return s
 }
 
+type DeleteLeaveRequestHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteLeaveRequestHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLeaveRequestHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLeaveRequestHeaders) SetCommonHeaders(v map[string]*string) *DeleteLeaveRequestHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteLeaveRequestHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteLeaveRequestHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteLeaveRequestRequest struct {
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+}
+
+func (s DeleteLeaveRequestRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLeaveRequestRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLeaveRequestRequest) SetOuterId(v string) *DeleteLeaveRequestRequest {
+	s.OuterId = &v
+	return s
+}
+
+type DeleteLeaveRequestResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteLeaveRequestResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLeaveRequestResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLeaveRequestResponseBody) SetResult(v bool) *DeleteLeaveRequestResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *DeleteLeaveRequestResponseBody) SetSuccess(v bool) *DeleteLeaveRequestResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteLeaveRequestResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Body       *DeleteLeaveRequestResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteLeaveRequestResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLeaveRequestResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLeaveRequestResponse) SetHeaders(v map[string]*string) *DeleteLeaveRequestResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteLeaveRequestResponse) SetStatusCode(v int32) *DeleteLeaveRequestResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteLeaveRequestResponse) SetBody(v *DeleteLeaveRequestResponseBody) *DeleteLeaveRequestResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteWaterMarkTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5447,7 +5539,7 @@ type GroupAddRequest struct {
 	FreeCheckSetting               *GroupAddRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
 	FreeCheckTypeId                *int32                           `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
 	FreecheckDayStartMinOffset     *int32                           `json:"freecheckDayStartMinOffset,omitempty" xml:"freecheckDayStartMinOffset,omitempty"`
-	FreecheckWorkDays              []*int64                         `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
+	FreecheckWorkDays              []*int32                         `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
 	GroupId                        *int64                           `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	GroupName                      *string                          `json:"groupName,omitempty" xml:"groupName,omitempty"`
 	ManagerList                    []*string                        `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
@@ -5589,7 +5681,7 @@ func (s *GroupAddRequest) SetFreecheckDayStartMinOffset(v int32) *GroupAddReques
 	return s
 }
 
-func (s *GroupAddRequest) SetFreecheckWorkDays(v []*int64) *GroupAddRequest {
+func (s *GroupAddRequest) SetFreecheckWorkDays(v []*int32) *GroupAddRequest {
 	s.FreecheckWorkDays = v
 	return s
 }
@@ -9068,6 +9160,61 @@ func (client *Client) CreateApprove(request *CreateApproveRequest) (_result *Cre
 	headers := &CreateApproveHeaders{}
 	_result = &CreateApproveResponse{}
 	_body, _err := client.CreateApproveWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteLeaveRequestWithOptions(unionId *string, request *DeleteLeaveRequestRequest, headers *DeleteLeaveRequestHeaders, runtime *util.RuntimeOptions) (_result *DeleteLeaveRequestResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OuterId)) {
+		body["outerId"] = request.OuterId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteLeaveRequest"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/users/" + tea.StringValue(unionId) + "/vacations/records/revoke"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteLeaveRequestResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteLeaveRequest(unionId *string, request *DeleteLeaveRequestRequest) (_result *DeleteLeaveRequestResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteLeaveRequestHeaders{}
+	_result = &DeleteLeaveRequestResponse{}
+	_body, _err := client.DeleteLeaveRequestWithOptions(unionId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
