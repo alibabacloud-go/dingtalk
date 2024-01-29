@@ -221,9 +221,9 @@ func (s *IndustrializeManufactureJobBookResponseBodyContent) SetId(v int64) *Ind
 }
 
 type IndustrializeManufactureJobBookResponse struct {
-	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *IndustrializeManufactureJobBookResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *IndustrializeManufactureJobBookResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s IndustrializeManufactureJobBookResponse) String() string {
@@ -510,9 +510,9 @@ func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetUuid(v string)
 }
 
 type IndustrializeManufactureQueryJobsResponse struct {
-	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *IndustrializeManufactureQueryJobsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *IndustrializeManufactureQueryJobsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s IndustrializeManufactureQueryJobsResponse) String() string {

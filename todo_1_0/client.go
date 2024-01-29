@@ -101,9 +101,9 @@ func (s *CountTodoTasksResponseBody) SetResult(v int32) *CountTodoTasksResponseB
 }
 
 type CountTodoTasksResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CountTodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CountTodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CountTodoTasksResponse) String() string {
@@ -240,9 +240,9 @@ func (s *CreatePersonalTodoTaskResponseBody) SetTaskId(v string) *CreatePersonal
 }
 
 type CreatePersonalTodoTaskResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreatePersonalTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreatePersonalTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreatePersonalTodoTaskResponse) String() string {
@@ -738,9 +738,9 @@ func (s *CreateTodoTaskResponseBodyNotifyConfigs) SetDingNotify(v string) *Creat
 }
 
 type CreateTodoTaskResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateTodoTaskResponse) String() string {
@@ -1072,9 +1072,9 @@ func (s *CreateTodoTypeConfigResponseBodyContentFieldList) SetNameI18n(v map[str
 }
 
 type CreateTodoTypeConfigResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateTodoTypeConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateTodoTypeConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateTodoTypeConfigResponse) String() string {
@@ -1164,9 +1164,9 @@ func (s *DeleteTodoTaskResponseBody) SetResult(v bool) *DeleteTodoTaskResponseBo
 }
 
 type DeleteTodoTaskResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeleteTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeleteTodoTaskResponse) String() string {
@@ -1388,9 +1388,9 @@ func (s *GetTodoTaskResponseBodyDetailUrl) SetPcUrl(v string) *GetTodoTaskRespon
 }
 
 type GetTodoTaskResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTodoTaskResponse) String() string {
@@ -1606,9 +1606,9 @@ func (s *GetTodoTaskBySourceIdResponseBodyDetailUrl) SetPcUrl(v string) *GetTodo
 }
 
 type GetTodoTaskBySourceIdResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTodoTaskBySourceIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTodoTaskBySourceIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTodoTaskBySourceIdResponse) String() string {
@@ -1970,9 +1970,9 @@ func (s *GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList) SetValue(
 }
 
 type GetTodoTaskDetailResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTodoTaskDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTodoTaskDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTodoTaskDetailResponse) String() string {
@@ -2181,9 +2181,9 @@ func (s *GetTodoTypeConfigResponseBodyContentFieldList) SetNameI18n(v map[string
 }
 
 type GetTodoTypeConfigResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTodoTypeConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTodoTypeConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTodoTypeConfigResponse) String() string {
@@ -2433,9 +2433,9 @@ func (s *QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl) SetPcUrl(v string) *Q
 }
 
 type QueryOrgTodoByUserResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryOrgTodoByUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOrgTodoByUserResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryOrgTodoByUserResponse) String() string {
@@ -2631,9 +2631,9 @@ func (s *QueryOrgTodoTasksResponseBodyTodoCardsDetailUrl) SetPcUrl(v string) *Qu
 }
 
 type QueryOrgTodoTasksResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryOrgTodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOrgTodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryOrgTodoTasksResponse) String() string {
@@ -3023,9 +3023,9 @@ func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList) Set
 }
 
 type QueryTodoTasksResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryTodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryTodoTasksResponse) String() string {
@@ -3145,9 +3145,9 @@ func (s *UpdateTodoTaskResponseBody) SetResult(v bool) *UpdateTodoTaskResponseBo
 }
 
 type UpdateTodoTaskResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateTodoTaskResponse) String() string {
@@ -3260,9 +3260,9 @@ func (s *UpdateTodoTaskExecutorStatusResponseBody) SetResult(v bool) *UpdateTodo
 }
 
 type UpdateTodoTaskExecutorStatusResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateTodoTaskExecutorStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateTodoTaskExecutorStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateTodoTaskExecutorStatusResponse) String() string {
@@ -3452,9 +3452,9 @@ func (s *UpdateTodoTypeConfigResponseBody) SetResult(v bool) *UpdateTodoTypeConf
 }
 
 type UpdateTodoTypeConfigResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateTodoTypeConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateTodoTypeConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateTodoTypeConfigResponse) String() string {

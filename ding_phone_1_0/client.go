@@ -89,9 +89,9 @@ func (s *AddCallConfigResponseBody) SetToken(v string) *AddCallConfigResponseBod
 }
 
 type AddCallConfigResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AddCallConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddCallConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddCallConfigResponse) String() string {
@@ -187,9 +187,9 @@ func (s *DelCallConfigResponseBody) SetResult(v bool) *DelCallConfigResponseBody
 }
 
 type DelCallConfigResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DelCallConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DelCallConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DelCallConfigResponse) String() string {
@@ -362,9 +362,9 @@ func (s *QueryCallConfigResponseBodyResult) SetStatus(v int32) *QueryCallConfigR
 }
 
 type QueryCallConfigResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCallConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCallConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCallConfigResponse) String() string {

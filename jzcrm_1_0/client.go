@@ -274,9 +274,9 @@ func (s *EditContactResponseBody) SetTime(v string) *EditContactResponseBody {
 }
 
 type EditContactResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditContactResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditContactResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditContactResponse) String() string {
@@ -683,9 +683,9 @@ func (s *EditCustomerResponseBody) SetTime(v string) *EditCustomerResponseBody {
 }
 
 type EditCustomerResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditCustomerResponse) String() string {
@@ -1098,9 +1098,9 @@ func (s *EditCustomerPoolResponseBody) SetTime(v string) *EditCustomerPoolRespon
 }
 
 type EditCustomerPoolResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditCustomerPoolResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditCustomerPoolResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditCustomerPoolResponse) String() string {
@@ -1315,9 +1315,9 @@ func (s *EditExchangeResponseBody) SetTime(v string) *EditExchangeResponseBody {
 }
 
 type EditExchangeResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditExchangeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditExchangeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditExchangeResponse) String() string {
@@ -1610,9 +1610,9 @@ func (s *EditGoodsResponseBody) SetTime(v string) *EditGoodsResponseBody {
 }
 
 type EditGoodsResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditGoodsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditGoodsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditGoodsResponse) String() string {
@@ -1815,9 +1815,9 @@ func (s *EditIntostockResponseBody) SetTime(v string) *EditIntostockResponseBody
 }
 
 type EditIntostockResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditIntostockResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditIntostockResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditIntostockResponse) String() string {
@@ -2074,9 +2074,9 @@ func (s *EditInvoiceResponseBody) SetTime(v string) *EditInvoiceResponseBody {
 }
 
 type EditInvoiceResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditInvoiceResponse) String() string {
@@ -2375,9 +2375,9 @@ func (s *EditOrderResponseBody) SetTime(v string) *EditOrderResponseBody {
 }
 
 type EditOrderResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditOrderResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditOrderResponse) String() string {
@@ -2580,9 +2580,9 @@ func (s *EditOutstockResponseBody) SetTime(v string) *EditOutstockResponseBody {
 }
 
 type EditOutstockResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditOutstockResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditOutstockResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditOutstockResponse) String() string {
@@ -2779,9 +2779,9 @@ func (s *EditProductionResponseBody) SetTime(v string) *EditProductionResponseBo
 }
 
 type EditProductionResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditProductionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditProductionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditProductionResponse) String() string {
@@ -3020,9 +3020,9 @@ func (s *EditPurchaseResponseBody) SetTime(v string) *EditPurchaseResponseBody {
 }
 
 type EditPurchaseResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditPurchaseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditPurchaseResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditPurchaseResponse) String() string {
@@ -3261,9 +3261,9 @@ func (s *EditQuotationRecordResponseBody) SetTime(v string) *EditQuotationRecord
 }
 
 type EditQuotationRecordResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditQuotationRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditQuotationRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditQuotationRecordResponse) String() string {
@@ -3496,9 +3496,9 @@ func (s *EditSalesResponseBody) SetTime(v string) *EditSalesResponseBody {
 }
 
 type EditSalesResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditSalesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditSalesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditSalesResponse) String() string {
@@ -3641,9 +3641,9 @@ func (s *GetDataListResponseBodyData) SetDetail(v map[string]*string) *GetDataLi
 }
 
 type GetDataListResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetDataListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDataListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetDataListResponse) String() string {
@@ -3762,9 +3762,9 @@ func (s *GetDataViewResponseBodyData) SetDetail(v map[string]*string) *GetDataVi
 }
 
 type GetDataViewResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetDataViewResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDataViewResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetDataViewResponse) String() string {

@@ -124,9 +124,9 @@ func (s *QueryBlackboardReadUnReadResponseBodyUsers) SetUserId(v string) *QueryB
 }
 
 type QueryBlackboardReadUnReadResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryBlackboardReadUnReadResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryBlackboardReadUnReadResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryBlackboardReadUnReadResponse) String() string {
@@ -210,9 +210,9 @@ func (s *QueryBlackboardSpaceResponseBody) SetSpaceId(v string) *QueryBlackboard
 }
 
 type QueryBlackboardSpaceResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryBlackboardSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryBlackboardSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryBlackboardSpaceResponse) String() string {

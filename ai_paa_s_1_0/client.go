@@ -147,9 +147,9 @@ func (s *ExecuteAgentResponseBodyResult) SetSkillId(v string) *ExecuteAgentRespo
 }
 
 type ExecuteAgentResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ExecuteAgentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExecuteAgentResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ExecuteAgentResponse) String() string {
@@ -251,9 +251,9 @@ func (s *LiandanTextImageGetResponseBody) SetSuccess(v bool) *LiandanTextImageGe
 }
 
 type LiandanTextImageGetResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *LiandanTextImageGetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *LiandanTextImageGetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s LiandanTextImageGetResponse) String() string {
@@ -361,9 +361,9 @@ func (s *LiandanluExclusiveModelResponseBody) SetResult(v map[string]interface{}
 }
 
 type LiandanluExclusiveModelResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *LiandanluExclusiveModelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *LiandanluExclusiveModelResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s LiandanluExclusiveModelResponse) String() string {
@@ -506,9 +506,9 @@ func (s *LiandanluTextToImageModelResponseBodyResult) SetTaskStatus(v string) *L
 }
 
 type LiandanluTextToImageModelResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *LiandanluTextToImageModelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *LiandanluTextToImageModelResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s LiandanluTextToImageModelResponse) String() string {
@@ -610,9 +610,9 @@ func (s *QueryBaymaxSkillLogResponseBody) SetResult(v string) *QueryBaymaxSkillL
 }
 
 type QueryBaymaxSkillLogResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryBaymaxSkillLogResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryBaymaxSkillLogResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryBaymaxSkillLogResponse) String() string {
@@ -884,9 +884,9 @@ func (s *QueryConversationMessageForAIResponseBodyMessagesSender) SetUserId(v st
 }
 
 type QueryConversationMessageForAIResponse struct {
-	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryConversationMessageForAIResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryConversationMessageForAIResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryConversationMessageForAIResponse) String() string {
@@ -999,9 +999,9 @@ func (s *QueryMemoryLearningTaskResponseBodyResult) SetSuccess(v bool) *QueryMem
 }
 
 type QueryMemoryLearningTaskResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryMemoryLearningTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMemoryLearningTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryMemoryLearningTaskResponse) String() string {
@@ -1190,9 +1190,9 @@ func (s *SubmitMemoryLearningTaskResponseBodyResult) SetSuccess(v bool) *SubmitM
 }
 
 type SubmitMemoryLearningTaskResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SubmitMemoryLearningTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubmitMemoryLearningTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SubmitMemoryLearningTaskResponse) String() string {

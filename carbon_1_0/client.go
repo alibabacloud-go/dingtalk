@@ -83,9 +83,9 @@ func (s *GetPersonalCarbonInfoResponseBody) SetPersonalCarbonAmount(v float64) *
 }
 
 type GetPersonalCarbonInfoResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetPersonalCarbonInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPersonalCarbonInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetPersonalCarbonInfoResponse) String() string {
@@ -228,9 +228,9 @@ func (s *WriteAlibabaOrgCarbonResponseBody) SetSuccess(v bool) *WriteAlibabaOrgC
 }
 
 type WriteAlibabaOrgCarbonResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WriteAlibabaOrgCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WriteAlibabaOrgCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WriteAlibabaOrgCarbonResponse) String() string {
@@ -385,9 +385,9 @@ func (s *WriteAlibabaUserCarbonResponseBody) SetSuccess(v bool) *WriteAlibabaUse
 }
 
 type WriteAlibabaUserCarbonResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WriteAlibabaUserCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WriteAlibabaUserCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WriteAlibabaUserCarbonResponse) String() string {
@@ -477,9 +477,9 @@ func (s *WriteIsvStateResponseBody) SetResult(v int64) *WriteIsvStateResponseBod
 }
 
 type WriteIsvStateResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WriteIsvStateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WriteIsvStateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WriteIsvStateResponse) String() string {
@@ -622,9 +622,9 @@ func (s *WriteOrgCarbonResponseBody) SetSuccess(v bool) *WriteOrgCarbonResponseB
 }
 
 type WriteOrgCarbonResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WriteOrgCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WriteOrgCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WriteOrgCarbonResponse) String() string {
@@ -779,9 +779,9 @@ func (s *WriteUserCarbonResponseBody) SetSuccess(v bool) *WriteUserCarbonRespons
 }
 
 type WriteUserCarbonResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WriteUserCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WriteUserCarbonResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WriteUserCarbonResponse) String() string {
@@ -936,9 +936,9 @@ func (s *WriteUserCarbonEnergyResponseBody) SetSuccess(v bool) *WriteUserCarbonE
 }
 
 type WriteUserCarbonEnergyResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WriteUserCarbonEnergyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WriteUserCarbonEnergyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WriteUserCarbonEnergyResponse) String() string {

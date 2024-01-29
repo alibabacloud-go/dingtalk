@@ -207,9 +207,9 @@ func (s *BatchCreateTemplateResponseBodyCreateResultList) SetValue(v string) *Ba
 }
 
 type BatchCreateTemplateResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchCreateTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchCreateTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchCreateTemplateResponse) String() string {
@@ -406,9 +406,9 @@ func (s *BatchQueryByTemplateKeyResponseBodyTemplateList) SetUseCasesMediaList(v
 }
 
 type BatchQueryByTemplateKeyResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchQueryByTemplateKeyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchQueryByTemplateKeyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchQueryByTemplateKeyResponse) String() string {
@@ -622,9 +622,9 @@ func (s *BatchUpdateTemplateResponseBodyUpdateResultList) SetValue(v string) *Ba
 }
 
 type BatchUpdateTemplateResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchUpdateTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchUpdateTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchUpdateTemplateResponse) String() string {
@@ -691,9 +691,9 @@ func (s *QueryIndustryTagListResponseBody) SetIndustryList(v []*string) *QueryIn
 }
 
 type QueryIndustryTagListResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryIndustryTagListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryIndustryTagListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryIndustryTagListResponse) String() string {
@@ -760,9 +760,9 @@ func (s *QueryRoleTagListResponseBody) SetRoleList(v []*string) *QueryRoleTagLis
 }
 
 type QueryRoleTagListResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryRoleTagListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryRoleTagListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryRoleTagListResponse) String() string {
@@ -858,9 +858,9 @@ func (s *QueryTemplateCategorysResponseBodyCategoryList) SetName(v string) *Quer
 }
 
 type QueryTemplateCategorysResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryTemplateCategorysResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTemplateCategorysResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryTemplateCategorysResponse) String() string {
@@ -967,9 +967,9 @@ func (s *RecallAuditTemplateResponseBodyRecallResult) SetValue(v string) *Recall
 }
 
 type RecallAuditTemplateResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RecallAuditTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RecallAuditTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RecallAuditTemplateResponse) String() string {

@@ -223,9 +223,9 @@ func (s *PediaWordsAddResponseBody) SetUuid(v int64) *PediaWordsAddResponseBody 
 }
 
 type PediaWordsAddResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PediaWordsAddResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PediaWordsAddResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PediaWordsAddResponse) String() string {
@@ -339,9 +339,9 @@ func (s *PediaWordsApproveResponseBody) SetSuccess(v bool) *PediaWordsApproveRes
 }
 
 type PediaWordsApproveResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PediaWordsApproveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PediaWordsApproveResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PediaWordsApproveResponse) String() string {
@@ -437,9 +437,9 @@ func (s *PediaWordsDeleteResponseBody) SetUuid(v int64) *PediaWordsDeleteRespons
 }
 
 type PediaWordsDeleteResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PediaWordsDeleteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PediaWordsDeleteResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PediaWordsDeleteResponse) String() string {
@@ -811,9 +811,9 @@ func (s *PediaWordsQueryResponseBodyDataRelatedLink) SetName(v string) *PediaWor
 }
 
 type PediaWordsQueryResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PediaWordsQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PediaWordsQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PediaWordsQueryResponse) String() string {
@@ -1209,9 +1209,9 @@ func (s *PediaWordsSearchResponseBodyDataRelatedLink) SetType(v string) *PediaWo
 }
 
 type PediaWordsSearchResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PediaWordsSearchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PediaWordsSearchResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PediaWordsSearchResponse) String() string {
@@ -1494,9 +1494,9 @@ func (s *PediaWordsUpdateResponseBody) SetUuid(v int64) *PediaWordsUpdateRespons
 }
 
 type PediaWordsUpdateResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PediaWordsUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PediaWordsUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PediaWordsUpdateResponse) String() string {

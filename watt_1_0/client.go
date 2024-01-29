@@ -66,9 +66,9 @@ func (s *CheckInCrowdsByMobileResponseBody) SetTotal(v int32) *CheckInCrowdsByMo
 }
 
 type CheckInCrowdsByMobileResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CheckInCrowdsByMobileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CheckInCrowdsByMobileResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CheckInCrowdsByMobileResponse) String() string {
@@ -285,9 +285,9 @@ func (s *ConsumePointResponseBodyResult) SetConsumedPoints(v int64) *ConsumePoin
 }
 
 type ConsumePointResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ConsumePointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ConsumePointResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ConsumePointResponse) String() string {
@@ -401,9 +401,9 @@ func (s *CreateDeliveryPlanResponseBody) SetSuccess(v bool) *CreateDeliveryPlanR
 }
 
 type CreateDeliveryPlanResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateDeliveryPlanResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateDeliveryPlanResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateDeliveryPlanResponse) String() string {
@@ -510,9 +510,9 @@ func (s *GetPointInfoResponseBodyResult) SetUserPoints(v int64) *GetPointInfoRes
 }
 
 type GetPointInfoResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetPointInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPointInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetPointInfoResponse) String() string {
@@ -659,9 +659,9 @@ func (s *RevertPointResponseBodyResult) SetRevertedPoints(v int64) *RevertPointR
 }
 
 type RevertPointResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RevertPointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RevertPointResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RevertPointResponse) String() string {
@@ -769,9 +769,9 @@ func (s *SendBannerResponseBody) SetSuccess(v bool) *SendBannerResponseBody {
 }
 
 type SendBannerResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendBannerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendBannerResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendBannerResponse) String() string {
@@ -879,9 +879,9 @@ func (s *SendPopupResponseBody) SetSuccess(v bool) *SendPopupResponseBody {
 }
 
 type SendPopupResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendPopupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendPopupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendPopupResponse) String() string {
@@ -989,9 +989,9 @@ func (s *SendSearchShadeResponseBody) SetSuccess(v bool) *SendSearchShadeRespons
 }
 
 type SendSearchShadeResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendSearchShadeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendSearchShadeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendSearchShadeResponse) String() string {

@@ -183,9 +183,9 @@ func (s *CreateActivityResponseBody) SetActivityId(v string) *CreateActivityResp
 }
 
 type CreateActivityResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateActivityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateActivityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateActivityResponse) String() string {
@@ -352,9 +352,9 @@ func (s *ListActivityResponseBodyList) SetUrl(v string) *ListActivityResponseBod
 }
 
 type ListActivityResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListActivityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListActivityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListActivityResponse) String() string {

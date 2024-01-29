@@ -101,9 +101,9 @@ func (s *OpenConnectionResponseBody) SetTicket(v string) *OpenConnectionResponse
 }
 
 type OpenConnectionResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *OpenConnectionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OpenConnectionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s OpenConnectionResponse) String() string {

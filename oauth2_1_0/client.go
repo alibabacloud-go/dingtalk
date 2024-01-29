@@ -60,9 +60,9 @@ func (s *CreateJsapiTicketResponseBody) SetJsapiTicket(v string) *CreateJsapiTic
 }
 
 type CreateJsapiTicketResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateJsapiTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateJsapiTicketResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateJsapiTicketResponse) String() string {
@@ -135,9 +135,9 @@ func (s *GetAccessTokenResponseBody) SetExpireIn(v int64) *GetAccessTokenRespons
 }
 
 type GetAccessTokenResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetAccessTokenResponse) String() string {
@@ -367,9 +367,9 @@ func (s *GetAuthInfoResponseBodyAuthUserInfo) SetUserId(v string) *GetAuthInfoRe
 }
 
 type GetAuthInfoResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetAuthInfoResponse) String() string {
@@ -454,9 +454,9 @@ func (s *GetCorpAccessTokenResponseBody) SetExpireIn(v int64) *GetCorpAccessToke
 }
 
 type GetCorpAccessTokenResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetCorpAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetCorpAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetCorpAccessTokenResponse) String() string {
@@ -546,9 +546,9 @@ func (s *GetPersonalAuthRuleResponseBodyResult) SetResource(v string) *GetPerson
 }
 
 type GetPersonalAuthRuleResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetPersonalAuthRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPersonalAuthRuleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetPersonalAuthRuleResponse) String() string {
@@ -621,9 +621,9 @@ func (s *GetSsoAccessTokenResponseBody) SetExpireIn(v int64) *GetSsoAccessTokenR
 }
 
 type GetSsoAccessTokenResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSsoAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSsoAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSsoAccessTokenResponse) String() string {
@@ -743,9 +743,9 @@ func (s *GetSsoUserInfoResponseBody) SetUserName(v string) *GetSsoUserInfoRespon
 }
 
 type GetSsoUserInfoResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSsoUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSsoUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSsoUserInfoResponse) String() string {
@@ -824,9 +824,9 @@ func (s *GetSuiteAccessTokenResponseBody) SetExpireIn(v int64) *GetSuiteAccessTo
 }
 
 type GetSuiteAccessTokenResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSuiteAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSuiteAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSuiteAccessTokenResponse) String() string {
@@ -905,9 +905,9 @@ func (s *GetTokenResponseBody) SetExpiresIn(v int32) *GetTokenResponseBody {
 }
 
 type GetTokenResponse struct {
-	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTokenResponse) String() string {
@@ -1010,9 +1010,9 @@ func (s *GetUserTokenResponseBody) SetRefreshToken(v string) *GetUserTokenRespon
 }
 
 type GetUserTokenResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetUserTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetUserTokenResponse) String() string {

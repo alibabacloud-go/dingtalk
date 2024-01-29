@@ -83,9 +83,9 @@ func (s *GetTranscribeBriefResponseBodyData) SetBizType(v int32) *GetTranscribeB
 }
 
 type GetTranscribeBriefResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTranscribeBriefResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTranscribeBriefResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTranscribeBriefResponse) String() string {
@@ -245,9 +245,9 @@ func (s *RemovePermissionResponseBodyData) SetFailNameList(v []*string) *RemoveP
 }
 
 type RemovePermissionResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RemovePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RemovePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RemovePermissionResponse) String() string {
@@ -378,9 +378,9 @@ func (s *UpdatePermissionForUsersResponseBody) SetIsSuccess(v bool) *UpdatePermi
 }
 
 type UpdatePermissionForUsersResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdatePermissionForUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdatePermissionForUsersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdatePermissionForUsersResponse) String() string {

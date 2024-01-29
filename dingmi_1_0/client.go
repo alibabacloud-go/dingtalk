@@ -77,9 +77,9 @@ func (s *AddRobotInstanceToGroupResponseBody) SetResult(v bool) *AddRobotInstanc
 }
 
 type AddRobotInstanceToGroupResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AddRobotInstanceToGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddRobotInstanceToGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddRobotInstanceToGroupResponse) String() string {
@@ -181,9 +181,9 @@ func (s *AskRobotResponseBody) SetResult(v string) *AskRobotResponseBody {
 }
 
 type AskRobotResponse struct {
-	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AskRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AskRobotResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AskRobotResponse) String() string {
@@ -303,9 +303,9 @@ func (s *GetDingMeBaseDataResponseBody) SetTips(v map[string]interface{}) *GetDi
 }
 
 type GetDingMeBaseDataResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetDingMeBaseDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDingMeBaseDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetDingMeBaseDataResponse) String() string {
@@ -389,9 +389,9 @@ func (s *GetIntelligentRobotInfoResponseBody) SetResult(v string) *GetIntelligen
 }
 
 type GetIntelligentRobotInfoResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetIntelligentRobotInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetIntelligentRobotInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetIntelligentRobotInfoResponse) String() string {
@@ -505,9 +505,9 @@ func (s *GetOfficialAccountRobotInfoResponseBody) SetPreviewMediaUrl(v string) *
 }
 
 type GetOfficialAccountRobotInfoResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetOfficialAccountRobotInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetOfficialAccountRobotInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetOfficialAccountRobotInfoResponse) String() string {
@@ -603,9 +603,9 @@ func (s *GetWebChannelUserTokenResponseBody) SetResult(v string) *GetWebChannelU
 }
 
 type GetWebChannelUserTokenResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetWebChannelUserTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetWebChannelUserTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetWebChannelUserTokenResponse) String() string {
@@ -701,9 +701,9 @@ func (s *PushCustomerGroupMessageResponseBody) SetResult(v string) *PushCustomer
 }
 
 type PushCustomerGroupMessageResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PushCustomerGroupMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PushCustomerGroupMessageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PushCustomerGroupMessageResponse) String() string {
@@ -805,9 +805,9 @@ func (s *PushIntelligentRobotGroupMessageResponseBody) SetResult(v string) *Push
 }
 
 type PushIntelligentRobotGroupMessageResponse struct {
-	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PushIntelligentRobotGroupMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PushIntelligentRobotGroupMessageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PushIntelligentRobotGroupMessageResponse) String() string {
@@ -909,9 +909,9 @@ func (s *PushIntelligentRobotMessageResponseBody) SetResult(v string) *PushIntel
 }
 
 type PushIntelligentRobotMessageResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PushIntelligentRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PushIntelligentRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PushIntelligentRobotMessageResponse) String() string {
@@ -1007,9 +1007,9 @@ func (s *PushOfficialAccountMessageResponseBody) SetResult(v string) *PushOffici
 }
 
 type PushOfficialAccountMessageResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PushOfficialAccountMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PushOfficialAccountMessageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PushOfficialAccountMessageResponse) String() string {
@@ -1111,9 +1111,9 @@ func (s *PushRobotMessageResponseBody) SetResult(v string) *PushRobotMessageResp
 }
 
 type PushRobotMessageResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PushRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PushRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PushRobotMessageResponse) String() string {
@@ -1197,9 +1197,9 @@ func (s *ReplyRobotResponseBody) SetResult(v bool) *ReplyRobotResponseBody {
 }
 
 type ReplyRobotResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ReplyRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ReplyRobotResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ReplyRobotResponse) String() string {
@@ -1313,9 +1313,9 @@ func (s *UpdateOfficialAccountRobotInfoResponseBody) SetResult(v string) *Update
 }
 
 type UpdateOfficialAccountRobotInfoResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateOfficialAccountRobotInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateOfficialAccountRobotInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateOfficialAccountRobotInfoResponse) String() string {

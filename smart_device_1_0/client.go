@@ -54,8 +54,8 @@ func (s *AddDeviceVideoConferenceMembersRequest) SetUserIds(v []*string) *AddDev
 }
 
 type AddDeviceVideoConferenceMembersResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s AddDeviceVideoConferenceMembersResponse) String() string {
@@ -140,9 +140,9 @@ func (s *CreateDeviceVideoConferenceResponseBody) SetConferenceId(v string) *Cre
 }
 
 type CreateDeviceVideoConferenceResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateDeviceVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateDeviceVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateDeviceVideoConferenceResponse) String() string {
@@ -232,9 +232,9 @@ func (s *ExtractFacialFeatureResponseBody) SetResult(v bool) *ExtractFacialFeatu
 }
 
 type ExtractFacialFeatureResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ExtractFacialFeatureResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExtractFacialFeatureResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ExtractFacialFeatureResponse) String() string {
@@ -301,8 +301,8 @@ func (s *KickDeviceVideoConferenceMembersRequest) SetUserIds(v []*string) *KickD
 }
 
 type KickDeviceVideoConferenceMembersResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s KickDeviceVideoConferenceMembersResponse) String() string {
@@ -429,8 +429,8 @@ func (s *MachineManagerUpdateRequestAtmManagerRightMap) SetFingerPunchManage(v b
 }
 
 type MachineManagerUpdateResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s MachineManagerUpdateResponse) String() string {
@@ -522,8 +522,8 @@ func (s *MachineUsersUpdateRequest) SetDeviceIds(v []*string) *MachineUsersUpdat
 }
 
 type MachineUsersUpdateResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s MachineUsersUpdateResponse) String() string {
@@ -591,9 +591,9 @@ func (s *QueryDeviceVideoConferenceBookResponseBody) SetConferenceId(v string) *
 }
 
 type QueryDeviceVideoConferenceBookResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryDeviceVideoConferenceBookResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDeviceVideoConferenceBookResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryDeviceVideoConferenceBookResponse) String() string {

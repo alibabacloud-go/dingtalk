@@ -36,9 +36,9 @@ func (s *AddAttendeeToEventGroupHeaders) SetXAcsDingtalkAccessToken(v string) *A
 }
 
 type AddAttendeeToEventGroupResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddAttendeeToEventGroupResponse) String() string {
@@ -88,9 +88,9 @@ func (s *CreateEventGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEv
 }
 
 type CreateEventGroupResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateEventGroupResponse) String() string {
@@ -140,9 +140,9 @@ func (s *SendInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *SendI
 }
 
 type SendInteractiveCardResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendInteractiveCardResponse) String() string {
@@ -192,9 +192,9 @@ func (s *SendSingleInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type SendSingleInteractiveCardResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendSingleInteractiveCardResponse) String() string {
@@ -244,9 +244,9 @@ func (s *UpdateInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateInteractiveCardResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       map[string]interface{} `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateInteractiveCardResponse) String() string {

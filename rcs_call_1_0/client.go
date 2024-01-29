@@ -89,9 +89,9 @@ func (s *RunCallUserResponseBody) SetSuccess(v string) *RunCallUserResponseBody 
 }
 
 type RunCallUserResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RunCallUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RunCallUserResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RunCallUserResponse) String() string {

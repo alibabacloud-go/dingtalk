@@ -95,9 +95,9 @@ func (s *CheckOpportunityResultResponseBody) SetBizSuccess(v bool) *CheckOpportu
 }
 
 type CheckOpportunityResultResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CheckOpportunityResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CheckOpportunityResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CheckOpportunityResultResponse) String() string {
@@ -188,8 +188,8 @@ func (s *CreateOpportunityRequest) SetMarketCode(v string) *CreateOpportunityReq
 }
 
 type CreateOpportunityResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s CreateOpportunityResponse) String() string {
@@ -358,9 +358,9 @@ func (s *QueryTradeOrderResponseBody) SetStatus(v int32) *QueryTradeOrderRespons
 }
 
 type QueryTradeOrderResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryTradeOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTradeOrderResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryTradeOrderResponse) String() string {

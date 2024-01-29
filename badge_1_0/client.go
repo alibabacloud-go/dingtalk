@@ -160,9 +160,9 @@ func (s *CreateBadgeCodeUserInstanceResponseBody) SetCodeId(v string) *CreateBad
 }
 
 type CreateBadgeCodeUserInstanceResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateBadgeCodeUserInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateBadgeCodeUserInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateBadgeCodeUserInstanceResponse) String() string {
@@ -264,9 +264,9 @@ func (s *CreateBadgeNotifyResponseBody) SetResult(v bool) *CreateBadgeNotifyResp
 }
 
 type CreateBadgeNotifyResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateBadgeNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateBadgeNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateBadgeNotifyResponse) String() string {
@@ -404,9 +404,9 @@ func (s *DecodeBadgeCodeResponseBody) SetUserId(v string) *DecodeBadgeCodeRespon
 }
 
 type DecodeBadgeCodeResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DecodeBadgeCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DecodeBadgeCodeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DecodeBadgeCodeResponse) String() string {
@@ -692,9 +692,9 @@ func (s *NotifyBadgeCodePayResultResponseBody) SetResult(v string) *NotifyBadgeC
 }
 
 type NotifyBadgeCodePayResultResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *NotifyBadgeCodePayResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *NotifyBadgeCodePayResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s NotifyBadgeCodePayResultResponse) String() string {
@@ -932,9 +932,9 @@ func (s *NotifyBadgeCodeRefundResultResponseBody) SetResult(v string) *NotifyBad
 }
 
 type NotifyBadgeCodeRefundResultResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *NotifyBadgeCodeRefundResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *NotifyBadgeCodeRefundResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s NotifyBadgeCodeRefundResultResponse) String() string {
@@ -1072,9 +1072,9 @@ func (s *NotifyBadgeCodeVerifyResultResponseBody) SetResult(v string) *NotifyBad
 }
 
 type NotifyBadgeCodeVerifyResultResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *NotifyBadgeCodeVerifyResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *NotifyBadgeCodeVerifyResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s NotifyBadgeCodeVerifyResultResponse) String() string {
@@ -1194,9 +1194,9 @@ func (s *SaveBadgeCodeCorpInstanceResponseBody) SetStatus(v string) *SaveBadgeCo
 }
 
 type SaveBadgeCodeCorpInstanceResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SaveBadgeCodeCorpInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SaveBadgeCodeCorpInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SaveBadgeCodeCorpInstanceResponse) String() string {
@@ -1357,9 +1357,9 @@ func (s *UpdateBadgeCodeUserInstanceResponseBody) SetCodeId(v string) *UpdateBad
 }
 
 type UpdateBadgeCodeUserInstanceResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateBadgeCodeUserInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateBadgeCodeUserInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateBadgeCodeUserInstanceResponse) String() string {

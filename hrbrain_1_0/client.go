@@ -95,9 +95,9 @@ func (s *SyncDataResponseBody) SetSuccess(v bool) *SyncDataResponseBody {
 }
 
 type SyncDataResponse struct {
-	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SyncDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SyncDataResponse) String() string {

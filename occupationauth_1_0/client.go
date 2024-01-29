@@ -71,9 +71,9 @@ func (s *CheckUserTaskStatusResponseBody) SetResult(v bool) *CheckUserTaskStatus
 }
 
 type CheckUserTaskStatusResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CheckUserTaskStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CheckUserTaskStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CheckUserTaskStatusResponse) String() string {
@@ -157,9 +157,9 @@ func (s *CheckUserTasksStatusResponseBody) SetStatus(v bool) *CheckUserTasksStat
 }
 
 type CheckUserTasksStatusResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CheckUserTasksStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CheckUserTasksStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CheckUserTasksStatusResponse) String() string {

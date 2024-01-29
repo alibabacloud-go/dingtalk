@@ -326,9 +326,9 @@ func (s *AppendSpaceResponseBody) SetSuccess(v bool) *AppendSpaceResponseBody {
 }
 
 type AppendSpaceResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AppendSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AppendSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AppendSpaceResponse) String() string {
@@ -650,9 +650,9 @@ func (s *AppendSpaceWithDelegateResponseBody) SetSuccess(v bool) *AppendSpaceWit
 }
 
 type AppendSpaceWithDelegateResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AppendSpaceWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AppendSpaceWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AppendSpaceWithDelegateResponse) String() string {
@@ -1353,9 +1353,9 @@ func (s *CreateAndDeliverResponseBodyResultDeliverResults) SetSuccess(v bool) *C
 }
 
 type CreateAndDeliverResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateAndDeliverResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateAndDeliverResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateAndDeliverResponse) String() string {
@@ -2056,9 +2056,9 @@ func (s *CreateAndDeliverWithDelegateResponseBodyResultDeliverResults) SetSucces
 }
 
 type CreateAndDeliverWithDelegateResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateAndDeliverWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateAndDeliverWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateAndDeliverWithDelegateResponse) String() string {
@@ -2520,9 +2520,9 @@ func (s *CreateCardResponseBody) SetSuccess(v bool) *CreateCardResponseBody {
 }
 
 type CreateCardResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateCardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateCardResponse) String() string {
@@ -2984,9 +2984,9 @@ func (s *CreateCardWithDelegateResponseBody) SetSuccess(v bool) *CreateCardWithD
 }
 
 type CreateCardWithDelegateResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateCardWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateCardWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateCardWithDelegateResponse) String() string {
@@ -3292,9 +3292,9 @@ func (s *DeliverCardResponseBodyResult) SetSuccess(v bool) *DeliverCardResponseB
 }
 
 type DeliverCardResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeliverCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeliverCardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeliverCardResponse) String() string {
@@ -3600,9 +3600,9 @@ func (s *DeliverCardWithDelegateResponseBodyResult) SetSuccess(v bool) *DeliverC
 }
 
 type DeliverCardWithDelegateResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeliverCardWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeliverCardWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeliverCardWithDelegateResponse) String() string {
@@ -3733,9 +3733,9 @@ func (s *RegisterCallbackResponseBodyResult) SetCallbackUrl(v string) *RegisterC
 }
 
 type RegisterCallbackResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RegisterCallbackResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RegisterCallbackResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RegisterCallbackResponse) String() string {
@@ -3866,9 +3866,9 @@ func (s *RegisterCallbackWithDelegateResponseBodyResult) SetCallbackUrl(v string
 }
 
 type RegisterCallbackWithDelegateResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RegisterCallbackWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RegisterCallbackWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RegisterCallbackWithDelegateResponse) String() string {
@@ -3994,9 +3994,9 @@ func (s *StreamingUpdateResponseBody) SetSuccess(v bool) *StreamingUpdateRespons
 }
 
 type StreamingUpdateResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *StreamingUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StreamingUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s StreamingUpdateResponse) String() string {
@@ -4150,9 +4150,9 @@ func (s *UpdateCardResponseBody) SetSuccess(v bool) *UpdateCardResponseBody {
 }
 
 type UpdateCardResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateCardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateCardResponse) String() string {
@@ -4306,9 +4306,9 @@ func (s *UpdateCardWithDelegateResponseBody) SetSuccess(v bool) *UpdateCardWithD
 }
 
 type UpdateCardWithDelegateResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateCardWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateCardWithDelegateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateCardWithDelegateResponse) String() string {

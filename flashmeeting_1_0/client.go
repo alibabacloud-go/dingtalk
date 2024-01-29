@@ -107,9 +107,9 @@ func (s *CreateFlashMeetingResponseBody) SetUrl(v string) *CreateFlashMeetingRes
 }
 
 type CreateFlashMeetingResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateFlashMeetingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateFlashMeetingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateFlashMeetingResponse) String() string {
@@ -281,9 +281,9 @@ func (s *GetShanhuiByCalendarResponseBodyResultTopics) SetTitle(v string) *GetSh
 }
 
 type GetShanhuiByCalendarResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetShanhuiByCalendarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetShanhuiByCalendarResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetShanhuiByCalendarResponse) String() string {
@@ -438,9 +438,9 @@ func (s *GetShanhuiByShanhuiKeyResponseBodyResultTopics) SetTitle(v string) *Get
 }
 
 type GetShanhuiByShanhuiKeyResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetShanhuiByShanhuiKeyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetShanhuiByShanhuiKeyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetShanhuiByShanhuiKeyResponse) String() string {
@@ -648,9 +648,9 @@ func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetUpdateTime(v int64) *G
 }
 
 type GetTaskFromShanhuiDocResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTaskFromShanhuiDocResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTaskFromShanhuiDocResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTaskFromShanhuiDocResponse) String() string {

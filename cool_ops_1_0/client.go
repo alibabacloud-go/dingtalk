@@ -129,9 +129,9 @@ func (s *BatchQueryOpportunityTagResponseBodyResultOpportunityList) SetFunnelsou
 }
 
 type BatchQueryOpportunityTagResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchQueryOpportunityTagResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchQueryOpportunityTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchQueryOpportunityTagResponse) String() string {
@@ -292,9 +292,9 @@ func (s *UpdateIsvOppStatusResponseBody) SetResult(v bool) *UpdateIsvOppStatusRe
 }
 
 type UpdateIsvOppStatusResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateIsvOppStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateIsvOppStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateIsvOppStatusResponse) String() string {

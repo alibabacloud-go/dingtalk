@@ -141,9 +141,9 @@ func (s *PushLiveActivityResponseBody) SetResult(v string) *PushLiveActivityResp
 }
 
 type PushLiveActivityResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PushLiveActivityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PushLiveActivityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PushLiveActivityResponse) String() string {
@@ -297,9 +297,9 @@ func (s *SendLiveActivityResponseBody) SetResult(v string) *SendLiveActivityResp
 }
 
 type SendLiveActivityResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendLiveActivityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendLiveActivityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendLiveActivityResponse) String() string {

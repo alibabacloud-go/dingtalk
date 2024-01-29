@@ -164,9 +164,9 @@ func (s *AddPermissionResponseBody) SetSuccess(v bool) *AddPermissionResponseBod
 }
 
 type AddPermissionResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AddPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddPermissionResponse) String() string {
@@ -521,9 +521,9 @@ func (s *CommitFileResponseBodyDentryThumbnail) SetWidth(v int32) *CommitFileRes
 }
 
 type CommitFileResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CommitFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CommitFileResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CommitFileResponse) String() string {
@@ -648,9 +648,9 @@ func (s *DeletePermissionResponseBody) SetSuccess(v bool) *DeletePermissionRespo
 }
 
 type DeletePermissionResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeletePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeletePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeletePermissionResponse) String() string {
@@ -863,9 +863,9 @@ func (s *GetFileUploadInfoResponseBodyHeaderSignatureInfo) SetResourceUrls(v []*
 }
 
 type GetFileUploadInfoResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetFileUploadInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFileUploadInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetFileUploadInfoResponse) String() string {
@@ -949,9 +949,9 @@ func (s *GetPermissionInheritanceResponseBody) SetInheritance(v string) *GetPerm
 }
 
 type GetPermissionInheritanceResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetPermissionInheritanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPermissionInheritanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetPermissionInheritanceResponse) String() string {
@@ -1163,9 +1163,9 @@ func (s *ListPermissionsResponseBodyPermissionsRole) SetName(v string) *ListPerm
 }
 
 type ListPermissionsResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListPermissionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListPermissionsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListPermissionsResponse) String() string {
@@ -1249,9 +1249,9 @@ func (s *ManagerGetDefaultHandOverUserResponseBody) SetDefaultHandoverUserId(v s
 }
 
 type ManagerGetDefaultHandOverUserResponse struct {
-	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ManagerGetDefaultHandOverUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ManagerGetDefaultHandOverUserResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ManagerGetDefaultHandOverUserResponse) String() string {
@@ -1341,9 +1341,9 @@ func (s *ManagerSetDefaultHandOverUserResponseBody) SetSuccess(v bool) *ManagerS
 }
 
 type ManagerSetDefaultHandOverUserResponse struct {
-	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ManagerSetDefaultHandOverUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ManagerSetDefaultHandOverUserResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ManagerSetDefaultHandOverUserResponse) String() string {
@@ -1625,9 +1625,9 @@ func (s *SearchDentriesResponseBodyItemsModifier) SetUserId(v string) *SearchDen
 }
 
 type SearchDentriesResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SearchDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SearchDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SearchDentriesResponse) String() string {
@@ -1781,9 +1781,9 @@ func (s *SearchWorkspacesResponseBodyItems) SetWorkspaceId(v string) *SearchWork
 }
 
 type SearchWorkspacesResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SearchWorkspacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SearchWorkspacesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SearchWorkspacesResponse) String() string {
@@ -1873,9 +1873,9 @@ func (s *SetPermissionInheritanceResponseBody) SetSuccess(v bool) *SetPermission
 }
 
 type SetPermissionInheritanceResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SetPermissionInheritanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetPermissionInheritanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SetPermissionInheritanceResponse) String() string {
@@ -2023,9 +2023,9 @@ func (s *UpdatePermissionResponseBody) SetSuccess(v bool) *UpdatePermissionRespo
 }
 
 type UpdatePermissionResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdatePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdatePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdatePermissionResponse) String() string {

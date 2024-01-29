@@ -313,9 +313,9 @@ func (s *WikiWordsDetailResponseBodyDataRelatedLink) SetType(v string) *WikiWord
 }
 
 type WikiWordsDetailResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WikiWordsDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WikiWordsDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WikiWordsDetailResponse) String() string {
@@ -440,9 +440,9 @@ func (s *WikiWordsParseResponseBodyData) SetWordName(v string) *WikiWordsParseRe
 }
 
 type WikiWordsParseResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WikiWordsParseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WikiWordsParseResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WikiWordsParseResponse) String() string {

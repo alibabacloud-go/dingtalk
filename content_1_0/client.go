@@ -375,9 +375,9 @@ func (s *CreateFeedResponseBody) SetFeedId(v string) *CreateFeedResponseBody {
 }
 
 type CreateFeedResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateFeedResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateFeedResponse) String() string {
@@ -508,9 +508,9 @@ func (s *GetFeedResponseBodyFeedItem) SetUrl(v string) *GetFeedResponseBodyFeedI
 }
 
 type GetFeedResponse struct {
-	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFeedResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetFeedResponse) String() string {
@@ -672,9 +672,9 @@ func (s *GetMediaCerficateResponseBody) SetOssSecurityToken(v string) *GetMediaC
 }
 
 type GetMediaCerficateResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetMediaCerficateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetMediaCerficateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetMediaCerficateResponse) String() string {
@@ -781,9 +781,9 @@ func (s *ListItemUserDataResponseBodyStudyInfos) SetUid(v string) *ListItemUserD
 }
 
 type ListItemUserDataResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListItemUserDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListItemUserDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListItemUserDataResponse) String() string {
@@ -944,9 +944,9 @@ func (s *PageFeedResponseBodyFeedList) SetUrl(v string) *PageFeedResponseBodyFee
 }
 
 type PageFeedResponse struct {
-	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PageFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PageFeedResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PageFeedResponse) String() string {

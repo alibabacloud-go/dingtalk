@@ -161,9 +161,9 @@ func (s *AddCityCarApplyResponseBody) SetApplyId(v int64) *AddCityCarApplyRespon
 }
 
 type AddCityCarApplyResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AddCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddCityCarApplyResponse) String() string {
@@ -277,9 +277,9 @@ func (s *ApproveCityCarApplyResponseBody) SetApproveResult(v bool) *ApproveCityC
 }
 
 type ApproveCityCarApplyResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ApproveCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ApproveCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ApproveCityCarApplyResponse) String() string {
@@ -775,9 +775,9 @@ func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetVoucherType(v int
 }
 
 type BillSettementBtripTrainResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BillSettementBtripTrainResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BillSettementBtripTrainResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BillSettementBtripTrainResponse) String() string {
@@ -1309,9 +1309,9 @@ func (s *BillSettementCarResponseBodyModuleDataList) SetVoucherType(v int64) *Bi
 }
 
 type BillSettementCarResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BillSettementCarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BillSettementCarResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BillSettementCarResponse) String() string {
@@ -1927,9 +1927,9 @@ func (s *BillSettementFlightResponseBodyModuleDataList) SetVoucherType(v int64) 
 }
 
 type BillSettementFlightResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BillSettementFlightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BillSettementFlightResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BillSettementFlightResponse) String() string {
@@ -2437,9 +2437,9 @@ func (s *BillSettementHotelResponseBodyModuleDataList) SetVoucherType(v int64) *
 }
 
 type BillSettementHotelResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BillSettementHotelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BillSettementHotelResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BillSettementHotelResponse) String() string {
@@ -2678,9 +2678,9 @@ func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetType(v int32) 
 }
 
 type GetFlightExceedApplyResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetFlightExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFlightExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetFlightExceedApplyResponse) String() string {
@@ -2883,9 +2883,9 @@ func (s *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) SetType(v int32) *
 }
 
 type GetHotelExceedApplyResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetHotelExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetHotelExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetHotelExceedApplyResponse) String() string {
@@ -3118,9 +3118,9 @@ func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetTrainTypeDesc(v
 }
 
 type GetTrainExceedApplyResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTrainExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTrainExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTrainExceedApplyResponse) String() string {
@@ -3483,9 +3483,9 @@ func (s *QueryCityCarApplyResponseBodyApplyListItineraryList) SetTrafficType(v i
 }
 
 type QueryCityCarApplyResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCityCarApplyResponse) String() string {
@@ -3697,9 +3697,9 @@ func (s *QueryUnionOrderResponseBodyVehicleList) SetVehicleOrderStatus(v int64) 
 }
 
 type QueryUnionOrderResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryUnionOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryUnionOrderResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryUnionOrderResponse) String() string {
@@ -3813,9 +3813,9 @@ func (s *SyncExceedApplyResponseBody) SetModule(v bool) *SyncExceedApplyResponse
 }
 
 type SyncExceedApplyResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SyncExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SyncExceedApplyResponse) String() string {

@@ -500,9 +500,9 @@ func (s *AddApproveDentryAuthResponseBody) SetSuccess(v bool) *AddApproveDentryA
 }
 
 type AddApproveDentryAuthResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AddApproveDentryAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddApproveDentryAuthResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddApproveDentryAuthResponse) String() string {
@@ -674,9 +674,9 @@ func (s *AddProcessInstanceCommentResponseBody) SetSuccess(v bool) *AddProcessIn
 }
 
 type AddProcessInstanceCommentResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AddProcessInstanceCommentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddProcessInstanceCommentResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddProcessInstanceCommentResponse) String() string {
@@ -807,9 +807,9 @@ func (s *BatchExecuteProcessInstancesResponseBody) SetSuccess(v bool) *BatchExec
 }
 
 type BatchExecuteProcessInstancesResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchExecuteProcessInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchExecuteProcessInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchExecuteProcessInstancesResponse) String() string {
@@ -945,9 +945,9 @@ func (s *BatchUpdateProcessInstanceResponseBody) SetSuccess(v bool) *BatchUpdate
 }
 
 type BatchUpdateProcessInstanceResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchUpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchUpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchUpdateProcessInstanceResponse) String() string {
@@ -1043,9 +1043,9 @@ func (s *CancelIntegratedTaskResponseBody) SetSuccess(v bool) *CancelIntegratedT
 }
 
 type CancelIntegratedTaskResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CancelIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CancelIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CancelIntegratedTaskResponse) String() string {
@@ -1135,9 +1135,9 @@ func (s *CleanProcessDataResponseBody) SetSuccess(v bool) *CleanProcessDataRespo
 }
 
 type CleanProcessDataResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CleanProcessDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CleanProcessDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CleanProcessDataResponse) String() string {
@@ -1308,9 +1308,9 @@ func (s *CopyProcessResponseBodyResult) SetProcessCode(v string) *CopyProcessRes
 }
 
 type CopyProcessResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CopyProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CopyProcessResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CopyProcessResponse) String() string {
@@ -1464,9 +1464,9 @@ func (s *CreateIntegratedTaskResponseBodyResult) SetUserId(v string) *CreateInte
 }
 
 type CreateIntegratedTaskResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateIntegratedTaskResponse) String() string {
@@ -1573,9 +1573,9 @@ func (s *DeleteProcessResponseBodyResult) SetProcessCode(v string) *DeleteProces
 }
 
 type DeleteProcessResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeleteProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteProcessResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeleteProcessResponse) String() string {
@@ -1759,9 +1759,9 @@ func (s *ExecuteProcessInstanceResponseBody) SetSuccess(v bool) *ExecuteProcessI
 }
 
 type ExecuteProcessInstanceResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ExecuteProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExecuteProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ExecuteProcessInstanceResponse) String() string {
@@ -1945,9 +1945,9 @@ func (s *FormCreateResponseBodyResult) SetProcessCode(v string) *FormCreateRespo
 }
 
 type FormCreateResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *FormCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *FormCreateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s FormCreateResponse) String() string {
@@ -2060,9 +2060,9 @@ func (s *GetAttachmentSpaceResponseBodyResult) SetSpaceId(v int64) *GetAttachmen
 }
 
 type GetAttachmentSpaceResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetAttachmentSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAttachmentSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetAttachmentSpaceResponse) String() string {
@@ -2175,9 +2175,9 @@ func (s *GetConditionFormComponentResponseBodyResult) SetLabel(v string) *GetCon
 }
 
 type GetConditionFormComponentResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetConditionFormComponentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetConditionFormComponentResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetConditionFormComponentResponse) String() string {
@@ -2244,9 +2244,9 @@ func (s *GetCrmProcCodesResponseBody) SetResult(v []*string) *GetCrmProcCodesRes
 }
 
 type GetCrmProcCodesResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetCrmProcCodesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetCrmProcCodesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetCrmProcCodesResponse) String() string {
@@ -2389,9 +2389,9 @@ func (s *GetManageProcessByStaffIdResponseBodyResult) SetProcessCode(v string) *
 }
 
 type GetManageProcessByStaffIdResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetManageProcessByStaffIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetManageProcessByStaffIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetManageProcessByStaffIdResponse) String() string {
@@ -2492,9 +2492,9 @@ func (s *GetProcessCodeByNameResponseBodyResult) SetProcessCode(v string) *GetPr
 }
 
 type GetProcessCodeByNameResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetProcessCodeByNameResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetProcessCodeByNameResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetProcessCodeByNameResponse) String() string {
@@ -2853,9 +2853,9 @@ func (s *GetProcessConfigResponseBodyResultVisibility) SetValue(v string) *GetPr
 }
 
 type GetProcessConfigResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetProcessConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetProcessConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetProcessConfigResponse) String() string {
@@ -3270,9 +3270,9 @@ func (s *GetProcessInstanceResponseBodyResultTasks) SetUserId(v string) *GetProc
 }
 
 type GetProcessInstanceResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetProcessInstanceResponse) String() string {
@@ -3403,9 +3403,9 @@ func (s *GetSpaceWithDownloadAuthResponseBodyResult) SetSpaceId(v int64) *GetSpa
 }
 
 type GetSpaceWithDownloadAuthResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSpaceWithDownloadAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSpaceWithDownloadAuthResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSpaceWithDownloadAuthResponse) String() string {
@@ -3489,9 +3489,9 @@ func (s *GetUserTodoTaskSumResponseBody) SetResult(v int32) *GetUserTodoTaskSumR
 }
 
 type GetUserTodoTaskSumResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetUserTodoTaskSumResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserTodoTaskSumResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetUserTodoTaskSumResponse) String() string {
@@ -3576,8 +3576,8 @@ func (s *GrantCspaceAuthorizationRequest) SetUserId(v string) *GrantCspaceAuthor
 }
 
 type GrantCspaceAuthorizationResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s GrantCspaceAuthorizationResponse) String() string {
@@ -3697,9 +3697,9 @@ func (s *GrantProcessInstanceForDownloadFileResponseBodyResult) SetSpaceId(v int
 }
 
 type GrantProcessInstanceForDownloadFileResponse struct {
-	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GrantProcessInstanceForDownloadFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GrantProcessInstanceForDownloadFileResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GrantProcessInstanceForDownloadFileResponse) String() string {
@@ -3841,9 +3841,9 @@ func (s *InstallAppResponseBodyResult) SetProcessCode(v string) *InstallAppRespo
 }
 
 type InstallAppResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *InstallAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InstallAppResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s InstallAppResponse) String() string {
@@ -3992,9 +3992,9 @@ func (s *ListProcessInstanceIdsResponseBodyResult) SetNextToken(v string) *ListP
 }
 
 type ListProcessInstanceIdsResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListProcessInstanceIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListProcessInstanceIdsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListProcessInstanceIdsResponse) String() string {
@@ -4183,9 +4183,9 @@ func (s *ListTodoWorkRecordsResponseBodyResultListForms) SetTitle(v string) *Lis
 }
 
 type ListTodoWorkRecordsResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListTodoWorkRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListTodoWorkRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListTodoWorkRecordsResponse) String() string {
@@ -4339,9 +4339,9 @@ func (s *ListUserVisibleBpmsProcessesResponseBodyResultProcessList) SetUrl(v str
 }
 
 type ListUserVisibleBpmsProcessesResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListUserVisibleBpmsProcessesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListUserVisibleBpmsProcessesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListUserVisibleBpmsProcessesResponse) String() string {
@@ -4847,9 +4847,9 @@ func (s *ProcessForecastResponseBodyResultWorkflowForecastNodes) SetOutId(v stri
 }
 
 type ProcessForecastResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ProcessForecastResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ProcessForecastResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ProcessForecastResponse) String() string {
@@ -5116,9 +5116,9 @@ func (s *QueryAllFormInstancesResponseBodyResultValuesFormInstDataList) SetValue
 }
 
 type QueryAllFormInstancesResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryAllFormInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryAllFormInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryAllFormInstancesResponse) String() string {
@@ -5532,9 +5532,9 @@ func (s *QueryAllProcessInstancesResponseBodyResultListTasks) SetUserId(v string
 }
 
 type QueryAllProcessInstancesResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryAllProcessInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryAllProcessInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponse) String() string {
@@ -5713,9 +5713,9 @@ func (s *QueryFormByBizTypeResponseBodyResult) SetStatus(v string) *QueryFormByB
 }
 
 type QueryFormByBizTypeResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryFormByBizTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryFormByBizTypeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryFormByBizTypeResponse) String() string {
@@ -5924,9 +5924,9 @@ func (s *QueryFormInstanceResponseBodyFormInstDataList) SetValue(v string) *Quer
 }
 
 type QueryFormInstanceResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryFormInstanceResponse) String() string {
@@ -6110,9 +6110,9 @@ func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetUserId(v string) *Que
 }
 
 type QueryIntegratedTodoTaskResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryIntegratedTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryIntegratedTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryIntegratedTodoTaskResponse) String() string {
@@ -6237,9 +6237,9 @@ func (s *QueryProcessByBizCategoryIdResponseBodyResult) SetStatus(v string) *Que
 }
 
 type QueryProcessByBizCategoryIdResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryProcessByBizCategoryIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryProcessByBizCategoryIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryProcessByBizCategoryIdResponse) String() string {
@@ -6376,9 +6376,9 @@ func (s *QuerySchemaAndProcessResponseBodyResult) SetProcessConfig(v string) *Qu
 }
 
 type QuerySchemaAndProcessResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QuerySchemaAndProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySchemaAndProcessResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QuerySchemaAndProcessResponse) String() string {
@@ -7129,9 +7129,9 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatFi
 }
 
 type QuerySchemaByProcessCodeResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QuerySchemaByProcessCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySchemaByProcessCodeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponse) String() string {
@@ -7309,9 +7309,9 @@ func (s *RedirectWorkflowTaskResponseBody) SetResult(v bool) *RedirectWorkflowTa
 }
 
 type RedirectWorkflowTaskResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RedirectWorkflowTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RedirectWorkflowTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RedirectWorkflowTaskResponse) String() string {
@@ -7518,9 +7518,9 @@ func (s *SaveIntegratedInstanceResponseBodyResult) SetProcessInstanceId(v string
 }
 
 type SaveIntegratedInstanceResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SaveIntegratedInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SaveIntegratedInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SaveIntegratedInstanceResponse) String() string {
@@ -7783,9 +7783,9 @@ func (s *SaveProcessResponseBodyResult) SetProcessCode(v string) *SaveProcessRes
 }
 
 type SaveProcessResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SaveProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SaveProcessResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SaveProcessResponse) String() string {
@@ -8110,9 +8110,9 @@ func (s *StartProcessInstanceResponseBody) SetInstanceId(v string) *StartProcess
 }
 
 type StartProcessInstanceResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *StartProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StartProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s StartProcessInstanceResponse) String() string {
@@ -8220,9 +8220,9 @@ func (s *TerminateProcessInstanceResponseBody) SetSuccess(v bool) *TerminateProc
 }
 
 type TerminateProcessInstanceResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *TerminateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TerminateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s TerminateProcessInstanceResponse) String() string {
@@ -8341,9 +8341,9 @@ func (s *UpdateIntegratedTaskResponseBody) SetSuccess(v bool) *UpdateIntegratedT
 }
 
 type UpdateIntegratedTaskResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateIntegratedTaskResponse) String() string {
@@ -8462,9 +8462,9 @@ func (s *UpdateProcessInstanceResponseBody) SetSuccess(v bool) *UpdateProcessIns
 }
 
 type UpdateProcessInstanceResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateProcessInstanceResponse) String() string {

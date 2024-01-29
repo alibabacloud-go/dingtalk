@@ -130,9 +130,9 @@ func (s *ContractBenefitConsumeResponseBodyResult) SetConsumeResult(v bool) *Con
 }
 
 type ContractBenefitConsumeResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ContractBenefitConsumeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ContractBenefitConsumeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ContractBenefitConsumeResponse) String() string {
@@ -263,9 +263,9 @@ func (s *EsignQueryApprovalInfoResponseBodyResult) SetBpmsProcessInstanceUrl(v s
 }
 
 type EsignQueryApprovalInfoResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EsignQueryApprovalInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EsignQueryApprovalInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EsignQueryApprovalInfoResponse) String() string {
@@ -414,9 +414,9 @@ func (s *EsignQueryGrantInfoResponseBodyResult) SetUserName(v string) *EsignQuer
 }
 
 type EsignQueryGrantInfoResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EsignQueryGrantInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EsignQueryGrantInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EsignQueryGrantInfoResponse) String() string {
@@ -535,9 +535,9 @@ func (s *EsignQueryIdentityByTicketResponseBodyResult) SetUnionId(v string) *Esi
 }
 
 type EsignQueryIdentityByTicketResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EsignQueryIdentityByTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EsignQueryIdentityByTicketResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EsignQueryIdentityByTicketResponse) String() string {
@@ -668,9 +668,9 @@ func (s *EsignSyncEventResponseBodyResult) SetMessage(v string) *EsignSyncEventR
 }
 
 type EsignSyncEventResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EsignSyncEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EsignSyncEventResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EsignSyncEventResponse) String() string {
@@ -795,9 +795,9 @@ func (s *QueryAdvancedContractVersionResponseBodyResult) SetVersion(v string) *Q
 }
 
 type QueryAdvancedContractVersionResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryAdvancedContractVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryAdvancedContractVersionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryAdvancedContractVersionResponse) String() string {
@@ -1022,9 +1022,9 @@ func (s *SendContractCardResponseBody) SetSuccess(v bool) *SendContractCardRespo
 }
 
 type SendContractCardResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendContractCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendContractCardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendContractCardResponse) String() string {

@@ -101,9 +101,9 @@ func (s *CreateMiniAppResponseBody) SetMiniAppId(v string) *CreateMiniAppRespons
 }
 
 type CreateMiniAppResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateMiniAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateMiniAppResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateMiniAppResponse) String() string {
@@ -217,9 +217,9 @@ func (s *CreateMiniAppPluginResponseBody) SetMiniAppId(v string) *CreateMiniAppP
 }
 
 type CreateMiniAppPluginResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateMiniAppPluginResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateMiniAppPluginResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateMiniAppPluginResponse) String() string {
@@ -327,9 +327,9 @@ func (s *CreateVersionAcrossBundleResponseBody) SetResult(v string) *CreateVersi
 }
 
 type CreateVersionAcrossBundleResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateVersionAcrossBundleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateVersionAcrossBundleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateVersionAcrossBundleResponse) String() string {
@@ -425,9 +425,9 @@ func (s *GetMaxVersionResponseBody) SetResult(v string) *GetMaxVersionResponseBo
 }
 
 type GetMaxVersionResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetMaxVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetMaxVersionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetMaxVersionResponse) String() string {
@@ -564,9 +564,9 @@ func (s *GetMiniAppMetaDataResponseBodyResult) SetData(v map[string]interface{})
 }
 
 type GetMiniAppMetaDataResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetMiniAppMetaDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetMiniAppMetaDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetMiniAppMetaDataResponse) String() string {
@@ -633,9 +633,9 @@ func (s *GetSettingByMiniAppIdResponseBody) SetResult(v string) *GetSettingByMin
 }
 
 type GetSettingByMiniAppIdResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSettingByMiniAppIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSettingByMiniAppIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSettingByMiniAppIdResponse) String() string {
@@ -731,9 +731,9 @@ func (s *InvokeHtmlBundleBuildResponseBody) SetResult(v string) *InvokeHtmlBundl
 }
 
 type InvokeHtmlBundleBuildResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *InvokeHtmlBundleBuildResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InvokeHtmlBundleBuildResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s InvokeHtmlBundleBuildResponse) String() string {
@@ -882,9 +882,9 @@ func (s *ListAvaiableVersionResponseBodyVersions) SetVersion(v string) *ListAvai
 }
 
 type ListAvaiableVersionResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListAvaiableVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListAvaiableVersionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListAvaiableVersionResponse) String() string {
@@ -980,9 +980,9 @@ func (s *QueryHtmlBundleBuildResponseBody) SetResult(v string) *QueryHtmlBundleB
 }
 
 type QueryHtmlBundleBuildResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryHtmlBundleBuildResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryHtmlBundleBuildResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryHtmlBundleBuildResponse) String() string {
@@ -1061,9 +1061,9 @@ func (s *RollBackVersionResponseBody) SetResult(v string) *RollBackVersionRespon
 }
 
 type RollBackVersionResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RollBackVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RollBackVersionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RollBackVersionResponse) String() string {
@@ -1153,9 +1153,9 @@ func (s *SetExtendSettingResponseBody) SetResult(v string) *SetExtendSettingResp
 }
 
 type SetExtendSettingResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SetExtendSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetExtendSettingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SetExtendSettingResponse) String() string {
@@ -1257,9 +1257,9 @@ func (s *UpdateVersionStatusResponseBody) SetResult(v string) *UpdateVersionStat
 }
 
 type UpdateVersionStatusResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateVersionStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateVersionStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateVersionStatusResponse) String() string {

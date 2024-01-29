@@ -208,9 +208,9 @@ func (s *QueryScoreResponseBodyResult) SetOrgIndustryUpNameNew(v string) *QueryS
 }
 
 type QueryScoreResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryScoreResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryScoreResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryScoreResponse) String() string {

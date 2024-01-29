@@ -159,9 +159,9 @@ func (s *AddPluginRuleResponseBody) SetSuccess(v bool) *AddPluginRuleResponseBod
 }
 
 type AddPluginRuleResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AddPluginRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddPluginRuleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddPluginRuleResponse) String() string {
@@ -251,9 +251,9 @@ func (s *DeletePlguinRuleResponseBody) SetSuccess(v bool) *DeletePlguinRuleRespo
 }
 
 type DeletePlguinRuleResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeletePlguinRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeletePlguinRuleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeletePlguinRuleResponse) String() string {
@@ -378,9 +378,9 @@ func (s *GetBaseProfileListResponseBodyResult) SetUserId(v string) *GetBaseProfi
 }
 
 type GetBaseProfileListResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetBaseProfileListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetBaseProfileListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetBaseProfileListResponse) String() string {
@@ -505,9 +505,9 @@ func (s *GetConversationResponseBodyResult) SetTitle(v string) *GetConversationR
 }
 
 type GetConversationResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetConversationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetConversationResponse) String() string {
@@ -609,9 +609,9 @@ func (s *GetMemberListResponseBody) SetResult(v []*string) *GetMemberListRespons
 }
 
 type GetMemberListResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetMemberListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetMemberListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetMemberListResponse) String() string {
@@ -807,9 +807,9 @@ func (s *QueryPluginRuleResponseBodyResultData) SetItemType(v string) *QueryPlug
 }
 
 type QueryPluginRuleResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryPluginRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryPluginRuleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryPluginRuleResponse) String() string {
@@ -958,9 +958,9 @@ func (s *SendDingTipResponseBody) SetSuccess(v bool) *SendDingTipResponseBody {
 }
 
 type SendDingTipResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendDingTipResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendDingTipResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendDingTipResponse) String() string {
@@ -1233,9 +1233,9 @@ func (s *SendMessageTipResponseBodyResult) SetCardInstanceId(v string) *SendMess
 }
 
 type SendMessageTipResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendMessageTipResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendMessageTipResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendMessageTipResponse) String() string {

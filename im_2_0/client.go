@@ -147,9 +147,9 @@ func (s *CloseTopboxResponseBody) SetSuccess(v bool) *CloseTopboxResponseBody {
 }
 
 type CloseTopboxResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CloseTopboxResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CloseTopboxResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CloseTopboxResponse) String() string {
@@ -292,9 +292,9 @@ func (s *CreateCoupleGroupResponseBody) SetUserIds(v []*string) *CreateCoupleGro
 }
 
 type CreateCoupleGroupResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateCoupleGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateCoupleGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateCoupleGroupResponse) String() string {
@@ -449,9 +449,9 @@ func (s *CreateGroupResponseBody) SetUserIds(v []*string) *CreateGroupResponseBo
 }
 
 type CreateGroupResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateGroupResponse) String() string {
@@ -671,9 +671,9 @@ func (s *CreateTopboxResponseBody) SetSuccess(v bool) *CreateTopboxResponseBody 
 }
 
 type CreateTopboxResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateTopboxResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateTopboxResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateTopboxResponse) String() string {
@@ -717,9 +717,9 @@ func (s *GroupManagerDeviceMarketResponseBody) SetRequestId(v string) *GroupMana
 }
 
 type GroupManagerDeviceMarketResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GroupManagerDeviceMarketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GroupManagerDeviceMarketResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GroupManagerDeviceMarketResponse) String() string {

@@ -112,9 +112,9 @@ func (s *GetSpaceResponseBodySpace) SetSpaceId(v string) *GetSpaceResponseBodySp
 }
 
 type GetSpaceResponse struct {
-	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSpaceResponse) String() string {
@@ -323,9 +323,9 @@ func (s *SendResponseBodyFile) SetVersion(v int64) *SendResponseBodyFile {
 }
 
 type SendResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendResponseBody  `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendResponseBody  `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendResponse) String() string {
@@ -528,9 +528,9 @@ func (s *SendByAppResponseBodyFile) SetVersion(v int64) *SendByAppResponseBodyFi
 }
 
 type SendByAppResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendByAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendByAppResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendByAppResponse) String() string {
@@ -739,9 +739,9 @@ func (s *SendLinkResponseBodyFile) SetVersion(v int64) *SendLinkResponseBodyFile
 }
 
 type SendLinkResponse struct {
-	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SendLinkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendLinkResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SendLinkResponse) String() string {

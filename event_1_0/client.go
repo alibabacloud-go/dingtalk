@@ -118,9 +118,9 @@ func (s *GetCallBackFaileResultResponseBodyFailedList) SetEventTime(v int64) *Ge
 }
 
 type GetCallBackFaileResultResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetCallBackFaileResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetCallBackFaileResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetCallBackFaileResultResponse) String() string {
@@ -222,9 +222,9 @@ func (s *InstallAppResponseBody) SetResult(v bool) *InstallAppResponseBody {
 }
 
 type InstallAppResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *InstallAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InstallAppResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s InstallAppResponse) String() string {
@@ -409,9 +409,9 @@ func (s *InstallCoolAppResponseBody) SetResult(v string) *InstallCoolAppResponse
 }
 
 type InstallCoolAppResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *InstallCoolAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InstallCoolAppResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s InstallCoolAppResponse) String() string {
@@ -478,9 +478,9 @@ func (s *RePushSuiteTicketResponseBody) SetResult(v string) *RePushSuiteTicketRe
 }
 
 type RePushSuiteTicketResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RePushSuiteTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RePushSuiteTicketResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RePushSuiteTicketResponse) String() string {

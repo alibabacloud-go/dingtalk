@@ -48,9 +48,9 @@ func (s *AyunOnlienTestResponseBody) SetResult(v string) *AyunOnlienTestResponse
 }
 
 type AyunOnlienTestResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AyunOnlienTestResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AyunOnlienTestResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AyunOnlienTestResponse) String() string {
@@ -140,9 +140,9 @@ func (s *BatchDeleteDeviceResponseBody) SetDeviceIds(v []*string) *BatchDeleteDe
 }
 
 type BatchDeleteDeviceResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchDeleteDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchDeleteDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchDeleteDeviceResponse) String() string {
@@ -332,9 +332,9 @@ func (s *BatchRegisterDeviceResponseBody) SetDeviceIds(v []*string) *BatchRegist
 }
 
 type BatchRegisterDeviceResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchRegisterDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchRegisterDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchRegisterDeviceResponse) String() string {
@@ -447,9 +447,9 @@ func (s *BatchRegisterEventTypeResponseBody) SetEventTypes(v []*string) *BatchRe
 }
 
 type BatchRegisterEventTypeResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchRegisterEventTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchRegisterEventTypeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchRegisterEventTypeResponse) String() string {
@@ -615,9 +615,9 @@ func (s *BatchUpdateDeviceResponseBody) SetDeviceIds(v []*string) *BatchUpdateDe
 }
 
 type BatchUpdateDeviceResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BatchUpdateDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchUpdateDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BatchUpdateDeviceResponse) String() string {
@@ -731,9 +731,9 @@ func (s *BindSystemResponseBody) SetCorpId(v string) *BindSystemResponseBody {
 }
 
 type BindSystemResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *BindSystemResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BindSystemResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s BindSystemResponse) String() string {
@@ -835,9 +835,9 @@ func (s *DeviceConferenceResponseBody) SetConferenceId(v string) *DeviceConferen
 }
 
 type DeviceConferenceResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeviceConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeviceConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeviceConferenceResponse) String() string {
@@ -881,9 +881,9 @@ func (s *DiotMamaResponseBody) SetRequestId(v string) *DiotMamaResponseBody {
 }
 
 type DiotMamaResponse struct {
-	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DiotMamaResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DiotMamaResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DiotMamaResponse) String() string {
@@ -927,9 +927,9 @@ func (s *DiotMarketManagerTestResponseBody) SetRequestId(v string) *DiotMarketMa
 }
 
 type DiotMarketManagerTestResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DiotMarketManagerTestResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DiotMarketManagerTestResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DiotMarketManagerTestResponse) String() string {
@@ -973,9 +973,9 @@ func (s *DiotSystemMarkTestResponseBody) SetRequestId(v string) *DiotSystemMarkT
 }
 
 type DiotSystemMarkTestResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DiotSystemMarkTestResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DiotSystemMarkTestResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DiotSystemMarkTestResponse) String() string {
@@ -1019,9 +1019,9 @@ func (s *DiotMarketManagerResponseBody) SetRequestId(v string) *DiotMarketManage
 }
 
 type DiotMarketManagerResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DiotMarketManagerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DiotMarketManagerResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DiotMarketManagerResponse) String() string {
@@ -1159,9 +1159,9 @@ func (s *PushEventResponseBody) SetEventId(v string) *PushEventResponseBody {
 }
 
 type PushEventResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PushEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PushEventResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PushEventResponse) String() string {
@@ -1369,9 +1369,9 @@ func (s *QueryDeviceResponseBodyDataLiveUrls) SetRtmp(v string) *QueryDeviceResp
 }
 
 type QueryDeviceResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryDeviceResponse) String() string {
@@ -1574,9 +1574,9 @@ func (s *QueryEventResponseBodyData) SetPicUrls(v []*string) *QueryEventResponse
 }
 
 type QueryEventResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryEventResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryEventResponse) String() string {
@@ -1749,9 +1749,9 @@ func (s *RegisterDeviceResponseBody) SetDeviceId(v string) *RegisterDeviceRespon
 }
 
 type RegisterDeviceResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RegisterDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RegisterDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RegisterDeviceResponse) String() string {
@@ -1795,9 +1795,9 @@ func (s *UpgradeDeviceResponseBody) SetRequestId(v string) *UpgradeDeviceRespons
 }
 
 type UpgradeDeviceResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpgradeDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpgradeDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpgradeDeviceResponse) String() string {
@@ -1841,9 +1841,9 @@ func (s *WorkbenchTransformInfoResponseBody) SetRequestId(v string) *WorkbenchTr
 }
 
 type WorkbenchTransformInfoResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WorkbenchTransformInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WorkbenchTransformInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WorkbenchTransformInfoResponse) String() string {

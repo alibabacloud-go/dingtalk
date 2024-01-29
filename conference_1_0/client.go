@@ -160,9 +160,9 @@ func (s *CancelScheduleConferenceResponseBody) SetSuccess(v bool) *CancelSchedul
 }
 
 type CancelScheduleConferenceResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CancelScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CancelScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CancelScheduleConferenceResponse) String() string {
@@ -252,9 +252,9 @@ func (s *CloseVideoConferenceResponseBody) SetCode(v int64) *CloseVideoConferenc
 }
 
 type CloseVideoConferenceResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CloseVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CloseVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CloseVideoConferenceResponse) String() string {
@@ -361,9 +361,9 @@ func (s *CohostsResponseBody) SetSuccess(v bool) *CohostsResponseBody {
 }
 
 type CohostsResponse struct {
-	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CohostsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CohostsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CohostsResponse) String() string {
@@ -489,9 +489,9 @@ func (s *CreateScheduleConferenceResponseBody) SetUrl(v string) *CreateScheduleC
 }
 
 type CreateScheduleConferenceResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateScheduleConferenceResponse) String() string {
@@ -623,9 +623,9 @@ func (s *CreateVideoConferenceResponseBody) SetRoomCode(v string) *CreateVideoCo
 }
 
 type CreateVideoConferenceResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateVideoConferenceResponse) String() string {
@@ -715,9 +715,9 @@ func (s *FocusResponseBody) SetSuccess(v bool) *FocusResponseBody {
 }
 
 type FocusResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *FocusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *FocusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s FocusResponse) String() string {
@@ -861,9 +861,9 @@ func (s *GetConfDataByConferenceIdResponseBody) SetUserCount(v int32) *GetConfDa
 }
 
 type GetConfDataByConferenceIdResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetConfDataByConferenceIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetConfDataByConferenceIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetConfDataByConferenceIdResponse) String() string {
@@ -1054,9 +1054,9 @@ func (s *GetConfDetailDataResponseBodyList) SetVersion(v string) *GetConfDetailD
 }
 
 type GetConfDetailDataResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetConfDetailDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetConfDetailDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetConfDetailDataResponse) String() string {
@@ -1271,9 +1271,9 @@ func (s *GetHistoryConfDataListResponseBodyList) SetUserCount(v int32) *GetHisto
 }
 
 type GetHistoryConfDataListResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetHistoryConfDataListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetHistoryConfDataListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetHistoryConfDataListResponse) String() string {
@@ -1506,9 +1506,9 @@ func (s *GetUserMetricDataResponseBodyMetricDataList) SetTimestamp(v int64) *Get
 }
 
 type GetUserMetricDataResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetUserMetricDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserMetricDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetUserMetricDataResponse) String() string {
@@ -1621,9 +1621,9 @@ func (s *InviteUsersResponseBody) SetSuccess(v bool) *InviteUsersResponseBody {
 }
 
 type InviteUsersResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *InviteUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InviteUsersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s InviteUsersResponse) String() string {
@@ -1736,9 +1736,9 @@ func (s *KickMembersResponseBody) SetSuccess(v bool) *KickMembersResponseBody {
 }
 
 type KickMembersResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *KickMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *KickMembersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s KickMembersResponse) String() string {
@@ -1760,6 +1760,92 @@ func (s *KickMembersResponse) SetStatusCode(v int32) *KickMembersResponse {
 }
 
 func (s *KickMembersResponse) SetBody(v *KickMembersResponseBody) *KickMembersResponse {
+	s.Body = v
+	return s
+}
+
+type LockConferenceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s LockConferenceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockConferenceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *LockConferenceHeaders) SetCommonHeaders(v map[string]*string) *LockConferenceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *LockConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *LockConferenceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type LockConferenceRequest struct {
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+}
+
+func (s LockConferenceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockConferenceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *LockConferenceRequest) SetAction(v string) *LockConferenceRequest {
+	s.Action = &v
+	return s
+}
+
+type LockConferenceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s LockConferenceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockConferenceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *LockConferenceResponseBody) SetSuccess(v bool) *LockConferenceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type LockConferenceResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *LockConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s LockConferenceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockConferenceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *LockConferenceResponse) SetHeaders(v map[string]*string) *LockConferenceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *LockConferenceResponse) SetStatusCode(v int32) *LockConferenceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *LockConferenceResponse) SetBody(v *LockConferenceResponseBody) *LockConferenceResponse {
 	s.Body = v
 	return s
 }
@@ -1828,9 +1914,9 @@ func (s *MuteAllResponseBody) SetSuccess(v bool) *MuteAllResponseBody {
 }
 
 type MuteAllResponse struct {
-	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *MuteAllResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *MuteAllResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s MuteAllResponse) String() string {
@@ -1943,9 +2029,9 @@ func (s *MuteMembersResponseBody) SetSuccess(v bool) *MuteMembersResponseBody {
 }
 
 type MuteMembersResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *MuteMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *MuteMembersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s MuteMembersResponse) String() string {
@@ -2200,9 +2286,9 @@ func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetW
 }
 
 type QueryCloudRecordTextResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCloudRecordTextResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCloudRecordTextResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCloudRecordTextResponse) String() string {
@@ -2351,9 +2437,9 @@ func (s *QueryCloudRecordVideoResponseBodyVideoList) SetUnionId(v string) *Query
 }
 
 type QueryCloudRecordVideoResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCloudRecordVideoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCloudRecordVideoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCloudRecordVideoResponse) String() string {
@@ -2473,9 +2559,9 @@ func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetStatus(v int64) *QueryClo
 }
 
 type QueryCloudRecordVideoPlayInfoResponse struct {
-	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCloudRecordVideoPlayInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCloudRecordVideoPlayInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCloudRecordVideoPlayInfoResponse) String() string {
@@ -2631,9 +2717,9 @@ func (s *QueryConferenceInfoResponseBodyConfInfo) SetTitle(v string) *QueryConfe
 }
 
 type QueryConferenceInfoResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryConferenceInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryConferenceInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryConferenceInfoResponse) String() string {
@@ -2811,9 +2897,9 @@ func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetUserId(v string) 
 }
 
 type QueryConferenceInfoBatchResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryConferenceInfoBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryConferenceInfoBatchResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryConferenceInfoBatchResponse) String() string {
@@ -2992,9 +3078,9 @@ func (s *QueryConferenceMembersResponseBodyMemberModels) SetUserNick(v string) *
 }
 
 type QueryConferenceMembersResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryConferenceMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryConferenceMembersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryConferenceMembersResponse) String() string {
@@ -3120,9 +3206,9 @@ func (s *QueryScheduleConferenceResponseBody) SetUrl(v string) *QueryScheduleCon
 }
 
 type QueryScheduleConferenceResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryScheduleConferenceResponse) String() string {
@@ -3271,9 +3357,9 @@ func (s *QueryScheduleConferenceInfoResponseBodyConferenceList) SetTitle(v strin
 }
 
 type QueryScheduleConferenceInfoResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryScheduleConferenceInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryScheduleConferenceInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryScheduleConferenceInfoResponse) String() string {
@@ -3363,9 +3449,9 @@ func (s *QueryUserOnGoingConferenceResponseBody) SetOnGoingConfIdList(v []*strin
 }
 
 type QueryUserOnGoingConferenceResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryUserOnGoingConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryUserOnGoingConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryUserOnGoingConferenceResponse) String() string {
@@ -3461,9 +3547,9 @@ func (s *StartCloudRecordResponseBody) SetCode(v string) *StartCloudRecordRespon
 }
 
 type StartCloudRecordResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *StartCloudRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StartCloudRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s StartCloudRecordResponse) String() string {
@@ -3583,9 +3669,9 @@ func (s *StartStreamOutResponseBody) SetSuccessStreamMap(v map[string]interface{
 }
 
 type StartStreamOutResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *StartStreamOutResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StartStreamOutResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s StartStreamOutResponse) String() string {
@@ -3669,9 +3755,9 @@ func (s *StopCloudRecordResponseBody) SetCode(v string) *StopCloudRecordResponse
 }
 
 type StopCloudRecordResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *StopCloudRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StopCloudRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s StopCloudRecordResponse) String() string {
@@ -3767,9 +3853,9 @@ func (s *StopStreamOutResponseBody) SetCode(v string) *StopStreamOutResponseBody
 }
 
 type StopStreamOutResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *StopStreamOutResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StopStreamOutResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s StopStreamOutResponse) String() string {
@@ -3791,6 +3877,198 @@ func (s *StopStreamOutResponse) SetStatusCode(v int32) *StopStreamOutResponse {
 }
 
 func (s *StopStreamOutResponse) SetBody(v *StopStreamOutResponseBody) *StopStreamOutResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateScheduleConfSettingsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateScheduleConfSettingsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConfSettingsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsHeaders) SetCommonHeaders(v map[string]*string) *UpdateScheduleConfSettingsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateScheduleConfSettingsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateScheduleConfSettingsRequest struct {
+	CreatorUnionId           *string                                                    `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	ScheduleConfSettingModel *UpdateScheduleConfSettingsRequestScheduleConfSettingModel `json:"scheduleConfSettingModel,omitempty" xml:"scheduleConfSettingModel,omitempty" type:"Struct"`
+	ScheduleConferenceId     *string                                                    `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+}
+
+func (s UpdateScheduleConfSettingsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConfSettingsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsRequest) SetCreatorUnionId(v string) *UpdateScheduleConfSettingsRequest {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequest) SetScheduleConfSettingModel(v *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) *UpdateScheduleConfSettingsRequest {
+	s.ScheduleConfSettingModel = v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequest) SetScheduleConferenceId(v string) *UpdateScheduleConfSettingsRequest {
+	s.ScheduleConferenceId = &v
+	return s
+}
+
+type UpdateScheduleConfSettingsRequestScheduleConfSettingModel struct {
+	CohostUnionIds              []*string                                                                             `json:"cohostUnionIds,omitempty" xml:"cohostUnionIds,omitempty" type:"Repeated"`
+	ConfAllowedCorpId           *string                                                                               `json:"confAllowedCorpId,omitempty" xml:"confAllowedCorpId,omitempty"`
+	HostUnionId                 *string                                                                               `json:"hostUnionId,omitempty" xml:"hostUnionId,omitempty"`
+	LockRoom                    *int32                                                                                `json:"lockRoom,omitempty" xml:"lockRoom,omitempty"`
+	MoziConfVirtualExtraSetting *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting `json:"moziConfVirtualExtraSetting,omitempty" xml:"moziConfVirtualExtraSetting,omitempty" type:"Struct"`
+	MuteOnJoin                  *int32                                                                                `json:"muteOnJoin,omitempty" xml:"muteOnJoin,omitempty"`
+	ScreenShareForbidden        *int32                                                                                `json:"screenShareForbidden,omitempty" xml:"screenShareForbidden,omitempty"`
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModel) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetCohostUnionIds(v []*string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
+	s.CohostUnionIds = v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetConfAllowedCorpId(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
+	s.ConfAllowedCorpId = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetHostUnionId(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
+	s.HostUnionId = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetLockRoom(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
+	s.LockRoom = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetMoziConfVirtualExtraSetting(v *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
+	s.MoziConfVirtualExtraSetting = v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetMuteOnJoin(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
+	s.MuteOnJoin = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetScreenShareForbidden(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
+	s.ScreenShareForbidden = &v
+	return s
+}
+
+type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting struct {
+	EnableChat             *int32 `json:"enableChat,omitempty" xml:"enableChat,omitempty"`
+	JoinBeforeHost         *int32 `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
+	LockMediaStatusMicMute *int32 `json:"lockMediaStatusMicMute,omitempty" xml:"lockMediaStatusMicMute,omitempty"`
+	LockNick               *int32 `json:"lockNick,omitempty" xml:"lockNick,omitempty"`
+	WaitingRoom            *int32 `json:"waitingRoom,omitempty" xml:"waitingRoom,omitempty"`
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableChat(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.EnableChat = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetJoinBeforeHost(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.JoinBeforeHost = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetLockMediaStatusMicMute(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.LockMediaStatusMicMute = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetLockNick(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.LockNick = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetWaitingRoom(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.WaitingRoom = &v
+	return s
+}
+
+type UpdateScheduleConfSettingsResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateScheduleConfSettingsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConfSettingsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsResponseBody) SetSuccess(v bool) *UpdateScheduleConfSettingsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateScheduleConfSettingsResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateScheduleConfSettingsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateScheduleConfSettingsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConfSettingsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsResponse) SetHeaders(v map[string]*string) *UpdateScheduleConfSettingsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsResponse) SetStatusCode(v int32) *UpdateScheduleConfSettingsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsResponse) SetBody(v *UpdateScheduleConfSettingsResponseBody) *UpdateScheduleConfSettingsResponse {
 	s.Body = v
 	return s
 }
@@ -3877,9 +4155,9 @@ func (s *UpdateScheduleConferenceResponseBody) SetSuccess(v bool) *UpdateSchedul
 }
 
 type UpdateScheduleConferenceResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateScheduleConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateScheduleConferenceResponse) String() string {
@@ -3952,9 +4230,9 @@ func (s *UpdateVideoConferenceExtInfoResponseBody) SetCode(v string) *UpdateVide
 }
 
 type UpdateVideoConferenceExtInfoResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateVideoConferenceExtInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateVideoConferenceExtInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateVideoConferenceExtInfoResponse) String() string {
@@ -4074,9 +4352,9 @@ func (s *UpdateVideoConferenceSettingResponseBody) SetCode(v string) *UpdateVide
 }
 
 type UpdateVideoConferenceSettingResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateVideoConferenceSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateVideoConferenceSettingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateVideoConferenceSettingResponse) String() string {
@@ -4876,6 +5154,61 @@ func (client *Client) KickMembers(conferenceId *string, request *KickMembersRequ
 	headers := &KickMembersHeaders{}
 	_result = &KickMembersResponse{}
 	_body, _err := client.KickMembersWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) LockConferenceWithOptions(conferenceId *string, request *LockConferenceRequest, headers *LockConferenceHeaders, runtime *util.RuntimeOptions) (_result *LockConferenceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("LockConference"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/lock"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &LockConferenceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) LockConference(conferenceId *string, request *LockConferenceRequest) (_result *LockConferenceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &LockConferenceHeaders{}
+	_result = &LockConferenceResponse{}
+	_body, _err := client.LockConferenceWithOptions(conferenceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5767,6 +6100,69 @@ func (client *Client) StopStreamOut(conferenceId *string, request *StopStreamOut
 	headers := &StopStreamOutHeaders{}
 	_result = &StopStreamOutResponse{}
 	_body, _err := client.StopStreamOutWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateScheduleConfSettingsWithOptions(request *UpdateScheduleConfSettingsRequest, headers *UpdateScheduleConfSettingsHeaders, runtime *util.RuntimeOptions) (_result *UpdateScheduleConfSettingsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScheduleConfSettingModel)) {
+		body["scheduleConfSettingModel"] = request.ScheduleConfSettingModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScheduleConferenceId)) {
+		body["scheduleConferenceId"] = request.ScheduleConferenceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateScheduleConfSettings"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/scheduleConferences/settings"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateScheduleConfSettingsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateScheduleConfSettings(request *UpdateScheduleConfSettingsRequest) (_result *UpdateScheduleConfSettingsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateScheduleConfSettingsHeaders{}
+	_result = &UpdateScheduleConfSettingsResponse{}
+	_body, _err := client.UpdateScheduleConfSettingsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

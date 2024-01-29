@@ -188,9 +188,9 @@ func (s *AssignOrgHoldingToEmpHoldingBatchResponseBodyResultOpenPointInvokeResul
 }
 
 type AssignOrgHoldingToEmpHoldingBatchResponse struct {
-	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AssignOrgHoldingToEmpHoldingBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AssignOrgHoldingToEmpHoldingBatchResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AssignOrgHoldingToEmpHoldingBatchResponse) String() string {
@@ -315,9 +315,9 @@ func (s *ConsumeUserPointsResponseBodyResult) SetAmount(v int64) *ConsumeUserPoi
 }
 
 type ConsumeUserPointsResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ConsumeUserPointsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ConsumeUserPointsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ConsumeUserPointsResponse) String() string {
@@ -454,9 +454,9 @@ func (s *CreateOrgHonorResponseBodyResult) SetHonorId(v string) *CreateOrgHonorR
 }
 
 type CreateOrgHonorResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateOrgHonorResponse) String() string {
@@ -651,9 +651,9 @@ func (s *DeductionPointBatchResponseBodyResultOpenPointInvokeResultDTOS) SetUser
 }
 
 type DeductionPointBatchResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeductionPointBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeductionPointBatchResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeductionPointBatchResponse) String() string {
@@ -755,9 +755,9 @@ func (s *ExportPointOpenResponseBody) SetSuccess(v bool) *ExportPointOpenRespons
 }
 
 type ExportPointOpenResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ExportPointOpenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExportPointOpenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ExportPointOpenResponse) String() string {
@@ -912,9 +912,9 @@ func (s *GrantHonorResponseBodyResult) SetSuccessUserIds(v []*string) *GrantHono
 }
 
 type GrantHonorResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GrantHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GrantHonorResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GrantHonorResponse) String() string {
@@ -1021,9 +1021,9 @@ func (s *QueryCorpPointsResponseBodyResult) SetAmount(v int64) *QueryCorpPointsR
 }
 
 type QueryCorpPointsResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCorpPointsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCorpPointsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCorpPointsResponse) String() string {
@@ -1282,9 +1282,9 @@ func (s *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryEmpPointDetailsResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryEmpPointDetailsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryEmpPointDetailsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponse) String() string {
@@ -1444,9 +1444,9 @@ func (s *QueryOrgHonorsResponseBodyResultOpenHonors) SetHonorPendantImgUrl(v str
 }
 
 type QueryOrgHonorsResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryOrgHonorsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOrgHonorsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryOrgHonorsResponse) String() string {
@@ -1711,9 +1711,9 @@ func (s *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryOrgPointDetailsResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryOrgPointDetailsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOrgPointDetailsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponse) String() string {
@@ -1844,9 +1844,9 @@ func (s *QueryPointActionAutoAssignRuleResponseBodyResultQueryPointRuleResponseD
 }
 
 type QueryPointActionAutoAssignRuleResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryPointActionAutoAssignRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryPointActionAutoAssignRuleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryPointActionAutoAssignRuleResponse) String() string {
@@ -1948,9 +1948,9 @@ func (s *QueryPointAutoIssueSettingResponseBodyResult) SetPointAutoTime(v int64)
 }
 
 type QueryPointAutoIssueSettingResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryPointAutoIssueSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryPointAutoIssueSettingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryPointAutoIssueSettingResponse) String() string {
@@ -2133,9 +2133,9 @@ func (s *QueryUserHonorsResponseBodyResultHonorsGrantHistory) SetSenderUserid(v 
 }
 
 type QueryUserHonorsResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryUserHonorsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryUserHonorsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryUserHonorsResponse) String() string {
@@ -2225,9 +2225,9 @@ func (s *QueryUserPointsResponseBodyResult) SetAmount(v int64) *QueryUserPointsR
 }
 
 type QueryUserPointsResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryUserPointsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryUserPointsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryUserPointsResponse) String() string {
@@ -2334,9 +2334,9 @@ func (s *RecallHonorResponseBodyResult) SetHonorId(v string) *RecallHonorRespons
 }
 
 type RecallHonorResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *RecallHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RecallHonorResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s RecallHonorResponse) String() string {
@@ -2461,9 +2461,9 @@ func (s *UpdateAutoIssuePointResponseBodyResult) SetNextAutoIssuePointTime(v int
 }
 
 type UpdateAutoIssuePointResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateAutoIssuePointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateAutoIssuePointResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateAutoIssuePointResponse) String() string {
@@ -2588,9 +2588,9 @@ func (s *UpdatePointActionAutoAssignRuleResponseBody) SetSuccess(v bool) *Update
 }
 
 type UpdatePointActionAutoAssignRuleResponse struct {
-	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdatePointActionAutoAssignRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdatePointActionAutoAssignRuleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdatePointActionAutoAssignRuleResponse) String() string {
@@ -2703,9 +2703,9 @@ func (s *WearOrgHonorResponseBodyResult) SetHonorId(v string) *WearOrgHonorRespo
 }
 
 type WearOrgHonorResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *WearOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WearOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s WearOrgHonorResponse) String() string {

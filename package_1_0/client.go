@@ -71,9 +71,9 @@ func (s *CloseHPackageResponseBody) SetResult(v interface{}) *CloseHPackageRespo
 }
 
 type CloseHPackageResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CloseHPackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CloseHPackageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CloseHPackageResponse) String() string {
@@ -199,9 +199,9 @@ func (s *GetUploadTokenResponseBody) SetStsToken(v string) *GetUploadTokenRespon
 }
 
 type GetUploadTokenResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetUploadTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUploadTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetUploadTokenResponse) String() string {
@@ -362,9 +362,9 @@ func (s *HPackageListGetResponseBodyList) SetVersion(v string) *HPackageListGetR
 }
 
 type HPackageListGetResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *HPackageListGetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HPackageListGetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s HPackageListGetResponse) String() string {
@@ -454,9 +454,9 @@ func (s *HPublishPackageResponseBody) SetSuccess(v bool) *HPublishPackageRespons
 }
 
 type HPublishPackageResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *HPublishPackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HPublishPackageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s HPublishPackageResponse) String() string {
@@ -546,9 +546,9 @@ func (s *HUploadPackageResponseBody) SetTaskId(v string) *HUploadPackageResponse
 }
 
 type HUploadPackageResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *HUploadPackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HUploadPackageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s HUploadPackageResponse) String() string {
@@ -668,9 +668,9 @@ func (s *HUploadPackageStatusResponseBody) SetVersion(v string) *HUploadPackageS
 }
 
 type HUploadPackageStatusResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *HUploadPackageStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HUploadPackageStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s HUploadPackageStatusResponse) String() string {
@@ -754,9 +754,9 @@ func (s *OpenMicroAppPackageResponseBody) SetMiniAppId(v string) *OpenMicroAppPa
 }
 
 type OpenMicroAppPackageResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *OpenMicroAppPackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OpenMicroAppPackageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s OpenMicroAppPackageResponse) String() string {
@@ -846,9 +846,9 @@ func (s *ReleaseGrayDeployResponseBody) SetResult(v interface{}) *ReleaseGrayDep
 }
 
 type ReleaseGrayDeployResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ReleaseGrayDeployResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ReleaseGrayDeployResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ReleaseGrayDeployResponse) String() string {
@@ -938,9 +938,9 @@ func (s *ReleaseGrayExitResponseBody) SetReuslt(v interface{}) *ReleaseGrayExitR
 }
 
 type ReleaseGrayExitResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ReleaseGrayExitResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ReleaseGrayExitResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ReleaseGrayExitResponse) String() string {
@@ -1030,9 +1030,9 @@ func (s *ReleaseGrayOrgGetResponseBody) SetValue(v []*string) *ReleaseGrayOrgGet
 }
 
 type ReleaseGrayOrgGetResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ReleaseGrayOrgGetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ReleaseGrayOrgGetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ReleaseGrayOrgGetResponse) String() string {
@@ -1128,9 +1128,9 @@ func (s *ReleaseGrayOrgSetResponseBody) SetResult(v interface{}) *ReleaseGrayOrg
 }
 
 type ReleaseGrayOrgSetResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ReleaseGrayOrgSetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ReleaseGrayOrgSetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ReleaseGrayOrgSetResponse) String() string {
@@ -1220,9 +1220,9 @@ func (s *ReleaseGrayPercentGetResponseBody) SetValue(v float32) *ReleaseGrayPerc
 }
 
 type ReleaseGrayPercentGetResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ReleaseGrayPercentGetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ReleaseGrayPercentGetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ReleaseGrayPercentGetResponse) String() string {
@@ -1318,9 +1318,9 @@ func (s *ReleaseGrayPercentSetResponseBody) SetResult(v interface{}) *ReleaseGra
 }
 
 type ReleaseGrayPercentSetResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ReleaseGrayPercentSetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ReleaseGrayPercentSetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ReleaseGrayPercentSetResponse) String() string {
@@ -1410,9 +1410,9 @@ func (s *ReleaseGrayUserIdGetResponseBody) SetValue(v []*string) *ReleaseGrayUse
 }
 
 type ReleaseGrayUserIdGetResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ReleaseGrayUserIdGetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ReleaseGrayUserIdGetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ReleaseGrayUserIdGetResponse) String() string {

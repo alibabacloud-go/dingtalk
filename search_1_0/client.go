@@ -113,8 +113,8 @@ func (s *BatchInsertSearchItemRequestSearchItemModels) SetUrl(v string) *BatchIn
 }
 
 type BatchInsertSearchItemResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s BatchInsertSearchItemResponse) String() string {
@@ -223,9 +223,9 @@ func (s *CreateSearchTabResponseBody) SetTabId(v int32) *CreateSearchTabResponse
 }
 
 type CreateSearchTabResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateSearchTabResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateSearchTabResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateSearchTabResponse) String() string {
@@ -275,8 +275,8 @@ func (s *DeleteSearchItemHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSe
 }
 
 type DeleteSearchItemResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s DeleteSearchItemResponse) String() string {
@@ -321,8 +321,8 @@ func (s *DeleteSearchTabHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSea
 }
 
 type DeleteSearchTabResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s DeleteSearchTabResponse) String() string {
@@ -444,9 +444,9 @@ func (s *GetSearchItemResponseBody) SetUrl(v string) *GetSearchItemResponseBody 
 }
 
 type GetSearchItemResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSearchItemResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSearchItemResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSearchItemResponse) String() string {
@@ -631,9 +631,9 @@ func (s *GetSearchItemsByKeyWordResponseBodyValue) SetUrl(v string) *GetSearchIt
 }
 
 type GetSearchItemsByKeyWordResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSearchItemsByKeyWordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSearchItemsByKeyWordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSearchItemsByKeyWordResponse) String() string {
@@ -748,9 +748,9 @@ func (s *GetSearchTabResponseBody) SetTabId(v int32) *GetSearchTabResponseBody {
 }
 
 type GetSearchTabResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSearchTabResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSearchTabResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSearchTabResponse) String() string {
@@ -859,8 +859,8 @@ func (s *InsertSearchItemRequest) SetUrl(v string) *InsertSearchItemRequest {
 }
 
 type InsertSearchItemResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s InsertSearchItemResponse) String() string {
@@ -987,9 +987,9 @@ func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetTabId(v int32) *Li
 }
 
 type ListSearchTabsByOrgIdResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListSearchTabsByOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListSearchTabsByOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListSearchTabsByOrgIdResponse) String() string {
@@ -1086,8 +1086,8 @@ func (s *UpdateSearchTabRequest) SetStatus(v int32) *UpdateSearchTabRequest {
 }
 
 type UpdateSearchTabResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s UpdateSearchTabResponse) String() string {

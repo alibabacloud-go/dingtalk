@@ -289,9 +289,9 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneysDeparture) SetNationalC
 }
 
 type GetTravelProcessDetailResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTravelProcessDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTravelProcessDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTravelProcessDetailResponse) String() string {
@@ -427,9 +427,9 @@ func (s *PreCheckTemplateResponseBodyResultBlockRecords) SetReason(v string) *Pr
 }
 
 type PreCheckTemplateResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PreCheckTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PreCheckTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PreCheckTemplateResponse) String() string {
@@ -565,9 +565,9 @@ func (s *QueryTripProcessTemplatesResponseBodyResultSchemas) SetType(v string) *
 }
 
 type QueryTripProcessTemplatesResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryTripProcessTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTripProcessTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryTripProcessTemplatesResponse) String() string {
@@ -792,9 +792,9 @@ func (s *SyncBusinessSignInfoResponseBody) SetSuccess(v bool) *SyncBusinessSignI
 }
 
 type SyncBusinessSignInfoResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SyncBusinessSignInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncBusinessSignInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SyncBusinessSignInfoResponse) String() string {
@@ -955,9 +955,9 @@ func (s *SyncSecretKeyResponseBodyResult) SetTripCorpId(v string) *SyncSecretKey
 }
 
 type SyncSecretKeyResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SyncSecretKeyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncSecretKeyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SyncSecretKeyResponse) String() string {
@@ -1493,9 +1493,9 @@ func (s *SyncTripOrderResponseBody) SetSuccess(v bool) *SyncTripOrderResponseBod
 }
 
 type SyncTripOrderResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SyncTripOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncTripOrderResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SyncTripOrderResponse) String() string {
@@ -1614,9 +1614,9 @@ func (s *UpgradeTemplateResponseBodyResult) SetUpgradeResult(v bool) *UpgradeTem
 }
 
 type UpgradeTemplateResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpgradeTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpgradeTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpgradeTemplateResponse) String() string {

@@ -148,9 +148,9 @@ func (s *QueryAppActiveUsersResponseBodyList) SetUserId(v string) *QueryAppActiv
 }
 
 type QueryAppActiveUsersResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryAppActiveUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryAppActiveUsersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryAppActiveUsersResponse) String() string {
@@ -287,9 +287,9 @@ func (s *QueryCollectingTraceTaskResponseBodyList) SetUserId(v string) *QueryCol
 }
 
 type QueryCollectingTraceTaskResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCollectingTraceTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCollectingTraceTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCollectingTraceTaskResponse) String() string {
@@ -467,9 +467,9 @@ func (s *QueryPageTraceDataResponseBodyListCoordinates) SetLongitude(v float32) 
 }
 
 type QueryPageTraceDataResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryPageTraceDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryPageTraceDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryPageTraceDataResponse) String() string {

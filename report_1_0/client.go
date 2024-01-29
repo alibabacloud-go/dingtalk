@@ -283,9 +283,9 @@ func (s *CreateTemplatesResponseBody) SetTemplateId(v string) *CreateTemplatesRe
 }
 
 type CreateTemplatesResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateTemplatesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateTemplatesResponse) String() string {
@@ -458,9 +458,9 @@ func (s *GetSendAndReceiveReportListResponseBodyDataList) SetTemplateName(v stri
 }
 
 type GetSendAndReceiveReportListResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSendAndReceiveReportListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSendAndReceiveReportListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSendAndReceiveReportListResponse) String() string {
@@ -604,9 +604,9 @@ func (s *GetSubmitStatisticsResponseBody) SetUserMap(v map[string]*UserMapValue)
 }
 
 type GetSubmitStatisticsResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSubmitStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSubmitStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSubmitStatisticsResponse) String() string {

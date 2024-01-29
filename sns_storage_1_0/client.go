@@ -405,9 +405,9 @@ func (s *GetDentriesResponseBodyResultItemsDentryThumbnail) SetWidth(v int32) *G
 }
 
 type GetDentriesResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetDentriesResponse) String() string {
@@ -697,9 +697,9 @@ func (s *GetDentryResponseBodyDentryThumbnail) SetWidth(v int32) *GetDentryRespo
 }
 
 type GetDentryResponse struct {
-	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetDentryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDentryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetDentryResponse) String() string {
@@ -859,9 +859,9 @@ func (s *GetDentryThumbnailsResponseBodyResultItemsThumbnail) SetWidth(v int32) 
 }
 
 type GetDentryThumbnailsResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetDentryThumbnailsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDentryThumbnailsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetDentryThumbnailsResponse) String() string {
@@ -1021,9 +1021,9 @@ func (s *GetFileDownloadInfoResponseBodyHeaderSignatureInfo) SetResourceUrls(v [
 }
 
 type GetFileDownloadInfoResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetFileDownloadInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFileDownloadInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetFileDownloadInfoResponse) String() string {
@@ -1148,9 +1148,9 @@ func (s *GetSpaceResponseBodySpace) SetSpaceId(v string) *GetSpaceResponseBodySp
 }
 
 type GetSpaceResponse struct {
-	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSpaceResponse) String() string {
@@ -1458,9 +1458,9 @@ func (s *ListAllDentriesResponseBodyDentriesThumbnail) SetWidth(v int32) *ListAl
 }
 
 type ListAllDentriesResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListAllDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListAllDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListAllDentriesResponse) String() string {
@@ -1763,9 +1763,9 @@ func (s *ListDentriesResponseBodyDentriesThumbnail) SetWidth(v int32) *ListDentr
 }
 
 type ListDentriesResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListDentriesResponse) String() string {
@@ -1997,9 +1997,9 @@ func (s *ListExpiredResponseBodyFiles) SetVersion(v int64) *ListExpiredResponseB
 }
 
 type ListExpiredResponse struct {
-	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListExpiredResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListExpiredResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListExpiredResponse) String() string {
@@ -2095,9 +2095,9 @@ func (s *SubscribeEventResponseBody) SetSuccess(v bool) *SubscribeEventResponseB
 }
 
 type SubscribeEventResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SubscribeEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubscribeEventResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SubscribeEventResponse) String() string {
@@ -2193,9 +2193,9 @@ func (s *UnsubscribeEventResponseBody) SetSuccess(v bool) *UnsubscribeEventRespo
 }
 
 type UnsubscribeEventResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UnsubscribeEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UnsubscribeEventResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UnsubscribeEventResponse) String() string {

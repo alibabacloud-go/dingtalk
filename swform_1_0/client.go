@@ -153,9 +153,9 @@ func (s *GetFormInstanceResponseBodyResultForms) SetValue(v string) *GetFormInst
 }
 
 type GetFormInstanceResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetFormInstanceResponse) String() string {
@@ -404,9 +404,9 @@ func (s *ListFormInstancesResponseBodyResultListForms) SetValue(v string) *ListF
 }
 
 type ListFormInstancesResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListFormInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListFormInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListFormInstancesResponse) String() string {
@@ -637,9 +637,9 @@ func (s *ListFormSchemasByCreatorResponseBodyResultListSetting) SetStop(v bool) 
 }
 
 type ListFormSchemasByCreatorResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListFormSchemasByCreatorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListFormSchemasByCreatorResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListFormSchemasByCreatorResponse) String() string {

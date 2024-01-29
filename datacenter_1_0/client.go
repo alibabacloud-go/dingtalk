@@ -89,9 +89,9 @@ func (s *GetAbnormalOperationResponseBody) SetTotal(v int64) *GetAbnormalOperati
 }
 
 type GetAbnormalOperationResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetAbnormalOperationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAbnormalOperationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetAbnormalOperationResponse) String() string {
@@ -193,9 +193,9 @@ func (s *GetAdministrativeLicensingResponseBody) SetTotal(v int64) *GetAdministr
 }
 
 type GetAdministrativeLicensingResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetAdministrativeLicensingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAdministrativeLicensingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetAdministrativeLicensingResponse) String() string {
@@ -297,9 +297,9 @@ func (s *GetAdministrativePenaltiesResponseBody) SetTotal(v int64) *GetAdministr
 }
 
 type GetAdministrativePenaltiesResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetAdministrativePenaltiesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAdministrativePenaltiesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetAdministrativePenaltiesResponse) String() string {
@@ -401,9 +401,9 @@ func (s *GetBasicInfoResponseBody) SetTotal(v int64) *GetBasicInfoResponseBody {
 }
 
 type GetBasicInfoResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetBasicInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetBasicInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetBasicInfoResponse) String() string {
@@ -505,9 +505,9 @@ func (s *GetBiddingInfoResponseBody) SetTotal(v int64) *GetBiddingInfoResponseBo
 }
 
 type GetBiddingInfoResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetBiddingInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetBiddingInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetBiddingInfoResponse) String() string {
@@ -609,9 +609,9 @@ func (s *GetBranchInfoResponseBody) SetTotal(v int64) *GetBranchInfoResponseBody
 }
 
 type GetBranchInfoResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetBranchInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetBranchInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetBranchInfoResponse) String() string {
@@ -713,9 +713,9 @@ func (s *GetChangeRecordResponseBody) SetTotal(v int64) *GetChangeRecordResponse
 }
 
 type GetChangeRecordResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetChangeRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetChangeRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetChangeRecordResponse) String() string {
@@ -817,9 +817,9 @@ func (s *GetDomainInfoResponseBody) SetTotal(v int64) *GetDomainInfoResponseBody
 }
 
 type GetDomainInfoResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetDomainInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDomainInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetDomainInfoResponse) String() string {
@@ -921,9 +921,9 @@ func (s *GetDoubleRandomResponseBody) SetTotal(v int64) *GetDoubleRandomResponse
 }
 
 type GetDoubleRandomResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetDoubleRandomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDoubleRandomResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetDoubleRandomResponse) String() string {
@@ -1025,9 +1025,9 @@ func (s *GetEnvironmentalPenaltiesResponseBody) SetTotal(v int64) *GetEnvironmen
 }
 
 type GetEnvironmentalPenaltiesResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetEnvironmentalPenaltiesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetEnvironmentalPenaltiesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetEnvironmentalPenaltiesResponse) String() string {
@@ -1129,9 +1129,9 @@ func (s *GetHolderInfoResponseBody) SetTotal(v int64) *GetHolderInfoResponseBody
 }
 
 type GetHolderInfoResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetHolderInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetHolderInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetHolderInfoResponse) String() string {
@@ -1233,9 +1233,9 @@ func (s *GetIntellectualPropertyResponseBody) SetTotal(v int64) *GetIntellectual
 }
 
 type GetIntellectualPropertyResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetIntellectualPropertyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetIntellectualPropertyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetIntellectualPropertyResponse) String() string {
@@ -1337,9 +1337,9 @@ func (s *GetInvestmentAbroadResponseBody) SetTotal(v int64) *GetInvestmentAbroad
 }
 
 type GetInvestmentAbroadResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetInvestmentAbroadResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetInvestmentAbroadResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetInvestmentAbroadResponse) String() string {
@@ -1441,9 +1441,9 @@ func (s *GetJobInfoResponseBody) SetTotal(v int64) *GetJobInfoResponseBody {
 }
 
 type GetJobInfoResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetJobInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetJobInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetJobInfoResponse) String() string {
@@ -1545,9 +1545,9 @@ func (s *GetPatentInfoResponseBody) SetTotal(v int64) *GetPatentInfoResponseBody
 }
 
 type GetPatentInfoResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetPatentInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPatentInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetPatentInfoResponse) String() string {
@@ -1649,9 +1649,9 @@ func (s *GetPrincipalEmployeeResponseBody) SetTotal(v int64) *GetPrincipalEmploy
 }
 
 type GetPrincipalEmployeeResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetPrincipalEmployeeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPrincipalEmployeeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetPrincipalEmployeeResponse) String() string {
@@ -1753,9 +1753,9 @@ func (s *GetQeneralTaxpayerInfoResponseBody) SetTotal(v int64) *GetQeneralTaxpay
 }
 
 type GetQeneralTaxpayerInfoResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetQeneralTaxpayerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetQeneralTaxpayerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetQeneralTaxpayerInfoResponse) String() string {
@@ -1857,9 +1857,9 @@ func (s *GetQualificationCertResponseBody) SetTotal(v int64) *GetQualificationCe
 }
 
 type GetQualificationCertResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetQualificationCertResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetQualificationCertResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetQualificationCertResponse) String() string {
@@ -1961,9 +1961,9 @@ func (s *GetSeriousViolationResponseBody) SetTotal(v int64) *GetSeriousViolation
 }
 
 type GetSeriousViolationResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSeriousViolationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSeriousViolationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSeriousViolationResponse) String() string {
@@ -2065,9 +2065,9 @@ func (s *GetSoftwareCopyrightResponseBody) SetTotal(v int64) *GetSoftwareCopyrig
 }
 
 type GetSoftwareCopyrightResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetSoftwareCopyrightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSoftwareCopyrightResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetSoftwareCopyrightResponse) String() string {
@@ -2169,9 +2169,9 @@ func (s *GetTrademarkInfoResponseBody) SetTotal(v int64) *GetTrademarkInfoRespon
 }
 
 type GetTrademarkInfoResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetTrademarkInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTrademarkInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetTrademarkInfoResponse) String() string {
@@ -2273,9 +2273,9 @@ func (s *GetWorkCopyrightResponseBody) SetTotal(v int64) *GetWorkCopyrightRespon
 }
 
 type GetWorkCopyrightResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetWorkCopyrightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetWorkCopyrightResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetWorkCopyrightResponse) String() string {
@@ -2342,9 +2342,9 @@ func (s *PostCorpAuthInfoResponseBody) SetSuccess(v bool) *PostCorpAuthInfoRespo
 }
 
 type PostCorpAuthInfoResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PostCorpAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PostCorpAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PostCorpAuthInfoResponse) String() string {
@@ -2475,9 +2475,9 @@ func (s *QueryActiveUserStatisticalDataResponseBodyMetaList) SetUnit(v string) *
 }
 
 type QueryActiveUserStatisticalDataResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryActiveUserStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryActiveUserStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryActiveUserStatisticalDataResponse) String() string {
@@ -2620,9 +2620,9 @@ func (s *QueryAnhmdStatisticalDataResponseBodyMetaList) SetUnit(v string) *Query
 }
 
 type QueryAnhmdStatisticalDataResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryAnhmdStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryAnhmdStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryAnhmdStatisticalDataResponse) String() string {
@@ -2753,9 +2753,9 @@ func (s *QueryApprovalStatisticalDataResponseBodyMetaList) SetUnit(v string) *Qu
 }
 
 type QueryApprovalStatisticalDataResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryApprovalStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryApprovalStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryApprovalStatisticalDataResponse) String() string {
@@ -2886,9 +2886,9 @@ func (s *QueryAttendanceStatisticalDataResponseBodyMetaList) SetUnit(v string) *
 }
 
 type QueryAttendanceStatisticalDataResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryAttendanceStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryAttendanceStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryAttendanceStatisticalDataResponse) String() string {
@@ -3019,9 +3019,9 @@ func (s *QueryBlackboardStatisticalDataResponseBodyMetaList) SetUnit(v string) *
 }
 
 type QueryBlackboardStatisticalDataResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryBlackboardStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryBlackboardStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryBlackboardStatisticalDataResponse) String() string {
@@ -3152,9 +3152,9 @@ func (s *QueryCalendarStatisticalDataResponseBodyMetaList) SetUnit(v string) *Qu
 }
 
 type QueryCalendarStatisticalDataResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCalendarStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCalendarStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCalendarStatisticalDataResponse) String() string {
@@ -3285,9 +3285,9 @@ func (s *QueryCheckinStatisticalDataResponseBodyMetaList) SetUnit(v string) *Que
 }
 
 type QueryCheckinStatisticalDataResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCheckinStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCheckinStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCheckinStatisticalDataResponse) String() string {
@@ -3418,9 +3418,9 @@ func (s *QueryCircleStatisticalDataResponseBodyMetaList) SetUnit(v string) *Quer
 }
 
 type QueryCircleStatisticalDataResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCircleStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCircleStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCircleStatisticalDataResponse) String() string {
@@ -3540,9 +3540,9 @@ func (s *QueryCompanyBasicInfoResponseBody) SetTotal(v int32) *QueryCompanyBasic
 }
 
 type QueryCompanyBasicInfoResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryCompanyBasicInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCompanyBasicInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryCompanyBasicInfoResponse) String() string {
@@ -3638,9 +3638,9 @@ func (s *QueryDigitalDistrictOrgInfoResponseBody) SetResult(v string) *QueryDigi
 }
 
 type QueryDigitalDistrictOrgInfoResponse struct {
-	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryDigitalDistrictOrgInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDigitalDistrictOrgInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryDigitalDistrictOrgInfoResponse) String() string {
@@ -3771,9 +3771,9 @@ func (s *QueryDingReciveStatisticalDataResponseBodyMetaList) SetUnit(v string) *
 }
 
 type QueryDingReciveStatisticalDataResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryDingReciveStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDingReciveStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryDingReciveStatisticalDataResponse) String() string {
@@ -3904,9 +3904,9 @@ func (s *QueryDingSendStatisticalDataResponseBodyMetaList) SetUnit(v string) *Qu
 }
 
 type QueryDingSendStatisticalDataResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryDingSendStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDingSendStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryDingSendStatisticalDataResponse) String() string {
@@ -4037,9 +4037,9 @@ func (s *QueryDocumentStatisticalDataResponseBodyMetaList) SetUnit(v string) *Qu
 }
 
 type QueryDocumentStatisticalDataResponse struct {
-	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryDocumentStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDocumentStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryDocumentStatisticalDataResponse) String() string {
@@ -4170,9 +4170,9 @@ func (s *QueryDriveStatisticalDataResponseBodyMetaList) SetUnit(v string) *Query
 }
 
 type QueryDriveStatisticalDataResponse struct {
-	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryDriveStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDriveStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryDriveStatisticalDataResponse) String() string {
@@ -4303,9 +4303,9 @@ func (s *QueryEmployeeTypeStatisticalDataResponseBodyMetaList) SetUnit(v string)
 }
 
 type QueryEmployeeTypeStatisticalDataResponse struct {
-	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryEmployeeTypeStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryEmployeeTypeStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryEmployeeTypeStatisticalDataResponse) String() string {
@@ -4466,9 +4466,9 @@ func (s *QueryGeneralDataServiceResponseBodyMetaList) SetFieldType(v string) *Qu
 }
 
 type QueryGeneralDataServiceResponse struct {
-	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryGeneralDataServiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryGeneralDataServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryGeneralDataServiceResponse) String() string {
@@ -4599,9 +4599,9 @@ func (s *QueryGroupLiveStatisticalDataResponseBodyMetaList) SetUnit(v string) *Q
 }
 
 type QueryGroupLiveStatisticalDataResponse struct {
-	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryGroupLiveStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryGroupLiveStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryGroupLiveStatisticalDataResponse) String() string {
@@ -4732,9 +4732,9 @@ func (s *QueryGroupMessageStatisticalDataResponseBodyMetaList) SetUnit(v string)
 }
 
 type QueryGroupMessageStatisticalDataResponse struct {
-	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryGroupMessageStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryGroupMessageStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryGroupMessageStatisticalDataResponse) String() string {
@@ -4865,9 +4865,9 @@ func (s *QueryHealthStatisticalDataResponseBodyMetaList) SetUnit(v string) *Quer
 }
 
 type QueryHealthStatisticalDataResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryHealthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryHealthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryHealthStatisticalDataResponse) String() string {
@@ -4998,9 +4998,9 @@ func (s *QueryMailStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryM
 }
 
 type QueryMailStatisticalDataResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryMailStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMailStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryMailStatisticalDataResponse) String() string {
@@ -5096,9 +5096,9 @@ func (s *QueryOfficialDataResponseBody) SetSuccess(v bool) *QueryOfficialDataRes
 }
 
 type QueryOfficialDataResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryOfficialDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOfficialDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryOfficialDataResponse) String() string {
@@ -5252,9 +5252,9 @@ func (s *QueryOfficialDatasetFieldsResponseBodyResultFields) SetFieldType(v stri
 }
 
 type QueryOfficialDatasetFieldsResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryOfficialDatasetFieldsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOfficialDatasetFieldsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryOfficialDatasetFieldsResponse) String() string {
@@ -5402,9 +5402,9 @@ func (s *QueryOfficialDatasetListResponseBodyResultRows) SetDsId(v string) *Quer
 }
 
 type QueryOfficialDatasetListResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryOfficialDatasetListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOfficialDatasetListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryOfficialDatasetListResponse) String() string {
@@ -5500,9 +5500,9 @@ func (s *QueryOfficialFormDataResponseBody) SetSuccess(v bool) *QueryOfficialFor
 }
 
 type QueryOfficialFormDataResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryOfficialFormDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOfficialFormDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryOfficialFormDataResponse) String() string {
@@ -5633,9 +5633,9 @@ func (s *QueryOnlineUserStatisticalDataResponseBodyMetaList) SetUnit(v string) *
 }
 
 type QueryOnlineUserStatisticalDataResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryOnlineUserStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOnlineUserStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryOnlineUserStatisticalDataResponse) String() string {
@@ -5766,9 +5766,9 @@ func (s *QueryRedEnvelopeReciveStatisticalDataResponseBodyMetaList) SetUnit(v st
 }
 
 type QueryRedEnvelopeReciveStatisticalDataResponse struct {
-	Headers    map[string]*string                                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryRedEnvelopeReciveStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryRedEnvelopeReciveStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryRedEnvelopeReciveStatisticalDataResponse) String() string {
@@ -5899,9 +5899,9 @@ func (s *QueryRedEnvelopeSendStatisticalDataResponseBodyMetaList) SetUnit(v stri
 }
 
 type QueryRedEnvelopeSendStatisticalDataResponse struct {
-	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryRedEnvelopeSendStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryRedEnvelopeSendStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryRedEnvelopeSendStatisticalDataResponse) String() string {
@@ -6032,9 +6032,9 @@ func (s *QueryReportStatisticalDataResponseBodyMetaList) SetUnit(v string) *Quer
 }
 
 type QueryReportStatisticalDataResponse struct {
-	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryReportStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryReportStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryReportStatisticalDataResponse) String() string {
@@ -6165,9 +6165,9 @@ func (s *QuerySingleMessageStatisticalDataResponseBodyMetaList) SetUnit(v string
 }
 
 type QuerySingleMessageStatisticalDataResponse struct {
-	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QuerySingleMessageStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySingleMessageStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QuerySingleMessageStatisticalDataResponse) String() string {
@@ -6298,9 +6298,9 @@ func (s *QueryTelMeetingStatisticalDataResponseBodyMetaList) SetUnit(v string) *
 }
 
 type QueryTelMeetingStatisticalDataResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryTelMeetingStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTelMeetingStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryTelMeetingStatisticalDataResponse) String() string {
@@ -6431,9 +6431,9 @@ func (s *QueryTodoStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryT
 }
 
 type QueryTodoStatisticalDataResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryTodoStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTodoStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryTodoStatisticalDataResponse) String() string {
@@ -6564,9 +6564,9 @@ func (s *QueryVedioMeetingStatisticalDataResponseBodyMetaList) SetUnit(v string)
 }
 
 type QueryVedioMeetingStatisticalDataResponse struct {
-	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryVedioMeetingStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryVedioMeetingStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryVedioMeetingStatisticalDataResponse) String() string {
@@ -6697,9 +6697,9 @@ func (s *QueryYydActiveDayStatisticalDataResponseBodyMetaList) SetUnit(v string)
 }
 
 type QueryYydActiveDayStatisticalDataResponse struct {
-	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydActiveDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydActiveDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydActiveDayStatisticalDataResponse) String() string {
@@ -6830,9 +6830,9 @@ func (s *QueryYydActiveMonthStatisticalDataResponseBodyMetaList) SetUnit(v strin
 }
 
 type QueryYydActiveMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydActiveMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydActiveMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydActiveMonthStatisticalDataResponse) String() string {
@@ -6963,9 +6963,9 @@ func (s *QueryYydActiveWeekStatisticalDataResponseBodyMetaList) SetUnit(v string
 }
 
 type QueryYydActiveWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydActiveWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydActiveWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydActiveWeekStatisticalDataResponse) String() string {
@@ -7096,9 +7096,9 @@ func (s *QueryYydAppDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *Q
 }
 
 type QueryYydAppDayStatisticalDataResponse struct {
-	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydAppDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydAppDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydAppDayStatisticalDataResponse) String() string {
@@ -7229,9 +7229,9 @@ func (s *QueryYydAppMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) 
 }
 
 type QueryYydAppMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydAppMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydAppMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydAppMonthStatisticalDataResponse) String() string {
@@ -7362,9 +7362,9 @@ func (s *QueryYydAppStdStatisticalDataResponseBodyMetaList) SetUnit(v string) *Q
 }
 
 type QueryYydAppStdStatisticalDataResponse struct {
-	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydAppStdStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydAppStdStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydAppStdStatisticalDataResponse) String() string {
@@ -7495,9 +7495,9 @@ func (s *QueryYydAppWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *
 }
 
 type QueryYydAppWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydAppWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydAppWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydAppWeekStatisticalDataResponse) String() string {
@@ -7628,9 +7628,9 @@ func (s *QueryYydCalendarDayStatisticalDataResponseBodyMetaList) SetUnit(v strin
 }
 
 type QueryYydCalendarDayStatisticalDataResponse struct {
-	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydCalendarDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydCalendarDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydCalendarDayStatisticalDataResponse) String() string {
@@ -7761,9 +7761,9 @@ func (s *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) SetUnit(v str
 }
 
 type QueryYydCalendarMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydCalendarMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydCalendarMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydCalendarMonthStatisticalDataResponse) String() string {
@@ -7894,9 +7894,9 @@ func (s *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) SetUnit(v stri
 }
 
 type QueryYydCalendarWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydCalendarWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydCalendarWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydCalendarWeekStatisticalDataResponse) String() string {
@@ -8027,9 +8027,9 @@ func (s *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) SetUnit(v string
 }
 
 type QueryYydDingMsgDayStatisticalDataResponse struct {
-	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydDingMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydDingMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydDingMsgDayStatisticalDataResponse) String() string {
@@ -8160,9 +8160,9 @@ func (s *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) SetUnit(v stri
 }
 
 type QueryYydDingMsgMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydDingMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydDingMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydDingMsgMonthStatisticalDataResponse) String() string {
@@ -8293,9 +8293,9 @@ func (s *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) SetUnit(v strin
 }
 
 type QueryYydDingMsgWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydDingMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydDingMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydDingMsgWeekStatisticalDataResponse) String() string {
@@ -8426,9 +8426,9 @@ func (s *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) SetUnit(v strin
 }
 
 type QueryYydGroupMsgDayStatisticalDataResponse struct {
-	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydGroupMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydGroupMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydGroupMsgDayStatisticalDataResponse) String() string {
@@ -8559,9 +8559,9 @@ func (s *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) SetUnit(v str
 }
 
 type QueryYydGroupMsgMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydGroupMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydGroupMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydGroupMsgMonthStatisticalDataResponse) String() string {
@@ -8692,9 +8692,9 @@ func (s *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) SetUnit(v stri
 }
 
 type QueryYydGroupMsgWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydGroupMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydGroupMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydGroupMsgWeekStatisticalDataResponse) String() string {
@@ -8825,9 +8825,9 @@ func (s *QueryYydLogDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *Q
 }
 
 type QueryYydLogDayStatisticalDataResponse struct {
-	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydLogDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydLogDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydLogDayStatisticalDataResponse) String() string {
@@ -8958,9 +8958,9 @@ func (s *QueryYydLogMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) 
 }
 
 type QueryYydLogMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydLogMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydLogMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydLogMonthStatisticalDataResponse) String() string {
@@ -9091,9 +9091,9 @@ func (s *QueryYydLogWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *
 }
 
 type QueryYydLogWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydLogWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydLogWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydLogWeekStatisticalDataResponse) String() string {
@@ -9224,9 +9224,9 @@ func (s *QueryYydMeetingDayStatisticalDataResponseBodyMetaList) SetUnit(v string
 }
 
 type QueryYydMeetingDayStatisticalDataResponse struct {
-	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydMeetingDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydMeetingDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydMeetingDayStatisticalDataResponse) String() string {
@@ -9357,9 +9357,9 @@ func (s *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) SetUnit(v stri
 }
 
 type QueryYydMeetingMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydMeetingMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydMeetingMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydMeetingMonthStatisticalDataResponse) String() string {
@@ -9490,9 +9490,9 @@ func (s *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) SetUnit(v strin
 }
 
 type QueryYydMeetingWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydMeetingWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydMeetingWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydMeetingWeekStatisticalDataResponse) String() string {
@@ -9623,9 +9623,9 @@ func (s *QueryYydNoticeDayStatisticalDataResponseBodyMetaList) SetUnit(v string)
 }
 
 type QueryYydNoticeDayStatisticalDataResponse struct {
-	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydNoticeDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydNoticeDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydNoticeDayStatisticalDataResponse) String() string {
@@ -9756,9 +9756,9 @@ func (s *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) SetUnit(v strin
 }
 
 type QueryYydNoticeMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydNoticeMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydNoticeMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydNoticeMonthStatisticalDataResponse) String() string {
@@ -9889,9 +9889,9 @@ func (s *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) SetUnit(v string
 }
 
 type QueryYydNoticeWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydNoticeWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydNoticeWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydNoticeWeekStatisticalDataResponse) String() string {
@@ -10022,9 +10022,9 @@ func (s *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) SetUnit(v stri
 }
 
 type QueryYydSingleMsgDayStatisticalDataResponse struct {
-	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydSingleMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydSingleMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydSingleMsgDayStatisticalDataResponse) String() string {
@@ -10155,9 +10155,9 @@ func (s *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) SetUnit(v st
 }
 
 type QueryYydSingleMsgMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydSingleMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydSingleMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydSingleMsgMonthStatisticalDataResponse) String() string {
@@ -10288,9 +10288,9 @@ func (s *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) SetUnit(v str
 }
 
 type QueryYydSingleMsgWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydSingleMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydSingleMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydSingleMsgWeekStatisticalDataResponse) String() string {
@@ -10421,9 +10421,9 @@ func (s *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) SetUnit(v strin
 }
 
 type QueryYydToatlMsgDayStatisticalDataResponse struct {
-	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydToatlMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydToatlMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydToatlMsgDayStatisticalDataResponse) String() string {
@@ -10554,9 +10554,9 @@ func (s *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) SetUnit(v str
 }
 
 type QueryYydToatlMsgMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydToatlMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydToatlMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydToatlMsgMonthStatisticalDataResponse) String() string {
@@ -10687,9 +10687,9 @@ func (s *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) SetUnit(v stri
 }
 
 type QueryYydToatlMsgWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydToatlMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydToatlMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydToatlMsgWeekStatisticalDataResponse) String() string {
@@ -10820,9 +10820,9 @@ func (s *QueryYydTodoDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *
 }
 
 type QueryYydTodoDayStatisticalDataResponse struct {
-	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydTodoDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydTodoDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydTodoDayStatisticalDataResponse) String() string {
@@ -10953,9 +10953,9 @@ func (s *QueryYydTodoMonthStatisticalDataResponseBodyMetaList) SetUnit(v string)
 }
 
 type QueryYydTodoMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydTodoMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydTodoMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydTodoMonthStatisticalDataResponse) String() string {
@@ -11086,9 +11086,9 @@ func (s *QueryYydTodoWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) 
 }
 
 type QueryYydTodoWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydTodoWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydTodoWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydTodoWeekStatisticalDataResponse) String() string {
@@ -11219,9 +11219,9 @@ func (s *QueryYydTotalDayStatisticalDataResponseBodyMetaList) SetUnit(v string) 
 }
 
 type QueryYydTotalDayStatisticalDataResponse struct {
-	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydTotalDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydTotalDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydTotalDayStatisticalDataResponse) String() string {
@@ -11352,9 +11352,9 @@ func (s *QueryYydTotalMonthStatisticalDataResponseBodyMetaList) SetUnit(v string
 }
 
 type QueryYydTotalMonthStatisticalDataResponse struct {
-	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydTotalMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydTotalMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydTotalMonthStatisticalDataResponse) String() string {
@@ -11485,9 +11485,9 @@ func (s *QueryYydTotalStdStatisticalDataResponseBodyMetaList) SetUnit(v string) 
 }
 
 type QueryYydTotalStdStatisticalDataResponse struct {
-	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydTotalStdStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydTotalStdStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydTotalStdStatisticalDataResponse) String() string {
@@ -11618,9 +11618,9 @@ func (s *QueryYydTotalWeekStatisticalDataResponseBodyMetaList) SetUnit(v string)
 }
 
 type QueryYydTotalWeekStatisticalDataResponse struct {
-	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryYydTotalWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryYydTotalWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryYydTotalWeekStatisticalDataResponse) String() string {
@@ -11722,9 +11722,9 @@ func (s *SearchCompanyResponseBody) SetTotal(v int64) *SearchCompanyResponseBody
 }
 
 type SearchCompanyResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SearchCompanyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SearchCompanyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SearchCompanyResponse) String() string {

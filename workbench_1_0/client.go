@@ -100,9 +100,9 @@ func (s *AddRecentUserAppListResponseBody) SetResult(v bool) *AddRecentUserAppLi
 }
 
 type AddRecentUserAppListResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AddRecentUserAppListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddRecentUserAppListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddRecentUserAppListResponse) String() string {
@@ -228,9 +228,9 @@ func (s *GetDingPortalDetailResponseBodyPages) SetUserids(v []*string) *GetDingP
 }
 
 type GetDingPortalDetailResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetDingPortalDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDingPortalDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetDingPortalDetailResponse) String() string {
@@ -314,9 +314,9 @@ func (s *GetPluginPermissionPointResponseBody) SetPermissionPointList(v []*strin
 }
 
 type GetPluginPermissionPointResponse struct {
-	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetPluginPermissionPointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPluginPermissionPointResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetPluginPermissionPointResponse) String() string {
@@ -406,9 +406,9 @@ func (s *GetPluginRuleCheckInfoResponseBody) SetPluginRuleCheckDetail(v string) 
 }
 
 type GetPluginRuleCheckInfoResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetPluginRuleCheckInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPluginRuleCheckInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetPluginRuleCheckInfoResponse) String() string {
@@ -527,9 +527,9 @@ func (s *ListWorkBenchGroupResponseBodyGroupList) SetName(v string) *ListWorkBen
 }
 
 type ListWorkBenchGroupResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ListWorkBenchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListWorkBenchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ListWorkBenchGroupResponse) String() string {
@@ -643,9 +643,9 @@ func (s *ModifyWorkbenchBadgeResponseBody) SetResult(v bool) *ModifyWorkbenchBad
 }
 
 type ModifyWorkbenchBadgeResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ModifyWorkbenchBadgeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ModifyWorkbenchBadgeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ModifyWorkbenchBadgeResponse) String() string {
@@ -718,9 +718,9 @@ func (s *QueryComponentScopesResponseBody) SetUserVisibleScopes(v []*string) *Qu
 }
 
 type QueryComponentScopesResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryComponentScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryComponentScopesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryComponentScopesResponse) String() string {
@@ -793,9 +793,9 @@ func (s *QueryShortcutScopesResponseBody) SetUserVisibleScopes(v []*string) *Que
 }
 
 type QueryShortcutScopesResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryShortcutScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryShortcutScopesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryShortcutScopesResponse) String() string {
@@ -897,9 +897,9 @@ func (s *UndoDeletionResponseBody) SetResult(v bool) *UndoDeletionResponseBody {
 }
 
 type UndoDeletionResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UndoDeletionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UndoDeletionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UndoDeletionResponse) String() string {
@@ -984,8 +984,8 @@ func (s *UpdateDingPortalPageScopeRequest) SetUserids(v []*string) *UpdateDingPo
 }
 
 type UpdateDingPortalPageScopeResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s UpdateDingPortalPageScopeResponse) String() string {

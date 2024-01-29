@@ -89,9 +89,9 @@ func (s *AddShareCidListResponseBody) SetShareSuccessGroupList(v []*string) *Add
 }
 
 type AddShareCidListResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *AddShareCidListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddShareCidListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AddShareCidListResponse) String() string {
@@ -205,9 +205,9 @@ func (s *CreateCloudFeedResponseBody) SetResult(v string) *CreateCloudFeedRespon
 }
 
 type CreateCloudFeedResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateCloudFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateCloudFeedResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateCloudFeedResponse) String() string {
@@ -344,9 +344,9 @@ func (s *CreateLiveResponseBodyResult) SetLiveId(v string) *CreateLiveResponseBo
 }
 
 type CreateLiveResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateLiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateLiveResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateLiveResponse) String() string {
@@ -453,9 +453,9 @@ func (s *DeleteLiveResponseBodyResult) SetSuccess(v bool) *DeleteLiveResponseBod
 }
 
 type DeleteLiveResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeleteLiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteLiveResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeleteLiveResponse) String() string {
@@ -539,9 +539,9 @@ func (s *DeleteLiveFeedResponseBody) SetHasDelete(v bool) *DeleteLiveFeedRespons
 }
 
 type DeleteLiveFeedResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *DeleteLiveFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteLiveFeedResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s DeleteLiveFeedResponse) String() string {
@@ -637,9 +637,9 @@ func (s *EditFeedReplayResponseBody) SetResult(v string) *EditFeedReplayResponse
 }
 
 type EditFeedReplayResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *EditFeedReplayResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EditFeedReplayResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s EditFeedReplayResponse) String() string {
@@ -746,9 +746,9 @@ func (s *GetLiveReplayUrlResponseBodyResult) SetReplayUrl(v string) *GetLiveRepl
 }
 
 type GetLiveReplayUrlResponse struct {
-	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetLiveReplayUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetLiveReplayUrlResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetLiveReplayUrlResponse) String() string {
@@ -1026,9 +1026,9 @@ func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) 
 }
 
 type GetUserAllLiveListResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetUserAllLiveListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserAllLiveListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetUserAllLiveListResponse) String() string {
@@ -1318,9 +1318,9 @@ func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInf
 }
 
 type GetUserCreateLiveListResponse struct {
-	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetUserCreateLiveListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserCreateLiveListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetUserCreateLiveListResponse) String() string {
@@ -1592,9 +1592,9 @@ func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo
 }
 
 type GetUserWatchLiveListResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetUserWatchLiveListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserWatchLiveListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetUserWatchLiveListResponse) String() string {
@@ -1719,9 +1719,9 @@ func (s *ModifyFeedWhiteListResponseBody) SetResult(v bool) *ModifyFeedWhiteList
 }
 
 type ModifyFeedWhiteListResponse struct {
-	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ModifyFeedWhiteListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ModifyFeedWhiteListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ModifyFeedWhiteListResponse) String() string {
@@ -1805,9 +1805,9 @@ func (s *QueryFeedWhiteListResponseBody) SetResult(v bool) *QueryFeedWhiteListRe
 }
 
 type QueryFeedWhiteListResponse struct {
-	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryFeedWhiteListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryFeedWhiteListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryFeedWhiteListResponse) String() string {
@@ -2003,9 +2003,9 @@ func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetUv(v int32) *QueryLiveInfoR
 }
 
 type QueryLiveInfoResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryLiveInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryLiveInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryLiveInfoResponse) String() string {
@@ -2154,9 +2154,9 @@ func (s *QueryLiveWatchDetailResponseBodyResult) SetUv(v int32) *QueryLiveWatchD
 }
 
 type QueryLiveWatchDetailResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryLiveWatchDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryLiveWatchDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryLiveWatchDetailResponse) String() string {
@@ -2369,9 +2369,9 @@ func (s *QueryLiveWatchUserListResponseBodyResultOutOrgUserList) SetWatchProgres
 }
 
 type QueryLiveWatchUserListResponse struct {
-	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QueryLiveWatchUserListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryLiveWatchUserListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QueryLiveWatchUserListResponse) String() string {
@@ -2541,9 +2541,9 @@ func (s *QuerySubscribeStatusResponseBodyResultSubscribeStatusDTOS) SetSubscribe
 }
 
 type QuerySubscribeStatusResponse struct {
-	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *QuerySubscribeStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySubscribeStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s QuerySubscribeStatusResponse) String() string {
@@ -2627,9 +2627,9 @@ func (s *StartCloudFeedResponseBody) SetResult(v bool) *StartCloudFeedResponseBo
 }
 
 type StartCloudFeedResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *StartCloudFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StartCloudFeedResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s StartCloudFeedResponse) String() string {
@@ -2713,9 +2713,9 @@ func (s *StopCloudFeedResponseBody) SetResult(v bool) *StopCloudFeedResponseBody
 }
 
 type StopCloudFeedResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *StopCloudFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StopCloudFeedResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s StopCloudFeedResponse) String() string {
@@ -2828,9 +2828,9 @@ func (s *SubscribeLiveResponseBodyResult) SetSuccess(v bool) *SubscribeLiveRespo
 }
 
 type SubscribeLiveResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *SubscribeLiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubscribeLiveResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s SubscribeLiveResponse) String() string {
@@ -2967,9 +2967,9 @@ func (s *UpdateLiveResponseBodyResult) SetSuccess(v bool) *UpdateLiveResponseBod
 }
 
 type UpdateLiveResponse struct {
-	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateLiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateLiveResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateLiveResponse) String() string {
@@ -3077,9 +3077,9 @@ func (s *UpdateLiveFeedResponseBody) SetHasUpdate(v bool) *UpdateLiveFeedRespons
 }
 
 type UpdateLiveFeedResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *UpdateLiveFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateLiveFeedResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateLiveFeedResponse) String() string {

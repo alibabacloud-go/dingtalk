@@ -136,9 +136,9 @@ func (s *CreateTicketResponseBody) SetTicketId(v string) *CreateTicketResponseBo
 }
 
 type CreateTicketResponse struct {
-	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreateTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateTicketResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreateTicketResponse) String() string {
@@ -281,9 +281,9 @@ func (s *ExecuteActivityResponseBody) SetTaskId(v string) *ExecuteActivityRespon
 }
 
 type ExecuteActivityResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *ExecuteActivityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExecuteActivityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s ExecuteActivityResponse) String() string {
@@ -444,9 +444,9 @@ func (s *GetUserSourceListResponseBodyResult) SetVendor(v string) *GetUserSource
 }
 
 type GetUserSourceListResponse struct {
-	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetUserSourceListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserSourceListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetUserSourceListResponse) String() string {
@@ -642,9 +642,9 @@ func (s *PageListActionResponseBodyListActionContent) SetValueType(v string) *Pa
 }
 
 type PageListActionResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PageListActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PageListActionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PageListActionResponse) String() string {
@@ -811,9 +811,9 @@ func (s *PageListRobotResponseBodyList) SetStatus(v int32) *PageListRobotRespons
 }
 
 type PageListRobotResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PageListRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PageListRobotResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PageListRobotResponse) String() string {
@@ -1052,9 +1052,9 @@ func (s *PageListTicketResponseBodyList) SetTitle(v string) *PageListTicketRespo
 }
 
 type PageListTicketResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PageListTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PageListTicketResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PageListTicketResponse) String() string {

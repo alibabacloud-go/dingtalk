@@ -89,9 +89,9 @@ func (s *CreatePackageResponseBody) SetTaskId(v string) *CreatePackageResponseBo
 }
 
 type CreatePackageResponse struct {
-	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *CreatePackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreatePackageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s CreatePackageResponse) String() string {
@@ -223,9 +223,9 @@ func (s *GetAccessTokenResponseBody) SetStsToken(v string) *GetAccessTokenRespon
 }
 
 type GetAccessTokenResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetAccessTokenResponse) String() string {
@@ -339,9 +339,9 @@ func (s *GetCreateStatusResponseBody) SetVersion(v string) *GetCreateStatusRespo
 }
 
 type GetCreateStatusResponse struct {
-	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *GetCreateStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetCreateStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s GetCreateStatusResponse) String() string {
@@ -437,9 +437,9 @@ func (s *PublishPackageResponseBody) SetSuccess(v bool) *PublishPackageResponseB
 }
 
 type PublishPackageResponse struct {
-	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty" require:"true"`
-	Body       *PublishPackageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PublishPackageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s PublishPackageResponse) String() string {
