@@ -1397,6 +1397,92 @@ func (s *QueryDeviceResponse) SetBody(v *QueryDeviceResponseBody) *QueryDeviceRe
 	return s
 }
 
+type QueryDevicePkHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDevicePkHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDevicePkHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDevicePkHeaders) SetCommonHeaders(v map[string]*string) *QueryDevicePkHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDevicePkHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDevicePkHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDevicePkRequest struct {
+	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+}
+
+func (s QueryDevicePkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDevicePkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDevicePkRequest) SetDeviceId(v int64) *QueryDevicePkRequest {
+	s.DeviceId = &v
+	return s
+}
+
+type QueryDevicePkResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s QueryDevicePkResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDevicePkResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDevicePkResponseBody) SetResult(v string) *QueryDevicePkResponseBody {
+	s.Result = &v
+	return s
+}
+
+type QueryDevicePkResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDevicePkResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryDevicePkResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDevicePkResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDevicePkResponse) SetHeaders(v map[string]*string) *QueryDevicePkResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDevicePkResponse) SetStatusCode(v int32) *QueryDevicePkResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryDevicePkResponse) SetBody(v *QueryDevicePkResponseBody) *QueryDevicePkResponse {
+	s.Body = v
+	return s
+}
+
 type QueryEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2610,6 +2696,61 @@ func (client *Client) QueryDevice(request *QueryDeviceRequest) (_result *QueryDe
 	headers := &QueryDeviceHeaders{}
 	_result = &QueryDeviceResponse{}
 	_body, _err := client.QueryDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDevicePkWithOptions(request *QueryDevicePkRequest, headers *QueryDevicePkHeaders, runtime *util.RuntimeOptions) (_result *QueryDevicePkResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceId)) {
+		body["deviceId"] = request.DeviceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDevicePk"),
+		Version:     tea.String("diot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/diot/devices/pkInfos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryDevicePkResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryDevicePk(request *QueryDevicePkRequest) (_result *QueryDevicePkResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDevicePkHeaders{}
+	_result = &QueryDevicePkResponse{}
+	_body, _err := client.QueryDevicePkWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

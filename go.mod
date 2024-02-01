@@ -1,4 +1,4 @@
-module github.com/alibabacloud-go/dingtalk/v2
+module github.com/alibabacloud-go/dingtalk
 
 go 1.15
 

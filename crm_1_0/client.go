@@ -7010,8 +7010,8 @@ func (s *GetContactsResponseBodyResult) SetValues(v []*GetContactsResponseBodyRe
 
 type GetContactsResponseBodyResultValues struct {
 	CreatorUserId *string                                        `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data          map[string]*string                             `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData    map[string]*string                             `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	Data          map[string]interface{}                         `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData    map[string]interface{}                         `json:"extendData,omitempty" xml:"extendData,omitempty"`
 	GmtCreate     *string                                        `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	GmtModified   *string                                        `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	InstanceId    *string                                        `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
@@ -7032,12 +7032,12 @@ func (s *GetContactsResponseBodyResultValues) SetCreatorUserId(v string) *GetCon
 	return s
 }
 
-func (s *GetContactsResponseBodyResultValues) SetData(v map[string]*string) *GetContactsResponseBodyResultValues {
+func (s *GetContactsResponseBodyResultValues) SetData(v map[string]interface{}) *GetContactsResponseBodyResultValues {
 	s.Data = v
 	return s
 }
 
-func (s *GetContactsResponseBodyResultValues) SetExtendData(v map[string]*string) *GetContactsResponseBodyResultValues {
+func (s *GetContactsResponseBodyResultValues) SetExtendData(v map[string]interface{}) *GetContactsResponseBodyResultValues {
 	s.ExtendData = v
 	return s
 }
@@ -8512,8 +8512,8 @@ func (s *GetObjectDataResponseBodyResult) SetValues(v []*GetObjectDataResponseBo
 type GetObjectDataResponseBodyResultValues struct {
 	CreatorNick    *string                                          `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
 	CreatorUserId  *string                                          `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data           map[string]*string                               `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData     map[string]*string                               `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	Data           map[string]interface{}                           `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData     map[string]interface{}                           `json:"extendData,omitempty" xml:"extendData,omitempty"`
 	GmtCreate      *string                                          `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	GmtModified    *string                                          `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	InstanceId     *string                                          `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
@@ -8541,12 +8541,12 @@ func (s *GetObjectDataResponseBodyResultValues) SetCreatorUserId(v string) *GetO
 	return s
 }
 
-func (s *GetObjectDataResponseBodyResultValues) SetData(v map[string]*string) *GetObjectDataResponseBodyResultValues {
+func (s *GetObjectDataResponseBodyResultValues) SetData(v map[string]interface{}) *GetObjectDataResponseBodyResultValues {
 	s.Data = v
 	return s
 }
 
-func (s *GetObjectDataResponseBodyResultValues) SetExtendData(v map[string]*string) *GetObjectDataResponseBodyResultValues {
+func (s *GetObjectDataResponseBodyResultValues) SetExtendData(v map[string]interface{}) *GetObjectDataResponseBodyResultValues {
 	s.ExtendData = v
 	return s
 }
