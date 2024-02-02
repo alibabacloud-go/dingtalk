@@ -6841,17 +6841,18 @@ func (s *QueryReceiptForInvoiceResponseBodyListCustomer) SetName(v string) *Quer
 }
 
 type QueryReceiptForInvoiceResponseBodyListProductInfoList struct {
-	AmountWithTax       *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	AmountWithoutTax    *string `json:"amountWithoutTax,omitempty" xml:"amountWithoutTax,omitempty"`
-	DiscountAmount      *string `json:"discountAmount,omitempty" xml:"discountAmount,omitempty"`
-	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
-	Quantity            *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	Specification       *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	TaxRate             *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	Unit                *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	UnitPriceWithTax    *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
-	UnitPriceWithoutTax *string `json:"unitPriceWithoutTax,omitempty" xml:"unitPriceWithoutTax,omitempty"`
-	WithTax             *bool   `json:"withTax,omitempty" xml:"withTax,omitempty"`
+	AmountWithTax         *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	AmountWithoutTax      *string `json:"amountWithoutTax,omitempty" xml:"amountWithoutTax,omitempty"`
+	DiscountAmount        *string `json:"discountAmount,omitempty" xml:"discountAmount,omitempty"`
+	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Quantity              *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	Specification         *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	TaxClassificationCode *string `json:"taxClassificationCode,omitempty" xml:"taxClassificationCode,omitempty"`
+	TaxRate               *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	Unit                  *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UnitPriceWithTax      *string `json:"unitPriceWithTax,omitempty" xml:"unitPriceWithTax,omitempty"`
+	UnitPriceWithoutTax   *string `json:"unitPriceWithoutTax,omitempty" xml:"unitPriceWithoutTax,omitempty"`
+	WithTax               *bool   `json:"withTax,omitempty" xml:"withTax,omitempty"`
 }
 
 func (s QueryReceiptForInvoiceResponseBodyListProductInfoList) String() string {
@@ -6889,6 +6890,11 @@ func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetQuantity(v st
 
 func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetSpecification(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
 	s.Specification = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListProductInfoList) SetTaxClassificationCode(v string) *QueryReceiptForInvoiceResponseBodyListProductInfoList {
+	s.TaxClassificationCode = &v
 	return s
 }
 
