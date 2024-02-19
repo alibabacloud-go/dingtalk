@@ -1896,6 +1896,104 @@ func (s *SignEnterpriseAccountResponse) SetBody(v *SignEnterpriseAccountResponse
 	return s
 }
 
+type SyncReceiptRecallHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncReceiptRecallHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncReceiptRecallHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncReceiptRecallHeaders) SetCommonHeaders(v map[string]*string) *SyncReceiptRecallHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncReceiptRecallHeaders) SetXAcsDingtalkAccessToken(v string) *SyncReceiptRecallHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncReceiptRecallRequest struct {
+	FileDownloadUrl *string `json:"fileDownloadUrl,omitempty" xml:"fileDownloadUrl,omitempty"`
+	FileName        *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	OrderNo         *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+}
+
+func (s SyncReceiptRecallRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncReceiptRecallRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncReceiptRecallRequest) SetFileDownloadUrl(v string) *SyncReceiptRecallRequest {
+	s.FileDownloadUrl = &v
+	return s
+}
+
+func (s *SyncReceiptRecallRequest) SetFileName(v string) *SyncReceiptRecallRequest {
+	s.FileName = &v
+	return s
+}
+
+func (s *SyncReceiptRecallRequest) SetOrderNo(v string) *SyncReceiptRecallRequest {
+	s.OrderNo = &v
+	return s
+}
+
+type SyncReceiptRecallResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SyncReceiptRecallResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncReceiptRecallResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncReceiptRecallResponseBody) SetResult(v bool) *SyncReceiptRecallResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SyncReceiptRecallResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncReceiptRecallResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncReceiptRecallResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncReceiptRecallResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncReceiptRecallResponse) SetHeaders(v map[string]*string) *SyncReceiptRecallResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncReceiptRecallResponse) SetStatusCode(v int32) *SyncReceiptRecallResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncReceiptRecallResponse) SetBody(v *SyncReceiptRecallResponseBody) *SyncReceiptRecallResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateInstanceOrderInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2867,6 +2965,69 @@ func (client *Client) SignEnterpriseAccount(request *SignEnterpriseAccountReques
 	headers := &SignEnterpriseAccountHeaders{}
 	_result = &SignEnterpriseAccountResponse{}
 	_body, _err := client.SignEnterpriseAccountWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncReceiptRecallWithOptions(request *SyncReceiptRecallRequest, headers *SyncReceiptRecallHeaders, runtime *util.RuntimeOptions) (_result *SyncReceiptRecallResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileDownloadUrl)) {
+		query["fileDownloadUrl"] = request.FileDownloadUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileName)) {
+		query["fileName"] = request.FileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		query["orderNo"] = request.OrderNo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncReceiptRecall"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/receipts/syncRecall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncReceiptRecallResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncReceiptRecall(request *SyncReceiptRecallRequest) (_result *SyncReceiptRecallResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncReceiptRecallHeaders{}
+	_result = &SyncReceiptRecallResponse{}
+	_body, _err := client.SyncReceiptRecallWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

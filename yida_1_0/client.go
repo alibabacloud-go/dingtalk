@@ -3333,6 +3333,211 @@ func (s *GetApplicationAuthorizationServicePlatformResourceResponse) SetBody(v *
 	return s
 }
 
+type GetAutoFlowLogDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAutoFlowLogDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAutoFlowLogDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAutoFlowLogDetailHeaders) SetCommonHeaders(v map[string]*string) *GetAutoFlowLogDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetAutoFlowLogDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAutoFlowLogDetailRequest struct {
+	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	PageNumber     *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize       *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ProcInstanceId *string `json:"procInstanceId,omitempty" xml:"procInstanceId,omitempty"`
+	Token          *string `json:"token,omitempty" xml:"token,omitempty"`
+	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetAutoFlowLogDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAutoFlowLogDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAutoFlowLogDetailRequest) SetCorpId(v string) *GetAutoFlowLogDetailRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailRequest) SetPageNumber(v int32) *GetAutoFlowLogDetailRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailRequest) SetPageSize(v int32) *GetAutoFlowLogDetailRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailRequest) SetProcInstanceId(v string) *GetAutoFlowLogDetailRequest {
+	s.ProcInstanceId = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailRequest) SetToken(v string) *GetAutoFlowLogDetailRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailRequest) SetUserId(v string) *GetAutoFlowLogDetailRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetAutoFlowLogDetailResponseBody struct {
+	Data        []*GetAutoFlowLogDetailResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	HasMoreData *bool                                   `json:"hasMoreData,omitempty" xml:"hasMoreData,omitempty"`
+	PageNumber  *int64                                  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	TotalCount  *int64                                  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetAutoFlowLogDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAutoFlowLogDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAutoFlowLogDetailResponseBody) SetData(v []*GetAutoFlowLogDetailResponseBodyData) *GetAutoFlowLogDetailResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBody) SetHasMoreData(v bool) *GetAutoFlowLogDetailResponseBody {
+	s.HasMoreData = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBody) SetPageNumber(v int64) *GetAutoFlowLogDetailResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBody) SetTotalCount(v int64) *GetAutoFlowLogDetailResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type GetAutoFlowLogDetailResponseBodyData struct {
+	ActivityKey    *string                `json:"activityKey,omitempty" xml:"activityKey,omitempty"`
+	ElapsedTimeGMT *int64                 `json:"elapsedTimeGMT,omitempty" xml:"elapsedTimeGMT,omitempty"`
+	FinishTimeGMT  *string                `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	Flag           *string                `json:"flag,omitempty" xml:"flag,omitempty"`
+	InputParams    map[string]interface{} `json:"inputParams,omitempty" xml:"inputParams,omitempty"`
+	Name           *string                `json:"name,omitempty" xml:"name,omitempty"`
+	Others         *string                `json:"others,omitempty" xml:"others,omitempty"`
+	OutputParams   map[string]interface{} `json:"outputParams,omitempty" xml:"outputParams,omitempty"`
+	Status         *string                `json:"status,omitempty" xml:"status,omitempty"`
+	Uuid           *string                `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s GetAutoFlowLogDetailResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAutoFlowLogDetailResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetActivityKey(v string) *GetAutoFlowLogDetailResponseBodyData {
+	s.ActivityKey = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetElapsedTimeGMT(v int64) *GetAutoFlowLogDetailResponseBodyData {
+	s.ElapsedTimeGMT = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetFinishTimeGMT(v string) *GetAutoFlowLogDetailResponseBodyData {
+	s.FinishTimeGMT = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetFlag(v string) *GetAutoFlowLogDetailResponseBodyData {
+	s.Flag = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetInputParams(v map[string]interface{}) *GetAutoFlowLogDetailResponseBodyData {
+	s.InputParams = v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetName(v string) *GetAutoFlowLogDetailResponseBodyData {
+	s.Name = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetOthers(v string) *GetAutoFlowLogDetailResponseBodyData {
+	s.Others = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetOutputParams(v map[string]interface{}) *GetAutoFlowLogDetailResponseBodyData {
+	s.OutputParams = v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetStatus(v string) *GetAutoFlowLogDetailResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponseBodyData) SetUuid(v string) *GetAutoFlowLogDetailResponseBodyData {
+	s.Uuid = &v
+	return s
+}
+
+type GetAutoFlowLogDetailResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAutoFlowLogDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetAutoFlowLogDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAutoFlowLogDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAutoFlowLogDetailResponse) SetHeaders(v map[string]*string) *GetAutoFlowLogDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponse) SetStatusCode(v int32) *GetAutoFlowLogDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailResponse) SetBody(v *GetAutoFlowLogDetailResponseBody) *GetAutoFlowLogDetailResponse {
+	s.Body = v
+	return s
+}
+
 type GetCorpAccomplishmentTasksHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11146,6 +11351,235 @@ func (s *NotifyAuthorizationResultResponse) SetBody(v *NotifyAuthorizationResult
 	return s
 }
 
+type PageAutoFlowLogHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PageAutoFlowLogHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageAutoFlowLogHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PageAutoFlowLogHeaders) SetCommonHeaders(v map[string]*string) *PageAutoFlowLogHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PageAutoFlowLogHeaders) SetXAcsDingtalkAccessToken(v string) *PageAutoFlowLogHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PageAutoFlowLogRequest struct {
+	AppType      *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	EndTimeGMT   *int64  `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+	FormUuid     *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	PageNumber   *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize     *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ProcessCode  *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	StartTimeGMT *int64  `json:"startTimeGMT,omitempty" xml:"startTimeGMT,omitempty"`
+	Status       *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	Token        *string `json:"token,omitempty" xml:"token,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PageAutoFlowLogRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageAutoFlowLogRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PageAutoFlowLogRequest) SetAppType(v string) *PageAutoFlowLogRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetCorpId(v string) *PageAutoFlowLogRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetEndTimeGMT(v int64) *PageAutoFlowLogRequest {
+	s.EndTimeGMT = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetFormUuid(v string) *PageAutoFlowLogRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetPageNumber(v int32) *PageAutoFlowLogRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetPageSize(v int32) *PageAutoFlowLogRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetProcessCode(v string) *PageAutoFlowLogRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetStartTimeGMT(v int64) *PageAutoFlowLogRequest {
+	s.StartTimeGMT = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetStatus(v int32) *PageAutoFlowLogRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetToken(v string) *PageAutoFlowLogRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetUserId(v string) *PageAutoFlowLogRequest {
+	s.UserId = &v
+	return s
+}
+
+type PageAutoFlowLogResponseBody struct {
+	Data        []*PageAutoFlowLogResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	HasMoreData *bool                              `json:"hasMoreData,omitempty" xml:"hasMoreData,omitempty"`
+	PageNumber  *int64                             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	TotalCount  *int64                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s PageAutoFlowLogResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageAutoFlowLogResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PageAutoFlowLogResponseBody) SetData(v []*PageAutoFlowLogResponseBodyData) *PageAutoFlowLogResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBody) SetHasMoreData(v bool) *PageAutoFlowLogResponseBody {
+	s.HasMoreData = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBody) SetPageNumber(v int64) *PageAutoFlowLogResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBody) SetTotalCount(v int64) *PageAutoFlowLogResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type PageAutoFlowLogResponseBodyData struct {
+	AppType                      *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	ElapsedTimeGMT               *int64  `json:"elapsedTimeGMT,omitempty" xml:"elapsedTimeGMT,omitempty"`
+	FinishTimeGMT                *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	Flag                         *string `json:"flag,omitempty" xml:"flag,omitempty"`
+	ProcInstanceId               *string `json:"procInstanceId,omitempty" xml:"procInstanceId,omitempty"`
+	ProcessCode                  *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	SrcProcInstanceFinishTimeGMT *string `json:"srcProcInstanceFinishTimeGMT,omitempty" xml:"srcProcInstanceFinishTimeGMT,omitempty"`
+	SrcProcInstanceId            *string `json:"srcProcInstanceId,omitempty" xml:"srcProcInstanceId,omitempty"`
+	Status                       *int32  `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s PageAutoFlowLogResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageAutoFlowLogResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *PageAutoFlowLogResponseBodyData) SetAppType(v string) *PageAutoFlowLogResponseBodyData {
+	s.AppType = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBodyData) SetElapsedTimeGMT(v int64) *PageAutoFlowLogResponseBodyData {
+	s.ElapsedTimeGMT = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBodyData) SetFinishTimeGMT(v string) *PageAutoFlowLogResponseBodyData {
+	s.FinishTimeGMT = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBodyData) SetFlag(v string) *PageAutoFlowLogResponseBodyData {
+	s.Flag = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBodyData) SetProcInstanceId(v string) *PageAutoFlowLogResponseBodyData {
+	s.ProcInstanceId = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBodyData) SetProcessCode(v string) *PageAutoFlowLogResponseBodyData {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBodyData) SetSrcProcInstanceFinishTimeGMT(v string) *PageAutoFlowLogResponseBodyData {
+	s.SrcProcInstanceFinishTimeGMT = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBodyData) SetSrcProcInstanceId(v string) *PageAutoFlowLogResponseBodyData {
+	s.SrcProcInstanceId = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponseBodyData) SetStatus(v int32) *PageAutoFlowLogResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+type PageAutoFlowLogResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PageAutoFlowLogResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PageAutoFlowLogResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageAutoFlowLogResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PageAutoFlowLogResponse) SetHeaders(v map[string]*string) *PageAutoFlowLogResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PageAutoFlowLogResponse) SetStatusCode(v int32) *PageAutoFlowLogResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PageAutoFlowLogResponse) SetBody(v *PageAutoFlowLogResponseBody) *PageAutoFlowLogResponse {
+	s.Body = v
+	return s
+}
+
 type PageFormBaseInfosHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -18031,6 +18465,81 @@ func (client *Client) GetApplicationAuthorizationServicePlatformResource(request
 	return _result, _err
 }
 
+func (client *Client) GetAutoFlowLogDetailWithOptions(request *GetAutoFlowLogDetailRequest, headers *GetAutoFlowLogDetailHeaders, runtime *util.RuntimeOptions) (_result *GetAutoFlowLogDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcInstanceId)) {
+		query["procInstanceId"] = request.ProcInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAutoFlowLogDetail"),
+		Version:     tea.String("yida_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/yida/logs/automations"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetAutoFlowLogDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAutoFlowLogDetail(request *GetAutoFlowLogDetailRequest) (_result *GetAutoFlowLogDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAutoFlowLogDetailHeaders{}
+	_result = &GetAutoFlowLogDetailResponse{}
+	_body, _err := client.GetAutoFlowLogDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetCorpAccomplishmentTasksWithOptions(corpId *string, userId *string, request *GetCorpAccomplishmentTasksRequest, headers *GetCorpAccomplishmentTasksHeaders, runtime *util.RuntimeOptions) (_result *GetCorpAccomplishmentTasksResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20815,6 +21324,101 @@ func (client *Client) NotifyAuthorizationResult(request *NotifyAuthorizationResu
 	headers := &NotifyAuthorizationResultHeaders{}
 	_result = &NotifyAuthorizationResultResponse{}
 	_body, _err := client.NotifyAuthorizationResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PageAutoFlowLogWithOptions(request *PageAutoFlowLogRequest, headers *PageAutoFlowLogHeaders, runtime *util.RuntimeOptions) (_result *PageAutoFlowLogResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTimeGMT)) {
+		body["endTimeGMT"] = request.EndTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTimeGMT)) {
+		body["startTimeGMT"] = request.StartTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PageAutoFlowLog"),
+		Version:     tea.String("yida_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/yida/logs/automations/paginationQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PageAutoFlowLogResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PageAutoFlowLog(request *PageAutoFlowLogRequest) (_result *PageAutoFlowLogResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageAutoFlowLogHeaders{}
+	_result = &PageAutoFlowLogResponse{}
+	_body, _err := client.PageAutoFlowLogWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
