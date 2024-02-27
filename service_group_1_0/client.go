@@ -17134,7 +17134,7 @@ func (client *Client) SendServiceGroupMessageWithOptions(request *SendServiceGro
 		Method:      tea.String("POST"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &SendServiceGroupMessageResponse{}

@@ -4599,6 +4599,456 @@ func (s *GetLastOrgAuthDataResponse) SetBody(v *GetLastOrgAuthDataResponseBody) 
 	return s
 }
 
+type GetMsgConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMsgConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigHeaders) SetCommonHeaders(v map[string]*string) *GetMsgConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMsgConfigHeaders) SetXAcsDingtalkAccessToken(v string) *GetMsgConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMsgConfigRequest struct {
+	GroupTopic       *string                               `json:"groupTopic,omitempty" xml:"groupTopic,omitempty"`
+	GroupType        *string                               `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	ListDynamicAttr  []*GetMsgConfigRequestListDynamicAttr `json:"listDynamicAttr,omitempty" xml:"listDynamicAttr,omitempty" type:"Repeated"`
+	ListEmployeeCode []*string                             `json:"listEmployeeCode,omitempty" xml:"listEmployeeCode,omitempty" type:"Repeated"`
+	ListUnitId       []*int64                              `json:"listUnitId,omitempty" xml:"listUnitId,omitempty" type:"Repeated"`
+	OwnerJobNo       *string                               `json:"ownerJobNo,omitempty" xml:"ownerJobNo,omitempty"`
+	RuleBusinessCode *string                               `json:"ruleBusinessCode,omitempty" xml:"ruleBusinessCode,omitempty"`
+	RuleCategory     *int32                                `json:"ruleCategory,omitempty" xml:"ruleCategory,omitempty"`
+	RuleCode         *string                               `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	SecretKey        *string                               `json:"secretKey,omitempty" xml:"secretKey,omitempty"`
+	SysCode          *string                               `json:"sysCode,omitempty" xml:"sysCode,omitempty"`
+}
+
+func (s GetMsgConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigRequest) SetGroupTopic(v string) *GetMsgConfigRequest {
+	s.GroupTopic = &v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetGroupType(v string) *GetMsgConfigRequest {
+	s.GroupType = &v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetListDynamicAttr(v []*GetMsgConfigRequestListDynamicAttr) *GetMsgConfigRequest {
+	s.ListDynamicAttr = v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetListEmployeeCode(v []*string) *GetMsgConfigRequest {
+	s.ListEmployeeCode = v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetListUnitId(v []*int64) *GetMsgConfigRequest {
+	s.ListUnitId = v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetOwnerJobNo(v string) *GetMsgConfigRequest {
+	s.OwnerJobNo = &v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetRuleBusinessCode(v string) *GetMsgConfigRequest {
+	s.RuleBusinessCode = &v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetRuleCategory(v int32) *GetMsgConfigRequest {
+	s.RuleCategory = &v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetRuleCode(v string) *GetMsgConfigRequest {
+	s.RuleCode = &v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetSecretKey(v string) *GetMsgConfigRequest {
+	s.SecretKey = &v
+	return s
+}
+
+func (s *GetMsgConfigRequest) SetSysCode(v string) *GetMsgConfigRequest {
+	s.SysCode = &v
+	return s
+}
+
+type GetMsgConfigRequestListDynamicAttr struct {
+	AttrCode            *string   `json:"attrCode,omitempty" xml:"attrCode,omitempty"`
+	ListAttrOptionsCode []*string `json:"listAttrOptionsCode,omitempty" xml:"listAttrOptionsCode,omitempty" type:"Repeated"`
+}
+
+func (s GetMsgConfigRequestListDynamicAttr) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigRequestListDynamicAttr) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigRequestListDynamicAttr) SetAttrCode(v string) *GetMsgConfigRequestListDynamicAttr {
+	s.AttrCode = &v
+	return s
+}
+
+func (s *GetMsgConfigRequestListDynamicAttr) SetListAttrOptionsCode(v []*string) *GetMsgConfigRequestListDynamicAttr {
+	s.ListAttrOptionsCode = v
+	return s
+}
+
+type GetMsgConfigResponseBody struct {
+	Code    *int32                        `json:"code,omitempty" xml:"code,omitempty"`
+	Data    *GetMsgConfigResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Message *string                       `json:"message,omitempty" xml:"message,omitempty"`
+}
+
+func (s GetMsgConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigResponseBody) SetCode(v int32) *GetMsgConfigResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBody) SetData(v *GetMsgConfigResponseBodyData) *GetMsgConfigResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetMsgConfigResponseBody) SetMessage(v string) *GetMsgConfigResponseBody {
+	s.Message = &v
+	return s
+}
+
+type GetMsgConfigResponseBodyData struct {
+	GroupAttributes    []*GetMsgConfigResponseBodyDataGroupAttributes    `json:"groupAttributes,omitempty" xml:"groupAttributes,omitempty" type:"Repeated"`
+	MsgConfigs         *GetMsgConfigResponseBodyDataMsgConfigs           `json:"msgConfigs,omitempty" xml:"msgConfigs,omitempty" type:"Struct"`
+	ReceiverAttributes []*GetMsgConfigResponseBodyDataReceiverAttributes `json:"receiverAttributes,omitempty" xml:"receiverAttributes,omitempty" type:"Repeated"`
+	UnitAttributes     []*GetMsgConfigResponseBodyDataUnitAttributes     `json:"unitAttributes,omitempty" xml:"unitAttributes,omitempty" type:"Repeated"`
+}
+
+func (s GetMsgConfigResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigResponseBodyData) SetGroupAttributes(v []*GetMsgConfigResponseBodyDataGroupAttributes) *GetMsgConfigResponseBodyData {
+	s.GroupAttributes = v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyData) SetMsgConfigs(v *GetMsgConfigResponseBodyDataMsgConfigs) *GetMsgConfigResponseBodyData {
+	s.MsgConfigs = v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyData) SetReceiverAttributes(v []*GetMsgConfigResponseBodyDataReceiverAttributes) *GetMsgConfigResponseBodyData {
+	s.ReceiverAttributes = v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyData) SetUnitAttributes(v []*GetMsgConfigResponseBodyDataUnitAttributes) *GetMsgConfigResponseBodyData {
+	s.UnitAttributes = v
+	return s
+}
+
+type GetMsgConfigResponseBodyDataGroupAttributes struct {
+	ConfigGroupId      *int64                                                        `json:"configGroupId,omitempty" xml:"configGroupId,omitempty"`
+	CorpId             *string                                                       `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	GroupTopic         *string                                                       `json:"groupTopic,omitempty" xml:"groupTopic,omitempty"`
+	GroupType          *string                                                       `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	ListDynamicAttr    []*GetMsgConfigResponseBodyDataGroupAttributesListDynamicAttr `json:"listDynamicAttr,omitempty" xml:"listDynamicAttr,omitempty" type:"Repeated"`
+	ListReceiver       []*GetMsgConfigResponseBodyDataGroupAttributesListReceiver    `json:"listReceiver,omitempty" xml:"listReceiver,omitempty" type:"Repeated"`
+	OpenConversationId *string                                                       `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OwnerJobNo         *string                                                       `json:"ownerJobNo,omitempty" xml:"ownerJobNo,omitempty"`
+	SubRuleCode        *string                                                       `json:"subRuleCode,omitempty" xml:"subRuleCode,omitempty"`
+}
+
+func (s GetMsgConfigResponseBodyDataGroupAttributes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigResponseBodyDataGroupAttributes) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributes) SetConfigGroupId(v int64) *GetMsgConfigResponseBodyDataGroupAttributes {
+	s.ConfigGroupId = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributes) SetCorpId(v string) *GetMsgConfigResponseBodyDataGroupAttributes {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributes) SetGroupTopic(v string) *GetMsgConfigResponseBodyDataGroupAttributes {
+	s.GroupTopic = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributes) SetGroupType(v string) *GetMsgConfigResponseBodyDataGroupAttributes {
+	s.GroupType = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributes) SetListDynamicAttr(v []*GetMsgConfigResponseBodyDataGroupAttributesListDynamicAttr) *GetMsgConfigResponseBodyDataGroupAttributes {
+	s.ListDynamicAttr = v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributes) SetListReceiver(v []*GetMsgConfigResponseBodyDataGroupAttributesListReceiver) *GetMsgConfigResponseBodyDataGroupAttributes {
+	s.ListReceiver = v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributes) SetOpenConversationId(v string) *GetMsgConfigResponseBodyDataGroupAttributes {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributes) SetOwnerJobNo(v string) *GetMsgConfigResponseBodyDataGroupAttributes {
+	s.OwnerJobNo = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributes) SetSubRuleCode(v string) *GetMsgConfigResponseBodyDataGroupAttributes {
+	s.SubRuleCode = &v
+	return s
+}
+
+type GetMsgConfigResponseBodyDataGroupAttributesListDynamicAttr struct {
+	AttrCode            *string   `json:"attrCode,omitempty" xml:"attrCode,omitempty"`
+	ListAttrOptionsCode []*string `json:"listAttrOptionsCode,omitempty" xml:"listAttrOptionsCode,omitempty" type:"Repeated"`
+}
+
+func (s GetMsgConfigResponseBodyDataGroupAttributesListDynamicAttr) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigResponseBodyDataGroupAttributesListDynamicAttr) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributesListDynamicAttr) SetAttrCode(v string) *GetMsgConfigResponseBodyDataGroupAttributesListDynamicAttr {
+	s.AttrCode = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributesListDynamicAttr) SetListAttrOptionsCode(v []*string) *GetMsgConfigResponseBodyDataGroupAttributesListDynamicAttr {
+	s.ListAttrOptionsCode = v
+	return s
+}
+
+type GetMsgConfigResponseBodyDataGroupAttributesListReceiver struct {
+	EmployeeCode *string `json:"employeeCode,omitempty" xml:"employeeCode,omitempty"`
+	EmployeeName *string `json:"employeeName,omitempty" xml:"employeeName,omitempty"`
+}
+
+func (s GetMsgConfigResponseBodyDataGroupAttributesListReceiver) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigResponseBodyDataGroupAttributesListReceiver) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributesListReceiver) SetEmployeeCode(v string) *GetMsgConfigResponseBodyDataGroupAttributesListReceiver {
+	s.EmployeeCode = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataGroupAttributesListReceiver) SetEmployeeName(v string) *GetMsgConfigResponseBodyDataGroupAttributesListReceiver {
+	s.EmployeeName = &v
+	return s
+}
+
+type GetMsgConfigResponseBodyDataMsgConfigs struct {
+	CardId               *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
+	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CustomParameters     *string `json:"customParameters,omitempty" xml:"customParameters,omitempty"`
+	MsgContentConsisFlag *int32  `json:"msgContentConsisFlag,omitempty" xml:"msgContentConsisFlag,omitempty"`
+	MsgId                *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	RobotCode            *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	RuleBusinessCode     *string `json:"ruleBusinessCode,omitempty" xml:"ruleBusinessCode,omitempty"`
+	RuleCategory         *int32  `json:"ruleCategory,omitempty" xml:"ruleCategory,omitempty"`
+	RuleCode             *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	RuleName             *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
+	SubRuleCode          *string `json:"subRuleCode,omitempty" xml:"subRuleCode,omitempty"`
+	SystemCode           *string `json:"systemCode,omitempty" xml:"systemCode,omitempty"`
+	TaskBatchNo          *string `json:"taskBatchNo,omitempty" xml:"taskBatchNo,omitempty"`
+}
+
+func (s GetMsgConfigResponseBodyDataMsgConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigResponseBodyDataMsgConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetCardId(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.CardId = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetCorpId(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetCustomParameters(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.CustomParameters = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetMsgContentConsisFlag(v int32) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.MsgContentConsisFlag = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetMsgId(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.MsgId = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetRobotCode(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetRuleBusinessCode(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.RuleBusinessCode = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetRuleCategory(v int32) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.RuleCategory = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetRuleCode(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.RuleCode = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetRuleName(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.RuleName = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetSubRuleCode(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.SubRuleCode = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetSystemCode(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.SystemCode = &v
+	return s
+}
+
+func (s *GetMsgConfigResponseBodyDataMsgConfigs) SetTaskBatchNo(v string) *GetMsgConfigResponseBodyDataMsgConfigs {
+	s.TaskBatchNo = &v
+	return s
+}
+
+type GetMsgConfigResponseBodyDataReceiverAttributes struct {
+	EmployeeCode *string `json:"employeeCode,omitempty" xml:"employeeCode,omitempty"`
+}
+
+func (s GetMsgConfigResponseBodyDataReceiverAttributes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigResponseBodyDataReceiverAttributes) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigResponseBodyDataReceiverAttributes) SetEmployeeCode(v string) *GetMsgConfigResponseBodyDataReceiverAttributes {
+	s.EmployeeCode = &v
+	return s
+}
+
+type GetMsgConfigResponseBodyDataUnitAttributes struct {
+	UnitId *int64 `json:"unitId,omitempty" xml:"unitId,omitempty"`
+}
+
+func (s GetMsgConfigResponseBodyDataUnitAttributes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigResponseBodyDataUnitAttributes) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigResponseBodyDataUnitAttributes) SetUnitId(v int64) *GetMsgConfigResponseBodyDataUnitAttributes {
+	s.UnitId = &v
+	return s
+}
+
+type GetMsgConfigResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetMsgConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetMsgConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgConfigResponse) SetHeaders(v map[string]*string) *GetMsgConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMsgConfigResponse) SetStatusCode(v int32) *GetMsgConfigResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetMsgConfigResponse) SetBody(v *GetMsgConfigResponseBody) *GetMsgConfigResponse {
+	s.Body = v
+	return s
+}
+
 type GetOaOperatorLogListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9308,6 +9758,280 @@ func (s *RollbackMiniAppVersionResponse) SetBody(v *RollbackMiniAppVersionRespon
 	return s
 }
 
+type RuleBatchReceiverHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RuleBatchReceiverHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RuleBatchReceiverHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RuleBatchReceiverHeaders) SetCommonHeaders(v map[string]*string) *RuleBatchReceiverHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RuleBatchReceiverHeaders) SetXAcsDingtalkAccessToken(v string) *RuleBatchReceiverHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RuleBatchReceiverRequest struct {
+	BatchNo         *string                         `json:"batchNo,omitempty" xml:"batchNo,omitempty"`
+	CardOptions     *string                         `json:"cardOptions,omitempty" xml:"cardOptions,omitempty"`
+	Data            []*RuleBatchReceiverRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	RuleCode        *string                         `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	SecretKey       *string                         `json:"secretKey,omitempty" xml:"secretKey,omitempty"`
+	SpecialStrategy *bool                           `json:"specialStrategy,omitempty" xml:"specialStrategy,omitempty"`
+	TaskBatchNo     *string                         `json:"taskBatchNo,omitempty" xml:"taskBatchNo,omitempty"`
+}
+
+func (s RuleBatchReceiverRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RuleBatchReceiverRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RuleBatchReceiverRequest) SetBatchNo(v string) *RuleBatchReceiverRequest {
+	s.BatchNo = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequest) SetCardOptions(v string) *RuleBatchReceiverRequest {
+	s.CardOptions = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequest) SetData(v []*RuleBatchReceiverRequestData) *RuleBatchReceiverRequest {
+	s.Data = v
+	return s
+}
+
+func (s *RuleBatchReceiverRequest) SetRuleCode(v string) *RuleBatchReceiverRequest {
+	s.RuleCode = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequest) SetSecretKey(v string) *RuleBatchReceiverRequest {
+	s.SecretKey = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequest) SetSpecialStrategy(v bool) *RuleBatchReceiverRequest {
+	s.SpecialStrategy = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequest) SetTaskBatchNo(v string) *RuleBatchReceiverRequest {
+	s.TaskBatchNo = &v
+	return s
+}
+
+type RuleBatchReceiverRequestData struct {
+	AtAccount       *string                            `json:"atAccount,omitempty" xml:"atAccount,omitempty"`
+	Attrs           *RuleBatchReceiverRequestDataAttrs `json:"attrs,omitempty" xml:"attrs,omitempty" type:"Struct"`
+	CallbackUrl     *string                            `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	CardCallbackUrl *string                            `json:"cardCallbackUrl,omitempty" xml:"cardCallbackUrl,omitempty"`
+	Content         map[string]map[string]interface{}  `json:"content,omitempty" xml:"content,omitempty"`
+	IsAtAll         *bool                              `json:"isAtAll,omitempty" xml:"isAtAll,omitempty"`
+	ReceiverAccount *string                            `json:"receiverAccount,omitempty" xml:"receiverAccount,omitempty"`
+	ReceiverType    *int32                             `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	SerialNumber    *string                            `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+}
+
+func (s RuleBatchReceiverRequestData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RuleBatchReceiverRequestData) GoString() string {
+	return s.String()
+}
+
+func (s *RuleBatchReceiverRequestData) SetAtAccount(v string) *RuleBatchReceiverRequestData {
+	s.AtAccount = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequestData) SetAttrs(v *RuleBatchReceiverRequestDataAttrs) *RuleBatchReceiverRequestData {
+	s.Attrs = v
+	return s
+}
+
+func (s *RuleBatchReceiverRequestData) SetCallbackUrl(v string) *RuleBatchReceiverRequestData {
+	s.CallbackUrl = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequestData) SetCardCallbackUrl(v string) *RuleBatchReceiverRequestData {
+	s.CardCallbackUrl = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequestData) SetContent(v map[string]map[string]interface{}) *RuleBatchReceiverRequestData {
+	s.Content = v
+	return s
+}
+
+func (s *RuleBatchReceiverRequestData) SetIsAtAll(v bool) *RuleBatchReceiverRequestData {
+	s.IsAtAll = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequestData) SetReceiverAccount(v string) *RuleBatchReceiverRequestData {
+	s.ReceiverAccount = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequestData) SetReceiverType(v int32) *RuleBatchReceiverRequestData {
+	s.ReceiverType = &v
+	return s
+}
+
+func (s *RuleBatchReceiverRequestData) SetSerialNumber(v string) *RuleBatchReceiverRequestData {
+	s.SerialNumber = &v
+	return s
+}
+
+type RuleBatchReceiverRequestDataAttrs struct {
+	ListUnitId []*int64 `json:"listUnitId,omitempty" xml:"listUnitId,omitempty" type:"Repeated"`
+}
+
+func (s RuleBatchReceiverRequestDataAttrs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RuleBatchReceiverRequestDataAttrs) GoString() string {
+	return s.String()
+}
+
+func (s *RuleBatchReceiverRequestDataAttrs) SetListUnitId(v []*int64) *RuleBatchReceiverRequestDataAttrs {
+	s.ListUnitId = v
+	return s
+}
+
+type RuleBatchReceiverResponseBody struct {
+	Code  *int32                                 `json:"code,omitempty" xml:"code,omitempty"`
+	Data  []*RuleBatchReceiverResponseBodyData   `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	Msg   *string                                `json:"msg,omitempty" xml:"msg,omitempty"`
+	MsgId *string                                `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	Rows  [][]*RuleBatchReceiverResponseBodyRows `json:"rows,omitempty" xml:"rows,omitempty" type:"Repeated"`
+}
+
+func (s RuleBatchReceiverResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RuleBatchReceiverResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RuleBatchReceiverResponseBody) SetCode(v int32) *RuleBatchReceiverResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *RuleBatchReceiverResponseBody) SetData(v []*RuleBatchReceiverResponseBodyData) *RuleBatchReceiverResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *RuleBatchReceiverResponseBody) SetMsg(v string) *RuleBatchReceiverResponseBody {
+	s.Msg = &v
+	return s
+}
+
+func (s *RuleBatchReceiverResponseBody) SetMsgId(v string) *RuleBatchReceiverResponseBody {
+	s.MsgId = &v
+	return s
+}
+
+func (s *RuleBatchReceiverResponseBody) SetRows(v [][]*RuleBatchReceiverResponseBodyRows) *RuleBatchReceiverResponseBody {
+	s.Rows = v
+	return s
+}
+
+type RuleBatchReceiverResponseBodyData struct {
+	MsgId        *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+}
+
+func (s RuleBatchReceiverResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RuleBatchReceiverResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *RuleBatchReceiverResponseBodyData) SetMsgId(v string) *RuleBatchReceiverResponseBodyData {
+	s.MsgId = &v
+	return s
+}
+
+func (s *RuleBatchReceiverResponseBodyData) SetSerialNumber(v string) *RuleBatchReceiverResponseBodyData {
+	s.SerialNumber = &v
+	return s
+}
+
+type RuleBatchReceiverResponseBodyRows struct {
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	MsgId        *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+}
+
+func (s RuleBatchReceiverResponseBodyRows) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RuleBatchReceiverResponseBodyRows) GoString() string {
+	return s.String()
+}
+
+func (s *RuleBatchReceiverResponseBodyRows) SetSerialNumber(v string) *RuleBatchReceiverResponseBodyRows {
+	s.SerialNumber = &v
+	return s
+}
+
+func (s *RuleBatchReceiverResponseBodyRows) SetMsgId(v string) *RuleBatchReceiverResponseBodyRows {
+	s.MsgId = &v
+	return s
+}
+
+type RuleBatchReceiverResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RuleBatchReceiverResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RuleBatchReceiverResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RuleBatchReceiverResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RuleBatchReceiverResponse) SetHeaders(v map[string]*string) *RuleBatchReceiverResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RuleBatchReceiverResponse) SetStatusCode(v int32) *RuleBatchReceiverResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RuleBatchReceiverResponse) SetBody(v *RuleBatchReceiverResponseBody) *RuleBatchReceiverResponse {
+	s.Body = v
+	return s
+}
+
 type SaveAcrossCloudStroageConfigsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10413,6 +11137,286 @@ func (s *SetDeptPartnerTypeAndNumResponse) SetHeaders(v map[string]*string) *Set
 
 func (s *SetDeptPartnerTypeAndNumResponse) SetStatusCode(v int32) *SetDeptPartnerTypeAndNumResponse {
 	s.StatusCode = &v
+	return s
+}
+
+type SpecialRuleBatchReceiverHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SpecialRuleBatchReceiverHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpecialRuleBatchReceiverHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SpecialRuleBatchReceiverHeaders) SetCommonHeaders(v map[string]*string) *SpecialRuleBatchReceiverHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverHeaders) SetXAcsDingtalkAccessToken(v string) *SpecialRuleBatchReceiverHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SpecialRuleBatchReceiverRequest struct {
+	BatchNo         *string                                `json:"batchNo,omitempty" xml:"batchNo,omitempty"`
+	CardOptions     *string                                `json:"cardOptions,omitempty" xml:"cardOptions,omitempty"`
+	Data            []*SpecialRuleBatchReceiverRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	RuleCode        *string                                `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	SecretKey       *string                                `json:"secretKey,omitempty" xml:"secretKey,omitempty"`
+	SpecialStrategy *bool                                  `json:"specialStrategy,omitempty" xml:"specialStrategy,omitempty"`
+	TaskBatchNo     *string                                `json:"taskBatchNo,omitempty" xml:"taskBatchNo,omitempty"`
+}
+
+func (s SpecialRuleBatchReceiverRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpecialRuleBatchReceiverRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SpecialRuleBatchReceiverRequest) SetBatchNo(v string) *SpecialRuleBatchReceiverRequest {
+	s.BatchNo = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequest) SetCardOptions(v string) *SpecialRuleBatchReceiverRequest {
+	s.CardOptions = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequest) SetData(v []*SpecialRuleBatchReceiverRequestData) *SpecialRuleBatchReceiverRequest {
+	s.Data = v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequest) SetRuleCode(v string) *SpecialRuleBatchReceiverRequest {
+	s.RuleCode = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequest) SetSecretKey(v string) *SpecialRuleBatchReceiverRequest {
+	s.SecretKey = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequest) SetSpecialStrategy(v bool) *SpecialRuleBatchReceiverRequest {
+	s.SpecialStrategy = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequest) SetTaskBatchNo(v string) *SpecialRuleBatchReceiverRequest {
+	s.TaskBatchNo = &v
+	return s
+}
+
+type SpecialRuleBatchReceiverRequestData struct {
+	AtAccount       *string                                   `json:"atAccount,omitempty" xml:"atAccount,omitempty"`
+	Attrs           *SpecialRuleBatchReceiverRequestDataAttrs `json:"attrs,omitempty" xml:"attrs,omitempty" type:"Struct"`
+	CallbackUrl     *string                                   `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	CardCallbackUrl *string                                   `json:"cardCallbackUrl,omitempty" xml:"cardCallbackUrl,omitempty"`
+	Content         map[string]map[string]interface{}         `json:"content,omitempty" xml:"content,omitempty"`
+	IsAtAll         *bool                                     `json:"isAtAll,omitempty" xml:"isAtAll,omitempty"`
+	PrivateContent  map[string]map[string]interface{}         `json:"privateContent,omitempty" xml:"privateContent,omitempty"`
+	ReceiverAccount *string                                   `json:"receiverAccount,omitempty" xml:"receiverAccount,omitempty"`
+	ReceiverType    *int32                                    `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	SerialNumber    *string                                   `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+}
+
+func (s SpecialRuleBatchReceiverRequestData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpecialRuleBatchReceiverRequestData) GoString() string {
+	return s.String()
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetAtAccount(v string) *SpecialRuleBatchReceiverRequestData {
+	s.AtAccount = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetAttrs(v *SpecialRuleBatchReceiverRequestDataAttrs) *SpecialRuleBatchReceiverRequestData {
+	s.Attrs = v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetCallbackUrl(v string) *SpecialRuleBatchReceiverRequestData {
+	s.CallbackUrl = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetCardCallbackUrl(v string) *SpecialRuleBatchReceiverRequestData {
+	s.CardCallbackUrl = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetContent(v map[string]map[string]interface{}) *SpecialRuleBatchReceiverRequestData {
+	s.Content = v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetIsAtAll(v bool) *SpecialRuleBatchReceiverRequestData {
+	s.IsAtAll = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetPrivateContent(v map[string]map[string]interface{}) *SpecialRuleBatchReceiverRequestData {
+	s.PrivateContent = v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetReceiverAccount(v string) *SpecialRuleBatchReceiverRequestData {
+	s.ReceiverAccount = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetReceiverType(v int32) *SpecialRuleBatchReceiverRequestData {
+	s.ReceiverType = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverRequestData) SetSerialNumber(v string) *SpecialRuleBatchReceiverRequestData {
+	s.SerialNumber = &v
+	return s
+}
+
+type SpecialRuleBatchReceiverRequestDataAttrs struct {
+	ListUnitId []*int64 `json:"listUnitId,omitempty" xml:"listUnitId,omitempty" type:"Repeated"`
+}
+
+func (s SpecialRuleBatchReceiverRequestDataAttrs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpecialRuleBatchReceiverRequestDataAttrs) GoString() string {
+	return s.String()
+}
+
+func (s *SpecialRuleBatchReceiverRequestDataAttrs) SetListUnitId(v []*int64) *SpecialRuleBatchReceiverRequestDataAttrs {
+	s.ListUnitId = v
+	return s
+}
+
+type SpecialRuleBatchReceiverResponseBody struct {
+	Code  *int32                                        `json:"code,omitempty" xml:"code,omitempty"`
+	Data  []*SpecialRuleBatchReceiverResponseBodyData   `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	Msg   *string                                       `json:"msg,omitempty" xml:"msg,omitempty"`
+	MsgId *string                                       `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	Rows  [][]*SpecialRuleBatchReceiverResponseBodyRows `json:"rows,omitempty" xml:"rows,omitempty" type:"Repeated"`
+}
+
+func (s SpecialRuleBatchReceiverResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpecialRuleBatchReceiverResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SpecialRuleBatchReceiverResponseBody) SetCode(v int32) *SpecialRuleBatchReceiverResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverResponseBody) SetData(v []*SpecialRuleBatchReceiverResponseBodyData) *SpecialRuleBatchReceiverResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverResponseBody) SetMsg(v string) *SpecialRuleBatchReceiverResponseBody {
+	s.Msg = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverResponseBody) SetMsgId(v string) *SpecialRuleBatchReceiverResponseBody {
+	s.MsgId = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverResponseBody) SetRows(v [][]*SpecialRuleBatchReceiverResponseBodyRows) *SpecialRuleBatchReceiverResponseBody {
+	s.Rows = v
+	return s
+}
+
+type SpecialRuleBatchReceiverResponseBodyData struct {
+	MsgId        *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+}
+
+func (s SpecialRuleBatchReceiverResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpecialRuleBatchReceiverResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *SpecialRuleBatchReceiverResponseBodyData) SetMsgId(v string) *SpecialRuleBatchReceiverResponseBodyData {
+	s.MsgId = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverResponseBodyData) SetSerialNumber(v string) *SpecialRuleBatchReceiverResponseBodyData {
+	s.SerialNumber = &v
+	return s
+}
+
+type SpecialRuleBatchReceiverResponseBodyRows struct {
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	MsgId        *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+}
+
+func (s SpecialRuleBatchReceiverResponseBodyRows) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpecialRuleBatchReceiverResponseBodyRows) GoString() string {
+	return s.String()
+}
+
+func (s *SpecialRuleBatchReceiverResponseBodyRows) SetSerialNumber(v string) *SpecialRuleBatchReceiverResponseBodyRows {
+	s.SerialNumber = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverResponseBodyRows) SetMsgId(v string) *SpecialRuleBatchReceiverResponseBodyRows {
+	s.MsgId = &v
+	return s
+}
+
+type SpecialRuleBatchReceiverResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SpecialRuleBatchReceiverResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SpecialRuleBatchReceiverResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpecialRuleBatchReceiverResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SpecialRuleBatchReceiverResponse) SetHeaders(v map[string]*string) *SpecialRuleBatchReceiverResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverResponse) SetStatusCode(v int32) *SpecialRuleBatchReceiverResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SpecialRuleBatchReceiverResponse) SetBody(v *SpecialRuleBatchReceiverResponseBody) *SpecialRuleBatchReceiverResponse {
+	s.Body = v
 	return s
 }
 
@@ -13175,6 +14179,101 @@ func (client *Client) GetLastOrgAuthData(request *GetLastOrgAuthDataRequest) (_r
 	return _result, _err
 }
 
+func (client *Client) GetMsgConfigWithOptions(request *GetMsgConfigRequest, headers *GetMsgConfigHeaders, runtime *util.RuntimeOptions) (_result *GetMsgConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupTopic)) {
+		body["groupTopic"] = request.GroupTopic
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupType)) {
+		body["groupType"] = request.GroupType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ListDynamicAttr)) {
+		body["listDynamicAttr"] = request.ListDynamicAttr
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ListEmployeeCode)) {
+		body["listEmployeeCode"] = request.ListEmployeeCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ListUnitId)) {
+		body["listUnitId"] = request.ListUnitId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerJobNo)) {
+		body["ownerJobNo"] = request.OwnerJobNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RuleBusinessCode)) {
+		body["ruleBusinessCode"] = request.RuleBusinessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RuleCategory)) {
+		body["ruleCategory"] = request.RuleCategory
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RuleCode)) {
+		body["ruleCode"] = request.RuleCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SecretKey)) {
+		body["secretKey"] = request.SecretKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SysCode)) {
+		body["sysCode"] = request.SysCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMsgConfig"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/portals/msgConfigs/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetMsgConfigResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetMsgConfig(request *GetMsgConfigRequest) (_result *GetMsgConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMsgConfigHeaders{}
+	_result = &GetMsgConfigResponse{}
+	_body, _err := client.GetMsgConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetOaOperatorLogListWithOptions(request *GetOaOperatorLogListRequest, headers *GetOaOperatorLogListHeaders, runtime *util.RuntimeOptions) (_result *GetOaOperatorLogListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15126,6 +16225,85 @@ func (client *Client) RollbackMiniAppVersion(request *RollbackMiniAppVersionRequ
 	return _result, _err
 }
 
+func (client *Client) RuleBatchReceiverWithOptions(request *RuleBatchReceiverRequest, headers *RuleBatchReceiverHeaders, runtime *util.RuntimeOptions) (_result *RuleBatchReceiverResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BatchNo)) {
+		body["batchNo"] = request.BatchNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardOptions)) {
+		body["cardOptions"] = request.CardOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RuleCode)) {
+		body["ruleCode"] = request.RuleCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SecretKey)) {
+		body["secretKey"] = request.SecretKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpecialStrategy)) {
+		body["specialStrategy"] = request.SpecialStrategy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskBatchNo)) {
+		body["taskBatchNo"] = request.TaskBatchNo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RuleBatchReceiver"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/dmc/rules/messages/batchSend"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RuleBatchReceiverResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RuleBatchReceiver(request *RuleBatchReceiverRequest) (_result *RuleBatchReceiverResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RuleBatchReceiverHeaders{}
+	_result = &RuleBatchReceiverResponse{}
+	_body, _err := client.RuleBatchReceiverWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) SaveAcrossCloudStroageConfigsWithOptions(request *SaveAcrossCloudStroageConfigsRequest, headers *SaveAcrossCloudStroageConfigsHeaders, runtime *util.RuntimeOptions) (_result *SaveAcrossCloudStroageConfigsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15802,6 +16980,85 @@ func (client *Client) SetDeptPartnerTypeAndNum(request *SetDeptPartnerTypeAndNum
 	headers := &SetDeptPartnerTypeAndNumHeaders{}
 	_result = &SetDeptPartnerTypeAndNumResponse{}
 	_body, _err := client.SetDeptPartnerTypeAndNumWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SpecialRuleBatchReceiverWithOptions(request *SpecialRuleBatchReceiverRequest, headers *SpecialRuleBatchReceiverHeaders, runtime *util.RuntimeOptions) (_result *SpecialRuleBatchReceiverResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BatchNo)) {
+		body["batchNo"] = request.BatchNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardOptions)) {
+		body["cardOptions"] = request.CardOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RuleCode)) {
+		body["ruleCode"] = request.RuleCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SecretKey)) {
+		body["secretKey"] = request.SecretKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpecialStrategy)) {
+		body["specialStrategy"] = request.SpecialStrategy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskBatchNo)) {
+		body["taskBatchNo"] = request.TaskBatchNo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SpecialRuleBatchReceiver"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/dmc/rules/specialMessages/batchSend"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SpecialRuleBatchReceiverResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SpecialRuleBatchReceiver(request *SpecialRuleBatchReceiverRequest) (_result *SpecialRuleBatchReceiverResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SpecialRuleBatchReceiverHeaders{}
+	_result = &SpecialRuleBatchReceiverResponse{}
+	_body, _err := client.SpecialRuleBatchReceiverWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

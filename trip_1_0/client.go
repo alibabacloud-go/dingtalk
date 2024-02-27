@@ -820,6 +820,897 @@ func (s *SyncBusinessSignInfoResponse) SetBody(v *SyncBusinessSignInfoResponseBo
 	return s
 }
 
+type SyncCostCenterHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncCostCenterHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCostCenterHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCostCenterHeaders) SetCommonHeaders(v map[string]*string) *SyncCostCenterHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncCostCenterHeaders) SetXAcsDingtalkAccessToken(v string) *SyncCostCenterHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncCostCenterRequest struct {
+	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	CostCenterId  *string `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	DeleteFlag    *bool   `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
+	Extension     *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	GmtAction     *string `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
+	Number        *string `json:"number,omitempty" xml:"number,omitempty"`
+	Scope         *int32  `json:"scope,omitempty" xml:"scope,omitempty"`
+	Source        *string `json:"source,omitempty" xml:"source,omitempty"`
+	ThirdPartId   *string `json:"thirdPartId,omitempty" xml:"thirdPartId,omitempty"`
+	Title         *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SyncCostCenterRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCostCenterRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCostCenterRequest) SetChannelCorpId(v string) *SyncCostCenterRequest {
+	s.ChannelCorpId = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetCostCenterId(v string) *SyncCostCenterRequest {
+	s.CostCenterId = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetDeleteFlag(v bool) *SyncCostCenterRequest {
+	s.DeleteFlag = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetExtension(v string) *SyncCostCenterRequest {
+	s.Extension = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetGmtAction(v string) *SyncCostCenterRequest {
+	s.GmtAction = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetNumber(v string) *SyncCostCenterRequest {
+	s.Number = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetScope(v int32) *SyncCostCenterRequest {
+	s.Scope = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetSource(v string) *SyncCostCenterRequest {
+	s.Source = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetThirdPartId(v string) *SyncCostCenterRequest {
+	s.ThirdPartId = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetTitle(v string) *SyncCostCenterRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *SyncCostCenterRequest) SetUserId(v string) *SyncCostCenterRequest {
+	s.UserId = &v
+	return s
+}
+
+type SyncCostCenterResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncCostCenterResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCostCenterResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCostCenterResponseBody) SetSuccess(v bool) *SyncCostCenterResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncCostCenterResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncCostCenterResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncCostCenterResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCostCenterResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCostCenterResponse) SetHeaders(v map[string]*string) *SyncCostCenterResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncCostCenterResponse) SetStatusCode(v int32) *SyncCostCenterResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncCostCenterResponse) SetBody(v *SyncCostCenterResponseBody) *SyncCostCenterResponse {
+	s.Body = v
+	return s
+}
+
+type SyncCostCenterEntityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncCostCenterEntityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCostCenterEntityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCostCenterEntityHeaders) SetCommonHeaders(v map[string]*string) *SyncCostCenterEntityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncCostCenterEntityHeaders) SetXAcsDingtalkAccessToken(v string) *SyncCostCenterEntityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncCostCenterEntityRequest struct {
+	ChannelCorpId *string                                  `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	CostCenterId  *string                                  `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	DelAll        *bool                                    `json:"delAll,omitempty" xml:"delAll,omitempty"`
+	EntityList    []*SyncCostCenterEntityRequestEntityList `json:"entityList,omitempty" xml:"entityList,omitempty" type:"Repeated"`
+	UserId        *string                                  `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SyncCostCenterEntityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCostCenterEntityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCostCenterEntityRequest) SetChannelCorpId(v string) *SyncCostCenterEntityRequest {
+	s.ChannelCorpId = &v
+	return s
+}
+
+func (s *SyncCostCenterEntityRequest) SetCostCenterId(v string) *SyncCostCenterEntityRequest {
+	s.CostCenterId = &v
+	return s
+}
+
+func (s *SyncCostCenterEntityRequest) SetDelAll(v bool) *SyncCostCenterEntityRequest {
+	s.DelAll = &v
+	return s
+}
+
+func (s *SyncCostCenterEntityRequest) SetEntityList(v []*SyncCostCenterEntityRequestEntityList) *SyncCostCenterEntityRequest {
+	s.EntityList = v
+	return s
+}
+
+func (s *SyncCostCenterEntityRequest) SetUserId(v string) *SyncCostCenterEntityRequest {
+	s.UserId = &v
+	return s
+}
+
+type SyncCostCenterEntityRequestEntityList struct {
+	EntityId   *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	EntityType *string `json:"entityType,omitempty" xml:"entityType,omitempty"`
+}
+
+func (s SyncCostCenterEntityRequestEntityList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCostCenterEntityRequestEntityList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCostCenterEntityRequestEntityList) SetEntityId(v string) *SyncCostCenterEntityRequestEntityList {
+	s.EntityId = &v
+	return s
+}
+
+func (s *SyncCostCenterEntityRequestEntityList) SetEntityType(v string) *SyncCostCenterEntityRequestEntityList {
+	s.EntityType = &v
+	return s
+}
+
+type SyncCostCenterEntityResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncCostCenterEntityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCostCenterEntityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCostCenterEntityResponseBody) SetSuccess(v bool) *SyncCostCenterEntityResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncCostCenterEntityResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncCostCenterEntityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncCostCenterEntityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCostCenterEntityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCostCenterEntityResponse) SetHeaders(v map[string]*string) *SyncCostCenterEntityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncCostCenterEntityResponse) SetStatusCode(v int32) *SyncCostCenterEntityResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncCostCenterEntityResponse) SetBody(v *SyncCostCenterEntityResponseBody) *SyncCostCenterEntityResponse {
+	s.Body = v
+	return s
+}
+
+type SyncInvoiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncInvoiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInvoiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInvoiceHeaders) SetCommonHeaders(v map[string]*string) *SyncInvoiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *SyncInvoiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncInvoiceRequest struct {
+	Address       *string   `json:"address,omitempty" xml:"address,omitempty"`
+	BankName      *string   `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	BankNo        *string   `json:"bankNo,omitempty" xml:"bankNo,omitempty"`
+	ChannelCorpId *string   `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	DeleteFlag    *bool     `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
+	GmtAction     *string   `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
+	InvoiceId     *string   `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	ProjectIds    []*string `json:"projectIds,omitempty" xml:"projectIds,omitempty" type:"Repeated"`
+	Scope         *int32    `json:"scope,omitempty" xml:"scope,omitempty"`
+	Source        *string   `json:"source,omitempty" xml:"source,omitempty"`
+	TaxNo         *string   `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	Tel           *string   `json:"tel,omitempty" xml:"tel,omitempty"`
+	ThirdPartId   *string   `json:"thirdPartId,omitempty" xml:"thirdPartId,omitempty"`
+	Title         *string   `json:"title,omitempty" xml:"title,omitempty"`
+	Type          *int32    `json:"type,omitempty" xml:"type,omitempty"`
+	UnitType      *int32    `json:"unitType,omitempty" xml:"unitType,omitempty"`
+	UserId        *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SyncInvoiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInvoiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInvoiceRequest) SetAddress(v string) *SyncInvoiceRequest {
+	s.Address = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetBankName(v string) *SyncInvoiceRequest {
+	s.BankName = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetBankNo(v string) *SyncInvoiceRequest {
+	s.BankNo = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetChannelCorpId(v string) *SyncInvoiceRequest {
+	s.ChannelCorpId = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetDeleteFlag(v bool) *SyncInvoiceRequest {
+	s.DeleteFlag = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetGmtAction(v string) *SyncInvoiceRequest {
+	s.GmtAction = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetInvoiceId(v string) *SyncInvoiceRequest {
+	s.InvoiceId = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetProjectIds(v []*string) *SyncInvoiceRequest {
+	s.ProjectIds = v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetScope(v int32) *SyncInvoiceRequest {
+	s.Scope = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetSource(v string) *SyncInvoiceRequest {
+	s.Source = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetTaxNo(v string) *SyncInvoiceRequest {
+	s.TaxNo = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetTel(v string) *SyncInvoiceRequest {
+	s.Tel = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetThirdPartId(v string) *SyncInvoiceRequest {
+	s.ThirdPartId = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetTitle(v string) *SyncInvoiceRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetType(v int32) *SyncInvoiceRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetUnitType(v int32) *SyncInvoiceRequest {
+	s.UnitType = &v
+	return s
+}
+
+func (s *SyncInvoiceRequest) SetUserId(v string) *SyncInvoiceRequest {
+	s.UserId = &v
+	return s
+}
+
+type SyncInvoiceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncInvoiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInvoiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInvoiceResponseBody) SetSuccess(v bool) *SyncInvoiceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncInvoiceResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncInvoiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInvoiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInvoiceResponse) SetHeaders(v map[string]*string) *SyncInvoiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncInvoiceResponse) SetStatusCode(v int32) *SyncInvoiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncInvoiceResponse) SetBody(v *SyncInvoiceResponseBody) *SyncInvoiceResponse {
+	s.Body = v
+	return s
+}
+
+type SyncInvoiceEntityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncInvoiceEntityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInvoiceEntityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInvoiceEntityHeaders) SetCommonHeaders(v map[string]*string) *SyncInvoiceEntityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncInvoiceEntityHeaders) SetXAcsDingtalkAccessToken(v string) *SyncInvoiceEntityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncInvoiceEntityRequest struct {
+	ChannelCorpId *string                               `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	DelAll        *bool                                 `json:"delAll,omitempty" xml:"delAll,omitempty"`
+	EntityList    []*SyncInvoiceEntityRequestEntityList `json:"entityList,omitempty" xml:"entityList,omitempty" type:"Repeated"`
+	InvoiceId     *string                               `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	UserId        *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SyncInvoiceEntityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInvoiceEntityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInvoiceEntityRequest) SetChannelCorpId(v string) *SyncInvoiceEntityRequest {
+	s.ChannelCorpId = &v
+	return s
+}
+
+func (s *SyncInvoiceEntityRequest) SetDelAll(v bool) *SyncInvoiceEntityRequest {
+	s.DelAll = &v
+	return s
+}
+
+func (s *SyncInvoiceEntityRequest) SetEntityList(v []*SyncInvoiceEntityRequestEntityList) *SyncInvoiceEntityRequest {
+	s.EntityList = v
+	return s
+}
+
+func (s *SyncInvoiceEntityRequest) SetInvoiceId(v string) *SyncInvoiceEntityRequest {
+	s.InvoiceId = &v
+	return s
+}
+
+func (s *SyncInvoiceEntityRequest) SetUserId(v string) *SyncInvoiceEntityRequest {
+	s.UserId = &v
+	return s
+}
+
+type SyncInvoiceEntityRequestEntityList struct {
+	EntityId   *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	EntityType *string `json:"entityType,omitempty" xml:"entityType,omitempty"`
+}
+
+func (s SyncInvoiceEntityRequestEntityList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInvoiceEntityRequestEntityList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInvoiceEntityRequestEntityList) SetEntityId(v string) *SyncInvoiceEntityRequestEntityList {
+	s.EntityId = &v
+	return s
+}
+
+func (s *SyncInvoiceEntityRequestEntityList) SetEntityType(v string) *SyncInvoiceEntityRequestEntityList {
+	s.EntityType = &v
+	return s
+}
+
+type SyncInvoiceEntityResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncInvoiceEntityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInvoiceEntityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInvoiceEntityResponseBody) SetSuccess(v bool) *SyncInvoiceEntityResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncInvoiceEntityResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncInvoiceEntityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncInvoiceEntityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInvoiceEntityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInvoiceEntityResponse) SetHeaders(v map[string]*string) *SyncInvoiceEntityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncInvoiceEntityResponse) SetStatusCode(v int32) *SyncInvoiceEntityResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncInvoiceEntityResponse) SetBody(v *SyncInvoiceEntityResponseBody) *SyncInvoiceEntityResponse {
+	s.Body = v
+	return s
+}
+
+type SyncProjectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncProjectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncProjectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncProjectHeaders) SetCommonHeaders(v map[string]*string) *SyncProjectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncProjectHeaders) SetXAcsDingtalkAccessToken(v string) *SyncProjectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncProjectRequest struct {
+	ChannelCorpId *string   `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	Code          *string   `json:"code,omitempty" xml:"code,omitempty"`
+	CostCenterId  *string   `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	DeleteFlag    *bool     `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
+	Extension     *string   `json:"extension,omitempty" xml:"extension,omitempty"`
+	GmtAction     *string   `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
+	InvoiceId     *string   `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	ManagerIds    []*string `json:"managerIds,omitempty" xml:"managerIds,omitempty" type:"Repeated"`
+	ProjectId     *string   `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	ProjectName   *string   `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	Scope         *int32    `json:"scope,omitempty" xml:"scope,omitempty"`
+	Source        *string   `json:"source,omitempty" xml:"source,omitempty"`
+	ThirdPartId   *string   `json:"thirdPartId,omitempty" xml:"thirdPartId,omitempty"`
+	UserId        *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SyncProjectRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncProjectRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncProjectRequest) SetChannelCorpId(v string) *SyncProjectRequest {
+	s.ChannelCorpId = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetCode(v string) *SyncProjectRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetCostCenterId(v string) *SyncProjectRequest {
+	s.CostCenterId = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetDeleteFlag(v bool) *SyncProjectRequest {
+	s.DeleteFlag = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetExtension(v string) *SyncProjectRequest {
+	s.Extension = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetGmtAction(v string) *SyncProjectRequest {
+	s.GmtAction = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetInvoiceId(v string) *SyncProjectRequest {
+	s.InvoiceId = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetManagerIds(v []*string) *SyncProjectRequest {
+	s.ManagerIds = v
+	return s
+}
+
+func (s *SyncProjectRequest) SetProjectId(v string) *SyncProjectRequest {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetProjectName(v string) *SyncProjectRequest {
+	s.ProjectName = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetScope(v int32) *SyncProjectRequest {
+	s.Scope = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetSource(v string) *SyncProjectRequest {
+	s.Source = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetThirdPartId(v string) *SyncProjectRequest {
+	s.ThirdPartId = &v
+	return s
+}
+
+func (s *SyncProjectRequest) SetUserId(v string) *SyncProjectRequest {
+	s.UserId = &v
+	return s
+}
+
+type SyncProjectResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncProjectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncProjectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncProjectResponseBody) SetSuccess(v bool) *SyncProjectResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncProjectResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncProjectResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncProjectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncProjectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncProjectResponse) SetHeaders(v map[string]*string) *SyncProjectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncProjectResponse) SetStatusCode(v int32) *SyncProjectResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncProjectResponse) SetBody(v *SyncProjectResponseBody) *SyncProjectResponse {
+	s.Body = v
+	return s
+}
+
+type SyncProjectEntityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncProjectEntityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncProjectEntityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncProjectEntityHeaders) SetCommonHeaders(v map[string]*string) *SyncProjectEntityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncProjectEntityHeaders) SetXAcsDingtalkAccessToken(v string) *SyncProjectEntityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncProjectEntityRequest struct {
+	ChannelCorpId *string                               `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	DelAll        *bool                                 `json:"delAll,omitempty" xml:"delAll,omitempty"`
+	EntityList    []*SyncProjectEntityRequestEntityList `json:"entityList,omitempty" xml:"entityList,omitempty" type:"Repeated"`
+	ProjectId     *string                               `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	UserId        *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SyncProjectEntityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncProjectEntityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncProjectEntityRequest) SetChannelCorpId(v string) *SyncProjectEntityRequest {
+	s.ChannelCorpId = &v
+	return s
+}
+
+func (s *SyncProjectEntityRequest) SetDelAll(v bool) *SyncProjectEntityRequest {
+	s.DelAll = &v
+	return s
+}
+
+func (s *SyncProjectEntityRequest) SetEntityList(v []*SyncProjectEntityRequestEntityList) *SyncProjectEntityRequest {
+	s.EntityList = v
+	return s
+}
+
+func (s *SyncProjectEntityRequest) SetProjectId(v string) *SyncProjectEntityRequest {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *SyncProjectEntityRequest) SetUserId(v string) *SyncProjectEntityRequest {
+	s.UserId = &v
+	return s
+}
+
+type SyncProjectEntityRequestEntityList struct {
+	EntityId   *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	EntityType *string `json:"entityType,omitempty" xml:"entityType,omitempty"`
+}
+
+func (s SyncProjectEntityRequestEntityList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncProjectEntityRequestEntityList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncProjectEntityRequestEntityList) SetEntityId(v string) *SyncProjectEntityRequestEntityList {
+	s.EntityId = &v
+	return s
+}
+
+func (s *SyncProjectEntityRequestEntityList) SetEntityType(v string) *SyncProjectEntityRequestEntityList {
+	s.EntityType = &v
+	return s
+}
+
+type SyncProjectEntityResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncProjectEntityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncProjectEntityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncProjectEntityResponseBody) SetSuccess(v bool) *SyncProjectEntityResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncProjectEntityResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncProjectEntityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncProjectEntityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncProjectEntityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncProjectEntityResponse) SetHeaders(v map[string]*string) *SyncProjectEntityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncProjectEntityResponse) SetStatusCode(v int32) *SyncProjectEntityResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncProjectEntityResponse) SetBody(v *SyncProjectEntityResponseBody) *SyncProjectEntityResponse {
+	s.Body = v
+	return s
+}
+
 type SyncSecretKeyHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1916,6 +2807,540 @@ func (client *Client) SyncBusinessSignInfo(request *SyncBusinessSignInfoRequest)
 	headers := &SyncBusinessSignInfoHeaders{}
 	_result = &SyncBusinessSignInfoResponse{}
 	_body, _err := client.SyncBusinessSignInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncCostCenterWithOptions(request *SyncCostCenterRequest, headers *SyncCostCenterHeaders, runtime *util.RuntimeOptions) (_result *SyncCostCenterResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCorpId)) {
+		body["channelCorpId"] = request.ChannelCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CostCenterId)) {
+		body["costCenterId"] = request.CostCenterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeleteFlag)) {
+		body["deleteFlag"] = request.DeleteFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtAction)) {
+		body["gmtAction"] = request.GmtAction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Number)) {
+		body["number"] = request.Number
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		body["scope"] = request.Scope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ThirdPartId)) {
+		body["thirdPartId"] = request.ThirdPartId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncCostCenter"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/processes/costCenters/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncCostCenterResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncCostCenter(request *SyncCostCenterRequest) (_result *SyncCostCenterResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncCostCenterHeaders{}
+	_result = &SyncCostCenterResponse{}
+	_body, _err := client.SyncCostCenterWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncCostCenterEntityWithOptions(request *SyncCostCenterEntityRequest, headers *SyncCostCenterEntityHeaders, runtime *util.RuntimeOptions) (_result *SyncCostCenterEntityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCorpId)) {
+		body["channelCorpId"] = request.ChannelCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CostCenterId)) {
+		body["costCenterId"] = request.CostCenterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelAll)) {
+		body["delAll"] = request.DelAll
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EntityList)) {
+		body["entityList"] = request.EntityList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncCostCenterEntity"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/processes/costCenters/applicableScopes/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncCostCenterEntityResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncCostCenterEntity(request *SyncCostCenterEntityRequest) (_result *SyncCostCenterEntityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncCostCenterEntityHeaders{}
+	_result = &SyncCostCenterEntityResponse{}
+	_body, _err := client.SyncCostCenterEntityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncInvoiceWithOptions(request *SyncInvoiceRequest, headers *SyncInvoiceHeaders, runtime *util.RuntimeOptions) (_result *SyncInvoiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Address)) {
+		body["address"] = request.Address
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BankName)) {
+		body["bankName"] = request.BankName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BankNo)) {
+		body["bankNo"] = request.BankNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChannelCorpId)) {
+		body["channelCorpId"] = request.ChannelCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeleteFlag)) {
+		body["deleteFlag"] = request.DeleteFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtAction)) {
+		body["gmtAction"] = request.GmtAction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceId)) {
+		body["invoiceId"] = request.InvoiceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectIds)) {
+		body["projectIds"] = request.ProjectIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		body["scope"] = request.Scope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaxNo)) {
+		body["taxNo"] = request.TaxNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tel)) {
+		body["tel"] = request.Tel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ThirdPartId)) {
+		body["thirdPartId"] = request.ThirdPartId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnitType)) {
+		body["unitType"] = request.UnitType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncInvoice"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/processes/invoiceTitles/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncInvoiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncInvoice(request *SyncInvoiceRequest) (_result *SyncInvoiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncInvoiceHeaders{}
+	_result = &SyncInvoiceResponse{}
+	_body, _err := client.SyncInvoiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncInvoiceEntityWithOptions(request *SyncInvoiceEntityRequest, headers *SyncInvoiceEntityHeaders, runtime *util.RuntimeOptions) (_result *SyncInvoiceEntityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCorpId)) {
+		body["channelCorpId"] = request.ChannelCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelAll)) {
+		body["delAll"] = request.DelAll
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EntityList)) {
+		body["entityList"] = request.EntityList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceId)) {
+		body["invoiceId"] = request.InvoiceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncInvoiceEntity"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/processes/invoiceTitles/applicableScopes/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncInvoiceEntityResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncInvoiceEntity(request *SyncInvoiceEntityRequest) (_result *SyncInvoiceEntityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncInvoiceEntityHeaders{}
+	_result = &SyncInvoiceEntityResponse{}
+	_body, _err := client.SyncInvoiceEntityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncProjectWithOptions(request *SyncProjectRequest, headers *SyncProjectHeaders, runtime *util.RuntimeOptions) (_result *SyncProjectResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCorpId)) {
+		body["channelCorpId"] = request.ChannelCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CostCenterId)) {
+		body["costCenterId"] = request.CostCenterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeleteFlag)) {
+		body["deleteFlag"] = request.DeleteFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtAction)) {
+		body["gmtAction"] = request.GmtAction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceId)) {
+		body["invoiceId"] = request.InvoiceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerIds)) {
+		body["managerIds"] = request.ManagerIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectId)) {
+		body["projectId"] = request.ProjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectName)) {
+		body["projectName"] = request.ProjectName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		body["scope"] = request.Scope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ThirdPartId)) {
+		body["thirdPartId"] = request.ThirdPartId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncProject"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/processes/projects/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncProjectResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncProject(request *SyncProjectRequest) (_result *SyncProjectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncProjectHeaders{}
+	_result = &SyncProjectResponse{}
+	_body, _err := client.SyncProjectWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncProjectEntityWithOptions(request *SyncProjectEntityRequest, headers *SyncProjectEntityHeaders, runtime *util.RuntimeOptions) (_result *SyncProjectEntityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCorpId)) {
+		body["channelCorpId"] = request.ChannelCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelAll)) {
+		body["delAll"] = request.DelAll
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EntityList)) {
+		body["entityList"] = request.EntityList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectId)) {
+		body["projectId"] = request.ProjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncProjectEntity"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/processes/projects/applicableScopes/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncProjectEntityResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncProjectEntity(request *SyncProjectEntityRequest) (_result *SyncProjectEntityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncProjectEntityHeaders{}
+	_result = &SyncProjectEntityResponse{}
+	_body, _err := client.SyncProjectEntityWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
