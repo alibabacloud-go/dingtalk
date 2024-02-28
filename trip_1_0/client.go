@@ -2412,6 +2412,186 @@ func (s *SyncTripOrderResponse) SetBody(v *SyncTripOrderResponseBody) *SyncTripO
 	return s
 }
 
+type SyncTripProductConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncTripProductConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripProductConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripProductConfigHeaders) SetCommonHeaders(v map[string]*string) *SyncTripProductConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncTripProductConfigHeaders) SetXAcsDingtalkAccessToken(v string) *SyncTripProductConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncTripProductConfigRequest struct {
+	TargetCorpId          *string                                              `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	TripProductConfigList []*SyncTripProductConfigRequestTripProductConfigList `json:"tripProductConfigList,omitempty" xml:"tripProductConfigList,omitempty" type:"Repeated"`
+}
+
+func (s SyncTripProductConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripProductConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripProductConfigRequest) SetTargetCorpId(v string) *SyncTripProductConfigRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+func (s *SyncTripProductConfigRequest) SetTripProductConfigList(v []*SyncTripProductConfigRequestTripProductConfigList) *SyncTripProductConfigRequest {
+	s.TripProductConfigList = v
+	return s
+}
+
+type SyncTripProductConfigRequestTripProductConfigList struct {
+	AllVisible         *bool                                                        `json:"allVisible,omitempty" xml:"allVisible,omitempty"`
+	DeptVisibleScopes  []*string                                                    `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
+	OpenStatus         *bool                                                        `json:"openStatus,omitempty" xml:"openStatus,omitempty"`
+	ProductType        *string                                                      `json:"productType,omitempty" xml:"productType,omitempty"`
+	RoleVisibleScopes  []*string                                                    `json:"roleVisibleScopes,omitempty" xml:"roleVisibleScopes,omitempty" type:"Repeated"`
+	StaffVisibleScopes []*string                                                    `json:"staffVisibleScopes,omitempty" xml:"staffVisibleScopes,omitempty" type:"Repeated"`
+	TmcInfos           []*SyncTripProductConfigRequestTripProductConfigListTmcInfos `json:"tmcInfos,omitempty" xml:"tmcInfos,omitempty" type:"Repeated"`
+}
+
+func (s SyncTripProductConfigRequestTripProductConfigList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripProductConfigRequestTripProductConfigList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigList) SetAllVisible(v bool) *SyncTripProductConfigRequestTripProductConfigList {
+	s.AllVisible = &v
+	return s
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigList) SetDeptVisibleScopes(v []*string) *SyncTripProductConfigRequestTripProductConfigList {
+	s.DeptVisibleScopes = v
+	return s
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigList) SetOpenStatus(v bool) *SyncTripProductConfigRequestTripProductConfigList {
+	s.OpenStatus = &v
+	return s
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigList) SetProductType(v string) *SyncTripProductConfigRequestTripProductConfigList {
+	s.ProductType = &v
+	return s
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigList) SetRoleVisibleScopes(v []*string) *SyncTripProductConfigRequestTripProductConfigList {
+	s.RoleVisibleScopes = v
+	return s
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigList) SetStaffVisibleScopes(v []*string) *SyncTripProductConfigRequestTripProductConfigList {
+	s.StaffVisibleScopes = v
+	return s
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigList) SetTmcInfos(v []*SyncTripProductConfigRequestTripProductConfigListTmcInfos) *SyncTripProductConfigRequestTripProductConfigList {
+	s.TmcInfos = v
+	return s
+}
+
+type SyncTripProductConfigRequestTripProductConfigListTmcInfos struct {
+	CategoryType *string `json:"categoryType,omitempty" xml:"categoryType,omitempty"`
+	GmtOrgPay    *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
+	PayType      *string `json:"payType,omitempty" xml:"payType,omitempty"`
+	TmcCorpId    *string `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
+}
+
+func (s SyncTripProductConfigRequestTripProductConfigListTmcInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripProductConfigRequestTripProductConfigListTmcInfos) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigListTmcInfos) SetCategoryType(v string) *SyncTripProductConfigRequestTripProductConfigListTmcInfos {
+	s.CategoryType = &v
+	return s
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigListTmcInfos) SetGmtOrgPay(v string) *SyncTripProductConfigRequestTripProductConfigListTmcInfos {
+	s.GmtOrgPay = &v
+	return s
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigListTmcInfos) SetPayType(v string) *SyncTripProductConfigRequestTripProductConfigListTmcInfos {
+	s.PayType = &v
+	return s
+}
+
+func (s *SyncTripProductConfigRequestTripProductConfigListTmcInfos) SetTmcCorpId(v string) *SyncTripProductConfigRequestTripProductConfigListTmcInfos {
+	s.TmcCorpId = &v
+	return s
+}
+
+type SyncTripProductConfigResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncTripProductConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripProductConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripProductConfigResponseBody) SetSuccess(v bool) *SyncTripProductConfigResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncTripProductConfigResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncTripProductConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncTripProductConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripProductConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripProductConfigResponse) SetHeaders(v map[string]*string) *SyncTripProductConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncTripProductConfigResponse) SetStatusCode(v int32) *SyncTripProductConfigResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncTripProductConfigResponse) SetBody(v *SyncTripProductConfigResponseBody) *SyncTripProductConfigResponse {
+	s.Body = v
+	return s
+}
+
 type UpgradeTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3571,6 +3751,65 @@ func (client *Client) SyncTripOrder(request *SyncTripOrderRequest) (_result *Syn
 	headers := &SyncTripOrderHeaders{}
 	_result = &SyncTripOrderResponse{}
 	_body, _err := client.SyncTripOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncTripProductConfigWithOptions(request *SyncTripProductConfigRequest, headers *SyncTripProductConfigHeaders, runtime *util.RuntimeOptions) (_result *SyncTripProductConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TripProductConfigList)) {
+		body["tripProductConfigList"] = request.TripProductConfigList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncTripProductConfig"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/productConfigs/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncTripProductConfigResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncTripProductConfig(request *SyncTripProductConfigRequest) (_result *SyncTripProductConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncTripProductConfigHeaders{}
+	_result = &SyncTripProductConfigResponse{}
+	_body, _err := client.SyncTripProductConfigWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

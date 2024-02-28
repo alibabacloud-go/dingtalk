@@ -1972,6 +1972,7 @@ func (s *CreateWorkspaceDocRequest) SetTemplateType(v string) *CreateWorkspaceDo
 }
 
 type CreateWorkspaceDocResponseBody struct {
+	DentryUuid  *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
 	DocKey      *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
 	NodeId      *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
 	Url         *string `json:"url,omitempty" xml:"url,omitempty"`
@@ -1984,6 +1985,11 @@ func (s CreateWorkspaceDocResponseBody) String() string {
 
 func (s CreateWorkspaceDocResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *CreateWorkspaceDocResponseBody) SetDentryUuid(v string) *CreateWorkspaceDocResponseBody {
+	s.DentryUuid = &v
+	return s
 }
 
 func (s *CreateWorkspaceDocResponseBody) SetDocKey(v string) *CreateWorkspaceDocResponseBody {
