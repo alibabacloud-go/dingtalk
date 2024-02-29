@@ -1823,6 +1823,7 @@ func (s *SignEnterpriseAccountHeaders) SetXAcsDingtalkAccessToken(v string) *Sig
 
 type SignEnterpriseAccountRequest struct {
 	BankCardNo      *string `json:"bankCardNo,omitempty" xml:"bankCardNo,omitempty"`
+	BankOpenId      *string `json:"bankOpenId,omitempty" xml:"bankOpenId,omitempty"`
 	Operator        *string `json:"operator,omitempty" xml:"operator,omitempty"`
 	SignOperateType *string `json:"signOperateType,omitempty" xml:"signOperateType,omitempty"`
 }
@@ -1837,6 +1838,11 @@ func (s SignEnterpriseAccountRequest) GoString() string {
 
 func (s *SignEnterpriseAccountRequest) SetBankCardNo(v string) *SignEnterpriseAccountRequest {
 	s.BankCardNo = &v
+	return s
+}
+
+func (s *SignEnterpriseAccountRequest) SetBankOpenId(v string) *SignEnterpriseAccountRequest {
+	s.BankOpenId = &v
 	return s
 }
 
@@ -2917,6 +2923,10 @@ func (client *Client) SignEnterpriseAccountWithOptions(request *SignEnterpriseAc
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BankCardNo)) {
 		query["bankCardNo"] = request.BankCardNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BankOpenId)) {
+		query["bankOpenId"] = request.BankOpenId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Operator)) {

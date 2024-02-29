@@ -1162,7 +1162,10 @@ func (s *HrmMokaOapiRequest) SetParams(v interface{}) *HrmMokaOapiRequest {
 }
 
 type HrmMokaOapiResponseBody struct {
-	Result map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	BizSuccess *bool                  `json:"bizSuccess,omitempty" xml:"bizSuccess,omitempty"`
+	ErrorCode  *string                `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg   *string                `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result     map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
 }
 
 func (s HrmMokaOapiResponseBody) String() string {
@@ -1171,6 +1174,21 @@ func (s HrmMokaOapiResponseBody) String() string {
 
 func (s HrmMokaOapiResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *HrmMokaOapiResponseBody) SetBizSuccess(v bool) *HrmMokaOapiResponseBody {
+	s.BizSuccess = &v
+	return s
+}
+
+func (s *HrmMokaOapiResponseBody) SetErrorCode(v string) *HrmMokaOapiResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *HrmMokaOapiResponseBody) SetErrorMsg(v string) *HrmMokaOapiResponseBody {
+	s.ErrorMsg = &v
+	return s
 }
 
 func (s *HrmMokaOapiResponseBody) SetResult(v map[string]interface{}) *HrmMokaOapiResponseBody {
