@@ -632,6 +632,198 @@ func (s *GetSubmitStatisticsResponse) SetBody(v *GetSubmitStatisticsResponseBody
 	return s
 }
 
+type QueryRemindResultsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryRemindResultsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemindResultsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemindResultsHeaders) SetCommonHeaders(v map[string]*string) *QueryRemindResultsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryRemindResultsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRemindResultsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryRemindResultsRequest struct {
+	MaxResults      *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken       *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OperationUserId *string `json:"operationUserId,omitempty" xml:"operationUserId,omitempty"`
+	TemplateId      *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s QueryRemindResultsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemindResultsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemindResultsRequest) SetMaxResults(v int32) *QueryRemindResultsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryRemindResultsRequest) SetNextToken(v int64) *QueryRemindResultsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryRemindResultsRequest) SetOperationUserId(v string) *QueryRemindResultsRequest {
+	s.OperationUserId = &v
+	return s
+}
+
+func (s *QueryRemindResultsRequest) SetTemplateId(v string) *QueryRemindResultsRequest {
+	s.TemplateId = &v
+	return s
+}
+
+type QueryRemindResultsResponseBody struct {
+	DataList  []*QueryRemindResultsResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	HasMore   *bool                                     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *int64                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s QueryRemindResultsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemindResultsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemindResultsResponseBody) SetDataList(v []*QueryRemindResultsResponseBodyDataList) *QueryRemindResultsResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryRemindResultsResponseBody) SetHasMore(v bool) *QueryRemindResultsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryRemindResultsResponseBody) SetNextToken(v int64) *QueryRemindResultsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type QueryRemindResultsResponseBodyDataList struct {
+	CreatorId     *string                                           `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	EndDateTime   []*string                                         `json:"endDateTime,omitempty" xml:"endDateTime,omitempty" type:"Repeated"`
+	ModifierId    *string                                           `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	PeriodType    *int32                                            `json:"periodType,omitempty" xml:"periodType,omitempty"`
+	RemindId      *int64                                            `json:"remindId,omitempty" xml:"remindId,omitempty"`
+	StartDateTime []*string                                         `json:"startDateTime,omitempty" xml:"startDateTime,omitempty" type:"Repeated"`
+	TemplateId    *string                                           `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	ToGroups      []*QueryRemindResultsResponseBodyDataListToGroups `json:"toGroups,omitempty" xml:"toGroups,omitempty" type:"Repeated"`
+}
+
+func (s QueryRemindResultsResponseBodyDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemindResultsResponseBodyDataList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemindResultsResponseBodyDataList) SetCreatorId(v string) *QueryRemindResultsResponseBodyDataList {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *QueryRemindResultsResponseBodyDataList) SetEndDateTime(v []*string) *QueryRemindResultsResponseBodyDataList {
+	s.EndDateTime = v
+	return s
+}
+
+func (s *QueryRemindResultsResponseBodyDataList) SetModifierId(v string) *QueryRemindResultsResponseBodyDataList {
+	s.ModifierId = &v
+	return s
+}
+
+func (s *QueryRemindResultsResponseBodyDataList) SetPeriodType(v int32) *QueryRemindResultsResponseBodyDataList {
+	s.PeriodType = &v
+	return s
+}
+
+func (s *QueryRemindResultsResponseBodyDataList) SetRemindId(v int64) *QueryRemindResultsResponseBodyDataList {
+	s.RemindId = &v
+	return s
+}
+
+func (s *QueryRemindResultsResponseBodyDataList) SetStartDateTime(v []*string) *QueryRemindResultsResponseBodyDataList {
+	s.StartDateTime = v
+	return s
+}
+
+func (s *QueryRemindResultsResponseBodyDataList) SetTemplateId(v string) *QueryRemindResultsResponseBodyDataList {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *QueryRemindResultsResponseBodyDataList) SetToGroups(v []*QueryRemindResultsResponseBodyDataListToGroups) *QueryRemindResultsResponseBodyDataList {
+	s.ToGroups = v
+	return s
+}
+
+type QueryRemindResultsResponseBodyDataListToGroups struct {
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryRemindResultsResponseBodyDataListToGroups) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemindResultsResponseBodyDataListToGroups) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemindResultsResponseBodyDataListToGroups) SetTitle(v string) *QueryRemindResultsResponseBodyDataListToGroups {
+	s.Title = &v
+	return s
+}
+
+type QueryRemindResultsResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryRemindResultsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryRemindResultsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemindResultsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemindResultsResponse) SetHeaders(v map[string]*string) *QueryRemindResultsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryRemindResultsResponse) SetStatusCode(v int32) *QueryRemindResultsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryRemindResultsResponse) SetBody(v *QueryRemindResultsResponseBody) *QueryRemindResultsResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -907,6 +1099,73 @@ func (client *Client) GetSubmitStatistics(request *GetSubmitStatisticsRequest) (
 	headers := &GetSubmitStatisticsHeaders{}
 	_result = &GetSubmitStatisticsResponse{}
 	_body, _err := client.GetSubmitStatisticsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryRemindResultsWithOptions(request *QueryRemindResultsRequest, headers *QueryRemindResultsHeaders, runtime *util.RuntimeOptions) (_result *QueryRemindResultsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperationUserId)) {
+		query["operationUserId"] = request.OperationUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		query["templateId"] = request.TemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryRemindResults"),
+		Version:     tea.String("report_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/report/statisticalRules/results"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryRemindResultsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryRemindResults(request *QueryRemindResultsRequest) (_result *QueryRemindResultsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryRemindResultsHeaders{}
+	_result = &QueryRemindResultsResponse{}
+	_body, _err := client.QueryRemindResultsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

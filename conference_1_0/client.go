@@ -13,6 +13,155 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type MetricMapValue struct {
+	Timestamp                  *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	SendBitRate                *string `json:"sendBitRate,omitempty" xml:"sendBitRate,omitempty"`
+	RecvBitRate                *string `json:"recvBitRate,omitempty" xml:"recvBitRate,omitempty"`
+	LostRate                   *string `json:"lostRate,omitempty" xml:"lostRate,omitempty"`
+	RoundTripTime              *string `json:"roundTripTime,omitempty" xml:"roundTripTime,omitempty"`
+	AudioSendBitRate           *string `json:"audioSendBitRate,omitempty" xml:"audioSendBitRate,omitempty"`
+	AudioRecvBitRate           *string `json:"audioRecvBitRate,omitempty" xml:"audioRecvBitRate,omitempty"`
+	AudioRecLevel              *string `json:"audioRecLevel,omitempty" xml:"audioRecLevel,omitempty"`
+	AudioPlayLevel             *string `json:"audioPlayLevel,omitempty" xml:"audioPlayLevel,omitempty"`
+	CameraSendBitRate          *string `json:"cameraSendBitRate,omitempty" xml:"cameraSendBitRate,omitempty"`
+	CameraRecvBitRate          *string `json:"cameraRecvBitRate,omitempty" xml:"cameraRecvBitRate,omitempty"`
+	CameraSendResolutionActual *string `json:"cameraSendResolutionActual,omitempty" xml:"cameraSendResolutionActual,omitempty"`
+	CameraRecvResolutionActual *string `json:"cameraRecvResolutionActual,omitempty" xml:"cameraRecvResolutionActual,omitempty"`
+	CameraSendFrame            *string `json:"cameraSendFrame,omitempty" xml:"cameraSendFrame,omitempty"`
+	ScreenSendBitRate          *string `json:"screenSendBitRate,omitempty" xml:"screenSendBitRate,omitempty"`
+	CameraRecvFrame            *string `json:"cameraRecvFrame,omitempty" xml:"cameraRecvFrame,omitempty"`
+	ScreenRecvBitRate          *string `json:"screenRecvBitRate,omitempty" xml:"screenRecvBitRate,omitempty"`
+	ScreenSendResolutionActual *string `json:"screenSendResolutionActual,omitempty" xml:"screenSendResolutionActual,omitempty"`
+	ScreenRecvResolutionActual *string `json:"screenRecvResolutionActual,omitempty" xml:"screenRecvResolutionActual,omitempty"`
+	ScreenSendFrame            *string `json:"screenSendFrame,omitempty" xml:"screenSendFrame,omitempty"`
+	ScreenRecvFrame            *string `json:"screenRecvFrame,omitempty" xml:"screenRecvFrame,omitempty"`
+	AudioJitterMax             *string `json:"audioJitterMax,omitempty" xml:"audioJitterMax,omitempty"`
+	AudioJitterAvg             *string `json:"audioJitterAvg,omitempty" xml:"audioJitterAvg,omitempty"`
+}
+
+func (s MetricMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MetricMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *MetricMapValue) SetTimestamp(v int64) *MetricMapValue {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *MetricMapValue) SetSendBitRate(v string) *MetricMapValue {
+	s.SendBitRate = &v
+	return s
+}
+
+func (s *MetricMapValue) SetRecvBitRate(v string) *MetricMapValue {
+	s.RecvBitRate = &v
+	return s
+}
+
+func (s *MetricMapValue) SetLostRate(v string) *MetricMapValue {
+	s.LostRate = &v
+	return s
+}
+
+func (s *MetricMapValue) SetRoundTripTime(v string) *MetricMapValue {
+	s.RoundTripTime = &v
+	return s
+}
+
+func (s *MetricMapValue) SetAudioSendBitRate(v string) *MetricMapValue {
+	s.AudioSendBitRate = &v
+	return s
+}
+
+func (s *MetricMapValue) SetAudioRecvBitRate(v string) *MetricMapValue {
+	s.AudioRecvBitRate = &v
+	return s
+}
+
+func (s *MetricMapValue) SetAudioRecLevel(v string) *MetricMapValue {
+	s.AudioRecLevel = &v
+	return s
+}
+
+func (s *MetricMapValue) SetAudioPlayLevel(v string) *MetricMapValue {
+	s.AudioPlayLevel = &v
+	return s
+}
+
+func (s *MetricMapValue) SetCameraSendBitRate(v string) *MetricMapValue {
+	s.CameraSendBitRate = &v
+	return s
+}
+
+func (s *MetricMapValue) SetCameraRecvBitRate(v string) *MetricMapValue {
+	s.CameraRecvBitRate = &v
+	return s
+}
+
+func (s *MetricMapValue) SetCameraSendResolutionActual(v string) *MetricMapValue {
+	s.CameraSendResolutionActual = &v
+	return s
+}
+
+func (s *MetricMapValue) SetCameraRecvResolutionActual(v string) *MetricMapValue {
+	s.CameraRecvResolutionActual = &v
+	return s
+}
+
+func (s *MetricMapValue) SetCameraSendFrame(v string) *MetricMapValue {
+	s.CameraSendFrame = &v
+	return s
+}
+
+func (s *MetricMapValue) SetScreenSendBitRate(v string) *MetricMapValue {
+	s.ScreenSendBitRate = &v
+	return s
+}
+
+func (s *MetricMapValue) SetCameraRecvFrame(v string) *MetricMapValue {
+	s.CameraRecvFrame = &v
+	return s
+}
+
+func (s *MetricMapValue) SetScreenRecvBitRate(v string) *MetricMapValue {
+	s.ScreenRecvBitRate = &v
+	return s
+}
+
+func (s *MetricMapValue) SetScreenSendResolutionActual(v string) *MetricMapValue {
+	s.ScreenSendResolutionActual = &v
+	return s
+}
+
+func (s *MetricMapValue) SetScreenRecvResolutionActual(v string) *MetricMapValue {
+	s.ScreenRecvResolutionActual = &v
+	return s
+}
+
+func (s *MetricMapValue) SetScreenSendFrame(v string) *MetricMapValue {
+	s.ScreenSendFrame = &v
+	return s
+}
+
+func (s *MetricMapValue) SetScreenRecvFrame(v string) *MetricMapValue {
+	s.ScreenRecvFrame = &v
+	return s
+}
+
+func (s *MetricMapValue) SetAudioJitterMax(v string) *MetricMapValue {
+	s.AudioJitterMax = &v
+	return s
+}
+
+func (s *MetricMapValue) SetAudioJitterAvg(v string) *MetricMapValue {
+	s.AudioJitterAvg = &v
+	return s
+}
+
 type MemberModelMapValue struct {
 	UnionId        *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	ConferenceId   *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
@@ -1295,6 +1444,92 @@ func (s *GetHistoryConfDataListResponse) SetStatusCode(v int32) *GetHistoryConfD
 }
 
 func (s *GetHistoryConfDataListResponse) SetBody(v *GetHistoryConfDataListResponseBody) *GetHistoryConfDataListResponse {
+	s.Body = v
+	return s
+}
+
+type GetUserLastMetricHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserLastMetricHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserLastMetricHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserLastMetricHeaders) SetCommonHeaders(v map[string]*string) *GetUserLastMetricHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserLastMetricHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserLastMetricHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserLastMetricRequest struct {
+	UnionIdList []*string `json:"unionIdList,omitempty" xml:"unionIdList,omitempty" type:"Repeated"`
+}
+
+func (s GetUserLastMetricRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserLastMetricRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserLastMetricRequest) SetUnionIdList(v []*string) *GetUserLastMetricRequest {
+	s.UnionIdList = v
+	return s
+}
+
+type GetUserLastMetricResponseBody struct {
+	MetricMap map[string]*MetricMapValue `json:"metricMap,omitempty" xml:"metricMap,omitempty"`
+}
+
+func (s GetUserLastMetricResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserLastMetricResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserLastMetricResponseBody) SetMetricMap(v map[string]*MetricMapValue) *GetUserLastMetricResponseBody {
+	s.MetricMap = v
+	return s
+}
+
+type GetUserLastMetricResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserLastMetricResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetUserLastMetricResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserLastMetricResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserLastMetricResponse) SetHeaders(v map[string]*string) *GetUserLastMetricResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserLastMetricResponse) SetStatusCode(v int32) *GetUserLastMetricResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetUserLastMetricResponse) SetBody(v *GetUserLastMetricResponseBody) *GetUserLastMetricResponse {
 	s.Body = v
 	return s
 }
@@ -4973,6 +5208,61 @@ func (client *Client) GetHistoryConfDataList(request *GetHistoryConfDataListRequ
 	headers := &GetHistoryConfDataListHeaders{}
 	_result = &GetHistoryConfDataListResponse{}
 	_body, _err := client.GetHistoryConfDataListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserLastMetricWithOptions(conferenceId *string, request *GetUserLastMetricRequest, headers *GetUserLastMetricHeaders, runtime *util.RuntimeOptions) (_result *GetUserLastMetricResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionIdList)) {
+		body["unionIdList"] = request.UnionIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserLastMetric"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/lastMetricDatas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetUserLastMetricResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserLastMetric(conferenceId *string, request *GetUserLastMetricRequest) (_result *GetUserLastMetricResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserLastMetricHeaders{}
+	_result = &GetUserLastMetricResponse{}
+	_body, _err := client.GetUserLastMetricWithOptions(conferenceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

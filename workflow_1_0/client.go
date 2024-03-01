@@ -4304,6 +4304,8 @@ func (s *ListUserVisibleBpmsProcessesResponseBodyResult) SetProcessList(v []*Lis
 }
 
 type ListUserVisibleBpmsProcessesResponseBodyResultProcessList struct {
+	DirId       *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
+	DirName     *string `json:"dirName,omitempty" xml:"dirName,omitempty"`
 	IconUrl     *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
 	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
@@ -4316,6 +4318,16 @@ func (s ListUserVisibleBpmsProcessesResponseBodyResultProcessList) String() stri
 
 func (s ListUserVisibleBpmsProcessesResponseBodyResultProcessList) GoString() string {
 	return s.String()
+}
+
+func (s *ListUserVisibleBpmsProcessesResponseBodyResultProcessList) SetDirId(v string) *ListUserVisibleBpmsProcessesResponseBodyResultProcessList {
+	s.DirId = &v
+	return s
+}
+
+func (s *ListUserVisibleBpmsProcessesResponseBodyResultProcessList) SetDirName(v string) *ListUserVisibleBpmsProcessesResponseBodyResultProcessList {
+	s.DirName = &v
+	return s
 }
 
 func (s *ListUserVisibleBpmsProcessesResponseBodyResultProcessList) SetIconUrl(v string) *ListUserVisibleBpmsProcessesResponseBodyResultProcessList {
