@@ -2024,12 +2024,13 @@ func (s *UpdateInstanceOrderInfoHeaders) SetXAcsDingtalkAccessToken(v string) *U
 }
 
 type UpdateInstanceOrderInfoRequest struct {
-	FailReason *string                                  `json:"failReason,omitempty" xml:"failReason,omitempty"`
-	OrderNo    *string                                  `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
-	OutOrderNo *string                                  `json:"outOrderNo,omitempty" xml:"outOrderNo,omitempty"`
-	PayerBank  *UpdateInstanceOrderInfoRequestPayerBank `json:"payerBank,omitempty" xml:"payerBank,omitempty" type:"Struct"`
-	Status     *string                                  `json:"status,omitempty" xml:"status,omitempty"`
-	UserId     *string                                  `json:"userId,omitempty" xml:"userId,omitempty"`
+	FailReason  *string                                  `json:"failReason,omitempty" xml:"failReason,omitempty"`
+	OrderNo     *string                                  `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	OutOrderNo  *string                                  `json:"outOrderNo,omitempty" xml:"outOrderNo,omitempty"`
+	PayerBank   *UpdateInstanceOrderInfoRequestPayerBank `json:"payerBank,omitempty" xml:"payerBank,omitempty" type:"Struct"`
+	PaymentTime *int64                                   `json:"paymentTime,omitempty" xml:"paymentTime,omitempty"`
+	Status      *string                                  `json:"status,omitempty" xml:"status,omitempty"`
+	UserId      *string                                  `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateInstanceOrderInfoRequest) String() string {
@@ -2057,6 +2058,11 @@ func (s *UpdateInstanceOrderInfoRequest) SetOutOrderNo(v string) *UpdateInstance
 
 func (s *UpdateInstanceOrderInfoRequest) SetPayerBank(v *UpdateInstanceOrderInfoRequestPayerBank) *UpdateInstanceOrderInfoRequest {
 	s.PayerBank = v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoRequest) SetPaymentTime(v int64) *UpdateInstanceOrderInfoRequest {
+	s.PaymentTime = &v
 	return s
 }
 
@@ -2098,6 +2104,7 @@ type UpdateInstanceOrderInfoShrinkRequest struct {
 	OrderNo         *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
 	OutOrderNo      *string `json:"outOrderNo,omitempty" xml:"outOrderNo,omitempty"`
 	PayerBankShrink *string `json:"payerBank,omitempty" xml:"payerBank,omitempty"`
+	PaymentTime     *int64  `json:"paymentTime,omitempty" xml:"paymentTime,omitempty"`
 	Status          *string `json:"status,omitempty" xml:"status,omitempty"`
 	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -2127,6 +2134,11 @@ func (s *UpdateInstanceOrderInfoShrinkRequest) SetOutOrderNo(v string) *UpdateIn
 
 func (s *UpdateInstanceOrderInfoShrinkRequest) SetPayerBankShrink(v string) *UpdateInstanceOrderInfoShrinkRequest {
 	s.PayerBankShrink = &v
+	return s
+}
+
+func (s *UpdateInstanceOrderInfoShrinkRequest) SetPaymentTime(v int64) *UpdateInstanceOrderInfoShrinkRequest {
+	s.PaymentTime = &v
 	return s
 }
 
@@ -3071,6 +3083,10 @@ func (client *Client) UpdateInstanceOrderInfoWithOptions(instanceId *string, tmp
 
 	if !tea.BoolValue(util.IsUnset(request.PayerBankShrink)) {
 		query["payerBank"] = request.PayerBankShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PaymentTime)) {
+		query["paymentTime"] = request.PaymentTime
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Status)) {

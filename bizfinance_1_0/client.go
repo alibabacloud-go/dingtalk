@@ -312,6 +312,9 @@ type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
 	PurchaserName                  *string                                                                     `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
 	PurchaserTaxNo                 *string                                                                     `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
 	PurchaserTel                   *string                                                                     `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	ReceiverEmail                  *string                                                                     `json:"receiverEmail,omitempty" xml:"receiverEmail,omitempty"`
+	ReceiverName                   *string                                                                     `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	ReceiverTel                    *string                                                                     `json:"receiverTel,omitempty" xml:"receiverTel,omitempty"`
 	Remark                         *string                                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
 	Reviewer                       *string                                                                     `json:"reviewer,omitempty" xml:"reviewer,omitempty"`
 	SecondHandCarInvoiceDetailList []*BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
@@ -470,6 +473,21 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserTaxNo(v string)
 
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserTel(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.PurchaserTel = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetReceiverEmail(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.ReceiverEmail = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetReceiverName(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.ReceiverName = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetReceiverTel(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.ReceiverTel = &v
 	return s
 }
 
@@ -11979,6 +11997,9 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
 	PurchaserName                  *string                                                                                `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
 	PurchaserTaxNo                 *string                                                                                `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
 	PurchaserTel                   *string                                                                                `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	ReceiverEmail                  *string                                                                                `json:"receiverEmail,omitempty" xml:"receiverEmail,omitempty"`
+	ReceiverName                   *string                                                                                `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	ReceiverTel                    *string                                                                                `json:"receiverTel,omitempty" xml:"receiverTel,omitempty"`
 	Remark                         *string                                                                                `json:"remark,omitempty" xml:"remark,omitempty"`
 	SeatClass                      *string                                                                                `json:"seatClass,omitempty" xml:"seatClass,omitempty"`
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
@@ -12222,6 +12243,21 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserTaxN
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserTel(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.PurchaserTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetReceiverEmail(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.ReceiverEmail = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetReceiverName(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.ReceiverName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetReceiverTel(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.ReceiverTel = &v
 	return s
 }
 
