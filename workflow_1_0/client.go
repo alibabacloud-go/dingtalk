@@ -3298,6 +3298,204 @@ func (s *GetProcessInstanceResponse) SetBody(v *GetProcessInstanceResponseBody) 
 	return s
 }
 
+type GetSchemaAndProcessconfigBatchllyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSchemaAndProcessconfigBatchllyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSchemaAndProcessconfigBatchllyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyHeaders) SetCommonHeaders(v map[string]*string) *GetSchemaAndProcessconfigBatchllyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyHeaders) SetXAcsDingtalkAccessToken(v string) *GetSchemaAndProcessconfigBatchllyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSchemaAndProcessconfigBatchllyRequest struct {
+	ProcessCodes []*string `json:"processCodes,omitempty" xml:"processCodes,omitempty" type:"Repeated"`
+}
+
+func (s GetSchemaAndProcessconfigBatchllyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSchemaAndProcessconfigBatchllyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyRequest) SetProcessCodes(v []*string) *GetSchemaAndProcessconfigBatchllyRequest {
+	s.ProcessCodes = v
+	return s
+}
+
+type GetSchemaAndProcessconfigBatchllyShrinkRequest struct {
+	ProcessCodesShrink *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+}
+
+func (s GetSchemaAndProcessconfigBatchllyShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSchemaAndProcessconfigBatchllyShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyShrinkRequest) SetProcessCodesShrink(v string) *GetSchemaAndProcessconfigBatchllyShrinkRequest {
+	s.ProcessCodesShrink = &v
+	return s
+}
+
+type GetSchemaAndProcessconfigBatchllyResponseBody struct {
+	Result []*GetSchemaAndProcessconfigBatchllyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetSchemaAndProcessconfigBatchllyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSchemaAndProcessconfigBatchllyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBody) SetResult(v []*GetSchemaAndProcessconfigBatchllyResponseBodyResult) *GetSchemaAndProcessconfigBatchllyResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetSchemaAndProcessconfigBatchllyResponseBodyResult struct {
+	AppUuid       *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	BizCategoryId *string `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	CreateTime    *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	FormUuid      *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	ManagerList   *string `json:"managerList,omitempty" xml:"managerList,omitempty"`
+	Memo          *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	ProcessCode   *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	ProcessConfig *string `json:"processConfig,omitempty" xml:"processConfig,omitempty"`
+	ProcessId     *int64  `json:"processId,omitempty" xml:"processId,omitempty"`
+	Properties    *string `json:"properties,omitempty" xml:"properties,omitempty"`
+	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	VisibleScope  *string `json:"visibleScope,omitempty" xml:"visibleScope,omitempty"`
+}
+
+func (s GetSchemaAndProcessconfigBatchllyResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSchemaAndProcessconfigBatchllyResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetAppUuid(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetBizCategoryId(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.BizCategoryId = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetCreateTime(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetCreatorUserId(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetFormUuid(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetManagerList(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.ManagerList = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetMemo(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.Memo = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetName(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetProcessCode(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetProcessConfig(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.ProcessConfig = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetProcessId(v int64) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.ProcessId = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetProperties(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.Properties = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetSchemaContent(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.SchemaContent = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponseBodyResult) SetVisibleScope(v string) *GetSchemaAndProcessconfigBatchllyResponseBodyResult {
+	s.VisibleScope = &v
+	return s
+}
+
+type GetSchemaAndProcessconfigBatchllyResponse struct {
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSchemaAndProcessconfigBatchllyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetSchemaAndProcessconfigBatchllyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSchemaAndProcessconfigBatchllyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponse) SetHeaders(v map[string]*string) *GetSchemaAndProcessconfigBatchllyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponse) SetStatusCode(v int32) *GetSchemaAndProcessconfigBatchllyResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSchemaAndProcessconfigBatchllyResponse) SetBody(v *GetSchemaAndProcessconfigBatchllyResponseBody) *GetSchemaAndProcessconfigBatchllyResponse {
+	s.Body = v
+	return s
+}
+
 type GetSpaceWithDownloadAuthHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4375,6 +4573,446 @@ func (s *ListUserVisibleBpmsProcessesResponse) SetStatusCode(v int32) *ListUserV
 }
 
 func (s *ListUserVisibleBpmsProcessesResponse) SetBody(v *ListUserVisibleBpmsProcessesResponseBody) *ListUserVisibleBpmsProcessesResponse {
+	s.Body = v
+	return s
+}
+
+type PagesExportInstancesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PagesExportInstancesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesHeaders) SetCommonHeaders(v map[string]*string) *PagesExportInstancesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PagesExportInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *PagesExportInstancesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PagesExportInstancesRequest struct {
+	EndTimeInMills   *int64  `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
+	MaxResult        *int32  `json:"maxResult,omitempty" xml:"maxResult,omitempty"`
+	NextToken        *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OrderBy          *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	ProcessCode      *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	StartTimeInMills *int64  `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
+	Status           *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s PagesExportInstancesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesRequest) SetEndTimeInMills(v int64) *PagesExportInstancesRequest {
+	s.EndTimeInMills = &v
+	return s
+}
+
+func (s *PagesExportInstancesRequest) SetMaxResult(v int32) *PagesExportInstancesRequest {
+	s.MaxResult = &v
+	return s
+}
+
+func (s *PagesExportInstancesRequest) SetNextToken(v string) *PagesExportInstancesRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PagesExportInstancesRequest) SetOrderBy(v string) *PagesExportInstancesRequest {
+	s.OrderBy = &v
+	return s
+}
+
+func (s *PagesExportInstancesRequest) SetProcessCode(v string) *PagesExportInstancesRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PagesExportInstancesRequest) SetStartTimeInMills(v int64) *PagesExportInstancesRequest {
+	s.StartTimeInMills = &v
+	return s
+}
+
+func (s *PagesExportInstancesRequest) SetStatus(v string) *PagesExportInstancesRequest {
+	s.Status = &v
+	return s
+}
+
+type PagesExportInstancesResponseBody struct {
+	Result *PagesExportInstancesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s PagesExportInstancesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesResponseBody) SetResult(v *PagesExportInstancesResponseBodyResult) *PagesExportInstancesResponseBody {
+	s.Result = v
+	return s
+}
+
+type PagesExportInstancesResponseBodyResult struct {
+	HasMore    *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*PagesExportInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	MaxResults *int64                                        `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s PagesExportInstancesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesResponseBodyResult) SetHasMore(v bool) *PagesExportInstancesResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResult) SetList(v []*PagesExportInstancesResponseBodyResultList) *PagesExportInstancesResponseBodyResult {
+	s.List = v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResult) SetMaxResults(v int64) *PagesExportInstancesResponseBodyResult {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResult) SetNextToken(v string) *PagesExportInstancesResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+type PagesExportInstancesResponseBodyResultList struct {
+	AttachedProcessInstanceIds *string                                                          `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty"`
+	BusinessId                 *string                                                          `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CreateTime                 *int64                                                           `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FinishTime                 *int64                                                           `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	FormComponentValues        []*PagesExportInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	MainProcessInstanceId      *string                                                          `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	OperationRecords           []*PagesExportInstancesResponseBodyResultListOperationRecords    `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
+	OriginatorDeptId           *string                                                          `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
+	OriginatorUserid           *string                                                          `json:"originatorUserid,omitempty" xml:"originatorUserid,omitempty"`
+	ProcessInstanceId          *string                                                          `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Result                     *string                                                          `json:"result,omitempty" xml:"result,omitempty"`
+	Status                     *string                                                          `json:"status,omitempty" xml:"status,omitempty"`
+	Tasks                      []*PagesExportInstancesResponseBodyResultListTasks               `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	Title                      *string                                                          `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s PagesExportInstancesResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetAttachedProcessInstanceIds(v string) *PagesExportInstancesResponseBodyResultList {
+	s.AttachedProcessInstanceIds = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetBusinessId(v string) *PagesExportInstancesResponseBodyResultList {
+	s.BusinessId = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetCreateTime(v int64) *PagesExportInstancesResponseBodyResultList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetFinishTime(v int64) *PagesExportInstancesResponseBodyResultList {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetFormComponentValues(v []*PagesExportInstancesResponseBodyResultListFormComponentValues) *PagesExportInstancesResponseBodyResultList {
+	s.FormComponentValues = v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetMainProcessInstanceId(v string) *PagesExportInstancesResponseBodyResultList {
+	s.MainProcessInstanceId = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetOperationRecords(v []*PagesExportInstancesResponseBodyResultListOperationRecords) *PagesExportInstancesResponseBodyResultList {
+	s.OperationRecords = v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetOriginatorDeptId(v string) *PagesExportInstancesResponseBodyResultList {
+	s.OriginatorDeptId = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetOriginatorUserid(v string) *PagesExportInstancesResponseBodyResultList {
+	s.OriginatorUserid = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetProcessInstanceId(v string) *PagesExportInstancesResponseBodyResultList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetResult(v string) *PagesExportInstancesResponseBodyResultList {
+	s.Result = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetStatus(v string) *PagesExportInstancesResponseBodyResultList {
+	s.Status = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetTasks(v []*PagesExportInstancesResponseBodyResultListTasks) *PagesExportInstancesResponseBodyResultList {
+	s.Tasks = v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultList) SetTitle(v string) *PagesExportInstancesResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+type PagesExportInstancesResponseBodyResultListFormComponentValues struct {
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PagesExportInstancesResponseBodyResultListFormComponentValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesResponseBodyResultListFormComponentValues) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesResponseBodyResultListFormComponentValues) SetComponentName(v string) *PagesExportInstancesResponseBodyResultListFormComponentValues {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListFormComponentValues) SetExtValue(v string) *PagesExportInstancesResponseBodyResultListFormComponentValues {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListFormComponentValues) SetId(v string) *PagesExportInstancesResponseBodyResultListFormComponentValues {
+	s.Id = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListFormComponentValues) SetName(v string) *PagesExportInstancesResponseBodyResultListFormComponentValues {
+	s.Name = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListFormComponentValues) SetValue(v string) *PagesExportInstancesResponseBodyResultListFormComponentValues {
+	s.Value = &v
+	return s
+}
+
+type PagesExportInstancesResponseBodyResultListOperationRecords struct {
+	ActivityId    *string                                                                  `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	Attachments   []*PagesExportInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	OperationType *string                                                                  `json:"operationType,omitempty" xml:"operationType,omitempty"`
+	Remark        *string                                                                  `json:"remark,omitempty" xml:"remark,omitempty"`
+	Result        *string                                                                  `json:"result,omitempty" xml:"result,omitempty"`
+	TaskId        *int64                                                                   `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Timestamp     *int64                                                                   `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	UserId        *string                                                                  `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PagesExportInstancesResponseBodyResultListOperationRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesResponseBodyResultListOperationRecords) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetActivityId(v string) *PagesExportInstancesResponseBodyResultListOperationRecords {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetAttachments(v []*PagesExportInstancesResponseBodyResultListOperationRecordsAttachments) *PagesExportInstancesResponseBodyResultListOperationRecords {
+	s.Attachments = v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetOperationType(v string) *PagesExportInstancesResponseBodyResultListOperationRecords {
+	s.OperationType = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetRemark(v string) *PagesExportInstancesResponseBodyResultListOperationRecords {
+	s.Remark = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetResult(v string) *PagesExportInstancesResponseBodyResultListOperationRecords {
+	s.Result = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetTaskId(v int64) *PagesExportInstancesResponseBodyResultListOperationRecords {
+	s.TaskId = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetTimestamp(v int64) *PagesExportInstancesResponseBodyResultListOperationRecords {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetUserId(v string) *PagesExportInstancesResponseBodyResultListOperationRecords {
+	s.UserId = &v
+	return s
+}
+
+type PagesExportInstancesResponseBodyResultListOperationRecordsAttachments struct {
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+}
+
+func (s PagesExportInstancesResponseBodyResultListOperationRecordsAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesResponseBodyResultListOperationRecordsAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecordsAttachments) SetFileId(v string) *PagesExportInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileId = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecordsAttachments) SetFileName(v string) *PagesExportInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecordsAttachments) SetFileSize(v string) *PagesExportInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileSize = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecordsAttachments) SetFileType(v string) *PagesExportInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileType = &v
+	return s
+}
+
+type PagesExportInstancesResponseBodyResultListTasks struct {
+	ActivityId      *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	CreateTimestamp *int64  `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	FinishTimestamp *int64  `json:"finishTimestamp,omitempty" xml:"finishTimestamp,omitempty"`
+	Result          *string `json:"result,omitempty" xml:"result,omitempty"`
+	Status          *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId          *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PagesExportInstancesResponseBodyResultListTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesResponseBodyResultListTasks) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesResponseBodyResultListTasks) SetActivityId(v string) *PagesExportInstancesResponseBodyResultListTasks {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListTasks) SetCreateTimestamp(v int64) *PagesExportInstancesResponseBodyResultListTasks {
+	s.CreateTimestamp = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListTasks) SetFinishTimestamp(v int64) *PagesExportInstancesResponseBodyResultListTasks {
+	s.FinishTimestamp = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListTasks) SetResult(v string) *PagesExportInstancesResponseBodyResultListTasks {
+	s.Result = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListTasks) SetStatus(v string) *PagesExportInstancesResponseBodyResultListTasks {
+	s.Status = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListTasks) SetTaskId(v int64) *PagesExportInstancesResponseBodyResultListTasks {
+	s.TaskId = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListTasks) SetUserId(v string) *PagesExportInstancesResponseBodyResultListTasks {
+	s.UserId = &v
+	return s
+}
+
+type PagesExportInstancesResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PagesExportInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PagesExportInstancesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagesExportInstancesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PagesExportInstancesResponse) SetHeaders(v map[string]*string) *PagesExportInstancesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PagesExportInstancesResponse) SetStatusCode(v int32) *PagesExportInstancesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PagesExportInstancesResponse) SetBody(v *PagesExportInstancesResponseBody) *PagesExportInstancesResponse {
 	s.Body = v
 	return s
 }
@@ -9615,6 +10253,67 @@ func (client *Client) GetProcessInstance(request *GetProcessInstanceRequest) (_r
 	return _result, _err
 }
 
+func (client *Client) GetSchemaAndProcessconfigBatchllyWithOptions(tmpReq *GetSchemaAndProcessconfigBatchllyRequest, headers *GetSchemaAndProcessconfigBatchllyHeaders, runtime *util.RuntimeOptions) (_result *GetSchemaAndProcessconfigBatchllyResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &GetSchemaAndProcessconfigBatchllyShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.ProcessCodes)) {
+		request.ProcessCodesShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.ProcessCodes, tea.String("processCodes"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessCodesShrink)) {
+		query["processCodes"] = request.ProcessCodesShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSchemaAndProcessconfigBatchlly"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/templates/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSchemaAndProcessconfigBatchllyResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSchemaAndProcessconfigBatchlly(request *GetSchemaAndProcessconfigBatchllyRequest) (_result *GetSchemaAndProcessconfigBatchllyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSchemaAndProcessconfigBatchllyHeaders{}
+	_result = &GetSchemaAndProcessconfigBatchllyResponse{}
+	_body, _err := client.GetSchemaAndProcessconfigBatchllyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) GetSpaceWithDownloadAuthWithOptions(request *GetSpaceWithDownloadAuthRequest, headers *GetSpaceWithDownloadAuthHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceWithDownloadAuthResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10132,6 +10831,85 @@ func (client *Client) ListUserVisibleBpmsProcesses(request *ListUserVisibleBpmsP
 	headers := &ListUserVisibleBpmsProcessesHeaders{}
 	_result = &ListUserVisibleBpmsProcessesResponse{}
 	_body, _err := client.ListUserVisibleBpmsProcessesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PagesExportInstancesWithOptions(request *PagesExportInstancesRequest, headers *PagesExportInstancesHeaders, runtime *util.RuntimeOptions) (_result *PagesExportInstancesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTimeInMills)) {
+		query["endTimeInMills"] = request.EndTimeInMills
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResult)) {
+		query["maxResult"] = request.MaxResult
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderBy)) {
+		query["orderBy"] = request.OrderBy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		query["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTimeInMills)) {
+		query["startTimeInMills"] = request.StartTimeInMills
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		query["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PagesExportInstances"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/instances/datas"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PagesExportInstancesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PagesExportInstances(request *PagesExportInstancesRequest) (_result *PagesExportInstancesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PagesExportInstancesHeaders{}
+	_result = &PagesExportInstancesResponse{}
+	_body, _err := client.PagesExportInstancesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

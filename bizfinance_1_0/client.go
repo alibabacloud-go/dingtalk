@@ -8241,6 +8241,9 @@ type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList struct {
 	PurchaserName                  *string                                                                                         `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
 	PurchaserTaxNo                 *string                                                                                         `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
 	PurchaserTel                   *string                                                                                         `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	ReceiverEmail                  *string                                                                                         `json:"receiverEmail,omitempty" xml:"receiverEmail,omitempty"`
+	ReceiverName                   *string                                                                                         `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	ReceiverTel                    *string                                                                                         `json:"receiverTel,omitempty" xml:"receiverTel,omitempty"`
 	Remark                         *string                                                                                         `json:"remark,omitempty" xml:"remark,omitempty"`
 	SecondHandCarInvoiceDetailList []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
 	SellerAddress                  *string                                                                                         `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
@@ -8398,6 +8401,21 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetPurc
 
 func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetPurchaserTel(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
 	s.PurchaserTel = &v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetReceiverEmail(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
+	s.ReceiverEmail = &v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetReceiverName(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
+	s.ReceiverName = &v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetReceiverTel(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
+	s.ReceiverTel = &v
 	return s
 }
 

@@ -1406,6 +1406,291 @@ func (s *BatchAddRelationDatasResponse) SetBody(v *BatchAddRelationDatasResponse
 	return s
 }
 
+type BatchCreateClueDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchCreateClueDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateClueDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateClueDataHeaders) SetCommonHeaders(v map[string]*string) *BatchCreateClueDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchCreateClueDataHeaders) SetXAcsDingtalkAccessToken(v string) *BatchCreateClueDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchCreateClueDataRequest struct {
+	DataList []*BatchCreateClueDataRequestDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	UserId   *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchCreateClueDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateClueDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateClueDataRequest) SetDataList(v []*BatchCreateClueDataRequestDataList) *BatchCreateClueDataRequest {
+	s.DataList = v
+	return s
+}
+
+func (s *BatchCreateClueDataRequest) SetUserId(v string) *BatchCreateClueDataRequest {
+	s.UserId = &v
+	return s
+}
+
+type BatchCreateClueDataRequestDataList struct {
+	ContactList []*BatchCreateClueDataRequestDataListContactList `json:"contactList,omitempty" xml:"contactList,omitempty" type:"Repeated"`
+	Enterprise  *BatchCreateClueDataRequestDataListEnterprise    `json:"enterprise,omitempty" xml:"enterprise,omitempty" type:"Struct"`
+	Name        *string                                          `json:"name,omitempty" xml:"name,omitempty"`
+	SourceId    *string                                          `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	SourceType  *string                                          `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
+	TagIdList   []*BatchCreateClueDataRequestDataListTagIdList   `json:"tagIdList,omitempty" xml:"tagIdList,omitempty" type:"Repeated"`
+}
+
+func (s BatchCreateClueDataRequestDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateClueDataRequestDataList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateClueDataRequestDataList) SetContactList(v []*BatchCreateClueDataRequestDataListContactList) *BatchCreateClueDataRequestDataList {
+	s.ContactList = v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataList) SetEnterprise(v *BatchCreateClueDataRequestDataListEnterprise) *BatchCreateClueDataRequestDataList {
+	s.Enterprise = v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataList) SetName(v string) *BatchCreateClueDataRequestDataList {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataList) SetSourceId(v string) *BatchCreateClueDataRequestDataList {
+	s.SourceId = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataList) SetSourceType(v string) *BatchCreateClueDataRequestDataList {
+	s.SourceType = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataList) SetTagIdList(v []*BatchCreateClueDataRequestDataListTagIdList) *BatchCreateClueDataRequestDataList {
+	s.TagIdList = v
+	return s
+}
+
+type BatchCreateClueDataRequestDataListContactList struct {
+	Mobile   *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	Phone    *string `json:"phone,omitempty" xml:"phone,omitempty"`
+	Qq       *string `json:"qq,omitempty" xml:"qq,omitempty"`
+	WangWang *string `json:"wangWang,omitempty" xml:"wangWang,omitempty"`
+	WeChat   *string `json:"weChat,omitempty" xml:"weChat,omitempty"`
+}
+
+func (s BatchCreateClueDataRequestDataListContactList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateClueDataRequestDataListContactList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateClueDataRequestDataListContactList) SetMobile(v string) *BatchCreateClueDataRequestDataListContactList {
+	s.Mobile = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListContactList) SetName(v string) *BatchCreateClueDataRequestDataListContactList {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListContactList) SetPhone(v string) *BatchCreateClueDataRequestDataListContactList {
+	s.Phone = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListContactList) SetQq(v string) *BatchCreateClueDataRequestDataListContactList {
+	s.Qq = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListContactList) SetWangWang(v string) *BatchCreateClueDataRequestDataListContactList {
+	s.WangWang = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListContactList) SetWeChat(v string) *BatchCreateClueDataRequestDataListContactList {
+	s.WeChat = &v
+	return s
+}
+
+type BatchCreateClueDataRequestDataListEnterprise struct {
+	Address                 *string `json:"address,omitempty" xml:"address,omitempty"`
+	IndustryCode            *string `json:"industryCode,omitempty" xml:"industryCode,omitempty"`
+	Name                    *string `json:"name,omitempty" xml:"name,omitempty"`
+	Region                  *string `json:"region,omitempty" xml:"region,omitempty"`
+	UnifiedSocialCreditCode *string `json:"unifiedSocialCreditCode,omitempty" xml:"unifiedSocialCreditCode,omitempty"`
+}
+
+func (s BatchCreateClueDataRequestDataListEnterprise) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateClueDataRequestDataListEnterprise) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateClueDataRequestDataListEnterprise) SetAddress(v string) *BatchCreateClueDataRequestDataListEnterprise {
+	s.Address = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListEnterprise) SetIndustryCode(v string) *BatchCreateClueDataRequestDataListEnterprise {
+	s.IndustryCode = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListEnterprise) SetName(v string) *BatchCreateClueDataRequestDataListEnterprise {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListEnterprise) SetRegion(v string) *BatchCreateClueDataRequestDataListEnterprise {
+	s.Region = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListEnterprise) SetUnifiedSocialCreditCode(v string) *BatchCreateClueDataRequestDataListEnterprise {
+	s.UnifiedSocialCreditCode = &v
+	return s
+}
+
+type BatchCreateClueDataRequestDataListTagIdList struct {
+	TagId   *string `json:"tagId,omitempty" xml:"tagId,omitempty"`
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s BatchCreateClueDataRequestDataListTagIdList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateClueDataRequestDataListTagIdList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateClueDataRequestDataListTagIdList) SetTagId(v string) *BatchCreateClueDataRequestDataListTagIdList {
+	s.TagId = &v
+	return s
+}
+
+func (s *BatchCreateClueDataRequestDataListTagIdList) SetTagName(v string) *BatchCreateClueDataRequestDataListTagIdList {
+	s.TagName = &v
+	return s
+}
+
+type BatchCreateClueDataResponseBody struct {
+	RequestId *string                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    []*BatchCreateClueDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s BatchCreateClueDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateClueDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateClueDataResponseBody) SetRequestId(v string) *BatchCreateClueDataResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *BatchCreateClueDataResponseBody) SetResult(v []*BatchCreateClueDataResponseBodyResult) *BatchCreateClueDataResponseBody {
+	s.Result = v
+	return s
+}
+
+type BatchCreateClueDataResponseBodyResult struct {
+	ClueId     *string `json:"clueId,omitempty" xml:"clueId,omitempty"`
+	DataId     *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	ResultCode *string `json:"resultCode,omitempty" xml:"resultCode,omitempty"`
+}
+
+func (s BatchCreateClueDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateClueDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateClueDataResponseBodyResult) SetClueId(v string) *BatchCreateClueDataResponseBodyResult {
+	s.ClueId = &v
+	return s
+}
+
+func (s *BatchCreateClueDataResponseBodyResult) SetDataId(v string) *BatchCreateClueDataResponseBodyResult {
+	s.DataId = &v
+	return s
+}
+
+func (s *BatchCreateClueDataResponseBodyResult) SetResultCode(v string) *BatchCreateClueDataResponseBodyResult {
+	s.ResultCode = &v
+	return s
+}
+
+type BatchCreateClueDataResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchCreateClueDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchCreateClueDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateClueDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateClueDataResponse) SetHeaders(v map[string]*string) *BatchCreateClueDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchCreateClueDataResponse) SetStatusCode(v int32) *BatchCreateClueDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchCreateClueDataResponse) SetBody(v *BatchCreateClueDataResponseBody) *BatchCreateClueDataResponse {
+	s.Body = v
+	return s
+}
+
 type BatchRemoveFollowRecordsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9315,6 +9600,98 @@ func (s *JoinGroupSetResponse) SetBody(v *JoinGroupSetResponseBody) *JoinGroupSe
 	return s
 }
 
+type ListClueTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListClueTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListClueTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListClueTagHeaders) SetCommonHeaders(v map[string]*string) *ListClueTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListClueTagHeaders) SetXAcsDingtalkAccessToken(v string) *ListClueTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListClueTagResponseBody struct {
+	Result []*ListClueTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ListClueTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListClueTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListClueTagResponseBody) SetResult(v []*ListClueTagResponseBodyResult) *ListClueTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListClueTagResponseBodyResult struct {
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	TagId *string `json:"tagId,omitempty" xml:"tagId,omitempty"`
+}
+
+func (s ListClueTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListClueTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListClueTagResponseBodyResult) SetName(v string) *ListClueTagResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *ListClueTagResponseBodyResult) SetTagId(v string) *ListClueTagResponseBodyResult {
+	s.TagId = &v
+	return s
+}
+
+type ListClueTagResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListClueTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListClueTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListClueTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListClueTagResponse) SetHeaders(v map[string]*string) *ListClueTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListClueTagResponse) SetStatusCode(v int32) *ListClueTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListClueTagResponse) SetBody(v *ListClueTagResponseBody) *ListClueTagResponse {
+	s.Body = v
+	return s
+}
+
 type ListCrmPersonalCustomersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10198,6 +10575,121 @@ func (s *QueryAllTracksResponse) SetStatusCode(v int32) *QueryAllTracksResponse 
 }
 
 func (s *QueryAllTracksResponse) SetBody(v *QueryAllTracksResponseBody) *QueryAllTracksResponse {
+	s.Body = v
+	return s
+}
+
+type QueryClueFollowStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryClueFollowStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryClueFollowStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryClueFollowStatusHeaders) SetCommonHeaders(v map[string]*string) *QueryClueFollowStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryClueFollowStatusHeaders) SetXAcsDingtalkAccessToken(v string) *QueryClueFollowStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryClueFollowStatusRequest struct {
+	ClueId *string `json:"clueId,omitempty" xml:"clueId,omitempty"`
+}
+
+func (s QueryClueFollowStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryClueFollowStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryClueFollowStatusRequest) SetClueId(v string) *QueryClueFollowStatusRequest {
+	s.ClueId = &v
+	return s
+}
+
+type QueryClueFollowStatusResponseBody struct {
+	Result []*QueryClueFollowStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryClueFollowStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryClueFollowStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryClueFollowStatusResponseBody) SetResult(v []*QueryClueFollowStatusResponseBodyResult) *QueryClueFollowStatusResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryClueFollowStatusResponseBodyResult struct {
+	ClueId *string `json:"clueId,omitempty" xml:"clueId,omitempty"`
+	Scope  *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryClueFollowStatusResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryClueFollowStatusResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryClueFollowStatusResponseBodyResult) SetClueId(v string) *QueryClueFollowStatusResponseBodyResult {
+	s.ClueId = &v
+	return s
+}
+
+func (s *QueryClueFollowStatusResponseBodyResult) SetScope(v string) *QueryClueFollowStatusResponseBodyResult {
+	s.Scope = &v
+	return s
+}
+
+func (s *QueryClueFollowStatusResponseBodyResult) SetStatus(v string) *QueryClueFollowStatusResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type QueryClueFollowStatusResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryClueFollowStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryClueFollowStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryClueFollowStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryClueFollowStatusResponse) SetHeaders(v map[string]*string) *QueryClueFollowStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryClueFollowStatusResponse) SetStatusCode(v int32) *QueryClueFollowStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryClueFollowStatusResponse) SetBody(v *QueryClueFollowStatusResponseBody) *QueryClueFollowStatusResponse {
 	s.Body = v
 	return s
 }
@@ -13516,6 +14008,65 @@ func (client *Client) BatchAddRelationDatas(request *BatchAddRelationDatasReques
 	return _result, _err
 }
 
+func (client *Client) BatchCreateClueDataWithOptions(request *BatchCreateClueDataRequest, headers *BatchCreateClueDataHeaders, runtime *util.RuntimeOptions) (_result *BatchCreateClueDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DataList)) {
+		body["dataList"] = request.DataList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchCreateClueData"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/clues/datas/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchCreateClueDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchCreateClueData(request *BatchCreateClueDataRequest) (_result *BatchCreateClueDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchCreateClueDataHeaders{}
+	_result = &BatchCreateClueDataResponse{}
+	_body, _err := client.BatchCreateClueDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) BatchRemoveFollowRecordsWithOptions(request *BatchRemoveFollowRecordsRequest, headers *BatchRemoveFollowRecordsHeaders, runtime *util.RuntimeOptions) (_result *BatchRemoveFollowRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15429,6 +15980,51 @@ func (client *Client) JoinGroupSet(request *JoinGroupSetRequest) (_result *JoinG
 	return _result, _err
 }
 
+func (client *Client) ListClueTagWithOptions(headers *ListClueTagHeaders, runtime *util.RuntimeOptions) (_result *ListClueTagResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListClueTag"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/clues/tags"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListClueTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListClueTag() (_result *ListClueTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListClueTagHeaders{}
+	_result = &ListClueTagResponse{}
+	_body, _err := client.ListClueTagWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) ListCrmPersonalCustomersWithOptions(request *ListCrmPersonalCustomersRequest, headers *ListCrmPersonalCustomersHeaders, runtime *util.RuntimeOptions) (_result *ListCrmPersonalCustomersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15679,6 +16275,61 @@ func (client *Client) QueryAllTracks(request *QueryAllTracksRequest) (_result *Q
 	headers := &QueryAllTracksHeaders{}
 	_result = &QueryAllTracksResponse{}
 	_body, _err := client.QueryAllTracksWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryClueFollowStatusWithOptions(request *QueryClueFollowStatusRequest, headers *QueryClueFollowStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryClueFollowStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClueId)) {
+		query["clueId"] = request.ClueId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryClueFollowStatus"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/clues/followStatuses"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryClueFollowStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryClueFollowStatus(request *QueryClueFollowStatusRequest) (_result *QueryClueFollowStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryClueFollowStatusHeaders{}
+	_result = &QueryClueFollowStatusResponse{}
+	_body, _err := client.QueryClueFollowStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

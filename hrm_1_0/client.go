@@ -1561,6 +1561,128 @@ func (s *HrmProcessUpdateTerminationInfoResponse) SetBody(v *HrmProcessUpdateTer
 	return s
 }
 
+type HrmPtsServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmPtsServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmPtsServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmPtsServiceHeaders) SetCommonHeaders(v map[string]*string) *HrmPtsServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmPtsServiceHeaders) SetXAcsDingtalkAccessToken(v string) *HrmPtsServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmPtsServiceRequest struct {
+	Env    *string     `json:"env,omitempty" xml:"env,omitempty"`
+	Method *string     `json:"method,omitempty" xml:"method,omitempty"`
+	Params interface{} `json:"params,omitempty" xml:"params,omitempty"`
+	Path   *string     `json:"path,omitempty" xml:"path,omitempty"`
+}
+
+func (s HrmPtsServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmPtsServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmPtsServiceRequest) SetEnv(v string) *HrmPtsServiceRequest {
+	s.Env = &v
+	return s
+}
+
+func (s *HrmPtsServiceRequest) SetMethod(v string) *HrmPtsServiceRequest {
+	s.Method = &v
+	return s
+}
+
+func (s *HrmPtsServiceRequest) SetParams(v interface{}) *HrmPtsServiceRequest {
+	s.Params = v
+	return s
+}
+
+func (s *HrmPtsServiceRequest) SetPath(v string) *HrmPtsServiceRequest {
+	s.Path = &v
+	return s
+}
+
+type HrmPtsServiceResponseBody struct {
+	BizSuccess *bool                  `json:"bizSuccess,omitempty" xml:"bizSuccess,omitempty"`
+	ErrorCode  *string                `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg   *string                `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result     map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HrmPtsServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmPtsServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmPtsServiceResponseBody) SetBizSuccess(v bool) *HrmPtsServiceResponseBody {
+	s.BizSuccess = &v
+	return s
+}
+
+func (s *HrmPtsServiceResponseBody) SetErrorCode(v string) *HrmPtsServiceResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *HrmPtsServiceResponseBody) SetErrorMsg(v string) *HrmPtsServiceResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *HrmPtsServiceResponseBody) SetResult(v map[string]interface{}) *HrmPtsServiceResponseBody {
+	s.Result = v
+	return s
+}
+
+type HrmPtsServiceResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrmPtsServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrmPtsServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmPtsServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmPtsServiceResponse) SetHeaders(v map[string]*string) *HrmPtsServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmPtsServiceResponse) SetStatusCode(v int32) *HrmPtsServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrmPtsServiceResponse) SetBody(v *HrmPtsServiceResponseBody) *HrmPtsServiceResponse {
+	s.Body = v
+	return s
+}
+
 type MasterDataDeleteHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5459,6 +5581,73 @@ func (client *Client) HrmProcessUpdateTerminationInfo(request *HrmProcessUpdateT
 	headers := &HrmProcessUpdateTerminationInfoHeaders{}
 	_result = &HrmProcessUpdateTerminationInfoResponse{}
 	_body, _err := client.HrmProcessUpdateTerminationInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) HrmPtsServiceWithOptions(request *HrmPtsServiceRequest, headers *HrmPtsServiceHeaders, runtime *util.RuntimeOptions) (_result *HrmPtsServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Method)) {
+		body["method"] = request.Method
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Path)) {
+		body["path"] = request.Path
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmPtsService"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/pts/request"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrmPtsServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) HrmPtsService(request *HrmPtsServiceRequest) (_result *HrmPtsServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmPtsServiceHeaders{}
+	_result = &HrmPtsServiceResponse{}
+	_body, _err := client.HrmPtsServiceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
