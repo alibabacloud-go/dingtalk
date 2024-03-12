@@ -4602,7 +4602,7 @@ func (s *PagesExportInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *Page
 
 type PagesExportInstancesRequest struct {
 	EndTimeInMills   *int64  `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
-	MaxResult        *int32  `json:"maxResult,omitempty" xml:"maxResult,omitempty"`
+	MaxResults       *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken        *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OrderBy          *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
 	ProcessCode      *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
@@ -4623,8 +4623,8 @@ func (s *PagesExportInstancesRequest) SetEndTimeInMills(v int64) *PagesExportIns
 	return s
 }
 
-func (s *PagesExportInstancesRequest) SetMaxResult(v int32) *PagesExportInstancesRequest {
-	s.MaxResult = &v
+func (s *PagesExportInstancesRequest) SetMaxResults(v int32) *PagesExportInstancesRequest {
+	s.MaxResults = &v
 	return s
 }
 
@@ -4671,10 +4671,9 @@ func (s *PagesExportInstancesResponseBody) SetResult(v *PagesExportInstancesResp
 }
 
 type PagesExportInstancesResponseBodyResult struct {
-	HasMore    *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*PagesExportInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	MaxResults *int64                                        `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore   *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*PagesExportInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s PagesExportInstancesResponseBodyResult) String() string {
@@ -4692,11 +4691,6 @@ func (s *PagesExportInstancesResponseBodyResult) SetHasMore(v bool) *PagesExport
 
 func (s *PagesExportInstancesResponseBodyResult) SetList(v []*PagesExportInstancesResponseBodyResultList) *PagesExportInstancesResponseBodyResult {
 	s.List = v
-	return s
-}
-
-func (s *PagesExportInstancesResponseBodyResult) SetMaxResults(v int64) *PagesExportInstancesResponseBodyResult {
-	s.MaxResults = &v
 	return s
 }
 
@@ -10848,8 +10842,8 @@ func (client *Client) PagesExportInstancesWithOptions(request *PagesExportInstan
 		query["endTimeInMills"] = request.EndTimeInMills
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.MaxResult)) {
-		query["maxResult"] = request.MaxResult
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
