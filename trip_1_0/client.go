@@ -83,20 +83,26 @@ func (s *GetTravelProcessDetailResponseBody) SetSuccess(v bool) *GetTravelProces
 }
 
 type GetTravelProcessDetailResponseBodyResult struct {
-	BusinessId            *string                                             `json:"businessId,omitempty" xml:"businessId,omitempty"`
-	CorpId                *string                                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CostCenter            *string                                             `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
-	ItineraryProject      *string                                             `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
-	Journeys              []*GetTravelProcessDetailResponseBodyResultJourneys `json:"journeys,omitempty" xml:"journeys,omitempty" type:"Repeated"`
-	MainProcessInstanceId *string                                             `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
-	Memo                  *string                                             `json:"memo,omitempty" xml:"memo,omitempty"`
-	OriginatorId          *string                                             `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	ProcessInstanceId     *string                                             `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	ProcessResult         *string                                             `json:"processResult,omitempty" xml:"processResult,omitempty"`
-	ProcessStatus         *string                                             `json:"processStatus,omitempty" xml:"processStatus,omitempty"`
-	Remark                *string                                             `json:"remark,omitempty" xml:"remark,omitempty"`
-	TravelCategory        *string                                             `json:"travelCategory,omitempty" xml:"travelCategory,omitempty"`
-	Travelers             []*string                                           `json:"travelers,omitempty" xml:"travelers,omitempty" type:"Repeated"`
+	BizCategoryId         *string                                                     `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	BusinessId            *string                                                     `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CorpId                *string                                                     `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CostCenter            *string                                                     `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterId          *string                                                     `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	ExtFormComponent      []*GetTravelProcessDetailResponseBodyResultExtFormComponent `json:"extFormComponent,omitempty" xml:"extFormComponent,omitempty" type:"Repeated"`
+	FeeType               *string                                                     `json:"feeType,omitempty" xml:"feeType,omitempty"`
+	InvoiceTitle          *string                                                     `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	InvoiceTitleId        *string                                                     `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
+	ItineraryProject      *string                                                     `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
+	Journeys              []*GetTravelProcessDetailResponseBodyResultJourneys         `json:"journeys,omitempty" xml:"journeys,omitempty" type:"Repeated"`
+	MainProcessInstanceId *string                                                     `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	Memo                  *string                                                     `json:"memo,omitempty" xml:"memo,omitempty"`
+	OriginatorId          *string                                                     `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	ProcessInstanceId     *string                                                     `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ProcessResult         *string                                                     `json:"processResult,omitempty" xml:"processResult,omitempty"`
+	ProcessStatus         *string                                                     `json:"processStatus,omitempty" xml:"processStatus,omitempty"`
+	Remark                *string                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
+	TravelCategory        *string                                                     `json:"travelCategory,omitempty" xml:"travelCategory,omitempty"`
+	Travelers             []*string                                                   `json:"travelers,omitempty" xml:"travelers,omitempty" type:"Repeated"`
 }
 
 func (s GetTravelProcessDetailResponseBodyResult) String() string {
@@ -105,6 +111,11 @@ func (s GetTravelProcessDetailResponseBodyResult) String() string {
 
 func (s GetTravelProcessDetailResponseBodyResult) GoString() string {
 	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetBizCategoryId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.BizCategoryId = &v
+	return s
 }
 
 func (s *GetTravelProcessDetailResponseBodyResult) SetBusinessId(v string) *GetTravelProcessDetailResponseBodyResult {
@@ -119,6 +130,31 @@ func (s *GetTravelProcessDetailResponseBodyResult) SetCorpId(v string) *GetTrave
 
 func (s *GetTravelProcessDetailResponseBodyResult) SetCostCenter(v string) *GetTravelProcessDetailResponseBodyResult {
 	s.CostCenter = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetCostCenterId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.CostCenterId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetExtFormComponent(v []*GetTravelProcessDetailResponseBodyResultExtFormComponent) *GetTravelProcessDetailResponseBodyResult {
+	s.ExtFormComponent = v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetFeeType(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.FeeType = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetInvoiceTitle(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.InvoiceTitle = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetInvoiceTitleId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.InvoiceTitleId = &v
 	return s
 }
 
@@ -177,14 +213,70 @@ func (s *GetTravelProcessDetailResponseBodyResult) SetTravelers(v []*string) *Ge
 	return s
 }
 
+type GetTravelProcessDetailResponseBodyResultExtFormComponent struct {
+	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetTravelProcessDetailResponseBodyResultExtFormComponent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailResponseBodyResultExtFormComponent) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultExtFormComponent) SetBizAlias(v string) *GetTravelProcessDetailResponseBodyResultExtFormComponent {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultExtFormComponent) SetComponentType(v string) *GetTravelProcessDetailResponseBodyResultExtFormComponent {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultExtFormComponent) SetExtValue(v string) *GetTravelProcessDetailResponseBodyResultExtFormComponent {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultExtFormComponent) SetId(v string) *GetTravelProcessDetailResponseBodyResultExtFormComponent {
+	s.Id = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultExtFormComponent) SetName(v string) *GetTravelProcessDetailResponseBodyResultExtFormComponent {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultExtFormComponent) SetValue(v string) *GetTravelProcessDetailResponseBodyResultExtFormComponent {
+	s.Value = &v
+	return s
+}
+
 type GetTravelProcessDetailResponseBodyResultJourneys struct {
-	Arrival      *GetTravelProcessDetailResponseBodyResultJourneysArrival   `json:"arrival,omitempty" xml:"arrival,omitempty" type:"Struct"`
-	Departure    *GetTravelProcessDetailResponseBodyResultJourneysDeparture `json:"departure,omitempty" xml:"departure,omitempty" type:"Struct"`
-	EndTime      *string                                                    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	JourneyBizNo *string                                                    `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
-	StartTime    *string                                                    `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	TravelType   *string                                                    `json:"travelType,omitempty" xml:"travelType,omitempty"`
-	TripWay      *string                                                    `json:"tripWay,omitempty" xml:"tripWay,omitempty"`
+	Arrival            *GetTravelProcessDetailResponseBodyResultJourneysArrival   `json:"arrival,omitempty" xml:"arrival,omitempty" type:"Struct"`
+	CostCenter         *string                                                    `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterId       *string                                                    `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	Departure          *GetTravelProcessDetailResponseBodyResultJourneysDeparture `json:"departure,omitempty" xml:"departure,omitempty" type:"Struct"`
+	EndTime            *string                                                    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	EndTimeAcc         *string                                                    `json:"endTimeAcc,omitempty" xml:"endTimeAcc,omitempty"`
+	InvoiceTitle       *string                                                    `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	InvoiceTitleId     *string                                                    `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
+	ItineraryProject   *string                                                    `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
+	ItineraryProjectId *string                                                    `json:"itineraryProjectId,omitempty" xml:"itineraryProjectId,omitempty"`
+	JourneyBizNo       *string                                                    `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
+	StartTime          *string                                                    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	StartTimeAcc       *string                                                    `json:"startTimeAcc,omitempty" xml:"startTimeAcc,omitempty"`
+	TimeUnit           *string                                                    `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	TravelType         *string                                                    `json:"travelType,omitempty" xml:"travelType,omitempty"`
+	TripWay            *string                                                    `json:"tripWay,omitempty" xml:"tripWay,omitempty"`
 }
 
 func (s GetTravelProcessDetailResponseBodyResultJourneys) String() string {
@@ -200,6 +292,16 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetArrival(v *GetTrav
 	return s
 }
 
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetCostCenter(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.CostCenter = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetCostCenterId(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.CostCenterId = &v
+	return s
+}
+
 func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetDeparture(v *GetTravelProcessDetailResponseBodyResultJourneysDeparture) *GetTravelProcessDetailResponseBodyResultJourneys {
 	s.Departure = v
 	return s
@@ -210,6 +312,31 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetEndTime(v string) 
 	return s
 }
 
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetEndTimeAcc(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.EndTimeAcc = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetInvoiceTitle(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.InvoiceTitle = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetInvoiceTitleId(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.InvoiceTitleId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetItineraryProject(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.ItineraryProject = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetItineraryProjectId(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.ItineraryProjectId = &v
+	return s
+}
+
 func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetJourneyBizNo(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
 	s.JourneyBizNo = &v
 	return s
@@ -217,6 +344,16 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetJourneyBizNo(v str
 
 func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetStartTime(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
 	s.StartTime = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetStartTimeAcc(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.StartTimeAcc = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetTimeUnit(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.TimeUnit = &v
 	return s
 }
 
@@ -232,6 +369,8 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetTripWay(v string) 
 
 type GetTravelProcessDetailResponseBodyResultJourneysArrival struct {
 	Code             *string `json:"code,omitempty" xml:"code,omitempty"`
+	CountryCode      *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
+	CountryName      *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
 	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
 	NationalCityCode *string `json:"nationalCityCode,omitempty" xml:"nationalCityCode,omitempty"`
 }
@@ -249,6 +388,16 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneysArrival) SetCode(v stri
 	return s
 }
 
+func (s *GetTravelProcessDetailResponseBodyResultJourneysArrival) SetCountryCode(v string) *GetTravelProcessDetailResponseBodyResultJourneysArrival {
+	s.CountryCode = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneysArrival) SetCountryName(v string) *GetTravelProcessDetailResponseBodyResultJourneysArrival {
+	s.CountryName = &v
+	return s
+}
+
 func (s *GetTravelProcessDetailResponseBodyResultJourneysArrival) SetName(v string) *GetTravelProcessDetailResponseBodyResultJourneysArrival {
 	s.Name = &v
 	return s
@@ -261,6 +410,8 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneysArrival) SetNationalCit
 
 type GetTravelProcessDetailResponseBodyResultJourneysDeparture struct {
 	Code             *string `json:"code,omitempty" xml:"code,omitempty"`
+	CountryCode      *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
+	CountryName      *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
 	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
 	NationalCityCode *string `json:"nationalCityCode,omitempty" xml:"nationalCityCode,omitempty"`
 }
@@ -275,6 +426,16 @@ func (s GetTravelProcessDetailResponseBodyResultJourneysDeparture) GoString() st
 
 func (s *GetTravelProcessDetailResponseBodyResultJourneysDeparture) SetCode(v string) *GetTravelProcessDetailResponseBodyResultJourneysDeparture {
 	s.Code = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneysDeparture) SetCountryCode(v string) *GetTravelProcessDetailResponseBodyResultJourneysDeparture {
+	s.CountryCode = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneysDeparture) SetCountryName(v string) *GetTravelProcessDetailResponseBodyResultJourneysDeparture {
+	s.CountryName = &v
 	return s
 }
 

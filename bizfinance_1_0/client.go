@@ -5625,7 +5625,8 @@ func (s *QueryPermissionByUserIdHeaders) SetXAcsDingtalkAccessToken(v string) *Q
 }
 
 type QueryPermissionByUserIdRequest struct {
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	CompanyCode *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryPermissionByUserIdRequest) String() string {
@@ -5636,12 +5637,18 @@ func (s QueryPermissionByUserIdRequest) GoString() string {
 	return s.String()
 }
 
+func (s *QueryPermissionByUserIdRequest) SetCompanyCode(v string) *QueryPermissionByUserIdRequest {
+	s.CompanyCode = &v
+	return s
+}
+
 func (s *QueryPermissionByUserIdRequest) SetUserId(v string) *QueryPermissionByUserIdRequest {
 	s.UserId = &v
 	return s
 }
 
 type QueryPermissionByUserIdResponseBody struct {
+	CompanyCode       *string                                                 `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	PermissionDTOList []*QueryPermissionByUserIdResponseBodyPermissionDTOList `json:"permissionDTOList,omitempty" xml:"permissionDTOList,omitempty" type:"Repeated"`
 	UserId            *string                                                 `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -5652,6 +5659,11 @@ func (s QueryPermissionByUserIdResponseBody) String() string {
 
 func (s QueryPermissionByUserIdResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *QueryPermissionByUserIdResponseBody) SetCompanyCode(v string) *QueryPermissionByUserIdResponseBody {
+	s.CompanyCode = &v
+	return s
 }
 
 func (s *QueryPermissionByUserIdResponseBody) SetPermissionDTOList(v []*QueryPermissionByUserIdResponseBodyPermissionDTOList) *QueryPermissionByUserIdResponseBody {
@@ -16040,6 +16052,10 @@ func (client *Client) QueryPermissionByUserIdWithOptions(request *QueryPermissio
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		query["companyCode"] = request.CompanyCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
 	}
