@@ -824,6 +824,181 @@ func (s *QueryRemindResultsResponse) SetBody(v *QueryRemindResultsResponseBody) 
 	return s
 }
 
+type QueryReportDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryReportDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReportDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReportDetailHeaders) SetCommonHeaders(v map[string]*string) *QueryReportDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryReportDetailHeaders) SetXAcsDingtalkAccessToken(v string) *QueryReportDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryReportDetailRequest struct {
+	ReportId *string `json:"reportId,omitempty" xml:"reportId,omitempty"`
+}
+
+func (s QueryReportDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReportDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReportDetailRequest) SetReportId(v string) *QueryReportDetailRequest {
+	s.ReportId = &v
+	return s
+}
+
+type QueryReportDetailResponseBody struct {
+	Content      []*QueryReportDetailResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	CreateTime   *int64                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorId    *string                                 `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CreatorName  *string                                 `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	DeptName     *string                                 `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	ModifiedTime *int64                                  `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	Remark       *string                                 `json:"remark,omitempty" xml:"remark,omitempty"`
+	ReportId     *string                                 `json:"reportId,omitempty" xml:"reportId,omitempty"`
+	TemplateName *string                                 `json:"templateName,omitempty" xml:"templateName,omitempty"`
+}
+
+func (s QueryReportDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReportDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReportDetailResponseBody) SetContent(v []*QueryReportDetailResponseBodyContent) *QueryReportDetailResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *QueryReportDetailResponseBody) SetCreateTime(v int64) *QueryReportDetailResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBody) SetCreatorId(v string) *QueryReportDetailResponseBody {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBody) SetCreatorName(v string) *QueryReportDetailResponseBody {
+	s.CreatorName = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBody) SetDeptName(v string) *QueryReportDetailResponseBody {
+	s.DeptName = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBody) SetModifiedTime(v int64) *QueryReportDetailResponseBody {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBody) SetRemark(v string) *QueryReportDetailResponseBody {
+	s.Remark = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBody) SetReportId(v string) *QueryReportDetailResponseBody {
+	s.ReportId = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBody) SetTemplateName(v string) *QueryReportDetailResponseBody {
+	s.TemplateName = &v
+	return s
+}
+
+type QueryReportDetailResponseBodyContent struct {
+	Images []*string `json:"images,omitempty" xml:"images,omitempty" type:"Repeated"`
+	Key    *string   `json:"key,omitempty" xml:"key,omitempty"`
+	Sort   *string   `json:"sort,omitempty" xml:"sort,omitempty"`
+	Type   *string   `json:"type,omitempty" xml:"type,omitempty"`
+	Value  *string   `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s QueryReportDetailResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReportDetailResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReportDetailResponseBodyContent) SetImages(v []*string) *QueryReportDetailResponseBodyContent {
+	s.Images = v
+	return s
+}
+
+func (s *QueryReportDetailResponseBodyContent) SetKey(v string) *QueryReportDetailResponseBodyContent {
+	s.Key = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBodyContent) SetSort(v string) *QueryReportDetailResponseBodyContent {
+	s.Sort = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBodyContent) SetType(v string) *QueryReportDetailResponseBodyContent {
+	s.Type = &v
+	return s
+}
+
+func (s *QueryReportDetailResponseBodyContent) SetValue(v string) *QueryReportDetailResponseBodyContent {
+	s.Value = &v
+	return s
+}
+
+type QueryReportDetailResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryReportDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryReportDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReportDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReportDetailResponse) SetHeaders(v map[string]*string) *QueryReportDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryReportDetailResponse) SetStatusCode(v int32) *QueryReportDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryReportDetailResponse) SetBody(v *QueryReportDetailResponseBody) *QueryReportDetailResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1166,6 +1341,61 @@ func (client *Client) QueryRemindResults(request *QueryRemindResultsRequest) (_r
 	headers := &QueryRemindResultsHeaders{}
 	_result = &QueryRemindResultsResponse{}
 	_body, _err := client.QueryRemindResultsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryReportDetailWithOptions(request *QueryReportDetailRequest, headers *QueryReportDetailHeaders, runtime *util.RuntimeOptions) (_result *QueryReportDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ReportId)) {
+		query["reportId"] = request.ReportId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryReportDetail"),
+		Version:     tea.String("report_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/report/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryReportDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryReportDetail(request *QueryReportDetailRequest) (_result *QueryReportDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryReportDetailHeaders{}
+	_result = &QueryReportDetailResponse{}
+	_body, _err := client.QueryReportDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

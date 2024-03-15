@@ -37,7 +37,6 @@ func (s *CountTodoTasksHeaders) SetXAcsDingtalkAccessToken(v string) *CountTodoT
 }
 
 type CountTodoTasksRequest struct {
-	Category    *string     `json:"category,omitempty" xml:"category,omitempty"`
 	FromDueTime *int64      `json:"fromDueTime,omitempty" xml:"fromDueTime,omitempty"`
 	IsDone      *bool       `json:"isDone,omitempty" xml:"isDone,omitempty"`
 	IsRecycled  *bool       `json:"isRecycled,omitempty" xml:"isRecycled,omitempty"`
@@ -51,11 +50,6 @@ func (s CountTodoTasksRequest) String() string {
 
 func (s CountTodoTasksRequest) GoString() string {
 	return s.String()
-}
-
-func (s *CountTodoTasksRequest) SetCategory(v string) *CountTodoTasksRequest {
-	s.Category = &v
-	return s
 }
 
 func (s *CountTodoTasksRequest) SetFromDueTime(v int64) *CountTodoTasksRequest {
@@ -3515,10 +3509,6 @@ func (client *Client) CountTodoTasksWithOptions(unionId *string, request *CountT
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Category)) {
-		body["category"] = request.Category
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.FromDueTime)) {
 		body["fromDueTime"] = request.FromDueTime
 	}
