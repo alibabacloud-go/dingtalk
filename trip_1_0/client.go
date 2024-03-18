@@ -83,26 +83,29 @@ func (s *GetTravelProcessDetailResponseBody) SetSuccess(v bool) *GetTravelProces
 }
 
 type GetTravelProcessDetailResponseBodyResult struct {
-	BizCategoryId         *string                                                     `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
-	BusinessId            *string                                                     `json:"businessId,omitempty" xml:"businessId,omitempty"`
-	CorpId                *string                                                     `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CostCenter            *string                                                     `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
-	CostCenterId          *string                                                     `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
-	ExtFormComponent      []*GetTravelProcessDetailResponseBodyResultExtFormComponent `json:"extFormComponent,omitempty" xml:"extFormComponent,omitempty" type:"Repeated"`
-	FeeType               *string                                                     `json:"feeType,omitempty" xml:"feeType,omitempty"`
-	InvoiceTitle          *string                                                     `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
-	InvoiceTitleId        *string                                                     `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
-	ItineraryProject      *string                                                     `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
-	Journeys              []*GetTravelProcessDetailResponseBodyResultJourneys         `json:"journeys,omitempty" xml:"journeys,omitempty" type:"Repeated"`
-	MainProcessInstanceId *string                                                     `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
-	Memo                  *string                                                     `json:"memo,omitempty" xml:"memo,omitempty"`
-	OriginatorId          *string                                                     `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	ProcessInstanceId     *string                                                     `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	ProcessResult         *string                                                     `json:"processResult,omitempty" xml:"processResult,omitempty"`
-	ProcessStatus         *string                                                     `json:"processStatus,omitempty" xml:"processStatus,omitempty"`
-	Remark                *string                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
-	TravelCategory        *string                                                     `json:"travelCategory,omitempty" xml:"travelCategory,omitempty"`
-	Travelers             []*string                                                   `json:"travelers,omitempty" xml:"travelers,omitempty" type:"Repeated"`
+	BizCategoryId                *string                                                     `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	BusinessId                   *string                                                     `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CorpId                       *string                                                     `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CostCenter                   *string                                                     `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterId                 *string                                                     `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	CostCenterThirdPartyId       *string                                                     `json:"costCenterThirdPartyId,omitempty" xml:"costCenterThirdPartyId,omitempty"`
+	ExtFormComponent             []*GetTravelProcessDetailResponseBodyResultExtFormComponent `json:"extFormComponent,omitempty" xml:"extFormComponent,omitempty" type:"Repeated"`
+	FeeType                      *string                                                     `json:"feeType,omitempty" xml:"feeType,omitempty"`
+	InvoiceTitle                 *string                                                     `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	InvoiceTitleId               *string                                                     `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
+	InvoiceTitleThirdPartyId     *string                                                     `json:"invoiceTitleThirdPartyId,omitempty" xml:"invoiceTitleThirdPartyId,omitempty"`
+	ItineraryProject             *string                                                     `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
+	ItineraryProjectThirdPartyId *string                                                     `json:"itineraryProjectThirdPartyId,omitempty" xml:"itineraryProjectThirdPartyId,omitempty"`
+	Journeys                     []*GetTravelProcessDetailResponseBodyResultJourneys         `json:"journeys,omitempty" xml:"journeys,omitempty" type:"Repeated"`
+	MainProcessInstanceId        *string                                                     `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	Memo                         *string                                                     `json:"memo,omitempty" xml:"memo,omitempty"`
+	OriginatorId                 *string                                                     `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	ProcessInstanceId            *string                                                     `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ProcessResult                *string                                                     `json:"processResult,omitempty" xml:"processResult,omitempty"`
+	ProcessStatus                *string                                                     `json:"processStatus,omitempty" xml:"processStatus,omitempty"`
+	Remark                       *string                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
+	TravelCategory               *string                                                     `json:"travelCategory,omitempty" xml:"travelCategory,omitempty"`
+	Travelers                    []*string                                                   `json:"travelers,omitempty" xml:"travelers,omitempty" type:"Repeated"`
 }
 
 func (s GetTravelProcessDetailResponseBodyResult) String() string {
@@ -138,6 +141,11 @@ func (s *GetTravelProcessDetailResponseBodyResult) SetCostCenterId(v string) *Ge
 	return s
 }
 
+func (s *GetTravelProcessDetailResponseBodyResult) SetCostCenterThirdPartyId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.CostCenterThirdPartyId = &v
+	return s
+}
+
 func (s *GetTravelProcessDetailResponseBodyResult) SetExtFormComponent(v []*GetTravelProcessDetailResponseBodyResultExtFormComponent) *GetTravelProcessDetailResponseBodyResult {
 	s.ExtFormComponent = v
 	return s
@@ -158,8 +166,18 @@ func (s *GetTravelProcessDetailResponseBodyResult) SetInvoiceTitleId(v string) *
 	return s
 }
 
+func (s *GetTravelProcessDetailResponseBodyResult) SetInvoiceTitleThirdPartyId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.InvoiceTitleThirdPartyId = &v
+	return s
+}
+
 func (s *GetTravelProcessDetailResponseBodyResult) SetItineraryProject(v string) *GetTravelProcessDetailResponseBodyResult {
 	s.ItineraryProject = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetItineraryProjectThirdPartyId(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.ItineraryProjectThirdPartyId = &v
 	return s
 }
 
@@ -261,22 +279,25 @@ func (s *GetTravelProcessDetailResponseBodyResultExtFormComponent) SetValue(v st
 }
 
 type GetTravelProcessDetailResponseBodyResultJourneys struct {
-	Arrival            *GetTravelProcessDetailResponseBodyResultJourneysArrival   `json:"arrival,omitempty" xml:"arrival,omitempty" type:"Struct"`
-	CostCenter         *string                                                    `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
-	CostCenterId       *string                                                    `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
-	Departure          *GetTravelProcessDetailResponseBodyResultJourneysDeparture `json:"departure,omitempty" xml:"departure,omitempty" type:"Struct"`
-	EndTime            *string                                                    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	EndTimeAcc         *string                                                    `json:"endTimeAcc,omitempty" xml:"endTimeAcc,omitempty"`
-	InvoiceTitle       *string                                                    `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
-	InvoiceTitleId     *string                                                    `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
-	ItineraryProject   *string                                                    `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
-	ItineraryProjectId *string                                                    `json:"itineraryProjectId,omitempty" xml:"itineraryProjectId,omitempty"`
-	JourneyBizNo       *string                                                    `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
-	StartTime          *string                                                    `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	StartTimeAcc       *string                                                    `json:"startTimeAcc,omitempty" xml:"startTimeAcc,omitempty"`
-	TimeUnit           *string                                                    `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	TravelType         *string                                                    `json:"travelType,omitempty" xml:"travelType,omitempty"`
-	TripWay            *string                                                    `json:"tripWay,omitempty" xml:"tripWay,omitempty"`
+	Arrival                      *GetTravelProcessDetailResponseBodyResultJourneysArrival   `json:"arrival,omitempty" xml:"arrival,omitempty" type:"Struct"`
+	CostCenter                   *string                                                    `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterId                 *string                                                    `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	CostCenterThirdPartyId       *string                                                    `json:"costCenterThirdPartyId,omitempty" xml:"costCenterThirdPartyId,omitempty"`
+	Departure                    *GetTravelProcessDetailResponseBodyResultJourneysDeparture `json:"departure,omitempty" xml:"departure,omitempty" type:"Struct"`
+	EndTime                      *string                                                    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	EndTimeAcc                   *string                                                    `json:"endTimeAcc,omitempty" xml:"endTimeAcc,omitempty"`
+	InvoiceTitle                 *string                                                    `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	InvoiceTitleId               *string                                                    `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
+	InvoiceTitleThirdPartyId     *string                                                    `json:"invoiceTitleThirdPartyId,omitempty" xml:"invoiceTitleThirdPartyId,omitempty"`
+	ItineraryProject             *string                                                    `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
+	ItineraryProjectId           *string                                                    `json:"itineraryProjectId,omitempty" xml:"itineraryProjectId,omitempty"`
+	ItineraryProjectThirdPartyId *string                                                    `json:"itineraryProjectThirdPartyId,omitempty" xml:"itineraryProjectThirdPartyId,omitempty"`
+	JourneyBizNo                 *string                                                    `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
+	StartTime                    *string                                                    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	StartTimeAcc                 *string                                                    `json:"startTimeAcc,omitempty" xml:"startTimeAcc,omitempty"`
+	TimeUnit                     *string                                                    `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	TravelType                   *string                                                    `json:"travelType,omitempty" xml:"travelType,omitempty"`
+	TripWay                      *string                                                    `json:"tripWay,omitempty" xml:"tripWay,omitempty"`
 }
 
 func (s GetTravelProcessDetailResponseBodyResultJourneys) String() string {
@@ -299,6 +320,11 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetCostCenter(v strin
 
 func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetCostCenterId(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
 	s.CostCenterId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetCostCenterThirdPartyId(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.CostCenterThirdPartyId = &v
 	return s
 }
 
@@ -327,6 +353,11 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetInvoiceTitleId(v s
 	return s
 }
 
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetInvoiceTitleThirdPartyId(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.InvoiceTitleThirdPartyId = &v
+	return s
+}
+
 func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetItineraryProject(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
 	s.ItineraryProject = &v
 	return s
@@ -334,6 +365,11 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetItineraryProject(v
 
 func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetItineraryProjectId(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
 	s.ItineraryProjectId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetItineraryProjectThirdPartyId(v string) *GetTravelProcessDetailResponseBodyResultJourneys {
+	s.ItineraryProjectThirdPartyId = &v
 	return s
 }
 
