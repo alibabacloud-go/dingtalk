@@ -89,6 +89,7 @@ type GetTravelProcessDetailResponseBodyResult struct {
 	CostCenter                   *string                                                     `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
 	CostCenterId                 *string                                                     `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
 	CostCenterThirdPartyId       *string                                                     `json:"costCenterThirdPartyId,omitempty" xml:"costCenterThirdPartyId,omitempty"`
+	CreateTime                   *string                                                     `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	ExtFormComponent             []*GetTravelProcessDetailResponseBodyResultExtFormComponent `json:"extFormComponent,omitempty" xml:"extFormComponent,omitempty" type:"Repeated"`
 	FeeType                      *string                                                     `json:"feeType,omitempty" xml:"feeType,omitempty"`
 	InvoiceTitle                 *string                                                     `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
@@ -143,6 +144,11 @@ func (s *GetTravelProcessDetailResponseBodyResult) SetCostCenterId(v string) *Ge
 
 func (s *GetTravelProcessDetailResponseBodyResult) SetCostCenterThirdPartyId(v string) *GetTravelProcessDetailResponseBodyResult {
 	s.CostCenterThirdPartyId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetCreateTime(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.CreateTime = &v
 	return s
 }
 
