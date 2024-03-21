@@ -11789,6 +11789,115 @@ func (s *UpdatePartnerVisibilityResponse) SetBody(v bool) *UpdatePartnerVisibili
 	return s
 }
 
+type UpdateRealmLicenseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRealmLicenseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRealmLicenseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRealmLicenseHeaders) SetCommonHeaders(v map[string]*string) *UpdateRealmLicenseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRealmLicenseHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRealmLicenseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRealmLicenseRequest struct {
+	DetailList []*UpdateRealmLicenseRequestDetailList `json:"detailList,omitempty" xml:"detailList,omitempty" type:"Repeated"`
+}
+
+func (s UpdateRealmLicenseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRealmLicenseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRealmLicenseRequest) SetDetailList(v []*UpdateRealmLicenseRequestDetailList) *UpdateRealmLicenseRequest {
+	s.DetailList = v
+	return s
+}
+
+type UpdateRealmLicenseRequestDetailList struct {
+	LicenseType *int32  `json:"licenseType,omitempty" xml:"licenseType,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateRealmLicenseRequestDetailList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRealmLicenseRequestDetailList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRealmLicenseRequestDetailList) SetLicenseType(v int32) *UpdateRealmLicenseRequestDetailList {
+	s.LicenseType = &v
+	return s
+}
+
+func (s *UpdateRealmLicenseRequestDetailList) SetUserId(v string) *UpdateRealmLicenseRequestDetailList {
+	s.UserId = &v
+	return s
+}
+
+type UpdateRealmLicenseResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateRealmLicenseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRealmLicenseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRealmLicenseResponseBody) SetResult(v bool) *UpdateRealmLicenseResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateRealmLicenseResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateRealmLicenseResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateRealmLicenseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRealmLicenseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRealmLicenseResponse) SetHeaders(v map[string]*string) *UpdateRealmLicenseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRealmLicenseResponse) SetStatusCode(v int32) *UpdateRealmLicenseResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateRealmLicenseResponse) SetBody(v *UpdateRealmLicenseResponseBody) *UpdateRealmLicenseResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateRoleVisibilityHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -17303,6 +17412,61 @@ func (client *Client) UpdatePartnerVisibility(request *UpdatePartnerVisibilityRe
 	headers := &UpdatePartnerVisibilityHeaders{}
 	_result = &UpdatePartnerVisibilityResponse{}
 	_body, _err := client.UpdatePartnerVisibilityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateRealmLicenseWithOptions(request *UpdateRealmLicenseRequest, headers *UpdateRealmLicenseHeaders, runtime *util.RuntimeOptions) (_result *UpdateRealmLicenseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DetailList)) {
+		body["detailList"] = request.DetailList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateRealmLicense"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/frontLines/licenses"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateRealmLicenseResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateRealmLicense(request *UpdateRealmLicenseRequest) (_result *UpdateRealmLicenseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRealmLicenseHeaders{}
+	_result = &UpdateRealmLicenseResponse{}
+	_body, _err := client.UpdateRealmLicenseWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
