@@ -143,9 +143,7 @@ type PrepareRequest struct {
 	Content            *string `json:"content,omitempty" xml:"content,omitempty"`
 	ContentType        *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	ConversationType   *string `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
-	CorpId             *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	UnifiedAppId       *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
 	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -172,18 +170,8 @@ func (s *PrepareRequest) SetConversationType(v string) *PrepareRequest {
 	return s
 }
 
-func (s *PrepareRequest) SetCorpId(v string) *PrepareRequest {
-	s.CorpId = &v
-	return s
-}
-
 func (s *PrepareRequest) SetOpenConversationId(v string) *PrepareRequest {
 	s.OpenConversationId = &v
-	return s
-}
-
-func (s *PrepareRequest) SetUnifiedAppId(v string) *PrepareRequest {
-	s.UnifiedAppId = &v
 	return s
 }
 
@@ -587,16 +575,8 @@ func (client *Client) PrepareWithOptions(request *PrepareRequest, headers *Prepa
 		body["conversationType"] = request.ConversationType
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		body["corpId"] = request.CorpId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		body["openConversationId"] = request.OpenConversationId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UnifiedAppId)) {
-		body["unifiedAppId"] = request.UnifiedAppId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {

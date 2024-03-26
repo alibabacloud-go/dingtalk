@@ -1430,8 +1430,9 @@ func (s *BatchCreateClueDataHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchCreateClueDataRequest struct {
-	DataList []*BatchCreateClueDataRequestDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
-	UserId   *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
+	DataList    []*BatchCreateClueDataRequestDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	PrivateSeas *bool                                 `json:"privateSeas,omitempty" xml:"privateSeas,omitempty"`
+	UserId      *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchCreateClueDataRequest) String() string {
@@ -1444,6 +1445,11 @@ func (s BatchCreateClueDataRequest) GoString() string {
 
 func (s *BatchCreateClueDataRequest) SetDataList(v []*BatchCreateClueDataRequestDataList) *BatchCreateClueDataRequest {
 	s.DataList = v
+	return s
+}
+
+func (s *BatchCreateClueDataRequest) SetPrivateSeas(v bool) *BatchCreateClueDataRequest {
+	s.PrivateSeas = &v
 	return s
 }
 
@@ -14016,6 +14022,10 @@ func (client *Client) BatchCreateClueDataWithOptions(request *BatchCreateClueDat
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DataList)) {
 		body["dataList"] = request.DataList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PrivateSeas)) {
+		body["privateSeas"] = request.PrivateSeas
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
