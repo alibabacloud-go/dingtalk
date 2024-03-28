@@ -2475,6 +2475,7 @@ func (s *GetProcessCodeByNameResponseBody) SetResult(v *GetProcessCodeByNameResp
 }
 
 type GetProcessCodeByNameResponseBodyResult struct {
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -2484,6 +2485,11 @@ func (s GetProcessCodeByNameResponseBodyResult) String() string {
 
 func (s GetProcessCodeByNameResponseBodyResult) GoString() string {
 	return s.String()
+}
+
+func (s *GetProcessCodeByNameResponseBodyResult) SetGmtModified(v string) *GetProcessCodeByNameResponseBodyResult {
+	s.GmtModified = &v
+	return s
 }
 
 func (s *GetProcessCodeByNameResponseBodyResult) SetProcessCode(v string) *GetProcessCodeByNameResponseBodyResult {

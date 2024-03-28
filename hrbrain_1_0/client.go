@@ -1473,6 +1473,7 @@ func (s *HrbrainImportLabelInventoryRequest) SetCorpId(v string) *HrbrainImportL
 
 type HrbrainImportLabelInventoryRequestBody struct {
 	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
 	Period     *string                `json:"period,omitempty" xml:"period,omitempty"`
 	WorkNo     *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
@@ -1487,6 +1488,11 @@ func (s HrbrainImportLabelInventoryRequestBody) GoString() string {
 
 func (s *HrbrainImportLabelInventoryRequestBody) SetExtendInfo(v map[string]interface{}) *HrbrainImportLabelInventoryRequestBody {
 	s.ExtendInfo = v
+	return s
+}
+
+func (s *HrbrainImportLabelInventoryRequestBody) SetName(v string) *HrbrainImportLabelInventoryRequestBody {
+	s.Name = &v
 	return s
 }
 
