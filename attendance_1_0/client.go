@@ -3257,6 +3257,185 @@ func (s *GetClosingAccountsResponse) SetBody(v *GetClosingAccountsResponseBody) 
 	return s
 }
 
+type GetColumnvalsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetColumnvalsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetColumnvalsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetColumnvalsHeaders) SetCommonHeaders(v map[string]*string) *GetColumnvalsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetColumnvalsHeaders) SetXAcsDingtalkAccessToken(v string) *GetColumnvalsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetColumnvalsRequest struct {
+	ColumnIdList []*string `json:"columnIdList,omitempty" xml:"columnIdList,omitempty" type:"Repeated"`
+	FromDate     *int64    `json:"fromDate,omitempty" xml:"fromDate,omitempty"`
+	ToDate       *int64    `json:"toDate,omitempty" xml:"toDate,omitempty"`
+	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetColumnvalsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetColumnvalsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetColumnvalsRequest) SetColumnIdList(v []*string) *GetColumnvalsRequest {
+	s.ColumnIdList = v
+	return s
+}
+
+func (s *GetColumnvalsRequest) SetFromDate(v int64) *GetColumnvalsRequest {
+	s.FromDate = &v
+	return s
+}
+
+func (s *GetColumnvalsRequest) SetToDate(v int64) *GetColumnvalsRequest {
+	s.ToDate = &v
+	return s
+}
+
+func (s *GetColumnvalsRequest) SetUserIds(v []*string) *GetColumnvalsRequest {
+	s.UserIds = v
+	return s
+}
+
+type GetColumnvalsResponseBody struct {
+	Result []*GetColumnvalsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetColumnvalsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetColumnvalsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetColumnvalsResponseBody) SetResult(v []*GetColumnvalsResponseBodyResult) *GetColumnvalsResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetColumnvalsResponseBodyResult struct {
+	ColumnData []*GetColumnvalsResponseBodyResultColumnData `json:"columnData,omitempty" xml:"columnData,omitempty" type:"Repeated"`
+	UserId     *string                                      `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetColumnvalsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetColumnvalsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetColumnvalsResponseBodyResult) SetColumnData(v []*GetColumnvalsResponseBodyResultColumnData) *GetColumnvalsResponseBodyResult {
+	s.ColumnData = v
+	return s
+}
+
+func (s *GetColumnvalsResponseBodyResult) SetUserId(v string) *GetColumnvalsResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type GetColumnvalsResponseBodyResultColumnData struct {
+	ColumnValues []*GetColumnvalsResponseBodyResultColumnDataColumnValues `json:"columnValues,omitempty" xml:"columnValues,omitempty" type:"Repeated"`
+	FixedValue   *string                                                  `json:"fixedValue,omitempty" xml:"fixedValue,omitempty"`
+	Id           *int64                                                   `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s GetColumnvalsResponseBodyResultColumnData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetColumnvalsResponseBodyResultColumnData) GoString() string {
+	return s.String()
+}
+
+func (s *GetColumnvalsResponseBodyResultColumnData) SetColumnValues(v []*GetColumnvalsResponseBodyResultColumnDataColumnValues) *GetColumnvalsResponseBodyResultColumnData {
+	s.ColumnValues = v
+	return s
+}
+
+func (s *GetColumnvalsResponseBodyResultColumnData) SetFixedValue(v string) *GetColumnvalsResponseBodyResultColumnData {
+	s.FixedValue = &v
+	return s
+}
+
+func (s *GetColumnvalsResponseBodyResultColumnData) SetId(v int64) *GetColumnvalsResponseBodyResultColumnData {
+	s.Id = &v
+	return s
+}
+
+type GetColumnvalsResponseBodyResultColumnDataColumnValues struct {
+	Date  *int64  `json:"date,omitempty" xml:"date,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetColumnvalsResponseBodyResultColumnDataColumnValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetColumnvalsResponseBodyResultColumnDataColumnValues) GoString() string {
+	return s.String()
+}
+
+func (s *GetColumnvalsResponseBodyResultColumnDataColumnValues) SetDate(v int64) *GetColumnvalsResponseBodyResultColumnDataColumnValues {
+	s.Date = &v
+	return s
+}
+
+func (s *GetColumnvalsResponseBodyResultColumnDataColumnValues) SetValue(v string) *GetColumnvalsResponseBodyResultColumnDataColumnValues {
+	s.Value = &v
+	return s
+}
+
+type GetColumnvalsResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetColumnvalsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetColumnvalsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetColumnvalsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetColumnvalsResponse) SetHeaders(v map[string]*string) *GetColumnvalsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetColumnvalsResponse) SetStatusCode(v int32) *GetColumnvalsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetColumnvalsResponse) SetBody(v *GetColumnvalsResponseBody) *GetColumnvalsResponse {
+	s.Body = v
+	return s
+}
+
 type GetLeaveRecordsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9721,6 +9900,73 @@ func (client *Client) GetClosingAccounts(request *GetClosingAccountsRequest) (_r
 	headers := &GetClosingAccountsHeaders{}
 	_result = &GetClosingAccountsResponse{}
 	_body, _err := client.GetClosingAccountsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetColumnvalsWithOptions(request *GetColumnvalsRequest, headers *GetColumnvalsHeaders, runtime *util.RuntimeOptions) (_result *GetColumnvalsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ColumnIdList)) {
+		body["columnIdList"] = request.ColumnIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromDate)) {
+		body["fromDate"] = request.FromDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToDate)) {
+		body["toDate"] = request.ToDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetColumnvals"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/columnValues/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetColumnvalsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetColumnvals(request *GetColumnvalsRequest) (_result *GetColumnvalsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetColumnvalsHeaders{}
+	_result = &GetColumnvalsResponse{}
+	_body, _err := client.GetColumnvalsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

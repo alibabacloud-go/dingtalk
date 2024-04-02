@@ -105,6 +105,127 @@ func (s *BatchDeleteReceiptResponse) SetBody(v *BatchDeleteReceiptResponseBody) 
 	return s
 }
 
+type BatchSyncBankReceiptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchSyncBankReceiptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSyncBankReceiptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSyncBankReceiptHeaders) SetCommonHeaders(v map[string]*string) *BatchSyncBankReceiptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchSyncBankReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *BatchSyncBankReceiptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchSyncBankReceiptRequest struct {
+	Body []*BatchSyncBankReceiptRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+}
+
+func (s BatchSyncBankReceiptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSyncBankReceiptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSyncBankReceiptRequest) SetBody(v []*BatchSyncBankReceiptRequestBody) *BatchSyncBankReceiptRequest {
+	s.Body = v
+	return s
+}
+
+type BatchSyncBankReceiptRequestBody struct {
+	FileDownloadUrl *string `json:"fileDownloadUrl,omitempty" xml:"fileDownloadUrl,omitempty"`
+	FileName        *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	MessageId       *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	MessageIdType   *string `json:"messageIdType,omitempty" xml:"messageIdType,omitempty"`
+}
+
+func (s BatchSyncBankReceiptRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSyncBankReceiptRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSyncBankReceiptRequestBody) SetFileDownloadUrl(v string) *BatchSyncBankReceiptRequestBody {
+	s.FileDownloadUrl = &v
+	return s
+}
+
+func (s *BatchSyncBankReceiptRequestBody) SetFileName(v string) *BatchSyncBankReceiptRequestBody {
+	s.FileName = &v
+	return s
+}
+
+func (s *BatchSyncBankReceiptRequestBody) SetMessageId(v string) *BatchSyncBankReceiptRequestBody {
+	s.MessageId = &v
+	return s
+}
+
+func (s *BatchSyncBankReceiptRequestBody) SetMessageIdType(v string) *BatchSyncBankReceiptRequestBody {
+	s.MessageIdType = &v
+	return s
+}
+
+type BatchSyncBankReceiptResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s BatchSyncBankReceiptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSyncBankReceiptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSyncBankReceiptResponseBody) SetResult(v bool) *BatchSyncBankReceiptResponseBody {
+	s.Result = &v
+	return s
+}
+
+type BatchSyncBankReceiptResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchSyncBankReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchSyncBankReceiptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSyncBankReceiptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSyncBankReceiptResponse) SetHeaders(v map[string]*string) *BatchSyncBankReceiptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchSyncBankReceiptResponse) SetStatusCode(v int32) *BatchSyncBankReceiptResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchSyncBankReceiptResponse) SetBody(v *BatchSyncBankReceiptResponseBody) *BatchSyncBankReceiptResponse {
+	s.Body = v
+	return s
+}
+
 type GetCategoryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2285,6 +2406,56 @@ func (client *Client) BatchDeleteReceipt(request *BatchDeleteReceiptRequest) (_r
 	headers := &BatchDeleteReceiptHeaders{}
 	_result = &BatchDeleteReceiptResponse{}
 	_body, _err := client.BatchDeleteReceiptWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchSyncBankReceiptWithOptions(request *BatchSyncBankReceiptRequest, headers *BatchSyncBankReceiptHeaders, runtime *util.RuntimeOptions) (_result *BatchSyncBankReceiptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    util.ToArray(request.Body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchSyncBankReceipt"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/receipts/batchSync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchSyncBankReceiptResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchSyncBankReceipt(request *BatchSyncBankReceiptRequest) (_result *BatchSyncBankReceiptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchSyncBankReceiptHeaders{}
+	_result = &BatchSyncBankReceiptResponse{}
+	_body, _err := client.BatchSyncBankReceiptWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

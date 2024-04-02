@@ -2291,35 +2291,37 @@ func (s *SyncTripOrderRequestEvent) SetGmtAction(v string) *SyncTripOrderRequest
 }
 
 type SyncTripOrderRequestOrderDetails struct {
-	ArrivalTime         *string                                             `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
-	CarColor            *string                                             `json:"carColor,omitempty" xml:"carColor,omitempty"`
-	CarModel            *string                                             `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	CarNumber           *string                                             `json:"carNumber,omitempty" xml:"carNumber,omitempty"`
-	CateringType        *string                                             `json:"cateringType,omitempty" xml:"cateringType,omitempty"`
-	CheckInTime         *string                                             `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
-	CheckOutTime        *string                                             `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
-	DepartTime          *string                                             `json:"departTime,omitempty" xml:"departTime,omitempty"`
-	DestinationCity     *string                                             `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
-	DestinationCityCode *string                                             `json:"destinationCityCode,omitempty" xml:"destinationCityCode,omitempty"`
-	DestinationStation  *string                                             `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
-	DetailAmount        *string                                             `json:"detailAmount,omitempty" xml:"detailAmount,omitempty"`
-	HotelAddress        *string                                             `json:"hotelAddress,omitempty" xml:"hotelAddress,omitempty"`
-	HotelCity           *string                                             `json:"hotelCity,omitempty" xml:"hotelCity,omitempty"`
-	HotelLocation       *SyncTripOrderRequestOrderDetailsHotelLocation      `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
-	HotelName           *string                                             `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
-	OpenConsumerInfo    []*SyncTripOrderRequestOrderDetailsOpenConsumerInfo `json:"openConsumerInfo,omitempty" xml:"openConsumerInfo,omitempty" type:"Repeated"`
-	OriginCity          *string                                             `json:"originCity,omitempty" xml:"originCity,omitempty"`
-	OriginCityCode      *string                                             `json:"originCityCode,omitempty" xml:"originCityCode,omitempty"`
-	OriginStation       *string                                             `json:"originStation,omitempty" xml:"originStation,omitempty"`
-	RoomCount           *int32                                              `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
-	SeatInfo            *string                                             `json:"seatInfo,omitempty" xml:"seatInfo,omitempty"`
-	ServiceType         *string                                             `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
-	SubSupplyLogo       *string                                             `json:"subSupplyLogo,omitempty" xml:"subSupplyLogo,omitempty"`
-	SubSupplyName       *string                                             `json:"subSupplyName,omitempty" xml:"subSupplyName,omitempty"`
-	TaxiType            *string                                             `json:"taxiType,omitempty" xml:"taxiType,omitempty"`
-	Telephone           *string                                             `json:"telephone,omitempty" xml:"telephone,omitempty"`
-	TransportNumber     *string                                             `json:"transportNumber,omitempty" xml:"transportNumber,omitempty"`
-	TypeDescription     *string                                             `json:"typeDescription,omitempty" xml:"typeDescription,omitempty"`
+	ArrivalTime                 *string                                             `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
+	CarColor                    *string                                             `json:"carColor,omitempty" xml:"carColor,omitempty"`
+	CarModel                    *string                                             `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	CarNumber                   *string                                             `json:"carNumber,omitempty" xml:"carNumber,omitempty"`
+	CateringType                *string                                             `json:"cateringType,omitempty" xml:"cateringType,omitempty"`
+	CheckInTime                 *string                                             `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
+	CheckOutTime                *string                                             `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
+	DepartTime                  *string                                             `json:"departTime,omitempty" xml:"departTime,omitempty"`
+	DestinationCity             *string                                             `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
+	DestinationCityCode         *string                                             `json:"destinationCityCode,omitempty" xml:"destinationCityCode,omitempty"`
+	DestinationStation          *string                                             `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
+	DestinationTerminalBuilding *string                                             `json:"destinationTerminalBuilding,omitempty" xml:"destinationTerminalBuilding,omitempty"`
+	DetailAmount                *string                                             `json:"detailAmount,omitempty" xml:"detailAmount,omitempty"`
+	HotelAddress                *string                                             `json:"hotelAddress,omitempty" xml:"hotelAddress,omitempty"`
+	HotelCity                   *string                                             `json:"hotelCity,omitempty" xml:"hotelCity,omitempty"`
+	HotelLocation               *SyncTripOrderRequestOrderDetailsHotelLocation      `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
+	HotelName                   *string                                             `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
+	OpenConsumerInfo            []*SyncTripOrderRequestOrderDetailsOpenConsumerInfo `json:"openConsumerInfo,omitempty" xml:"openConsumerInfo,omitempty" type:"Repeated"`
+	OriginCity                  *string                                             `json:"originCity,omitempty" xml:"originCity,omitempty"`
+	OriginCityCode              *string                                             `json:"originCityCode,omitempty" xml:"originCityCode,omitempty"`
+	OriginStation               *string                                             `json:"originStation,omitempty" xml:"originStation,omitempty"`
+	OriginTerminalBuilding      *string                                             `json:"originTerminalBuilding,omitempty" xml:"originTerminalBuilding,omitempty"`
+	RoomCount                   *int32                                              `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
+	SeatInfo                    *string                                             `json:"seatInfo,omitempty" xml:"seatInfo,omitempty"`
+	ServiceType                 *string                                             `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
+	SubSupplyLogo               *string                                             `json:"subSupplyLogo,omitempty" xml:"subSupplyLogo,omitempty"`
+	SubSupplyName               *string                                             `json:"subSupplyName,omitempty" xml:"subSupplyName,omitempty"`
+	TaxiType                    *string                                             `json:"taxiType,omitempty" xml:"taxiType,omitempty"`
+	Telephone                   *string                                             `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	TransportNumber             *string                                             `json:"transportNumber,omitempty" xml:"transportNumber,omitempty"`
+	TypeDescription             *string                                             `json:"typeDescription,omitempty" xml:"typeDescription,omitempty"`
 }
 
 func (s SyncTripOrderRequestOrderDetails) String() string {
@@ -2385,6 +2387,11 @@ func (s *SyncTripOrderRequestOrderDetails) SetDestinationStation(v string) *Sync
 	return s
 }
 
+func (s *SyncTripOrderRequestOrderDetails) SetDestinationTerminalBuilding(v string) *SyncTripOrderRequestOrderDetails {
+	s.DestinationTerminalBuilding = &v
+	return s
+}
+
 func (s *SyncTripOrderRequestOrderDetails) SetDetailAmount(v string) *SyncTripOrderRequestOrderDetails {
 	s.DetailAmount = &v
 	return s
@@ -2427,6 +2434,11 @@ func (s *SyncTripOrderRequestOrderDetails) SetOriginCityCode(v string) *SyncTrip
 
 func (s *SyncTripOrderRequestOrderDetails) SetOriginStation(v string) *SyncTripOrderRequestOrderDetails {
 	s.OriginStation = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetOriginTerminalBuilding(v string) *SyncTripOrderRequestOrderDetails {
+	s.OriginTerminalBuilding = &v
 	return s
 }
 

@@ -80,6 +80,7 @@ type FormComponentProps struct {
 	DataSource         *FormDataSource                `json:"dataSource,omitempty" xml:"dataSource,omitempty"`
 	Disabled           *bool                          `json:"disabled,omitempty" xml:"disabled,omitempty"`
 	Duration           *bool                          `json:"duration,omitempty" xml:"duration,omitempty"`
+	DurationLabel      *string                        `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
 	Format             *string                        `json:"format,omitempty" xml:"format,omitempty"`
 	Formula            *string                        `json:"formula,omitempty" xml:"formula,omitempty"`
 	Invisible          *bool                          `json:"invisible,omitempty" xml:"invisible,omitempty"`
@@ -176,6 +177,11 @@ func (s *FormComponentProps) SetDisabled(v bool) *FormComponentProps {
 
 func (s *FormComponentProps) SetDuration(v bool) *FormComponentProps {
 	s.Duration = &v
+	return s
+}
+
+func (s *FormComponentProps) SetDurationLabel(v string) *FormComponentProps {
+	s.DurationLabel = &v
 	return s
 }
 

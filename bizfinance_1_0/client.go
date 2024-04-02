@@ -14087,6 +14087,7 @@ type UpdateReceiptVoucherStatusRequest struct {
 	ReceiptId     *string `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
 	VoucherCode   *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
 	VoucherId     *string `json:"voucherId,omitempty" xml:"voucherId,omitempty"`
+	VoucherNo     *string `json:"voucherNo,omitempty" xml:"voucherNo,omitempty"`
 }
 
 func (s UpdateReceiptVoucherStatusRequest) String() string {
@@ -14124,6 +14125,11 @@ func (s *UpdateReceiptVoucherStatusRequest) SetVoucherCode(v string) *UpdateRece
 
 func (s *UpdateReceiptVoucherStatusRequest) SetVoucherId(v string) *UpdateReceiptVoucherStatusRequest {
 	s.VoucherId = &v
+	return s
+}
+
+func (s *UpdateReceiptVoucherStatusRequest) SetVoucherNo(v string) *UpdateReceiptVoucherStatusRequest {
+	s.VoucherNo = &v
 	return s
 }
 
@@ -17765,6 +17771,10 @@ func (client *Client) UpdateReceiptVoucherStatusWithOptions(request *UpdateRecei
 
 	if !tea.BoolValue(util.IsUnset(request.VoucherId)) {
 		body["voucherId"] = request.VoucherId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VoucherNo)) {
+		body["voucherNo"] = request.VoucherNo
 	}
 
 	realHeaders := make(map[string]*string)
