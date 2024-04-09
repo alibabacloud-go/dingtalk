@@ -634,6 +634,116 @@ func (s *GetProjectResponse) SetBody(v *GetProjectResponseBody) *GetProjectRespo
 	return s
 }
 
+type GetReceiptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetReceiptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetReceiptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetReceiptHeaders) SetCommonHeaders(v map[string]*string) *GetReceiptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *GetReceiptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetReceiptRequest struct {
+	Code    *string `json:"code,omitempty" xml:"code,omitempty"`
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+}
+
+func (s GetReceiptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetReceiptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetReceiptRequest) SetCode(v string) *GetReceiptRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *GetReceiptRequest) SetModelId(v string) *GetReceiptRequest {
+	s.ModelId = &v
+	return s
+}
+
+type GetReceiptResponseBody struct {
+	AppId   *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	Data    *string `json:"data,omitempty" xml:"data,omitempty"`
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	Source  *string `json:"source,omitempty" xml:"source,omitempty"`
+}
+
+func (s GetReceiptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetReceiptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetReceiptResponseBody) SetAppId(v string) *GetReceiptResponseBody {
+	s.AppId = &v
+	return s
+}
+
+func (s *GetReceiptResponseBody) SetData(v string) *GetReceiptResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetReceiptResponseBody) SetModelId(v string) *GetReceiptResponseBody {
+	s.ModelId = &v
+	return s
+}
+
+func (s *GetReceiptResponseBody) SetSource(v string) *GetReceiptResponseBody {
+	s.Source = &v
+	return s
+}
+
+type GetReceiptResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetReceiptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetReceiptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetReceiptResponse) SetHeaders(v map[string]*string) *GetReceiptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetReceiptResponse) SetStatusCode(v int32) *GetReceiptResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetReceiptResponse) SetBody(v *GetReceiptResponseBody) *GetReceiptResponse {
+	s.Body = v
+	return s
+}
+
 type GetSupplierHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2621,6 +2731,65 @@ func (client *Client) GetProject(request *GetProjectRequest) (_result *GetProjec
 	headers := &GetProjectHeaders{}
 	_result = &GetProjectResponse{}
 	_body, _err := client.GetProjectWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetReceiptWithOptions(request *GetReceiptRequest, headers *GetReceiptHeaders, runtime *util.RuntimeOptions) (_result *GetReceiptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModelId)) {
+		query["modelId"] = request.ModelId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetReceipt"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/receipts/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetReceiptResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetReceipt(request *GetReceiptRequest) (_result *GetReceiptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetReceiptHeaders{}
+	_result = &GetReceiptResponse{}
+	_body, _err := client.GetReceiptWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

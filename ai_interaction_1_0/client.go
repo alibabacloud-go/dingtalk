@@ -142,7 +142,6 @@ func (s *PrepareHeaders) SetXAcsDingtalkAccessToken(v string) *PrepareHeaders {
 type PrepareRequest struct {
 	Content            *string `json:"content,omitempty" xml:"content,omitempty"`
 	ContentType        *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
-	ConversationType   *string `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
@@ -162,11 +161,6 @@ func (s *PrepareRequest) SetContent(v string) *PrepareRequest {
 
 func (s *PrepareRequest) SetContentType(v string) *PrepareRequest {
 	s.ContentType = &v
-	return s
-}
-
-func (s *PrepareRequest) SetConversationType(v string) *PrepareRequest {
-	s.ConversationType = &v
 	return s
 }
 
@@ -569,10 +563,6 @@ func (client *Client) PrepareWithOptions(request *PrepareRequest, headers *Prepa
 
 	if !tea.BoolValue(util.IsUnset(request.ContentType)) {
 		body["contentType"] = request.ContentType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ConversationType)) {
-		body["conversationType"] = request.ConversationType
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {

@@ -1653,6 +1653,174 @@ func (s *SearchDentriesResponse) SetBody(v *SearchDentriesResponseBody) *SearchD
 	return s
 }
 
+type SearchPublishDentriesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchPublishDentriesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchPublishDentriesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchPublishDentriesHeaders) SetCommonHeaders(v map[string]*string) *SearchPublishDentriesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchPublishDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *SearchPublishDentriesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchPublishDentriesRequest struct {
+	Keyword     *string                             `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	Option      *SearchPublishDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	WorkspaceId *string                             `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	OperatorId  *string                             `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SearchPublishDentriesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchPublishDentriesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchPublishDentriesRequest) SetKeyword(v string) *SearchPublishDentriesRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *SearchPublishDentriesRequest) SetOption(v *SearchPublishDentriesRequestOption) *SearchPublishDentriesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *SearchPublishDentriesRequest) SetWorkspaceId(v string) *SearchPublishDentriesRequest {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *SearchPublishDentriesRequest) SetOperatorId(v string) *SearchPublishDentriesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SearchPublishDentriesRequestOption struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s SearchPublishDentriesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchPublishDentriesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *SearchPublishDentriesRequestOption) SetMaxResults(v int32) *SearchPublishDentriesRequestOption {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchPublishDentriesRequestOption) SetNextToken(v string) *SearchPublishDentriesRequestOption {
+	s.NextToken = &v
+	return s
+}
+
+type SearchPublishDentriesResponseBody struct {
+	Items     []*SearchPublishDentriesResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NextToken *string                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s SearchPublishDentriesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchPublishDentriesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchPublishDentriesResponseBody) SetItems(v []*SearchPublishDentriesResponseBodyItems) *SearchPublishDentriesResponseBody {
+	s.Items = v
+	return s
+}
+
+func (s *SearchPublishDentriesResponseBody) SetNextToken(v string) *SearchPublishDentriesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type SearchPublishDentriesResponseBodyItems struct {
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	Path    *string `json:"path,omitempty" xml:"path,omitempty"`
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	Url     *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s SearchPublishDentriesResponseBodyItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchPublishDentriesResponseBodyItems) GoString() string {
+	return s.String()
+}
+
+func (s *SearchPublishDentriesResponseBodyItems) SetName(v string) *SearchPublishDentriesResponseBodyItems {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchPublishDentriesResponseBodyItems) SetPath(v string) *SearchPublishDentriesResponseBodyItems {
+	s.Path = &v
+	return s
+}
+
+func (s *SearchPublishDentriesResponseBodyItems) SetSummary(v string) *SearchPublishDentriesResponseBodyItems {
+	s.Summary = &v
+	return s
+}
+
+func (s *SearchPublishDentriesResponseBodyItems) SetUrl(v string) *SearchPublishDentriesResponseBodyItems {
+	s.Url = &v
+	return s
+}
+
+type SearchPublishDentriesResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SearchPublishDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SearchPublishDentriesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchPublishDentriesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchPublishDentriesResponse) SetHeaders(v map[string]*string) *SearchPublishDentriesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchPublishDentriesResponse) SetStatusCode(v int32) *SearchPublishDentriesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SearchPublishDentriesResponse) SetBody(v *SearchPublishDentriesResponseBody) *SearchPublishDentriesResponse {
+	s.Body = v
+	return s
+}
+
 type SearchWorkspacesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2638,6 +2806,75 @@ func (client *Client) SearchDentries(request *SearchDentriesRequest) (_result *S
 	headers := &SearchDentriesHeaders{}
 	_result = &SearchDentriesResponse{}
 	_body, _err := client.SearchDentriesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchPublishDentriesWithOptions(request *SearchPublishDentriesRequest, headers *SearchPublishDentriesHeaders, runtime *util.RuntimeOptions) (_result *SearchPublishDentriesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		body["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkspaceId)) {
+		body["workspaceId"] = request.WorkspaceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchPublishDentries"),
+		Version:     tea.String("storage_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/storage/publishDentries/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SearchPublishDentriesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchPublishDentries(request *SearchPublishDentriesRequest) (_result *SearchPublishDentriesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchPublishDentriesHeaders{}
+	_result = &SearchPublishDentriesResponse{}
+	_body, _err := client.SearchPublishDentriesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

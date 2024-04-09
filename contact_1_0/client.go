@@ -9437,6 +9437,152 @@ func (s *UpdateSeniorSettingResponse) SetStatusCode(v int32) *UpdateSeniorSettin
 	return s
 }
 
+type UpdateTitleAuditStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTitleAuditStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTitleAuditStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTitleAuditStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateTitleAuditStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTitleAuditStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTitleAuditStatusRequest struct {
+	AuthStatus     *string `json:"authStatus,omitempty" xml:"authStatus,omitempty"`
+	EducationLevel *string `json:"educationLevel,omitempty" xml:"educationLevel,omitempty"`
+	Extension      *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Major          *string `json:"major,omitempty" xml:"major,omitempty"`
+	Position       *string `json:"position,omitempty" xml:"position,omitempty"`
+	ReasonCode     *string `json:"reasonCode,omitempty" xml:"reasonCode,omitempty"`
+	ReasonMsg      *string `json:"reasonMsg,omitempty" xml:"reasonMsg,omitempty"`
+	School         *string `json:"school,omitempty" xml:"school,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
+	UnionId        *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Uuid           *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s UpdateTitleAuditStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTitleAuditStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetAuthStatus(v string) *UpdateTitleAuditStatusRequest {
+	s.AuthStatus = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetEducationLevel(v string) *UpdateTitleAuditStatusRequest {
+	s.EducationLevel = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetExtension(v string) *UpdateTitleAuditStatusRequest {
+	s.Extension = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetMajor(v string) *UpdateTitleAuditStatusRequest {
+	s.Major = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetPosition(v string) *UpdateTitleAuditStatusRequest {
+	s.Position = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetReasonCode(v string) *UpdateTitleAuditStatusRequest {
+	s.ReasonCode = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetReasonMsg(v string) *UpdateTitleAuditStatusRequest {
+	s.ReasonMsg = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetSchool(v string) *UpdateTitleAuditStatusRequest {
+	s.School = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetType(v string) *UpdateTitleAuditStatusRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetUnionId(v string) *UpdateTitleAuditStatusRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusRequest) SetUuid(v string) *UpdateTitleAuditStatusRequest {
+	s.Uuid = &v
+	return s
+}
+
+type UpdateTitleAuditStatusResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateTitleAuditStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTitleAuditStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTitleAuditStatusResponseBody) SetResult(v bool) *UpdateTitleAuditStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateTitleAuditStatusResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateTitleAuditStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateTitleAuditStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTitleAuditStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTitleAuditStatusResponse) SetHeaders(v map[string]*string) *UpdateTitleAuditStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusResponse) SetStatusCode(v int32) *UpdateTitleAuditStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateTitleAuditStatusResponse) SetBody(v *UpdateTitleAuditStatusResponseBody) *UpdateTitleAuditStatusResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateUserOwnnessHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -14272,6 +14418,101 @@ func (client *Client) UpdateSeniorSetting(request *UpdateSeniorSettingRequest) (
 	headers := &UpdateSeniorSettingHeaders{}
 	_result = &UpdateSeniorSettingResponse{}
 	_body, _err := client.UpdateSeniorSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTitleAuditStatusWithOptions(request *UpdateTitleAuditStatusRequest, headers *UpdateTitleAuditStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateTitleAuditStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AuthStatus)) {
+		body["authStatus"] = request.AuthStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EducationLevel)) {
+		body["educationLevel"] = request.EducationLevel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Major)) {
+		body["major"] = request.Major
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Position)) {
+		body["position"] = request.Position
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReasonCode)) {
+		body["reasonCode"] = request.ReasonCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReasonMsg)) {
+		body["reasonMsg"] = request.ReasonMsg
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.School)) {
+		body["school"] = request.School
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTitleAuditStatus"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/userTitles/auditStatuses"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTitleAuditStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTitleAuditStatus(request *UpdateTitleAuditStatusRequest) (_result *UpdateTitleAuditStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTitleAuditStatusHeaders{}
+	_result = &UpdateTitleAuditStatusResponse{}
+	_body, _err := client.UpdateTitleAuditStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

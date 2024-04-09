@@ -1585,10 +1585,11 @@ func (s *HrmPtsServiceHeaders) SetXAcsDingtalkAccessToken(v string) *HrmPtsServi
 }
 
 type HrmPtsServiceRequest struct {
-	Env    *string     `json:"env,omitempty" xml:"env,omitempty"`
-	Method *string     `json:"method,omitempty" xml:"method,omitempty"`
-	Params interface{} `json:"params,omitempty" xml:"params,omitempty"`
-	Path   *string     `json:"path,omitempty" xml:"path,omitempty"`
+	Env     *string     `json:"env,omitempty" xml:"env,omitempty"`
+	Method  *string     `json:"method,omitempty" xml:"method,omitempty"`
+	OuterId *string     `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	Params  interface{} `json:"params,omitempty" xml:"params,omitempty"`
+	Path    *string     `json:"path,omitempty" xml:"path,omitempty"`
 }
 
 func (s HrmPtsServiceRequest) String() string {
@@ -1606,6 +1607,11 @@ func (s *HrmPtsServiceRequest) SetEnv(v string) *HrmPtsServiceRequest {
 
 func (s *HrmPtsServiceRequest) SetMethod(v string) *HrmPtsServiceRequest {
 	s.Method = &v
+	return s
+}
+
+func (s *HrmPtsServiceRequest) SetOuterId(v string) *HrmPtsServiceRequest {
+	s.OuterId = &v
 	return s
 }
 
@@ -5600,6 +5606,10 @@ func (client *Client) HrmPtsServiceWithOptions(request *HrmPtsServiceRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.Method)) {
 		body["method"] = request.Method
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OuterId)) {
+		body["outerId"] = request.OuterId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Params)) {

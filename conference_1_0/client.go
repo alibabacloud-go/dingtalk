@@ -1793,8 +1793,9 @@ func (s *InviteUsersHeaders) SetXAcsDingtalkAccessToken(v string) *InviteUsersHe
 }
 
 type InviteUsersRequest struct {
-	InviteeList []*InviteUsersRequestInviteeList `json:"inviteeList,omitempty" xml:"inviteeList,omitempty" type:"Repeated"`
-	UnionId     *string                          `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	InviteeList      []*InviteUsersRequestInviteeList      `json:"inviteeList,omitempty" xml:"inviteeList,omitempty" type:"Repeated"`
+	PhoneInviteeList []*InviteUsersRequestPhoneInviteeList `json:"phoneInviteeList,omitempty" xml:"phoneInviteeList,omitempty" type:"Repeated"`
+	UnionId          *string                               `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s InviteUsersRequest) String() string {
@@ -1807,6 +1808,11 @@ func (s InviteUsersRequest) GoString() string {
 
 func (s *InviteUsersRequest) SetInviteeList(v []*InviteUsersRequestInviteeList) *InviteUsersRequest {
 	s.InviteeList = v
+	return s
+}
+
+func (s *InviteUsersRequest) SetPhoneInviteeList(v []*InviteUsersRequestPhoneInviteeList) *InviteUsersRequest {
+	s.PhoneInviteeList = v
 	return s
 }
 
@@ -1835,6 +1841,29 @@ func (s *InviteUsersRequestInviteeList) SetNick(v string) *InviteUsersRequestInv
 
 func (s *InviteUsersRequestInviteeList) SetUnionId(v string) *InviteUsersRequestInviteeList {
 	s.UnionId = &v
+	return s
+}
+
+type InviteUsersRequestPhoneInviteeList struct {
+	Nick        *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
+}
+
+func (s InviteUsersRequestPhoneInviteeList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InviteUsersRequestPhoneInviteeList) GoString() string {
+	return s.String()
+}
+
+func (s *InviteUsersRequestPhoneInviteeList) SetNick(v string) *InviteUsersRequestPhoneInviteeList {
+	s.Nick = &v
+	return s
+}
+
+func (s *InviteUsersRequestPhoneInviteeList) SetPhoneNumber(v string) *InviteUsersRequestPhoneInviteeList {
+	s.PhoneNumber = &v
 	return s
 }
 
@@ -5341,6 +5370,10 @@ func (client *Client) InviteUsersWithOptions(conferenceId *string, request *Invi
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.InviteeList)) {
 		body["inviteeList"] = request.InviteeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PhoneInviteeList)) {
+		body["phoneInviteeList"] = request.PhoneInviteeList
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
