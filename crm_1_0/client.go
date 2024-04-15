@@ -7026,6 +7026,233 @@ func (s *DescribeRelationMetaResponse) SetBody(v *DescribeRelationMetaResponseBo
 	return s
 }
 
+type FindTargetRelatedFollowRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FindTargetRelatedFollowRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FindTargetRelatedFollowRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FindTargetRelatedFollowRecordsHeaders) SetCommonHeaders(v map[string]*string) *FindTargetRelatedFollowRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *FindTargetRelatedFollowRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FindTargetRelatedFollowRecordsRequest struct {
+	FollowTargetDataId *string `json:"followTargetDataId,omitempty" xml:"followTargetDataId,omitempty"`
+	FollowTargetType   *string `json:"followTargetType,omitempty" xml:"followTargetType,omitempty"`
+	MaxResults         *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s FindTargetRelatedFollowRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FindTargetRelatedFollowRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FindTargetRelatedFollowRecordsRequest) SetFollowTargetDataId(v string) *FindTargetRelatedFollowRecordsRequest {
+	s.FollowTargetDataId = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsRequest) SetFollowTargetType(v string) *FindTargetRelatedFollowRecordsRequest {
+	s.FollowTargetType = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsRequest) SetMaxResults(v int64) *FindTargetRelatedFollowRecordsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsRequest) SetNextToken(v string) *FindTargetRelatedFollowRecordsRequest {
+	s.NextToken = &v
+	return s
+}
+
+type FindTargetRelatedFollowRecordsResponseBody struct {
+	Result *FindTargetRelatedFollowRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s FindTargetRelatedFollowRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FindTargetRelatedFollowRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBody) SetResult(v *FindTargetRelatedFollowRecordsResponseBodyResult) *FindTargetRelatedFollowRecordsResponseBody {
+	s.Result = v
+	return s
+}
+
+type FindTargetRelatedFollowRecordsResponseBodyResult struct {
+	HasMore    *bool                                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken  *string                                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ResultList []*FindTargetRelatedFollowRecordsResponseBodyResultResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
+}
+
+func (s FindTargetRelatedFollowRecordsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FindTargetRelatedFollowRecordsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResult) SetHasMore(v bool) *FindTargetRelatedFollowRecordsResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResult) SetNextToken(v string) *FindTargetRelatedFollowRecordsResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResult) SetResultList(v []*FindTargetRelatedFollowRecordsResponseBodyResultResultList) *FindTargetRelatedFollowRecordsResponseBodyResult {
+	s.ResultList = v
+	return s
+}
+
+type FindTargetRelatedFollowRecordsResponseBodyResultResultList struct {
+	CreatorUserId           *string                                                                    `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	FollowContent           []*FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent `json:"followContent,omitempty" xml:"followContent,omitempty" type:"Repeated"`
+	FollowTargetDataId      *string                                                                    `json:"followTargetDataId,omitempty" xml:"followTargetDataId,omitempty"`
+	FollowTargetType        *string                                                                    `json:"followTargetType,omitempty" xml:"followTargetType,omitempty"`
+	GmtCreateMilliseconds   *string                                                                    `json:"gmtCreateMilliseconds,omitempty" xml:"gmtCreateMilliseconds,omitempty"`
+	GmtModifiedMilliseconds *string                                                                    `json:"gmtModifiedMilliseconds,omitempty" xml:"gmtModifiedMilliseconds,omitempty"`
+	ModifierUserId          *string                                                                    `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
+	RecordInstId            *string                                                                    `json:"recordInstId,omitempty" xml:"recordInstId,omitempty"`
+}
+
+func (s FindTargetRelatedFollowRecordsResponseBodyResultResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FindTargetRelatedFollowRecordsResponseBodyResultResultList) GoString() string {
+	return s.String()
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultList) SetCreatorUserId(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultList {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultList) SetFollowContent(v []*FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent) *FindTargetRelatedFollowRecordsResponseBodyResultResultList {
+	s.FollowContent = v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultList) SetFollowTargetDataId(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultList {
+	s.FollowTargetDataId = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultList) SetFollowTargetType(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultList {
+	s.FollowTargetType = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultList) SetGmtCreateMilliseconds(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultList {
+	s.GmtCreateMilliseconds = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultList) SetGmtModifiedMilliseconds(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultList {
+	s.GmtModifiedMilliseconds = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultList) SetModifierUserId(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultList {
+	s.ModifierUserId = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultList) SetRecordInstId(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultList {
+	s.RecordInstId = &v
+	return s
+}
+
+type FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent struct {
+	BizAlias    *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent) GoString() string {
+	return s.String()
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent) SetBizAlias(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent) SetExtendValue(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent) SetKey(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent {
+	s.Key = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent) SetValue(v string) *FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent {
+	s.Value = &v
+	return s
+}
+
+type FindTargetRelatedFollowRecordsResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *FindTargetRelatedFollowRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s FindTargetRelatedFollowRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FindTargetRelatedFollowRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FindTargetRelatedFollowRecordsResponse) SetHeaders(v map[string]*string) *FindTargetRelatedFollowRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponse) SetStatusCode(v int32) *FindTargetRelatedFollowRecordsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *FindTargetRelatedFollowRecordsResponse) SetBody(v *FindTargetRelatedFollowRecordsResponseBody) *FindTargetRelatedFollowRecordsResponse {
+	s.Body = v
+	return s
+}
+
 type GetAllCustomerRecyclesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15094,6 +15321,73 @@ func (client *Client) DescribeRelationMeta(request *DescribeRelationMetaRequest)
 	headers := &DescribeRelationMetaHeaders{}
 	_result = &DescribeRelationMetaResponse{}
 	_body, _err := client.DescribeRelationMetaWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) FindTargetRelatedFollowRecordsWithOptions(request *FindTargetRelatedFollowRecordsRequest, headers *FindTargetRelatedFollowRecordsHeaders, runtime *util.RuntimeOptions) (_result *FindTargetRelatedFollowRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FollowTargetDataId)) {
+		body["followTargetDataId"] = request.FollowTargetDataId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FollowTargetType)) {
+		body["followTargetType"] = request.FollowTargetType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("FindTargetRelatedFollowRecords"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/targetFollowRecords/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &FindTargetRelatedFollowRecordsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) FindTargetRelatedFollowRecords(request *FindTargetRelatedFollowRecordsRequest) (_result *FindTargetRelatedFollowRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FindTargetRelatedFollowRecordsHeaders{}
+	_result = &FindTargetRelatedFollowRecordsResponse{}
+	_body, _err := client.FindTargetRelatedFollowRecordsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

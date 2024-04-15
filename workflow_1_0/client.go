@@ -2278,6 +2278,145 @@ func (s *GetCrmProcCodesResponse) SetBody(v *GetCrmProcCodesResponseBody) *GetCr
 	return s
 }
 
+type GetFieldModifiedHistoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFieldModifiedHistoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldModifiedHistoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldModifiedHistoryHeaders) SetCommonHeaders(v map[string]*string) *GetFieldModifiedHistoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFieldModifiedHistoryHeaders) SetXAcsDingtalkAccessToken(v string) *GetFieldModifiedHistoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFieldModifiedHistoryRequest struct {
+	FieldId           *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s GetFieldModifiedHistoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldModifiedHistoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldModifiedHistoryRequest) SetFieldId(v string) *GetFieldModifiedHistoryRequest {
+	s.FieldId = &v
+	return s
+}
+
+func (s *GetFieldModifiedHistoryRequest) SetProcessInstanceId(v string) *GetFieldModifiedHistoryRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type GetFieldModifiedHistoryResponseBody struct {
+	Result  []*GetFieldModifiedHistoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetFieldModifiedHistoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldModifiedHistoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldModifiedHistoryResponseBody) SetResult(v []*GetFieldModifiedHistoryResponseBodyResult) *GetFieldModifiedHistoryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetFieldModifiedHistoryResponseBody) SetSuccess(v bool) *GetFieldModifiedHistoryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetFieldModifiedHistoryResponseBodyResult struct {
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FieldId    *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetFieldModifiedHistoryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldModifiedHistoryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldModifiedHistoryResponseBodyResult) SetCreateTime(v string) *GetFieldModifiedHistoryResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetFieldModifiedHistoryResponseBodyResult) SetFieldId(v string) *GetFieldModifiedHistoryResponseBodyResult {
+	s.FieldId = &v
+	return s
+}
+
+func (s *GetFieldModifiedHistoryResponseBodyResult) SetName(v string) *GetFieldModifiedHistoryResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetFieldModifiedHistoryResponseBodyResult) SetUserId(v string) *GetFieldModifiedHistoryResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetFieldModifiedHistoryResponseBodyResult) SetValue(v string) *GetFieldModifiedHistoryResponseBodyResult {
+	s.Value = &v
+	return s
+}
+
+type GetFieldModifiedHistoryResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFieldModifiedHistoryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetFieldModifiedHistoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldModifiedHistoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldModifiedHistoryResponse) SetHeaders(v map[string]*string) *GetFieldModifiedHistoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFieldModifiedHistoryResponse) SetStatusCode(v int32) *GetFieldModifiedHistoryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetFieldModifiedHistoryResponse) SetBody(v *GetFieldModifiedHistoryResponseBody) *GetFieldModifiedHistoryResponse {
+	s.Body = v
+	return s
+}
+
 type GetManageProcessByStaffIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4850,6 +4989,7 @@ func (s *PagesExportInstancesResponseBodyResultListFormComponentValues) SetValue
 type PagesExportInstancesResponseBodyResultListOperationRecords struct {
 	ActivityId    *string                                                                  `json:"activityId,omitempty" xml:"activityId,omitempty"`
 	Attachments   []*PagesExportInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	Images        []*string                                                                `json:"images,omitempty" xml:"images,omitempty" type:"Repeated"`
 	OperationType *string                                                                  `json:"operationType,omitempty" xml:"operationType,omitempty"`
 	Remark        *string                                                                  `json:"remark,omitempty" xml:"remark,omitempty"`
 	Result        *string                                                                  `json:"result,omitempty" xml:"result,omitempty"`
@@ -4873,6 +5013,11 @@ func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetActivity
 
 func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetAttachments(v []*PagesExportInstancesResponseBodyResultListOperationRecordsAttachments) *PagesExportInstancesResponseBodyResultListOperationRecords {
 	s.Attachments = v
+	return s
+}
+
+func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetImages(v []*string) *PagesExportInstancesResponseBodyResultListOperationRecords {
+	s.Images = v
 	return s
 }
 
@@ -10032,6 +10177,65 @@ func (client *Client) GetCrmProcCodes() (_result *GetCrmProcCodesResponse, _err 
 	headers := &GetCrmProcCodesHeaders{}
 	_result = &GetCrmProcCodesResponse{}
 	_body, _err := client.GetCrmProcCodesWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFieldModifiedHistoryWithOptions(request *GetFieldModifiedHistoryRequest, headers *GetFieldModifiedHistoryHeaders, runtime *util.RuntimeOptions) (_result *GetFieldModifiedHistoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FieldId)) {
+		body["fieldId"] = request.FieldId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFieldModifiedHistory"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processes/fields/modifiedRecords/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetFieldModifiedHistoryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetFieldModifiedHistory(request *GetFieldModifiedHistoryRequest) (_result *GetFieldModifiedHistoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFieldModifiedHistoryHeaders{}
+	_result = &GetFieldModifiedHistoryResponse{}
+	_body, _err := client.GetFieldModifiedHistoryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2807,6 +2807,110 @@ func (s *SyncTripProductConfigResponse) SetBody(v *SyncTripProductConfigResponse
 	return s
 }
 
+type TripPlatformUnifiedEntryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TripPlatformUnifiedEntryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TripPlatformUnifiedEntryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TripPlatformUnifiedEntryHeaders) SetCommonHeaders(v map[string]*string) *TripPlatformUnifiedEntryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TripPlatformUnifiedEntryHeaders) SetXAcsDingtalkAccessToken(v string) *TripPlatformUnifiedEntryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TripPlatformUnifiedEntryRequest struct {
+	Messages *string `json:"messages,omitempty" xml:"messages,omitempty"`
+	Method   *string `json:"method,omitempty" xml:"method,omitempty"`
+}
+
+func (s TripPlatformUnifiedEntryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TripPlatformUnifiedEntryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TripPlatformUnifiedEntryRequest) SetMessages(v string) *TripPlatformUnifiedEntryRequest {
+	s.Messages = &v
+	return s
+}
+
+func (s *TripPlatformUnifiedEntryRequest) SetMethod(v string) *TripPlatformUnifiedEntryRequest {
+	s.Method = &v
+	return s
+}
+
+type TripPlatformUnifiedEntryResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s TripPlatformUnifiedEntryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TripPlatformUnifiedEntryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TripPlatformUnifiedEntryResponseBody) SetRequestId(v string) *TripPlatformUnifiedEntryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *TripPlatformUnifiedEntryResponseBody) SetResult(v string) *TripPlatformUnifiedEntryResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *TripPlatformUnifiedEntryResponseBody) SetSuccess(v bool) *TripPlatformUnifiedEntryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type TripPlatformUnifiedEntryResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TripPlatformUnifiedEntryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TripPlatformUnifiedEntryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TripPlatformUnifiedEntryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TripPlatformUnifiedEntryResponse) SetHeaders(v map[string]*string) *TripPlatformUnifiedEntryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TripPlatformUnifiedEntryResponse) SetStatusCode(v int32) *TripPlatformUnifiedEntryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TripPlatformUnifiedEntryResponse) SetBody(v *TripPlatformUnifiedEntryResponseBody) *TripPlatformUnifiedEntryResponse {
+	s.Body = v
+	return s
+}
+
 type UpgradeTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4025,6 +4129,65 @@ func (client *Client) SyncTripProductConfig(request *SyncTripProductConfigReques
 	headers := &SyncTripProductConfigHeaders{}
 	_result = &SyncTripProductConfigResponse{}
 	_body, _err := client.SyncTripProductConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TripPlatformUnifiedEntryWithOptions(request *TripPlatformUnifiedEntryRequest, headers *TripPlatformUnifiedEntryHeaders, runtime *util.RuntimeOptions) (_result *TripPlatformUnifiedEntryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Messages)) {
+		body["messages"] = request.Messages
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Method)) {
+		body["method"] = request.Method
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TripPlatformUnifiedEntry"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/platforms/entrances/unify"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TripPlatformUnifiedEntryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TripPlatformUnifiedEntry(request *TripPlatformUnifiedEntryRequest) (_result *TripPlatformUnifiedEntryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TripPlatformUnifiedEntryHeaders{}
+	_result = &TripPlatformUnifiedEntryResponse{}
+	_body, _err := client.TripPlatformUnifiedEntryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

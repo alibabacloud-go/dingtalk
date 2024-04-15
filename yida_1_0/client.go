@@ -11801,6 +11801,295 @@ func (s *PageFormBaseInfosResponse) SetBody(v *PageFormBaseInfosResponseBody) *P
 	return s
 }
 
+type PreviewPublishedProcessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PreviewPublishedProcessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreviewPublishedProcessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PreviewPublishedProcessHeaders) SetCommonHeaders(v map[string]*string) *PreviewPublishedProcessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PreviewPublishedProcessHeaders) SetXAcsDingtalkAccessToken(v string) *PreviewPublishedProcessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PreviewPublishedProcessRequest struct {
+	AppType      *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
+	FormUuid     *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	Language     *string `json:"language,omitempty" xml:"language,omitempty"`
+	ProcessCode  *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	SystemToken  *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PreviewPublishedProcessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreviewPublishedProcessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PreviewPublishedProcessRequest) SetAppType(v string) *PreviewPublishedProcessRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessRequest) SetDepartmentId(v string) *PreviewPublishedProcessRequest {
+	s.DepartmentId = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessRequest) SetFormDataJson(v string) *PreviewPublishedProcessRequest {
+	s.FormDataJson = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessRequest) SetFormUuid(v string) *PreviewPublishedProcessRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessRequest) SetLanguage(v string) *PreviewPublishedProcessRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessRequest) SetProcessCode(v string) *PreviewPublishedProcessRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessRequest) SetSystemToken(v string) *PreviewPublishedProcessRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessRequest) SetUserId(v string) *PreviewPublishedProcessRequest {
+	s.UserId = &v
+	return s
+}
+
+type PreviewPublishedProcessResponseBody struct {
+	Result []*PreviewPublishedProcessResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s PreviewPublishedProcessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreviewPublishedProcessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PreviewPublishedProcessResponseBody) SetResult(v []*PreviewPublishedProcessResponseBodyResult) *PreviewPublishedProcessResponseBody {
+	s.Result = v
+	return s
+}
+
+type PreviewPublishedProcessResponseBodyResult struct {
+	Action              *string       `json:"action,omitempty" xml:"action,omitempty"`
+	ActionExit          *string       `json:"actionExit,omitempty" xml:"actionExit,omitempty"`
+	ActiveTimeGMT       *string       `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
+	ActivityId          *string       `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	DataId              *int64        `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	DigitalSign         *string       `json:"digitalSign,omitempty" xml:"digitalSign,omitempty"`
+	Domains             []interface{} `json:"domains,omitempty" xml:"domains,omitempty" type:"Repeated"`
+	Files               *string       `json:"files,omitempty" xml:"files,omitempty"`
+	OperateTimeGMT      *string       `json:"operateTimeGMT,omitempty" xml:"operateTimeGMT,omitempty"`
+	OperateType         *string       `json:"operateType,omitempty" xml:"operateType,omitempty"`
+	OperatorDisplayName *string       `json:"operatorDisplayName,omitempty" xml:"operatorDisplayName,omitempty"`
+	OperatorName        *string       `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
+	OperatorNickName    *string       `json:"operatorNickName,omitempty" xml:"operatorNickName,omitempty"`
+	OperatorPhotoUrl    *string       `json:"operatorPhotoUrl,omitempty" xml:"operatorPhotoUrl,omitempty"`
+	OperatorStatus      *string       `json:"operatorStatus,omitempty" xml:"operatorStatus,omitempty"`
+	OperatorUserId      *string       `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	ProcessInstanceId   *string       `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Remark              *string       `json:"remark,omitempty" xml:"remark,omitempty"`
+	ShowName            *string       `json:"showName,omitempty" xml:"showName,omitempty"`
+	Size                *int32        `json:"size,omitempty" xml:"size,omitempty"`
+	TaskExecuteType     *string       `json:"taskExecuteType,omitempty" xml:"taskExecuteType,omitempty"`
+	TaskHoldTimeGMT     *int64        `json:"taskHoldTimeGMT,omitempty" xml:"taskHoldTimeGMT,omitempty"`
+	TaskId              *string       `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskType            *string       `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	Type                *string       `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s PreviewPublishedProcessResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreviewPublishedProcessResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetAction(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.Action = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetActionExit(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.ActionExit = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetActiveTimeGMT(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.ActiveTimeGMT = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetActivityId(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetDataId(v int64) *PreviewPublishedProcessResponseBodyResult {
+	s.DataId = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetDigitalSign(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.DigitalSign = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetDomains(v []interface{}) *PreviewPublishedProcessResponseBodyResult {
+	s.Domains = v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetFiles(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.Files = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetOperateTimeGMT(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.OperateTimeGMT = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetOperateType(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.OperateType = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetOperatorDisplayName(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.OperatorDisplayName = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetOperatorName(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.OperatorName = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetOperatorNickName(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.OperatorNickName = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetOperatorPhotoUrl(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.OperatorPhotoUrl = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetOperatorStatus(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.OperatorStatus = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetOperatorUserId(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetProcessInstanceId(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetRemark(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.Remark = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetShowName(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.ShowName = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetSize(v int32) *PreviewPublishedProcessResponseBodyResult {
+	s.Size = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetTaskExecuteType(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.TaskExecuteType = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetTaskHoldTimeGMT(v int64) *PreviewPublishedProcessResponseBodyResult {
+	s.TaskHoldTimeGMT = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetTaskId(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetTaskType(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.TaskType = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponseBodyResult) SetType(v string) *PreviewPublishedProcessResponseBodyResult {
+	s.Type = &v
+	return s
+}
+
+type PreviewPublishedProcessResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PreviewPublishedProcessResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PreviewPublishedProcessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreviewPublishedProcessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PreviewPublishedProcessResponse) SetHeaders(v map[string]*string) *PreviewPublishedProcessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponse) SetStatusCode(v int32) *PreviewPublishedProcessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessResponse) SetBody(v *PreviewPublishedProcessResponseBody) *PreviewPublishedProcessResponse {
+	s.Body = v
+	return s
+}
+
 type QueryServiceRecordHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15246,6 +15535,7 @@ type StartInstanceRequest struct {
 	FormUuid     *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
 	Language     *string `json:"language,omitempty" xml:"language,omitempty"`
 	ProcessCode  *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	ProcessData  *string `json:"processData,omitempty" xml:"processData,omitempty"`
 	SystemToken  *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
 	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -15285,6 +15575,11 @@ func (s *StartInstanceRequest) SetLanguage(v string) *StartInstanceRequest {
 
 func (s *StartInstanceRequest) SetProcessCode(v string) *StartInstanceRequest {
 	s.ProcessCode = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetProcessData(v string) *StartInstanceRequest {
+	s.ProcessData = &v
 	return s
 }
 
@@ -21505,6 +21800,89 @@ func (client *Client) PageFormBaseInfos(request *PageFormBaseInfosRequest) (_res
 	return _result, _err
 }
 
+func (client *Client) PreviewPublishedProcessWithOptions(request *PreviewPublishedProcessRequest, headers *PreviewPublishedProcessHeaders, runtime *util.RuntimeOptions) (_result *PreviewPublishedProcessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
+		body["departmentId"] = request.DepartmentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
+		body["formDataJson"] = request.FormDataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PreviewPublishedProcess"),
+		Version:     tea.String("yida_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/yida/processes/preview"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PreviewPublishedProcessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PreviewPublishedProcess(request *PreviewPublishedProcessRequest) (_result *PreviewPublishedProcessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PreviewPublishedProcessHeaders{}
+	_result = &PreviewPublishedProcessResponse{}
+	_body, _err := client.PreviewPublishedProcessWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
 func (client *Client) QueryServiceRecordWithOptions(request *QueryServiceRecordRequest, headers *QueryServiceRecordHeaders, runtime *util.RuntimeOptions) (_result *QueryServiceRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23124,6 +23502,10 @@ func (client *Client) StartInstanceWithOptions(request *StartInstanceRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
 		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessData)) {
+		body["processData"] = request.ProcessData
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
