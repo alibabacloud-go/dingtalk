@@ -352,6 +352,127 @@ func (s *ReplyResponse) SetBody(v *ReplyResponseBody) *ReplyResponse {
 	return s
 }
 
+type SendHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendHeaders) SetCommonHeaders(v map[string]*string) *SendHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendHeaders) SetXAcsDingtalkAccessToken(v string) *SendHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendRequest struct {
+	Content            *string `json:"content,omitempty" xml:"content,omitempty"`
+	ContentType        *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s SendRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendRequest) SetContent(v string) *SendRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *SendRequest) SetContentType(v string) *SendRequest {
+	s.ContentType = &v
+	return s
+}
+
+func (s *SendRequest) SetOpenConversationId(v string) *SendRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendRequest) SetUnionId(v string) *SendRequest {
+	s.UnionId = &v
+	return s
+}
+
+type SendResponseBody struct {
+	Result *SendResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SendResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendResponseBody) SetResult(v *SendResponseBodyResult) *SendResponseBody {
+	s.Result = v
+	return s
+}
+
+type SendResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SendResponseBodyResult) SetSuccess(v bool) *SendResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type SendResponse struct {
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendResponseBody  `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SendResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendResponse) SetHeaders(v map[string]*string) *SendResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendResponse) SetStatusCode(v int32) *SendResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SendResponse) SetBody(v *SendResponseBody) *SendResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -674,6 +795,73 @@ func (client *Client) Reply(request *ReplyRequest) (_result *ReplyResponse, _err
 	headers := &ReplyHeaders{}
 	_result = &ReplyResponse{}
 	_body, _err := client.ReplyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendWithOptions(request *SendRequest, headers *SendHeaders, runtime *util.RuntimeOptions) (_result *SendResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContentType)) {
+		body["contentType"] = request.ContentType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("Send"),
+		Version:     tea.String("aiInteraction_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiInteraction/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) Send(request *SendRequest) (_result *SendResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendHeaders{}
+	_result = &SendResponse{}
+	_body, _err := client.SendWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

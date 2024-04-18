@@ -7157,30 +7157,31 @@ func (s *GetOperationRecordsResponseBody) SetResult(v []*GetOperationRecordsResp
 }
 
 type GetOperationRecordsResponseBodyResult struct {
-	Action              *string `json:"action,omitempty" xml:"action,omitempty"`
-	ActionExit          *string `json:"actionExit,omitempty" xml:"actionExit,omitempty"`
-	ActiveTimeGMT       *string `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
-	ActivityId          *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	DataId              *int64  `json:"dataId,omitempty" xml:"dataId,omitempty"`
-	DigitalSign         *string `json:"digitalSign,omitempty" xml:"digitalSign,omitempty"`
-	Files               *string `json:"files,omitempty" xml:"files,omitempty"`
-	OperateTimeGMT      *string `json:"operateTimeGMT,omitempty" xml:"operateTimeGMT,omitempty"`
-	OperateType         *string `json:"operateType,omitempty" xml:"operateType,omitempty"`
-	OperatorDisplayName *string `json:"operatorDisplayName,omitempty" xml:"operatorDisplayName,omitempty"`
-	OperatorName        *string `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
-	OperatorNickName    *string `json:"operatorNickName,omitempty" xml:"operatorNickName,omitempty"`
-	OperatorPhotoUrl    *string `json:"operatorPhotoUrl,omitempty" xml:"operatorPhotoUrl,omitempty"`
-	OperatorStatus      *string `json:"operatorStatus,omitempty" xml:"operatorStatus,omitempty"`
-	OperatorUserId      *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	ProcessInstanceId   *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Remark              *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	ShowName            *string `json:"showName,omitempty" xml:"showName,omitempty"`
-	Size                *int32  `json:"size,omitempty" xml:"size,omitempty"`
-	TaskExecuteType     *string `json:"taskExecuteType,omitempty" xml:"taskExecuteType,omitempty"`
-	TaskHoldTimeGMT     *int64  `json:"taskHoldTimeGMT,omitempty" xml:"taskHoldTimeGMT,omitempty"`
-	TaskId              *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	TaskType            *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
+	Action              *string                                            `json:"action,omitempty" xml:"action,omitempty"`
+	ActionExit          *string                                            `json:"actionExit,omitempty" xml:"actionExit,omitempty"`
+	ActiveTimeGMT       *string                                            `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
+	ActivityId          *string                                            `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	DataId              *int64                                             `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	DigitalSign         *string                                            `json:"digitalSign,omitempty" xml:"digitalSign,omitempty"`
+	DomainList          []*GetOperationRecordsResponseBodyResultDomainList `json:"domainList,omitempty" xml:"domainList,omitempty" type:"Repeated"`
+	Files               *string                                            `json:"files,omitempty" xml:"files,omitempty"`
+	OperateTimeGMT      *string                                            `json:"operateTimeGMT,omitempty" xml:"operateTimeGMT,omitempty"`
+	OperateType         *string                                            `json:"operateType,omitempty" xml:"operateType,omitempty"`
+	OperatorDisplayName *string                                            `json:"operatorDisplayName,omitempty" xml:"operatorDisplayName,omitempty"`
+	OperatorName        *string                                            `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
+	OperatorNickName    *string                                            `json:"operatorNickName,omitempty" xml:"operatorNickName,omitempty"`
+	OperatorPhotoUrl    *string                                            `json:"operatorPhotoUrl,omitempty" xml:"operatorPhotoUrl,omitempty"`
+	OperatorStatus      *string                                            `json:"operatorStatus,omitempty" xml:"operatorStatus,omitempty"`
+	OperatorUserId      *string                                            `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	ProcessInstanceId   *string                                            `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Remark              *string                                            `json:"remark,omitempty" xml:"remark,omitempty"`
+	ShowName            *string                                            `json:"showName,omitempty" xml:"showName,omitempty"`
+	Size                *int32                                             `json:"size,omitempty" xml:"size,omitempty"`
+	TaskExecuteType     *string                                            `json:"taskExecuteType,omitempty" xml:"taskExecuteType,omitempty"`
+	TaskHoldTimeGMT     *int64                                             `json:"taskHoldTimeGMT,omitempty" xml:"taskHoldTimeGMT,omitempty"`
+	TaskId              *string                                            `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskType            *string                                            `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	Type                *string                                            `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetOperationRecordsResponseBodyResult) String() string {
@@ -7218,6 +7219,11 @@ func (s *GetOperationRecordsResponseBodyResult) SetDataId(v int64) *GetOperation
 
 func (s *GetOperationRecordsResponseBodyResult) SetDigitalSign(v string) *GetOperationRecordsResponseBodyResult {
 	s.DigitalSign = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResult) SetDomainList(v []*GetOperationRecordsResponseBodyResultDomainList) *GetOperationRecordsResponseBodyResult {
+	s.DomainList = v
 	return s
 }
 
@@ -7308,6 +7314,220 @@ func (s *GetOperationRecordsResponseBodyResult) SetTaskType(v string) *GetOperat
 
 func (s *GetOperationRecordsResponseBodyResult) SetType(v string) *GetOperationRecordsResponseBodyResult {
 	s.Type = &v
+	return s
+}
+
+type GetOperationRecordsResponseBodyResultDomainList struct {
+	Action              *string                                                               `json:"action,omitempty" xml:"action,omitempty"`
+	ActiveTimeGMT       *string                                                               `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
+	ActivityId          *string                                                               `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	DigitalSignature    *string                                                               `json:"digitalSignature,omitempty" xml:"digitalSignature,omitempty"`
+	Files               *string                                                               `json:"files,omitempty" xml:"files,omitempty"`
+	FormatAction        *string                                                               `json:"formatAction,omitempty" xml:"formatAction,omitempty"`
+	OperateTimeGMT      *string                                                               `json:"operateTimeGMT,omitempty" xml:"operateTimeGMT,omitempty"`
+	OperateType         *string                                                               `json:"operateType,omitempty" xml:"operateType,omitempty"`
+	Operator            *string                                                               `json:"operator,omitempty" xml:"operator,omitempty"`
+	OperatorAgentIdList []*GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList `json:"operatorAgentIdList,omitempty" xml:"operatorAgentIdList,omitempty" type:"Repeated"`
+	OperatorDisplayName *string                                                               `json:"operatorDisplayName,omitempty" xml:"operatorDisplayName,omitempty"`
+	OperatorName        *string                                                               `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
+	OperatorNickName    *string                                                               `json:"operatorNickName,omitempty" xml:"operatorNickName,omitempty"`
+	OperatorPhotoUrl    *string                                                               `json:"operatorPhotoUrl,omitempty" xml:"operatorPhotoUrl,omitempty"`
+	OperatorStatus      *string                                                               `json:"operatorStatus,omitempty" xml:"operatorStatus,omitempty"`
+	ProcessInstanceId   *string                                                               `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Remark              *string                                                               `json:"remark,omitempty" xml:"remark,omitempty"`
+	ShowName            *string                                                               `json:"showName,omitempty" xml:"showName,omitempty"`
+	Size                *int32                                                                `json:"size,omitempty" xml:"size,omitempty"`
+	TaskExecuteType     *string                                                               `json:"taskExecuteType,omitempty" xml:"taskExecuteType,omitempty"`
+	TaskHoldTimeGMT     *int64                                                                `json:"taskHoldTimeGMT,omitempty" xml:"taskHoldTimeGMT,omitempty"`
+	TaskId              *string                                                               `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskType            *string                                                               `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	Type                *string                                                               `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetOperationRecordsResponseBodyResultDomainList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOperationRecordsResponseBodyResultDomainList) GoString() string {
+	return s.String()
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetAction(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.Action = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetActiveTimeGMT(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.ActiveTimeGMT = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetActivityId(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetDigitalSignature(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.DigitalSignature = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetFiles(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.Files = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetFormatAction(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.FormatAction = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetOperateTimeGMT(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.OperateTimeGMT = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetOperateType(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.OperateType = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetOperator(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.Operator = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetOperatorAgentIdList(v []*GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) *GetOperationRecordsResponseBodyResultDomainList {
+	s.OperatorAgentIdList = v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetOperatorDisplayName(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.OperatorDisplayName = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetOperatorName(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.OperatorName = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetOperatorNickName(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.OperatorNickName = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetOperatorPhotoUrl(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.OperatorPhotoUrl = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetOperatorStatus(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.OperatorStatus = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetProcessInstanceId(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetRemark(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetShowName(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.ShowName = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetSize(v int32) *GetOperationRecordsResponseBodyResultDomainList {
+	s.Size = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetTaskExecuteType(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.TaskExecuteType = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetTaskHoldTimeGMT(v int64) *GetOperationRecordsResponseBodyResultDomainList {
+	s.TaskHoldTimeGMT = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetTaskId(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetTaskType(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.TaskType = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainList) SetType(v string) *GetOperationRecordsResponseBodyResultDomainList {
+	s.Type = &v
+	return s
+}
+
+type GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList struct {
+	DepartmentDescription *string `json:"departmentDescription,omitempty" xml:"departmentDescription,omitempty"`
+	DisplayName           *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	DisplayNameInEnglish  *string `json:"displayNameInEnglish,omitempty" xml:"displayNameInEnglish,omitempty"`
+	OrderNumber           *string `json:"orderNumber,omitempty" xml:"orderNumber,omitempty"`
+	PersonalPhoto         *string `json:"personalPhoto,omitempty" xml:"personalPhoto,omitempty"`
+	Status                *string `json:"status,omitempty" xml:"status,omitempty"`
+	UserId                *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserInformation       *string `json:"userInformation,omitempty" xml:"userInformation,omitempty"`
+}
+
+func (s GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) GoString() string {
+	return s.String()
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) SetDepartmentDescription(v string) *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList {
+	s.DepartmentDescription = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) SetDisplayName(v string) *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) SetDisplayNameInEnglish(v string) *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList {
+	s.DisplayNameInEnglish = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) SetOrderNumber(v string) *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList {
+	s.OrderNumber = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) SetPersonalPhoto(v string) *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList {
+	s.PersonalPhoto = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) SetStatus(v string) *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList {
+	s.Status = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) SetUserId(v string) *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) SetUserInformation(v string) *GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList {
+	s.UserInformation = &v
 	return s
 }
 
