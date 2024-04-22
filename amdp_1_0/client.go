@@ -205,11 +205,12 @@ func (s *AmdpJobPositionDataPushRequest) SetParam(v []*AmdpJobPositionDataPushRe
 }
 
 type AmdpJobPositionDataPushRequestParam struct {
-	DeptId      *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptLeader  *string `json:"deptLeader,omitempty" xml:"deptLeader,omitempty"`
-	IsDelete    *string `json:"isDelete,omitempty" xml:"isDelete,omitempty"`
-	OrderNumber *string `json:"orderNumber,omitempty" xml:"orderNumber,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	DeptId       *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	DeptLeader   *string `json:"deptLeader,omitempty" xml:"deptLeader,omitempty"`
+	IsDelete     *string `json:"isDelete,omitempty" xml:"isDelete,omitempty"`
+	LeaderDeptId *string `json:"leaderDeptId,omitempty" xml:"leaderDeptId,omitempty"`
+	OrderNumber  *string `json:"orderNumber,omitempty" xml:"orderNumber,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AmdpJobPositionDataPushRequestParam) String() string {
@@ -232,6 +233,11 @@ func (s *AmdpJobPositionDataPushRequestParam) SetDeptLeader(v string) *AmdpJobPo
 
 func (s *AmdpJobPositionDataPushRequestParam) SetIsDelete(v string) *AmdpJobPositionDataPushRequestParam {
 	s.IsDelete = &v
+	return s
+}
+
+func (s *AmdpJobPositionDataPushRequestParam) SetLeaderDeptId(v string) *AmdpJobPositionDataPushRequestParam {
+	s.LeaderDeptId = &v
 	return s
 }
 
@@ -632,7 +638,7 @@ func (client *Client) AmdpOrganizationDataPushWithOptions(request *AmdpOrganizat
 		Action:      tea.String("AmdpOrganizationDataPush"),
 		Version:     tea.String("amdp_1.0"),
 		Protocol:    tea.String("HTTP"),
-		Pathname:    tea.String("/v1.0/amdp/organizations/datas/push"),
+		Pathname:    tea.String("/v1.0/amdp/organizations/departments/datas/push"),
 		Method:      tea.String("POST"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),

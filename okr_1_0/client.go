@@ -21,6 +21,7 @@ type OpenKeyResultDTO struct {
 	Title         *string         `json:"title,omitempty" xml:"title,omitempty"`
 	TitleMentions []*TitleMention `json:"titleMentions,omitempty" xml:"titleMentions,omitempty" type:"Repeated"`
 	Type          *int64          `json:"type,omitempty" xml:"type,omitempty"`
+	Weight        *float64        `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s OpenKeyResultDTO) String() string {
@@ -61,6 +62,11 @@ func (s *OpenKeyResultDTO) SetType(v int64) *OpenKeyResultDTO {
 	return s
 }
 
+func (s *OpenKeyResultDTO) SetWeight(v float64) *OpenKeyResultDTO {
+	s.Weight = &v
+	return s
+}
+
 type OpenObjectiveDTO struct {
 	Executor    *OpenUserDTO        `json:"executor,omitempty" xml:"executor,omitempty"`
 	KeyResults  []*OpenKeyResultDTO `json:"keyResults,omitempty" xml:"keyResults,omitempty" type:"Repeated"`
@@ -70,6 +76,7 @@ type OpenObjectiveDTO struct {
 	Status      *int64              `json:"status,omitempty" xml:"status,omitempty"`
 	Teams       []*OpenTeamDTO      `json:"teams,omitempty" xml:"teams,omitempty" type:"Repeated"`
 	Title       *string             `json:"title,omitempty" xml:"title,omitempty"`
+	Weight      *float64            `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s OpenObjectiveDTO) String() string {
@@ -117,6 +124,11 @@ func (s *OpenObjectiveDTO) SetTeams(v []*OpenTeamDTO) *OpenObjectiveDTO {
 
 func (s *OpenObjectiveDTO) SetTitle(v string) *OpenObjectiveDTO {
 	s.Title = &v
+	return s
+}
+
+func (s *OpenObjectiveDTO) SetWeight(v float64) *OpenObjectiveDTO {
+	s.Weight = &v
 	return s
 }
 
@@ -200,6 +212,7 @@ type OpenUserDTO struct {
 	DingUserId *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
 	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
 	UserUid    *string `json:"userUid,omitempty" xml:"userUid,omitempty"`
+	WorkNo     *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s OpenUserDTO) String() string {
@@ -222,6 +235,11 @@ func (s *OpenUserDTO) SetName(v string) *OpenUserDTO {
 
 func (s *OpenUserDTO) SetUserUid(v string) *OpenUserDTO {
 	s.UserUid = &v
+	return s
+}
+
+func (s *OpenUserDTO) SetWorkNo(v string) *OpenUserDTO {
+	s.WorkNo = &v
 	return s
 }
 
