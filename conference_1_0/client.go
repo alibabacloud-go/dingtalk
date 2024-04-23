@@ -4252,6 +4252,7 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetScreenSha
 
 type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting struct {
 	EnableChat             *int32 `json:"enableChat,omitempty" xml:"enableChat,omitempty"`
+	EnableWebAnonymousJoin *bool  `json:"enableWebAnonymousJoin,omitempty" xml:"enableWebAnonymousJoin,omitempty"`
 	JoinBeforeHost         *int32 `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
 	LockMediaStatusMicMute *int32 `json:"lockMediaStatusMicMute,omitempty" xml:"lockMediaStatusMicMute,omitempty"`
 	LockNick               *int32 `json:"lockNick,omitempty" xml:"lockNick,omitempty"`
@@ -4268,6 +4269,11 @@ func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtual
 
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableChat(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
 	s.EnableChat = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableWebAnonymousJoin(v bool) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.EnableWebAnonymousJoin = &v
 	return s
 }
 
@@ -5704,7 +5710,7 @@ func (client *Client) QueryCloudRecordTextWithOptions(conferenceId *string, requ
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryCloudRecordTextResponse{}
@@ -5759,7 +5765,7 @@ func (client *Client) QueryCloudRecordVideoWithOptions(conferenceId *string, req
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryCloudRecordVideoResponse{}
@@ -5822,7 +5828,7 @@ func (client *Client) QueryCloudRecordVideoPlayInfoWithOptions(conferenceId *str
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryCloudRecordVideoPlayInfoResponse{}
