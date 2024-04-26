@@ -538,6 +538,133 @@ func (s *CohostsResponse) SetBody(v *CohostsResponseBody) *CohostsResponse {
 	return s
 }
 
+type CreateCustomShortLinkHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCustomShortLinkHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomShortLinkHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomShortLinkHeaders) SetCommonHeaders(v map[string]*string) *CreateCustomShortLinkHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCustomShortLinkHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCustomShortLinkHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCustomShortLinkRequest struct {
+	CoolAppCode          *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	CreatorUnionId       *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	ExtensionAppBizData  *string `json:"extensionAppBizData,omitempty" xml:"extensionAppBizData,omitempty"`
+	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	UseExtensionApp      *bool   `json:"useExtensionApp,omitempty" xml:"useExtensionApp,omitempty"`
+}
+
+func (s CreateCustomShortLinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomShortLinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomShortLinkRequest) SetCoolAppCode(v string) *CreateCustomShortLinkRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *CreateCustomShortLinkRequest) SetCreatorUnionId(v string) *CreateCustomShortLinkRequest {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *CreateCustomShortLinkRequest) SetExtensionAppBizData(v string) *CreateCustomShortLinkRequest {
+	s.ExtensionAppBizData = &v
+	return s
+}
+
+func (s *CreateCustomShortLinkRequest) SetScheduleConferenceId(v string) *CreateCustomShortLinkRequest {
+	s.ScheduleConferenceId = &v
+	return s
+}
+
+func (s *CreateCustomShortLinkRequest) SetUseExtensionApp(v bool) *CreateCustomShortLinkRequest {
+	s.UseExtensionApp = &v
+	return s
+}
+
+type CreateCustomShortLinkResponseBody struct {
+	Result *CreateCustomShortLinkResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateCustomShortLinkResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomShortLinkResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomShortLinkResponseBody) SetResult(v *CreateCustomShortLinkResponseBodyResult) *CreateCustomShortLinkResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateCustomShortLinkResponseBodyResult struct {
+	CustomShortLink *string `json:"customShortLink,omitempty" xml:"customShortLink,omitempty"`
+}
+
+func (s CreateCustomShortLinkResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomShortLinkResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomShortLinkResponseBodyResult) SetCustomShortLink(v string) *CreateCustomShortLinkResponseBodyResult {
+	s.CustomShortLink = &v
+	return s
+}
+
+type CreateCustomShortLinkResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateCustomShortLinkResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateCustomShortLinkResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomShortLinkResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomShortLinkResponse) SetHeaders(v map[string]*string) *CreateCustomShortLinkResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCustomShortLinkResponse) SetStatusCode(v int32) *CreateCustomShortLinkResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateCustomShortLinkResponse) SetBody(v *CreateCustomShortLinkResponseBody) *CreateCustomShortLinkResponse {
+	s.Body = v
+	return s
+}
+
 type CreateScheduleConferenceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3370,6 +3497,233 @@ func (s *QueryConferenceMembersResponse) SetBody(v *QueryConferenceMembersRespon
 	return s
 }
 
+type QueryScheduleConfSettingsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryScheduleConfSettingsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConfSettingsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConfSettingsHeaders) SetCommonHeaders(v map[string]*string) *QueryScheduleConfSettingsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryScheduleConfSettingsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryScheduleConfSettingsRequest struct {
+	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+}
+
+func (s QueryScheduleConfSettingsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConfSettingsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConfSettingsRequest) SetScheduleConferenceId(v string) *QueryScheduleConfSettingsRequest {
+	s.ScheduleConferenceId = &v
+	return s
+}
+
+type QueryScheduleConfSettingsResponseBody struct {
+	ScheduleConfSettingModel *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel `json:"scheduleConfSettingModel,omitempty" xml:"scheduleConfSettingModel,omitempty" type:"Struct"`
+}
+
+func (s QueryScheduleConfSettingsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConfSettingsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConfSettingsResponseBody) SetScheduleConfSettingModel(v *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) *QueryScheduleConfSettingsResponseBody {
+	s.ScheduleConfSettingModel = v
+	return s
+}
+
+type QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel struct {
+	CohostUnionIds              []*string                                                                                 `json:"cohostUnionIds,omitempty" xml:"cohostUnionIds,omitempty" type:"Repeated"`
+	ConfAllowedCorpId           *string                                                                                   `json:"confAllowedCorpId,omitempty" xml:"confAllowedCorpId,omitempty"`
+	HostUnionId                 *string                                                                                   `json:"hostUnionId,omitempty" xml:"hostUnionId,omitempty"`
+	LockRoom                    *int32                                                                                    `json:"lockRoom,omitempty" xml:"lockRoom,omitempty"`
+	MoziConfVirtualExtraSetting *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting `json:"moziConfVirtualExtraSetting,omitempty" xml:"moziConfVirtualExtraSetting,omitempty" type:"Struct"`
+	MuteOnJoin                  *int32                                                                                    `json:"muteOnJoin,omitempty" xml:"muteOnJoin,omitempty"`
+	ScreenShareForbidden        *int32                                                                                    `json:"screenShareForbidden,omitempty" xml:"screenShareForbidden,omitempty"`
+}
+
+func (s QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) SetCohostUnionIds(v []*string) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel {
+	s.CohostUnionIds = v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) SetConfAllowedCorpId(v string) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel {
+	s.ConfAllowedCorpId = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) SetHostUnionId(v string) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel {
+	s.HostUnionId = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) SetLockRoom(v int32) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel {
+	s.LockRoom = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) SetMoziConfVirtualExtraSetting(v *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel {
+	s.MoziConfVirtualExtraSetting = v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) SetMuteOnJoin(v int32) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel {
+	s.MuteOnJoin = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel) SetScreenShareForbidden(v int32) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModel {
+	s.ScreenShareForbidden = &v
+	return s
+}
+
+type QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting struct {
+	EnableChat                   *int32                                                                                                                  `json:"enableChat,omitempty" xml:"enableChat,omitempty"`
+	EnableWebAnonymousJoin       *bool                                                                                                                   `json:"enableWebAnonymousJoin,omitempty" xml:"enableWebAnonymousJoin,omitempty"`
+	JoinBeforeHost               *int32                                                                                                                  `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
+	LockMediaStatusMicMute       *int32                                                                                                                  `json:"lockMediaStatusMicMute,omitempty" xml:"lockMediaStatusMicMute,omitempty"`
+	LockNick                     *int32                                                                                                                  `json:"lockNick,omitempty" xml:"lockNick,omitempty"`
+	MoziConfExtensionAppSettings []*QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings `json:"moziConfExtensionAppSettings,omitempty" xml:"moziConfExtensionAppSettings,omitempty" type:"Repeated"`
+	WaitingRoom                  *int32                                                                                                                  `json:"waitingRoom,omitempty" xml:"waitingRoom,omitempty"`
+}
+
+func (s QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableChat(v int32) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.EnableChat = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableWebAnonymousJoin(v bool) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.EnableWebAnonymousJoin = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) SetJoinBeforeHost(v int32) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.JoinBeforeHost = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) SetLockMediaStatusMicMute(v int32) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.LockMediaStatusMicMute = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) SetLockNick(v int32) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.LockNick = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMoziConfExtensionAppSettings(v []*QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MoziConfExtensionAppSettings = v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting) SetWaitingRoom(v int32) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.WaitingRoom = &v
+	return s
+}
+
+type QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings struct {
+	AutoOpenMode        *string `json:"autoOpenMode,omitempty" xml:"autoOpenMode,omitempty"`
+	ClientId            *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
+	CoolAppCode         *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	ExtensionAppBizData *string `json:"extensionAppBizData,omitempty" xml:"extensionAppBizData,omitempty"`
+}
+
+func (s QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetAutoOpenMode(v string) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.AutoOpenMode = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetClientId(v string) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.ClientId = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetCoolAppCode(v string) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetExtensionAppBizData(v string) *QueryScheduleConfSettingsResponseBodyScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.ExtensionAppBizData = &v
+	return s
+}
+
+type QueryScheduleConfSettingsResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryScheduleConfSettingsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryScheduleConfSettingsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScheduleConfSettingsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScheduleConfSettingsResponse) SetHeaders(v map[string]*string) *QueryScheduleConfSettingsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponse) SetStatusCode(v int32) *QueryScheduleConfSettingsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryScheduleConfSettingsResponse) SetBody(v *QueryScheduleConfSettingsResponseBody) *QueryScheduleConfSettingsResponse {
+	s.Body = v
+	return s
+}
+
 type QueryScheduleConferenceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4251,12 +4605,13 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetScreenSha
 }
 
 type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting struct {
-	EnableChat             *int32 `json:"enableChat,omitempty" xml:"enableChat,omitempty"`
-	EnableWebAnonymousJoin *bool  `json:"enableWebAnonymousJoin,omitempty" xml:"enableWebAnonymousJoin,omitempty"`
-	JoinBeforeHost         *int32 `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
-	LockMediaStatusMicMute *int32 `json:"lockMediaStatusMicMute,omitempty" xml:"lockMediaStatusMicMute,omitempty"`
-	LockNick               *int32 `json:"lockNick,omitempty" xml:"lockNick,omitempty"`
-	WaitingRoom            *int32 `json:"waitingRoom,omitempty" xml:"waitingRoom,omitempty"`
+	EnableChat                   *int32                                                                                                              `json:"enableChat,omitempty" xml:"enableChat,omitempty"`
+	EnableWebAnonymousJoin       *bool                                                                                                               `json:"enableWebAnonymousJoin,omitempty" xml:"enableWebAnonymousJoin,omitempty"`
+	JoinBeforeHost               *int32                                                                                                              `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
+	LockMediaStatusMicMute       *int32                                                                                                              `json:"lockMediaStatusMicMute,omitempty" xml:"lockMediaStatusMicMute,omitempty"`
+	LockNick                     *int32                                                                                                              `json:"lockNick,omitempty" xml:"lockNick,omitempty"`
+	MoziConfExtensionAppSettings []*UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings `json:"moziConfExtensionAppSettings,omitempty" xml:"moziConfExtensionAppSettings,omitempty" type:"Repeated"`
+	WaitingRoom                  *int32                                                                                                              `json:"waitingRoom,omitempty" xml:"waitingRoom,omitempty"`
 }
 
 func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) String() string {
@@ -4292,8 +4647,42 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtua
 	return s
 }
 
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMoziConfExtensionAppSettings(v []*UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MoziConfExtensionAppSettings = v
+	return s
+}
+
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetWaitingRoom(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
 	s.WaitingRoom = &v
+	return s
+}
+
+type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings struct {
+	AutoOpenMode        *int32  `json:"autoOpenMode,omitempty" xml:"autoOpenMode,omitempty"`
+	CoolAppCode         *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	ExtensionAppBizData *string `json:"extensionAppBizData,omitempty" xml:"extensionAppBizData,omitempty"`
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetAutoOpenMode(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.AutoOpenMode = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetCoolAppCode(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetExtensionAppBizData(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.ExtensionAppBizData = &v
 	return s
 }
 
@@ -4845,6 +5234,77 @@ func (client *Client) Cohosts(conferenceId *string, request *CohostsRequest) (_r
 	headers := &CohostsHeaders{}
 	_result = &CohostsResponse{}
 	_body, _err := client.CohostsWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateCustomShortLinkWithOptions(request *CreateCustomShortLinkRequest, headers *CreateCustomShortLinkHeaders, runtime *util.RuntimeOptions) (_result *CreateCustomShortLinkResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtensionAppBizData)) {
+		body["extensionAppBizData"] = request.ExtensionAppBizData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScheduleConferenceId)) {
+		body["scheduleConferenceId"] = request.ScheduleConferenceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UseExtensionApp)) {
+		body["useExtensionApp"] = request.UseExtensionApp
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateCustomShortLink"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/customShortLinks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateCustomShortLinkResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateCustomShortLink(request *CreateCustomShortLinkRequest) (_result *CreateCustomShortLinkResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCustomShortLinkHeaders{}
+	_result = &CreateCustomShortLinkResponse{}
+	_body, _err := client.CreateCustomShortLinkWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6004,6 +6464,61 @@ func (client *Client) QueryConferenceMembers(conferenceId *string, request *Quer
 	headers := &QueryConferenceMembersHeaders{}
 	_result = &QueryConferenceMembersResponse{}
 	_body, _err := client.QueryConferenceMembersWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryScheduleConfSettingsWithOptions(request *QueryScheduleConfSettingsRequest, headers *QueryScheduleConfSettingsHeaders, runtime *util.RuntimeOptions) (_result *QueryScheduleConfSettingsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ScheduleConferenceId)) {
+		query["scheduleConferenceId"] = request.ScheduleConferenceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryScheduleConfSettings"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/scheduleConferences/settings"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryScheduleConfSettingsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryScheduleConfSettings(request *QueryScheduleConfSettingsRequest) (_result *QueryScheduleConfSettingsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryScheduleConfSettingsHeaders{}
+	_result = &QueryScheduleConfSettingsResponse{}
+	_body, _err := client.QueryScheduleConfSettingsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

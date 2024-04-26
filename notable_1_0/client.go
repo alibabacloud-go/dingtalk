@@ -159,7 +159,9 @@ func (s *CreateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSheetHe
 }
 
 type CreateSheetRequest struct {
-	Fields []*CreateSheetRequestFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	Fields     []*CreateSheetRequestFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	Name       *string                     `json:"name,omitempty" xml:"name,omitempty"`
+	OperatorId *string                     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s CreateSheetRequest) String() string {
@@ -172,6 +174,16 @@ func (s CreateSheetRequest) GoString() string {
 
 func (s *CreateSheetRequest) SetFields(v []*CreateSheetRequestFields) *CreateSheetRequest {
 	s.Fields = v
+	return s
+}
+
+func (s *CreateSheetRequest) SetName(v string) *CreateSheetRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateSheetRequest) SetOperatorId(v string) *CreateSheetRequest {
+	s.OperatorId = &v
 	return s
 }
 
@@ -457,6 +469,23 @@ func (s *DeleteSheetHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSheetHe
 	return s
 }
 
+type DeleteSheetRequest struct {
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeleteSheetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteSheetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteSheetRequest) SetOperatorId(v string) *DeleteSheetRequest {
+	s.OperatorId = &v
+	return s
+}
+
 type DeleteSheetResponseBody struct {
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -647,6 +676,23 @@ func (s *GetAllSheetsHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllSheets
 	return s
 }
 
+type GetAllSheetsRequest struct {
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetAllSheetsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllSheetsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllSheetsRequest) SetOperatorId(v string) *GetAllSheetsRequest {
+	s.OperatorId = &v
+	return s
+}
+
 type GetAllSheetsResponseBody struct {
 	Value []*GetAllSheetsResponseBodyValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
@@ -665,9 +711,8 @@ func (s *GetAllSheetsResponseBody) SetValue(v []*GetAllSheetsResponseBodyValue) 
 }
 
 type GetAllSheetsResponseBodyValue struct {
-	Fields []*GetAllSheetsResponseBodyValueFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
-	Id     *string                                `json:"id,omitempty" xml:"id,omitempty"`
-	Name   *string                                `json:"name,omitempty" xml:"name,omitempty"`
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s GetAllSheetsResponseBodyValue) String() string {
@@ -678,11 +723,6 @@ func (s GetAllSheetsResponseBodyValue) GoString() string {
 	return s.String()
 }
 
-func (s *GetAllSheetsResponseBodyValue) SetFields(v []*GetAllSheetsResponseBodyValueFields) *GetAllSheetsResponseBodyValue {
-	s.Fields = v
-	return s
-}
-
 func (s *GetAllSheetsResponseBodyValue) SetId(v string) *GetAllSheetsResponseBodyValue {
 	s.Id = &v
 	return s
@@ -690,41 +730,6 @@ func (s *GetAllSheetsResponseBodyValue) SetId(v string) *GetAllSheetsResponseBod
 
 func (s *GetAllSheetsResponseBodyValue) SetName(v string) *GetAllSheetsResponseBodyValue {
 	s.Name = &v
-	return s
-}
-
-type GetAllSheetsResponseBodyValueFields struct {
-	Id       *string                `json:"id,omitempty" xml:"id,omitempty"`
-	Name     *string                `json:"name,omitempty" xml:"name,omitempty"`
-	Property map[string]interface{} `json:"property,omitempty" xml:"property,omitempty"`
-	Type     *string                `json:"type,omitempty" xml:"type,omitempty"`
-}
-
-func (s GetAllSheetsResponseBodyValueFields) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetAllSheetsResponseBodyValueFields) GoString() string {
-	return s.String()
-}
-
-func (s *GetAllSheetsResponseBodyValueFields) SetId(v string) *GetAllSheetsResponseBodyValueFields {
-	s.Id = &v
-	return s
-}
-
-func (s *GetAllSheetsResponseBodyValueFields) SetName(v string) *GetAllSheetsResponseBodyValueFields {
-	s.Name = &v
-	return s
-}
-
-func (s *GetAllSheetsResponseBodyValueFields) SetProperty(v map[string]interface{}) *GetAllSheetsResponseBodyValueFields {
-	s.Property = v
-	return s
-}
-
-func (s *GetAllSheetsResponseBodyValueFields) SetType(v string) *GetAllSheetsResponseBodyValueFields {
-	s.Type = &v
 	return s
 }
 
@@ -777,6 +782,23 @@ func (s *GetRecordHeaders) SetCommonHeaders(v map[string]*string) *GetRecordHead
 
 func (s *GetRecordHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecordHeaders {
 	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRecordRequest struct {
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecordRequest) SetOperatorId(v string) *GetRecordRequest {
+	s.OperatorId = &v
 	return s
 }
 
@@ -858,6 +880,7 @@ func (s *GetRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecordsHead
 type GetRecordsRequest struct {
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s GetRecordsRequest) String() string {
@@ -875,6 +898,11 @@ func (s *GetRecordsRequest) SetMaxResults(v int32) *GetRecordsRequest {
 
 func (s *GetRecordsRequest) SetNextToken(v string) *GetRecordsRequest {
 	s.NextToken = &v
+	return s
+}
+
+func (s *GetRecordsRequest) SetOperatorId(v string) *GetRecordsRequest {
+	s.OperatorId = &v
 	return s
 }
 
@@ -982,8 +1010,26 @@ func (s *GetSheetHeaders) SetXAcsDingtalkAccessToken(v string) *GetSheetHeaders 
 	return s
 }
 
+type GetSheetRequest struct {
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetSheetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSheetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSheetRequest) SetOperatorId(v string) *GetSheetRequest {
+	s.OperatorId = &v
+	return s
+}
+
 type GetSheetResponseBody struct {
-	Fields []*GetSheetResponseBodyFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s GetSheetResponseBody) String() string {
@@ -994,43 +1040,13 @@ func (s GetSheetResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetSheetResponseBody) SetFields(v []*GetSheetResponseBodyFields) *GetSheetResponseBody {
-	s.Fields = v
-	return s
-}
-
-type GetSheetResponseBodyFields struct {
-	Id       *string                `json:"id,omitempty" xml:"id,omitempty"`
-	Name     *string                `json:"name,omitempty" xml:"name,omitempty"`
-	Property map[string]interface{} `json:"property,omitempty" xml:"property,omitempty"`
-	Type     *string                `json:"type,omitempty" xml:"type,omitempty"`
-}
-
-func (s GetSheetResponseBodyFields) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetSheetResponseBodyFields) GoString() string {
-	return s.String()
-}
-
-func (s *GetSheetResponseBodyFields) SetId(v string) *GetSheetResponseBodyFields {
+func (s *GetSheetResponseBody) SetId(v string) *GetSheetResponseBody {
 	s.Id = &v
 	return s
 }
 
-func (s *GetSheetResponseBodyFields) SetName(v string) *GetSheetResponseBodyFields {
+func (s *GetSheetResponseBody) SetName(v string) *GetSheetResponseBody {
 	s.Name = &v
-	return s
-}
-
-func (s *GetSheetResponseBodyFields) SetProperty(v map[string]interface{}) *GetSheetResponseBodyFields {
-	s.Property = v
-	return s
-}
-
-func (s *GetSheetResponseBodyFields) SetType(v string) *GetSheetResponseBodyFields {
-	s.Type = &v
 	return s
 }
 
@@ -1087,7 +1103,8 @@ func (s *InsertRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *InsertRecor
 }
 
 type InsertRecordsRequest struct {
-	Records []*InsertRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	Records    []*InsertRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	OperatorId *string                        `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s InsertRecordsRequest) String() string {
@@ -1100,6 +1117,11 @@ func (s InsertRecordsRequest) GoString() string {
 
 func (s *InsertRecordsRequest) SetRecords(v []*InsertRecordsRequestRecords) *InsertRecordsRequest {
 	s.Records = v
+	return s
+}
+
+func (s *InsertRecordsRequest) SetOperatorId(v string) *InsertRecordsRequest {
+	s.OperatorId = &v
 	return s
 }
 
@@ -1609,14 +1631,23 @@ func (client *Client) CreateField(baseId *string, sheetIdOrName *string, request
 	return _result, _err
 }
 
-func (client *Client) CreateSheetWithOptions(baseId *string, name *string, request *CreateSheetRequest, headers *CreateSheetHeaders, runtime *util.RuntimeOptions) (_result *CreateSheetResponse, _err error) {
+func (client *Client) CreateSheetWithOptions(baseId *string, request *CreateSheetRequest, headers *CreateSheetHeaders, runtime *util.RuntimeOptions) (_result *CreateSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Fields)) {
 		body["fields"] = request.Fields
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1630,6 +1661,7 @@ func (client *Client) CreateSheetWithOptions(baseId *string, name *string, reque
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
 	params := &openapi.Params{
@@ -1652,11 +1684,11 @@ func (client *Client) CreateSheetWithOptions(baseId *string, name *string, reque
 	return _result, _err
 }
 
-func (client *Client) CreateSheet(baseId *string, name *string, request *CreateSheetRequest) (_result *CreateSheetResponse, _err error) {
+func (client *Client) CreateSheet(baseId *string, request *CreateSheetRequest) (_result *CreateSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateSheetHeaders{}
 	_result = &CreateSheetResponse{}
-	_body, _err := client.CreateSheetWithOptions(baseId, name, request, headers, runtime)
+	_body, _err := client.CreateSheetWithOptions(baseId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1780,7 +1812,16 @@ func (client *Client) DeleteRecords(baseId *string, sheetIdOrName *string, reque
 	return _result, _err
 }
 
-func (client *Client) DeleteSheetWithOptions(baseId *string, sheetIdOrName *string, headers *DeleteSheetHeaders, runtime *util.RuntimeOptions) (_result *DeleteSheetResponse, _err error) {
+func (client *Client) DeleteSheetWithOptions(baseId *string, sheetIdOrName *string, request *DeleteSheetRequest, headers *DeleteSheetHeaders, runtime *util.RuntimeOptions) (_result *DeleteSheetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1792,6 +1833,7 @@ func (client *Client) DeleteSheetWithOptions(baseId *string, sheetIdOrName *stri
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("DeleteSheet"),
@@ -1813,11 +1855,11 @@ func (client *Client) DeleteSheetWithOptions(baseId *string, sheetIdOrName *stri
 	return _result, _err
 }
 
-func (client *Client) DeleteSheet(baseId *string, sheetIdOrName *string) (_result *DeleteSheetResponse, _err error) {
+func (client *Client) DeleteSheet(baseId *string, sheetIdOrName *string, request *DeleteSheetRequest) (_result *DeleteSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSheetHeaders{}
 	_result = &DeleteSheetResponse{}
-	_body, _err := client.DeleteSheetWithOptions(baseId, sheetIdOrName, headers, runtime)
+	_body, _err := client.DeleteSheetWithOptions(baseId, sheetIdOrName, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1880,7 +1922,16 @@ func (client *Client) GetAllFields(baseId *string, sheetIdOrName *string, reques
 	return _result, _err
 }
 
-func (client *Client) GetAllSheetsWithOptions(baseId *string, headers *GetAllSheetsHeaders, runtime *util.RuntimeOptions) (_result *GetAllSheetsResponse, _err error) {
+func (client *Client) GetAllSheetsWithOptions(baseId *string, request *GetAllSheetsRequest, headers *GetAllSheetsHeaders, runtime *util.RuntimeOptions) (_result *GetAllSheetsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1892,6 +1943,7 @@ func (client *Client) GetAllSheetsWithOptions(baseId *string, headers *GetAllShe
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("GetAllSheets"),
@@ -1913,11 +1965,11 @@ func (client *Client) GetAllSheetsWithOptions(baseId *string, headers *GetAllShe
 	return _result, _err
 }
 
-func (client *Client) GetAllSheets(baseId *string) (_result *GetAllSheetsResponse, _err error) {
+func (client *Client) GetAllSheets(baseId *string, request *GetAllSheetsRequest) (_result *GetAllSheetsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAllSheetsHeaders{}
 	_result = &GetAllSheetsResponse{}
-	_body, _err := client.GetAllSheetsWithOptions(baseId, headers, runtime)
+	_body, _err := client.GetAllSheetsWithOptions(baseId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1925,7 +1977,16 @@ func (client *Client) GetAllSheets(baseId *string) (_result *GetAllSheetsRespons
 	return _result, _err
 }
 
-func (client *Client) GetRecordWithOptions(baseId *string, sheetIdOrName *string, recordId *string, headers *GetRecordHeaders, runtime *util.RuntimeOptions) (_result *GetRecordResponse, _err error) {
+func (client *Client) GetRecordWithOptions(baseId *string, sheetIdOrName *string, recordId *string, request *GetRecordRequest, headers *GetRecordHeaders, runtime *util.RuntimeOptions) (_result *GetRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1937,6 +1998,7 @@ func (client *Client) GetRecordWithOptions(baseId *string, sheetIdOrName *string
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("GetRecord"),
@@ -1958,11 +2020,11 @@ func (client *Client) GetRecordWithOptions(baseId *string, sheetIdOrName *string
 	return _result, _err
 }
 
-func (client *Client) GetRecord(baseId *string, sheetIdOrName *string, recordId *string) (_result *GetRecordResponse, _err error) {
+func (client *Client) GetRecord(baseId *string, sheetIdOrName *string, recordId *string, request *GetRecordRequest) (_result *GetRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRecordHeaders{}
 	_result = &GetRecordResponse{}
-	_body, _err := client.GetRecordWithOptions(baseId, sheetIdOrName, recordId, headers, runtime)
+	_body, _err := client.GetRecordWithOptions(baseId, sheetIdOrName, recordId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1982,6 +2044,10 @@ func (client *Client) GetRecordsWithOptions(baseId *string, sheetIdOrName *strin
 
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2029,7 +2095,16 @@ func (client *Client) GetRecords(baseId *string, sheetIdOrName *string, request 
 	return _result, _err
 }
 
-func (client *Client) GetSheetWithOptions(baseId *string, sheetIdOrName *string, headers *GetSheetHeaders, runtime *util.RuntimeOptions) (_result *GetSheetResponse, _err error) {
+func (client *Client) GetSheetWithOptions(baseId *string, sheetIdOrName *string, request *GetSheetRequest, headers *GetSheetHeaders, runtime *util.RuntimeOptions) (_result *GetSheetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2041,6 +2116,7 @@ func (client *Client) GetSheetWithOptions(baseId *string, sheetIdOrName *string,
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("GetSheet"),
@@ -2062,11 +2138,11 @@ func (client *Client) GetSheetWithOptions(baseId *string, sheetIdOrName *string,
 	return _result, _err
 }
 
-func (client *Client) GetSheet(baseId *string, sheetIdOrName *string) (_result *GetSheetResponse, _err error) {
+func (client *Client) GetSheet(baseId *string, sheetIdOrName *string, request *GetSheetRequest) (_result *GetSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSheetHeaders{}
 	_result = &GetSheetResponse{}
-	_body, _err := client.GetSheetWithOptions(baseId, sheetIdOrName, headers, runtime)
+	_body, _err := client.GetSheetWithOptions(baseId, sheetIdOrName, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2079,6 +2155,11 @@ func (client *Client) InsertRecordsWithOptions(baseId *string, sheetIdOrName *st
 	if _err != nil {
 		return _result, _err
 	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Records)) {
 		body["records"] = request.Records
@@ -2095,6 +2176,7 @@ func (client *Client) InsertRecordsWithOptions(baseId *string, sheetIdOrName *st
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
 	params := &openapi.Params{
